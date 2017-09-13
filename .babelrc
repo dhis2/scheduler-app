@@ -1,0 +1,16 @@
+{
+  "presets": [["es2015", { "modules": false }], "react", "stage-2"],
+  "env": {
+    "production": {
+      "presets": ["react-optimize"]
+    }
+  },
+  "plugins": [
+    ["transform-imports", {
+      "lodash": {
+        "transform": "lodash/${member}",
+        "preventFullImport": true
+      }
+    }]
+  ]
+}
