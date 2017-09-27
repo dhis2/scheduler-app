@@ -6,7 +6,8 @@ import * as api from "../api/api";
 
 const loadJobs = action$ =>
     action$.ofType(actions.JOBS_LOAD).concatMap(action => {
-        return api.getJobs()
+        return api
+            .getJobs()
             .then(jobs => ({ type: actions.JOBS_LOAD_SUCCESS, payload: jobs }))
             .catch(error => ({ type: actions.JOBS_LOAD_ERROR, payload: error }));
     });
