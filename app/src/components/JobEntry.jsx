@@ -9,6 +9,7 @@ import d2 from 'd2/lib/d2';
 const listEntryStyle = {
     cursor: 'pointer',
     paddingLeft: 24,
+    paddingRight: 24,
     height: 60,
     display: 'flex',
     flexDirection: 'row',
@@ -34,16 +35,7 @@ const JobEntry = ({ job, onSelectJob, isSelected, toggleJob, first }) =>
             <div style={{...displayNameStyle, ...someWeight}}>{job.displayName}</div>
             <div style={someWeight}>{job.jobStatus}</div>
             <div style={someWeight}>{moment(job.nextExecutionTime).format('DD.MM.YYYY')}</div>
-            <div>
-                <Checkbox
-                    checked={job.enabled}
-                    onCheck={toggleJob}
-                    onClick={(event) => {
-                        event.stopPropagation();
-                        event.preventDefault();
-                    }}
-                />
-            </div>
+            <div>{job.enabled ? 'Enabled' : 'Disabled'}</div>
         </div>
         { isSelected &&
             <JobDetails job={job} />

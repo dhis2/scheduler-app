@@ -12,6 +12,15 @@ const loadJobs = action$ =>
             .catch(error => ({ type: actions.JOBS_LOAD_ERROR, payload: error }));
     });
 
+const loadJobTypes = action$ =>
+    action$.ofType(actions.JOB_TYPES_LOAD).concatMap(action => {
+        return api
+            .getJobTypes()
+            .then(jobTypes => ({ type: actions.JOB_TYPES_LOAD_SUCCESS, payload: jobTypes }))
+            .catch(error => ({ type: actions.JOB_TYPES_LOAD_ERROR, payload: error }))
+    });
+
 export default combineEpics(
     loadJobs,
+    loadJobTypes,
 );

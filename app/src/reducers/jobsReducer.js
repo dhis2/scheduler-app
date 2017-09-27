@@ -2,6 +2,7 @@ import * as actionTypes from "../constants/actionTypes";
 
 const initialState = {
     jobs: [],
+    jobTypes: [],
     selected: -1,
 };
 
@@ -17,6 +18,12 @@ function jobsReducer(state = { ...initialState }, action) {
             return {
                 ...state,
                 selected: action.payload,
+            };
+
+        case actionTypes.JOB_TYPES_LOAD_SUCCESS:
+            return {
+                ...state,
+                jobTypes: action.payload,
             };
     }
 

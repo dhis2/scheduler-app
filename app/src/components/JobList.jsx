@@ -14,6 +14,7 @@ class JobList extends Component {
     constructor(props) {
         super(props);
         this.props.loadJobs();
+        this.props.loadJobTypes();
     }
     
     onJobSelect = (jobIndex) => {
@@ -47,6 +48,7 @@ const ConnectedJobList = connect(
     }),
     dispatch => ({
         loadJobs: () => dispatch({ type: actionTypes.JOBS_LOAD }),
+        loadJobTypes: () => dispatch({ type: actionTypes.JOB_TYPES_LOAD }),
         selectJob: jobIndex => dispatch({ type: actionTypes.JOB_SELECT, payload: jobIndex }),
     }),
 )(JobList);
