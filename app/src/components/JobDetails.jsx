@@ -1,46 +1,35 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import Heading from 'd2-ui/lib/headings/Heading.component';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
+import FlatButton from 'material-ui/FlatButton';
 import FontIcon from 'material-ui/FontIcon';
 import Toggle from 'material-ui/Toggle';
+import SelectField from 'material-ui/SelectField';
+import MenuItem from 'material-ui/MenuItem';
+import Dialog from 'material-ui/Dialog';
+import moment from 'moment';
 
 import * as actionTypes from '../constants/actionTypes';
 import cronExpressionRegex from '../constants/cronExp';
+import JobActionPanel from './JobActionPanel';
 
 const jobDetailsStyle = {
-    borderTop: '1px solid lightgray',
     marginLeft: 64,
     marginRight: 64,
     paddingTop: 24,
     paddingBottom: 24,
 };
 
-const saveButtonStyle = {
-    marginTop: 24,
-    marginLeft: 16,
-}
-
-const deleteButtonStyle = {
-    backgroundColor: 'tomato',
-}
-
 const validCronExpression = exp => {
     return exp.trim().match(cronExpressionRegex);
 }
 
 class JobDetails extends Component {
-    constructor(props) {
-        super(props);
-
-        this.job = this.props.job;
-        this.state = {
-            cronExpressionErrorMessage: '',
-        }
-    }
-
-    componentWillReceiveProps(nextProps) {
-        console.log('Props:', nextProps);
+    job = this.props.job;
+    state = {
+        cronExpressionErrorMessage: '',
     }
 
     onCronExpressionChange = (event, newValue) => {
@@ -56,15 +45,19 @@ class JobDetails extends Component {
             //this.props.cronExpressionChanged(newValue); // TODO: Trim string?
         }
     }
+    
+    renderLastExecutionText = () => {
+        const lastExecution = moment(this.job.lastExecuted);
+        return (
+            <div>Last executed on <b>{}</b> at <b>{lastExecution.format('HH:ss')}</b>, status: {this.job.lastExecutedStatus}</div>
+        );
+    }
 
     render = () => {
-        if (this.props.job) {
+        if (this.job) {
             return (
                 <div style={jobDetailsStyle}>
-                    <Toggle
-                        label="Enabled"
-                        defaultToggled={this.job.enabled}
-                    />
+                    <Heading>Attributes</Heading>
                     <TextField
                         fullWidth
                         defaultValue={this.job.name}
@@ -77,34 +70,39 @@ class JobDetails extends Component {
                         onChange={this.onCronExpressionChange}
                         errorText={this.state.cronExpressionErrorMessage}
                     />
-                    <RaisedButton
-                        primary
-                        buttonStyle={deleteButtonStyle}
-                        label="Delete job"
-                        icon={<FontIcon className="material-icons">delete_forever</FontIcon>}
-                    />
-                    <RaisedButton
-                        primary
-                        label="Save changes"
-                        style={saveButtonStyle}
-                        icon={<FontIcon className="material-icons">cloud_upload</FontIcon>}
-                    />
+                    <SelectField
+                        fullWidth
+                        value={this.job.jobType}
+                        floatingLabelText="Job type"
+                    >
+                        { this.props.jobTypes && this.props.jobTypes.map(type => 
+                            <MenuItem key={type} value={type} primaryText={type} />
+                        )}
+                    </SelectField>
+
+                    <Heading style={{ paddingTop: 24, paddingBottom: 16 }}>Parameters</Heading>
+                    No parameters for this job type.
+                    
+                    <Heading style={{ paddingTop: 24, paddingBottom: 16 }}>Details</Heading>
+                    <div>Job created on: {moment(this.job.created).format('DD.MM.YYYY')}</div>
+                    <div>Last executed: {moment(this.job.lastExecuted).format('DD.MM.YYYY HH:ss')}</div>
+                    <div>Last execution status: {this.job.lastExecutedStatus}</div>
+
+                    <JobActionPanel
+                        job={this.props.job}
+                        delete={this.props.deleteJob}/>
                 </div>
             );
          } else return null;
     }
 }
 
-export default JobDetails; // TODO: Connect.
-
-/*
-
-Details
-
-Enabled: Checkmark
-Cron expression: TextField
-Last executed Status: Scheduled | Completed | Failed
-Next execution time
-
-
-*/
+export default connect(
+    state => ({
+        jobTypes: state.jobs.jobTypes,
+        job: state.jobs.jobs[state.jobs.selected],
+    }),
+    dispatch => ({
+        deleteJob: id => dispatch({ type: 'JOB_DELETE', payload: { id }})
+    })
+)(JobDetails);

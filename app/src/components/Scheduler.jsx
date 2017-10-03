@@ -23,7 +23,7 @@ const contentStyle = {
     width: '100%',
     maxWidth: '900px',
     margin: '0 auto',
-}
+};
 
 const Scheduler = () => 
     <Provider store={store}>

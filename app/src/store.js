@@ -16,4 +16,7 @@ const reducer = combineReducers({
     jobs: jobsReducer,
 });
 
-export default createStore(reducer, applyMiddleware(...middlewares));
+export default createStore(
+    reducer,
+    applyMiddleware(...middlewares),
+);
