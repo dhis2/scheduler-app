@@ -32,7 +32,7 @@ function jobsReducer(state = initialState, action) {
             const deletedJobId = action.payload.id;
             return {
                 ...state,
-                jobs: jobs.filter(job => job.id === deletedJobId),
+                jobs: state.jobs.filter(job => job.id !== deletedJobId),
             };
 
         case actionTypes.JOB_DELETE_ERROR:

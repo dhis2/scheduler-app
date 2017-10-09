@@ -53,6 +53,12 @@ class JobDetails extends Component {
         );
     }
 
+    deleteSelectedJob = () => {
+        if (this.job) {
+            this.props.deleteJob(this.job.id);
+        }
+    }
+
     render = () => {
         if (this.job) {
             return (
@@ -90,7 +96,7 @@ class JobDetails extends Component {
 
                     <JobActionPanel
                         job={this.props.job}
-                        delete={this.props.deleteJob}/>
+                        delete={this.deleteSelectedJob}/>
                 </div>
             );
          } else return null;

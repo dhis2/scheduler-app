@@ -12,3 +12,4 @@ target
 .settings
 .vscode/
 node_modules
+sample-jobs.json

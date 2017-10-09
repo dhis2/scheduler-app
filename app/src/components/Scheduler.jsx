@@ -12,9 +12,9 @@ import Heading from 'd2-ui/lib/headings/Heading.component';
 
 import JobList from './JobList';
 import JobDetails from './JobDetails';
+import { BASE_URL } from '../api/api';
 
 const HeaderBar = withStateFrom(headerBarStore$, HeaderBarComponent);
-const baseUrl = 'http://localhost:8080/api'; // TODO: Outsource config
 
 injectTapEventPlugin();
 
@@ -27,7 +27,7 @@ const contentStyle = {
 
 const Scheduler = () => 
     <Provider store={store}>
-        <D2UIApp initConfig={{ baseUrl }} muiTheme={theme}>
+        <D2UIApp initConfig={{ baseUrl: BASE_URL }} muiTheme={theme}>
             <div style={contentStyle}>
                 <HeaderBar />
                 <div>

@@ -16,21 +16,14 @@ const loadJobs = action$ =>
            .then(jobs => ({ type: actions.JOBS_LOAD_SUCCESS, payload: { jobs } }))
            .catch(error => ({ type: actions.JOBS_LOAD_ERROR, payload: { error } })));
 
-/*
-const loadJobTypes = action$ =>
-    action$.ofType(actions.JOB_TYPES_LOAD).concatMap(action =>
-        api.getJobTypes()
-           .then(jobTypes => ({ type: actions.JOB_TYPES_LOAD_SUCCESS, payload: { jobTypes  }))
-           .catch(error => ({ type: actions.JOB_TYPES_LOAD_ERROR, payload: error })));
-*/
-
 const deleteJob = action$ =>
-    action$.ofType(actions.JOB_DELETE).concatMap(({ payload: { id }}) =>
-        api.deleteJob(id)
-            .then(result => ({ type: actions.JOB_DELETE_SUCCESS, payload: { id } })))
-            .catch(error => ({ type: actions.JOB_DELETE_ERROR, payload: { error }}));
+    action$.ofType(actions.JOB_DELETE).concatMap(action =>
+        api.deleteJob(action.payload.id)
+            .then(result => ({ type: actions.JOB_DELETE_SUCCESS, payload: { id: action.payload.id } }))
+            .catch(error => ({ type: actions.JOB_DELETE_ERROR, payload: { error }})));
 
 export default combineEpics(
     loadJobs,
     loadConfiguration,
+    deleteJob,
 );

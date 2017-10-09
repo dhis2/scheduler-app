@@ -1,5 +1,7 @@
 import d2 from 'd2/lib/d2';
 
+export const BASE_URL = 'http://localhost:8080/api';
+
 export const getConfiguration = () =>
     d2.getInstance().then(d2 => {
         const jobConfiguration = d2.models.jobConfiguration.modelProperties;
@@ -15,15 +17,17 @@ export const getConfiguration = () =>
 export const getJobs = () =>
     d2.getInstance()
         .then(d2 => d2.Api.getApi().get('jobConfigurations', { fields: '*', order: 'nextExecutionTime' }))
-        .then(jobs => Promise.resolve(jobs.jobConfigurations))
-        .catch(error => Promise.reject(error));
+        .then(jobs => jobs.jobConfigurations)
+        .catch(error => { throw error; });
 
 export const getJobTypes = () =>
     d2.getInstance()
         .then(d2 => d2.Api.getApi().get('jobConfigurations/jobTypes'))
-        .then(jobTypes => Promise.resolve(jobTypes))
-        .catch(error => Promise.reject(error));
+        .then(jobTypes => jobTypes)
+        .catch(error => { throw error; });
 
 export const deleteJob = id =>
     d2.getInstance()
-        .then(d2 => d2.Api.getApi());
+        .then(d2 => d2.Api.getApi().delete(`jobConfigurations/${id}`))
+        .then(result => result)
+        .catch(error => { throw error; });
