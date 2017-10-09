@@ -1,10 +1,10 @@
-import * as actions from "../constants/actionTypes";
-import { combineEpics } from "redux-observable";
-import "rxjs/add/operator/concatMap";
-import "rxjs/add/operator/concat";
-import "rxjs/add/observable/of";
-import { Observable } from "rxjs/Observable";
-import * as api from "../api/api";
+import * as actions from 'constants/actionTypes';
+import { combineEpics } from 'redux-observable';
+import 'rxjs/add/operator/concatMap';
+import 'rxjs/add/operator/concat';
+import 'rxjs/add/observable/of';
+import { Observable } from 'rxjs/Observable';
+import * as api from 'api/api';
 
 const loadConfiguration = action$ =>
     action$.ofType(actions.CONFIGURATION_LOAD).concatMap(action =>

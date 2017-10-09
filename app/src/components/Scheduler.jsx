@@ -1,19 +1,19 @@
-import React, { Component } from "react";
-import theme from "../styles/theme";
-import "../styles/override.css";
-import store from "../store";
-import injectTapEventPlugin from "react-tap-event-plugin";
-import { Provider } from "react-redux";
+import React, { Component } from 'react';
+import theme from '../styles/theme';
+import '../styles/override.css';
+import store from '../store';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+import { Provider } from 'react-redux';
 import D2UIApp from 'd2-ui/lib/app/D2UIApp';
 import HeaderBarComponent from 'd2-ui/lib/app-header/HeaderBar';
 import headerBarStore$ from 'd2-ui/lib/app-header/headerBar.store';
 import withStateFrom from 'd2-ui/lib/component-helpers/withStateFrom';
 import Heading from 'd2-ui/lib/headings/Heading.component';
 
-import JobList from './JobList';
-import JobDetails from './JobDetails';
-import MessagePanel from './MessagePanel';
-import { BASE_URL } from '../api/api';
+import JobList from 'components/JobList';
+import JobDetails from 'components/JobDetails';
+import MessagePanel from 'components/MessagePanel';
+import { BASE_URL } from 'api/api';
 
 const HeaderBar = withStateFrom(headerBarStore$, HeaderBarComponent);
 

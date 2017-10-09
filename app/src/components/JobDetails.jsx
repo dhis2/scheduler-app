@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Heading from 'd2-ui/lib/headings/Heading.component';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -11,9 +11,9 @@ import MenuItem from 'material-ui/MenuItem';
 import Dialog from 'material-ui/Dialog';
 import moment from 'moment';
 
-import * as actionTypes from '../constants/actionTypes';
-import cronExpressionRegex from '../constants/cronExp';
-import JobActionPanel from './JobActionPanel';
+import * as actionTypes from 'constants/actionTypes';
+import cronExpressionRegex from 'constants/cronExp';
+import JobActionPanel from 'components/JobActionPanel';
 
 const jobDetailsStyle = {
     marginLeft: 64,

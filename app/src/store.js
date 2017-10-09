@@ -1,9 +1,9 @@
-import Epics from "./actions/epics";
-import { createStore, applyMiddleware, combineReducers } from "redux";
-import { createEpicMiddleware } from "redux-observable";
-import jobsReducer from './reducers/jobsReducer';
-import messageReducer from './reducers/messageReducer';
-import createLogger from "redux-logger";
+import Epics from 'actions/epics';
+import { createStore, applyMiddleware, combineReducers } from 'redux';
+import { createEpicMiddleware } from 'redux-observable';
+import jobsReducer from 'reducers/jobsReducer';
+import messageReducer from 'reducers/messageReducer';
+import createLogger from 'redux-logger';
 
 const middlewares = [createEpicMiddleware(Epics)];
 

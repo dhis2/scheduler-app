@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Snackbar from 'material-ui/Snackbar';
 
 const DEFAULT_MESSAGE_DURATION = 4000;

@@ -42,11 +42,16 @@ const prod = {
         ],
     },
     resolve: {
-        extensions: ['.js', '.jsx'],
         alias: {
             react: path.resolve('./node_modules/react'),
             'material-ui': path.resolve('./node_modules/material-ui'),
+            api: path.resolve(__dirname, 'src/api'),
+            actions: path.resolve(__dirname, 'src/actions'),
+            components: path.resolve(__dirname, 'src/components'),
+            constants: path.resolve(__dirname, 'src/constants'),
+            reducers: path.resolve(__dirname, 'src/reducers'),
         },
+        extensions: ['.js', '.jsx'],
     },
     plugins: [
         new webpack.DefinePlugin({

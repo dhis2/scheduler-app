@@ -1,13 +1,13 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import * as actionTypes from '../constants/actionTypes';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Heading from 'd2-ui/lib/headings/Heading.component';
 import FontIcon from 'material-ui/FontIcon';
 import Paper from 'material-ui/Paper';
 import Divider from 'material-ui/Divider';
 
-import JobDetails from './JobDetails';
-import JobEntry from './JobEntry';
+import * as actionTypes from 'constants/actionTypes';
+import JobDetails from 'components/JobDetails';
+import JobEntry from 'components/JobEntry';
 
 import d2 from 'd2/lib/d2';
 

@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import JobDetails from './JobDetails';
+import React, { Component } from 'react';
+import JobDetails from 'components/JobDetails';
 import FontIcon from 'material-ui/FontIcon';
 import Checkbox from 'material-ui/Checkbox';
 import Toggle from 'material-ui/Toggle';
@@ -36,7 +36,7 @@ const JobEntry = ({ job, onSelect, onToggle, isSelected, first }) => {
     const nextExecution = moment(job.nextExecutionTime);
     const nextExecutionText = nextExecution.format('DD.MM.YYYY HH:SS');
 
-    const toggle = (event, value) => {
+    const toggle = (e, value) => {
         onToggle(value);
     }
 
