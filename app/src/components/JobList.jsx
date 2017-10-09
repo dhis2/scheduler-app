@@ -28,8 +28,8 @@ class JobList extends Component {
         this.props.selectJob(jobIndex === this.props.selected ? -1 : jobIndex);
     }
 
-    toggleJob = (event, isInputChecked) => {
-        console.warn('Checkbox checked.');
+    onJobToggle = (jobIndex, enabled) => {
+        console.log('Job', jobIndex, 'toggled to', enabled);
     }
 
     render = () => (
@@ -45,9 +45,9 @@ class JobList extends Component {
                 <JobEntry
                     key={job.id}
                     job={job}
-                    onSelectJob={() => { this.onJobSelect(index); }}
+                    onSelect={() => { this.onJobSelect(index); }}
+                    onToggle={value => { this.onJobToggle(index, value); }}
                     isSelected={index === this.props.selected}
-                    toggleJob={this.toggleJob}
                     first={index === 0}
                 />
             )}

@@ -11,3 +11,5 @@ export const JOB_SELECT = "JOB_SELECT";
 export const JOB_DELETE = "JOB_DELETE";
 export const JOB_DELETE_SUCCESS = "JOB_DELETE_SUCCESS";
 export const JOB_DELETE_ERROR = "JOB_DELETE_ERROR";
+
+export const MESSAGE_SEND = 'MESSAGE_SEND';
