@@ -8,6 +8,7 @@ import moment from 'moment';
 import d2 from 'd2/lib/d2';
 
 const listEntryStyle = {
+    color: 'black',
     cursor: 'pointer',
     paddingLeft: 24,
     paddingRight: 24,
@@ -27,7 +28,7 @@ const displayNameStyle = {
     fontSize: 20,
 }
 
-const JobEntry = ({ job, onSelect, onToggle, isSelected, first }) => {
+const JobEntry = ({ job, onSelect, onToggle, first }) => {
     const enabledStatusStyle = {
         fontWeight: '600',
         color: job.enabled ? 'mediumseagreen' : 'tomato',
@@ -46,16 +47,11 @@ const JobEntry = ({ job, onSelect, onToggle, isSelected, first }) => {
     }
 
     return (
-        <div>
-            <div onClick={onSelect} style={{...listEntryStyle, borderTop: first ? '' : '1px solid lightgray'}}>
-                <div style={{...displayNameStyle, ...someWeight }}>{job.displayName}</div>
-                <div style={someWeight}>{job.jobStatus}</div>
-                <div style={someWeight}>{nextExecutionText}</div>
-                <div><Toggle toggled={job.enabled} onToggle={toggle} onClick={toggleClick} /></div>
-            </div>
-            { isSelected &&
-                <JobDetails />
-            }
+        <div onClick={onSelect} style={{...listEntryStyle, borderTop: first ? '' : '1px solid lightgray'}}>
+            <div style={{...displayNameStyle, ...someWeight }}>{job.displayName}</div>
+            <div style={someWeight}>{job.jobStatus}</div>
+            <div style={someWeight}>{nextExecutionText}</div>
+            <div><Toggle toggled={job.enabled} onToggle={toggle} onClick={toggleClick} /></div>
         </div>
     );
 }

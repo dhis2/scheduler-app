@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import theme from '../styles/theme';
 import '../styles/override.css';
 import store from '../store';
@@ -9,11 +10,15 @@ import HeaderBarComponent from 'd2-ui/lib/app-header/HeaderBar';
 import headerBarStore$ from 'd2-ui/lib/app-header/headerBar.store';
 import withStateFrom from 'd2-ui/lib/component-helpers/withStateFrom';
 import Heading from 'd2-ui/lib/headings/Heading.component';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import createHistory from 'history/createBrowserHistory'
 
 import JobList from 'components/JobList';
 import JobDetails from 'components/JobDetails';
 import MessagePanel from 'components/MessagePanel';
+import AddJob from 'components/AddJob';
 import { BASE_URL } from 'api/api';
+import * as actionTypes from 'constants/actionTypes';
 
 const HeaderBar = withStateFrom(headerBarStore$, HeaderBarComponent);
 
@@ -29,18 +34,35 @@ const contentStyle = {
 const Scheduler = () => 
     <Provider store={store}>
         <D2UIApp initConfig={{ baseUrl: BASE_URL }} muiTheme={theme}>
+            <ConnectedContentLoader />
+        </D2UIApp>
+    </Provider>;
+
+
+class ContentLoader extends Component {
+    componentDidMount = () => {
+        this.props.loadJobs();
+        this.props.loadConfiguration();
+    }
+
+    render = () => 
+        <Router>
             <div style={contentStyle}>
                 <MessagePanel />
                 <HeaderBar />
-                <div>
-                    <Heading style={{ paddingBottom: 16, paddingLeft: 24 }}>
-                        Scheduled Jobs
-                    </Heading>
-                    <JobList />
-                    <JobDetails />
-                </div>
+                <Route exact path="/" component={JobList} />
+                <Route path="/edit/:id" component={JobDetails} />
             </div>
-        </D2UIApp>
-    </Provider>;
+        </Router>;
+}
+
+const ConnectedContentLoader = connect(
+    state => ({}),
+    dispatch => ({
+        loadJobs: () => dispatch({ type: actionTypes.JOBS_LOAD }),
+        loadConfiguration: () => dispatch({ type: actionTypes.CONFIGURATION_LOAD }),
+    }),
+)(ContentLoader);
+
 
 export default Scheduler;

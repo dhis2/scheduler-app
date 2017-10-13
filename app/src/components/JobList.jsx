@@ -4,6 +4,7 @@ import Heading from 'd2-ui/lib/headings/Heading.component';
 import FontIcon from 'material-ui/FontIcon';
 import Paper from 'material-ui/Paper';
 import Divider from 'material-ui/Divider';
+import { Link } from 'react-router-dom'
 
 import * as actionTypes from 'constants/actionTypes';
 import JobDetails from 'components/JobDetails';
@@ -19,52 +20,42 @@ const headerStyle = {
 }
 
 class JobList extends Component {
-    componentDidMount() {
-        this.props.loadJobs();
-        this.props.loadJobConfiguration();
-    }
-    
-    onJobSelect = (jobIndex) => {
-        this.props.selectJob(jobIndex === this.props.selected ? -1 : jobIndex);
-    }
-
     onJobToggle = (jobIndex, enabled) => {
         console.log('Job', jobIndex, 'toggled to', enabled);
     }
 
     render = () => (
-        <Paper>
-            <div style={headerStyle}>
-                <div style={{ flex: 10, }}>Name</div>
-                <div style={{ flex: 10, }}>Job Status</div>
-                <div style={{ flex: 10, }}>Next execution</div>
-                <div style={{ flex: 0, }}>Enabled</div>
-            </div>
-            <Divider />
-            { this.props.jobs && this.props.jobs.map((job, index) =>
-                <JobEntry
-                    key={job.id}
-                    job={job}
-                    onSelect={() => { this.onJobSelect(index); }}
-                    onToggle={value => { this.onJobToggle(index, value); }}
-                    isSelected={index === this.props.selected}
-                    first={index === 0}
-                />
-            )}
-        </Paper>
+        <div>
+            <Heading style={{ paddingBottom: 16, paddingLeft: 24 }}>
+                Scheduled Jobs
+            </Heading>
+            <Paper>
+                <div style={headerStyle}>
+                    <div style={{ flex: 10, }}>Name</div>
+                    <div style={{ flex: 10, }}>Job Status</div>
+                    <div style={{ flex: 10, }}>Next execution</div>
+                    <div style={{ flex: 0, }}>Enabled</div>
+                </div>
+                <Divider />
+                { this.props.jobs && this.props.jobs.map((job, index) =>
+                    <Link key={job.id} to={`edit/${job.id}`}>
+                        <JobEntry
+                            job={job}
+                            onToggle={value => { this.onJobToggle(index, value); }}
+                            first={index === 0}
+                        />
+                    </Link>
+                )}
+            </Paper>
+        </div>
     );
 }
 
 const ConnectedJobList = connect(
     (state) => ({
         jobs: state.jobs.jobs,
-        selected: state.jobs.selected,
     }),
-    dispatch => ({
-        loadJobs: () => dispatch({ type: actionTypes.JOBS_LOAD }),
-        loadJobConfiguration: () => dispatch({ type: actionTypes.CONFIGURATION_LOAD }),
-        selectJob: index => dispatch({ type: actionTypes.JOB_SELECT, payload: { index } }),
-    }),
+    dispatch => ({}),
 )(JobList);
 
 export default ConnectedJobList;

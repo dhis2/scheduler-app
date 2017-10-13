@@ -79,11 +79,11 @@ const dev = Object.assign({}, prod, {
         publicPath: '/',
     },
     devServer: {
-        proxy: {
+       /* proxy: {
             '*': {
                 "target": "http://localhost:8080"
             },
-        },
+        }, */
         port: 9000,
         inline: true,
         contentBase: './app',

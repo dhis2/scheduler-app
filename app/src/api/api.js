@@ -1,29 +1,27 @@
 import d2 from 'd2/lib/d2';
 
 export const BASE_URL = 'http://localhost:8080/api';
+const JOB_PARAMETERS_ENDPOINT = 'jobConfigurations/jobTypesExtended';
 
-export const getConfiguration = () =>
-    d2.getInstance().then(d2 => {
-        const jobConfiguration = d2.models.jobConfiguration.modelProperties;
-        const jobStatuses = jobConfiguration.jobStatus.constants;
-        const jobTypes = jobConfiguration.jobType.constants;
+export const getConfiguration = async () => {
+    const instance = await d2.getInstance();
+    const jobConfiguration = instance.models.jobConfiguration.modelProperties;
 
-        return {
-            jobStatuses,
-            jobTypes,
-        };
-    });
+    const jobStatuses = jobConfiguration.jobStatus.constants;
+    const jobTypes = jobConfiguration.jobType.constants;
+    const jobParameters = await instance.Api.getApi().get(JOB_PARAMETERS_ENDPOINT);
+
+    return {
+        jobStatuses,
+        jobParameters,
+        jobTypes,
+    };
+}
 
 export const getJobs = () =>
     d2.getInstance()
         .then(d2 => d2.Api.getApi().get('jobConfigurations', { fields: '*', order: 'nextExecutionTime' }))
         .then(jobs => jobs.jobConfigurations)
-        .catch(error => { throw error; });
-
-export const getJobTypes = () =>
-    d2.getInstance()
-        .then(d2 => d2.Api.getApi().get('jobConfigurations/jobTypes'))
-        .then(jobTypes => jobTypes)
         .catch(error => { throw error; });
 
 export const deleteJob = id =>

@@ -4,7 +4,9 @@ const initialState = {
     jobs: [],
     jobTypes: [],
     jobStatuses: [],
-    selected: -1,
+    jobParameters: [],
+    jobsLoaded: false,
+    selected: null,
 };
 
 function jobsReducer(state = initialState, action) {
@@ -13,12 +15,13 @@ function jobsReducer(state = initialState, action) {
             return {
                 ...state,
                 jobs: action.payload.jobs,
+                jobsLoaded: true,
             };
 
         case actionTypes.JOB_SELECT:
             return {
                 ...state,
-                selected: action.payload.index,
+                selected: action.payload.id,
             };
 
         case actionTypes.CONFIGURATION_LOAD_SUCCESS:
@@ -26,6 +29,7 @@ function jobsReducer(state = initialState, action) {
                 ...state,
                 jobTypes: action.payload.configuration.jobTypes,
                 jobStatuses: action.payload.configuration.jobStatuses,
+                jobParameters: action.payload.configuration.jobParameters,
             };
 
         case actionTypes.JOB_DELETE_SUCCESS:
