@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import Heading from 'd2-ui/lib/headings/Heading.component';
 import { Link } from 'react-router-dom'
@@ -38,22 +38,28 @@ class JobDetails extends Component {
         cronExpressionErrorMessage: '',
     }
 
+    onNameChange = name => {
+        this.props.editName && this.props.editName(name);
+    }
+
+    onTypeChange = (event, index) => {
+        const type = this.props.types[index];
+        this.props.editType && this.props.editType(type);
+    }
+
     onCronExpressionChange = (event, newValue) => {
+        if (newValue === '') return;
+
         const validExp = validCronExpression(newValue);
 
         this.setState({
             cronExpressionErrorMessage: validExp
-                ? ''
-                : 'Invalid cron expression',
+                ? '' : 'Invalid cron expression',
         });
 
         if (validExp) {
-            //this.props.cronExpressionChanged(newValue); // TODO: Trim string?
+            this.props.editCronExpression(newValue);
         }
-    }
-
-    componentWillMount = () => {
-        this.props.selectJob(this.props.match.params.id);
     }
     
     renderLastExecutionText = () => {
@@ -63,13 +69,7 @@ class JobDetails extends Component {
         );
     }
 
-    deleteSelectedJob = () => {
-        if (this.props.job) {
-            this.props.deleteJob(this.props.job.id);
-        }
-    }
-
-    render = () =>
+    render = () => (
         <div>
             <div style={{
                 display: 'flex',
@@ -85,16 +85,17 @@ class JobDetails extends Component {
                     </IconButton>
                 </Link>
                 <Heading style={{ paddingBottom: 16, paddingLeft: 24 }}>
-                    { this.props.job ? this.props.job.displayName : 'Job details' }
+                    { this.props.title }
                 </Heading>
             </div>
-            { this.props.jobsLoaded && this.props.job ?
+            { this.props.loadingDone && this.props.job ?
                 <Paper style={jobDetailsStyle}>
                     <Heading>Attributes</Heading>
                     <TextField
                         fullWidth
                         defaultValue={this.props.job.name}
                         floatingLabelText="Name"
+                        onChange={this.onNameChange}
                     />
                     <TextField
                         fullWidth
@@ -107,8 +108,9 @@ class JobDetails extends Component {
                         fullWidth
                         value={this.props.job.jobType}
                         floatingLabelText="Job type"
+                        onChange={this.onTypeChange}
                     >
-                        { this.props.jobTypes && this.props.jobTypes.map(type => 
+                        { this.props.types && this.props.types.map(type => 
                             <MenuItem key={type} value={type} primaryText={type} />
                         )}
                     </SelectField>
@@ -123,22 +125,12 @@ class JobDetails extends Component {
 
                     <JobActionPanel
                         job={this.props.job}
-                        delete={this.deleteSelectedJob}/>
+                        delete={() => this.props.delete(this.props.job.id)}/>
                 </Paper>
                 : <div>Could not find job</div>
             }
-        </div>;
+        </div>
+    );
 }
 
-export default connect(
-    state => ({
-        job: state.jobs.jobs.find(job => job.id === state.jobs.selected),
-        jobsLoaded: state.jobs.jobsLoaded,
-        jobTypes: state.jobs.jobTypes,
-        jobParameters: state.jobs.jobParameters,
-    }),
-    dispatch => ({
-        selectJob: id => dispatch({ type: actionTypes.JOB_SELECT, payload: { id } }),
-        deleteJob: id => dispatch({ type: 'JOB_DELETE', payload: { id }})
-    })
-)(JobDetails);
+export default JobDetails;

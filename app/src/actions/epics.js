@@ -24,6 +24,18 @@ const deleteJob = action$ =>
             .then(() => ({ type: actions.JOB_DELETE_SUCCESS, payload: { id: action.payload.id } }))
             .catch(error => ({ type: actions.JOB_DELETE_ERROR, payload: { error }})));
 
+const editType = action$ =>
+    action$.ofType(actions.EDIT_TYPE).concatMap(action =>
+        api.editType(action.payload.type)
+            .then(parameters => ({
+                type: actions.EDIT_TYPE_SUCCESS,
+                payload: {
+                    type: action.payload.type,
+                    parameters,
+                },
+            }))
+            .catch(error => ({ type: actions.EDIT_TYPE_ERROR, payload: { error }})));
+
 export default combineEpics(
     loadJobs,
     loadConfiguration,

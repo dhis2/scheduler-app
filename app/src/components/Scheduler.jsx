@@ -15,8 +15,9 @@ import createHistory from 'history/createBrowserHistory'
 
 import JobList from 'components/JobList';
 import JobDetails from 'components/JobDetails';
-import MessagePanel from 'components/MessagePanel';
+import EditJob from 'components/EditJob';
 import AddJob from 'components/AddJob';
+import MessagePanel from 'components/MessagePanel';
 import { BASE_URL } from 'api/api';
 import * as actionTypes from 'constants/actionTypes';
 
@@ -51,7 +52,8 @@ class ContentLoader extends Component {
                 <MessagePanel />
                 <HeaderBar />
                 <Route exact path="/" component={JobList} />
-                <Route path="/edit/:id" component={JobDetails} />
+                <Route path="/edit/:id" component={EditJob} />
+                <Route path="/add" component={AddJob} />
             </div>
         </Router>;
 }

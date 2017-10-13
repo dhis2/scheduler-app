@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
+
 import { connect } from 'react-redux';
-import Heading from 'd2-ui/lib/headings/Heading.component';
-import FontIcon from 'material-ui/FontIcon';
-import Paper from 'material-ui/Paper';
-import Divider from 'material-ui/Divider';
 import { Link } from 'react-router-dom'
+import d2 from 'd2/lib/d2';
+import Divider from 'material-ui/Divider';
+import FloatingActionButton from 'material-ui/FloatingActionButton';
+import FontIcon from 'material-ui/FontIcon';
+import Heading from 'd2-ui/lib/headings/Heading.component';
+import Paper from 'material-ui/Paper';
 
 import * as actionTypes from 'constants/actionTypes';
 import JobDetails from 'components/JobDetails';
 import JobEntry from 'components/JobEntry';
-
-import d2 from 'd2/lib/d2';
 
 const headerStyle = {
     display: 'flex',
@@ -47,13 +48,27 @@ class JobList extends Component {
                     </Link>
                 )}
             </Paper>
+            <Link to={'add'}>
+                <AddButton />
+            </Link>
         </div>
     );
 }
 
+const AddButton = () =>
+    <div style={{
+        position: 'absolute',
+        right: 36,
+        bottom: 36,
+    }}>
+        <FloatingActionButton>
+            <FontIcon className="material-icons">add</FontIcon>
+        </FloatingActionButton>
+    </div>;
+
 const ConnectedJobList = connect(
     (state) => ({
-        jobs: state.jobs.jobs,
+        jobs: state.jobs.all,
     }),
     dispatch => ({}),
 )(JobList);

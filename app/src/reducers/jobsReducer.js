@@ -1,11 +1,8 @@
 import * as actionTypes from 'constants/actionTypes';
 
 const initialState = {
-    jobs: [],
-    jobTypes: [],
-    jobStatuses: [],
-    jobParameters: [],
-    jobsLoaded: false,
+    all: [],
+    loadingDone: false,
     selected: null,
 };
 
@@ -14,8 +11,8 @@ function jobsReducer(state = initialState, action) {
         case actionTypes.JOBS_LOAD_SUCCESS:
             return {
                 ...state,
-                jobs: action.payload.jobs,
-                jobsLoaded: true,
+                all: action.payload.jobs,
+                loadingDone: true,
             };
 
         case actionTypes.JOB_SELECT:
@@ -24,19 +21,11 @@ function jobsReducer(state = initialState, action) {
                 selected: action.payload.id,
             };
 
-        case actionTypes.CONFIGURATION_LOAD_SUCCESS:
-            return {
-                ...state,
-                jobTypes: action.payload.configuration.jobTypes,
-                jobStatuses: action.payload.configuration.jobStatuses,
-                jobParameters: action.payload.configuration.jobParameters,
-            };
-
         case actionTypes.JOB_DELETE_SUCCESS:
             const deletedJobId = action.payload.id;
             return {
                 ...state,
-                jobs: state.jobs.filter(job => job.id !== deletedJobId),
+                all: state.jobs.filter(job => job.id !== deletedJobId),
             };
 
         case actionTypes.JOB_DELETE_ERROR:

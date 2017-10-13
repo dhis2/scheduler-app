@@ -1,4 +1,5 @@
 import d2 from 'd2/lib/d2';
+import { store } from 'react-redux';
 
 export const BASE_URL = 'http://localhost:8080/api';
 const JOB_PARAMETERS_ENDPOINT = 'jobConfigurations/jobTypesExtended';
@@ -29,3 +30,30 @@ export const deleteJob = id =>
         .then(d2 => d2.Api.getApi().delete(`jobConfigurations/${id}`))
         .then(result => result)
         .catch(error => { throw error; });
+
+export const editType = type => {
+
+    /*
+    const state = store.getState().edit;
+    console.log('STATE:', state);
+
+    const availableJobParameters = state.configuration.jobParameters[type];
+
+    let parameters;
+    Object.keys(availableJobParameters).map(key => {
+        const field = availableJobParameters[key];
+        parameters[key] = {
+            label: field.fieldName || field.name,
+            value: '',
+        };
+    });
+
+    */
+
+    return {
+        parameterOption: {
+            name: 'jdskal',
+            fieldName: 'hsdajk',
+        }
+    };
+}
