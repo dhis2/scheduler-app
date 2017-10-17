@@ -64,17 +64,20 @@ class JobActionPanel extends Component {
                 />
                 <RaisedButton
                     primary
-                    label="Save changes"
+                    label={this.props.saveLabel}
+                    onClick={this.props.save}
                     icon={<FontIcon className="material-icons">cloud_upload</FontIcon>}
                 />
-                <RaisedButton
-                    primary
-                    style={{ marginLeft: 16 }}
-                    buttonStyle={deleteButtonStyle}
-                    label="Delete job"
-                    icon={<FontIcon className="material-icons">delete_forever</FontIcon>}
-                    onClick={this.openDeleteConfirmationDialog}
-                />
+                { this.props.deleteLabel &&
+                    <RaisedButton
+                        primary
+                        style={{ marginLeft: 16 }}
+                        buttonStyle={deleteButtonStyle}
+                        label={this.props.deleteLabel}
+                        icon={<FontIcon className="material-icons">delete_forever</FontIcon>}
+                        onClick={this.openDeleteConfirmationDialog}
+                    />
+                }
             </div>
         );
     }

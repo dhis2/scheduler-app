@@ -34,5 +34,6 @@ export default connect(
     state => ({
         message: state.message.message,
         type: state.message.type,
+        time: state.message.time,
     }),
 )(MessagePanel);

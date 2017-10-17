@@ -8,14 +8,13 @@ import JobDetails from 'components/JobDetails';
 const enhance = compose(
     connect(
         state => {
-            const job = state.jobs.all.find(job => job.id === state.jobs.selected);
-
+            const selectedJob = state.jobs.all.find(job => job.id === state.jobs.selected);
+            
             return {
-                job,
-                title: job ? job.name : 'Job details',
-                loadingDone: state.jobs.loadingDone,
-                types: state.edit.configuration.jobTypes,
-                parameters: state.edit.configuration.jobParameters,
+                job: selectedJob,
+                title: selectedJob ? selectedJob.name : 'Loading ...',
+                loaded: state.jobs.loaded,
+                types: state.jobs.configuration.types,
             };
         },
         dispatch => ({
@@ -28,6 +27,10 @@ const enhance = compose(
             this.props.select(this.props.match.params.id);
         }
     }),
+    withProps(() => ({
+        saveLabel: 'Save changes',
+        deleteLabel: 'Delete job',
+    })),
 );
 
 export default enhance(JobDetails);

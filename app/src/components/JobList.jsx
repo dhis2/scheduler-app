@@ -20,12 +20,7 @@ const headerStyle = {
     fontWeight: 600,
 }
 
-class JobList extends Component {
-    onJobToggle = (jobIndex, enabled) => {
-        console.log('Job', jobIndex, 'toggled to', enabled);
-    }
-
-    render = () => (
+const JobList = props =>
         <div>
             <Heading style={{ paddingBottom: 16, paddingLeft: 24 }}>
                 Scheduled Jobs
@@ -38,11 +33,10 @@ class JobList extends Component {
                     <div style={{ flex: 0, }}>Enabled</div>
                 </div>
                 <Divider />
-                { this.props.jobs && this.props.jobs.map((job, index) =>
+                { props.jobs && props.jobs.map((job, index) =>
                     <Link key={job.id} to={`edit/${job.id}`}>
                         <JobEntry
                             job={job}
-                            onToggle={value => { this.onJobToggle(index, value); }}
                             first={index === 0}
                         />
                     </Link>
@@ -51,9 +45,8 @@ class JobList extends Component {
             <Link to={'add'}>
                 <AddButton />
             </Link>
-        </div>
-    );
-}
+        </div>;
+
 
 const AddButton = () =>
     <div style={{

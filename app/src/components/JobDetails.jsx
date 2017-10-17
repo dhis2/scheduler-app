@@ -17,6 +17,8 @@ import moment from 'moment';
 import * as actionTypes from 'constants/actionTypes';
 import cronExpressionRegex from 'constants/cronExp';
 import JobActionPanel from 'components/JobActionPanel';
+import JobParameters from 'components/JobParameters';
+import { paramTypes } from 'constants/paramTypes';
 
 const jobDetailsStyle = {
     padding: 24,
@@ -38,13 +40,13 @@ class JobDetails extends Component {
         cronExpressionErrorMessage: '',
     }
 
-    onNameChange = name => {
-        this.props.editName && this.props.editName(name);
+    onNameChange = (event, value) => {
+        this.props.nameChanged && this.props.nameChanged(value);
     }
 
     onTypeChange = (event, index) => {
         const type = this.props.types[index];
-        this.props.editType && this.props.editType(type);
+        this.props.typeChanged && this.props.typeChanged(type);
     }
 
     onCronExpressionChange = (event, newValue) => {
@@ -58,7 +60,7 @@ class JobDetails extends Component {
         });
 
         if (validExp) {
-            this.props.editCronExpression(newValue);
+            this.props.cronExpressionChanged(newValue);
         }
     }
     
@@ -88,7 +90,7 @@ class JobDetails extends Component {
                     { this.props.title }
                 </Heading>
             </div>
-            { this.props.loadingDone && this.props.job ?
+            { this.props.loaded && this.props.job ?
                 <Paper style={jobDetailsStyle}>
                     <Heading>Attributes</Heading>
                     <TextField
@@ -106,7 +108,7 @@ class JobDetails extends Component {
                     />
                     <SelectField
                         fullWidth
-                        value={this.props.job.jobType}
+                        value={this.props.job.type}
                         floatingLabelText="Job type"
                         onChange={this.onTypeChange}
                     >
@@ -115,17 +117,31 @@ class JobDetails extends Component {
                         )}
                     </SelectField>
 
-                    <Heading style={{ paddingTop: 24, paddingBottom: 16 }}>Parameters</Heading>
-                    No parameters for this job type.
+                    { this.props.job.type && this.props.job.parameters &&
+                        <div>
+                            <Heading style={{ paddingTop: 24, paddingBottom: 16 }}>Parameters</Heading>
+                            <JobParameters
+                                parameters={this.props.job.parameters}
+                            />
+                        </div>
+                    }
                     
-                    <Heading style={{ paddingTop: 24, paddingBottom: 16 }}>Details</Heading>
-                    <div>Job created on: {moment(this.props.job.created).format('DD.MM.YYYY')}</div>
-                    <div>Last executed: {moment(this.props.job.lastExecuted).format('DD.MM.YYYY HH:ss')}</div>
-                    <div>Last execution status: {this.props.job.lastExecutedStatus}</div>
-
+                    { this.props.job.lastExecuted &&
+                        <div>
+                            <Heading style={{ paddingTop: 24, paddingBottom: 16 }}>Details</Heading>
+                            <div>Job created on: {moment(this.props.job.created).format('DD.MM.YYYY')}</div>
+                            <div>Last executed: {moment(this.props.job.lastExecuted).format('DD.MM.YYYY HH:ss')}</div>
+                            <div>Last execution status: {this.props.job.lastExecutedStatus}</div>
+                        </div>
+                    }
+                
                     <JobActionPanel
                         job={this.props.job}
-                        delete={() => this.props.delete(this.props.job.id)}/>
+                        save={() => this.props.save(this.props.job)}
+                        delete={() => this.props.delete(this.props.job.id)}
+                        saveLabel={this.props.saveLabel}
+                        deleteLabel={this.props.deleteLabel}
+                    />
                 </Paper>
                 : <div>Could not find job</div>
             }

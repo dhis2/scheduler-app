@@ -10,8 +10,8 @@ import HeaderBarComponent from 'd2-ui/lib/app-header/HeaderBar';
 import headerBarStore$ from 'd2-ui/lib/app-header/headerBar.store';
 import withStateFrom from 'd2-ui/lib/component-helpers/withStateFrom';
 import Heading from 'd2-ui/lib/headings/Heading.component';
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import createHistory from 'history/createBrowserHistory'
+import { Router, Route } from "react-router-dom";
+import history from '../history';
 
 import JobList from 'components/JobList';
 import JobDetails from 'components/JobDetails';
@@ -47,7 +47,7 @@ class ContentLoader extends Component {
     }
 
     render = () => 
-        <Router>
+        <Router history={history}>
             <div style={contentStyle}>
                 <MessagePanel />
                 <HeaderBar />

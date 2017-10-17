@@ -2,8 +2,19 @@ import * as actionTypes from 'constants/actionTypes';
 
 const initialState = {
     all: [],
-    loadingDone: false,
+    loaded: false,
     selected: null,
+    new: {
+        cronExpression: '',
+        type: '',
+        name: '',
+        parameters: [],
+    },
+    configuration: {
+        types: [],
+        statuses: [],
+        parameters: [],
+    },
 };
 
 function jobsReducer(state = initialState, action) {
@@ -12,7 +23,7 @@ function jobsReducer(state = initialState, action) {
             return {
                 ...state,
                 all: action.payload.jobs,
-                loadingDone: true,
+                loaded: true,
             };
 
         case actionTypes.JOB_SELECT:
@@ -22,14 +33,68 @@ function jobsReducer(state = initialState, action) {
             };
 
         case actionTypes.JOB_DELETE_SUCCESS:
-            const deletedJobId = action.payload.id;
             return {
                 ...state,
-                all: state.jobs.filter(job => job.id !== deletedJobId),
+                selected: state.selected === action.payload.id
+                    ? null
+                    : state.selected,
             };
 
         case actionTypes.JOB_DELETE_ERROR:
             return state;
+
+        case actionTypes.CONFIGURATION_LOAD_SUCCESS:
+            return {
+                ...state,
+                configuration: {
+                    types: action.payload.configuration.jobTypes,
+                    statuses: action.payload.configuration.jobStatuses,
+                    parameters: action.payload.configuration.jobParameters,
+                },
+            };
+
+        case actionTypes.EDIT_CLEAR:
+            return {
+                ...state,
+                new: initialState.new,
+            };
+
+        case actionTypes.EDIT_CRON_EXPRESSION:
+            return {
+                ...state,
+                new: {
+                    ...state.new,
+                    cronExpression: action.payload.cronExpression,
+                },
+            }
+
+        case actionTypes.EDIT_NAME:
+            return {
+                ...state,
+                new: {
+                    ...state.new,
+                    name: action.payload.name,
+                },
+            }
+
+        case actionTypes.EDIT_TYPE_SUCCESS:
+            return {
+                ...state,
+                new: {
+                    ...state.new,
+                    type: action.payload.type,
+                    parameters: action.payload.parameters,
+                },
+            };
+
+        case actionTypes.EDIT_PARAMETERS:
+            return {
+                ...state,
+                new: {
+                    ...state.new,
+                    parameters: action.payload.parameters,
+                },
+            };
     }
 
     return state;
