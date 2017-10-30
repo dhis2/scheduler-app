@@ -1,10 +1,11 @@
 import * as actionTypes from 'constants/actionTypes';
+import { parseParameters } from 'api/api';
 
 const initialState = {
     all: [],
     loaded: false,
     selected: null,
-    new: {
+    changes: {
         cronExpression: '',
         type: '',
         name: '',
@@ -30,6 +31,7 @@ function jobsReducer(state = initialState, action) {
             return {
                 ...state,
                 selected: action.payload.id,
+                changes: initialState.changes,
             };
 
         case actionTypes.JOB_DELETE_SUCCESS:
@@ -53,47 +55,35 @@ function jobsReducer(state = initialState, action) {
                 },
             };
 
-        case actionTypes.EDIT_CLEAR:
-            return {
-                ...state,
-                new: initialState.new,
-            };
+        case actionTypes.JOB_EDIT:
+            const field = action.payload.fieldName;
+            if (field === 'type') {
+                const type = action.payload.value;
+                const availableJobParameters = {...state.configuration.parameters[type]};
+                const parameters = parseParameters(availableJobParameters);
 
-        case actionTypes.EDIT_CRON_EXPRESSION:
-            return {
-                ...state,
-                new: {
-                    ...state.new,
-                    cronExpression: action.payload.cronExpression,
-                },
+                return {
+                    ...state,
+                    changes: {
+                        ...state.changes,
+                        type,
+                        parameters,
+                    },
+                };
             }
 
-        case actionTypes.EDIT_NAME:
             return {
                 ...state,
-                new: {
-                    ...state.new,
-                    name: action.payload.name,
-                },
-            }
-
-        case actionTypes.EDIT_TYPE_SUCCESS:
-            return {
-                ...state,
-                new: {
-                    ...state.new,
-                    type: action.payload.type,
-                    parameters: action.payload.parameters,
+                changes: {
+                    ...state.changes,
+                    [field]: action.payload.value,
                 },
             };
 
-        case actionTypes.EDIT_PARAMETERS:
+        case actionTypes.JOB_EDIT_CLEAR:
             return {
                 ...state,
-                new: {
-                    ...state.new,
-                    parameters: action.payload.parameters,
-                },
+                changes: initialState.changes,
             };
     }
 

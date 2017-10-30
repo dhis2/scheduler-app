@@ -41,12 +41,12 @@ class JobDetails extends Component {
     }
 
     onNameChange = (event, value) => {
-        this.props.nameChanged && this.props.nameChanged(value);
+        this.props.editJob("name", value);
     }
 
     onTypeChange = (event, index) => {
         const type = this.props.types[index];
-        this.props.typeChanged && this.props.typeChanged(type);
+        this.props.editJob("type", type);
     }
 
     onCronExpressionChange = (event, newValue) => {
@@ -60,7 +60,7 @@ class JobDetails extends Component {
         });
 
         if (validExp) {
-            this.props.cronExpressionChanged(newValue);
+            this.props.editJob("cronExpression", newValue);
         }
     }
     

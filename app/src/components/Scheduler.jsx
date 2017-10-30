@@ -21,6 +21,8 @@ import MessagePanel from 'components/MessagePanel';
 import { BASE_URL } from 'api/api';
 import * as actionTypes from 'constants/actionTypes';
 
+import d2 from 'd2/lib/d2';
+
 const HeaderBar = withStateFrom(headerBarStore$, HeaderBarComponent);
 
 injectTapEventPlugin();
@@ -39,11 +41,12 @@ const Scheduler = () =>
         </D2UIApp>
     </Provider>;
 
-
 class ContentLoader extends Component {
     componentDidMount = () => {
-        this.props.loadJobs();
-        this.props.loadConfiguration();
+        d2.init({ baseUrl: BASE_URL }).then(() => {
+            this.props.loadJobs();
+            this.props.loadConfiguration();
+        });
     }
 
     render = () => 

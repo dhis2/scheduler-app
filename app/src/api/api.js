@@ -27,7 +27,7 @@ export const getJobs = () =>
 
 export const postJob = job =>
     d2.getInstance()
-        .then(d2 => 
+        .then(d2 =>
             d2.Api.getApi().post('jobConfigurations', {
                 name: job.name,
                 cronExpression: job.cronExpression,
@@ -42,18 +42,11 @@ export const deleteJob = id =>
         .then(result => result)
         .catch(error => { throw error; });
 
-export const getParametersFromType = type => {
-    const state = store.getState().jobs;
-    const availableJobParameters = [...state.configuration.parameters[type]];
-    const parameters = parseParameters(availableJobParameters);
-    return Promise.resolve(parameters);
-}
-
 /*
  * Parse parameter data and types (from API) into a list of 
  * parameters that can be parsed dynamically during rendering.
  */
-const parseParameters = availableJobParameters =>
+export const parseParameters = availableJobParameters =>
     Object.keys(availableJobParameters).map(key => {
             const parameter = availableJobParameters[key];
             const type = klassToType(parameter.klass, parameter.itemKlass)

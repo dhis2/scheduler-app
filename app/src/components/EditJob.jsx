@@ -11,7 +11,12 @@ const enhance = compose(
             const selectedJob = state.jobs.all.find(job => job.id === state.jobs.selected);
             
             return {
-                job: selectedJob,
+                job: selectedJob && {
+                    cronExpression: selectedJob.cronExpression,
+                    name: selectedJob.name,
+                    parameters: null,//selectedJob.jobParameters,
+                    type: selectedJob.jobType,
+                },
                 title: selectedJob ? selectedJob.name : 'Loading ...',
                 loaded: state.jobs.loaded,
                 types: state.jobs.configuration.types,

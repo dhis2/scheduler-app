@@ -7,7 +7,7 @@ import { Observable } from 'rxjs/Observable';
 import history from '../history';
 import * as api from 'api/api';
 
-const loadConfiguration = action$ =>
+const loadConfiguration = action$ => 
     action$.ofType(actions.CONFIGURATION_LOAD).concatMap(action =>
         api.getConfiguration()
             .then(configuration => ({ type: actions.CONFIGURATION_LOAD_SUCCESS, payload: { configuration } }))
@@ -47,22 +47,9 @@ const deleteJob = action$ =>
             })
             .catch(error => ({ type: actions.JOB_DELETE_ERROR, payload: { error } })));
 
-const editType = action$ => 
-    action$.ofType(actions.EDIT_TYPE).concatMap(action =>
-        api.getParametersFromType(action.payload.type)
-            .then(parameters => ({
-                type: actions.EDIT_TYPE_SUCCESS,
-                payload: {
-                    type: action.payload.type,
-                    parameters,
-                },
-            }))
-            .catch(error => ({ type: actions.EDIT_TYPE_ERROR, payload: { error } })));
-
 export default combineEpics(
     loadJobs,
     loadConfiguration,
     addJob,
     deleteJob,
-    editType,
 );

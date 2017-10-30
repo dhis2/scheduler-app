@@ -9,16 +9,14 @@ const enhance = compose(
     connect(
         state => ({
             title: 'Add new job',
-            job: state.jobs.new,
+            job: state.jobs.changes,
             types: state.jobs.configuration.types,
-            parameters: state.jobs.new.parameters,
+            parameters: state.jobs.changes.parameters,
             loaded: state.jobs.loaded,
         }),
         dispatch => ({
             save: job => dispatch({ type: actionTypes.JOB_POST, payload: { job }}),
-            nameChanged: name => dispatch({ type: actionTypes.EDIT_NAME, payload: { name }}),
-            typeChanged: type => dispatch({ type: actionTypes.EDIT_TYPE, payload: { type }}),
-            cronExpressionChanged: cronExpression => dispatch({ type: actionTypes.EDIT_CRON_EXPRESSION, payload: { cronExpression }}),
+            editJob: (fieldName, value) => dispatch({ type: actionTypes.JOB_EDIT, payload:  { fieldName, value }}),
         })
     ),
     withProps(props => ({

@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
 import d2 from 'd2/lib/d2';
+import { compose, lifecycle, pure } from 'recompose';
 import Divider from 'material-ui/Divider';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import FontIcon from 'material-ui/FontIcon';
@@ -59,11 +60,21 @@ const AddButton = () =>
         </FloatingActionButton>
     </div>;
 
-const ConnectedJobList = connect(
-    (state) => ({
-        jobs: state.jobs.all,
+const enhance = compose(
+    connect(
+        (state) => ({
+            jobs: state.jobs.all,
+        }),
+        dispatch => ({
+            clearChanges: () => dispatch({ type: actionTypes.JOB_EDIT_CLEAR }),
+        }),
+    ),
+    lifecycle({
+        componentDidMount() {
+            this.props.clearChanges();
+        }
     }),
-    dispatch => ({}),
-)(JobList);
+    pure,
+);
 
-export default ConnectedJobList;
+export default enhance(JobList);
