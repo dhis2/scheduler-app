@@ -2,19 +2,20 @@ import * as actionTypes from 'constants/actionTypes';
 import { parseParameters } from 'api/api';
 
 const initialState = {
-    all: [],
+    all: [], // TODO: Change to an object map
     loaded: false,
     selected: null,
     changes: {
         cronExpression: '',
         type: '',
         name: '',
-        parameters: [],
+        parameters: null,
     },
     configuration: {
+        loaded: false,
         types: [],
         statuses: [],
-        parameters: [],
+        parameters: {},
     },
 };
 
@@ -28,9 +29,11 @@ function jobsReducer(state = initialState, action) {
             };
 
         case actionTypes.JOB_SELECT:
+            const { id, type, parameters } = action.payload;
+
             return {
                 ...state,
-                selected: action.payload.id,
+                selected: id,
                 changes: initialState.changes,
             };
 
@@ -49,6 +52,7 @@ function jobsReducer(state = initialState, action) {
             return {
                 ...state,
                 configuration: {
+                    loaded: true,
                     types: action.payload.configuration.jobTypes,
                     statuses: action.payload.configuration.jobStatuses,
                     parameters: action.payload.configuration.jobParameters,
@@ -57,20 +61,6 @@ function jobsReducer(state = initialState, action) {
 
         case actionTypes.JOB_EDIT:
             const field = action.payload.fieldName;
-            if (field === 'type') {
-                const type = action.payload.value;
-                const availableJobParameters = {...state.configuration.parameters[type]};
-                const parameters = parseParameters(availableJobParameters);
-
-                return {
-                    ...state,
-                    changes: {
-                        ...state.changes,
-                        type,
-                        parameters,
-                    },
-                };
-            }
 
             return {
                 ...state,
@@ -78,12 +68,6 @@ function jobsReducer(state = initialState, action) {
                     ...state.changes,
                     [field]: action.payload.value,
                 },
-            };
-
-        case actionTypes.JOB_EDIT_CLEAR:
-            return {
-                ...state,
-                changes: initialState.changes,
             };
     }
 

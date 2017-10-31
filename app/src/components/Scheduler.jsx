@@ -27,11 +27,13 @@ const HeaderBar = withStateFrom(headerBarStore$, HeaderBarComponent);
 
 injectTapEventPlugin();
 
-const contentStyle = {
-    paddingTop: '100px',
-    width: '100%',
-    maxWidth: '900px',
-    margin: '0 auto',
+const styles = {
+    content: {
+        paddingTop: '100px',
+        width: '100%',
+        maxWidth: '900px',
+        margin: '0 auto',
+    },
 };
 
 const Scheduler = () => 
@@ -51,7 +53,7 @@ class ContentLoader extends Component {
 
     render = () => 
         <Router history={history}>
-            <div style={contentStyle}>
+            <div style={styles.content}>
                 <MessagePanel />
                 <HeaderBar />
                 <Route exact path="/" component={JobList} />

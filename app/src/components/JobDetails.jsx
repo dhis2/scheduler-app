@@ -45,7 +45,7 @@ class JobDetails extends Component {
     }
 
     onTypeChange = (event, index) => {
-        const type = this.props.types[index];
+        const type = this.props.availableTypes[index];
         this.props.editJob("type", type);
     }
 
@@ -62,6 +62,10 @@ class JobDetails extends Component {
         if (validExp) {
             this.props.editJob("cronExpression", newValue);
         }
+    }
+
+    onParametersChange = value => {
+        this.props.editJob("parameters", value);
     }
     
     renderLastExecutionText = () => {
@@ -90,7 +94,7 @@ class JobDetails extends Component {
                     { this.props.title }
                 </Heading>
             </div>
-            { this.props.loaded && this.props.job ?
+            { this.props.job ?
                 <Paper style={jobDetailsStyle}>
                     <Heading>Attributes</Heading>
                     <TextField
@@ -112,20 +116,20 @@ class JobDetails extends Component {
                         floatingLabelText="Job type"
                         onChange={this.onTypeChange}
                     >
-                        { this.props.types && this.props.types.map(type => 
+                        { this.props.availableTypes.map(type => 
                             <MenuItem key={type} value={type} primaryText={type} />
                         )}
                     </SelectField>
 
-                    { this.props.job.type && this.props.job.parameters &&
-                        <div>
-                            <Heading style={{ paddingTop: 24, paddingBottom: 16 }}>Parameters</Heading>
-                            <JobParameters
-                                parameters={this.props.job.parameters}
-                            />
-                        </div>
+                    { this.props.job.type &&
+                        <JobParameters
+                            type={this.props.job.type}
+                            parameters={this.props.job.parameters}
+                            availableParameters={this.props.availableParameters}
+                            onChange={this.onParametersChange}
+                        />
                     }
-                    
+
                     { this.props.job.lastExecuted &&
                         <div>
                             <Heading style={{ paddingTop: 24, paddingBottom: 16 }}>Details</Heading>
@@ -134,7 +138,7 @@ class JobDetails extends Component {
                             <div>Last execution status: {this.props.job.lastExecutedStatus}</div>
                         </div>
                     }
-                
+
                     <JobActionPanel
                         job={this.props.job}
                         save={() => this.props.save(this.props.job)}

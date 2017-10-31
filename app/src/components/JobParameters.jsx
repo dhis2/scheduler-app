@@ -8,66 +8,111 @@ import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import Paper from 'material-ui/Paper';
 import TimePicker from 'material-ui/TimePicker';
+import { compose, withProps, branch, renderNothing } from 'recompose';
 
 import { paramTypes } from 'constants/paramTypes';
+import { parseParameters } from 'api/api';
 
-class JobParameters extends Component {
-    render() {
-        if (!this.props.parameters || this.props.parameters.length < 1) {
-            return <div>No parameters for this job type.</div>;
+const styles = {
+    header: {
+        paddingTop: 24,
+        paddingBottom: 16,
+    },
+    toggle: { paddingTop: 20, paddingBottom: 20 },
+    timePicker: { width: '100%' },
+};
+
+const JobParameters = props => {
+    const paramKeys = Object.keys(props.parameters);
+    const parametersToRender = paramKeys.map(key => {
+        const param = props.parameters[key];
+        const { label, type } = param.meta;
+
+        // TODO: Handle lists of parameters
+        switch(type) {
+            case paramTypes.INTEGER:
+            case paramTypes.STRING:
+                return (
+                    <TextField
+                        fullWidth
+                        key={key}
+                        value={param.value || ''}
+                        floatingLabelText={label}
+                        type={type === paramTypes.INTEGER ? 'number' : 'text'}
+                        onChange={(event, newValue) => {
+                            props.onParameterChange(key, newValue);
+                        }}
+                    />
+                );
+
+            case paramTypes.BOOLEAN:
+                return (
+                    <Toggle
+                        style={styles.toggle}
+                        key={key}
+                        defaultToggled={param.value}
+                        label={label}
+                        onToggle={(event, newValue) => {
+                            props.onParameterChange(key, newValue);
+                        }}
+                    />
+                );
+
+            case paramTypes.PERIOD: // FIXME
+                return (
+                    <div key={key}>
+                        <Heading level={4}>{label}</Heading>
+                        <TimePicker
+                            textFieldStyle={styles.timePicker}
+                            format="24hr"
+                            hintText="Start time"
+                        />
+                        <TimePicker
+                            textFieldStyle={styles.timePicker}
+                            format="24hr"
+                            hintText="End time"
+                        />
+                    </div>
+                );
+
+            default: return label;
         }
+    });
 
-        const parametersToRender = this.props.parameters.map(param => {
-            // Todo: Render list if param.collection
-            switch(param.type) {
-                case paramTypes.INTEGER:
-                case paramTypes.STRING:
-                    return (
-                        <TextField
-                            fullWidth
-                            key={param.apiName}
-                            defaultValue={param.value}
-                            floatingLabelText={param.label}
-                            type={param.type === paramTypes.INTEGER ? 'number' : 'text'}
-                        />
-                    );
-    
-                case paramTypes.BOOLEAN:
-                    return (
-                        <Toggle
-                            style={{ paddingTop: 20, paddingBottom: 20 }}
-                            key={param.apiName}
-                            defaultToggled={param.value}
-                            label={param.label}
-                            onToggle={() => {}}
-                        />
-                    );
-
-                case paramTypes.PERIOD:
-                    return (
-                        <div key={param.apiName}>
-                            <Heading level={4}>{param.label}</Heading>
-                            <TimePicker
-                                textFieldStyle={{ width: '100%' }}
-                                format="24hr"
-                                hintText="Start time"
-                            />
-                            <TimePicker
-                                textFieldStyle={{ width: '100%' }}
-                                format="24hr"
-                                hintText="End time"
-                            />
-                        </div>
-                    );
-
-                default: return param.label;
-            }
-        });
-    
-        return (
-            <div>{parametersToRender}</div>
-        );
-    }
+    return (
+        <div>
+            <Heading style={styles.header}>
+                Parameters
+            </Heading>
+            {parametersToRender}
+        </div>
+    );
 }
 
-export default JobParameters;
+const noParameters = ({ parameters }) => Object.keys(parameters).length < 1;
+const enhance = compose(
+    withProps(props => {
+        const parameters = parseParameters(
+            props.availableParameters[props.type],
+            props.parameters,
+        );
+
+        const onParameterChange = (fieldName, newValue) => {
+            props.onChange({
+                ...props.parameters,
+                [fieldName]: newValue,
+            })
+        }
+
+        return {
+            parameters,
+            onParameterChange,
+        }
+    }),
+    branch(
+        noParameters,
+        renderNothing,
+    ),
+);
+
+export default enhance(JobParameters);

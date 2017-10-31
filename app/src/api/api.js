@@ -32,7 +32,7 @@ export const postJob = job =>
                 name: job.name,
                 cronExpression: job.cronExpression,
                 jobType: job.type,
-                jobParameters: {},
+                jobParameters: job.parameters,
             }))
         .catch(error => { throw error; });
 
@@ -42,25 +42,36 @@ export const deleteJob = id =>
         .then(result => result)
         .catch(error => { throw error; });
 
+const getValue = (values, field) => values && values[field];
+
 /*
  * Parse parameter data and types (from API) into a list of 
  * parameters that can be parsed dynamically during rendering.
  */
-export const parseParameters = availableJobParameters =>
-    Object.keys(availableJobParameters).map(key => {
+export const parseParameters = (availableJobParameters, setValues) => {
+    let localParameters = {};
+
+    if (availableJobParameters) {
+        Object.keys(availableJobParameters).forEach(key => {
             const parameter = availableJobParameters[key];
             const type = klassToType(parameter.klass, parameter.itemKlass)
-            const value = getDefaultValue(type, parameter.collection);
+            const value = getValue(setValues, parameter.name)
+                       || getDefaultValue(type, parameter.collection);
 
-            return {
-                type,
+            localParameters[parameter.name] = {
                 value,
-                apiName: parameter.name,
-                label: parameter.fieldName || parameter.name,
-                collection: parameter.collection,
-                source: parameter.relativeApiEndpoint,
+                meta: {
+                    type,
+                    label: parameter.fieldName || parameter.name,
+                    collection: parameter.collection,
+                    source: parameter.relativeApiEndpoint,
+                },
             };
         });
+    }
+
+    return localParameters;
+}
 
 const klassToType = (klass, itemKlass) => {
     switch (klass) {

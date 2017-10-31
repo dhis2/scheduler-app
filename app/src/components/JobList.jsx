@@ -65,15 +65,8 @@ const enhance = compose(
         (state) => ({
             jobs: state.jobs.all,
         }),
-        dispatch => ({
-            clearChanges: () => dispatch({ type: actionTypes.JOB_EDIT_CLEAR }),
-        }),
+        dispatch => ({}),
     ),
-    lifecycle({
-        componentDidMount() {
-            this.props.clearChanges();
-        }
-    }),
     pure,
 );
 

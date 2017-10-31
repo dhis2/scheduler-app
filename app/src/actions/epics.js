@@ -1,9 +1,10 @@
 import * as actions from 'constants/actionTypes';
 import { combineEpics } from 'redux-observable';
-import 'rxjs/add/operator/concatMap';
-import 'rxjs/add/operator/concat';
-import 'rxjs/add/observable/of';
-import { Observable } from 'rxjs/Observable';
+import {
+    Observable,
+    concatMap,
+} from 'rxjs';
+
 import history from '../history';
 import * as api from 'api/api';
 
