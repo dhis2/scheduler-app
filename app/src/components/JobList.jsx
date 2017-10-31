@@ -21,7 +21,7 @@ const headerStyle = {
     fontWeight: 600,
 }
 
-const JobList = props =>
+const JobList = ({ jobs, toggleJob }) =>
         <div>
             <Heading style={{ paddingBottom: 16, paddingLeft: 24 }}>
                 Scheduled Jobs
@@ -34,10 +34,11 @@ const JobList = props =>
                     <div style={{ flex: 0, }}>Enabled</div>
                 </div>
                 <Divider />
-                { props.jobs && props.jobs.map((job, index) =>
+                { jobs && jobs.map((job, index) =>
                     <Link key={job.id} to={`edit/${job.id}`}>
                         <JobEntry
                             job={job}
+                            onToggle={toggleJob}
                             first={index === 0}
                         />
                     </Link>
@@ -65,7 +66,9 @@ const enhance = compose(
         (state) => ({
             jobs: state.jobs.all,
         }),
-        dispatch => ({}),
+        dispatch => ({
+            toggleJob: job => dispatch({ type: actionTypes.JOB_SAVE, payload: { job }}),
+        }),
     ),
     pure,
 );

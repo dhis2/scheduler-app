@@ -19,9 +19,10 @@ export const getConfiguration = async () => {
     };
 }
 
+const order = 'enabled:desc,jobStatus,nextExecutionTime';
 export const getJobs = () =>
     d2.getInstance()
-        .then(d2 => d2.Api.getApi().get('jobConfigurations', { fields: '*', order: 'nextExecutionTime' }))
+        .then(d2 => d2.Api.getApi().get('jobConfigurations', { fields: '*', order }))
         .then(result => result.jobConfigurations)
         .catch(error => { throw error; });
 
@@ -34,6 +35,17 @@ export const postJob = job =>
                 jobType: job.type,
                 jobParameters: job.parameters,
             }))
+        .catch(error => { throw error; });
+
+export const saveJob = job =>
+    d2.getInstance()
+        .then(d2 => d2.Api.getApi().update(`jobConfigurations/${job.id}`, {
+            name: job.name,
+            enabled: job.enabled,
+            cronExpression: job.cronExpression,
+            jobType: job.type || job.jobType,
+            jobParameters: job.parameters || job.jobParameters,
+        }))
         .catch(error => { throw error; });
 
 export const deleteJob = id =>

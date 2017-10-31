@@ -22,6 +22,9 @@ const styles = {
     timePicker: { width: '100%' },
 };
 
+const handleParameterEvent = (changeHandler, key) => (event, newValue) =>
+    changeHandler(key, newValue);
+
 const JobParameters = props => {
     const paramKeys = Object.keys(props.parameters);
     const parametersToRender = paramKeys.map(key => {
@@ -39,9 +42,7 @@ const JobParameters = props => {
                         value={param.value || ''}
                         floatingLabelText={label}
                         type={type === paramTypes.INTEGER ? 'number' : 'text'}
-                        onChange={(event, newValue) => {
-                            props.onParameterChange(key, newValue);
-                        }}
+                        onChange={handleParameterEvent(props.onParameterChange, key)}
                     />
                 );
 
@@ -52,9 +53,7 @@ const JobParameters = props => {
                         key={key}
                         defaultToggled={param.value}
                         label={label}
-                        onToggle={(event, newValue) => {
-                            props.onParameterChange(key, newValue);
-                        }}
+                        onToggle={handleParameterEvent(props.onParameterChange, key)}
                     />
                 );
 

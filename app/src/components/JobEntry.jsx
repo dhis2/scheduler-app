@@ -38,7 +38,14 @@ const JobEntry = ({ job, onSelect, onToggle, first }) => {
     const nextExecutionText = nextExecution.format('DD.MM.YYYY HH:SS');
 
     const toggle = (e, value) => {
-        onToggle(value);
+        onToggle({
+            id: job.id,
+            name: job.name,
+            jobType: job.jobType,
+            jobParameters: job.jobParameters,
+            cronExpression: job.cronExpression,
+            enabled: value,
+        });
     }
 
     const toggleClick = event => {

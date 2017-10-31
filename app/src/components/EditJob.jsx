@@ -28,6 +28,7 @@ const enhance = compose(
         },
         dispatch => ({
             select: id => dispatch({ type: actionTypes.JOB_SELECT, payload: { id } }),
+            save: job => dispatch({ type: actionTypes.JOB_SAVE, payload: { job }}),
             delete: id => dispatch({ type: actionTypes.JOB_DELETE, payload: { id }}),
             editJob: (fieldName, value) => dispatch({
                 type: actionTypes.JOB_EDIT, payload: {
@@ -50,9 +51,15 @@ const enhance = compose(
         props => !props.job,
         renderComponent(LoadingJob),
     ),
-    withProps(() => ({
+    withProps(props => ({
         saveLabel: 'Save changes',
         deleteLabel: 'Delete job',
+        save: () => {
+            props.save({
+                ...props.job,
+                ...props.changes,
+            });
+        },
     })),
 );
 

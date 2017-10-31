@@ -26,11 +26,25 @@ function messageReducer(state = initialState, action) {
                 type: POSITIVE,
                 time: moment().format('HH:mm:ss'),
             };
+        
+        case actionTypes.JOB_SAVE_SUCCESS:
+            return {
+                message: 'Successfully updated job',
+                type: POSITIVE,
+                time: moment().format('HH:mm:ss'),
+            };
 
         case actionTypes.JOB_POST_ERROR:
             return {
                 message: 'Could not create job',
                 type: NEGATIVE,
+                time: moment().format('HH:mm:ss'),
+            };
+
+        case actionTypes.JOB_SAVE_ERROR:
+            return {
+                message: 'Could not update job',
+                type: POSITIVE,
                 time: moment().format('HH:mm:ss'),
             };
     }
