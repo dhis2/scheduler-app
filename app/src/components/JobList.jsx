@@ -9,46 +9,61 @@ import FloatingActionButton from 'material-ui/FloatingActionButton';
 import FontIcon from 'material-ui/FontIcon';
 import Heading from 'd2-ui/lib/headings/Heading.component';
 import Paper from 'material-ui/Paper';
+import FlipMove from 'react-flip-move';
 
 import * as actionTypes from 'constants/actionTypes';
 import JobDetails from 'components/JobDetails';
 import JobEntry from 'components/JobEntry';
 
-const headerStyle = {
-    display: 'flex',
-    flexDirection: 'row',
-    padding: 24,
-    fontWeight: 600,
-}
+const styles = {
+    header: {
+        backgroundColor: 'white',
+        display: 'flex',
+        flexDirection: 'row',
+        padding: 24,
+        fontWeight: 600,
+    },
+    paper: { backgroundColor: '#e0e0e0' },
+    entry: { backgroundColor: 'white' },
+};
 
 const JobList = ({ jobs, toggleJob }) =>
         <div>
             <Heading style={{ paddingBottom: 16, paddingLeft: 24 }}>
                 Scheduled Jobs
             </Heading>
-            <Paper>
-                <div style={headerStyle}>
+            <Paper style={styles.paper}>
+                <div style={styles.header}>
                     <div style={{ flex: 10, }}>Name</div>
                     <div style={{ flex: 10, }}>Job Status</div>
                     <div style={{ flex: 10, }}>Next execution</div>
                     <div style={{ flex: 0, }}>Enabled</div>
                 </div>
                 <Divider />
-                { jobs && jobs.map((job, index) =>
-                    <Link key={job.id} to={`edit/${job.id}`}>
-                        <JobEntry
-                            job={job}
-                            onToggle={toggleJob}
-                            first={index === 0}
-                        />
-                    </Link>
-                )}
+                <FlipMove duration={400} enterAnimation={false} easing="ease-out">
+                    { jobs.map((job, index) =>
+                        <LinkedJobEntry key={job.id} job={job} onToggle={toggleJob} first={index === 0} />
+                    )}
+                </FlipMove>
             </Paper>
             <Link to={'add'}>
                 <AddButton />
             </Link>
         </div>;
 
+class LinkedJobEntry extends React.Component {
+    render = () => (
+        <div style={styles.entry}>
+            <Link to={`edit/${this.props.job.id}`}>
+                <JobEntry
+                    job={this.props.job}
+                    onToggle={this.props.onToggle}
+                    first={this.props.index === 0}
+                />
+            </Link>
+        </div>
+    );
+}
 
 const AddButton = () =>
     <div style={{
