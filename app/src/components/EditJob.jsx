@@ -48,7 +48,7 @@ const enhance = compose(
         },
     }),
     branch(
-        props => !props.job,
+        props => !props.job || props.job.id !== props.match.params.id,
         renderComponent(LoadingJob),
     ),
     withProps(props => ({
