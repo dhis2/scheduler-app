@@ -21,7 +21,12 @@ const styles = {
         alignItems: 'center',
     },
     someWeight: { flex: 10 },
-    displayName: { fontSize: 20 },
+    displayName: {
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
+        whiteSpace: 'nowrap',
+        fontSize: 20,
+    },
 }
 
 const JobEntry = ({ job, onSelect, onToggle, first }) => {
