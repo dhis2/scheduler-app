@@ -8,13 +8,13 @@ import LoadingJob from 'components/LoadingJob';
 
 const enhance = compose(
     connect(
-        state => {
-            const selectedJob = state.jobs.all.find(job => job.id === state.jobs.selected);
+        (state, ownProps) => {
+            const selectedJob = state.jobs.all.find(job => job.id === ownProps.match.params.id);
             const changes = state.jobs.changes;
 
             return {
                 job: selectedJob && {
-                    id: state.jobs.selected,
+                    id: selectedJob.id,
                     cronExpression: changes.cronExpression || selectedJob.cronExpression,
                     name: changes.name || selectedJob.name,
                     parameters: changes.parameters || selectedJob.jobParameters,
@@ -39,16 +39,7 @@ const enhance = compose(
         })
     ),
     branch(
-        props => !props.loaded,
-        renderComponent(LoadingJob),
-    ),
-    lifecycle({
-        componentWillMount() {
-            this.props.select(this.props.match.params.id);
-        },
-    }),
-    branch(
-        props => !props.job || props.job.id !== props.match.params.id,
+        props => !props.loaded || !props.job,
         renderComponent(LoadingJob),
     ),
     withProps(props => ({
