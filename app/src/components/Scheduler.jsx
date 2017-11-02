@@ -12,6 +12,7 @@ import withStateFrom from 'd2-ui/lib/component-helpers/withStateFrom';
 import Heading from 'd2-ui/lib/headings/Heading.component';
 import { Router, Route } from "react-router-dom";
 import history from '../history';
+import { compose, lifecycle, pure } from 'recompose';
 
 import JobList from 'components/JobList';
 import JobDetails from 'components/JobDetails';
@@ -36,40 +37,42 @@ const styles = {
     },
 };
 
+let ContentLoader = () => (
+    <Router history={history}>
+        <div style={styles.content}>
+            <MessagePanel />
+            <HeaderBar />
+            <Route exact path="/" component={JobList} />
+            <Route path="/edit/:id" component={EditJob} />
+            <Route path="/add" component={AddJob} />
+        </div>
+    </Router>
+);
+
+ContentLoader = compose(
+    connect(
+        () => ({}),
+        dispatch => ({
+            loadJobs: () => dispatch({ type: actionTypes.JOBS_LOAD }),
+            loadConfiguration: () => dispatch({ type: actionTypes.CONFIGURATION_LOAD }),
+        }),
+    ),
+    lifecycle({
+        componentWillMount() {
+            d2.init({ baseUrl: BASE_URL }).then(() => {
+                this.props.loadJobs();
+                this.props.loadConfiguration();
+            });
+        },
+    }),
+    pure,
+)(ContentLoader);
+
 const Scheduler = () => 
     <Provider store={store}>
         <D2UIApp initConfig={{ baseUrl: BASE_URL }} muiTheme={theme}>
-            <ConnectedContentLoader />
+            <ContentLoader />
         </D2UIApp>
     </Provider>;
-
-class ContentLoader extends Component {
-    componentDidMount = () => {
-        d2.init({ baseUrl: BASE_URL }).then(() => {
-            this.props.loadJobs();
-            this.props.loadConfiguration();
-        });
-    }
-
-    render = () => 
-        <Router history={history}>
-            <div style={styles.content}>
-                <MessagePanel />
-                <HeaderBar />
-                <Route exact path="/" component={JobList} />
-                <Route path="/edit/:id" component={EditJob} />
-                <Route path="/add" component={AddJob} />
-            </div>
-        </Router>;
-}
-
-const ConnectedContentLoader = connect(
-    state => ({}),
-    dispatch => ({
-        loadJobs: () => dispatch({ type: actionTypes.JOBS_LOAD }),
-        loadConfiguration: () => dispatch({ type: actionTypes.CONFIGURATION_LOAD }),
-    }),
-)(ContentLoader);
-
 
 export default Scheduler;

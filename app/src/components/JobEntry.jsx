@@ -7,25 +7,21 @@ import moment from 'moment';
 
 import d2 from 'd2/lib/d2';
 
-const listEntryStyle = {
-    color: 'black',
-    cursor: 'pointer',
-    paddingLeft: 24,
-    paddingRight: 24,
-    height: 60,
-    display: 'flex',
-    flexDirection: 'row',
-    fontSize: 14,
-    justifyContent: 'space-between',
-    alignItems: 'center',
-}
-
-const someWeight = {
-    flex: 10,
-}
-
-const displayNameStyle = {
-    fontSize: 20,
+const styles = {
+    listEntry: {
+        color: 'black',
+        cursor: 'pointer',
+        paddingLeft: 24,
+        paddingRight: 24,
+        height: 60,
+        display: 'flex',
+        flexDirection: 'row',
+        fontSize: 14,
+        justifyContent: 'space-between',
+        alignItems: 'center',
+    },
+    someWeight: { flex: 10 },
+    displayName: { fontSize: 20 },
 }
 
 const JobEntry = ({ job, onSelect, onToggle, first }) => {
@@ -54,10 +50,10 @@ const JobEntry = ({ job, onSelect, onToggle, first }) => {
     }
 
     return (
-        <div onClick={onSelect} style={{...listEntryStyle, borderTop: first ? '' : '1px solid lightgray'}}>
-            <div style={{...displayNameStyle, ...someWeight }}>{job.displayName}</div>
-            <div style={someWeight}>{job.jobStatus}</div>
-            <div style={someWeight}>{nextExecutionText}</div>
+        <div onClick={onSelect} style={{...styles.listEntry, borderTop: first ? '' : '1px solid lightgray'}}>
+            <div style={{...styles.displayName, ...styles.someWeight }}>{job.displayName}</div>
+            <div style={styles.someWeight}>{job.jobStatus}</div>
+            <div style={styles.someWeight}>{nextExecutionText}</div>
             <div><Toggle toggled={job.enabled} onToggle={toggle} onClick={toggleClick} /></div>
         </div>
     );
