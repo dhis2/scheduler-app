@@ -4,7 +4,6 @@ import { parseParameters } from 'api/api';
 const initialState = {
     all: [], // TODO: Change to an object map
     loaded: false,
-    selected: null,
     changes: {
         cronExpression: '',
         type: '',
@@ -28,35 +27,10 @@ function jobsReducer(state = initialState, action) {
                 loaded: true,
             };
 
-        case actionTypes.JOB_SELECT:
-            const { id, type, parameters } = action.payload;
-
+        case actionTypes.JOB_DISCARD:
             return {
                 ...state,
-                selected: id,
                 changes: initialState.changes,
-            };
-
-        case actionTypes.JOB_DELETE_SUCCESS:
-            return {
-                ...state,
-                selected: state.selected === action.payload.id
-                    ? null
-                    : state.selected,
-            };
-
-        case actionTypes.JOB_DELETE_ERROR:
-            return state;
-
-        case actionTypes.CONFIGURATION_LOAD_SUCCESS:
-            return {
-                ...state,
-                configuration: {
-                    loaded: true,
-                    types: action.payload.configuration.jobTypes,
-                    statuses: action.payload.configuration.jobStatuses,
-                    parameters: action.payload.configuration.jobParameters,
-                },
             };
 
         case actionTypes.JOB_EDIT:
@@ -67,6 +41,17 @@ function jobsReducer(state = initialState, action) {
                 changes: {
                     ...state.changes,
                     [field]: action.payload.value,
+                },
+            };
+
+        case actionTypes.CONFIGURATION_LOAD_SUCCESS:
+            return {
+                ...state,
+                configuration: {
+                    loaded: true,
+                    types: action.payload.configuration.jobTypes,
+                    statuses: action.payload.configuration.jobStatuses,
+                    parameters: action.payload.configuration.jobParameters,
                 },
             };
     }

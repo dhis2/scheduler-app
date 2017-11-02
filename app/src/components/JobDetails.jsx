@@ -99,13 +99,13 @@ class JobDetails extends Component {
                     <Heading>Attributes</Heading>
                     <TextField
                         fullWidth
-                        defaultValue={this.props.job.name}
+                        value={this.props.job.name}
                         floatingLabelText="Name"
                         onChange={this.onNameChange}
                     />
                     <TextField
                         fullWidth
-                        defaultValue={this.props.job.cronExpression}
+                        value={this.props.job.cronExpression}
                         floatingLabelText="Cron expression"
                         onChange={this.onCronExpressionChange}
                         errorText={this.state.cronExpressionErrorMessage}

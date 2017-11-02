@@ -9,25 +9,25 @@ import LoadingJob from 'components/LoadingJob';
 const enhance = compose(
     connect(
         (state, ownProps) => {
-            const selectedJob = state.jobs.all.find(job => job.id === ownProps.match.params.id);
+            const currentJob = state.jobs.all.find(job => job.id === ownProps.match.params.id);
             const changes = state.jobs.changes;
 
             return {
-                job: selectedJob && {
-                    id: selectedJob.id,
-                    cronExpression: changes.cronExpression || selectedJob.cronExpression,
-                    name: changes.name || selectedJob.name,
-                    parameters: changes.parameters || selectedJob.jobParameters,
-                    type: changes.type || selectedJob.jobType,
+                job: currentJob && {
+                    id: currentJob.id,
+                    cronExpression: changes.cronExpression || currentJob.cronExpression,
+                    name: changes.name || currentJob.name,
+                    parameters: changes.parameters || currentJob.jobParameters,
+                    type: changes.type || currentJob.jobType,
                 },
-                title: selectedJob && selectedJob.name,
+                title: currentJob && currentJob.name,
                 loaded: state.jobs.loaded && state.jobs.configuration.loaded,
                 availableTypes: state.jobs.configuration.types,
                 availableParameters: state.jobs.configuration.parameters,
             };
         },
         dispatch => ({
-            select: id => dispatch({ type: actionTypes.JOB_SELECT, payload: { id } }),
+            discard: id => dispatch({ type: actionTypes.JOB_DISCARD }),
             save: job => dispatch({ type: actionTypes.JOB_SAVE, payload: { job }}),
             delete: id => dispatch({ type: actionTypes.JOB_DELETE, payload: { id }}),
             editJob: (fieldName, value) => dispatch({
@@ -42,6 +42,11 @@ const enhance = compose(
         props => !props.loaded || !props.job,
         renderComponent(LoadingJob),
     ),
+    lifecycle({
+        componentWillUnmount() {
+            this.props.discard();
+        },
+    }),
     withProps(props => ({
         saveLabel: 'Save changes',
         deleteLabel: 'Delete job',
