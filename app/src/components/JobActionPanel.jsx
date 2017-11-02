@@ -4,15 +4,16 @@ import FlatButton from 'material-ui/FlatButton';
 import FontIcon from 'material-ui/FontIcon';
 import Dialog from 'material-ui/Dialog';
 
-const deleteButtonStyle = {
-    backgroundColor: 'tomato',
-}
-
-const buttonPanelStyle = {
-    marginTop: 24,
-    display: 'flex',
-    justifyContent: 'flex-end',
-    alignItems: 'center',
+const styles = {
+    deleteButton: {
+        backgroundColor: 'tomato',
+    },
+    buttonPanel: {
+        marginTop: 24,
+        display: 'flex',
+        justifyContent: 'flex-end',
+        alignItems: 'center',
+    },
 }
 
 class JobActionPanel extends Component {
@@ -50,12 +51,12 @@ class JobActionPanel extends Component {
                 keyboardFocused={true}
                 style={{ marginLeft: 16 }}
                 onClick={this.confirmDelete}
-                buttonStyle={deleteButtonStyle}
+                buttonStyle={styles.deleteButton}
             />
         ];
 
         return (
-            <div style={buttonPanelStyle}>
+            <div style={styles.buttonPanel}>
                 <Dialog
                     title={`Are you sure you want to delete "${this.props.job.name}"?`}
                     actions={deleteDialogActions}
@@ -72,7 +73,7 @@ class JobActionPanel extends Component {
                     <RaisedButton
                         primary
                         style={{ marginLeft: 16 }}
-                        buttonStyle={deleteButtonStyle}
+                        buttonStyle={styles.deleteButton}
                         label={this.props.deleteLabel}
                         icon={<FontIcon className="material-icons">delete_forever</FontIcon>}
                         onClick={this.openDeleteConfirmationDialog}

@@ -4,7 +4,7 @@ import { compose, withProps, lifecycle, branch, renderComponent} from 'recompos
 
 import * as actionTypes from 'constants/actionTypes';
 import JobDetails from 'components/JobDetails';
-import LoadingJob from 'components/LoadingJob';
+import Loading from 'components/Loading';
 
 const enhance = compose(
     connect(
@@ -23,7 +23,7 @@ const enhance = compose(
     ),
     branch(
         props => !props.loaded,
-        renderComponent(LoadingJob),
+        renderComponent(Loading),
     ),
     lifecycle({
         componentWillUnmount() {

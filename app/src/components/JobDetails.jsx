@@ -20,19 +20,27 @@ import JobActionPanel from 'components/JobActionPanel';
 import JobParameters from 'components/JobParameters';
 import { paramTypes } from 'constants/paramTypes';
 
-const jobDetailsStyle = {
-    padding: 24,
-};
-
-const validCronExpression = exp => {
-    return exp.trim().match(cronExpressionRegex);
-}
-
 const styles = {
+    jobDetails: {
+        padding: 24,
+    },
     mediumIcon: {
         width: 48,
         height: 48,
     },
+    header: {
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    detailsHeader: {
+        paddingTop: 24,
+        paddingBottom: 16,
+    }
+};
+
+const validCronExpression = exp => {
+    return exp.trim().match(cronExpressionRegex);
 }
 
 class JobDetails extends Component {
@@ -77,16 +85,9 @@ class JobDetails extends Component {
 
     render = () => (
         <div>
-            <div style={{
-                display: 'flex',
-                flexDirection: 'row',
-                alignItems: 'center',
-            }}>
+            <div style={styles.header}>
                 <Link to="/">
-                    <IconButton
-                        iconStyle={styles.mediumIcon}
-                        style={styles.mediumIcon}
-                    >
+                    <IconButton iconStyle={styles.mediumIcon} style={styles.mediumIcon}>
                         <FontIcon className="material-icons">arrow_back</FontIcon>
                     </IconButton>
                 </Link>
@@ -95,7 +96,7 @@ class JobDetails extends Component {
                 </Heading>
             </div>
             { this.props.job ?
-                <Paper style={jobDetailsStyle}>
+                <Paper style={styles.jobDetails}>
                     <Heading>Attributes</Heading>
                     <TextField
                         fullWidth
@@ -132,7 +133,7 @@ class JobDetails extends Component {
 
                     { this.props.job.lastExecuted &&
                         <div>
-                            <Heading style={{ paddingTop: 24, paddingBottom: 16 }}>Details</Heading>
+                            <Heading style={styles.detailsHeader}>Details</Heading>
                             <div>Job created on: {moment(this.props.job.created).format('DD.MM.YYYY')}</div>
                             <div>Last executed: {moment(this.props.job.lastExecuted).format('DD.MM.YYYY HH:ss')}</div>
                             <div>Last execution status: {this.props.job.lastExecutedStatus}</div>
