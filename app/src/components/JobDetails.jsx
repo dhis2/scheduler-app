@@ -18,15 +18,13 @@ import * as actionTypes from 'constants/actionTypes';
 import cronExpressionRegex from 'constants/cronExp';
 import JobActionPanel from 'components/JobActionPanel';
 import JobParameters from 'components/JobParameters';
+import ConditionalIconButton from 'components/ConditionalIconButton';
 import { paramTypes } from 'constants/paramTypes';
+import history from '../history';
 
 const styles = {
     jobDetails: {
         padding: 24,
-    },
-    mediumIcon: {
-        width: 48,
-        height: 48,
     },
     header: {
         display: 'flex',
@@ -83,14 +81,19 @@ class JobDetails extends Component {
         );
     }
 
+    discardChanges = () => {
+        history.replace('/');
+    }
+
     render = () => (
         <div>
             <div style={styles.header}>
-                <Link to="/">
-                    <IconButton iconStyle={styles.mediumIcon} style={styles.mediumIcon}>
-                        <FontIcon className="material-icons">arrow_back</FontIcon>
-                    </IconButton>
-                </Link>
+                <ConditionalIconButton
+                    icon="arrow_back"
+                    showConfirmation={this.props.dirty}
+                    confirmationMessage={'Are you sure you want to discard your changes?'}
+                    onConfirm={this.discardChanges}
+                />
                 <Heading style={{ paddingBottom: 16, paddingLeft: 24 }}>
                     { this.props.title }
                 </Heading>
@@ -142,6 +145,7 @@ class JobDetails extends Component {
 
                     <JobActionPanel
                         job={this.props.job}
+                        dirty={this.props.dirty}
                         save={() => this.props.save(this.props.job)}
                         delete={() => this.props.delete(this.props.job.id)}
                         saveLabel={this.props.saveLabel}

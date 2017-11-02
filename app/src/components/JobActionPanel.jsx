@@ -65,6 +65,7 @@ class JobActionPanel extends Component {
                 />
                 <RaisedButton
                     primary
+                    disabled={!this.props.dirty}
                     label={this.props.saveLabel}
                     onClick={this.props.save}
                     icon={<FontIcon className="material-icons">cloud_upload</FontIcon>}

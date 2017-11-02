@@ -4,6 +4,7 @@ import { parseParameters } from 'api/api';
 const initialState = {
     all: [], // TODO: Change to an object map
     loaded: false,
+    dirty: false,
     changes: {
         cronExpression: '',
         type: '',
@@ -31,6 +32,7 @@ function jobsReducer(state = initialState, action) {
             return {
                 ...state,
                 changes: initialState.changes,
+                dirty: false,
             };
 
         case actionTypes.JOB_EDIT:
@@ -38,6 +40,7 @@ function jobsReducer(state = initialState, action) {
 
             return {
                 ...state,
+                dirty: true,
                 changes: {
                     ...state.changes,
                     [field]: action.payload.value,
