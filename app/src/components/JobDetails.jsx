@@ -65,9 +65,7 @@ class JobDetails extends Component {
                 ? '' : 'Invalid cron expression',
         });
 
-        if (validExp) {
-            this.props.editJob("cronExpression", newValue);
-        }
+        this.props.editJob("cronExpression", newValue);
     }
 
     onParametersChange = value => {

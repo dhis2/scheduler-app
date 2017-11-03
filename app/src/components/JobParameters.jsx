@@ -22,16 +22,15 @@ const styles = {
     timePicker: { width: '100%' },
 };
 
-const handleParameterEvent = (changeHandler, key) => (event, newValue) =>
-    changeHandler(key, newValue);
+const handleParameterEvent = (changeHandler, key, collection) => (event, newValue) =>
+    changeHandler(key, newValue, collection);
 
 const JobParameters = props => {
     const paramKeys = Object.keys(props.parameters);
     const parametersToRender = paramKeys.map(key => {
         const param = props.parameters[key];
-        const { label, type } = param.meta;
+        const { label, type, collection, source } = param.meta;
 
-        // TODO: Handle lists of parameters
         switch(type) {
             case paramTypes.INTEGER:
             case paramTypes.STRING:
@@ -40,9 +39,9 @@ const JobParameters = props => {
                         fullWidth
                         key={key}
                         value={param.value || ''}
-                        floatingLabelText={label}
+                        floatingLabelText={collection ? `${label} (separated by comma)` : label}
                         type={type === paramTypes.INTEGER ? 'number' : 'text'}
-                        onChange={handleParameterEvent(props.onParameterChange, key)}
+                        onChange={handleParameterEvent(props.onParameterChange, key, collection)}
                     />
                 );
 
@@ -53,7 +52,7 @@ const JobParameters = props => {
                         key={key}
                         defaultToggled={param.value}
                         label={label}
-                        onToggle={handleParameterEvent(props.onParameterChange, key)}
+                        onToggle={handleParameterEvent(props.onParameterChange, key, collection)}
                     />
                 );
 
@@ -96,11 +95,14 @@ const enhance = compose(
             props.parameters,
         );
 
-        const onParameterChange = (fieldName, newValue) => {
+        const separateByComma = value => value.split(',').map(s => s.trim());
+        const onParameterChange = (fieldName, newValue, collection) => {
             props.onChange({
                 ...props.parameters,
-                [fieldName]: newValue,
-            })
+                [fieldName]: collection
+                    ? separateByComma(newValue)
+                    : newValue,
+            });
         }
 
         return {
