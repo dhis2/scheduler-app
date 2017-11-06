@@ -18,7 +18,7 @@ const styles = {
 
 class JobActionPanel extends Component {
     state = { deleteDialogOpen: false }
-    toggleDeleteDialog = open => () => {
+    toggleDeleteDialog = open  => {
         this.setState({
             deleteDialogOpen: open,
         });
@@ -58,7 +58,7 @@ class JobActionPanel extends Component {
                 />
                 <RaisedButton
                     primary
-                    disabled={this.props.disableSave}
+                    disabled={!this.props.saveEnabled}
                     label={this.props.saveLabel}
                     onClick={this.props.save}
                     icon={<FontIcon className="material-icons">cloud_upload</FontIcon>}

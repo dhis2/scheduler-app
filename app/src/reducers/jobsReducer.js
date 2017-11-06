@@ -6,9 +6,6 @@ const initialState = {
     loaded: false,
     dirty: false,
     changes: {
-        cronExpression: null,
-        type: '',
-        name: null,
         parameters: null,
     },
     configuration: {

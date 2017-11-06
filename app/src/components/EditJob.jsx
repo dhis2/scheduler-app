@@ -6,7 +6,7 @@ import * as actionTypes from 'constants/actionTypes';
 import JobDetails from 'components/JobDetails';
 import Loading from 'components/Loading';
 
-const showChanges = (change, fallback) => change === null ? fallback : change;
+const isString = value => typeof(value) == 'string';
 
 const enhance = compose(
     connect(
@@ -17,9 +17,11 @@ const enhance = compose(
             return {
                 job: currentJob && {
                     id: currentJob.id,
-                    cronExpression: changes.cronExpression || currentJob.cronExpression,
-                    name: showChanges(changes.name, currentJob.name),
-                    parameters: showChanges(changes.parameters, currentJob.jobParameters),
+                    cronExpression: isString(changes.cronExpression)
+                        ? changes.cronExpression
+                        : currentJob.cronExpression,
+                    name: isString(changes.name) ? changes.name : currentJob.name,
+                    parameters: changes.parameters || currentJob.jobParameters,
                     type: changes.type || currentJob.jobType,
                 },
                 title: currentJob && currentJob.name,

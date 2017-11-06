@@ -39,44 +39,42 @@ const styles = {
 
 const validCronExpression = exp =>
     exp.trim().match(cronExpressionRegex) !== null;
-    
-const validName = value =>
-    value && value.length > 1;
 
-class JobDetails extends Component {
-    state = {
-        errors: {
-            name: '',
-            cronExpression: '',
-        },
+const validateFields = values => {
+    let errors = {};
+
+    if (!values.name) {
+        errors.name = 'Required';
+    } else if (values.name.length < 2) {
+        errors.name = 'Must be of two or more characters';
     }
 
-    validateAndSave = () => {
-        const nameValid = this.validateName();
-        const cronValid = this.validateCronExpression();
-        if (!nameValid || !cronValid) return;
+    if (!values.cronExpression) {
+        errors.cronExpression = 'Required';
+    } else if (!validCronExpression(values.cronExpression)) {
+        errors.cronExpression = 'Invalid cron expression';
+    }
 
+    return errors;
+}
+
+class JobDetails extends Component {
+    state = { isValid: true, errors: {} }
+    componentWillReceiveProps = (nextProps) => {
+        if (this.props.job !== nextProps.job) {
+            const errors = validateFields(nextProps.job);
+            this.setState({
+                isValid: Object.keys(errors).length === 0,
+                errors,
+            });
+        }
+    }
+
+    onSubmit = () => {
         this.props.save(this.props.job);
     }
 
-    validateField = (fieldName, validator, errorMessage, value) => {
-        const newValue = value || this.props.job[fieldName];
-        const newValueIsValid = validator(newValue);
-        this.setState({
-            errors: {
-                ...this.state.errors,
-                [fieldName]: newValueIsValid ? '' : errorMessage,
-            },
-        });
-
-        return newValueIsValid;
-    }
-
-    validateName = value => { this.validateField('name', validName, 'Name is required', value); }
-    validateCronExpression = value => { this.validateField('cronExpression', validCronExpression, 'Cron expression is not valid', value); }
-
     onNameChange = (event, value) => {
-        this.validateName(value);
         this.props.editJob("name", value);
     }
 
@@ -86,7 +84,6 @@ class JobDetails extends Component {
     }
 
     onCronExpressionChange = (event, newValue) => {
-        this.validateCronExpression(newValue);
         this.props.editJob("cronExpression", newValue);
     }
 
@@ -166,8 +163,8 @@ class JobDetails extends Component {
 
                     <JobActionPanel
                         job={this.props.job}
-                        disableSave={!this.props.dirty}
-                        save={this.validateAndSave}
+                        save={this.onSubmit}
+                        saveEnabled={this.props.dirty && this.state.isValid}
                         delete={() => this.props.delete(this.props.job.id)}
                         saveLabel={this.props.saveLabel}
                         deleteLabel={this.props.deleteLabel}
