@@ -37,16 +37,46 @@ const styles = {
     }
 };
 
-const validCronExpression = exp => {
-    return exp.trim().match(cronExpressionRegex);
-}
+const validCronExpression = exp =>
+    exp.trim().match(cronExpressionRegex) !== null;
+    
+const validName = value =>
+    value && value.length > 1;
 
 class JobDetails extends Component {
     state = {
-        cronExpressionErrorMessage: '',
+        errors: {
+            name: '',
+            cronExpression: '',
+        },
     }
 
+    validateAndSave = () => {
+        const nameValid = this.validateName();
+        const cronValid = this.validateCronExpression();
+        if (!nameValid || !cronValid) return;
+
+        this.props.save(this.props.job);
+    }
+
+    validateField = (fieldName, validator, errorMessage, value) => {
+        const newValue = value || this.props.job[fieldName];
+        const newValueIsValid = validator(newValue);
+        this.setState({
+            errors: {
+                ...this.state.errors,
+                [fieldName]: newValueIsValid ? '' : errorMessage,
+            },
+        });
+
+        return newValueIsValid;
+    }
+
+    validateName = value => { this.validateField('name', validName, 'Name is required', value); }
+    validateCronExpression = value => { this.validateField('cronExpression', validCronExpression, 'Cron expression is not valid', value); }
+
     onNameChange = (event, value) => {
+        this.validateName(value);
         this.props.editJob("name", value);
     }
 
@@ -56,15 +86,7 @@ class JobDetails extends Component {
     }
 
     onCronExpressionChange = (event, newValue) => {
-        if (newValue === '') return;
-
-        const validExp = validCronExpression(newValue);
-
-        this.setState({
-            cronExpressionErrorMessage: validExp
-                ? '' : 'Invalid cron expression',
-        });
-
+        this.validateCronExpression(newValue);
         this.props.editJob("cronExpression", newValue);
     }
 
@@ -104,13 +126,14 @@ class JobDetails extends Component {
                         value={this.props.job.name}
                         floatingLabelText="Name"
                         onChange={this.onNameChange}
+                        errorText={this.state.errors.name}
                     />
                     <TextField
                         fullWidth
                         value={this.props.job.cronExpression}
                         floatingLabelText="Cron expression"
                         onChange={this.onCronExpressionChange}
-                        errorText={this.state.cronExpressionErrorMessage}
+                        errorText={this.state.errors.cronExpression}
                     />
                     <SelectField
                         fullWidth
@@ -143,8 +166,8 @@ class JobDetails extends Component {
 
                     <JobActionPanel
                         job={this.props.job}
-                        dirty={this.props.dirty}
-                        save={() => this.props.save(this.props.job)}
+                        disableSave={!this.props.dirty}
+                        save={this.validateAndSave}
                         delete={() => this.props.delete(this.props.job.id)}
                         saveLabel={this.props.saveLabel}
                         deleteLabel={this.props.deleteLabel}

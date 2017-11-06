@@ -6,6 +6,8 @@ import * as actionTypes from 'constants/actionTypes';
 import JobDetails from 'components/JobDetails';
 import Loading from 'components/Loading';
 
+const showChanges = (change, fallback) => change === null ? fallback : change;
+
 const enhance = compose(
     connect(
         (state, ownProps) => {
@@ -16,8 +18,8 @@ const enhance = compose(
                 job: currentJob && {
                     id: currentJob.id,
                     cronExpression: changes.cronExpression || currentJob.cronExpression,
-                    name: changes.name || currentJob.name,
-                    parameters: changes.parameters || currentJob.jobParameters,
+                    name: showChanges(changes.name, currentJob.name),
+                    parameters: showChanges(changes.parameters, currentJob.jobParameters),
                     type: changes.type || currentJob.jobType,
                 },
                 title: currentJob && currentJob.name,

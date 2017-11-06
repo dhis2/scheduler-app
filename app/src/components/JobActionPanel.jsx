@@ -17,24 +17,18 @@ const styles = {
 }
 
 class JobActionPanel extends Component {
-    state = {
-        deleteDialogOpen: false,
-    }
-
-    openDeleteConfirmationDialog = () => {
+    state = { deleteDialogOpen: false }
+    toggleDeleteDialog = open => () => {
         this.setState({
-            deleteDialogOpen: true,
+            deleteDialogOpen: open,
         });
     }
 
-    closeDeleteConfirmationDialog = () => {
-        this.setState({
-            deleteDialogOpen: false,
-        });
-    }
+    closeDeleteDialog = () => { this.toggleDeleteDialog(false); }
+    openDeleteDialog = () => { this.toggleDeleteDialog(true); }
 
     confirmDelete = () => {
-        this.closeDeleteConfirmationDialog();
+        this.closeDeleteDialog();
         this.props.delete();
     }
 
@@ -43,12 +37,11 @@ class JobActionPanel extends Component {
             <FlatButton
                 label="Cancel"
                 primary={true}
-                onClick={this.closeDeleteConfirmationDialog}
+                onClick={this.closeDeleteDialog}
             />,
             <RaisedButton
                 primary
                 label="Submit"
-                keyboardFocused={true}
                 style={{ marginLeft: 16 }}
                 onClick={this.confirmDelete}
                 buttonStyle={styles.deleteButton}
@@ -61,11 +54,11 @@ class JobActionPanel extends Component {
                     title={`Are you sure you want to delete "${this.props.job.name}"?`}
                     actions={deleteDialogActions}
                     open={this.state.deleteDialogOpen}
-                    onRequestClose={this.closeDeleteConfirmationDialog}
+                    onRequestClose={this.closeDeleteDialog}
                 />
                 <RaisedButton
                     primary
-                    disabled={!this.props.dirty}
+                    disabled={this.props.disableSave}
                     label={this.props.saveLabel}
                     onClick={this.props.save}
                     icon={<FontIcon className="material-icons">cloud_upload</FontIcon>}
@@ -77,7 +70,7 @@ class JobActionPanel extends Component {
                         buttonStyle={styles.deleteButton}
                         label={this.props.deleteLabel}
                         icon={<FontIcon className="material-icons">delete_forever</FontIcon>}
-                        onClick={this.openDeleteConfirmationDialog}
+                        onClick={this.openDeleteDialog}
                     />
                 }
             </div>
