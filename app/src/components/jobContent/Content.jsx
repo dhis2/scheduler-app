@@ -3,15 +3,8 @@ import { connect } from 'react-redux';
 import Heading from 'd2-ui/lib/headings/Heading.component';
 import { Link } from 'react-router-dom'
 import TextField from 'material-ui/TextField';
-import RaisedButton from 'material-ui/RaisedButton';
-import FlatButton from 'material-ui/FlatButton';
-import FontIcon from 'material-ui/FontIcon';
-import IconButton from 'material-ui/IconButton';
-import Toggle from 'material-ui/Toggle';
-import SelectField from 'material-ui/SelectField';
-import MenuItem from 'material-ui/MenuItem';
-import Dialog from 'material-ui/Dialog';
 import Paper from 'material-ui/Paper';
+import AutoComplete from 'material-ui/AutoComplete';
 import moment from 'moment';
 
 import * as actionTypes from 'constants/actionTypes';
@@ -78,7 +71,7 @@ class Content extends Component {
         this.props.editJob("name", value);
     }
 
-    onTypeChange = (event, index) => {
+    onTypeChange = index => {
         const type = this.props.availableTypes[index];
         this.props.editJob("type", type);
     }
@@ -132,16 +125,19 @@ class Content extends Component {
                         onChange={this.onCronExpressionChange}
                         errorText={this.state.errors.cronExpression}
                     />
-                    <SelectField
+                    <AutoComplete
                         fullWidth
-                        value={this.props.job.type}
+                        searchText={this.props.job.type || undefined}
+                        dataSource={this.props.availableTypes}
                         floatingLabelText="Job type"
-                        onChange={this.onTypeChange}
-                    >
-                        { this.props.availableTypes.map(type => 
-                            <MenuItem key={type} value={type} primaryText={type} />
-                        )}
-                    </SelectField>
+                        hintText={this.props.job.type}
+                        filter={AutoComplete.fuzzyFilter}
+                        onNewRequest={(_, index) => {
+                            if (index !== -1) {
+                                this.onTypeChange(index);
+                            }
+                        }}
+                    />
 
                     { this.props.job.type &&
                         <Parameters
