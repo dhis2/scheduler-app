@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import JobDetails from 'components/JobDetails';
+import Content from 'components/jobContent/Content';
 import FontIcon from 'material-ui/FontIcon';
 import Checkbox from 'material-ui/Checkbox';
 import Toggle from 'material-ui/Toggle';
@@ -29,14 +29,14 @@ const styles = {
     },
 }
 
-const JobEntry = ({ job, onSelect, onToggle, first }) => {
+const Entry = ({ job, onSelect, onToggle, first }) => {
     const enabledStatusStyle = {
         fontWeight: '600',
         color: job.enabled ? 'mediumseagreen' : 'tomato',
     };
 
     const nextExecution = moment(job.nextExecutionTime);
-    const nextExecutionText = nextExecution.format('DD.MM.YYYY HH:SS');
+    const nextExecutionText = nextExecution.format('DD.MM.YYYY HH:mm');
 
     const toggle = (e, value) => {
         onToggle({
@@ -64,4 +64,4 @@ const JobEntry = ({ job, onSelect, onToggle, first }) => {
     );
 }
 
-export default JobEntry;
+export default Entry;

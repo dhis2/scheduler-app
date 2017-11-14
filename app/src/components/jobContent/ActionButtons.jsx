@@ -16,7 +16,7 @@ const styles = {
     },
 }
 
-class JobActionPanel extends Component {
+class ActionButtons extends Component {
     state = { deleteDialogOpen: false }
     toggleDeleteDialog = open  => {
         this.setState({
@@ -78,4 +78,4 @@ class JobActionPanel extends Component {
     }
 }
 
-export default JobActionPanel;
+export default ActionButtons;

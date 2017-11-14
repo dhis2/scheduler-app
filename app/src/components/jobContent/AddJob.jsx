@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { compose, withProps, lifecycle, branch, renderComponent} from 'recompose';
 
 import * as actionTypes from 'constants/actionTypes';
-import JobDetails from 'components/JobDetails';
+import Content from 'components/jobContent/Content';
 import Loading from 'components/Loading';
 
 const enhance = compose(
@@ -37,4 +37,4 @@ const enhance = compose(
     })),
 );
 
-export default enhance(JobDetails);
+export default enhance(Content);

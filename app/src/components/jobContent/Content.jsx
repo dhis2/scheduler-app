@@ -16,11 +16,11 @@ import moment from 'moment';
 
 import * as actionTypes from 'constants/actionTypes';
 import cronExpressionRegex from 'constants/cronExp';
-import JobActionPanel from 'components/JobActionPanel';
-import JobParameters from 'components/JobParameters';
+import ActionButtons from 'components/jobContent/ActionButtons';
+import Parameters from 'components/jobParameters/Parameters';
 import ConditionalIconButton from 'components/ConditionalIconButton';
 import { paramTypes } from 'constants/paramTypes';
-import history from '../history';
+import history from '../../history';
 
 const styles = {
     jobDetails: {
@@ -58,7 +58,7 @@ const validateFields = values => {
     return errors;
 }
 
-class JobDetails extends Component {
+class Content extends Component {
     state = { isValid: true, errors: {} }
     componentWillReceiveProps = (nextProps) => {
         if (this.props.job !== nextProps.job) {
@@ -144,7 +144,7 @@ class JobDetails extends Component {
                     </SelectField>
 
                     { this.props.job.type &&
-                        <JobParameters
+                        <Parameters
                             type={this.props.job.type}
                             parameters={this.props.job.parameters}
                             availableParameters={this.props.availableParameters}
@@ -162,7 +162,7 @@ class JobDetails extends Component {
                         </div>
                     }
 
-                    <JobActionPanel
+                    <ActionButtons
                         job={this.props.job}
                         save={this.onSubmit}
                         saveEnabled={this.props.dirty && this.state.isValid}
@@ -177,4 +177,4 @@ class JobDetails extends Component {
     );
 }
 
-export default JobDetails;
+export default Content;

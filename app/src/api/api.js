@@ -99,12 +99,12 @@ const getValue = (values, field) => values && values[field];
  * Parse parameter data and types (from API) into a list of 
  * parameters that can be parsed dynamically during rendering.
  */
-export const parseParameters = (availableJobParameters, definedValues, attributeOptions) => {
+export const parseParameters = (availableParameters, definedValues, attributeOptions) => {
     let localParameters = {};
 
-    if (availableJobParameters) {
-        Object.keys(availableJobParameters).forEach(key => {
-            const parameter = availableJobParameters[key];
+    if (availableParameters) {
+        Object.keys(availableParameters).forEach(key => {
+            const parameter = availableParameters[key];
             const attributes = attributeOptions[key];
 
             let type = klassToParameterType(parameter.klass);

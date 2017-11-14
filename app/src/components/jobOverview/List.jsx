@@ -12,8 +12,8 @@ import Paper from 'material-ui/Paper';
 import FlipMove from 'react-flip-move';
 
 import * as actionTypes from 'constants/actionTypes';
-import JobDetails from 'components/JobDetails';
-import JobEntry from 'components/JobEntry';
+import Content from 'components/jobContent/Content';
+import Entry from 'components/jobOverview/Entry';
 
 const styles = {
     header: {
@@ -42,7 +42,7 @@ const JobList = ({ jobs, toggleJob }) =>
                 <Divider />
                 <FlipMove duration={400} enterAnimation={false} easing="ease-out">
                     { jobs.map((job, index) =>
-                        <LinkedJobEntry key={job.id} job={job} onToggle={toggleJob} first={index === 0} />
+                        <LinkedEntry key={job.id} job={job} onToggle={toggleJob} first={index === 0} />
                     )}
                 </FlipMove>
             </Paper>
@@ -51,11 +51,11 @@ const JobList = ({ jobs, toggleJob }) =>
             </Link>
         </div>;
 
-class LinkedJobEntry extends React.Component {
+class LinkedEntry extends React.Component {
     render = () => (
         <div style={styles.entry}>
             <Link to={`edit/${this.props.job.id}`}>
-                <JobEntry
+                <Entry
                     job={this.props.job}
                     onToggle={this.props.onToggle}
                     first={this.props.index === 0}

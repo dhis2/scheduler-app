@@ -14,10 +14,10 @@ import { Router, Route } from "react-router-dom";
 import history from '../history';
 import { compose, lifecycle, pure } from 'recompose';
 
-import JobList from 'components/JobList';
-import JobDetails from 'components/JobDetails';
-import EditJob from 'components/EditJob';
-import AddJob from 'components/AddJob';
+import List from 'components/jobOverview/List';
+import Content from 'components/jobContent/Content';
+import EditJob from 'components/jobContent/EditJob';
+import AddJob from 'components/jobContent/AddJob';
 import MessagePanel from 'components/MessagePanel';
 import { BASE_URL } from 'api/api';
 import * as actionTypes from 'constants/actionTypes';
@@ -42,7 +42,7 @@ let ContentLoader = () => (
         <div style={styles.content}>
             <MessagePanel />
             <HeaderBar />
-            <Route exact path="/" component={JobList} />
+            <Route exact path="/" component={List} />
             <Route path="/edit/:id" component={EditJob} />
             <Route path="/add" component={AddJob} />
         </div>

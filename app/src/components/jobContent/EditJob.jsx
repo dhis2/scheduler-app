@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { compose, lifecycle, withProps, pure, branch, renderComponent } from 'recompose';
 
 import * as actionTypes from 'constants/actionTypes';
-import JobDetails from 'components/JobDetails';
+import Content from 'components/jobContent/Content';
 import Loading from 'components/Loading';
 
 const isString = value => typeof(value) == 'string';
@@ -65,4 +65,4 @@ const enhance = compose(
     })),
 );
 
-export default enhance(JobDetails);
+export default enhance(Content);

@@ -49,7 +49,7 @@ const shouldRenderSelectField = (type, itemType) =>
 const shouldRenderToggle = type => type === params.BOOLEAN;
 const shouldRenderPeriod = type => type === params.PERIOD;
 
-const JobParameters = props => {
+const Parameters = props => {
     const paramKeys = Object.keys(props.parameters);
     const parametersToRender = paramKeys.map(key => {
         const param = props.parameters[key];
@@ -175,4 +175,4 @@ const enhance = compose(
     ),
 );
 
-export default enhance(JobParameters);
+export default enhance(Parameters);

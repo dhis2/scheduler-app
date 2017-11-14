@@ -1,5 +1,5 @@
 import Epics from 'actions/epics';
-import { createStore, applyMiddleware, combineReducers } from 'redux';
+import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
 import { createEpicMiddleware } from 'redux-observable';
 import jobsReducer from 'reducers/jobsReducer';
 import messageReducer from 'reducers/messageReducer';
