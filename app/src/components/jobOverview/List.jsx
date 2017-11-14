@@ -27,15 +27,16 @@ const styles = {
     entry: { backgroundColor: 'white' },
 };
 
-const JobList = ({ jobs, toggleJob }) =>
+const List = ({ jobs, toggleJob }) =>
         <div>
             <Heading style={{ paddingBottom: 16, paddingLeft: 24 }}>
                 Scheduled Jobs
             </Heading>
             <Paper style={styles.paper}>
                 <div style={styles.header}>
-                    <div style={{ flex: 10, }}>Name</div>
-                    <div style={{ flex: 10, }}>Job Status</div>
+                    <div style={{ flex: 12, }}>Name</div>
+                    <div style={{ flex: 11, }}>Type</div>
+                    <div style={{ flex: 7, }}>Status</div>
                     <div style={{ flex: 10, }}>Next execution</div>
                     <div style={{ flex: 0, }}>Enabled</div>
                 </div>
@@ -88,4 +89,4 @@ const enhance = compose(
     pure,
 );
 
-export default enhance(JobList);
+export default enhance(List);

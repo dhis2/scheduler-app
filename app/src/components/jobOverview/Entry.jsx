@@ -56,9 +56,10 @@ const Entry = ({ job, onSelect, onToggle, first }) => {
 
     return (
         <div onClick={onSelect} style={{...styles.listEntry, borderTop: first ? '' : '1px solid lightgray'}}>
-            <div style={{...styles.displayName, ...styles.someWeight }}>{job.displayName}</div>
-            <div style={styles.someWeight}>{job.jobStatus}</div>
-            <div style={styles.someWeight}>{nextExecutionText}</div>
+            <div style={{...styles.displayName, flex: 12 }}>{job.displayName}</div>
+            <div style={{ flex: 11 }}>{job.jobType}</div>
+            <div style={{ flex: 7 }}>{job.jobStatus}</div>
+            <div style={{ flex: 10 }}>{nextExecutionText}</div>
             <div><Toggle toggled={job.enabled} onToggle={toggle} onClick={toggleClick} /></div>
         </div>
     );
