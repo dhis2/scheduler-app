@@ -1,6 +1,10 @@
 import d2 from 'd2/lib/d2';
 import store from '../store';
-import { klassTypes, paramTypes } from 'constants/paramTypes';
+import {
+    klassToParameterType,
+    getDefaultParameterValue,
+    paramType,
+} from 'constants/paramTypes';
 
 export const BASE_URL = 'http://localhost:8080/api';
 const JOB_PARAMETERS_ENDPOINT = 'jobConfigurations/jobTypesExtended';
@@ -17,6 +21,41 @@ export const getConfiguration = async () => {
         jobParameters,
         jobTypes,
     };
+}
+
+const attributeOptionExceptions = [
+    'organisationUnits' // Org units selection are handled via d2
+];
+
+/*
+ * Use the relativeApiEndpoint URL in each parameter attribute to fetch
+ * options for that attribute. Options are, on the server side, defined either
+ * as an array of (id, value) objects (for identifiable objects) or raw arrays.
+ */
+export const getAttributeOptions = async parameters => {
+    const attributeOptions = {};
+
+    const instance = await d2.getInstance();
+    await Promise.all(Object.keys(parameters).map(async parameterName => {
+        const attributes = parameters[parameterName];
+        attributeOptions[parameterName] = {};
+
+        attributes && await Promise.all(Object.keys(attributes).map(async attributeName => {
+            const attribute = attributes[attributeName];
+
+            if (attributeOptionExceptions.indexOf(attributeName) !== -1) return;
+            if (attribute.relativeApiEndpoint) {
+                const withoutApiPrefix = attribute.relativeApiEndpoint.substring(4);
+                const options = await instance.Api.getApi().get(withoutApiPrefix, { paging: 'false' });
+
+                attributeOptions[parameterName][attributeName] = Array.isArray(options)
+                    ? options
+                    : options[attribute.name];
+            }
+        }));
+    }));
+
+    return attributeOptions;
 }
 
 const order = 'enabled:desc,jobStatus,nextExecutionTime';
@@ -60,52 +99,34 @@ const getValue = (values, field) => values && values[field];
  * Parse parameter data and types (from API) into a list of 
  * parameters that can be parsed dynamically during rendering.
  */
-export const parseParameters = (availableJobParameters, setValues) => {
+export const parseParameters = (availableJobParameters, definedValues, attributeOptions) => {
     let localParameters = {};
 
     if (availableJobParameters) {
         Object.keys(availableJobParameters).forEach(key => {
             const parameter = availableJobParameters[key];
-            const type = klassToType(parameter.klass, parameter.itemKlass)
-            const value = getValue(setValues, parameter.name)
-                       || getDefaultValue(type, parameter.collection);
+            const attributes = attributeOptions[key];
+
+            let type = klassToParameterType(parameter.klass);
+            let itemType = klassToParameterType(parameter.itemKlass);
+
+            const value = getValue(definedValues, parameter.name)
+                       || getDefaultParameterValue(type);
 
             localParameters[parameter.name] = {
                 value,
                 meta: {
                     type,
+                    itemType,
                     label: parameter.fieldName || parameter.name,
-                    collection: parameter.collection,
-                    source: parameter.relativeApiEndpoint,
+                    //collection: parameter.collection,
+                    //source: parameter.relativeApiEndpoint,
+                    options: attributes || [],
+                    //exclusiveSelection: attributes ? true : false,
                 },
             };
         });
     }
 
     return localParameters;
-}
-
-const klassToType = (klass, itemKlass) => {
-    switch (klass) {
-        case klassTypes.INTEGER: return paramTypes.INTEGER;
-        case klassTypes.STRING: return paramTypes.STRING;
-        case klassTypes.BOOLEAN: return paramTypes.BOOLEAN;
-        case klassTypes.LIST: return klassToType(itemKlass);
-        case klassTypes.SET: return klassToType(itemKlass);
-
-        case klassTypes.PERIOD: return paramTypes.PERIOD;
-        case klassTypes.ORG_UNIT: return paramTypes.ORG_UNIT;
-        default: return paramTypes.UNDEFINED;
-    }
-}
-
-const getDefaultValue = (type, collection) => {
-    switch (type) {
-        case paramTypes.INTEGER: return undefined;
-        case paramTypes.STRING: return '';
-        case paramTypes.BOOLEAN: return false;
-        case paramTypes.PERIOD: return collection ? [] : undefined;
-        case paramTypes.ORG_UNIT: return collection ? [] : undefined;
-        default: return undefined;
-    }
 }

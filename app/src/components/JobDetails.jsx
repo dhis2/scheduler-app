@@ -148,6 +148,7 @@ class JobDetails extends Component {
                             type={this.props.job.type}
                             parameters={this.props.job.parameters}
                             availableParameters={this.props.availableParameters}
+                            attributeOptions={this.props.attributeOptions}
                             onChange={this.onParametersChange}
                         />
                     }

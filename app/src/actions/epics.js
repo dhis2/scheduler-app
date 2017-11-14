@@ -14,6 +14,12 @@ const loadConfiguration = action$ =>
             .then(configuration => ({ type: actions.CONFIGURATION_LOAD_SUCCESS, payload: { configuration } }))
             .catch(error => ({ type: actions.CONFIGURATION_LOAD_ERROR, payload: { error } })));
 
+const loadAttributeOptions = action$ =>
+    action$.ofType(actions.CONFIGURATION_LOAD_SUCCESS).concatMap(action =>
+        api.getAttributeOptions(action.payload.configuration.jobParameters)
+            .then(attributeOptions => ({ type: actions.ATTRIBUTE_OPTIONS_LOAD_SUCCESS, payload: { attributeOptions } }))
+            .catch(error => ({ type: actions.ATTRIBUTE_OPTIONS_LOAD_ERROR, payload: { error } })));
+
 const loadJobs = action$ =>
     action$.ofType(
         actions.JOBS_LOAD,
@@ -64,6 +70,7 @@ const deleteJob = action$ =>
 export default combineEpics(
     loadJobs,
     loadConfiguration,
+    loadAttributeOptions,
     addJob,
     saveJob,
     deleteJob,

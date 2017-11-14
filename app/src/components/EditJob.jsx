@@ -28,6 +28,7 @@ const enhance = compose(
                 loaded: state.jobs.loaded && state.jobs.configuration.loaded,
                 availableTypes: state.jobs.configuration.types,
                 availableParameters: state.jobs.configuration.parameters,
+                attributeOptions: state.jobs.configuration.attributeOptions,
                 dirty: state.jobs.dirty,
             };
         },

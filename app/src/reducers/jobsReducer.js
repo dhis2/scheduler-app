@@ -13,6 +13,7 @@ const initialState = {
         types: [],
         statuses: [],
         parameters: {},
+        attributeOptions: {},
     },
 };
 
@@ -48,10 +49,20 @@ function jobsReducer(state = initialState, action) {
             return {
                 ...state,
                 configuration: {
+                    ...state.configuration,
                     loaded: true,
                     types: action.payload.configuration.jobTypes,
                     statuses: action.payload.configuration.jobStatuses,
                     parameters: action.payload.configuration.jobParameters,
+                },
+            };
+
+        case actionTypes.ATTRIBUTE_OPTIONS_LOAD_SUCCESS:
+            return {
+                ...state,
+                configuration: {
+                    ...state.configuration,
+                    attributeOptions: action.payload.attributeOptions,
                 },
             };
     }
