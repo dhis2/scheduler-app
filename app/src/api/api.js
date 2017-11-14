@@ -119,10 +119,7 @@ export const parseParameters = (availableParameters, definedValues, attributeOpt
                     type,
                     itemType,
                     label: parameter.fieldName || parameter.name,
-                    //collection: parameter.collection,
-                    //source: parameter.relativeApiEndpoint,
                     options: attributes || [],
-                    //exclusiveSelection: attributes ? true : false,
                 },
             };
         });
