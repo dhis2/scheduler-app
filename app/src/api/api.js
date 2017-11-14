@@ -13,8 +13,8 @@ export const getConfiguration = async () => {
     const instance = await d2.getInstance();
     const jobConfiguration = instance.models.jobConfiguration.modelProperties;
     const jobStatuses = jobConfiguration.jobStatus.constants;
-    const jobTypes = jobConfiguration.jobType.constants;
     const jobParameters = await instance.Api.getApi().get(JOB_PARAMETERS_ENDPOINT);
+    const jobTypes = Object.keys(jobParameters);
 
     return {
         jobStatuses,
