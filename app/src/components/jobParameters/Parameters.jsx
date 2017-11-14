@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Heading from 'd2-ui/lib/headings/Heading.component';
 import TextField from 'material-ui/TextField';
-import FontIcon from 'material-ui/FontIcon';
 import IconButton from 'material-ui/IconButton';
 import Toggle from 'material-ui/Toggle';
 import SelectField from 'material-ui/SelectField';
@@ -10,6 +9,8 @@ import Paper from 'material-ui/Paper';
 import TimePicker from 'material-ui/TimePicker';
 import { compose, withProps, branch, renderNothing } from 'recompose';
 
+import SuggestionList from 'components/jobParameters/SuggestionList';
+import OpenList from 'components/jobParameters/OpenList';
 import { paramTypes as params } from 'constants/paramTypes';
 import { parseParameters } from 'api/api';
 
@@ -39,9 +40,11 @@ const createAttributeOptionSelectionList = (values, options) =>
 const shouldRenderTextField = type =>
     (type === params.INTEGER || type === params.STRING);
 
-const shouldRenderAutoComplete = (type, itemType) =>
-    (type === params.LIST) &&
-    (itemType === params.STRING || itemType === params.INTEGER || itemType === params.OBJECT)
+const shouldRenderSuggestionList = (type, itemType) =>
+    (type === params.LIST) && (itemType === params.OBJECT);
+
+const shouldRenderOpenList = (type, itemType) =>
+    (type === params.LIST) && (itemType === params.INTEGER || itemType === params.STRING);
 
 const shouldRenderSelectField = (type, itemType) => 
     type === params.SET && (itemType === params.INTEGER || itemType === params.STRING);
@@ -58,8 +61,8 @@ const Parameters = props => {
         if (shouldRenderTextField(type)) {
             return (
                 <TextField
-                    fullWidth
                     key={key}
+                    fullWidth
                     value={param.value || ''}
                     floatingLabelText={label}
                     type={type === params.INTEGER ? 'number' : 'text'}
@@ -68,9 +71,30 @@ const Parameters = props => {
             );
         }
 
-        if (shouldRenderAutoComplete(type, itemType)) {
+        if (shouldRenderSuggestionList(type, itemType)) {
             return (
-                <div key={key}>{label}: AUTOCOMPLETE NOT YET SUPPORTED</div>
+                <SuggestionList
+                    key={key}
+                    label={label}
+                    selected={param.value}
+                    suggestions={options}
+                    onChange={selected => {
+                        props.onParameterChange(key, selected);
+                    }}
+                />
+            );
+        }
+
+        if (shouldRenderOpenList(type, itemType)) {
+            return (
+                <OpenList
+                    key={key}
+                    label={label}
+                    values={param.value}
+                    onChange={selected => {
+                        props.onParameterChange(key, selected);
+                    }}
+                />
             );
         }
 
