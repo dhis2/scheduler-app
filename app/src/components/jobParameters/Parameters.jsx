@@ -132,9 +132,7 @@ const getComponentToRender = (key, parameter, changeHandler) => {
             );
 
         default:
-            return (
-                <div>{renderAs} not yet supported</div>
-            )
+            return null;
     }
 }
 
