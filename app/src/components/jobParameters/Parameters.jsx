@@ -11,8 +11,8 @@ import { compose, withProps, branch, renderNothing } from 'recompose';
 
 import SuggestionList from 'components/jobParameters/SuggestionList';
 import OpenList from 'components/jobParameters/OpenList';
-import { paramTypes as params } from 'constants/paramTypes';
 import { parseParameters } from 'api/api';
+import { COMPONENTS, PARAMS } from 'api/bridge';
 
 const styles = {
     header: {
@@ -37,101 +37,87 @@ const createAttributeOptionSelectionList = (values, options) =>
         />
     );
 
-const shouldRenderTextField = type =>
-    (type === params.INTEGER || type === params.STRING);
+const getComponentToRender = (key, parameter, changeHandler) => {
+    const { label, type, itemType, options, renderAs } = parameter.meta;
+    const value = parameter.value;
 
-const shouldRenderSuggestionList = (type, itemType) =>
-    (type === params.LIST) && (itemType === params.OBJECT);
-
-const shouldRenderOpenList = (type, itemType) =>
-    (type === params.LIST) && (itemType === params.INTEGER || itemType === params.STRING);
-
-const shouldRenderSelectField = (type, itemType) => 
-    type === params.SET && (itemType === params.INTEGER || itemType === params.STRING);
-
-const shouldRenderToggle = type => type === params.BOOLEAN;
-const shouldRenderPeriod = type => type === params.PERIOD;
-
-const Parameters = props => {
-    const paramKeys = Object.keys(props.parameters);
-    const parametersToRender = paramKeys.map(key => {
-        const param = props.parameters[key];
-        const { label, type, itemType, options } = param.meta;
-
-        if (shouldRenderTextField(type)) {
+    switch (renderAs) {
+        case COMPONENTS.INPUT:
             return (
                 <TextField
-                    key={key}
                     fullWidth
-                    value={param.value || ''}
+                    value={value || ''}
                     floatingLabelText={label}
-                    type={type === params.INTEGER ? 'number' : 'text'}
-                    onChange={handleParameterEvent(props.onParameterChange, key)}
-                />
+                    type={type === PARAMS.INTEGER ? 'number' : 'text'}
+                    onChange={handleParameterEvent(changeHandler, key)}
+                /> 
             );
-        }
-
-        if (shouldRenderSuggestionList(type, itemType)) {
-            return (
-                <SuggestionList
-                    key={key}
-                    label={label}
-                    selected={param.value}
-                    suggestions={options}
-                    onChange={selected => {
-                        props.onParameterChange(key, selected);
-                    }}
-                />
-            );
-        }
-
-        if (shouldRenderOpenList(type, itemType)) {
+            
+        case COMPONENTS.INPUT_LIST:
             return (
                 <OpenList
-                    key={key}
                     label={label}
-                    values={param.value}
+                    values={value}
                     onChange={selected => {
-                        props.onParameterChange(key, selected);
+                        changeHandler(key, selected);
                     }}
-                />
+                /> 
             );
-        }
-
-        if (shouldRenderSelectField(type, itemType)) {
-            const onChange = (event, index, values) => props.onParameterChange(key, values, false);
+            
+        case COMPONENTS.SELECTION:
+            const onChange = (event, index, values) => changeHandler(key, values, false);
             return (
                 <SelectField
-                    key={key}
                     multiple
                     fullWidth
                     hintText={'Click to select'}
-                    value={param.value}
+                    value={value}
                     onChange={onChange}
                     floatingLabelText={label}
                 >
-                    {createAttributeOptionSelectionList(param.value, options)}
+                    {createAttributeOptionSelectionList(value, options)}
                 </SelectField> 
             );
-        }
-
-        if (shouldRenderToggle(type)) {
+            
+        case COMPONENTS.SUGGESTION:
+            return (
+              <div>Not supported</div>  
+            );
+            
+        case COMPONENTS.SUGGESTION_LIST:
+            return (
+                <SuggestionList
+                    label={label}
+                    selected={value}
+                    suggestions={options}
+                    onChange={selected => {
+                        changeHandler(key, selected);
+                    }}
+                />
+            );
+            
+        case COMPONENTS.TOGGLE:
             return (
                 <Toggle
                     style={styles.toggle}
-                    key={key}
-                    defaultToggled={param.value}
+                    defaultToggled={value}
                     label={label}
-                    onToggle={handleParameterEvent(props.onParameterChange, key)}
+                    onToggle={handleParameterEvent(changeHandler, key)}
                 />
             );
-        }
-
-        if (shouldRenderPeriod(type)) {
-            // Check if list
+            
+        case COMPONENTS.DATE:
             return (
-                <div key={key}>
-                    <Heading level={4}>{label}</Heading>
+                <TimePicker
+                    textFieldStyle={styles.timePicker}
+                    format="24hr"
+                    hintText={label}
+                />
+            );
+            
+        case COMPONENTS.PERIOD:
+            return (
+                <div>
                     <TimePicker
                         textFieldStyle={styles.timePicker}
                         format="24hr"
@@ -144,12 +130,21 @@ const Parameters = props => {
                     />
                 </div>
             );
-        }
 
-        return (
-            <div key={key}>{label}:Combination of type {type} and itemType {itemType} not supported.</div>
-        );
-    });
+        default:
+            return (
+                <div>{renderAs} not yet supported</div>
+            )
+    }
+}
+
+const Parameters = props => {
+    const paramKeys = Object.keys(props.parameters);
+    const parametersToRender = paramKeys.map(key => (
+        <div key={key}>
+            {getComponentToRender(key, props.parameters[key], props.onParameterChange)}
+        </div>
+    ));
 
     return (
         <div>

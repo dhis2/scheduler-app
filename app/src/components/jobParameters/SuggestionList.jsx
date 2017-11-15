@@ -13,8 +13,6 @@ const styles = {
 /*
  * An AutoComplete text field with suggestions from a given list of
  * identifiable objects. Selected objects are shown as chips below.
- * 
- * Props: label, selected, suggestions, onChange
  */
 class SuggestionList extends Component {
     state = {

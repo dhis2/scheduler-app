@@ -3,8 +3,9 @@ import store from '../store';
 import {
     klassToParameterType,
     getDefaultParameterValue,
-    paramType,
-} from 'constants/paramTypes';
+    determineRenderedComponent,
+    PARAMS,
+} from 'api/bridge';
 
 export const BASE_URL = 'http://localhost:8080/api';
 const JOB_PARAMETERS_ENDPOINT = 'jobConfigurations/jobTypesExtended';
@@ -105,22 +106,18 @@ export const parseParameters = (availableParameters, definedValues, attributeOpt
     if (availableParameters) {
         Object.keys(availableParameters).forEach(key => {
             const parameter = availableParameters[key];
-            const attributes = attributeOptions[key];
-
-            let type = klassToParameterType(parameter.klass);
-            let itemType = klassToParameterType(parameter.itemKlass);
-
+            const options = attributeOptions[key] || [];
+            const type = klassToParameterType(parameter.klass);
+            const itemType = klassToParameterType(parameter.itemKlass);
+            const label = parameter.fieldName;
             const value = getValue(definedValues, parameter.name)
                        || getDefaultParameterValue(type);
 
+            let meta = { type, itemType, label, options };
+            meta.renderAs = determineRenderedComponent(meta);
             localParameters[parameter.name] = {
                 value,
-                meta: {
-                    type,
-                    itemType,
-                    label: parameter.fieldName || parameter.name,
-                    options: attributes || [],
-                },
+                meta,
             };
         });
     }

@@ -12,7 +12,6 @@ import cronExpressionRegex from 'constants/cronExp';
 import ActionButtons from 'components/jobContent/ActionButtons';
 import Parameters from 'components/jobParameters/Parameters';
 import ConditionalIconButton from 'components/ConditionalIconButton';
-import { paramTypes } from 'constants/paramTypes';
 import history from '../../history';
 
 const styles = {
