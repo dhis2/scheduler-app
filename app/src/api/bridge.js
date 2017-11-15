@@ -1,13 +1,13 @@
 export const PARAMS = {
-    INTEGER: 'INTEGER',
-    STRING: 'STRING',
-    BOOLEAN: 'BOOLEAN',
-    LIST: 'LIST',
-    SET: 'SET',
-    PERIOD: 'PERIOD',
-    ORGUNIT: 'ORGUNIT',
-    DATE: 'DATE',
-    UNKNOWN: 'UNKNOWN'
+    INTEGER: 'java.lang.Integer',
+    STRING: 'java.lang.String',
+    HACK: 'org.hisp.dhis.validation.ValidationRuleGroup',
+    BOOLEAN: 'java.lang.Boolean',
+    DATE: 'java.util.Date',
+    SET: 'java.util.Set',
+    LIST: 'java.util.List',
+    PERIOD: 'org.hisp.dhis.period.Period',
+    ORGUNIT: 'org.hisp.dhis.organisationunit.OrganisationUnit',
 }
 
 export const COMPONENTS = {
@@ -22,21 +22,6 @@ export const COMPONENTS = {
     PERIOD_LIST: 'PERIOD_LIST',
     UNKNOWN: 'UNKNOWN',
 };
-
-export const klassToParameterType = klass => {
-    switch (klass) {
-        case 'java.lang.Integer': return PARAMS.INTEGER;
-        case 'java.lang.String': return PARAMS.STRING;
-        case 'java.lang.Boolean': return PARAMS.BOOLEAN;
-        case 'java.util.Date': return PARAMS.DATE;
-        case 'java.util.List': return PARAMS.LIST;
-        case 'java.util.Set': return PARAMS.SET;
-        case 'org.hisp.dhis.period.Period': return PARAMS.PERIOD;
-        case 'org.hisp.dhis.validation.ValidationRuleGroup': return PARAMS.STRING; // TODO: Remove after Henning-fix
-        case 'org.hisp.dhis.organisationunit.OrganisationUnit': return PARAMS.ORGUNIT;
-        default: return PARAMS.UNKNOWN;
-    }
-}
 
 export const getDefaultParameterValue = type => {
     switch (type) {

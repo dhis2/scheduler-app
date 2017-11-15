@@ -106,14 +106,17 @@ export const parseParameters = (availableParameters, definedValues, attributeOpt
     if (availableParameters) {
         Object.keys(availableParameters).forEach(key => {
             const parameter = availableParameters[key];
-            const options = attributeOptions[key] || [];
-            const type = klassToParameterType(parameter.klass);
-            const itemType = klassToParameterType(parameter.itemKlass);
-            const label = parameter.fieldName;
-            const value = getValue(definedValues, parameter.name)
-                       || getDefaultParameterValue(type);
 
-            let meta = { type, itemType, label, options };
+            let meta = {
+                type: parameter.klass,
+                itemType: parameter.itemKlass,
+                label: parameter.fieldName,
+                options: attributeOptions[key] || [],
+            };
+
+            let value = getValue(definedValues, parameter.name)
+                     || getDefaultParameterValue(parameter.klass);
+
             meta.renderAs = determineRenderedComponent(meta);
             localParameters[parameter.name] = {
                 value,
