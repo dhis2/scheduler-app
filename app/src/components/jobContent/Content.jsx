@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import TextField from 'material-ui/TextField';
 import Paper from 'material-ui/Paper';
 import AutoComplete from 'material-ui/AutoComplete';
+import Toggle from 'material-ui/Toggle';
 import moment from 'moment';
 
 import * as actionTypes from 'constants/actionTypes';
@@ -79,6 +80,11 @@ class Content extends Component {
         this.props.editJob("cronExpression", newValue);
     }
 
+    onContinuousExecutionChange = (event, newValue) => {
+        console.warn('toggling to', newValue);
+        this.props.editJob("continuousExecution", newValue);
+    }
+
     onParametersChange = value => {
         this.props.editJob("parameters", value);
     }
@@ -123,6 +129,11 @@ class Content extends Component {
                         floatingLabelText="Cron expression"
                         onChange={this.onCronExpressionChange}
                         errorText={this.state.errors.cronExpression}
+                    />
+                    <Toggle
+                        label="Continuous Execution"
+                        defaultToggled={this.props.job.continuousExecution}
+                        onToggle={this.onContinuousExecutionChange}
                     />
                     <AutoComplete
                         fullWidth
