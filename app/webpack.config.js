@@ -14,10 +14,8 @@ const prod = {
         app: ['babel-polyfill','whatwg-fetch', './app/src/scheduler.js'],
     },
     output: {
-        path: path.join(__dirname, '..', 'target', 'classes', 'static'),
-        filename: path.join('js', `[name]_${packageJSON.version}.js`),
-        //this is where the files are served from
-        publicPath: BASE_APP_NAME + '/',
+        path: path.join(__dirname, '..', 'build'),
+        filename: path.join(`[name]_${packageJSON.version}.js`),
     },
 
     module: {
@@ -62,7 +60,7 @@ const prod = {
         new HtmlWebpackPlugin({
             title: 'DHIS2 Scheduler',
             filename: 'index.html',
-            template: 'app/indexbuild.html',
+            template: 'app/index.html',
         }),
 
         new webpack.optimize.UglifyJsPlugin({minimize: true, comments: false}),
@@ -96,7 +94,7 @@ const dev = Object.assign({}, prod, {
         new HtmlWebpackPlugin({
             title: 'DHIS2 Scheduler',
             filename: 'index.html',
-            template: 'app/indexbuild.html',
+            template: 'app/index.html',
         }),
         new webpack.DefinePlugin({
             'process.env': {

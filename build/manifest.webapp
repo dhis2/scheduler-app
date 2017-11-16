@@ -1,0 +1,19 @@
+{
+    "version": "0.1",
+    "name":"scheduler",
+    "description":"Create, modify and delete jobs",
+    "launch_path": "index.html",
+    "appType": "APP",
+    "developer": {
+        "url": "http://www.usit.uio.no/om/organisasjon/bnt/web/wapp/ansatte/kjetisva/index.html",
+        "name":"Kjetil Svalestuen",
+        "company": "DHIS2",
+        "email": "kjetil@dhis2.org"
+    },
+    "default_locale": "en",
+    "activities": {
+        "dhis": {
+            "href": ".."
+        }
+    }
+}

@@ -13,3 +13,6 @@ target
 .vscode/
 node_modules
 sample-jobs.json
+build/*.js
+build/*.html
+build/*.zip
