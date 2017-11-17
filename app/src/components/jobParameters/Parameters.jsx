@@ -10,7 +10,7 @@ import TimePicker from 'material-ui/TimePicker';
 import { compose, withProps, branch, renderNothing } from 'recompose';
 
 import SuggestionList from 'components/jobParameters/SuggestionList';
-import OpenList from 'components/jobParameters/OpenList';
+import InputList from 'components/jobParameters/InputList';
 import { parseParameters } from 'api/api';
 import { COMPONENTS, PARAMS } from 'api/bridge';
 
@@ -55,7 +55,7 @@ const getComponentToRender = (key, parameter, changeHandler) => {
             
         case COMPONENTS.INPUT_LIST:
             return (
-                <OpenList
+                <InputList
                     label={label}
                     values={value}
                     onChange={selected => {

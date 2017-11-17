@@ -17,17 +17,12 @@ const prod = {
         path: path.join(__dirname, '..', 'build'),
         filename: path.join(`[name]_${packageJSON.version}.js`),
     },
-
     module: {
         loaders: [
             {
                 test: /\.jsx?$/,
                 loader: 'babel-loader',
                 exclude: /node_modules/,
-            },
-            {
-                test: /\.scss$/,
-                loaders: ['style-loader', 'css-loader', 'sass-loader'],
             },
             {
                 test: /\.css$/,
@@ -77,11 +72,6 @@ const dev = Object.assign({}, prod, {
         publicPath: '/',
     },
     devServer: {
-       /* proxy: {
-            '*': {
-                "target": "http://localhost:8080"
-            },
-        }, */
         port: 9000,
         inline: true,
         contentBase: './app',

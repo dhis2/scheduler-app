@@ -19,6 +19,9 @@ const styles = {
     jobDetails: {
         padding: 24,
     },
+    continuousExecutionToggle: {
+        marginTop: 28,
+    },
     header: {
         display: 'flex',
         flexDirection: 'row',
@@ -27,6 +30,10 @@ const styles = {
     detailsHeader: {
         paddingTop: 24,
         paddingBottom: 16,
+    },
+    jobTypeList: {
+        maxHeight: 300,
+        overflowY: 'auto',
     }
 };
 
@@ -51,8 +58,20 @@ const validateFields = values => {
     return errors;
 }
 
+const customJobTypeFilter = (searchText, key) => {
+    console.warn(`Trigger on '${searchText}'`);
+    if (searchText === '') {
+        console.warn(`Go`);
+        return true;
+    }
+    let subMatchKey = key.substring(0, searchText.length);
+    let distance = AutoComplete.levenshteinDistance(searchText.toLowerCase(), subMatchKey.toLowerCase());
+    return searchText.length > 3 ? distance < 2 : distance === 0;
+}
+
 class Content extends Component {
     state = { isValid: true, errors: {} }
+
     componentWillReceiveProps = (nextProps) => {
         if (this.props.job !== nextProps.job) {
             const errors = validateFields(nextProps.job);
@@ -119,28 +138,32 @@ class Content extends Component {
                     <TextField
                         fullWidth
                         value={this.props.job.name}
-                        floatingLabelText="Name"
+                        floatingLabelText="Name *"
                         onChange={this.onNameChange}
                         errorText={this.state.errors.name}
                     />
                     <TextField
                         fullWidth
                         value={this.props.job.cronExpression}
-                        floatingLabelText="Cron expression"
+                        floatingLabelText="Cron expression *"
                         onChange={this.onCronExpressionChange}
                         errorText={this.state.errors.cronExpression}
                     />
                     <Toggle
+                        style={styles.continuousExecutionToggle}
                         label="Continuous Execution"
                         defaultToggled={this.props.job.continuousExecution}
                         onToggle={this.onContinuousExecutionChange}
                     />
                     <AutoComplete
                         fullWidth
+                        openOnFocus
+                        menuStyle={styles.jobTypeList}
+                        ref={ref => { this.jobTypeFieldRef = ref; }}
                         searchText={this.props.job.type || undefined}
+                        hintText={this.props.job.type || undefined}
                         dataSource={this.props.availableTypes}
-                        floatingLabelText="Job type"
-                        hintText={this.props.job.type}
+                        floatingLabelText="Job type *"
                         filter={AutoComplete.fuzzyFilter}
                         onNewRequest={(_, index) => {
                             if (index !== -1) {

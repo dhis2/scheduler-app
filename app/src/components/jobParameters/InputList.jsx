@@ -10,7 +10,7 @@ const styles = {
     },
 }
 
-class OpenList extends Component {
+class InputList extends Component {
     state = {
         input: null,
     };
@@ -53,4 +53,4 @@ class OpenList extends Component {
     );
 }
 
-export default OpenList;
+export default InputList;

@@ -47,14 +47,17 @@ export const getAttributeOptions = async parameters => {
             if (attributeOptionExceptions.indexOf(attributeName) !== -1) return;
             if (attribute.relativeApiEndpoint) {
                 const withoutApiPrefix = attribute.relativeApiEndpoint.substring(4);
-                const options = await instance.Api.getApi().get(withoutApiPrefix, { paging: 'false' });
 
+                const options = await instance.Api.getApi().get(withoutApiPrefix, { paging: 'false' });
                 attributeOptions[parameterName][attributeName] = Array.isArray(options)
                     ? options
                     : options[attribute.name];
-            }
+                }
+            }))
+            .catch(e => {
+                console.warn('Error during attribute fetch:', e);
+            });
         }));
-    }));
 
     return attributeOptions;
 }

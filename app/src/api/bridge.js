@@ -31,7 +31,7 @@ export const getDefaultParameterValue = type => {
         case PARAMS.LIST: return [];
         case PARAMS.SET: return [];
         case PARAMS.ORGUNIT: return undefined;
-        case PARAMS.DATE: return new Date();
+        case PARAMS.DATE: return null;
         default: return undefined;
     }
 }
