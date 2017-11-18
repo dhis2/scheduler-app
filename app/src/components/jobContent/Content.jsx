@@ -11,6 +11,7 @@ import moment from 'moment';
 import * as actionTypes from 'constants/actionTypes';
 import cronExpressionRegex from 'constants/cronExp';
 import ActionButtons from 'components/jobContent/ActionButtons';
+import CronExpression from 'components/jobContent/CronExpression';
 import Parameters from 'components/jobParameters/Parameters';
 import ConditionalIconButton from 'components/ConditionalIconButton';
 import history from '../../history';
@@ -20,7 +21,7 @@ const styles = {
         padding: 24,
     },
     continuousExecutionToggle: {
-        marginTop: 28,
+        marginTop: 22,
     },
     header: {
         display: 'flex',
@@ -95,12 +96,11 @@ class Content extends Component {
         this.props.editJob("type", type);
     }
 
-    onCronExpressionChange = (event, newValue) => {
+    onCronExpressionChange = newValue => {
         this.props.editJob("cronExpression", newValue);
     }
 
     onContinuousExecutionChange = (event, newValue) => {
-        console.warn('toggling to', newValue);
         this.props.editJob("continuousExecution", newValue);
     }
 
@@ -142,12 +142,10 @@ class Content extends Component {
                         onChange={this.onNameChange}
                         errorText={this.state.errors.name}
                     />
-                    <TextField
-                        fullWidth
+                    <CronExpression
                         value={this.props.job.cronExpression}
-                        floatingLabelText="Cron expression *"
                         onChange={this.onCronExpressionChange}
-                        errorText={this.state.errors.cronExpression}
+                        error={this.state.errors.cronExpression}
                     />
                     <Toggle
                         style={styles.continuousExecutionToggle}
@@ -158,16 +156,17 @@ class Content extends Component {
                     <AutoComplete
                         fullWidth
                         openOnFocus
+                        floatingLabelFixed
                         menuStyle={styles.jobTypeList}
                         ref={ref => { this.jobTypeFieldRef = ref; }}
-                        searchText={this.props.job.type || undefined}
-                        hintText={this.props.job.type || undefined}
+                        hintText={this.props.job.type || 'Click to select'}
                         dataSource={this.props.availableTypes}
                         floatingLabelText="Job type *"
                         filter={AutoComplete.fuzzyFilter}
                         onNewRequest={(_, index) => {
                             if (index !== -1) {
                                 this.onTypeChange(index);
+                                this.jobTypeFieldRef.setState({ searchText: '' });
                             }
                         }}
                     />
