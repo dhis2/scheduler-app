@@ -32,7 +32,7 @@ const styles = {
     content: {
         paddingTop: '100px',
         width: '100%',
-        maxWidth: '1100px',
+        maxWidth: '1000px',
         margin: '0 auto',
     },
 };

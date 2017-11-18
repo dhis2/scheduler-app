@@ -14,6 +14,15 @@ const styles = {
         justifyContent: 'flex-end',
         alignItems: 'center',
     },
+    noWrap: {
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
+        whiteSpace: 'nowrap',
+    },
+    buttons: {
+        marginRight: 8,
+        marginLeft: 8,
+    }
 }
 
 class ActionButtons extends Component {
@@ -58,6 +67,7 @@ class ActionButtons extends Component {
                 />
                 <RaisedButton
                     primary
+                    style={{ ...styles.buttons, ...styles.noWrap }}
                     disabled={!this.props.saveEnabled}
                     label={this.props.saveLabel}
                     onClick={this.props.save}
@@ -66,7 +76,7 @@ class ActionButtons extends Component {
                 { this.props.deleteLabel &&
                     <RaisedButton
                         primary
-                        style={{ marginLeft: 16 }}
+                        style={{ ...styles.buttons, ...styles.noWrap }}
                         buttonStyle={styles.deleteButton}
                         label={this.props.deleteLabel}
                         icon={<FontIcon className="material-icons">delete_forever</FontIcon>}

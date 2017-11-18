@@ -11,7 +11,7 @@ import moment from 'moment';
 import * as actionTypes from 'constants/actionTypes';
 import cronExpressionRegex from 'constants/cronExp';
 import ActionButtons from 'components/jobContent/ActionButtons';
-import CronExpression from 'components/jobContent/CronExpression';
+import Schedule from 'components/jobContent/Schedule';
 import Parameters from 'components/jobParameters/Parameters';
 import ConditionalIconButton from 'components/ConditionalIconButton';
 import history from '../../history';
@@ -50,24 +50,15 @@ const validateFields = values => {
         errors.name = 'Must be of two or more characters';
     }
 
-    if (!values.cronExpression) {
-        errors.cronExpression = 'Required';
-    } else if (!validCronExpression(values.cronExpression)) {
-        errors.cronExpression = 'Invalid cron expression';
+    if (!values.continuousExecution) {
+        if (!values.cronExpression) {
+            errors.cronExpression = 'Required';
+        } else if (!validCronExpression(values.cronExpression)) {
+            errors.cronExpression = 'Invalid cron expression';
+        }
     }
 
     return errors;
-}
-
-const customJobTypeFilter = (searchText, key) => {
-    console.warn(`Trigger on '${searchText}'`);
-    if (searchText === '') {
-        console.warn(`Go`);
-        return true;
-    }
-    let subMatchKey = key.substring(0, searchText.length);
-    let distance = AutoComplete.levenshteinDistance(searchText.toLowerCase(), subMatchKey.toLowerCase());
-    return searchText.length > 3 ? distance < 2 : distance === 0;
 }
 
 class Content extends Component {
@@ -142,16 +133,12 @@ class Content extends Component {
                         onChange={this.onNameChange}
                         errorText={this.state.errors.name}
                     />
-                    <CronExpression
-                        value={this.props.job.cronExpression}
-                        onChange={this.onCronExpressionChange}
+                    <Schedule
+                        cronExpression={this.props.job.cronExpression}
+                        continuousExecution={this.props.job.continuousExecution}
+                        onCronExpressionChange={this.onCronExpressionChange}
+                        onContinuousExecutionChange={this.onContinuousExecutionChange}
                         error={this.state.errors.cronExpression}
-                    />
-                    <Toggle
-                        style={styles.continuousExecutionToggle}
-                        label="Continuous Execution"
-                        defaultToggled={this.props.job.continuousExecution}
-                        onToggle={this.onContinuousExecutionChange}
                     />
                     <AutoComplete
                         fullWidth
