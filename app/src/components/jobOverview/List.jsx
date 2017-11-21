@@ -20,6 +20,7 @@ const styles = {
         backgroundColor: 'white',
         display: 'flex',
         flexDirection: 'row',
+        justifyContent: 'space-between',
         padding: 24,
         fontWeight: 600,
     },
@@ -34,11 +35,11 @@ const List = ({ jobs, toggleJob }) =>
             </Heading>
             <Paper style={styles.paper}>
                 <div style={styles.header}>
-                    <div style={{ flex: 12, }}>Name</div>
-                    <div style={{ flex: 11, }}>Type</div>
-                    <div style={{ flex: 7, }}>Status</div>
-                    <div style={{ flex: 10, }}>Next execution</div>
-                    <div style={{ flex: 0, }}>Enabled</div>
+                    <div style={{ flex: 12 }}>Name</div>
+                    <div style={{ flex: 11 }}>Type</div>
+                    <div style={{ flex: 7 }}>Status</div>
+                    <div style={{ flex: 10 }}>Next execution</div>
+                    <div style={{ flex: 0 }}>Enabled</div>
                 </div>
                 <Divider />
                 <FlipMove duration={400} enterAnimation={false} easing="ease-out">

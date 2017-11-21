@@ -29,21 +29,17 @@ const styles = {
 const appendRequiredSign = (label, required) => required ? `${label} *` : label;
 
 const Schedule = ({
-    cronExpression,
     continuousExecution,
-    onCronExpressionChange,
-    onContinuousExecutionChange,
+    cronExpression,
     error,
+    onContinuousExecutionChange,
+    onCronExpressionChange,
 }) => {
     const selectedCron = cronExpressions.find(cron => cron.value === cronExpression);
     const selectedCronText = selectedCron ? selectedCron.value : '';
     
     const onCronSelected = (e, i, value) => {
-        onChange(value);
-    }
-
-    const onCronChanged = (e, value) => {
-        onCronExpressionChange(value);
+        onCronExpressionChange(e, value);
     }
     
     return (
@@ -51,10 +47,10 @@ const Schedule = ({
             <SelectField
                 disabled={continuousExecution}
                 floatingLabelFixed
+                floatingLabelText="Select frequency"
+                onChange={onCronSelected}
                 style={styles.flexItem}
                 value={selectedCronText}
-                onChange={onCronSelected}
-                floatingLabelText="Select frequency"
             >
                 { cronExpressions.map((option, index) => (
                     <MenuItem
@@ -66,11 +62,11 @@ const Schedule = ({
             </SelectField>
             <TextField
                 disabled={continuousExecution}
+                errorText={error}
+                floatingLabelText={appendRequiredSign("Cron expression", !continuousExecution)}
+                onChange={onCronExpressionChange}
                 style={styles.flexItem}
                 value={cronExpression}
-                floatingLabelText={appendRequiredSign("Cron expression", !continuousExecution)}
-                onChange={onCronChanged}
-                errorText={error}
             />
             <div style={{ ...styles.flexItem, ...styles.toggle }}>
             <Toggle

@@ -74,40 +74,34 @@ class Content extends Component {
         }
     }
 
+    discardChanges = () => {
+        history.replace('/');
+    }
+
     onSubmit = () => {
         this.props.save(this.props.job);
     }
 
-    onNameChange = (event, value) => {
-        this.props.editJob("name", value);
+    handleFieldChange = field => value => {
+        this.props.editJob(field, value);
     }
 
-    onTypeChange = index => {
-        const type = this.props.availableTypes[index];
-        this.props.editJob("type", type);
+    handleFieldEvent = field => (event, value) => {
+        this.props.editJob(field, value);
     }
 
-    onCronExpressionChange = newValue => {
-        this.props.editJob("cronExpression", newValue);
+    onJobTypeSelected = (event, index) => {
+        if (index !== -1) {
+            this.props.editJob("type", this.props.availableTypes[index]);
+            this.jobTypeFieldRef.setState({ searchText: '' });
+        }
     }
 
-    onContinuousExecutionChange = (event, newValue) => {
-        this.props.editJob("continuousExecution", newValue);
-    }
-
-    onParametersChange = value => {
-        this.props.editJob("parameters", value);
-    }
-    
     renderLastExecutionText = () => {
         const lastExecution = moment(this.props.job.lastExecuted);
         return (
             <div>Last executed on <b>{}</b> at <b>{lastExecution.format('HH:ss')}</b>, status: {this.props.job.lastExecutedStatus}</div>
         );
-    }
-
-    discardChanges = () => {
-        history.replace('/');
     }
 
     render = () => (
@@ -130,14 +124,14 @@ class Content extends Component {
                         fullWidth
                         value={this.props.job.name}
                         floatingLabelText="Name *"
-                        onChange={this.onNameChange}
+                        onChange={this.handleFieldEvent("name")}
                         errorText={this.state.errors.name}
                     />
                     <Schedule
                         cronExpression={this.props.job.cronExpression}
                         continuousExecution={this.props.job.continuousExecution}
-                        onCronExpressionChange={this.onCronExpressionChange}
-                        onContinuousExecutionChange={this.onContinuousExecutionChange}
+                        onCronExpressionChange={this.handleFieldEvent("cronExpression")}
+                        onContinuousExecutionChange={this.handleFieldEvent("continuousExecution")}
                         error={this.state.errors.cronExpression}
                     />
                     <AutoComplete
@@ -150,12 +144,7 @@ class Content extends Component {
                         dataSource={this.props.availableTypes}
                         floatingLabelText="Job type *"
                         filter={AutoComplete.fuzzyFilter}
-                        onNewRequest={(_, index) => {
-                            if (index !== -1) {
-                                this.onTypeChange(index);
-                                this.jobTypeFieldRef.setState({ searchText: '' });
-                            }
-                        }}
+                        onNewRequest={this.onJobTypeSelected}
                     />
 
                     { this.props.job.type &&
@@ -164,7 +153,7 @@ class Content extends Component {
                             parameters={this.props.job.parameters}
                             availableParameters={this.props.availableParameters}
                             attributeOptions={this.props.attributeOptions}
-                            onChange={this.onParametersChange}
+                            onChange={this.handleFieldChange("parameters")}
                         />
                     }
 
