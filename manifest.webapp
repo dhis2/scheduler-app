@@ -1,0 +1,20 @@
+{
+    "version": "0.1",
+    "name":"Scheduler",
+    "description":"Create, modify and delete server jobs",
+    "launch_path": "index.html",
+    "appType": "APP",
+    "icons": {
+        "48": "icon.png"
+    },
+    "developer": {
+        "company": "DHIS2",
+        "url": "https://www.dhis2.org/"
+    },
+    "default_locale": "en",
+    "activities": {
+        "dhis": {
+            "href": ".."
+        }
+    }
+}

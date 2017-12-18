@@ -59,16 +59,16 @@ ContentLoader = compose(
     ),
     lifecycle({
         componentWillMount() {
-            d2.init({ baseUrl: BASE_URL }).then(() => {
-                this.props.loadJobs();
-                this.props.loadConfiguration();
+            d2.init({ baseUrl: BASE_URL }).then(() => {
+            this.props.loadJobs();
+            this.props.loadConfiguration();
             });
         },
     }),
     pure,
 )(ContentLoader);
 
-const Scheduler = () => 
+const Scheduler = d2 => 
     <Provider store={store}>
         <D2UIApp initConfig={{ baseUrl: BASE_URL }} muiTheme={theme}>
             <ContentLoader />
