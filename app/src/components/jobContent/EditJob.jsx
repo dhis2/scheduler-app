@@ -14,21 +14,24 @@ const enhance = compose(
             const currentJob = state.jobs.all.find(job => job.id === ownProps.match.params.id);
             const changes = state.jobs.changes;
 
+            const job = currentJob ? {
+                ...currentJob,
+                id: currentJob.id,
+                cronExpression: isString(changes.cronExpression)
+                    ? changes.cronExpression
+                    : currentJob.cronExpression,
+                name: isString(changes.name)
+                    ? changes.name
+                    : currentJob.name,
+                continuousExecution: changes.continuousExecution !== undefined
+                    ? changes.continuousExecution
+                    : currentJob.continuousExecution,
+                parameters: changes.parameters || currentJob.jobParameters,
+                type: changes.type || currentJob.jobType,
+            } : null;
+
             return {
-                job: currentJob && {
-                    id: currentJob.id,
-                    cronExpression: isString(changes.cronExpression)
-                        ? changes.cronExpression
-                        : currentJob.cronExpression,
-                    name: isString(changes.name)
-                        ? changes.name
-                        : currentJob.name,
-                    continuousExecution: changes.continuousExecution !== undefined
-                        ? changes.continuousExecution
-                        : currentJob.continuousExecution,
-                    parameters: changes.parameters || currentJob.jobParameters,
-                    type: changes.type || currentJob.jobType,
-                },
+                job,
                 title: currentJob && currentJob.name,
                 loaded: state.jobs.loaded && state.jobs.configuration.loaded,
                 availableTypes: state.jobs.configuration.types,
