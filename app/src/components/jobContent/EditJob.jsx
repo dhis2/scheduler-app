@@ -30,11 +30,18 @@ const enhance = compose(
                 type: changes.type || currentJob.jobType,
             } : null;
 
+            // Hack because Mui's SelectField won't show values not in list
+            const availableTypes = [...state.jobs.configuration.types];
+            if (job && availableTypes.indexOf(job.type) === -1) {
+                availableTypes.push(job.type);
+            }
+
             return {
                 job,
+                availableTypes,
+                disableEditing: currentJob && (currentJob.configurable === false),
                 title: currentJob && currentJob.name,
                 loaded: state.jobs.loaded && state.jobs.configuration.loaded,
-                availableTypes: state.jobs.configuration.types,
                 availableParameters: state.jobs.configuration.parameters,
                 attributeOptions: state.jobs.configuration.attributeOptions,
                 dirty: state.jobs.dirty,

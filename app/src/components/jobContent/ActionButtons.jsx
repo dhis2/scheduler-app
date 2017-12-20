@@ -5,9 +5,6 @@ import FontIcon from 'material-ui/FontIcon';
 import Dialog from 'material-ui/Dialog';
 
 const styles = {
-    deleteButton: {
-        backgroundColor: 'tomato',
-    },
     buttonPanel: {
         marginTop: 24,
         display: 'flex',
@@ -49,11 +46,10 @@ class ActionButtons extends Component {
                 onClick={this.closeDeleteDialog}
             />,
             <RaisedButton
-                primary
+                secondary
                 label="Submit"
                 style={{ marginLeft: 16 }}
                 onClick={this.confirmDelete}
-                buttonStyle={styles.deleteButton}
             />
         ];
 
@@ -75,9 +71,9 @@ class ActionButtons extends Component {
                 />
                 { this.props.deleteLabel &&
                     <RaisedButton
-                        primary
+                        secondary
                         style={{ ...styles.buttons, ...styles.noWrap }}
-                        buttonStyle={styles.deleteButton}
+                        disabled={this.props.disabled}
                         label={this.props.deleteLabel}
                         icon={<FontIcon className="material-icons">delete_forever</FontIcon>}
                         onClick={this.openDeleteDialog}

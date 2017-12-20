@@ -29,6 +29,7 @@ const styles = {
 const appendRequiredSign = (label, required) => required ? `${label} *` : label;
 
 const Schedule = ({
+    disabled,
     continuousExecution,
     cronExpression,
     error,
@@ -45,7 +46,7 @@ const Schedule = ({
     return (
         <div style={styles.container}>
             <SelectField
-                disabled={continuousExecution}
+                disabled={continuousExecution || disabled}
                 floatingLabelFixed
                 floatingLabelText="Select frequency"
                 onChange={onCronSelected}
@@ -61,7 +62,7 @@ const Schedule = ({
                 ))}
             </SelectField>
             <TextField
-                disabled={continuousExecution}
+                disabled={continuousExecution || disabled}
                 errorText={error}
                 floatingLabelText={appendRequiredSign("Cron expression", !continuousExecution)}
                 onChange={onCronExpressionChange}
@@ -70,6 +71,7 @@ const Schedule = ({
             />
             <div style={{ ...styles.flexItem, ...styles.toggle }}>
             <Toggle
+                disabled={disabled}
                 label="Continuous Execution"
                 defaultToggled={continuousExecution}
                 onToggle={onContinuousExecutionChange}

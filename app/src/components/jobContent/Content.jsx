@@ -4,8 +4,9 @@ import Heading from 'd2-ui/lib/headings/Heading.component';
 import { Link } from 'react-router-dom'
 import TextField from 'material-ui/TextField';
 import Paper from 'material-ui/Paper';
-import AutoComplete from 'material-ui/AutoComplete';
+import SelectField from 'material-ui/SelectField';
 import Toggle from 'material-ui/Toggle';
+import MenuItem from 'material-ui/MenuItem';
 import moment from 'moment';
 
 import * as actionTypes from 'constants/actionTypes';
@@ -93,7 +94,6 @@ class Content extends Component {
     onJobTypeSelected = (event, index) => {
         if (index !== -1) {
             this.props.editJob("type", this.props.availableTypes[index]);
-            this.jobTypeFieldRef.setState({ searchText: '' });
         }
     }
 
@@ -124,28 +124,31 @@ class Content extends Component {
                         fullWidth
                         value={this.props.job.name}
                         floatingLabelText="Name *"
+                        disabled={this.props.disableEditing}
                         onChange={this.handleFieldEvent("name")}
                         errorText={this.state.errors.name}
                     />
                     <Schedule
+                        disabled={this.props.disableEditing}
                         cronExpression={this.props.job.cronExpression}
                         continuousExecution={this.props.job.continuousExecution}
                         onCronExpressionChange={this.handleFieldEvent("cronExpression")}
                         onContinuousExecutionChange={this.handleFieldEvent("continuousExecution")}
                         error={this.state.errors.cronExpression}
                     />
-                    <AutoComplete
+                    <SelectField
                         fullWidth
-                        openOnFocus
-                        floatingLabelFixed
-                        menuStyle={styles.jobTypeList}
-                        ref={ref => { this.jobTypeFieldRef = ref; }}
-                        hintText={this.props.job.type || 'Click to select'}
-                        dataSource={this.props.availableTypes}
+                        disabled={this.props.disableEditing}
                         floatingLabelText="Job type *"
-                        filter={AutoComplete.fuzzyFilter}
-                        onNewRequest={this.onJobTypeSelected}
-                    />
+                        value={this.props.job.type}
+                        onChange={this.onJobTypeSelected}
+                    >
+                        { this.props.availableTypes.map(type => (
+                            <MenuItem
+                                key={type} value={type} primaryText={type}
+                            />
+                        ))}
+                    </SelectField>
 
                     { this.props.job.type &&
                         <Parameters
@@ -169,6 +172,7 @@ class Content extends Component {
                     <ActionButtons
                         job={this.props.job}
                         save={this.onSubmit}
+                        disabled={this.props.disableEditing}
                         saveEnabled={this.props.dirty && this.state.isValid}
                         delete={() => this.props.delete(this.props.job.id)}
                         saveLabel={this.props.saveLabel}
