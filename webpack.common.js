@@ -1,7 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const packageJSON = require('./package.json');
 const path = require('path');
-const webpack = require('webpack');
 
 module.exports = {
     entry: {
@@ -16,11 +15,6 @@ module.exports = {
         filename: `[name]_${packageJSON.version}.js`,
     },
     plugins: [
-        new webpack.DefinePlugin({
-            'process.env': {
-                NODE_ENV: JSON.stringify('development'),
-            },
-        }),
         new HtmlWebpackPlugin({
             title: 'DHIS2 Scheduler',
             filename: 'index.html',
