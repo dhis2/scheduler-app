@@ -9,6 +9,7 @@ import Paper from 'material-ui/Paper';
 import TimePicker from 'material-ui/TimePicker';
 import { compose, withProps, branch, renderNothing } from 'recompose';
 
+import Suggestion from 'components/jobParameters/Suggestion';
 import SuggestionList from 'components/jobParameters/SuggestionList';
 import InputList from 'components/jobParameters/InputList';
 import { parseParameters } from 'api/api';
@@ -78,10 +79,17 @@ const getComponentToRender = (key, parameter, changeHandler) => {
                     {createAttributeOptionSelectionList(value, options)}
                 </SelectField> 
             );
-            
+
         case COMPONENTS.SUGGESTION:
             return (
-              <div>Not supported</div>  
+              <Suggestion
+                label={label}
+                selected={value}
+                suggestions={options}
+                onChange={selected => {
+                    changeHandler(key, selected);
+                }}
+              />
             );
             
         case COMPONENTS.SUGGESTION_LIST:
