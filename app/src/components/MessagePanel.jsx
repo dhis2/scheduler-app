@@ -27,6 +27,8 @@ class MessagePanel extends Component {
             message={this.props.message}
             autoHideDuration={DEFAULT_MESSAGE_DURATION}
             onRequestClose={this.closeMessage}
+            style={{ pointerEvents: 'none', whiteSpace: 'nowrap' }}
+            bodyStyle={{ pointerEvents: 'initial', maxWidth: 'none' }}
         />
 }
 
