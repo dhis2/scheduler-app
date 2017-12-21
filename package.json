@@ -6,7 +6,8 @@
   "scripts": {
     "start": "webpack-dev-server --config webpack.dev.js",
     "build": "webpack -p --config webpack.prod.js",
-    "format": "prettier --write \"app/**/*.j{s,sx}\""
+    "format": "prettier --write \"app/**/*.j{s,sx}\"",
+    "deploy": "mvn clean deploy"
   },
   "devDependencies": {
     "babel-core": "6",
@@ -39,9 +40,7 @@
     "material-design-icons": "^3.0.1",
     "material-ui": "^0.18.7",
     "moment": "^2.18.1",
-    "node-sass": "^4.5.3",
     "react": "~15.4",
-    "react-animate-height": "^0.9.9",
     "react-dom": "~15.4",
     "react-flip-move": "^2.9.17",
     "react-redux": "5",
@@ -51,9 +50,7 @@
     "redux": "3",
     "redux-observable": "0.12",
     "rxjs": "5",
-    "sass-loader": "^6.0.6",
-    "style-loader": "^0.13.1",
-    "svg-loader": "^0.0.2",
+    "style-loader": "^0.19.1",
     "whatwg-fetch": "^2.0.3"
   }
 }
