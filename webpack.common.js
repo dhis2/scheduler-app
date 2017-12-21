@@ -31,7 +31,7 @@ module.exports = {
             {
                 test: /\.css$/,
                 loaders: ['style-loader', 'css-loader'],
-            }
+            },
         ],
     },
     resolve: {
@@ -42,6 +42,7 @@ module.exports = {
             components: path.resolve(__dirname, 'app/src/components'),
             constants: path.resolve(__dirname, 'app/src/constants'),
             reducers: path.resolve(__dirname, 'app/src/reducers'),
+            utils: path.resolve(__dirname, 'app/src/utils'),
         },
         extensions: ['.js', '.jsx'],
     },

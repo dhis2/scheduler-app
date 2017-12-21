@@ -1,6 +1,6 @@
-import React from 'react';
 import { connect } from 'react-redux';
 import { compose, withProps, lifecycle, branch, renderComponent } from 'recompose';
+import i18next from 'i18next';
 
 import * as actionTypes from 'constants/actionTypes';
 import Content from 'components/jobContent/Content';
@@ -9,7 +9,7 @@ import Loading from 'components/Loading';
 const enhance = compose(
     connect(
         state => ({
-            title: 'Add new job',
+            title: i18next.t('add_new_job'),
             job: state.jobs.changes,
             loaded: state.jobs.loaded && state.jobs.configuration.loaded,
             availableTypes: state.jobs.configuration.types,
@@ -18,7 +18,7 @@ const enhance = compose(
             dirty: state.jobs.dirty,
         }),
         dispatch => ({
-            discard: id => dispatch({ type: actionTypes.JOB_DISCARD }),
+            discard: () => dispatch({ type: actionTypes.JOB_DISCARD }),
             save: job => dispatch({ type: actionTypes.JOB_POST, payload: { job } }),
             editJob: (fieldName, value) =>
                 dispatch({ type: actionTypes.JOB_EDIT, payload: { fieldName, value } }),
@@ -30,7 +30,7 @@ const enhance = compose(
             this.props.discard();
         },
     }),
-    withProps(props => ({
+    withProps(() => ({
         saveLabel: 'Add job',
     })),
 );

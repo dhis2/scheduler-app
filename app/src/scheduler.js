@@ -1,5 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
+
 import Scheduler from 'components/Scheduler';
 import { BASE_URL, SYSTEM_AUTH } from 'api/api';
 import 'whatwg-fetch';

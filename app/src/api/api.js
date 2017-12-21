@@ -1,11 +1,5 @@
 import d2 from 'd2/lib/d2';
-import store from '../store';
-import {
-    klassToParameterType,
-    getDefaultParameterValue,
-    determineRenderedComponent,
-    PARAMS,
-} from 'api/bridge';
+import { getDefaultParameterValue, determineRenderedComponent } from 'api/bridge';
 
 export const BASE_URL = 'http://localhost:8080/api';
 export const SYSTEM_AUTH = { Authorization: 'Basic c3lzdGVtOlN5c3RlbTEyMw==' };
@@ -61,6 +55,7 @@ export const getAttributeOptions = async parameters => {
                         }
                     }),
                 ).catch(e => {
+                    // eslint-disable-next-line
                     console.warn('Error during attribute fetch:', e);
                 }));
         }),
@@ -73,7 +68,7 @@ const order = 'enabled:desc,jobStatus,nextExecutionTime';
 export const getJobs = () =>
     d2
         .getInstance()
-        .then(d2 => d2.Api.getApi().get('jobConfigurations', { fields: '*', order }))
+        .then(instance => instance.Api.getApi().get('jobConfigurations', { fields: '*', order }))
         .then(result => result.jobConfigurations)
         .catch(error => {
             throw error;
@@ -82,8 +77,8 @@ export const getJobs = () =>
 export const postJob = job =>
     d2
         .getInstance()
-        .then(d2 =>
-            d2.Api.getApi().post('jobConfigurations', {
+        .then(instance =>
+            instance.Api.getApi().post('jobConfigurations', {
                 name: job.name,
                 cronExpression: job.cronExpression,
                 jobType: job.type,
@@ -98,8 +93,8 @@ export const postJob = job =>
 export const saveJob = job =>
     d2
         .getInstance()
-        .then(d2 =>
-            d2.Api.getApi().update(`jobConfigurations/${job.id}`, {
+        .then(instance =>
+            instance.Api.getApi().update(`jobConfigurations/${job.id}`, {
                 name: job.name,
                 enabled: job.enabled,
                 cronExpression: job.cronExpression,
@@ -115,7 +110,7 @@ export const saveJob = job =>
 export const deleteJob = id =>
     d2
         .getInstance()
-        .then(d2 => d2.Api.getApi().delete(`jobConfigurations/${id}`))
+        .then(instance => instance.Api.getApi().delete(`jobConfigurations/${id}`))
         .then(result => result)
         .catch(error => {
             throw error;
@@ -124,24 +119,24 @@ export const deleteJob = id =>
 const getValue = (values, field) => values && values[field];
 
 /*
- * Parse parameter data and types (from API) into a list of 
+ * Parse parameter data and types (from API) into a list of
  * parameters that can be parsed dynamically during rendering.
  */
 export const parseParameters = (availableParameters, definedValues, attributeOptions) => {
-    let localParameters = {};
+    const localParameters = {};
 
     if (availableParameters) {
         Object.keys(availableParameters).forEach(key => {
             const parameter = availableParameters[key];
 
-            let meta = {
+            const meta = {
                 type: parameter.klass,
                 itemType: parameter.itemKlass,
                 label: parameter.fieldName,
                 options: attributeOptions[key] || [],
             };
 
-            let value =
+            const value =
                 getValue(definedValues, parameter.name) ||
                 getDefaultParameterValue(parameter.klass);
 

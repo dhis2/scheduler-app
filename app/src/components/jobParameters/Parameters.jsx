@@ -6,6 +6,7 @@ import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import TimePicker from 'material-ui/TimePicker';
 import { compose, withProps, branch, renderNothing } from 'recompose';
+import i18next from 'i18next';
 
 import Suggestion from 'components/jobParameters/Suggestion';
 import SuggestionList from 'components/jobParameters/SuggestionList';
@@ -59,13 +60,13 @@ const getComponentToRender = (key, parameter, changeHandler) => {
         case COMPONENTS.INPUT_LIST:
             return <InputList label={label} values={value} onChange={onChangeHandler} />;
 
-        case COMPONENTS.SELECTION:
+        case COMPONENTS.SELECTION: {
             const onChange = (event, index, values) => changeHandler(key, values, false);
             return (
                 <SelectField
                     multiple
                     fullWidth
-                    hintText={'Click to select'}
+                    hintText={i18next.t('click_to_select')}
                     value={value}
                     onChange={onChange}
                     floatingLabelText={label}
@@ -73,6 +74,7 @@ const getComponentToRender = (key, parameter, changeHandler) => {
                     {createAttributeOptionSelectionList(value, options)}
                 </SelectField>
             );
+        }
 
         case COMPONENTS.SUGGESTION:
             return (
@@ -113,12 +115,12 @@ const getComponentToRender = (key, parameter, changeHandler) => {
                     <TimePicker
                         textFieldStyle={styles.timePicker}
                         format="24hr"
-                        hintText="Start time"
+                        hintText={i18next.t('start_time')}
                     />
                     <TimePicker
                         textFieldStyle={styles.timePicker}
                         format="24hr"
-                        hintText="End time"
+                        hintText={i18next.t('end_time')}
                     />
                 </div>
             );

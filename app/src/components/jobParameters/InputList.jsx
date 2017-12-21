@@ -15,13 +15,6 @@ class InputList extends Component {
         input: null,
     };
 
-    wipeInput = () => {
-        this.setState({ input: '' });
-    };
-    updateInput = input => {
-        this.setState({ input });
-    };
-
     onValueAdd = chosenRequest => {
         this.wipeInput();
         this.props.onChange([...this.props.values, chosenRequest]);
@@ -29,6 +22,14 @@ class InputList extends Component {
 
     onValueRemove = value => () => {
         this.props.onChange(this.props.values.filter(v => v !== value));
+    };
+
+    wipeInput = () => {
+        this.setState({ input: '' });
+    };
+
+    updateInput = input => {
+        this.setState({ input });
     };
 
     render = () => (

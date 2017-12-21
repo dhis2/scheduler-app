@@ -15,11 +15,12 @@ import AddJob from 'components/jobContent/AddJob';
 import MessagePanel from 'components/MessagePanel';
 import * as actionTypes from 'constants/actionTypes';
 import { BASE_URL } from 'api/api';
+import initializeI18n from 'utils/i18n';
+import history from 'utils/history';
 
 import theme from '../styles/theme';
 import '../styles/override.css';
 import store from '../store';
-import history from '../history';
 
 const HeaderBar = withStateFrom(headerBarStore$, HeaderBarComponent);
 
@@ -56,7 +57,8 @@ ContentLoader = compose(
     ),
     lifecycle({
         componentWillMount() {
-            d2.init({ baseUrl: BASE_URL }).then(() => {
+            d2.init({ baseUrl: BASE_URL }).then(instance => {
+                initializeI18n(instance);
                 this.props.loadJobs();
                 this.props.loadConfiguration();
             });

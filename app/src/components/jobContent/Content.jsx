@@ -5,13 +5,14 @@ import Paper from 'material-ui/Paper';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import moment from 'moment';
+import i18next from 'i18next';
 
 import cronExpressionRegex from 'constants/cronExp';
 import ActionButtons from 'components/jobContent/ActionButtons';
 import Schedule from 'components/jobContent/Schedule';
 import Parameters from 'components/jobParameters/Parameters';
 import ConditionalIconButton from 'components/ConditionalIconButton';
-import history from '../../history';
+import history from 'utils/history';
 
 const styles = {
     jobDetails: {
@@ -40,16 +41,16 @@ const validCronExpression = exp => exp.trim().match(cronExpressionRegex) !== nul
 const validateFields = values => {
     const errors = {};
     if (!values.name) {
-        errors.name = 'Required';
+        errors.name = i18next.t('required');
     } else if (values.name.length < 2) {
-        errors.name = 'Must be of two or more characters';
+        errors.name = i18next.t('must_be_of_two_or_more_characters');
     }
 
     if (!values.continuousExecution) {
         if (!values.cronExpression) {
-            errors.cronExpression = 'Required';
+            errors.cronExpression = i18next.t('required');
         } else if (!validCronExpression(values.cronExpression)) {
-            errors.cronExpression = 'Invalid cron expression';
+            errors.cronExpression = i18next.t('invalid_cron_expression');
         }
     }
 
@@ -111,7 +112,7 @@ class Content extends Component {
                 <ConditionalIconButton
                     icon="arrow_back"
                     showConfirmation={this.props.dirty}
-                    confirmationMessage={'Are you sure you want to discard your changes?'}
+                    confirmationMessage={i18next.t('are_you_sure_you_want_to_discard_your_changes')}
                     onConfirm={this.discardChanges}
                 />
                 <Heading style={{ paddingBottom: 16, paddingLeft: 24 }}>{this.props.title}</Heading>
@@ -122,7 +123,7 @@ class Content extends Component {
                     <TextField
                         fullWidth
                         value={this.props.job.name}
-                        floatingLabelText="Name *"
+                        floatingLabelText={`${i18next.t('name')} *`}
                         disabled={this.props.disableEditing}
                         onChange={this.handleFieldEvent('name')}
                         errorText={this.state.errors.name}
@@ -138,12 +139,12 @@ class Content extends Component {
                     <SelectField
                         fullWidth
                         disabled={this.props.disableEditing}
-                        floatingLabelText="Job type *"
+                        floatingLabelText={`${i18next.t('job_type')} *`}
                         value={this.props.job.type}
                         onChange={this.onJobTypeSelected}
                     >
                         {this.props.availableTypes.map(type => (
-                            <MenuItem key={type} value={type} primaryText={type} />
+                            <MenuItem key={type} value={type} primaryText={i18next.t(type)} />
                         ))}
                     </SelectField>
 
@@ -168,7 +169,10 @@ class Content extends Component {
                                 Last executed:{' '}
                                 {moment(this.props.job.lastExecuted).format('DD.MM.YYYY HH:ss')}
                             </div>
-                            <div>Last execution status: {this.props.job.lastExecutedStatus}</div>
+                            <div>
+                                Last execution status:{' '}
+                                {i18next.t(this.props.job.lastExecutedStatus)}
+                            </div>
                         </div>
                     )}
 

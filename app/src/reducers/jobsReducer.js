@@ -1,8 +1,7 @@
 import * as actionTypes from 'constants/actionTypes';
-import { parseParameters } from 'api/api';
 
 const initialState = {
-    all: [], // TODO: Change to an object map
+    all: [],
     loaded: false,
     dirty: false,
     changes: {
@@ -33,7 +32,7 @@ function jobsReducer(state = initialState, action) {
                 dirty: false,
             };
 
-        case actionTypes.JOB_EDIT:
+        case actionTypes.JOB_EDIT: {
             const field = action.payload.fieldName;
 
             return {
@@ -44,6 +43,7 @@ function jobsReducer(state = initialState, action) {
                     [field]: action.payload.value,
                 },
             };
+        }
 
         case actionTypes.CONFIGURATION_LOAD_SUCCESS:
             return {
@@ -65,9 +65,10 @@ function jobsReducer(state = initialState, action) {
                     attributeOptions: action.payload.attributeOptions,
                 },
             };
-    }
 
-    return state;
+        default:
+            return state;
+    }
 }
 
 export default jobsReducer;

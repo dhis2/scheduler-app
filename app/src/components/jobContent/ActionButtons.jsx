@@ -3,6 +3,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
 import FontIcon from 'material-ui/FontIcon';
 import Dialog from 'material-ui/Dialog';
+import i18next from 'i18next';
 
 const styles = {
     buttonPanel: {
@@ -44,10 +45,10 @@ class ActionButtons extends Component {
 
     render = () => {
         const deleteDialogActions = [
-            <FlatButton primary label="Cancel" onClick={this.closeDeleteDialog} />,
+            <FlatButton primary label={i18next.t('cancel')} onClick={this.closeDeleteDialog} />,
             <RaisedButton
                 secondary
-                label="Submit"
+                label={i18next.t('submit')}
                 style={{ marginLeft: 16 }}
                 onClick={this.confirmDelete}
             />,
@@ -56,7 +57,9 @@ class ActionButtons extends Component {
         return (
             <div style={styles.buttonPanel}>
                 <Dialog
-                    title={`Are you sure you want to delete "${this.props.job.name}"?`}
+                    title={`${i18next.t('are_you_sure_you_want_to_delete:')} "${
+                        this.props.job.name
+                    }"?`}
                     actions={deleteDialogActions}
                     open={this.state.deleteDialogOpen}
                     onRequestClose={this.closeDeleteDialog}

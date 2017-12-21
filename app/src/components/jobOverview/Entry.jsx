@@ -1,6 +1,7 @@
 import React from 'react';
 import Toggle from 'material-ui/Toggle';
 import moment from 'moment';
+import i18next from 'i18next';
 
 const styles = {
     listEntry: {
@@ -57,8 +58,8 @@ const Entry = ({ job, onSelect, onToggle, first }) => {
             style={{ ...styles.listEntry, borderTop: first ? '' : '1px solid lightgray' }}
         >
             <div style={{ ...styles.displayName, flex: 12 }}>{job.displayName}</div>
-            <div style={{ ...styles.noWrap, flex: 11 }}>{job.jobType}</div>
-            <div style={{ flex: 7 }}>{job.jobStatus}</div>
+            <div style={{ ...styles.noWrap, flex: 11 }}>{i18next.t(job.jobType)}</div>
+            <div style={{ flex: 7 }}>{i18next.t(job.jobStatus)}</div>
             <div style={{ flex: 10 }}>{nextExecutionText}</div>
             <div>
                 <Toggle toggled={job.enabled} onToggle={toggle} onClick={toggleClick} />

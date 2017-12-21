@@ -1,5 +1,4 @@
-import React from 'react';
-
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { compose, pure } from 'recompose';
@@ -9,6 +8,7 @@ import FontIcon from 'material-ui/FontIcon';
 import Heading from 'd2-ui/lib/headings/Heading.component';
 import Paper from 'material-ui/Paper';
 import FlipMove from 'react-flip-move';
+import i18next from 'i18next';
 
 import * as actionTypes from 'constants/actionTypes';
 import Entry from 'components/jobOverview/Entry';
@@ -33,14 +33,16 @@ const styles = {
 
 const List = ({ jobs, toggleJob }) => (
     <div>
-        <Heading style={{ paddingBottom: 16, paddingLeft: 24 }}>Scheduled Jobs</Heading>
+        <Heading style={{ paddingBottom: 16, paddingLeft: 24 }}>
+            {i18next.t('scheduled_jobs')}
+        </Heading>
         <Paper style={styles.paper}>
             <div style={styles.header}>
-                <div style={{ flex: 12 }}>Name</div>
-                <div style={{ flex: 11 }}>Type</div>
-                <div style={{ flex: 7 }}>Status</div>
-                <div style={{ flex: 10 }}>Next execution</div>
-                <div style={{ flex: 0 }}>Enabled</div>
+                <div style={{ flex: 12 }}>{i18next.t('name')}</div>
+                <div style={{ flex: 11 }}>{i18next.t('type')}</div>
+                <div style={{ flex: 7 }}>{i18next.t('status')}</div>
+                <div style={{ flex: 10 }}>{i18next.t('next_execution')}</div>
+                <div style={{ flex: 0 }}>{i18next.t('enabled')}</div>
             </div>
             <Divider />
             <FlipMove duration={400} enterAnimation={false} easing="ease-out">
@@ -55,13 +57,20 @@ const List = ({ jobs, toggleJob }) => (
     </div>
 );
 
-const LinkedEntry = ({ job, onToggle, index }) => (
-    <div style={styles.entry}>
-        <Link to={`edit/${job.id}`}>
-            <Entry job={job} onToggle={onToggle} first={index === 0} />
-        </Link>
-    </div>
-);
+// eslint-disable-next-line
+class LinkedEntry extends Component {
+    render = () => (
+        <div style={styles.entry}>
+            <Link to={`edit/${this.props.job.id}`}>
+                <Entry
+                    job={this.props.job}
+                    onToggle={this.props.onToggle}
+                    first={this.props.index === 0}
+                />
+            </Link>
+        </div>
+    );
+}
 
 const AddButton = () => (
     <div style={styles.addButton}>

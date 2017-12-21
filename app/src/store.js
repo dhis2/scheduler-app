@@ -6,6 +6,8 @@ import messageReducer from 'reducers/messageReducer';
 import createLogger from 'redux-logger';
 
 const middlewares = [createEpicMiddleware(Epics)];
+
+// eslint-disable-next-line
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 if (process.env.NODE_ENV === 'development') {

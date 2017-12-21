@@ -1,12 +1,11 @@
 import * as actions from 'constants/actionTypes';
 import { combineEpics } from 'redux-observable';
-import { Observable, concatMap } from 'rxjs';
 
-import history from '../history';
+import history from 'utils/history';
 import * as api from 'api/api';
 
 const loadConfiguration = action$ =>
-    action$.ofType(actions.CONFIGURATION_LOAD).concatMap(action =>
+    action$.ofType(actions.CONFIGURATION_LOAD).concatMap(() =>
         api
             .getConfiguration()
             .then(configuration => ({
@@ -35,7 +34,7 @@ const loadJobs = action$ =>
             actions.JOB_SAVE_SUCCESS,
             actions.JOB_DELETE_SUCCESS,
         )
-        .concatMap(action =>
+        .concatMap(() =>
             api
                 .getJobs()
                 .then(jobs => ({ type: actions.JOBS_LOAD_SUCCESS, payload: { jobs } }))

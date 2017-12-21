@@ -19,18 +19,6 @@ class SuggestionList extends Component {
         input: null,
     };
 
-    wipeInput = () => {
-        this.setState({
-            input: '',
-        });
-    };
-
-    updateInput = input => {
-        this.setState({
-            input,
-        });
-    };
-
     onSuggestionClick = (chosenRequest, index) => {
         this.wipeInput();
 
@@ -41,6 +29,18 @@ class SuggestionList extends Component {
 
     onSelectionClick = id => () => {
         this.props.onChange(this.props.selected.filter(item => item !== id));
+    };
+
+    wipeInput = () => {
+        this.setState({
+            input: '',
+        });
+    };
+
+    updateInput = input => {
+        this.setState({
+            input,
+        });
     };
 
     render = () => (
