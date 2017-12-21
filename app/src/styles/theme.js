@@ -1,5 +1,5 @@
-import getMuiTheme from "material-ui/styles/getMuiTheme";
-import { fade } from "material-ui/utils/colorManipulator";
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import { fade } from 'material-ui/utils/colorManipulator';
 import {
     blue500,
     blue700,
@@ -12,12 +12,12 @@ import {
     white,
     darkBlack,
     fullBlack,
-    lightBlack
-} from "material-ui/styles/colors";
+    lightBlack,
+} from 'material-ui/styles/colors';
 
 export default getMuiTheme({
     palette: {
-        primary1Color: "rgb(39, 102, 150)",
+        primary1Color: 'rgb(39, 102, 150)',
         primary2Color: blue900,
         primary3Color: grey200,
         accent1Color: pinkA200,
@@ -30,6 +30,6 @@ export default getMuiTheme({
         disabledColor: fade(darkBlack, 0.3),
         pickerHeaderColor: blue500,
         clockCircleColor: fade(darkBlack, 0.07),
-        shadowColor: fullBlack
+        shadowColor: fullBlack,
     },
 });

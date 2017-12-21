@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { compose, withProps, lifecycle, branch, renderComponent} from 'recompose';
+import { compose, withProps, lifecycle, branch, renderComponent } from 'recompose';
 
 import * as actionTypes from 'constants/actionTypes';
 import Content from 'components/jobContent/Content';
@@ -19,14 +19,12 @@ const enhance = compose(
         }),
         dispatch => ({
             discard: id => dispatch({ type: actionTypes.JOB_DISCARD }),
-            save: job => dispatch({ type: actionTypes.JOB_POST, payload: { job }}),
-            editJob: (fieldName, value) => dispatch({ type: actionTypes.JOB_EDIT, payload:  { fieldName, value }}),
-        })
+            save: job => dispatch({ type: actionTypes.JOB_POST, payload: { job } }),
+            editJob: (fieldName, value) =>
+                dispatch({ type: actionTypes.JOB_EDIT, payload: { fieldName, value } }),
+        }),
     ),
-    branch(
-        props => !props.loaded,
-        renderComponent(Loading),
-    ),
+    branch(props => !props.loaded, renderComponent(Loading)),
     lifecycle({
         componentWillUnmount() {
             this.props.discard();

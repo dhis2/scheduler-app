@@ -5,7 +5,7 @@ import Checkbox from 'material-ui/Checkbox';
 import Toggle from 'material-ui/Toggle';
 import moment from 'moment';
 
-import d2 from 'd2/lib/d2';
+import d2 from 'd2/lib/d2';
 
 const styles = {
     listEntry: {
@@ -31,8 +31,8 @@ const styles = {
         overflow: 'hidden',
         textOverflow: 'ellipsis',
         whiteSpace: 'nowrap',
-    }
-}
+    },
+};
 
 const Entry = ({ job, onSelect, onToggle, first }) => {
     const enabledStatusStyle = {
@@ -52,22 +52,27 @@ const Entry = ({ job, onSelect, onToggle, first }) => {
             cronExpression: job.cronExpression,
             enabled: value,
         });
-    }
+    };
 
     const toggleClick = event => {
         event.preventDefault();
         event.stopPropagation();
-    }
+    };
 
     return (
-        <div onClick={onSelect} style={{...styles.listEntry, borderTop: first ? '' : '1px solid lightgray'}}>
-            <div style={{...styles.displayName, flex: 12 }}>{job.displayName}</div>
-            <div style={{...styles.noWrap, flex: 11 }}>{job.jobType}</div>
+        <div
+            onClick={onSelect}
+            style={{ ...styles.listEntry, borderTop: first ? '' : '1px solid lightgray' }}
+        >
+            <div style={{ ...styles.displayName, flex: 12 }}>{job.displayName}</div>
+            <div style={{ ...styles.noWrap, flex: 11 }}>{job.jobType}</div>
             <div style={{ flex: 7 }}>{job.jobStatus}</div>
             <div style={{ flex: 10 }}>{nextExecutionText}</div>
-            <div><Toggle toggled={job.enabled} onToggle={toggle} onClick={toggleClick} /></div>
+            <div>
+                <Toggle toggled={job.enabled} onToggle={toggle} onClick={toggleClick} />
+            </div>
         </div>
     );
-}
+};
 
 export default Entry;

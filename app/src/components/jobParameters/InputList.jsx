@@ -8,24 +8,28 @@ const styles = {
         display: 'flex',
         flexWrap: 'wrap',
     },
-}
+};
 
 class InputList extends Component {
     state = {
         input: null,
     };
 
-    wipeInput = () => { this.setState({ input: '' }); }
-    updateInput = input => { this.setState({ input }); }
+    wipeInput = () => {
+        this.setState({ input: '' });
+    };
+    updateInput = input => {
+        this.setState({ input });
+    };
 
     onValueAdd = chosenRequest => {
         this.wipeInput();
         this.props.onChange([...this.props.values, chosenRequest]);
-    }
+    };
 
     onValueRemove = value => () => {
-        this.props.onChange(this.props.values.filter(v => v !== value))
-    }
+        this.props.onChange(this.props.values.filter(v => v !== value));
+    };
 
     render = () => (
         <div style={{ marginBottom: 16 }}>
@@ -39,7 +43,7 @@ class InputList extends Component {
             />
 
             <div style={styles.wrapper}>
-                { this.props.values.map(value =>
+                {this.props.values.map(value => (
                     <Chip
                         key={value}
                         style={styles.chip}
@@ -47,7 +51,7 @@ class InputList extends Component {
                     >
                         {value}
                     </Chip>
-            )}
+                ))}
             </div>
         </div>
     );

@@ -7,7 +7,7 @@ import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import Paper from 'material-ui/Paper';
 import TimePicker from 'material-ui/TimePicker';
-import { compose, withProps, branch, renderNothing } from 'recompose';
+import { compose, withProps, branch, renderNothing } from 'recompose';
 
 import Suggestion from 'components/jobParameters/Suggestion';
 import SuggestionList from 'components/jobParameters/SuggestionList';
@@ -28,15 +28,15 @@ const handleParameterEvent = (changeHandler, key) => (event, newValue) =>
     changeHandler(key, newValue, false);
 
 const createAttributeOptionSelectionList = (values, options) =>
-    options.map(option => 
+    options.map(option => (
         <MenuItem
             key={option}
             insetChildren
-            checked={values && (values.indexOf(option) > -1) ? true : false}
+            checked={values && values.indexOf(option) > -1 ? true : false}
             value={option}
             primaryText={option}
         />
-    );
+    ));
 
 const getComponentToRender = (key, parameter, changeHandler) => {
     const { label, type, itemType, options, renderAs } = parameter.meta;
@@ -51,9 +51,9 @@ const getComponentToRender = (key, parameter, changeHandler) => {
                     floatingLabelText={label}
                     type={type === PARAMS.INTEGER ? 'number' : 'text'}
                     onChange={handleParameterEvent(changeHandler, key)}
-                /> 
+                />
             );
-            
+
         case COMPONENTS.INPUT_LIST:
             return (
                 <InputList
@@ -62,9 +62,9 @@ const getComponentToRender = (key, parameter, changeHandler) => {
                     onChange={selected => {
                         changeHandler(key, selected);
                     }}
-                /> 
+                />
             );
-            
+
         case COMPONENTS.SELECTION:
             const onChange = (event, index, values) => changeHandler(key, values, false);
             return (
@@ -77,21 +77,21 @@ const getComponentToRender = (key, parameter, changeHandler) => {
                     floatingLabelText={label}
                 >
                     {createAttributeOptionSelectionList(value, options)}
-                </SelectField> 
+                </SelectField>
             );
 
         case COMPONENTS.SUGGESTION:
             return (
-              <Suggestion
-                label={label}
-                selected={value}
-                suggestions={options}
-                onChange={selected => {
-                    changeHandler(key, selected);
-                }}
-              />
+                <Suggestion
+                    label={label}
+                    selected={value}
+                    suggestions={options}
+                    onChange={selected => {
+                        changeHandler(key, selected);
+                    }}
+                />
             );
-            
+
         case COMPONENTS.SUGGESTION_LIST:
             return (
                 <SuggestionList
@@ -103,7 +103,7 @@ const getComponentToRender = (key, parameter, changeHandler) => {
                     }}
                 />
             );
-            
+
         case COMPONENTS.TOGGLE:
             return (
                 <Toggle
@@ -113,16 +113,10 @@ const getComponentToRender = (key, parameter, changeHandler) => {
                     onToggle={handleParameterEvent(changeHandler, key)}
                 />
             );
-            
+
         case COMPONENTS.DATE:
-            return (
-                <TimePicker
-                    textFieldStyle={styles.timePicker}
-                    format="24hr"
-                    hintText={label}
-                />
-            );
-            
+            return <TimePicker textFieldStyle={styles.timePicker} format="24hr" hintText={label} />;
+
         case COMPONENTS.PERIOD:
             return (
                 <div>
@@ -142,7 +136,7 @@ const getComponentToRender = (key, parameter, changeHandler) => {
         default:
             return null;
     }
-}
+};
 
 const Parameters = props => {
     const paramKeys = Object.keys(props.parameters);
@@ -154,24 +148,18 @@ const Parameters = props => {
 
     return (
         <div>
-            <Heading style={styles.header}>
-                Parameters
-            </Heading>
+            <Heading style={styles.header}>Parameters</Heading>
             {parametersToRender}
         </div>
     );
-}
+};
 
 const noParameters = ({ parameters }) => Object.keys(parameters).length < 1;
-const missingProps = ({ parameters, attributeOptions }) => 
-       (parameters && Object.keys(parameters).length < 1)
-    || Object.keys(attributeOptions).length < 1;
+const missingProps = ({ parameters, attributeOptions }) =>
+    (parameters && Object.keys(parameters).length < 1) || Object.keys(attributeOptions).length < 1;
 
 const enhance = compose(
-    branch(
-        missingProps,
-        renderNothing,
-    ),
+    branch(missingProps, renderNothing),
     withProps(props => {
         const parameters = parseParameters(
             props.availableParameters[props.type],
@@ -183,21 +171,16 @@ const enhance = compose(
         const onParameterChange = (fieldName, newValue, collection) => {
             props.onChange({
                 ...props.parameters,
-                [fieldName]: collection
-                    ? separateByComma(newValue)
-                    : newValue,
+                [fieldName]: collection ? separateByComma(newValue) : newValue,
             });
-        }
+        };
 
         return {
             parameters,
             onParameterChange,
-        }
+        };
     }),
-    branch(
-        noParameters,
-        renderNothing,
-    ),
+    branch(noParameters, renderNothing),
 );
 
 export default enhance(Parameters);

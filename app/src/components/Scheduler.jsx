@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 import theme from '../styles/theme';
 import '../styles/override.css';
 import store from '../store';
@@ -10,7 +10,7 @@ import HeaderBarComponent from 'd2-ui/lib/app-header/HeaderBar';
 import headerBarStore$ from 'd2-ui/lib/app-header/headerBar.store';
 import withStateFrom from 'd2-ui/lib/component-helpers/withStateFrom';
 import Heading from 'd2-ui/lib/headings/Heading.component';
-import { Router, Route } from "react-router-dom";
+import { Router, Route } from 'react-router-dom';
 import history from '../history';
 import { compose, lifecycle, pure } from 'recompose';
 
@@ -60,19 +60,20 @@ ContentLoader = compose(
     lifecycle({
         componentWillMount() {
             d2.init({ baseUrl: BASE_URL }).then(() => {
-            this.props.loadJobs();
-            this.props.loadConfiguration();
+                this.props.loadJobs();
+                this.props.loadConfiguration();
             });
         },
     }),
     pure,
 )(ContentLoader);
 
-const Scheduler = d2 => 
+const Scheduler = d2 => (
     <Provider store={store}>
         <D2UIApp initConfig={{ baseUrl: BASE_URL }} muiTheme={theme}>
             <ContentLoader />
         </D2UIApp>
-    </Provider>;
+    </Provider>
+);
 
 export default Scheduler;

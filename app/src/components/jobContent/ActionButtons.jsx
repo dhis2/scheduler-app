@@ -19,38 +19,38 @@ const styles = {
     buttons: {
         marginRight: 8,
         marginLeft: 8,
-    }
-}
+    },
+};
 
 class ActionButtons extends Component {
-    state = { deleteDialogOpen: false }
-    toggleDeleteDialog = open  => {
+    state = { deleteDialogOpen: false };
+    toggleDeleteDialog = open => {
         this.setState({
             deleteDialogOpen: open,
         });
-    }
+    };
 
-    closeDeleteDialog = () => { this.toggleDeleteDialog(false); }
-    openDeleteDialog = () => { this.toggleDeleteDialog(true); }
+    closeDeleteDialog = () => {
+        this.toggleDeleteDialog(false);
+    };
+    openDeleteDialog = () => {
+        this.toggleDeleteDialog(true);
+    };
 
     confirmDelete = () => {
         this.closeDeleteDialog();
         this.props.delete();
-    }
+    };
 
     render = () => {
         const deleteDialogActions = [
-            <FlatButton
-                label="Cancel"
-                primary={true}
-                onClick={this.closeDeleteDialog}
-            />,
+            <FlatButton label="Cancel" primary={true} onClick={this.closeDeleteDialog} />,
             <RaisedButton
                 secondary
                 label="Submit"
                 style={{ marginLeft: 16 }}
                 onClick={this.confirmDelete}
-            />
+            />,
         ];
 
         return (
@@ -69,7 +69,7 @@ class ActionButtons extends Component {
                     onClick={this.props.save}
                     icon={<FontIcon className="material-icons">cloud_upload</FontIcon>}
                 />
-                { this.props.deleteLabel &&
+                {this.props.deleteLabel && (
                     <RaisedButton
                         secondary
                         style={{ ...styles.buttons, ...styles.noWrap }}
@@ -78,10 +78,10 @@ class ActionButtons extends Component {
                         icon={<FontIcon className="material-icons">delete_forever</FontIcon>}
                         onClick={this.openDeleteDialog}
                     />
-                }
+                )}
             </div>
         );
-    }
+    };
 }
 
 export default ActionButtons;

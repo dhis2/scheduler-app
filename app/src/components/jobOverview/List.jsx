@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom'
-import d2 from 'd2/lib/d2';
-import { compose, lifecycle, pure } from 'recompose';
+import { Link } from 'react-router-dom';
+import d2 from 'd2/lib/d2';
+import { compose, lifecycle, pure } from 'recompose';
 import Divider from 'material-ui/Divider';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import FontIcon from 'material-ui/FontIcon';
@@ -26,32 +26,36 @@ const styles = {
     },
     paper: { backgroundColor: '#e0e0e0' },
     entry: { backgroundColor: 'white' },
+    addButton: {
+        position: 'absolute',
+        right: 36,
+        bottom: 36,
+    },
 };
 
-const List = ({ jobs, toggleJob }) =>
-        <div>
-            <Heading style={{ paddingBottom: 16, paddingLeft: 24 }}>
-                Scheduled Jobs
-            </Heading>
-            <Paper style={styles.paper}>
-                <div style={styles.header}>
-                    <div style={{ flex: 12 }}>Name</div>
-                    <div style={{ flex: 11 }}>Type</div>
-                    <div style={{ flex: 7 }}>Status</div>
-                    <div style={{ flex: 10 }}>Next execution</div>
-                    <div style={{ flex: 0 }}>Enabled</div>
-                </div>
-                <Divider />
-                <FlipMove duration={400} enterAnimation={false} easing="ease-out">
-                    { jobs.map((job, index) =>
-                        <LinkedEntry key={job.id} job={job} onToggle={toggleJob} first={index === 0} />
-                    )}
-                </FlipMove>
-            </Paper>
-            <Link to={'add'}>
-                <AddButton />
-            </Link>
-        </div>;
+const List = ({ jobs, toggleJob }) => (
+    <div>
+        <Heading style={{ paddingBottom: 16, paddingLeft: 24 }}>Scheduled Jobs</Heading>
+        <Paper style={styles.paper}>
+            <div style={styles.header}>
+                <div style={{ flex: 12 }}>Name</div>
+                <div style={{ flex: 11 }}>Type</div>
+                <div style={{ flex: 7 }}>Status</div>
+                <div style={{ flex: 10 }}>Next execution</div>
+                <div style={{ flex: 0 }}>Enabled</div>
+            </div>
+            <Divider />
+            <FlipMove duration={400} enterAnimation={false} easing="ease-out">
+                {jobs.map((job, index) => (
+                    <LinkedEntry key={job.id} job={job} onToggle={toggleJob} first={index === 0} />
+                ))}
+            </FlipMove>
+        </Paper>
+        <Link to={'add'}>
+            <AddButton />
+        </Link>
+    </div>
+);
 
 class LinkedEntry extends React.Component {
     render = () => (
@@ -67,24 +71,21 @@ class LinkedEntry extends React.Component {
     );
 }
 
-const AddButton = () =>
-    <div style={{
-        position: 'absolute',
-        right: 36,
-        bottom: 36,
-    }}>
+const AddButton = () => (
+    <div style={styles.addButton}>
         <FloatingActionButton>
             <FontIcon className="material-icons">add</FontIcon>
         </FloatingActionButton>
-    </div>;
+    </div>
+);
 
 const enhance = compose(
     connect(
-        (state) => ({
+        state => ({
             jobs: state.jobs.all,
         }),
         dispatch => ({
-            toggleJob: job => dispatch({ type: actionTypes.JOB_SAVE, payload: { job }}),
+            toggleJob: job => dispatch({ type: actionTypes.JOB_SAVE, payload: { job } }),
         }),
     ),
     pure,

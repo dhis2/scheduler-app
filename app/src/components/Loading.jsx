@@ -10,9 +10,10 @@ const styles = {
     },
 };
 
-const LoadingJob = () =>
+const LoadingJob = () => (
     <div style={styles.centerContent}>
         <CircularProgress size={80} thickness={5} />
     </div>
+);
 
 export default LoadingJob;

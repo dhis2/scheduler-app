@@ -9,36 +9,37 @@ const styles = {
     button: {
         marginLeft: 16,
     },
-}
+};
 
 class ConditionalIconButton extends Component {
     state = { dialogOpen: false };
-    openDialog = () => { this.setState({ dialogOpen: true }); }
-    closeDialog = () => { this.setState({ dialogOpen: false }); }
+
+    openDialog = () => {
+        this.setState({ dialogOpen: true });
+    };
+
+    closeDialog = () => {
+        this.setState({ dialogOpen: false });
+    };
+
     confirm = () => {
         this.closeDialog();
         this.props.onConfirm();
-    }
+    };
 
     onClick = () => {
-        this.props.showConfirmation
-            ? this.openDialog()
-            : this.confirm();
-    }
+        this.props.showConfirmation ? this.openDialog() : this.confirm();
+    };
 
     render = () => {
         const confirmationDialogActions = [
-            <FlatButton
-                label="Cancel"
-                primary={true}
-                onClick={this.closeDialog}
-            />,
+            <FlatButton label="Cancel" primary={true} onClick={this.closeDialog} />,
             <RaisedButton
                 primary
                 label="Confirm"
                 style={{ marginLeft: 16 }}
                 onClick={this.confirm}
-            />
+            />,
         ];
 
         return (
@@ -54,7 +55,7 @@ class ConditionalIconButton extends Component {
                 </IconButton>
             </div>
         );
-    }
+    };
 }
 
 export default ConditionalIconButton;

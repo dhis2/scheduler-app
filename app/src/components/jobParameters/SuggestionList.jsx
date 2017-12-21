@@ -8,7 +8,7 @@ const styles = {
         display: 'flex',
         flexWrap: 'wrap',
     },
-}
+};
 
 /*
  * An AutoComplete text field with suggestions from a given list of
@@ -23,28 +23,25 @@ class SuggestionList extends Component {
         this.setState({
             input: '',
         });
-    }
+    };
 
     updateInput = input => {
         this.setState({
             input,
         });
-    }
+    };
 
     onSuggestionClick = (chosenRequest, index) => {
         this.wipeInput();
-        
+
         if (index !== -1) {
-            this.props.onChange([
-                ...this.props.selected,
-                this.props.suggestions[index].id,
-            ]);
+            this.props.onChange([...this.props.selected, this.props.suggestions[index].id]);
         }
-    }
+    };
 
     onSelectionClick = id => () => {
-        this.props.onChange(this.props.selected.filter(item => item !== id))
-    }
+        this.props.onChange(this.props.selected.filter(item => item !== id));
+    };
 
     render = () => (
         <div style={{ marginBottom: 16 }}>
@@ -54,14 +51,15 @@ class SuggestionList extends Component {
                 floatingLabelText={this.props.label}
                 filter={AutoComplete.fuzzyFilter}
                 dataSource={this.props.suggestions}
-                dataSourceConfig={{text: 'displayName', value: 'id'}}
+                dataSourceConfig={{ text: 'displayName', value: 'id' }}
                 onUpdateInput={this.updateInput}
                 onNewRequest={this.onSuggestionClick}
             />
 
             <div style={styles.wrapper}>
-                { this.props.selected.map(id => {
-                    const displayName = this.props.suggestions.find(obj => obj.id === id).displayName;
+                {this.props.selected.map(id => {
+                    const displayName = this.props.suggestions.find(obj => obj.id === id)
+                        .displayName;
                     return (
                         <Chip
                             key={id}

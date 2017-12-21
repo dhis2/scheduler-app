@@ -24,9 +24,9 @@ const styles = {
         marginBottom: 9,
         marginTop: 22,
     },
-}
+};
 
-const appendRequiredSign = (label, required) => required ? `${label} *` : label;
+const appendRequiredSign = (label, required) => (required ? `${label} *` : label);
 
 const Schedule = ({
     disabled,
@@ -38,11 +38,11 @@ const Schedule = ({
 }) => {
     const selectedCron = cronExpressions.find(cron => cron.value === cronExpression);
     const selectedCronText = selectedCron ? selectedCron.value : '';
-    
+
     const onCronSelected = (e, i, value) => {
         onCronExpressionChange(e, value);
-    }
-    
+    };
+
     return (
         <div style={styles.container}>
             <SelectField
@@ -53,7 +53,7 @@ const Schedule = ({
                 style={styles.flexItem}
                 value={selectedCronText}
             >
-                { cronExpressions.map((option, index) => (
+                {cronExpressions.map((option, index) => (
                     <MenuItem
                         key={option.value + index}
                         value={option.value}
@@ -64,21 +64,21 @@ const Schedule = ({
             <TextField
                 disabled={continuousExecution || disabled}
                 errorText={error}
-                floatingLabelText={appendRequiredSign("Cron expression", !continuousExecution)}
+                floatingLabelText={appendRequiredSign('Cron expression', !continuousExecution)}
                 onChange={onCronExpressionChange}
                 style={styles.flexItem}
                 value={cronExpression}
             />
             <div style={{ ...styles.flexItem, ...styles.toggle }}>
-            <Toggle
-                disabled={disabled}
-                label="Continuous Execution"
-                defaultToggled={continuousExecution}
-                onToggle={onContinuousExecutionChange}
-            />
+                <Toggle
+                    disabled={disabled}
+                    label="Continuous Execution"
+                    defaultToggled={continuousExecution}
+                    onToggle={onContinuousExecutionChange}
+                />
             </div>
         </div>
     );
-}
+};
 
 export default Schedule;

@@ -17,24 +17,24 @@ class Suggestion extends Component {
                 input,
             });
         }
-    }
+    };
 
     onSuggestionClick = (chosenRequest, index) => {
         if (index !== -1) {
             this.props.onChange(chosenRequest.id);
         }
-    }
+    };
 
-    updateInput = (input) => {
+    updateInput = input => {
         this.setState({
             input,
         });
-    }
+    };
 
-    getNameOfSelection = (id) => {
+    getNameOfSelection = id => {
         const selected = this.props.suggestions.find(suggestion => suggestion.id === id);
         return selected ? selected.displayName : '';
-    }
+    };
 
     render = () => (
         <div style={{ marginBottom: 16 }}>
@@ -44,7 +44,7 @@ class Suggestion extends Component {
                 floatingLabelText={this.props.label}
                 filter={AutoComplete.fuzzyFilter}
                 dataSource={this.props.suggestions}
-                dataSourceConfig={{text: 'displayName', value: 'id'}}
+                dataSourceConfig={{ text: 'displayName', value: 'id' }}
                 onNewRequest={this.onSuggestionClick}
                 onUpdateInput={this.updateInput}
             />

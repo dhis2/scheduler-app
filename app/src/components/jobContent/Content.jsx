@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import Heading from 'd2-ui/lib/headings/Heading.component';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import TextField from 'material-ui/TextField';
 import Paper from 'material-ui/Paper';
 import SelectField from 'material-ui/SelectField';
@@ -36,11 +36,10 @@ const styles = {
     jobTypeList: {
         maxHeight: 300,
         overflowY: 'auto',
-    }
+    },
 };
 
-const validCronExpression = exp =>
-    exp.trim().match(cronExpressionRegex) !== null;
+const validCronExpression = exp => exp.trim().match(cronExpressionRegex) !== null;
 
 const validateFields = values => {
     let errors = {};
@@ -60,12 +59,12 @@ const validateFields = values => {
     }
 
     return errors;
-}
+};
 
 class Content extends Component {
-    state = { isValid: true, errors: {} }
+    state = { isValid: true, errors: {} };
 
-    componentWillReceiveProps = (nextProps) => {
+    componentWillReceiveProps = nextProps => {
         if (this.props.job !== nextProps.job) {
             const errors = validateFields(nextProps.job);
             this.setState({
@@ -73,36 +72,39 @@ class Content extends Component {
                 errors,
             });
         }
-    }
+    };
 
     discardChanges = () => {
         history.replace('/');
-    }
+    };
 
     onSubmit = () => {
         this.props.save(this.props.job);
-    }
+    };
 
     handleFieldChange = field => value => {
         this.props.editJob(field, value);
-    }
+    };
 
     handleFieldEvent = field => (event, value) => {
         this.props.editJob(field, value);
-    }
+    };
 
     onJobTypeSelected = (event, index) => {
         if (index !== -1) {
-            this.props.editJob("type", this.props.availableTypes[index]);
+            this.props.editJob('type', this.props.availableTypes[index]);
         }
-    }
+    };
 
     renderLastExecutionText = () => {
         const lastExecution = moment(this.props.job.lastExecuted);
         return (
-            <div>Last executed on <b>{}</b> at <b>{lastExecution.format('HH:ss')}</b>, status: {this.props.job.lastExecutedStatus}</div>
+            <div>
+                Last executed on <b>{}</b> at <b>{lastExecution.format('HH:ss')}</b>, status:{' '}
+                {this.props.job.lastExecutedStatus}
+            </div>
         );
-    }
+    };
 
     render = () => (
         <div>
@@ -113,11 +115,9 @@ class Content extends Component {
                     confirmationMessage={'Are you sure you want to discard your changes?'}
                     onConfirm={this.discardChanges}
                 />
-                <Heading style={{ paddingBottom: 16, paddingLeft: 24 }}>
-                    { this.props.title }
-                </Heading>
+                <Heading style={{ paddingBottom: 16, paddingLeft: 24 }}>{this.props.title}</Heading>
             </div>
-            { this.props.job ?
+            {this.props.job ? (
                 <Paper style={styles.jobDetails}>
                     <Heading>Attributes</Heading>
                     <TextField
@@ -125,15 +125,15 @@ class Content extends Component {
                         value={this.props.job.name}
                         floatingLabelText="Name *"
                         disabled={this.props.disableEditing}
-                        onChange={this.handleFieldEvent("name")}
+                        onChange={this.handleFieldEvent('name')}
                         errorText={this.state.errors.name}
                     />
                     <Schedule
                         disabled={this.props.disableEditing}
                         cronExpression={this.props.job.cronExpression}
                         continuousExecution={this.props.job.continuousExecution}
-                        onCronExpressionChange={this.handleFieldEvent("cronExpression")}
-                        onContinuousExecutionChange={this.handleFieldEvent("continuousExecution")}
+                        onCronExpressionChange={this.handleFieldEvent('cronExpression')}
+                        onContinuousExecutionChange={this.handleFieldEvent('continuousExecution')}
                         error={this.state.errors.cronExpression}
                     />
                     <SelectField
@@ -143,31 +143,35 @@ class Content extends Component {
                         value={this.props.job.type}
                         onChange={this.onJobTypeSelected}
                     >
-                        { this.props.availableTypes.map(type => (
-                            <MenuItem
-                                key={type} value={type} primaryText={type}
-                            />
+                        {this.props.availableTypes.map(type => (
+                            <MenuItem key={type} value={type} primaryText={type} />
                         ))}
                     </SelectField>
 
-                    { this.props.job.type &&
+                    {this.props.job.type && (
                         <Parameters
                             type={this.props.job.type}
                             parameters={this.props.job.parameters}
                             availableParameters={this.props.availableParameters}
                             attributeOptions={this.props.attributeOptions}
-                            onChange={this.handleFieldChange("parameters")}
+                            onChange={this.handleFieldChange('parameters')}
                         />
-                    }
+                    )}
 
-                    { this.props.job.lastExecuted &&
+                    {this.props.job.lastExecuted && (
                         <div>
                             <Heading style={styles.detailsHeader}>Details</Heading>
-                            <div>Job created on: {moment(this.props.job.created).format('DD.MM.YYYY')}</div>
-                            <div>Last executed: {moment(this.props.job.lastExecuted).format('DD.MM.YYYY HH:ss')}</div>
+                            <div>
+                                Job created on:{' '}
+                                {moment(this.props.job.created).format('DD.MM.YYYY')}
+                            </div>
+                            <div>
+                                Last executed:{' '}
+                                {moment(this.props.job.lastExecuted).format('DD.MM.YYYY HH:ss')}
+                            </div>
                             <div>Last execution status: {this.props.job.lastExecutedStatus}</div>
                         </div>
-                    }
+                    )}
 
                     <ActionButtons
                         job={this.props.job}
@@ -179,8 +183,9 @@ class Content extends Component {
                         deleteLabel={this.props.deleteLabel}
                     />
                 </Paper>
-                : <div>Could not find job</div>
-            }
+            ) : (
+                <div>Could not find job</div>
+            )}
         </div>
     );
 }

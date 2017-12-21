@@ -7,21 +7,21 @@ const DEFAULT_MESSAGE_DURATION = 4000;
 class MessagePanel extends Component {
     state = {
         show: false,
-    }
+    };
 
     componentWillReceiveProps = () => {
         this.setState({
             show: true,
         });
-    }
+    };
 
     closeMessage = () => {
         this.setState({
             show: false,
         });
-    }
+    };
 
-    render = () =>
+    render = () => (
         <Snackbar
             open={this.state.show}
             message={this.props.message}
@@ -30,12 +30,11 @@ class MessagePanel extends Component {
             style={{ pointerEvents: 'none', whiteSpace: 'nowrap' }}
             bodyStyle={{ pointerEvents: 'initial', maxWidth: 'none' }}
         />
+    );
 }
 
-export default connect(
-    state => ({
-        message: state.message.message,
-        type: state.message.type,
-        time: state.message.time,
-    }),
-)(MessagePanel);
+export default connect(state => ({
+    message: state.message.message,
+    type: state.message.type,
+    time: state.message.time,
+}))(MessagePanel);

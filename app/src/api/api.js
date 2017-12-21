@@ -23,10 +23,10 @@ export const getConfiguration = async () => {
         jobParameters,
         jobTypes,
     };
-}
+};
 
 const attributeOptionExceptions = [
-    'organisationUnits' // Org units selection are handled via d2
+    'organisationUnits', // Org units selection are handled via d2
 ];
 
 /*
@@ -38,40 +38,50 @@ export const getAttributeOptions = async parameters => {
     const attributeOptions = {};
 
     const instance = await d2.getInstance();
-    await Promise.all(Object.keys(parameters).map(async parameterName => {
-        const attributes = parameters[parameterName];
-        attributeOptions[parameterName] = {};
+    await Promise.all(
+        Object.keys(parameters).map(async parameterName => {
+            const attributes = parameters[parameterName];
+            attributeOptions[parameterName] = {};
 
-        attributes && await Promise.all(Object.keys(attributes).map(async attributeName => {
-            const attribute = attributes[attributeName];
+            attributes &&
+                (await Promise.all(
+                    Object.keys(attributes).map(async attributeName => {
+                        const attribute = attributes[attributeName];
 
-            if (attributeOptionExceptions.indexOf(attributeName) !== -1) return;
-            if (attribute.relativeApiEndpoint) {
-                const withoutApiPrefix = attribute.relativeApiEndpoint.substring(4);
+                        if (attributeOptionExceptions.indexOf(attributeName) !== -1) return;
+                        if (attribute.relativeApiEndpoint) {
+                            const withoutApiPrefix = attribute.relativeApiEndpoint.substring(4);
 
-                const options = await instance.Api.getApi().get(withoutApiPrefix, { paging: 'false' });
-                attributeOptions[parameterName][attributeName] = Array.isArray(options)
-                    ? options
-                    : options[attribute.name];
-                }
-            }))
-            .catch(e => {
-                console.warn('Error during attribute fetch:', e);
-            });
-        }));
+                            const options = await instance.Api.getApi().get(withoutApiPrefix, {
+                                paging: 'false',
+                            });
+                            attributeOptions[parameterName][attributeName] = Array.isArray(options)
+                                ? options
+                                : options[attribute.name];
+                        }
+                    }),
+                ).catch(e => {
+                    console.warn('Error during attribute fetch:', e);
+                }));
+        }),
+    );
 
     return attributeOptions;
-}
+};
 
 const order = 'enabled:desc,jobStatus,nextExecutionTime';
 export const getJobs = () =>
-    d2.getInstance()
+    d2
+        .getInstance()
         .then(d2 => d2.Api.getApi().get('jobConfigurations', { fields: '*', order }))
         .then(result => result.jobConfigurations)
-        .catch(error => { throw error; });
+        .catch(error => {
+            throw error;
+        });
 
 export const postJob = job =>
-    d2.getInstance()
+    d2
+        .getInstance()
         .then(d2 =>
             d2.Api.getApi().post('jobConfigurations', {
                 name: job.name,
@@ -79,26 +89,37 @@ export const postJob = job =>
                 jobType: job.type,
                 jobParameters: job.parameters,
                 continuousExecution: job.continuousExecution,
-            }))
-        .catch(error => { throw error; });
+            }),
+        )
+        .catch(error => {
+            throw error;
+        });
 
 export const saveJob = job =>
-    d2.getInstance()
-        .then(d2 => d2.Api.getApi().update(`jobConfigurations/${job.id}`, {
-            name: job.name,
-            enabled: job.enabled,
-            cronExpression: job.cronExpression,
-            continuousExecution: job.continuousExecution,
-            jobType: job.type || job.jobType,
-            jobParameters: job.parameters || job.jobParameters,
-        }))
-        .catch(error => { throw error; });
+    d2
+        .getInstance()
+        .then(d2 =>
+            d2.Api.getApi().update(`jobConfigurations/${job.id}`, {
+                name: job.name,
+                enabled: job.enabled,
+                cronExpression: job.cronExpression,
+                continuousExecution: job.continuousExecution,
+                jobType: job.type || job.jobType,
+                jobParameters: job.parameters || job.jobParameters,
+            }),
+        )
+        .catch(error => {
+            throw error;
+        });
 
 export const deleteJob = id =>
-    d2.getInstance()
+    d2
+        .getInstance()
         .then(d2 => d2.Api.getApi().delete(`jobConfigurations/${id}`))
         .then(result => result)
-        .catch(error => { throw error; });
+        .catch(error => {
+            throw error;
+        });
 
 const getValue = (values, field) => values && values[field];
 
@@ -117,11 +138,12 @@ export const parseParameters = (availableParameters, definedValues, attributeOpt
                 type: parameter.klass,
                 itemType: parameter.itemKlass,
                 label: parameter.fieldName,
-                options: attributeOptions[key] || [],
+                options: attributeOptions[key] || [],
             };
 
-            let value = getValue(definedValues, parameter.name)
-                     || getDefaultParameterValue(parameter.klass);
+            let value =
+                getValue(definedValues, parameter.name) ||
+                getDefaultParameterValue(parameter.klass);
 
             meta.renderAs = determineRenderedComponent(meta);
             localParameters[parameter.name] = {
@@ -132,4 +154,4 @@ export const parseParameters = (availableParameters, definedValues, attributeOpt
     }
 
     return localParameters;
-}
+};

@@ -5,7 +5,8 @@
   "license": "BSD-3-Clause",
   "scripts": {
     "start": "webpack-dev-server --config webpack.dev.js",
-    "build": "webpack -p --config webpack.prod.js"
+    "build": "webpack -p --config webpack.prod.js",
+    "lint": "prettier --write \"app/**/*.j{s,sx}\""
   },
   "devDependencies": {
     "babel-core": "6",

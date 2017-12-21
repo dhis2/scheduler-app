@@ -1,4 +1,4 @@
-import * as actionTypes from "constants/actionTypes";
+import * as actionTypes from 'constants/actionTypes';
 import moment from 'moment';
 
 const NEUTRAL = 'NEUTRAL';
@@ -11,11 +11,11 @@ const initialState = {
     time: null,
 };
 
-const getErrorMessage = (error) => {
+const getErrorMessage = error => {
     if (error.response.errorReports && error.response.errorReports.length > 0) {
         return error.response.errorReports[0].message;
     } else return error.message;
-}
+};
 
 function messageReducer(state = initialState, action) {
     switch (action.type) {
@@ -32,7 +32,7 @@ function messageReducer(state = initialState, action) {
                 type: POSITIVE,
                 time: moment().format('HH:mm:ss'),
             };
-        
+
         case actionTypes.JOB_SAVE_SUCCESS:
             return {
                 message: 'Successfully updated job',
