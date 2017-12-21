@@ -1,11 +1,6 @@
-import React, { Component } from 'react';
-import Content from 'components/jobContent/Content';
-import FontIcon from 'material-ui/FontIcon';
-import Checkbox from 'material-ui/Checkbox';
+import React from 'react';
 import Toggle from 'material-ui/Toggle';
 import moment from 'moment';
-
-import d2 from 'd2/lib/d2';
 
 const styles = {
     listEntry: {
@@ -35,11 +30,6 @@ const styles = {
 };
 
 const Entry = ({ job, onSelect, onToggle, first }) => {
-    const enabledStatusStyle = {
-        fontWeight: '600',
-        color: job.enabled ? 'mediumseagreen' : 'tomato',
-    };
-
     const nextExecution = moment(job.nextExecutionTime);
     const nextExecutionText = nextExecution.format('DD.MM.YYYY HH:mm');
 
@@ -61,6 +51,8 @@ const Entry = ({ job, onSelect, onToggle, first }) => {
 
     return (
         <div
+            tabIndex="0"
+            role="button"
             onClick={onSelect}
             style={{ ...styles.listEntry, borderTop: first ? '' : '1px solid lightgray' }}
         >

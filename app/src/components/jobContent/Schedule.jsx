@@ -53,9 +53,9 @@ const Schedule = ({
                 style={styles.flexItem}
                 value={selectedCronText}
             >
-                {cronExpressions.map((option, index) => (
+                {cronExpressions.map(option => (
                     <MenuItem
-                        key={option.value + index}
+                        key={option.value + option.text}
                         value={option.value}
                         primaryText={option.text}
                     />

@@ -14,7 +14,9 @@ const initialState = {
 const getErrorMessage = error => {
     if (error.response.errorReports && error.response.errorReports.length > 0) {
         return error.response.errorReports[0].message;
-    } else return error.message;
+    }
+
+    return error.message;
 };
 
 function messageReducer(state = initialState, action) {
@@ -53,9 +55,10 @@ function messageReducer(state = initialState, action) {
                 type: POSITIVE,
                 time: moment().format('HH:mm:ss'),
             };
-    }
 
-    return state;
+        default:
+            return state;
+    }
 }
 
 export default messageReducer;

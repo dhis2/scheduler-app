@@ -10,6 +10,7 @@
   },
   "devDependencies": {
     "babel-core": "6",
+    "babel-eslint": "^8.0.3",
     "babel-loader": "^7.1.0",
     "babel-plugin-transform-imports": "^1.4.1",
     "babel-polyfill": "^6.23.0",
@@ -19,6 +20,7 @@
     "babel-preset-stage-2": "6",
     "clean-webpack-plugin": "^0.1.17",
     "copy-webpack-plugin": "^4.0.1",
+    "eslint-config-dhis2": "^3.0.7",
     "html-webpack-plugin": "^2.29.0",
     "redux-logger": "2.8.1",
     "webpack": "^3.0.0",

@@ -1,28 +1,25 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import theme from '../styles/theme';
-import '../styles/override.css';
-import store from '../store';
+import React from 'react';
+import { connect, Provider } from 'react-redux';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-import { Provider } from 'react-redux';
 import D2UIApp from 'd2-ui/lib/app/D2UIApp';
 import HeaderBarComponent from 'd2-ui/lib/app-header/HeaderBar';
 import headerBarStore$ from 'd2-ui/lib/app-header/headerBar.store';
 import withStateFrom from 'd2-ui/lib/component-helpers/withStateFrom';
-import Heading from 'd2-ui/lib/headings/Heading.component';
 import { Router, Route } from 'react-router-dom';
-import history from '../history';
 import { compose, lifecycle, pure } from 'recompose';
+import d2 from 'd2/lib/d2';
 
 import List from 'components/jobOverview/List';
-import Content from 'components/jobContent/Content';
 import EditJob from 'components/jobContent/EditJob';
 import AddJob from 'components/jobContent/AddJob';
 import MessagePanel from 'components/MessagePanel';
-import { BASE_URL } from 'api/api';
 import * as actionTypes from 'constants/actionTypes';
+import { BASE_URL } from 'api/api';
 
-import d2 from 'd2/lib/d2';
+import theme from '../styles/theme';
+import '../styles/override.css';
+import store from '../store';
+import history from '../history';
 
 const HeaderBar = withStateFrom(headerBarStore$, HeaderBarComponent);
 
@@ -68,7 +65,7 @@ ContentLoader = compose(
     pure,
 )(ContentLoader);
 
-const Scheduler = d2 => (
+const Scheduler = () => (
     <Provider store={store}>
         <D2UIApp initConfig={{ baseUrl: BASE_URL }} muiTheme={theme}>
             <ContentLoader />

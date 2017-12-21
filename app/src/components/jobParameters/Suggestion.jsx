@@ -25,15 +25,15 @@ class Suggestion extends Component {
         }
     };
 
+    getNameOfSelection = id => {
+        const selected = this.props.suggestions.find(suggestion => suggestion.id === id);
+        return selected ? selected.displayName : '';
+    };
+
     updateInput = input => {
         this.setState({
             input,
         });
-    };
-
-    getNameOfSelection = id => {
-        const selected = this.props.suggestions.find(suggestion => suggestion.id === id);
-        return selected ? selected.displayName : '';
     };
 
     render = () => (

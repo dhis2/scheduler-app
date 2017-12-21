@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import d2 from 'd2/lib/d2';
-import { compose, lifecycle, pure } from 'recompose';
+import { compose, pure } from 'recompose';
 import Divider from 'material-ui/Divider';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import FontIcon from 'material-ui/FontIcon';
@@ -12,7 +11,6 @@ import Paper from 'material-ui/Paper';
 import FlipMove from 'react-flip-move';
 
 import * as actionTypes from 'constants/actionTypes';
-import Content from 'components/jobContent/Content';
 import Entry from 'components/jobOverview/Entry';
 
 const styles = {
@@ -57,19 +55,13 @@ const List = ({ jobs, toggleJob }) => (
     </div>
 );
 
-class LinkedEntry extends React.Component {
-    render = () => (
-        <div style={styles.entry}>
-            <Link to={`edit/${this.props.job.id}`}>
-                <Entry
-                    job={this.props.job}
-                    onToggle={this.props.onToggle}
-                    first={this.props.index === 0}
-                />
-            </Link>
-        </div>
-    );
-}
+const LinkedEntry = ({ job, onToggle, index }) => (
+    <div style={styles.entry}>
+        <Link to={`edit/${job.id}`}>
+            <Entry job={job} onToggle={onToggle} first={index === 0} />
+        </Link>
+    </div>
+);
 
 const AddButton = () => (
     <div style={styles.addButton}>

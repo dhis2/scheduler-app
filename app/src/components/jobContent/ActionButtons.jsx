@@ -44,7 +44,7 @@ class ActionButtons extends Component {
 
     render = () => {
         const deleteDialogActions = [
-            <FlatButton label="Cancel" primary={true} onClick={this.closeDeleteDialog} />,
+            <FlatButton primary label="Cancel" onClick={this.closeDeleteDialog} />,
             <RaisedButton
                 secondary
                 label="Submit"

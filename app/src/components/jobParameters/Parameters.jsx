@@ -1,11 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Heading from 'd2-ui/lib/headings/Heading.component';
 import TextField from 'material-ui/TextField';
-import IconButton from 'material-ui/IconButton';
 import Toggle from 'material-ui/Toggle';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
-import Paper from 'material-ui/Paper';
 import TimePicker from 'material-ui/TimePicker';
 import { compose, withProps, branch, renderNothing } from 'recompose';
 
@@ -32,15 +30,19 @@ const createAttributeOptionSelectionList = (values, options) =>
         <MenuItem
             key={option}
             insetChildren
-            checked={values && values.indexOf(option) > -1 ? true : false}
+            checked={values && values.indexOf(option) > -1}
             value={option}
             primaryText={option}
         />
     ));
 
 const getComponentToRender = (key, parameter, changeHandler) => {
-    const { label, type, itemType, options, renderAs } = parameter.meta;
+    const { label, type, options, renderAs } = parameter.meta;
     const value = parameter.value;
+
+    const onChangeHandler = selected => {
+        changeHandler(key, selected);
+    };
 
     switch (renderAs) {
         case COMPONENTS.INPUT:
@@ -55,15 +57,7 @@ const getComponentToRender = (key, parameter, changeHandler) => {
             );
 
         case COMPONENTS.INPUT_LIST:
-            return (
-                <InputList
-                    label={label}
-                    values={value}
-                    onChange={selected => {
-                        changeHandler(key, selected);
-                    }}
-                />
-            );
+            return <InputList label={label} values={value} onChange={onChangeHandler} />;
 
         case COMPONENTS.SELECTION:
             const onChange = (event, index, values) => changeHandler(key, values, false);
@@ -86,9 +80,7 @@ const getComponentToRender = (key, parameter, changeHandler) => {
                     label={label}
                     selected={value}
                     suggestions={options}
-                    onChange={selected => {
-                        changeHandler(key, selected);
-                    }}
+                    onChange={onChangeHandler}
                 />
             );
 
@@ -98,9 +90,7 @@ const getComponentToRender = (key, parameter, changeHandler) => {
                     label={label}
                     selected={value}
                     suggestions={options}
-                    onChange={selected => {
-                        changeHandler(key, selected);
-                    }}
+                    onChange={onChangeHandler}
                 />
             );
 

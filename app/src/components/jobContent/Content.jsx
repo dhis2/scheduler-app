@@ -1,15 +1,11 @@
-import React, { Component, PropTypes } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from 'react';
 import Heading from 'd2-ui/lib/headings/Heading.component';
-import { Link } from 'react-router-dom';
 import TextField from 'material-ui/TextField';
 import Paper from 'material-ui/Paper';
 import SelectField from 'material-ui/SelectField';
-import Toggle from 'material-ui/Toggle';
 import MenuItem from 'material-ui/MenuItem';
 import moment from 'moment';
 
-import * as actionTypes from 'constants/actionTypes';
 import cronExpressionRegex from 'constants/cronExp';
 import ActionButtons from 'components/jobContent/ActionButtons';
 import Schedule from 'components/jobContent/Schedule';
@@ -42,8 +38,7 @@ const styles = {
 const validCronExpression = exp => exp.trim().match(cronExpressionRegex) !== null;
 
 const validateFields = values => {
-    let errors = {};
-
+    const errors = {};
     if (!values.name) {
         errors.name = 'Required';
     } else if (values.name.length < 2) {
@@ -74,12 +69,22 @@ class Content extends Component {
         }
     };
 
-    discardChanges = () => {
-        history.replace('/');
+    onJobTypeSelected = (event, index) => {
+        if (index !== -1) {
+            this.props.editJob('type', this.props.availableTypes[index]);
+        }
     };
 
     onSubmit = () => {
         this.props.save(this.props.job);
+    };
+
+    onDelete = () => {
+        this.props.delete(this.props.job.id);
+    };
+
+    discardChanges = () => {
+        history.replace('/');
     };
 
     handleFieldChange = field => value => {
@@ -88,12 +93,6 @@ class Content extends Component {
 
     handleFieldEvent = field => (event, value) => {
         this.props.editJob(field, value);
-    };
-
-    onJobTypeSelected = (event, index) => {
-        if (index !== -1) {
-            this.props.editJob('type', this.props.availableTypes[index]);
-        }
     };
 
     renderLastExecutionText = () => {
@@ -178,7 +177,7 @@ class Content extends Component {
                         save={this.onSubmit}
                         disabled={this.props.disableEditing}
                         saveEnabled={this.props.dirty && this.state.isValid}
-                        delete={() => this.props.delete(this.props.job.id)}
+                        delete={this.onDelete}
                         saveLabel={this.props.saveLabel}
                         deleteLabel={this.props.deleteLabel}
                     />
