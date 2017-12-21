@@ -14,7 +14,6 @@ import EditJob from 'components/jobContent/EditJob';
 import AddJob from 'components/jobContent/AddJob';
 import MessagePanel from 'components/MessagePanel';
 import * as actionTypes from 'constants/actionTypes';
-import { BASE_URL } from 'api/api';
 import initializeI18n from 'utils/i18n';
 import history from 'utils/history';
 
@@ -49,7 +48,9 @@ let ContentLoader = () => (
 
 ContentLoader = compose(
     connect(
-        () => ({}),
+        (state, { config }) => ({
+            config,
+        }),
         dispatch => ({
             loadJobs: () => dispatch({ type: actionTypes.JOBS_LOAD }),
             loadConfiguration: () => dispatch({ type: actionTypes.CONFIGURATION_LOAD }),
@@ -57,7 +58,7 @@ ContentLoader = compose(
     ),
     lifecycle({
         componentWillMount() {
-            d2.init({ baseUrl: BASE_URL }).then(instance => {
+            d2.init(this.props.config).then(instance => {
                 initializeI18n(instance);
                 this.props.loadJobs();
                 this.props.loadConfiguration();
@@ -67,10 +68,10 @@ ContentLoader = compose(
     pure,
 )(ContentLoader);
 
-const Scheduler = () => (
+const Scheduler = ({ config }) => (
     <Provider store={store}>
-        <D2UIApp initConfig={{ baseUrl: BASE_URL }} muiTheme={theme}>
-            <ContentLoader />
+        <D2UIApp initConfig={config} muiTheme={theme}>
+            <ContentLoader config={config} />
         </D2UIApp>
     </Provider>
 );

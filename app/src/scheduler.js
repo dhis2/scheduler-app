@@ -9,14 +9,15 @@ import d2 from 'd2/lib/d2';
 
 d2
     .getManifest('./manifest.webapp')
-    .then(manifest => manifest.getBaseUrl())
+    .then(manifest => `${manifest.getBaseUrl()}/api`)
     .catch(() => BASE_URL)
     .then(baseUrl => {
         const production = process.env.NODE === 'production';
+
         const config = {
             baseUrl,
             headers: production ? null : SYSTEM_AUTH,
         };
 
-        render(<Scheduler d2={config} />, document.getElementById('scheduler'));
+        render(<Scheduler config={config} />, document.getElementById('scheduler'));
     });

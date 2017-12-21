@@ -1,7 +1,7 @@
 import d2 from 'd2/lib/d2';
 import { getDefaultParameterValue, determineRenderedComponent } from 'api/bridge';
 
-export const BASE_URL = 'http://localhost:8080/api';
+export const BASE_URL = 'http://localhost:8082/api';
 export const SYSTEM_AUTH = { Authorization: 'Basic c3lzdGVtOlN5c3RlbTEyMw==' };
 const JOB_PARAMETERS_ENDPOINT = 'jobConfigurations/jobTypesExtended';
 
