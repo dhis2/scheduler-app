@@ -9,11 +9,12 @@ const NEGATIVE = 'NEGATIVE';
 const initialState = {
     message: '',
     type: NEUTRAL,
+    persist: false,
     time: null,
 };
 
 const getErrorMessage = error => {
-    if (error.response.errorReports && error.response.errorReports.length > 0) {
+    if (error.response && error.response.errorReports && error.response.errorReports.length > 0) {
         return error.response.errorReports[0].message;
     }
 
@@ -59,6 +60,14 @@ function messageReducer(state = initialState, action) {
                 )}`,
                 type: POSITIVE,
                 time: moment().format('HH:mm:ss'),
+            };
+
+        case actionTypes.NOT_AUTHORIZED:
+            return {
+                message: i18next.t('not_authorized_message'),
+                type: NEGATIVE,
+                time: moment().format('HH:mm:ss'),
+                persist: true,
             };
 
         default:

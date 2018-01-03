@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect, Provider } from 'react-redux';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import D2UIApp from 'd2-ui/lib/app/D2UIApp';
@@ -6,8 +7,7 @@ import HeaderBarComponent from 'd2-ui/lib/app-header/HeaderBar';
 import headerBarStore$ from 'd2-ui/lib/app-header/headerBar.store';
 import withStateFrom from 'd2-ui/lib/component-helpers/withStateFrom';
 import { Router, Route } from 'react-router-dom';
-import { compose, lifecycle, pure } from 'recompose';
-import d2 from 'd2/lib/d2';
+import { compose, lifecycle, pure, branch, getContext, renderComponent } from 'recompose';
 
 import List from 'components/jobOverview/List';
 import EditJob from 'components/jobContent/EditJob';
@@ -37,8 +37,6 @@ const styles = {
 let ContentLoader = () => (
     <Router history={history}>
         <div style={styles.content}>
-            <MessagePanel />
-            <HeaderBar />
             <Route exact path="/" component={List} />
             <Route path="/edit/:id" component={EditJob} />
             <Route path="/add" component={AddJob} />
@@ -46,23 +44,45 @@ let ContentLoader = () => (
     </Router>
 );
 
+const getSymbolProperties = symbol => Array.from(symbol[Object.getOwnPropertySymbols(symbol)[0]]);
+const userIsNotAuthorized = props => {
+    const userAuthorities = getSymbolProperties(props.d2.currentUser.authorities);
+    return !userAuthorities.includes('ALL') && !userAuthorities.includes('F_SCHEDULING_ADMIN');
+};
+
 ContentLoader = compose(
     connect(
-        (state, { config }) => ({
-            config,
-        }),
+        () => ({}),
         dispatch => ({
             loadJobs: () => dispatch({ type: actionTypes.JOBS_LOAD }),
             loadConfiguration: () => dispatch({ type: actionTypes.CONFIGURATION_LOAD }),
+            notAuthorized: () => dispatch({ type: actionTypes.NOT_AUTHORIZED }),
         }),
+    ),
+    getContext({
+        d2: PropTypes.object.isRequired,
+    }),
+    lifecycle({
+        componentWillMount() {
+            initializeI18n(this.props.d2);
+        },
+    }),
+    branch(
+        userIsNotAuthorized,
+        renderComponent(
+            compose(
+                lifecycle({
+                    componentWillMount() {
+                        this.props.notAuthorized();
+                    },
+                }),
+            )(() => null),
+        ),
     ),
     lifecycle({
         componentWillMount() {
-            d2.init(this.props.config).then(instance => {
-                initializeI18n(instance);
-                this.props.loadJobs();
-                this.props.loadConfiguration();
-            });
+            this.props.loadJobs();
+            this.props.loadConfiguration();
         },
     }),
     pure,
@@ -71,7 +91,11 @@ ContentLoader = compose(
 const Scheduler = ({ config }) => (
     <Provider store={store}>
         <D2UIApp initConfig={config} muiTheme={theme}>
-            <ContentLoader config={config} />
+            <div>
+                <HeaderBar />
+                <MessagePanel />
+                <ContentLoader />
+            </div>
         </D2UIApp>
     </Provider>
 );

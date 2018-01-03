@@ -43,6 +43,9 @@ module.exports = {
             constants: path.resolve(__dirname, 'app/src/constants'),
             reducers: path.resolve(__dirname, 'app/src/reducers'),
             utils: path.resolve(__dirname, 'app/src/utils'),
+
+            // Use the app's own d2 version in other packages
+            'd2/lib/d2': path.resolve(__dirname, 'node_modules/d2/lib/d2'),
         },
         extensions: ['.js', '.jsx'],
     },

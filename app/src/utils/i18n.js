@@ -28,7 +28,7 @@ const initializeI18n = d2 => {
                         job_type: 'Job type',
                         name: 'Name',
                         next_execution: 'Next execution',
-                        required: 'required',
+                        required: 'Required',
                         save_changes: 'Save changes',
                         scheduled_jobs: 'Scheduled jobs',
                         select_frequency: 'Select frequency',
@@ -39,6 +39,8 @@ const initializeI18n = d2 => {
                         successfully_deleted_job: 'Successfully deleted job',
                         successfully_updated_job: 'Successfully updated job',
                         type: 'Type',
+                        not_authorized_message: 'You are not authorized to use this app',
+                        must_be_of_two_or_more_characters: 'Must be of two or more characters',
 
                         // Job statuses
                         DISABLED: 'Disabled',
@@ -59,6 +61,7 @@ const initializeI18n = d2 => {
                         DATA_INTEGRITY: 'Data Integrity',
                         DATA_SET_NOTIFICATION: 'Data Set Notification',
                         DATA_SYNC: 'Data Synchronization',
+                        DATA_STATISTICS: 'Data Statistics',
                         FILE_RESOURCE_CLEANUP: 'File Resource Cleanup',
                         META_DATA_SYNC: 'Metadata Synchronization',
                         MONITORING: 'Monitoring',
