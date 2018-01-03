@@ -5,10 +5,9 @@ import Scheduler from 'components/Scheduler';
 import { BASE_URL, SYSTEM_AUTH } from 'api/api';
 import 'whatwg-fetch';
 
-import d2 from 'd2/lib/d2';
+import { getManifest } from 'd2/lib/d2';
 
-d2
-    .getManifest('./manifest.webapp')
+getManifest('./manifest.webapp')
     .then(manifest => `${manifest.getBaseUrl()}/api`)
     .catch(() => BASE_URL)
     .then(baseUrl => {

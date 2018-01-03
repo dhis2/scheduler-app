@@ -1,4 +1,4 @@
-import d2 from 'd2/lib/d2';
+import { getInstance as getD2Instance } from 'd2/lib/d2';
 import { getDefaultParameterValue, determineRenderedComponent } from 'api/bridge';
 
 export const BASE_URL = 'http://localhost:8080/api';
@@ -6,7 +6,7 @@ export const SYSTEM_AUTH = { Authorization: 'Basic c3lzdGVtOlN5c3RlbTEyMw==' };
 const JOB_PARAMETERS_ENDPOINT = 'jobConfigurations/jobTypesExtended';
 
 export const getConfiguration = async () => {
-    const instance = await d2.getInstance();
+    const instance = await getD2Instance();
     const jobConfiguration = instance.models.jobConfiguration.modelProperties;
     const jobStatuses = jobConfiguration.jobStatus.constants;
     const jobParameters = await instance.Api.getApi().get(JOB_PARAMETERS_ENDPOINT);
@@ -31,7 +31,7 @@ const attributeOptionExceptions = [
 export const getAttributeOptions = async parameters => {
     const attributeOptions = {};
 
-    const instance = await d2.getInstance();
+    const instance = await getD2Instance();
     await Promise.all(
         Object.keys(parameters).map(async parameterName => {
             const attributes = parameters[parameterName];
@@ -66,8 +66,7 @@ export const getAttributeOptions = async parameters => {
 
 const order = 'enabled:desc,jobStatus,nextExecutionTime';
 export const getJobs = () =>
-    d2
-        .getInstance()
+    getD2Instance()
         .then(instance => instance.Api.getApi().get('jobConfigurations', { fields: '*', order }))
         .then(result => result.jobConfigurations)
         .catch(error => {
@@ -75,8 +74,7 @@ export const getJobs = () =>
         });
 
 export const postJob = job =>
-    d2
-        .getInstance()
+    getD2Instance()
         .then(instance =>
             instance.Api.getApi().post('jobConfigurations', {
                 name: job.name,
@@ -91,8 +89,7 @@ export const postJob = job =>
         });
 
 export const saveJob = job =>
-    d2
-        .getInstance()
+    getD2Instance()
         .then(instance =>
             instance.Api.getApi().update(`jobConfigurations/${job.id}`, {
                 name: job.name,
@@ -108,8 +105,7 @@ export const saveJob = job =>
         });
 
 export const deleteJob = id =>
-    d2
-        .getInstance()
+    getD2Instance()
         .then(instance => instance.Api.getApi().delete(`jobConfigurations/${id}`))
         .then(result => result)
         .catch(error => {
