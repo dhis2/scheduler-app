@@ -5,6 +5,10 @@ export const BASE_URL = 'http://localhost:8080/api';
 export const SYSTEM_AUTH = { Authorization: 'Basic c3lzdGVtOlN5c3RlbTEyMw==' };
 const JOB_PARAMETERS_ENDPOINT = 'jobConfigurations/jobTypesExtended';
 
+export const SCHEMAS = [
+    'jobConfiguration',
+];
+
 export const getConfiguration = async () => {
     const instance = await getD2Instance();
     const jobConfiguration = instance.models.jobConfiguration.modelProperties;
