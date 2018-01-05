@@ -16,6 +16,9 @@ module.exports = merge(common, {
             comments: false,
         }),
         new CleanWebpackPlugin(['build']),
+
+        // Only bundle english locales for moment
+        new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en/),
         new CopyWebpackPlugin([
             {
                 from: './manifest.webapp',
@@ -25,8 +28,5 @@ module.exports = merge(common, {
                 to: './icon.png',
             },
         ]),
-        new ZipPlugin({
-            filename: 'Scheduler.zip',
-        }),
     ],
 });
