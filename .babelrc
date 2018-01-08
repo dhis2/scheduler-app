@@ -10,6 +10,10 @@
       "lodash": {
         "transform": "lodash/${member}",
         "preventFullImport": true
+      },
+      "rxjs": {
+        "transform": "rxjs/operator/${member}",
+        "preventFullImport": true
       }
     }]
   ]

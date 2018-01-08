@@ -40,6 +40,7 @@ const Entry = ({ job, onSelect, onToggle, first }) => {
             name: job.name,
             jobType: job.jobType,
             jobParameters: job.jobParameters,
+            continuousExecution: job.continuousExecution,
             cronExpression: job.cronExpression,
             enabled: value,
         });

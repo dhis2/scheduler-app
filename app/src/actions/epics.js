@@ -1,6 +1,5 @@
 import * as actions from 'constants/actionTypes';
 import { combineEpics } from 'redux-observable';
-import { switchMap, concatMap } from 'rxjs/operator/switchMap';
 
 import history from 'utils/history';
 import * as api from 'api/api';
