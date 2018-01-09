@@ -12,10 +12,11 @@ import ActionButtons from 'components/jobContent/ActionButtons';
 import Schedule from 'components/jobContent/Schedule';
 import Parameters from 'components/jobParameters/Parameters';
 import ConditionalIconButton from 'components/ConditionalIconButton';
+import Details from 'components/jobContent/Details';
 import history from 'utils/history';
 
 const styles = {
-    jobDetails: {
+    jobContent: {
         padding: 24,
     },
     continuousExecutionToggle: {
@@ -25,10 +26,6 @@ const styles = {
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
-    },
-    detailsHeader: {
-        paddingTop: 24,
-        paddingBottom: 16,
     },
     jobTypeList: {
         maxHeight: 300,
@@ -118,7 +115,7 @@ class Content extends Component {
                 <Heading style={{ paddingBottom: 16, paddingLeft: 24 }}>{this.props.title}</Heading>
             </div>
             {this.props.job ? (
-                <Paper style={styles.jobDetails}>
+                <Paper style={styles.jobContent}>
                     <Heading>Attributes</Heading>
                     <TextField
                         fullWidth
@@ -158,22 +155,12 @@ class Content extends Component {
                         />
                     )}
 
-                    {this.props.job.lastExecuted && (
-                        <div>
-                            <Heading style={styles.detailsHeader}>Details</Heading>
-                            <div>
-                                Job created on:{' '}
-                                {moment(this.props.job.created).format('DD.MM.YYYY')}
-                            </div>
-                            <div>
-                                Last executed:{' '}
-                                {moment(this.props.job.lastExecuted).format('DD.MM.YYYY HH:ss')}
-                            </div>
-                            <div>
-                                Last execution status:{' '}
-                                {i18next.t(this.props.job.lastExecutedStatus)}
-                            </div>
-                        </div>
+                    {this.props.job.created && (
+                        <Details
+                            createdOn={this.props.job.created}
+                            lastExecuted={this.props.job.lastExecuted}
+                            lastExecutedStatus={this.props.job.lastExecutedStatus}
+                        />
                     )}
 
                     <ActionButtons
@@ -187,7 +174,7 @@ class Content extends Component {
                     />
                 </Paper>
             ) : (
-                <div>Could not find job</div>
+                <div>{i18next.t('could_not_find_job')}</div>
             )}
         </div>
     );

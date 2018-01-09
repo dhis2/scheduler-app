@@ -16,11 +16,13 @@ const initializeI18n = d2 => {
                             'Are you sure you want to discard your changes?',
                         attributes: 'Attributes',
                         cancel: 'Cancel',
+                        details: 'Details',
                         click_to_select: 'Click to select',
                         confirm: 'Confirm',
                         continuous_execution: 'Continuous execution',
                         could_not_create_job: 'Could not create job',
                         could_not_update_job: 'Could not update job',
+                        could_not_find_job: 'Could not find job',
                         cron_expression: 'Cron expression',
                         delete_job: 'Delete job',
                         enabled: 'Enabled',
@@ -42,10 +44,16 @@ const initializeI18n = d2 => {
                         not_authorized_message: 'You are not authorized to use this app',
                         must_be_of_two_or_more_characters: 'Must be of two or more characters',
 
+                        created: 'Created',
+                        last_executed: 'Last executed',
+                        last_execution_status: 'Last execution status',
+
                         // Job statuses
                         DISABLED: 'Disabled',
                         SCHEDULED: 'Scheduled',
                         RUNNING: 'Running',
+                        COMPLETED: 'Completed',
+                        FAILED: 'Failed',
 
                         // Cron expressions
                         CUSTOM: 'Custom',
