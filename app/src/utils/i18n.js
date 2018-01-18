@@ -24,6 +24,7 @@ const initializeI18n = d2 => {
                         could_not_update_job: 'Could not update job',
                         could_not_find_job: 'Could not find job',
                         cron_expression: 'Cron expression',
+                        invalid_cron_expression: 'Invalid cron expression',
                         delete_job: 'Delete job',
                         enabled: 'Enabled',
                         end_time: 'End time',
