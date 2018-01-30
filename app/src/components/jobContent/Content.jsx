@@ -116,7 +116,7 @@ class Content extends Component {
             </div>
             {this.props.job ? (
                 <Paper style={styles.jobContent}>
-                    <Heading>Attributes</Heading>
+                    <Heading>{i18next.t('attributes')}</Heading>
                     <TextField
                         fullWidth
                         value={this.props.job.name}
