@@ -44,7 +44,7 @@ export const getDefaultParameterValue = type => {
     }
 };
 
-export const determineRenderedComponent = ({ type, itemType, options }) => {
+export const determineComponentToRender = ({ type, itemType, options }) => {
     const typeIs = component => type === component;
     const itemIs = component => itemType === component;
 

@@ -1,5 +1,5 @@
 import { getInstance as getD2Instance } from 'd2/lib/d2';
-import { getDefaultParameterValue, determineRenderedComponent } from 'api/bridge';
+import { getDefaultParameterValue, determineComponentToRender } from 'api/interface';
 
 const JOB_PARAMETERS_ENDPOINT = 'jobConfigurations/jobTypesExtended';
 
@@ -134,7 +134,7 @@ export const parseParameters = (availableParameters, definedValues, attributeOpt
                 getValue(definedValues, parameter.name) ||
                 getDefaultParameterValue(parameter.klass);
 
-            meta.renderAs = determineRenderedComponent(meta);
+            meta.renderAs = determineComponentToRender(meta);
             localParameters[parameter.name] = {
                 value,
                 meta,

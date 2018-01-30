@@ -12,7 +12,7 @@ import Suggestion from 'components/jobParameters/Suggestion';
 import SuggestionList from 'components/jobParameters/SuggestionList';
 import InputList from 'components/jobParameters/InputList';
 import { parseParameters } from 'api/api';
-import { COMPONENTS, PARAMS } from 'api/bridge';
+import { COMPONENTS, PARAMS } from 'api/interface';
 
 const styles = {
     header: {

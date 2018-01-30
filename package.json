@@ -5,6 +5,7 @@
   "license": "BSD-3-Clause",
   "scripts": {
     "start": "webpack-dev-server --config webpack.dev.js",
+    "test": "jest",
     "build": "webpack -p --config webpack.prod.js",
     "format": "prettier --write \"app/**/*.j{s,sx}\"",
     "deploy": "mvn clean deploy"
@@ -12,6 +13,7 @@
   "devDependencies": {
     "babel-core": "6",
     "babel-eslint": "^8.2.1",
+    "babel-jest": "^22.1.0",
     "babel-loader": "^7.1.0",
     "babel-plugin-transform-imports": "^1.4.1",
     "babel-polyfill": "^6.23.0",
@@ -23,7 +25,9 @@
     "copy-webpack-plugin": "^4.3.1",
     "eslint-config-dhis2": "^3.0.7",
     "html-webpack-plugin": "^2.29.0",
+    "jest": "^22.1.4",
     "redux-logger": "3.0.6",
+    "regenerator-runtime": "^0.11.1",
     "webpack": "^3.10.0",
     "webpack-dev-middleware": "^2.0.4",
     "webpack-dev-server": "^2.11.1",
