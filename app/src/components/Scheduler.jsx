@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect, Provider } from 'react-redux';
-import injectTapEventPlugin from 'react-tap-event-plugin';
 import D2UIApp from 'd2-ui/lib/app/D2UIApp';
 import HeaderBarComponent from 'd2-ui/lib/app-header/HeaderBar';
 import headerBarStore$ from 'd2-ui/lib/app-header/headerBar.store';
@@ -22,8 +21,6 @@ import '../styles/override.css';
 import store from '../store';
 
 const HeaderBar = withStateFrom(headerBarStore$, HeaderBarComponent);
-
-injectTapEventPlugin();
 
 const styles = {
     content: {
