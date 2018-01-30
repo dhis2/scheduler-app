@@ -48,14 +48,38 @@ export const determineComponentToRender = ({ type, itemType, options }) => {
     const typeIs = component => type === component;
     const itemIs = component => itemType === component;
 
-    if (options.length > 0) {
-        if (typeIs(PARAMS.SET)) return COMPONENTS.SELECTION;
-        return typeIs(PARAMS.LIST) ? COMPONENTS.SUGGESTION_LIST : COMPONENTS.SUGGESTION;
+    if (options) {
+        if (options.length > 0) {
+            // Parameter has options
+            if (typeIs(PARAMS.SET)) {
+                // Options are exclusive, user should only be able to pick from those.
+                return COMPONENTS.SELECTION;
+            } else if (typeIs(PARAMS.LIST)) {
+                // Options are inclusive, they are merely suggestions.
+                return COMPONENTS.SUGGESTION_LIST;
+            }
+
+            // Only one item is expected.
+            return COMPONENTS.SUGGESTION;
+        }
+
+        // Parameter should have options, but none were found.
+        return COMPONENTS.SUGGESTION;
     }
 
     if (typeIs(PARAMS.LIST)) {
-        if (itemIs(PARAMS.STRING) || itemIs(PARAMS.INTEGER)) return COMPONENTS.INPUT_LIST;
-        if (itemIs(PARAMS.PERIOD)) return COMPONENTS.PERIOD_LIST;
+        // Parameter expects a list of items.
+        if (itemIs(PARAMS.STRING) || itemIs(PARAMS.INTEGER)) {
+            // Items are primitive and can be added through an input field.
+            return COMPONENTS.INPUT_LIST;
+        }
+
+        if (itemIs(PARAMS.PERIOD)) {
+            return COMPONENTS.PERIOD_LIST;
+        }
+
+        // List of other types, but without any options are not supported.
+        return COMPONENTS.UNKNOWN;
     }
 
     switch (type) {

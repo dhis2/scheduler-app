@@ -127,7 +127,7 @@ export const parseParameters = (availableParameters, definedValues, attributeOpt
                 type: parameter.klass,
                 itemType: parameter.itemKlass,
                 label: parameter.fieldName,
-                options: attributeOptions[key] || [],
+                options: attributeOptions[key],
             };
 
             const value =
