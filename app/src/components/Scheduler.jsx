@@ -12,7 +12,7 @@ import List from 'components/jobOverview/List';
 import EditJob from 'components/jobContent/EditJob';
 import AddJob from 'components/jobContent/AddJob';
 import MessagePanel from 'components/MessagePanel';
-import * as actionTypes from 'constants/actionTypes';
+import * as actions from 'constants/actions';
 import initializeI18n from 'utils/i18n';
 import history from 'utils/history';
 
@@ -51,9 +51,9 @@ ContentLoader = compose(
     connect(
         () => ({}),
         dispatch => ({
-            loadJobs: () => dispatch({ type: actionTypes.JOBS_LOAD }),
-            loadConfiguration: () => dispatch({ type: actionTypes.CONFIGURATION_LOAD }),
-            notAuthorized: () => dispatch({ type: actionTypes.NOT_AUTHORIZED }),
+            loadJobs: () => dispatch({ type: actions.JOBS_LOAD }),
+            loadConfiguration: () => dispatch({ type: actions.CONFIGURATION_LOAD }),
+            notAuthorized: () => dispatch({ type: actions.NOT_AUTHORIZED }),
         }),
     ),
     getContext({

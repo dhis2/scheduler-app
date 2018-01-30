@@ -10,7 +10,7 @@ import Paper from 'material-ui/Paper';
 import FlipMove from 'react-flip-move';
 import i18next from 'i18next';
 
-import * as actionTypes from 'constants/actionTypes';
+import * as actions from 'constants/actions';
 import Entry from 'components/jobOverview/Entry';
 
 const styles = {
@@ -86,7 +86,7 @@ const enhance = compose(
             jobs: state.jobs.all,
         }),
         dispatch => ({
-            toggleJob: job => dispatch({ type: actionTypes.JOB_SAVE, payload: { job } }),
+            toggleJob: job => dispatch({ type: actions.JOB_SAVE, payload: { job } }),
         }),
     ),
     pure,

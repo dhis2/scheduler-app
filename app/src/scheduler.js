@@ -1,11 +1,12 @@
 import React from 'react';
 import { render } from 'react-dom';
-
-import Scheduler from 'components/Scheduler';
-import { BASE_URL, SYSTEM_AUTH, SCHEMAS } from 'api/api';
+import { getManifest } from 'd2/lib/d2';
 import 'whatwg-fetch';
 
-import { getManifest } from 'd2/lib/d2';
+import Scheduler from 'components/Scheduler';
+import { BASE_URL, SYSTEM_AUTH } from 'constants/development';
+
+const schemas = ['jobConfiguration'];
 
 getManifest('./manifest.webapp')
     .then(manifest => `${manifest.getBaseUrl()}/api`)
@@ -15,7 +16,7 @@ getManifest('./manifest.webapp')
         const config = {
             baseUrl,
             headers: production ? null : SYSTEM_AUTH,
-            schemas: SCHEMAS,
+            schemas,
         };
 
         render(<Scheduler config={config} />, document.getElementById('scheduler'));

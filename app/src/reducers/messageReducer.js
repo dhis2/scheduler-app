@@ -1,4 +1,4 @@
-import * as actionTypes from 'constants/actionTypes';
+import * as actions from 'constants/actions';
 import moment from 'moment';
 import i18next from 'i18next';
 
@@ -23,28 +23,28 @@ const getErrorMessage = error => {
 
 function messageReducer(state = initialState, action) {
     switch (action.type) {
-        case actionTypes.JOB_DELETE_SUCCESS:
+        case actions.JOB_DELETE_SUCCESS:
             return {
                 message: i18next.t('successfully_deleted_job'),
                 type: POSITIVE,
                 time: moment().format('HH:mm:ss'),
             };
 
-        case actionTypes.JOB_POST_SUCCESS:
+        case actions.JOB_POST_SUCCESS:
             return {
                 message: i18next.t('successfully_created_job'),
                 type: POSITIVE,
                 time: moment().format('HH:mm:ss'),
             };
 
-        case actionTypes.JOB_SAVE_SUCCESS:
+        case actions.JOB_SAVE_SUCCESS:
             return {
                 message: i18next.t('successfully_updated_job'),
                 type: POSITIVE,
                 time: moment().format('HH:mm:ss'),
             };
 
-        case actionTypes.JOB_POST_ERROR:
+        case actions.JOB_POST_ERROR:
             return {
                 message: `${i18next.t('could_not_create_job')}: ${getErrorMessage(
                     action.payload.error,
@@ -53,7 +53,7 @@ function messageReducer(state = initialState, action) {
                 time: moment().format('HH:mm:ss'),
             };
 
-        case actionTypes.JOB_SAVE_ERROR:
+        case actions.JOB_SAVE_ERROR:
             return {
                 message: `${i18next.t('could_not_update_job')}: ${getErrorMessage(
                     action.payload.error,
@@ -62,7 +62,7 @@ function messageReducer(state = initialState, action) {
                 time: moment().format('HH:mm:ss'),
             };
 
-        case actionTypes.NOT_AUTHORIZED:
+        case actions.NOT_AUTHORIZED:
             return {
                 message: i18next.t('not_authorized_message'),
                 type: NEGATIVE,

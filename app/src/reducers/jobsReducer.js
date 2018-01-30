@@ -1,4 +1,4 @@
-import * as actionTypes from 'constants/actionTypes';
+import * as actions from 'constants/actions';
 
 const initialState = {
     all: [],
@@ -18,21 +18,21 @@ const initialState = {
 
 function jobsReducer(state = initialState, action) {
     switch (action.type) {
-        case actionTypes.JOBS_LOAD_SUCCESS:
+        case actions.JOBS_LOAD_SUCCESS:
             return {
                 ...state,
                 all: action.payload.jobs,
                 loaded: true,
             };
 
-        case actionTypes.JOB_DISCARD:
+        case actions.JOB_DISCARD:
             return {
                 ...state,
                 changes: initialState.changes,
                 dirty: false,
             };
 
-        case actionTypes.JOB_EDIT: {
+        case actions.JOB_EDIT: {
             const field = action.payload.fieldName;
 
             return {
@@ -45,7 +45,7 @@ function jobsReducer(state = initialState, action) {
             };
         }
 
-        case actionTypes.CONFIGURATION_LOAD_SUCCESS:
+        case actions.CONFIGURATION_LOAD_SUCCESS:
             return {
                 ...state,
                 configuration: {
@@ -57,7 +57,7 @@ function jobsReducer(state = initialState, action) {
                 },
             };
 
-        case actionTypes.ATTRIBUTE_OPTIONS_LOAD_SUCCESS:
+        case actions.ATTRIBUTE_OPTIONS_LOAD_SUCCESS:
             return {
                 ...state,
                 configuration: {

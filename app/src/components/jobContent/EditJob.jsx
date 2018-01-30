@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { compose, lifecycle, withProps, branch, renderComponent } from 'recompose';
 import i18next from 'i18next';
 
-import * as actionTypes from 'constants/actionTypes';
+import * as actions from 'constants/actions';
 import Content from 'components/jobContent/Content';
 import Loading from 'components/Loading';
 
@@ -49,12 +49,12 @@ const enhance = compose(
             };
         },
         dispatch => ({
-            discard: () => dispatch({ type: actionTypes.JOB_DISCARD }),
-            save: job => dispatch({ type: actionTypes.JOB_SAVE, payload: { job } }),
-            delete: id => dispatch({ type: actionTypes.JOB_DELETE, payload: { id } }),
+            discard: () => dispatch({ type: actions.JOB_DISCARD }),
+            save: job => dispatch({ type: actions.JOB_SAVE, payload: { job } }),
+            delete: id => dispatch({ type: actions.JOB_DELETE, payload: { id } }),
             editJob: (fieldName, value) =>
                 dispatch({
-                    type: actionTypes.JOB_EDIT,
+                    type: actions.JOB_EDIT,
                     payload: {
                         fieldName,
                         value,
