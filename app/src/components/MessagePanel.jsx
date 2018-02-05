@@ -38,8 +38,8 @@ class MessagePanel extends Component {
 }
 
 export default connect(state => ({
+    id: state.message.id,
     message: state.message.message,
     type: state.message.type,
-    time: state.message.time,
     persist: state.message.persist,
 }))(MessagePanel);

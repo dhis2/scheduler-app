@@ -1,6 +1,6 @@
 import * as actions from 'constants/actions';
 
-const initialState = {
+export const initialState = {
     all: [],
     loaded: false,
     dirty: false,

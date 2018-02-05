@@ -1,4 +1,4 @@
-const { determineComponentToRender: determine } = require('../../app/src/api/interface');
+import { determineComponentToRender as determine } from 'api/interface';
 
 const orgUnitSamples = [
     { displayName: 'OrgUnit1', value: 'v' },
@@ -62,52 +62,52 @@ const samples = {
     },
 };
 
-describe('Interface between App and API', () => {
-    describe('Rendering parameters without options', () => {
-        test('Parameters expecting a string or integer should render as an Input', () => {
+describe('interface between App and API', () => {
+    describe('rendering parameters without options', () => {
+        test('parameters expecting a string or integer should render as an Input', () => {
             expect(determine(samples.string)).toBe('INPUT');
             expect(determine(samples.integer)).toBe('INPUT');
         });
 
-        test('Parameters expecting a boolean should render as a Switch', () => {
+        test('parameters expecting a boolean should render as a Switch', () => {
             expect(determine(samples.boolean)).toBe('TOGGLE');
         });
 
-        test('Parameters expecting a date should render as a Date picker', () => {
+        test('parameters expecting a date should render as a Date picker', () => {
             expect(determine(samples.date)).toBe('DATE');
         });
 
-        test('Parameters expecting a period should render as a Period picker', () => {
+        test('parameters expecting a period should render as a Period picker', () => {
             expect(determine(samples.period)).toBe('PERIOD');
         });
 
-        test('Parameters expecting a list of strings or integers should render as an Input list', () => {
+        test('parameters expecting a list of strings or integers should render as an Input list', () => {
             expect(determine(samples.stringList)).toBe('INPUT_LIST');
             expect(determine(samples.integerList)).toBe('INPUT_LIST');
         });
 
-        test('Parameters expecting a list of periods should render as a Period list', () => {
+        test('parameters expecting a list of periods should render as a Period list', () => {
             expect(determine(samples.periodList)).toBe('PERIOD_LIST');
         });
 
-        test('Parameters expecting a list of anything else, without options, is not supported', () => {
+        test('parameters expecting a list of anything else, without options, is not supported', () => {
             expect(determine(samples.booleanList)).toBe('UNKNOWN');
             expect(determine(samples.orgUnitList)).toBe('UNKNOWN');
         });
     });
 
-    describe('Rendering parameters with external options', () => {
-        test('Parameters including an exclusive list of strings or integers should render as a selection', () => {
+    describe('rendering parameters with external options', () => {
+        test('parameters including an exclusive list of strings or integers should render as a selection', () => {
             expect(determine(samples.stringSetWithOptions)).toBe('SELECTION');
             expect(determine(samples.integerSetWithOptions)).toBe('SELECTION');
         });
 
-        test('Parameters including an inclusive list with suggestions', () => {
+        test('parameters including an inclusive list with suggestions', () => {
             expect(determine(samples.stringListWithOptions)).toBe('SUGGESTION_LIST');
             expect(determine(samples.integerListWithOptions)).toBe('SUGGESTION_LIST');
         });
 
-        test('Parameters including options and expecting only one item', () => {
+        test('parameters including options and expecting only one item', () => {
             expect(determine(samples.orgUnitWithOptions)).toBe('SUGGESTION');
         });
     });

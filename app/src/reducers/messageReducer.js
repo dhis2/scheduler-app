@@ -1,16 +1,15 @@
 import * as actions from 'constants/actions';
-import moment from 'moment';
 import i18next from 'i18next';
 
 const NEUTRAL = 'NEUTRAL';
 const POSITIVE = 'POSITIVE';
 const NEGATIVE = 'NEGATIVE';
 
-const initialState = {
+export const initialState = {
+    id: -1,
+    persist: false,
     message: '',
     type: NEUTRAL,
-    persist: false,
-    time: null,
 };
 
 const getErrorMessage = error => {
@@ -21,52 +20,59 @@ const getErrorMessage = error => {
     return error.message;
 };
 
+const increment = number => number + 1;
+
 function messageReducer(state = initialState, action) {
     switch (action.type) {
         case actions.JOB_DELETE_SUCCESS:
             return {
+                id: increment(state.id),
                 message: i18next.t('successfully_deleted_job'),
                 type: POSITIVE,
-                time: moment().format('HH:mm:ss'),
+                persist: false,
             };
 
         case actions.JOB_POST_SUCCESS:
             return {
+                id: increment(state.id),
                 message: i18next.t('successfully_created_job'),
                 type: POSITIVE,
-                time: moment().format('HH:mm:ss'),
+                persist: false,
             };
 
         case actions.JOB_SAVE_SUCCESS:
             return {
+                id: increment(state.id),
                 message: i18next.t('successfully_updated_job'),
                 type: POSITIVE,
-                time: moment().format('HH:mm:ss'),
+                persist: false,
             };
 
         case actions.JOB_POST_ERROR:
             return {
+                id: increment(state.id),
                 message: `${i18next.t('could_not_create_job')}: ${getErrorMessage(
                     action.payload.error,
                 )}`,
                 type: NEGATIVE,
-                time: moment().format('HH:mm:ss'),
+                persist: false,
             };
 
         case actions.JOB_SAVE_ERROR:
             return {
+                id: increment(state.id),
                 message: `${i18next.t('could_not_update_job')}: ${getErrorMessage(
                     action.payload.error,
                 )}`,
                 type: POSITIVE,
-                time: moment().format('HH:mm:ss'),
+                persist: false,
             };
 
         case actions.NOT_AUTHORIZED:
             return {
+                id: increment(state.id),
                 message: i18next.t('not_authorized_message'),
                 type: NEGATIVE,
-                time: moment().format('HH:mm:ss'),
                 persist: true,
             };
 
