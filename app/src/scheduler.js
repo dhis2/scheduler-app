@@ -6,12 +6,14 @@ import 'whatwg-fetch';
 import Scheduler from 'components/Scheduler';
 import { BASE_URL, SYSTEM_AUTH } from 'constants/development';
 
+const dhisVersion = 29;
 const schemas = ['jobConfiguration'];
 
 getManifest('./manifest.webapp')
-    .then(manifest => `${manifest.getBaseUrl()}/api`)
+    .then(manifest => manifest.getBaseUrl())
     .catch(() => BASE_URL)
-    .then(baseUrl => {
+    .then(url => {
+        const baseUrl = `${url}/api/${dhisVersion}`;
         const production = process.env.NODE_ENV === 'production';
         const config = {
             baseUrl,

@@ -18,7 +18,7 @@ Once dependencies are installed, you can run the app locally using yarn (or npm)
 > yarn start
 ```
 
-By default, the app will be served on [localhost:9000](http://localhost:9000), and will attempt to connect to the DHIS2 API at [localhost:8080/api](http://localhost:8080/api). These settings can be changed in the `constants/development.js` file, where the basic authentication string is a simple base64-encoded version of the string `user:password`. For example,
+By default, the app will be served on [localhost:9000](http://localhost:9000), and will attempt to connect to the DHIS2 API at [localhost:8080](http://localhost:8080). These settings can be changed in the `constants/development.js` file, where the basic authentication string is a simple base64-encoded version of the string `user:password`. For example,
 
 ```javascript
 btoa('admin:district'); // returns "YWRtaW46ZGlzdHJpY3Q="

@@ -1,12 +1,15 @@
 {
   "name": "dhis2-scheduler",
-  "version": "1.0.2",
+  "version": "29.0.0",
+  "description": "Create, modify and delete server jobs",
   "main": "index.js",
   "license": "BSD-3-Clause",
   "scripts": {
     "start": "webpack-dev-server --config webpack.dev.js",
     "test": "jest",
     "build": "webpack -p --config webpack.prod.js",
+    "postbuild": "npm run manifest",
+    "manifest": "d2-manifest package.json build/manifest.webapp",
     "format": "prettier --write \"app/**/*.j{s,sx}\"",
     "deploy": "mvn clean deploy"
   },
@@ -23,6 +26,7 @@
     "babel-preset-stage-2": "6",
     "clean-webpack-plugin": "^0.1.18",
     "copy-webpack-plugin": "^4.3.1",
+    "d2-manifest": "^1.0.0",
     "eslint-config-dhis2": "^3.0.7",
     "html-webpack-plugin": "^2.29.0",
     "jest": "^22.1.4",
@@ -64,6 +68,24 @@
       "^components[/](.+)": "<rootDir>/app/src/components/$1",
       "^reducers[/](.+)": "<rootDir>/app/src/reducers/$1",
       "^utils[/](.+)": "<rootDir>/app/src/utils/$1"
+    }
+  },
+  "manifest.webapp": {
+    "name": "Scheduler",
+    "launch_path": "index.html",
+    "appType": "APP",
+    "icons": {
+      "48": "icon.png"
+    },
+    "developer": {
+      "name": "Kjetil Svalestuen",
+      "company": "DHIS2"
+    },
+    "default_locale": "en",
+    "activities": {
+      "dhis": {
+        "href": ".."
+      }
     }
   }
 }
