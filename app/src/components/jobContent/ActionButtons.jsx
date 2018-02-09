@@ -48,7 +48,7 @@ class ActionButtons extends Component {
             <FlatButton primary label={i18next.t('cancel')} onClick={this.closeDeleteDialog} />,
             <RaisedButton
                 secondary
-                label={i18next.t('submit')}
+                label={i18next.t('delete')}
                 style={{ marginLeft: 16 }}
                 onClick={this.confirmDelete}
             />,

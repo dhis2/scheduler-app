@@ -38,6 +38,7 @@ const initializeI18n = d2 => {
                         start_time: 'Start time',
                         status: 'Status',
                         submit: 'Submit',
+                        delete: 'Delete',
                         successfully_created_job: 'Successfully created job',
                         successfully_deleted_job: 'Successfully deleted job',
                         successfully_updated_job: 'Successfully updated job',
