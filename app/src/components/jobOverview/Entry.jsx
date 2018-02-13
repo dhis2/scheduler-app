@@ -87,7 +87,12 @@ const Entry = ({ job, onSelect, onToggle, onRun, first }) => {
             </div>
             <div style={{ flex: 9 }}>{nextExecutionText}</div>
             <div>
-                <Toggle toggled={job.enabled} onToggle={toggle} onClick={toggleClick} />
+                <Toggle
+                    disabled={job.configurable === false}
+                    toggled={job.enabled}
+                    onToggle={toggle}
+                    onClick={toggleClick}
+                />
             </div>
         </div>
     );

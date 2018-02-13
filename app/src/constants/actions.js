@@ -29,3 +29,5 @@ export const JOB_EDIT = 'JOB_EDIT';
 export const JOB_DISCARD = 'JOB_DISCARD';
 
 export const NOT_AUTHORIZED = 'NOT_AUTHORIZED';
+
+export const TOGGLE_SYSTEM_JOBS = 'TOGGLE_SYSTEM_JOBS';
