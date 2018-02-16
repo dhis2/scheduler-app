@@ -77,9 +77,10 @@ const Entry = ({ job, onSelect, onToggle, onRun, first }) => {
                 {job.jobStatus !== 'RUNNING' &&
                     <ConditionalIconButton
                         showConfirmation
-                        icon="play_arrow"
                         confirmationMessage={`${i18next.t('are_you_sure_you_want_to_execute')} "${job.name}"?`}
+                        confirmLabel={i18next.t('execute')}
                         onConfirm={run}
+                        icon="play_arrow"
                         tooltip={i18next.t('run_now')}
                         iconStyle={styles.runIcon}
                     />
