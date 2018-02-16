@@ -50,6 +50,7 @@ const initializeI18n = d2 => {
                         type: 'Type',
                         not_authorized_message: 'You are not authorized to use this app',
                         must_be_of_two_or_more_characters: 'Must be of two or more characters',
+                        show_system_jobs: 'Show system jobs',
 
                         created: 'Created',
                         last_executed: 'Last executed',

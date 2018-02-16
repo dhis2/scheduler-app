@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { compose, pure } from 'recompose';
 import Divider from 'material-ui/Divider';
+import Toggle from 'material-ui/Toggle';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import FontIcon from 'material-ui/FontIcon';
 import Heading from 'd2-ui/lib/headings/Heading.component';
@@ -15,6 +16,13 @@ import Entry from 'components/jobOverview/Entry';
 
 const styles = {
     header: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        width: '100%',
+    },
+    tableHeader: {
         backgroundColor: 'white',
         display: 'flex',
         flexDirection: 'row',
@@ -29,15 +37,39 @@ const styles = {
         right: 36,
         bottom: 36,
     },
+    systemJobToggleContainer: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'flex-end',
+        alignItems: 'center',
+        padding: '16px 24px',
+    },
+    systemJobToggle: {
+        width: 'auto',
+    },
+    systemJobToggleTrack: {
+        backgroundColor: '#dddddd',
+    },
 };
 
-const List = ({ jobs, toggleJob, runJob }) => (
+const List = ({ jobs, showSystemJobs, toggleJob, toggleSystemJobs, runJob }) => (
     <div>
-        <Heading style={{ paddingBottom: 16, paddingLeft: 24 }}>
-            {i18next.t('scheduled_jobs')}
-        </Heading>
+        <div style={styles.header}>
+            <Heading style={{ paddingBottom: 16, paddingLeft: 24 }}>
+                {i18next.t('scheduled_jobs')}
+            </Heading>
+            <div style={styles.systemJobToggleContainer}>
+                {i18next.t('show_system_jobs')}
+                <Toggle
+                    style={styles.systemJobToggle}
+                    trackStyle={styles.systemJobToggleTrack}
+                    toggled={showSystemJobs}
+                    onToggle={() => toggleSystemJobs(!showSystemJobs)}
+                />
+            </div>
+        </div>
         <Paper style={styles.paper}>
-            <div style={styles.header}>
+            <div style={styles.tableHeader}>
                 <div style={{ flex: 12 }}>{i18next.t('name')}</div>
                 <div style={{ flex: 11 }}>{i18next.t('type')}</div>
                 <div style={{ flex: 8 }}>{i18next.t('status')}</div>
@@ -89,11 +121,19 @@ const AddButton = () => (
 
 const enhance = compose(
     connect(
-        state => ({
-            jobs: state.jobs.all,
-        }),
+        state => {
+            const jobs = state.jobs.all.filter(job =>
+                (state.jobs.showSystemJobs ? !job.configurable : job.configurable),
+            );
+
+            return {
+                jobs,
+                showSystemJobs: state.jobs.showSystemJobs,
+            };
+        },
         dispatch => ({
             toggleJob: job => dispatch({ type: actions.JOB_SAVE, payload: { job } }),
+            toggleSystemJobs: enabled => dispatch({ type: actions.TOGGLE_SYSTEM_JOBS, payload: { enabled } }),
             runJob: id => dispatch({ type: actions.JOB_RUN, payload: { id } }),
         }),
     ),

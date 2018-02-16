@@ -126,7 +126,7 @@ class Content extends Component {
                         errorText={this.state.errors.name}
                     />
                     <Schedule
-                        disabled={this.props.disableEditing}
+                        disabled={false}
                         cronExpression={this.props.job.cronExpression}
                         continuousExecution={this.props.job.continuousExecution}
                         onCronExpressionChange={this.handleFieldEvent('cronExpression')}

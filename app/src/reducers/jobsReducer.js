@@ -4,6 +4,7 @@ export const initialState = {
     all: [],
     loaded: false,
     dirty: false,
+    showSystemJobs: false,
     changes: {
         parameters: null,
     },
@@ -64,6 +65,12 @@ function jobsReducer(state = initialState, action) {
                     ...state.configuration,
                     attributeOptions: action.payload.attributeOptions,
                 },
+            };
+
+        case actions.TOGGLE_SYSTEM_JOBS:
+            return {
+                ...state,
+                showSystemJobs: action.payload.enabled,
             };
 
         default:
