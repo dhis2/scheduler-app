@@ -31,7 +31,7 @@ const styles = {
     },
 };
 
-const List = ({ jobs, toggleJob }) => (
+const List = ({ jobs, toggleJob, runJob }) => (
     <div>
         <Heading style={{ paddingBottom: 16, paddingLeft: 24 }}>
             {i18next.t('scheduled_jobs')}
@@ -40,14 +40,20 @@ const List = ({ jobs, toggleJob }) => (
             <div style={styles.header}>
                 <div style={{ flex: 12 }}>{i18next.t('name')}</div>
                 <div style={{ flex: 11 }}>{i18next.t('type')}</div>
-                <div style={{ flex: 7 }}>{i18next.t('status')}</div>
-                <div style={{ flex: 10 }}>{i18next.t('next_execution')}</div>
+                <div style={{ flex: 8 }}>{i18next.t('status')}</div>
+                <div style={{ flex: 9 }}>{i18next.t('next_execution')}</div>
                 <div style={{ flex: 0 }}>{i18next.t('enabled')}</div>
             </div>
             <Divider />
             <FlipMove duration={400} enterAnimation={false} easing="ease-out">
                 {jobs.map((job, index) => (
-                    <LinkedEntry key={job.id} job={job} onToggle={toggleJob} first={index === 0} />
+                    <LinkedEntry
+                        key={job.id}
+                        job={job}
+                        onToggle={toggleJob}
+                        onRun={runJob}
+                        first={index === 0}
+                    />
                 ))}
             </FlipMove>
         </Paper>
@@ -65,6 +71,7 @@ class LinkedEntry extends Component {
                 <Entry
                     job={this.props.job}
                     onToggle={this.props.onToggle}
+                    onRun={this.props.onRun}
                     first={this.props.index === 0}
                 />
             </Link>
@@ -87,6 +94,7 @@ const enhance = compose(
         }),
         dispatch => ({
             toggleJob: job => dispatch({ type: actions.JOB_SAVE, payload: { job } }),
+            runJob: id => dispatch({ type: actions.JOB_RUN, payload: { id } }),
         }),
     ),
     pure,

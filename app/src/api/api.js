@@ -110,6 +110,18 @@ export const deleteJob = id =>
             throw error;
         });
 
+export const runJob = id =>
+    getD2Instance()
+        .then(instance => instance.Api.getApi().get(`jobConfigurations/${id}/execute`))
+        .then(result => {
+            if (result.errorReports) {
+                throw result;
+            }
+        })
+        .catch(error => {
+            throw error;
+        });
+
 const getValue = (values, field) => values && values[field];
 
 /*

@@ -14,15 +14,20 @@ const initializeI18n = d2 => {
                         are_you_sure_you_want_to_delete: 'Are you sure you want to delete',
                         are_you_sure_you_want_to_discard_your_changes:
                             'Are you sure you want to discard your changes?',
+                        are_you_sure_you_want_to_execute:
+                            'Are you sure you want to execute',
+                        execute: 'Execute',
                         attributes: 'Attributes',
                         cancel: 'Cancel',
                         details: 'Details',
                         click_to_select: 'Click to select',
+                        run_now: 'Run now',
                         confirm: 'Confirm',
                         continuous_execution: 'Continuous execution',
                         could_not_create_job: 'Could not create job',
                         could_not_update_job: 'Could not update job',
                         could_not_find_job: 'Could not find job',
+                        could_not_run_job: 'Could not run job',
                         cron_expression: 'Cron expression',
                         invalid_cron_expression: 'Invalid cron expression',
                         delete_job: 'Delete job',
@@ -99,8 +104,7 @@ const initializeI18n = d2 => {
                     translation: {
                         add_new_job: 'نئی ملازمت شامل کریں',
                         are_you_sure_you_want_to_delete: 'کیا آپ واقعی حذف کرنا چاہتے ہیں؟',
-                        are_you_sure_you_want_to_discard_your_changes:
-                            'کیا آپ واقعی اپنے تبدیلیاں ضائع کرنا چاہتے ہیں؟',
+                        are_you_sure_you_want_to_discard_your_changes: 'کیا آپ واقعی اپنے تبدیلیاں ضائع کرنا چاہتے ہیں؟',
                         attributes: 'خصوصیات',
                         cancel: 'منسوخ کریں',
                         details: 'تفصیلات',

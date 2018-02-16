@@ -1,5 +1,6 @@
 import * as actions from 'constants/actions';
 import i18next from 'i18next';
+import getErrorMessage from 'utils/getErrorMessage';
 
 const NEUTRAL = 'NEUTRAL';
 const POSITIVE = 'POSITIVE';
@@ -10,14 +11,6 @@ export const initialState = {
     persist: false,
     message: '',
     type: NEUTRAL,
-};
-
-const getErrorMessage = error => {
-    if (error.response && error.response.errorReports && error.response.errorReports.length > 0) {
-        return error.response.errorReports[0].message;
-    }
-
-    return error.message;
 };
 
 const increment = number => number + 1;
@@ -66,6 +59,15 @@ function messageReducer(state = initialState, action) {
                 )}`,
                 type: POSITIVE,
                 persist: false,
+            };
+
+        case actions.JOB_RUN_ERROR:
+            return {
+                id: increment(state.id),
+                message: `${i18next.t('could_not_run_job')}: ${getErrorMessage(
+                    action.payload.error,
+                )}`,
+                type: NEGATIVE,
             };
 
         case actions.NOT_AUTHORIZED:

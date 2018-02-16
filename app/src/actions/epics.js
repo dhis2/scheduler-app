@@ -33,6 +33,7 @@ const loadJobs = action$ =>
             actions.JOB_POST_SUCCESS,
             actions.JOB_SAVE_SUCCESS,
             actions.JOB_DELETE_SUCCESS,
+            actions.JOB_RUN_SUCCESS,
         )
         .concatMap(() =>
             api
@@ -83,6 +84,19 @@ const deleteJob = action$ =>
             .catch(error => ({ type: actions.JOB_DELETE_ERROR, payload: { error } })),
     );
 
+const runJob = action$ =>
+    action$.ofType(actions.JOB_RUN).concatMap(action =>
+        api
+            .runJob(action.payload.id)
+            .then(() => ({
+                type: actions.JOB_RUN_SUCCESS,
+                payload: { id: action.payload.id },
+            }))
+            .catch(error => ({
+                type: actions.JOB_RUN_ERROR,
+                payload: { error },
+            })));
+
 export default combineEpics(
     loadJobs,
     loadConfiguration,
@@ -90,4 +104,5 @@ export default combineEpics(
     addJob,
     saveJob,
     deleteJob,
+    runJob,
 );

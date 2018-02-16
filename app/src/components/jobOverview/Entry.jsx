@@ -3,6 +3,8 @@ import Toggle from 'material-ui/Toggle';
 import moment from 'moment';
 import i18next from 'i18next';
 
+import ConditionalIconButton from 'components/ConditionalIconButton';
+
 const styles = {
     listEntry: {
         color: 'black',
@@ -28,9 +30,18 @@ const styles = {
         textOverflow: 'ellipsis',
         whiteSpace: 'nowrap',
     },
+    status: {
+        flex: 8,
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    runIcon: {
+        color: '#50A799',
+    },
 };
 
-const Entry = ({ job, onSelect, onToggle, first }) => {
+const Entry = ({ job, onSelect, onToggle, onRun, first }) => {
     const nextExecution = moment(job.nextExecutionTime);
     const nextExecutionText = nextExecution.format('DD.MM.YYYY HH:mm');
 
@@ -46,6 +57,7 @@ const Entry = ({ job, onSelect, onToggle, first }) => {
         });
     };
 
+    const run = () => { onRun(job.id); };
     const toggleClick = event => {
         event.preventDefault();
         event.stopPropagation();
@@ -60,8 +72,20 @@ const Entry = ({ job, onSelect, onToggle, first }) => {
         >
             <div style={{ ...styles.displayName, flex: 12 }}>{job.displayName}</div>
             <div style={{ ...styles.noWrap, flex: 11 }}>{i18next.t(job.jobType)}</div>
-            <div style={{ flex: 7 }}>{i18next.t(job.jobStatus)}</div>
-            <div style={{ flex: 10 }}>{nextExecutionText}</div>
+            <div style={styles.status}>
+                <div>{i18next.t(job.jobStatus)}</div>
+                {job.jobStatus !== 'RUNNING' &&
+                    <ConditionalIconButton
+                        showConfirmation
+                        icon="play_arrow"
+                        confirmationMessage={`${i18next.t('are_you_sure_you_want_to_execute')} "${job.name}"?`}
+                        onConfirm={run}
+                        tooltip={i18next.t('run_now')}
+                        iconStyle={styles.runIcon}
+                    />
+                }
+            </div>
+            <div style={{ flex: 9 }}>{nextExecutionText}</div>
             <div>
                 <Toggle toggled={job.enabled} onToggle={toggle} onClick={toggleClick} />
             </div>

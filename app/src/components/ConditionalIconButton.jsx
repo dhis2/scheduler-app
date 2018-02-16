@@ -15,7 +15,10 @@ const styles = {
 class ConditionalIconButton extends Component {
     state = { dialogOpen: false };
 
-    onClick = () => {
+    onClick = (event) => {
+        event.stopPropagation();
+        event.preventDefault();
+
         this.props.showConfirmation ? this.openDialog() : this.confirm();
     };
 
@@ -37,7 +40,7 @@ class ConditionalIconButton extends Component {
             <FlatButton primary label={i18next.t('cancel')} onClick={this.closeDialog} />,
             <RaisedButton
                 primary
-                label={i18next.t('confirm')}
+                label={i18next.t(this.props.confirmLabel || 'confirm')}
                 style={{ marginLeft: 16 }}
                 onClick={this.confirm}
             />,
@@ -51,7 +54,12 @@ class ConditionalIconButton extends Component {
                     actions={confirmationDialogActions}
                     onRequestClose={this.closeDialog}
                 />
-                <IconButton onClick={this.onClick} style={styles.button}>
+                <IconButton
+                    onClick={this.onClick}
+                    style={styles.button}
+                    tooltip={this.props.tooltip}
+                    iconStyle={this.props.iconStyle}
+                >
                     <FontIcon className="material-icons">{this.props.icon}</FontIcon>
                 </IconButton>
             </div>
