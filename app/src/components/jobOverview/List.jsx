@@ -49,6 +49,16 @@ const styles = {
     systemJobToggleTrack: {
         backgroundColor: '#dddddd',
     },
+    noJobsText: {
+        backgroundColor: '#f2f2f2',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        fontSize: '1.2rem',
+        height: 60,
+        color: '#b8b8b8',
+        fontWeight: 300,
+    },
 };
 
 const List = ({ jobs, showSystemJobs, toggleJob, toggleSystemJobs, runJob }) => (
@@ -76,16 +86,23 @@ const List = ({ jobs, showSystemJobs, toggleJob, toggleSystemJobs, runJob }) => 
                 <div style={{ flex: 0 }}>{i18next.t('enabled')}</div>
             </div>
             <Divider />
-            <FlipMove duration={400} enterAnimation={false} easing="ease-out">
-                {jobs.map(job => (
-                    <EntryWrap key={job.id} job={job} onToggle={toggleJob} onRun={runJob} />
-                ))}
-            </FlipMove>
+            {jobs.length === 0
+                ? <NoJobs />
+                : <FlipMove duration={400} enterAnimation={false} easing="ease-out">
+                    {jobs.map(job => (
+                        <EntryWrap key={job.id} job={job} onToggle={toggleJob} onRun={runJob} />
+                    ))}
+                </FlipMove>
+            }
         </Paper>
         <Link to={'add'}>
             <AddButton />
         </Link>
     </div>
+);
+
+const NoJobs = () => (
+    <div style={styles.noJobsText}>{i18next.t('no_jobs_to_show')}</div>
 );
 
 // eslint-disable-next-line

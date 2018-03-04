@@ -62,12 +62,19 @@ const getComponentToRender = (key, parameter, changeHandler) => {
 
         case COMPONENTS.SELECTION: {
             const onChange = (event, index, values) => changeHandler(key, values, false);
+            const translateStrings = values => values.map((v, i) => {
+                return (i === values.length - 1)
+                    ? `${i18next.t(v)}`
+                    : `${i18next.t(v)}, `;
+            });
+
             return (
                 <SelectField
                     multiple
                     fullWidth
                     hintText={i18next.t('click_to_select')}
                     value={value}
+                    selectionRenderer={translateStrings}
                     onChange={onChange}
                     floatingLabelText={label}
                 >

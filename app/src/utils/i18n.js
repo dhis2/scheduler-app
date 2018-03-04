@@ -50,6 +50,7 @@ const initializeI18n = d2 => {
                         not_authorized_message: 'You are not authorized to use this app',
                         must_be_of_two_or_more_characters: 'Must be of two or more characters',
                         show_system_jobs: 'Show system jobs',
+                        no_jobs_to_show: 'No jobs to show',
 
                         created: 'Created',
                         last_executed: 'Last executed',
@@ -99,6 +100,15 @@ const initializeI18n = d2 => {
                         'Skip table types': 'Skip table types',
                         'Validation rule groups': 'Validation rule groups',
                         Predictors: 'Predictors',
+
+                        // Skip table types
+                        DATA_VALUE: 'Data Value',
+                        COMPLETENESS: 'Completeness',
+                        COMPLETENESS_TARGET: 'Completeness Target',
+                        ORG_UNIT_TARGET: 'Organisation Unit Target',
+                        EVENT: 'Event',
+                        ENROLLMENT: 'Enrollment',
+                        VALIDATION_RESULT: 'Validation Result',
                     },
                 },
                 ur: {
