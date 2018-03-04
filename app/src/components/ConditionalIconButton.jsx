@@ -15,7 +15,7 @@ const styles = {
 class ConditionalIconButton extends Component {
     state = { dialogOpen: false };
 
-    onClick = (event) => {
+    onClick = event => {
         event.stopPropagation();
         event.preventDefault();
 

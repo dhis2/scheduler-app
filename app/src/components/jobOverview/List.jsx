@@ -31,7 +31,6 @@ const styles = {
         fontWeight: 600,
     },
     paper: { backgroundColor: '#e0e0e0' },
-    entry: { backgroundColor: 'white' },
     addButton: {
         position: 'absolute',
         right: 36,
@@ -78,14 +77,8 @@ const List = ({ jobs, showSystemJobs, toggleJob, toggleSystemJobs, runJob }) => 
             </div>
             <Divider />
             <FlipMove duration={400} enterAnimation={false} easing="ease-out">
-                {jobs.map((job, index) => (
-                    <LinkedEntry
-                        key={job.id}
-                        job={job}
-                        onToggle={toggleJob}
-                        onRun={runJob}
-                        first={index === 0}
-                    />
+                {jobs.map(job => (
+                    <EntryWrap key={job.id} job={job} onToggle={toggleJob} onRun={runJob} />
                 ))}
             </FlipMove>
         </Paper>
@@ -96,17 +89,37 @@ const List = ({ jobs, showSystemJobs, toggleJob, toggleSystemJobs, runJob }) => 
 );
 
 // eslint-disable-next-line
-class LinkedEntry extends Component {
+class EntryWrap extends Component {
+    state = {
+        backgroundColor: 'white',
+    };
+
+    setBackgroundColor = color => {
+        this.setState({
+            backgroundColor: color,
+        });
+    };
+
+    setNeutral = () => this.setBackgroundColor('white');
+    setFocus = () => this.setBackgroundColor('#e4e4e4');
+    setHover = () => this.setBackgroundColor('#f2f2f2');
+
     render = () => (
-        <div style={styles.entry}>
+        <div
+            style={this.state}
+            onMouseEnter={this.setHover}
+            onMouseLeave={this.setNeutral}
+            onFocus={this.setFocus}
+            onBlur={this.setNeutral}
+        >
             <Link to={`edit/${this.props.job.id}`}>
                 <Entry
                     job={this.props.job}
                     onToggle={this.props.onToggle}
                     onRun={this.props.onRun}
-                    first={this.props.index === 0}
                 />
             </Link>
+            <Divider />
         </div>
     );
 }
@@ -122,8 +135,8 @@ const AddButton = () => (
 const enhance = compose(
     connect(
         state => {
-            const jobs = state.jobs.all.filter(job =>
-                (state.jobs.showSystemJobs ? !job.configurable : job.configurable),
+            const jobs = state.jobs.all.filter(
+                job => (state.jobs.showSystemJobs ? !job.configurable : job.configurable),
             );
 
             return {
@@ -133,7 +146,8 @@ const enhance = compose(
         },
         dispatch => ({
             toggleJob: job => dispatch({ type: actions.JOB_SAVE, payload: { job } }),
-            toggleSystemJobs: enabled => dispatch({ type: actions.TOGGLE_SYSTEM_JOBS, payload: { enabled } }),
+            toggleSystemJobs: enabled =>
+                dispatch({ type: actions.TOGGLE_SYSTEM_JOBS, payload: { enabled } }),
             runJob: id => dispatch({ type: actions.JOB_RUN, payload: { id } }),
         }),
     ),

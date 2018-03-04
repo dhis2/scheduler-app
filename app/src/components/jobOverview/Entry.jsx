@@ -41,7 +41,9 @@ const styles = {
     },
 };
 
-const Entry = ({ job, onSelect, onToggle, onRun, first }) => {
+const canRunNow = jobStatus => jobStatus !== 'RUNNING' && jobStatus !== 'DISABLED';
+
+const Entry = ({ job, onSelect, onToggle, onRun }) => {
     const nextExecution = moment(job.nextExecutionTime);
     const nextExecutionText = nextExecution.format('DD.MM.YYYY HH:mm');
 
@@ -57,34 +59,33 @@ const Entry = ({ job, onSelect, onToggle, onRun, first }) => {
         });
     };
 
-    const run = () => { onRun(job.id); };
+    const run = () => {
+        onRun(job.id);
+    };
     const toggleClick = event => {
         event.preventDefault();
         event.stopPropagation();
     };
 
     return (
-        <div
-            tabIndex="0"
-            role="button"
-            onClick={onSelect}
-            style={{ ...styles.listEntry, borderTop: first ? '' : '1px solid lightgray' }}
-        >
+        <div onClick={onSelect} style={styles.listEntry}>
             <div style={{ ...styles.displayName, flex: 12 }}>{job.displayName}</div>
             <div style={{ ...styles.noWrap, flex: 11 }}>{i18next.t(job.jobType)}</div>
             <div style={styles.status}>
                 <div>{i18next.t(job.jobStatus)}</div>
-                {job.jobStatus !== 'RUNNING' &&
+                {canRunNow(job.jobStatus) && (
                     <ConditionalIconButton
                         showConfirmation
-                        confirmationMessage={`${i18next.t('are_you_sure_you_want_to_execute')} "${job.name}"?`}
+                        confirmationMessage={`${i18next.t('are_you_sure_you_want_to_execute')} "${
+                            job.name
+                        }"?`}
                         confirmLabel={i18next.t('execute')}
                         onConfirm={run}
                         icon="play_arrow"
                         tooltip={i18next.t('run_now')}
                         iconStyle={styles.runIcon}
                     />
-                }
+                )}
             </div>
             <div style={{ flex: 9 }}>{nextExecutionText}</div>
             <div>

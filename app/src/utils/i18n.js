@@ -14,8 +14,7 @@ const initializeI18n = d2 => {
                         are_you_sure_you_want_to_delete: 'Are you sure you want to delete',
                         are_you_sure_you_want_to_discard_your_changes:
                             'Are you sure you want to discard your changes?',
-                        are_you_sure_you_want_to_execute:
-                            'Are you sure you want to execute',
+                        are_you_sure_you_want_to_execute: 'Are you sure you want to execute',
                         execute: 'Execute',
                         attributes: 'Attributes',
                         cancel: 'Cancel',
@@ -106,7 +105,8 @@ const initializeI18n = d2 => {
                     translation: {
                         add_new_job: 'نئی ملازمت شامل کریں',
                         are_you_sure_you_want_to_delete: 'کیا آپ واقعی حذف کرنا چاہتے ہیں؟',
-                        are_you_sure_you_want_to_discard_your_changes: 'کیا آپ واقعی اپنے تبدیلیاں ضائع کرنا چاہتے ہیں؟',
+                        are_you_sure_you_want_to_discard_your_changes:
+                            'کیا آپ واقعی اپنے تبدیلیاں ضائع کرنا چاہتے ہیں؟',
                         attributes: 'خصوصیات',
                         cancel: 'منسوخ کریں',
                         details: 'تفصیلات',

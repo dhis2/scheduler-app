@@ -95,7 +95,8 @@ const runJob = action$ =>
             .catch(error => ({
                 type: actions.JOB_RUN_ERROR,
                 payload: { error },
-            })));
+            })),
+    );
 
 export default combineEpics(
     loadJobs,
