@@ -87,6 +87,7 @@ const initializeI18n = d2 => {
                         RESOURCE_TABLE: 'Resource Table',
                         SEND_SCHEDULED_MESSAGE: 'Send Scheduled Message',
                         VALIDATION_RESULTS_NOTIFICATION: 'Validation Results Notification',
+                        REMOVE_EXPIRED_RESERVED_VALUES: 'Remove Expired Reserved Values',
 
                         // Job parameters
                         'Last years': 'Last years',
