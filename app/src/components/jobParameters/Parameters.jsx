@@ -62,11 +62,10 @@ const getComponentToRender = (key, parameter, changeHandler) => {
 
         case COMPONENTS.SELECTION: {
             const onChange = (event, index, values) => changeHandler(key, values, false);
-            const translateStrings = values => values.map((v, i) => {
-                return (i === values.length - 1)
-                    ? `${i18next.t(v)}`
-                    : `${i18next.t(v)}, `;
-            });
+            const translateStrings = values =>
+                values.map((v, i) => {
+                    return i === values.length - 1 ? `${i18next.t(v)}` : `${i18next.t(v)}, `;
+                });
 
             return (
                 <SelectField
