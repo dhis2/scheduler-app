@@ -45,6 +45,7 @@ const enhance = compose(
                 loaded: state.jobs.loaded && state.jobs.configuration.loaded,
                 availableParameters: state.jobs.configuration.parameters,
                 attributeOptions: state.jobs.configuration.attributeOptions,
+                pending: state.pending,
                 dirty: state.jobs.dirty,
             };
         },

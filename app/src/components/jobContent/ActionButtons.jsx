@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import RaisedButton from 'material-ui/RaisedButton';
+import CircularProgress from 'material-ui/CircularProgress';
 import FlatButton from 'material-ui/FlatButton';
 import FontIcon from 'material-ui/FontIcon';
 import Dialog from 'material-ui/Dialog';
@@ -25,6 +27,14 @@ const styles = {
 
 class ActionButtons extends Component {
     state = { deleteDialogOpen: false };
+
+    getPendableIcon = (icon, isPending) =>
+        isPending ? (
+            <CircularProgress size={24} />
+        ) : (
+            <FontIcon className="material-icons">{icon}</FontIcon>
+        );
+
     toggleDeleteDialog = open => {
         this.setState({
             deleteDialogOpen: open,
@@ -40,7 +50,7 @@ class ActionButtons extends Component {
 
     confirmDelete = () => {
         this.closeDeleteDialog();
-        this.props.delete();
+        this.props.delete.submit();
     };
 
     render = () => {
@@ -67,18 +77,18 @@ class ActionButtons extends Component {
                 <RaisedButton
                     primary
                     style={{ ...styles.buttons, ...styles.noWrap }}
-                    disabled={!this.props.saveEnabled}
-                    label={this.props.saveLabel}
-                    onClick={this.props.save}
-                    icon={<FontIcon className="material-icons">cloud_upload</FontIcon>}
+                    disabled={this.props.update.disabled}
+                    label={this.props.update.label}
+                    onClick={this.props.update.submit}
+                    icon={this.getPendableIcon('cloud_upload', this.props.update.pending)}
                 />
-                {this.props.deleteLabel && (
+                {this.props.delete.submit && (
                     <RaisedButton
                         secondary
                         style={{ ...styles.buttons, ...styles.noWrap }}
-                        disabled={this.props.disabled}
-                        label={this.props.deleteLabel}
-                        icon={<FontIcon className="material-icons">delete_forever</FontIcon>}
+                        disabled={this.props.delete.disabled}
+                        label={this.props.delete.label}
+                        icon={this.getPendableIcon('delete_forever', this.props.delete.pending)}
                         onClick={this.openDeleteDialog}
                     />
                 )}
@@ -86,5 +96,27 @@ class ActionButtons extends Component {
         );
     };
 }
+
+ActionButtons.propTypes = {
+    job: PropTypes.object.isRequired,
+    update: PropTypes.shape({
+        submit: PropTypes.func.isRequired,
+        label: PropTypes.string.isRequired,
+        pending: PropTypes.bool.isRequired,
+        disabled: PropTypes.bool.isRequired,
+    }).isRequired,
+    delete: PropTypes.shape({
+        submit: PropTypes.func,
+        label: PropTypes.string,
+        pending: PropTypes.bool,
+        disabled: PropTypes.bool,
+    }),
+};
+
+ActionButtons.defaultProps = {
+    job: {},
+    update: {},
+    delete: {},
+};
 
 export default ActionButtons;
