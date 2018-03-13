@@ -104,7 +104,6 @@ const List = ({ jobs, showSystemJobs, toggleJob, toggleSystemJobs, runJob }) => 
 
 const NoJobs = () => <div style={styles.noJobsText}>{i18next.t('no_jobs_to_show')}</div>;
 
-// eslint-disable-next-line
 class EntryWrap extends Component {
     state = {
         backgroundColor: 'white',

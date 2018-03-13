@@ -57,7 +57,7 @@ const addJob = action$ =>
     );
 
 const saveJob = action$ =>
-    action$.ofType(actions.JOB_SAVE).concatMap(action =>
+    action$.ofType(actions.JOB_SAVE).switchMap(action =>
         api
             .saveJob(action.payload.job)
             .then(result => {
@@ -71,7 +71,7 @@ const saveJob = action$ =>
     );
 
 const deleteJob = action$ =>
-    action$.ofType(actions.JOB_DELETE).concatMap(action =>
+    action$.ofType(actions.JOB_DELETE).switchMap(action =>
         api
             .deleteJob(action.payload.id)
             .then(() => {
@@ -85,7 +85,7 @@ const deleteJob = action$ =>
     );
 
 const runJob = action$ =>
-    action$.ofType(actions.JOB_RUN).concatMap(action =>
+    action$.ofType(actions.JOB_RUN).switchMap(action =>
         api
             .runJob(action.payload.id)
             .then(() => ({
