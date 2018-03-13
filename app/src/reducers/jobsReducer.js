@@ -15,6 +15,10 @@ export const initialState = {
         parameters: {},
         attributeOptions: {},
     },
+    pending: {
+        update: false,
+        delete: false,
+    },
 };
 
 function jobsReducer(state = initialState, action) {

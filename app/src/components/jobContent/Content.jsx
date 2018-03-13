@@ -178,12 +178,25 @@ class Content extends Component {
 
                     <ActionButtons
                         job={this.props.job}
-                        save={this.onSubmit}
-                        disabled={this.props.disableEditing}
-                        saveEnabled={this.props.dirty && this.state.isValid}
-                        delete={this.onDelete}
-                        saveLabel={this.props.saveLabel}
-                        deleteLabel={this.props.deleteLabel}
+                        update={{
+                            submit: this.onSubmit,
+                            label: this.props.saveLabel,
+                            pending: this.props.pending.update,
+                            disabled:
+                                !this.props.dirty ||
+                                !this.state.isValid ||
+                                this.props.pending.update,
+                        }}
+                        delete={
+                            this.props.deleteLabel
+                                ? {
+                                      submit: this.onDelete,
+                                      label: this.props.deleteLabel,
+                                      pending: this.props.pending.delete,
+                                      disabled: this.props.pending.delete,
+                                  }
+                                : {}
+                        }
                     />
                 </Paper>
             ) : (

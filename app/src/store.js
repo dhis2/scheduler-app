@@ -5,6 +5,7 @@ import { createLogger } from 'redux-logger';
 import Epics from 'actions/epics';
 import jobsReducer from 'reducers/jobsReducer';
 import messageReducer from 'reducers/messageReducer';
+import pendingReducer from 'reducers/pendingReducer';
 
 const middlewares = [createEpicMiddleware(Epics)];
 
@@ -18,6 +19,7 @@ if (process.env.NODE_ENV === 'development') {
 const reducer = combineReducers({
     jobs: jobsReducer,
     message: messageReducer,
+    pending: pendingReducer,
 });
 
 export default createStore(reducer, composeEnhancers(applyMiddleware(...middlewares)));
