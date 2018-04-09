@@ -88,6 +88,7 @@ const initializeI18n = d2 => {
                         SEND_SCHEDULED_MESSAGE: 'Send Scheduled Message',
                         VALIDATION_RESULTS_NOTIFICATION: 'Validation Results Notification',
                         REMOVE_EXPIRED_RESERVED_VALUES: 'Remove Expired Reserved Values',
+                        PROGRAM_DATA_SYNC: 'Program Data Synchronization',
 
                         // Job parameters
                         'Last years': 'Last years',
