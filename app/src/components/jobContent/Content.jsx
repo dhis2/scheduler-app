@@ -7,7 +7,7 @@ import MenuItem from 'material-ui/MenuItem';
 import moment from 'moment';
 import i18next from 'i18next';
 
-import cronExpressionRegex from 'constants/cronExp';
+import validCronExpression from 'utils/validCronExpression';
 import ActionButtons from 'components/jobContent/ActionButtons';
 import Schedule from 'components/jobContent/Schedule';
 import Parameters from 'components/jobParameters/Parameters';
@@ -32,8 +32,6 @@ const styles = {
         overflowY: 'auto',
     },
 };
-
-const validCronExpression = exp => exp.trim().match(cronExpressionRegex) !== null;
 
 const validateFields = values => {
     const errors = {};
