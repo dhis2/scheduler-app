@@ -19,6 +19,7 @@ const initializeI18n = d2 => {
                         attributes: 'Attributes',
                         cancel: 'Cancel',
                         details: 'Details',
+                        schedule: 'Schedule',
                         click_to_select: 'Click to select',
                         run_now: 'Run now',
                         confirm: 'Confirm',
@@ -51,6 +52,7 @@ const initializeI18n = d2 => {
                         must_be_of_two_or_more_characters: 'Must be of two or more characters',
                         show_system_jobs: 'Show system jobs',
                         no_jobs_to_show: 'No jobs to show',
+                        open_user_guide: 'Open user guide',
 
                         created: 'Created',
                         last_executed: 'Last executed',
