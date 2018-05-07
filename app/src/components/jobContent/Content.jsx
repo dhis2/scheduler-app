@@ -13,7 +13,11 @@ import Schedule from 'components/jobContent/Schedule';
 import Parameters from 'components/jobParameters/Parameters';
 import ConditionalIconButton from 'components/ConditionalIconButton';
 import Details from 'components/jobContent/Details';
+import HelpLink from 'components/HelpLink';
 import history from 'utils/history';
+
+const documentationHref =
+    'https://docs.dhis2.org/master/en/user/html/dataAdmin_scheduling.html#dataAdmin_scheduling_config';
 
 const styles = {
     jobContent: {
@@ -30,6 +34,14 @@ const styles = {
     jobTypeList: {
         maxHeight: 300,
         overflowY: 'auto',
+    },
+    attributeHeaderContainer: {
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    attributeHeader: {
+        padding: 0,
     },
 };
 
@@ -114,7 +126,10 @@ class Content extends Component {
             </div>
             {this.props.job ? (
                 <Paper style={styles.jobContent}>
-                    <Heading>{i18next.t('attributes')}</Heading>
+                    <div style={styles.attributeHeaderContainer}>
+                        <Heading style={styles.attributeHeader}>{i18next.t('attributes')}</Heading>
+                        <HelpLink href={documentationHref} />
+                    </div>
                     <TextField
                         fullWidth
                         value={this.props.job.name}

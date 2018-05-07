@@ -13,6 +13,9 @@ import i18next from 'i18next';
 
 import * as actions from 'constants/actions';
 import Entry from 'components/jobOverview/Entry';
+import HelpLink from 'components/HelpLink';
+
+const documentationHref = 'https://docs.dhis2.org/master/en/user/html/dataAdmin_scheduling.html';
 
 const styles = {
     header: {
@@ -21,6 +24,11 @@ const styles = {
         flexDirection: 'row',
         justifyContent: 'space-between',
         width: '100%',
+    },
+    headerLeft: {
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
     },
     tableHeader: {
         backgroundColor: 'white',
@@ -64,9 +72,12 @@ const styles = {
 const List = ({ jobs, showSystemJobs, toggleJob, toggleSystemJobs, runJob }) => (
     <div>
         <div style={styles.header}>
-            <Heading style={{ paddingBottom: 16, paddingLeft: 24 }}>
-                {i18next.t('scheduled_jobs')}
-            </Heading>
+            <div style={styles.headerLeft}>
+                <Heading style={{ paddingBottom: 16, paddingLeft: 24 }}>
+                    {i18next.t('scheduled_jobs')}
+                </Heading>
+                <HelpLink href={documentationHref} />
+            </div>
             <div style={styles.systemJobToggleContainer}>
                 {i18next.t('show_system_jobs')}
                 <Toggle
