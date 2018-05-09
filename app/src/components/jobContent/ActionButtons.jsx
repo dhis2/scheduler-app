@@ -5,7 +5,7 @@ import CircularProgress from 'material-ui/CircularProgress';
 import FlatButton from 'material-ui/FlatButton';
 import FontIcon from 'material-ui/FontIcon';
 import Dialog from 'material-ui/Dialog';
-import i18next from 'i18next';
+import i18n from 'locales';
 
 const styles = {
     buttonPanel: {
@@ -55,10 +55,10 @@ class ActionButtons extends Component {
 
     render = () => {
         const deleteDialogActions = [
-            <FlatButton primary label={i18next.t('cancel')} onClick={this.closeDeleteDialog} />,
+            <FlatButton primary label={i18n.t('Cancel')} onClick={this.closeDeleteDialog} />,
             <RaisedButton
                 secondary
-                label={i18next.t('delete')}
+                label={i18n.t('Delete')}
                 style={{ marginLeft: 16 }}
                 onClick={this.confirmDelete}
             />,
@@ -67,7 +67,7 @@ class ActionButtons extends Component {
         return (
             <div style={styles.buttonPanel}>
                 <Dialog
-                    title={`${i18next.t('are_you_sure_you_want_to_delete')} "${
+                    title={`${i18n.t('Are you sure you want to delete ')} "${
                         this.props.job.name
                     }"?`}
                     actions={deleteDialogActions}

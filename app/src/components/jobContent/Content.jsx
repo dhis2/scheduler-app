@@ -5,7 +5,7 @@ import Paper from 'material-ui/Paper';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import moment from 'moment';
-import i18next from 'i18next';
+import i18n from 'locales';
 
 import validCronExpression from 'utils/validCronExpression';
 import ActionButtons from 'components/jobContent/ActionButtons';
@@ -48,16 +48,16 @@ const styles = {
 const validateFields = values => {
     const errors = {};
     if (!values.name) {
-        errors.name = i18next.t('required');
+        errors.name = i18n.t('Required');
     } else if (values.name.length < 2) {
-        errors.name = i18next.t('must_be_of_two_or_more_characters');
+        errors.name = i18n.t('Must be of two or more characters');
     }
 
     if (!values.continuousExecution) {
         if (!values.cronExpression) {
-            errors.cronExpression = i18next.t('required');
+            errors.cronExpression = i18n.t('Required');
         } else if (!validCronExpression(values.cronExpression)) {
-            errors.cronExpression = i18next.t('invalid_cron_expression');
+            errors.cronExpression = i18n.t('Invalid cron expression');
         }
     }
 
@@ -119,7 +119,9 @@ class Content extends Component {
                 <ConditionalIconButton
                     icon="arrow_back"
                     showConfirmation={this.props.dirty}
-                    confirmationMessage={i18next.t('are_you_sure_you_want_to_discard_your_changes')}
+                    confirmationMessage={i18n.t(
+                        'Are you sure you want to discard your changes?',
+                    )}
                     onConfirm={this.discardChanges}
                 />
                 <Heading style={{ paddingBottom: 16, paddingLeft: 24 }}>{this.props.title}</Heading>
@@ -127,13 +129,13 @@ class Content extends Component {
             {this.props.job ? (
                 <Paper style={styles.jobContent}>
                     <div style={styles.attributeHeaderContainer}>
-                        <Heading style={styles.attributeHeader}>{i18next.t('attributes')}</Heading>
+                        <Heading style={styles.attributeHeader}>{i18n.t('Attributes')}</Heading>
                         <HelpLink href={documentationHref} />
                     </div>
                     <TextField
                         fullWidth
                         value={this.props.job.name}
-                        floatingLabelText={`${i18next.t('name')} *`}
+                        floatingLabelText={`${i18n.t('Name')} *`}
                         disabled={this.props.disableEditing}
                         onChange={this.handleFieldEvent('name')}
                         errorText={this.state.errors.name}
@@ -149,12 +151,12 @@ class Content extends Component {
                     <SelectField
                         fullWidth
                         disabled={this.props.disableEditing}
-                        floatingLabelText={`${i18next.t('job_type')} *`}
+                        floatingLabelText={`${i18n.t('Job type')} *`}
                         value={this.props.job.type}
                         onChange={this.onJobTypeSelected}
                     >
                         {this.props.availableTypes.map(type => (
-                            <MenuItem key={type} value={type} primaryText={i18next.t(type)} />
+                            <MenuItem key={type} value={type} primaryText={i18n.t(type)} />
                         ))}
                     </SelectField>
 
@@ -164,7 +166,7 @@ class Content extends Component {
                             parameters={this.props.job.parameters}
                             availableParameters={this.props.availableParameters}
                             attributeOptions={this.props.attributeOptions}
-                            onChange={this.handleFieldChange('parameters')}
+                            onChange={this.handleFieldChange('Parameters')}
                         />
                     )}
 
@@ -200,7 +202,7 @@ class Content extends Component {
                     />
                 </Paper>
             ) : (
-                <div>{i18next.t('could_not_find_job')}</div>
+                <div>{i18n.t('Could not find job')}</div>
             )}
         </div>
     );

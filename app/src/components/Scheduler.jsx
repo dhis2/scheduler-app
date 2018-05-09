@@ -13,7 +13,6 @@ import EditJob from 'components/jobContent/EditJob';
 import AddJob from 'components/jobContent/AddJob';
 import MessagePanel from 'components/MessagePanel';
 import * as actions from 'constants/actions';
-import initializeI18n from 'utils/i18n';
 import history from 'utils/history';
 
 import theme from '../styles/theme';
@@ -58,11 +57,6 @@ ContentLoader = compose(
     ),
     getContext({
         d2: PropTypes.object.isRequired,
-    }),
-    lifecycle({
-        componentWillMount() {
-            initializeI18n(this.props.d2);
-        },
     }),
     branch(
         userIsNotAuthorized,

@@ -7,7 +7,7 @@ module.exports = {
         app: [
             'babel-polyfill',
             'whatwg-fetch',
-            './app/src/scheduler.js',
+            './app/src/index.js',
         ],
     },
     output: {
@@ -18,7 +18,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: 'DHIS2 Scheduler',
             filename: 'index.html',
-            template: 'app/index.html',
+            template: 'public/index.html',
         }),
     ],
     module: {
@@ -36,11 +36,12 @@ module.exports = {
     },
     resolve: {
         alias: {
-            react: path.resolve('./node_modules/react'),
-            api: path.resolve(__dirname, 'app/src/api'),
             actions: path.resolve(__dirname, 'app/src/actions'),
+            api: path.resolve(__dirname, 'app/src/api'),
             components: path.resolve(__dirname, 'app/src/components'),
             constants: path.resolve(__dirname, 'app/src/constants'),
+            locales: path.resolve(__dirname, 'app/src/locales'),
+            react: path.resolve('./node_modules/react'),
             reducers: path.resolve(__dirname, 'app/src/reducers'),
             utils: path.resolve(__dirname, 'app/src/utils'),
 

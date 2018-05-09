@@ -9,7 +9,7 @@ import FontIcon from 'material-ui/FontIcon';
 import Heading from 'd2-ui/lib/headings/Heading.component';
 import Paper from 'material-ui/Paper';
 import FlipMove from 'react-flip-move';
-import i18next from 'i18next';
+import i18n from 'locales';
 
 import * as actions from 'constants/actions';
 import Entry from 'components/jobOverview/Entry';
@@ -74,12 +74,12 @@ const List = ({ jobs, showSystemJobs, toggleJob, toggleSystemJobs, runJob }) => 
         <div style={styles.header}>
             <div style={styles.headerLeft}>
                 <Heading style={{ paddingBottom: 16, paddingLeft: 24 }}>
-                    {i18next.t('scheduled_jobs')}
+                    {i18n.t('Scheduled jobs')}
                 </Heading>
                 <HelpLink href={documentationHref} />
             </div>
             <div style={styles.systemJobToggleContainer}>
-                {i18next.t('show_system_jobs')}
+                {i18n.t('Show system jobs')}
                 <Toggle
                     style={styles.systemJobToggle}
                     trackStyle={styles.systemJobToggleTrack}
@@ -90,11 +90,11 @@ const List = ({ jobs, showSystemJobs, toggleJob, toggleSystemJobs, runJob }) => 
         </div>
         <Paper style={styles.paper}>
             <div style={styles.tableHeader}>
-                <div style={{ flex: 12 }}>{i18next.t('name')}</div>
-                <div style={{ flex: 11 }}>{i18next.t('type')}</div>
-                <div style={{ flex: 8 }}>{i18next.t('status')}</div>
-                <div style={{ flex: 9 }}>{i18next.t('next_execution')}</div>
-                <div style={{ flex: 0 }}>{i18next.t('enabled')}</div>
+                <div style={{ flex: 12 }}>{i18n.t('Name')}</div>
+                <div style={{ flex: 11 }}>{i18n.t('Type')}</div>
+                <div style={{ flex: 8 }}>{i18n.t('Status')}</div>
+                <div style={{ flex: 9 }}>{i18n.t('Next execution')}</div>
+                <div style={{ flex: 0 }}>{i18n.t('Enabled')}</div>
             </div>
             <Divider />
             {jobs.length === 0 ? (
@@ -113,7 +113,7 @@ const List = ({ jobs, showSystemJobs, toggleJob, toggleSystemJobs, runJob }) => 
     </div>
 );
 
-const NoJobs = () => <div style={styles.noJobsText}>{i18next.t('no_jobs_to_show')}</div>;
+const NoJobs = () => <div style={styles.noJobsText}>{i18n.t('No jobs to show')}</div>;
 
 class EntryWrap extends Component {
     state = {

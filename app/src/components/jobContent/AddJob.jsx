@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { compose, withProps, lifecycle, branch, renderComponent } from 'recompose';
-import i18next from 'i18next';
+import i18n from 'locales';
 
 import * as actions from 'constants/actions';
 import Content from 'components/jobContent/Content';
@@ -9,7 +9,7 @@ import Loading from 'components/Loading';
 const enhance = compose(
     connect(
         state => ({
-            title: i18next.t('add_new_job'),
+            title: i18n.t('Add new job'),
             job: state.jobs.changes,
             loaded: state.jobs.loaded && state.jobs.configuration.loaded,
             availableTypes: state.jobs.configuration.types,

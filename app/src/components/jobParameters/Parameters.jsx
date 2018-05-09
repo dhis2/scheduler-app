@@ -6,7 +6,7 @@ import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import TimePicker from 'material-ui/TimePicker';
 import { compose, withProps, branch, renderNothing } from 'recompose';
-import i18next from 'i18next';
+import i18n from 'locales';
 
 import Suggestion from 'components/jobParameters/Suggestion';
 import SuggestionList from 'components/jobParameters/SuggestionList';
@@ -64,14 +64,14 @@ const getComponentToRender = (key, parameter, changeHandler) => {
             const onChange = (event, index, values) => changeHandler(key, values, false);
             const translateStrings = values =>
                 values.map(
-                    (v, i) => (i === values.length - 1 ? `${i18next.t(v)}` : `${i18next.t(v)}, `),
+                    (v, i) => (i === values.length - 1 ? `${i18n.t(v)}` : `${i18n.t(v)}, `),
                 );
 
             return (
                 <SelectField
                     multiple
                     fullWidth
-                    hintText={i18next.t('click_to_select')}
+                    hintText={i18n.t('Click to select')}
                     value={value}
                     selectionRenderer={translateStrings}
                     onChange={onChange}
@@ -121,12 +121,12 @@ const getComponentToRender = (key, parameter, changeHandler) => {
                     <TimePicker
                         textFieldStyle={styles.timePicker}
                         format="24hr"
-                        hintText={i18next.t('start_time')}
+                        hintText={i18n.t('Start time')}
                     />
                     <TimePicker
                         textFieldStyle={styles.timePicker}
                         format="24hr"
-                        hintText={i18next.t('end_time')}
+                        hintText={i18n.t('End time')}
                     />
                 </div>
             );
@@ -146,7 +146,7 @@ const Parameters = props => {
 
     return (
         <div>
-            <Heading style={styles.header}>Parameters</Heading>
+            <Heading style={styles.header}>{i18n.t('Parameters')}</Heading>
             {parametersToRender}
         </div>
     );

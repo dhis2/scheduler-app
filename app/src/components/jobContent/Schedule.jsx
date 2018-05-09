@@ -4,7 +4,7 @@ import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import Toggle from 'material-ui/Toggle';
 import cronExpressions from 'constants/cronExpressions';
-import i18next from 'i18next';
+import i18n from 'locales';
 
 const styles = {
     container: {
@@ -49,7 +49,7 @@ const Schedule = ({
             <SelectField
                 disabled={continuousExecution || disabled}
                 floatingLabelFixed
-                floatingLabelText={i18next.t('select_frequency')}
+                floatingLabelText={i18n.t('Select frequency')}
                 onChange={onCronSelected}
                 style={styles.flexItem}
                 value={selectedCronText}
@@ -58,7 +58,7 @@ const Schedule = ({
                     <MenuItem
                         key={option.value + option.text}
                         value={option.value}
-                        primaryText={i18next.t(option.text)}
+                        primaryText={i18n.t(option.text)}
                     />
                 ))}
             </SelectField>
@@ -66,7 +66,7 @@ const Schedule = ({
                 disabled={continuousExecution || disabled}
                 errorText={error}
                 floatingLabelText={appendRequiredSign(
-                    i18next.t('cron_expression'),
+                    i18n.t('Cron expression'),
                     !continuousExecution,
                 )}
                 onChange={onCronExpressionChange}
@@ -76,7 +76,7 @@ const Schedule = ({
             <div style={{ ...styles.flexItem, ...styles.toggle }}>
                 <Toggle
                     disabled={disabled}
-                    label={i18next.t('continuous_execution')}
+                    label={i18n.t('Continuous execution')}
                     defaultToggled={continuousExecution}
                     onToggle={onContinuousExecutionChange}
                 />
