@@ -1,12 +1,12 @@
 import React from 'react';
 import IconButton from 'material-ui/IconButton';
 import FontIcon from 'material-ui/FontIcon';
-import i18next from 'i18next';
+import i18n from 'locales';
 
 const iconName = 'help_outline';
 
 const HelpLink = ({ href }) => (
-    <IconButton href={href} tooltip={i18next.t('open_user_guide')} target="_blank">
+    <IconButton href={href} tooltip={i18n.t('Open user guide')} target="_blank">
         <FontIcon className="material-icons">{iconName}</FontIcon>
     </IconButton>
 );

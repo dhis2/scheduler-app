@@ -14,3 +14,5 @@ target
 node_modules
 build
 coverage
+app/src/locales/
+public/manifest.webapp

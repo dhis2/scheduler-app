@@ -1,4 +1,4 @@
-import i18next from 'i18next';
+import i18n from 'locales';
 
 const initializeI18n = d2 => {
     i18next.init(

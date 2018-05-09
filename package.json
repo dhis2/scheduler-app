@@ -11,7 +11,10 @@
     "postbuild": "npm run manifest",
     "manifest": "d2-manifest package.json build/manifest.webapp",
     "format": "prettier --write \"app/**/*.j{s,sx}\"",
-    "deploy": "mvn clean deploy"
+    "deploy": "mvn clean deploy",
+    "localize": "npm run extract-pot && d2-i18n-generate -n NAMESPACE -p ./i18n/ -o ./app/src/locales/",
+    "extract-pot": "d2-i18n-extract -p app/src/ -o i18n/",
+    "prestart": "npm run localize && d2-manifest package.json ./public/manifest.webapp"
   },
   "devDependencies": {
     "babel-core": "6",
@@ -39,6 +42,9 @@
     "zip-webpack-plugin": "^2.1.0"
   },
   "dependencies": {
+    "@dhis2/d2-i18n": "^1.0.3",
+    "@dhis2/d2-i18n-extract": "^1.0.6",
+    "@dhis2/d2-i18n-generate": "^1.0.18",
     "css-loader": "^0.28.9",
     "d2": "^28.3.0",
     "d2-ui": "^29.0.3",

@@ -4,7 +4,7 @@ import FlatButton from 'material-ui/FlatButton';
 import FontIcon from 'material-ui/FontIcon';
 import IconButton from 'material-ui/IconButton';
 import Dialog from 'material-ui/Dialog';
-import i18next from 'i18next';
+import i18n from 'locales';
 
 const styles = {
     button: {
@@ -37,10 +37,10 @@ class ConditionalIconButton extends Component {
 
     render = () => {
         const confirmationDialogActions = [
-            <FlatButton primary label={i18next.t('cancel')} onClick={this.closeDialog} />,
+            <FlatButton primary label={i18n.t('Cancel')} onClick={this.closeDialog} />,
             <RaisedButton
                 primary
-                label={i18next.t(this.props.confirmLabel || 'confirm')}
+                label={i18n.t(this.props.confirmLabel || 'Confirm')}
                 style={{ marginLeft: 16 }}
                 onClick={this.confirm}
             />,

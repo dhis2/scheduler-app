@@ -11,6 +11,7 @@
         "indent": 0,
         "complexity": 0,
         "arrow-parens": "off",
+        "spaced-comment": "off",
         "no-unused-expressions": "off",
         "import/no-extraneous-dependencies": "off",
         "import/extensions": "off",

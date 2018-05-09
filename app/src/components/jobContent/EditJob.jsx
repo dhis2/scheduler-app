@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { compose, lifecycle, withProps, branch, renderComponent } from 'recompose';
-import i18next from 'i18next';
+import i18n from 'locales';
 
 import * as actions from 'constants/actions';
 import Content from 'components/jobContent/Content';
@@ -70,8 +70,8 @@ const enhance = compose(
         },
     }),
     withProps(props => ({
-        saveLabel: i18next.t('save_changes'),
-        deleteLabel: i18next.t('delete_job'),
+        saveLabel: i18n.t('Save changes'),
+        deleteLabel: i18n.t('Delete job'),
         save: () => {
             props.save({
                 ...props.job,

@@ -1,5 +1,5 @@
 import React from 'react';
-import i18next from 'i18next';
+import i18n from 'locales';
 import moment from 'moment';
 import Heading from 'd2-ui/lib/headings/Heading.component';
 import { ListItem } from 'material-ui/List';
@@ -58,7 +58,7 @@ const getExecutionIcon = status => {
 
 const Details = ({ createdOn, lastExecuted, lastExecutedStatus }) => (
     <div>
-        <Heading style={styles.detailsHeader}>{i18next.t('details')}</Heading>
+        <Heading style={styles.detailsHeader}>{i18n.t('Details')}</Heading>
         <div style={styles.container}>
             <ListItem
                 disabled
@@ -69,7 +69,7 @@ const Details = ({ createdOn, lastExecuted, lastExecutedStatus }) => (
                         backgroundColor={blue400}
                     />
                 }
-                primaryText={i18next.t('Created')}
+                primaryText={i18n.t('Created')}
                 secondaryText={moment(createdOn).format(dateAndTime)}
             />
             {lastExecuted && (
@@ -82,7 +82,7 @@ const Details = ({ createdOn, lastExecuted, lastExecutedStatus }) => (
                             backgroundColor={blue400}
                         />
                     }
-                    primaryText={i18next.t('last_executed')}
+                    primaryText={i18n.t('Last executed')}
                     secondaryText={moment(lastExecuted).format(dateAndTime)}
                 />
             )}
@@ -101,8 +101,8 @@ const Details = ({ createdOn, lastExecuted, lastExecutedStatus }) => (
                             backgroundColor={getExecutionColor(lastExecutedStatus)}
                         />
                     }
-                    primaryText={i18next.t('last_execution_status')}
-                    secondaryText={i18next.t(lastExecutedStatus)}
+                    primaryText={i18n.t('Last execution status')}
+                    secondaryText={i18n.t(lastExecutedStatus)}
                 />
             )}
         </div>
