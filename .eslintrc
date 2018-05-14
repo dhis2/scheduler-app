@@ -2,6 +2,10 @@
     "extends": "dhis2",
     "parser": "babel-eslint",
     "env": { "browser": true },
+    "globals": {
+        "PRODUCTION": true,
+        "DHIS_CONFIG": true
+    },
     "rules": {
         "react/prop-types": 0,
         "indent": 0,

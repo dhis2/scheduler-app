@@ -4,20 +4,18 @@ import { getManifest } from 'd2/lib/d2';
 import 'whatwg-fetch';
 
 import Scheduler from 'components/Scheduler';
-import { BASE_URL, SYSTEM_AUTH } from 'constants/development';
 
 const dhisVersion = 29;
 const schemas = ['jobConfiguration'];
 
 getManifest('./manifest.webapp')
     .then(manifest => manifest.getBaseUrl())
-    .catch(() => BASE_URL)
+    .catch(() => DHIS_CONFIG.baseUrl)
     .then(url => {
         const baseUrl = `${url}/api/${dhisVersion}`;
-        const production = process.env.NODE_ENV === 'production';
         const config = {
             baseUrl,
-            headers: production ? null : SYSTEM_AUTH,
+            headers: PRODUCTION ? null : DHIS_CONFIG.authorization,
             schemas,
         };
 
