@@ -12,7 +12,7 @@ msgid "Cancel"
 msgstr "منسوخ کریں"
 
 msgid "Open user guide"
-msgstr ""
+msgstr "اوپن یو زر گائڈ"
 
 msgid "Delete"
 msgstr "حذف کریں"
@@ -75,19 +75,19 @@ msgid "Continuous execution"
 msgstr "مسلسل عملدرآمد"
 
 msgid "Are you sure you want to execute"
-msgstr ""
+msgstr "کیا آپ واقعی اسے چلانا چاہتے ہیں"
 
 msgid "Execute"
-msgstr ""
+msgstr "چلاؤ"
 
 msgid "Run now"
-msgstr ""
+msgstr "ابھی چلاؤ"
 
 msgid "Scheduled jobs"
 msgstr "شیڈول کردہ ملازمتیں"
 
 msgid "Show system jobs"
-msgstr ""
+msgstr "سسٹم جابز دیکھا و"
 
 msgid "Type"
 msgstr "ٹائپ کریں"
@@ -102,7 +102,7 @@ msgid "Enabled"
 msgstr "فعال'"
 
 msgid "No jobs to show"
-msgstr ""
+msgstr "کوئی جابز موجود نہیں"
 
 msgid "Click to select"
 msgstr "منتخب کرنے کے لئے کلک کریں"
@@ -114,7 +114,7 @@ msgid "End time"
 msgstr "آخر وقت"
 
 msgid "Parameters"
-msgstr ""
+msgstr "پیرامیٹرز"
 
 msgid "Successfully deleted job"
 msgstr "کامیابی سے کام ختم ہوگیا"
@@ -135,4 +135,4 @@ msgid "Could not run job"
 msgstr "ملازمت نہیں مل سکی"
 
 msgid "You are not authorized to use this app"
-msgstr ""
+msgstr "آپ کو ایپ استعمال کرنے کی اجازت نہیں"
