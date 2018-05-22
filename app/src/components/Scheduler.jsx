@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect, Provider } from 'react-redux';
-import D2UIApp from 'd2-ui/lib/app/D2UIApp';
+import AppWithD2 from 'd2-ui/lib/app/AppWithD2.component';
 import HeaderBarComponent from 'd2-ui/lib/app-header/HeaderBar';
 import headerBarStore$ from 'd2-ui/lib/app-header/headerBar.store';
 import withStateFrom from 'd2-ui/lib/component-helpers/withStateFrom';
 import { Router, Route } from 'react-router-dom';
 import { compose, lifecycle, pure, branch, getContext, renderComponent } from 'recompose';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import List from 'components/jobOverview/List';
 import EditJob from 'components/jobContent/EditJob';
@@ -55,9 +56,6 @@ ContentLoader = compose(
             notAuthorized: () => dispatch({ type: actions.NOT_AUTHORIZED }),
         }),
     ),
-    getContext({
-        d2: PropTypes.object.isRequired,
-    }),
     branch(
         userIsNotAuthorized,
         renderComponent(
@@ -79,15 +77,36 @@ ContentLoader = compose(
     pure,
 )(ContentLoader);
 
-const Scheduler = ({ config }) => (
+class App extends React.Component {
+    getChildContext = () => ({
+        d2: this.props.d2,
+    })
+
+    render = () => (
+        <div>
+            {this.props.children}
+        </div>
+    );
+}
+
+App.propTypes = {
+    children: PropTypes.array.isRequired,
+    d2: PropTypes.object.isRequired,
+};
+
+App.childContextTypes = {
+    d2: PropTypes.object,
+};
+
+const Scheduler = ({ d2 }) => (
     <Provider store={store}>
-        <D2UIApp initConfig={config} muiTheme={theme}>
-            <div>
+        <MuiThemeProvider muiTheme={theme}>
+            <App d2={d2}>
                 <HeaderBar />
                 <MessagePanel />
                 <ContentLoader />
-            </div>
-        </D2UIApp>
+            </App>
+        </MuiThemeProvider>
     </Provider>
 );
 

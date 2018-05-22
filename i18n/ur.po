@@ -9,70 +9,70 @@ msgstr ""
 "PO-Revision-Date: 2018-05-15T09:23:03.346Z\n"
 
 msgid "Cancel"
-msgstr ""
+msgstr "منسوخ کریں"
 
 msgid "Open user guide"
 msgstr ""
 
 msgid "Delete"
-msgstr ""
+msgstr "حذف کریں"
 
 msgid "Are you sure you want to delete "
-msgstr ""
+msgstr "کیا آپ واقعی حذف کرنا چاہتے ہیں؟"
 
 msgid "Add new job"
-msgstr ""
+msgstr "نئی ملازمت شامل کریں"
 
 msgid "Required"
-msgstr ""
+msgstr "ضرورت ہے"
 
 msgid "Must be of two or more characters"
-msgstr ""
+msgstr "دو یا زیادہ حروف ہونا ضروری ہے"
 
 msgid "Invalid cron expression"
-msgstr ""
+msgstr "غلط کرون کا اظہار"
 
 msgid "Are you sure you want to discard your changes?"
-msgstr ""
+msgstr "کیا آپ واقعی اپنے تبدیلیاں ضائع کرنا چاہتے ہیں؟"
 
 msgid "Attributes"
-msgstr ""
+msgstr "خصوصیات"
 
 msgid "Name"
-msgstr ""
+msgstr "نام"
 
 msgid "Job type"
-msgstr ""
+msgstr "ملازمت کی قسم"
 
 msgid "Could not find job"
-msgstr ""
+msgstr "ملازمت نہیں مل سکی"
 
 msgid "Details"
-msgstr ""
+msgstr "تفصیلات"
 
 msgid "Created"
-msgstr ""
+msgstr "تخلیق"
 
 msgid "Last executed"
-msgstr ""
+msgstr "آخری پھانسی"
 
 msgid "Last execution status"
-msgstr ""
+msgstr "آخری پھانسی کی حیثیت"
 
 msgid "Save changes"
-msgstr ""
+msgstr "تبدیلیاں محفوظ کرو"
 
 msgid "Delete job"
-msgstr ""
+msgstr "ملازمت کو حذف کریں"
 
 msgid "Select frequency"
-msgstr ""
+msgstr "تعدد منتخب کریں"
 
 msgid "Cron expression"
-msgstr ""
+msgstr "کرون اظہار"
 
 msgid "Continuous execution"
-msgstr ""
+msgstr "مسلسل عملدرآمد"
 
 msgid "Are you sure you want to execute"
 msgstr ""
@@ -84,55 +84,55 @@ msgid "Run now"
 msgstr ""
 
 msgid "Scheduled jobs"
-msgstr ""
+msgstr "شیڈول کردہ ملازمتیں"
 
 msgid "Show system jobs"
 msgstr ""
 
 msgid "Type"
-msgstr ""
+msgstr "ٹائپ کریں"
 
 msgid "Status"
-msgstr ""
+msgstr "حالت"
 
 msgid "Next execution"
-msgstr ""
+msgstr "اگلا پھانسی"
 
 msgid "Enabled"
-msgstr ""
+msgstr "فعال'"
 
 msgid "No jobs to show"
 msgstr ""
 
 msgid "Click to select"
-msgstr ""
+msgstr "منتخب کرنے کے لئے کلک کریں"
 
 msgid "Start time"
-msgstr ""
+msgstr "وقت آغاز"
 
 msgid "End time"
-msgstr ""
+msgstr "آخر وقت"
 
 msgid "Parameters"
 msgstr ""
 
 msgid "Successfully deleted job"
-msgstr ""
+msgstr "کامیابی سے کام ختم ہوگیا"
 
 msgid "Successfully created job"
-msgstr ""
+msgstr "کامیابی سے کام پیدا"
 
 msgid "Successfully updated job"
-msgstr ""
+msgstr "کامیابی سے نوکری کو اپ ڈیٹ کیا"
 
 msgid "Could not create job"
-msgstr ""
+msgstr "کام پیدا نہیں کر سکا"
 
 msgid "Could not update job"
-msgstr ""
+msgstr "ملازمت کو اپ ڈیٹ نہیں کر سکا"
 
 msgid "Could not run job"
-msgstr ""
+msgstr "ملازمت نہیں مل سکی"
 
 msgid "You are not authorized to use this app"
 msgstr ""
