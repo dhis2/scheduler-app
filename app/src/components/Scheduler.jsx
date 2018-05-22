@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect, Provider } from 'react-redux';
-import AppWithD2 from 'd2-ui/lib/app/AppWithD2.component';
 import HeaderBarComponent from 'd2-ui/lib/app-header/HeaderBar';
 import headerBarStore$ from 'd2-ui/lib/app-header/headerBar.store';
 import withStateFrom from 'd2-ui/lib/component-helpers/withStateFrom';
 import { Router, Route } from 'react-router-dom';
-import { compose, lifecycle, pure, branch, getContext, renderComponent } from 'recompose';
+import { compose, lifecycle, pure, branch, renderComponent } from 'recompose';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import List from 'components/jobOverview/List';
@@ -31,7 +30,7 @@ const styles = {
     },
 };
 
-let ContentLoader = () => (
+const Root = () => (
     <Router history={history}>
         <div style={styles.content}>
             <Route exact path="/" component={List} />
@@ -47,7 +46,7 @@ const userIsNotAuthorized = props => {
     return !userAuthorities.includes('ALL') && !userAuthorities.includes('F_SCHEDULING_ADMIN');
 };
 
-ContentLoader = compose(
+const ContentLoader = compose(
     connect(
         () => ({}),
         dispatch => ({
@@ -57,6 +56,7 @@ ContentLoader = compose(
         }),
     ),
     branch(
+        // Render an 'unauthorized' message if user is not authorized.
         userIsNotAuthorized,
         renderComponent(
             compose(
@@ -75,38 +75,34 @@ ContentLoader = compose(
         },
     }),
     pure,
-)(ContentLoader);
+)(Root);
 
-class App extends React.Component {
+class AddD2Context extends React.Component {
     getChildContext = () => ({
         d2: this.props.d2,
-    })
+    });
 
-    render = () => (
-        <div>
-            {this.props.children}
-        </div>
-    );
+    render = () => <MuiThemeProvider muiTheme={theme}>{this.props.children}</MuiThemeProvider>;
 }
 
-App.propTypes = {
-    children: PropTypes.array.isRequired,
+AddD2Context.propTypes = {
+    children: PropTypes.object.isRequired,
     d2: PropTypes.object.isRequired,
 };
 
-App.childContextTypes = {
+AddD2Context.childContextTypes = {
     d2: PropTypes.object,
 };
 
 const Scheduler = ({ d2 }) => (
     <Provider store={store}>
-        <MuiThemeProvider muiTheme={theme}>
-            <App d2={d2}>
+        <AddD2Context d2={d2}>
+            <div>
                 <HeaderBar />
                 <MessagePanel />
-                <ContentLoader />
-            </App>
-        </MuiThemeProvider>
+                <ContentLoader d2={d2} />
+            </div>
+        </AddD2Context>
     </Provider>
 );
 
