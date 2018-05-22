@@ -99,6 +99,15 @@ const apiTranslations = {
         'Skip table types': 'ٹیبل کی اقسام کو چھوڑ دو',
         'Validation rule groups': 'توثیقی قاعدہ گروپ',
         Predictors: 'پیشن گوئی',
+
+        // Skip table types
+        COMPLETENESS_TARGET: 'مکمل طور پر نشانہ بنایا',
+        COMPLETENESS: 'مکمل',
+        DATA_VALUE: 'ڈیٹا کی قیمت',
+        ENROLLMENT: 'داخلہ',
+        EVENT: 'فنکشن',
+        ORG_UNIT_TARGET: 'تنظیم یونٹ کا ہدف',
+        VALIDATION_RESULT: 'توثیقی نتیجہ',
     },
 };
 

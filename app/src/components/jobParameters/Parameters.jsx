@@ -38,7 +38,8 @@ const createAttributeOptionSelectionList = (values, options) =>
     ));
 
 const getComponentToRender = (key, parameter, changeHandler) => {
-    const { label, type, options, renderAs } = parameter.meta;
+    const { type, options, renderAs } = parameter.meta;
+    const label = i18n.t(parameter.meta.label);
     const value = parameter.value;
 
     const onChangeHandler = selected => {
