@@ -76,9 +76,9 @@ const Entry = ({ job, onSelect, onToggle, onRun }) => {
                 {canRunNow(job.jobStatus) && (
                     <ConditionalIconButton
                         showConfirmation
-                        confirmationMessage={`${i18n.t('Are you sure you want to execute')} "${
-                            job.name
-                        }"?`}
+                        confirmationMessage={`${i18n.t(
+                            'Are you sure you want to execute this job?',
+                        )} "${job.name}"`}
                         confirmLabel={i18n.t('Execute')}
                         onConfirm={run}
                         icon="play_arrow"

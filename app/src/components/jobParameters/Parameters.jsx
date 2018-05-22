@@ -33,7 +33,7 @@ const createAttributeOptionSelectionList = (values, options) =>
             insetChildren
             checked={values && values.indexOf(option) > -1}
             value={option}
-            primaryText={option}
+            primaryText={i18n.t(option)}
         />
     ));
 
@@ -62,6 +62,7 @@ const getComponentToRender = (key, parameter, changeHandler) => {
 
         case COMPONENTS.SELECTION: {
             const onChange = (event, index, values) => changeHandler(key, values, false);
+
             const translateStrings = values =>
                 values.map(
                     (v, i) => (i === values.length - 1 ? `${i18n.t(v)}` : `${i18n.t(v)}, `),

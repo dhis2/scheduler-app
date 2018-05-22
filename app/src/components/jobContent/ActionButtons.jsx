@@ -67,9 +67,9 @@ class ActionButtons extends Component {
         return (
             <div style={styles.buttonPanel}>
                 <Dialog
-                    title={`${i18n.t('Are you sure you want to delete ')} "${
+                    title={`${i18n.t('Are you sure you want to delete this job?')} "${
                         this.props.job.name
-                    }"?`}
+                    }"`}
                     actions={deleteDialogActions}
                     open={this.state.deleteDialogOpen}
                     onRequestClose={this.closeDeleteDialog}

@@ -40,7 +40,7 @@ class ConditionalIconButton extends Component {
             <FlatButton primary label={i18n.t('Cancel')} onClick={this.closeDialog} />,
             <RaisedButton
                 primary
-                label={i18n.t(this.props.confirmLabel || 'Confirm')}
+                label={this.props.confirmLabel || i18n.t('Confirm')}
                 style={{ marginLeft: 16 }}
                 onClick={this.confirm}
             />,
