@@ -8,15 +8,15 @@ const isLangRTL = code => {
 };
 
 const configI18n = userSettings => {
-    i18n.changeLanguage(userSettings.keyUiLocale);
-
-    const translations = apiTranslations[userSettings.keyUiLocale] || apiTranslations.en;
-
-    if (isLangRTL(userSettings.keyUiLocale)) {
+    const lang = userSettings.keyUiLocale;
+    if (isLangRTL(lang)) {
         document.body.setAttribute('dir', 'rtl');
     }
 
-    i18n.addResources(userSettings.keyUiLocale, 'Scheduler', translations);
+    i18n.changeLanguage(lang);
+
+    const translations = apiTranslations[lang] || apiTranslations.en;
+    i18n.addResources(lang, 'Scheduler', translations);
 };
 
 export default configI18n;
