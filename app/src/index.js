@@ -3,9 +3,8 @@ import { render } from 'react-dom';
 import { init, getManifest, getUserSettings } from 'd2/lib/d2';
 import 'whatwg-fetch';
 
-import apiTranslations from 'utils/apiTranslations';
+import configI18n from 'utils/configI18n';
 import Scheduler from 'components/Scheduler';
-import i18n from 'locales';
 
 let dhisConfig;
 let d2Instance;
@@ -13,15 +12,7 @@ let d2Instance;
 const dhisVersion = 29;
 const schemas = ['jobConfiguration'];
 
-const configI18n = userSettings => {
-    i18n.changeLanguage(userSettings.keyUiLocale);
-    const translations = apiTranslations[userSettings.keyUiLocale] || apiTranslations.en;
-
-    i18n.addResources(userSettings.keyUiLocale, 'Scheduler', translations);
-};
-
 getManifest('./manifest.webapp')
-
     // Fetch API url from manifest file.
     .then(manifest => manifest.getBaseUrl())
 

@@ -166,7 +166,7 @@ class Content extends Component {
                             parameters={this.props.job.parameters}
                             availableParameters={this.props.availableParameters}
                             attributeOptions={this.props.attributeOptions}
-                            onChange={this.handleFieldChange('Parameters')}
+                            onChange={this.handleFieldChange('parameters')}
                         />
                     )}
 
