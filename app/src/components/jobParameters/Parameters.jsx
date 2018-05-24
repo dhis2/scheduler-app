@@ -6,7 +6,7 @@ import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import TimePicker from 'material-ui/TimePicker';
 import { compose, withProps, branch, renderNothing } from 'recompose';
-import i18n from 'locales';
+import i18n from '@dhis2/d2-i18n';
 
 import Suggestion from 'components/jobParameters/Suggestion';
 import SuggestionList from 'components/jobParameters/SuggestionList';

@@ -9,7 +9,7 @@ import FontIcon from 'material-ui/FontIcon';
 import Heading from 'd2-ui/lib/headings/Heading.component';
 import Paper from 'material-ui/Paper';
 import FlipMove from 'react-flip-move';
-import i18n from 'locales';
+import i18n from '@dhis2/d2-i18n';
 
 import * as actions from 'constants/actions';
 import Entry from 'components/jobOverview/Entry';

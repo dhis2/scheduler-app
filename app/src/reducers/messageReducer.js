@@ -1,5 +1,5 @@
 import * as actions from 'constants/actions';
-import i18n from 'locales';
+import i18n from '@dhis2/d2-i18n';
 import getErrorMessage from 'utils/getErrorMessage';
 
 const NEUTRAL = 'NEUTRAL';

@@ -4,7 +4,7 @@ import FlatButton from 'material-ui/FlatButton';
 import FontIcon from 'material-ui/FontIcon';
 import IconButton from 'material-ui/IconButton';
 import Dialog from 'material-ui/Dialog';
-import i18n from 'locales';
+import i18n from '@dhis2/d2-i18n';
 
 const styles = {
     button: {

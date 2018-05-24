@@ -1,5 +1,5 @@
 import React from 'react';
-import i18n from 'locales';
+import i18n from '@dhis2/d2-i18n';
 import moment from 'moment';
 import Heading from 'd2-ui/lib/headings/Heading.component';
 import { ListItem } from 'material-ui/List';

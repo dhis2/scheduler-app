@@ -1,7 +1,7 @@
 import React from 'react';
 import Toggle from 'material-ui/Toggle';
 import moment from 'moment';
-import i18n from 'locales';
+import i18n from '@dhis2/d2-i18n';
 
 import ConditionalIconButton from 'components/ConditionalIconButton';
 

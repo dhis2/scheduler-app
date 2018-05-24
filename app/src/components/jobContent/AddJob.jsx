@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { compose, withProps, lifecycle, branch, renderComponent } from 'recompose';
-import i18n from 'locales';
+import i18n from '@dhis2/d2-i18n';
 
 import * as actions from 'constants/actions';
 import Content from 'components/jobContent/Content';

@@ -5,7 +5,7 @@ import Paper from 'material-ui/Paper';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import moment from 'moment';
-import i18n from 'locales';
+import i18n from '@dhis2/d2-i18n';
 
 import validCronExpression from 'utils/validCronExpression';
 import ActionButtons from 'components/jobContent/ActionButtons';

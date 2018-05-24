@@ -4,7 +4,7 @@ import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import Toggle from 'material-ui/Toggle';
 import cronExpressions from 'constants/cronExpressions';
-import i18n from 'locales';
+import i18n from '@dhis2/d2-i18n';
 
 const styles = {
     container: {
