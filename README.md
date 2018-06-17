@@ -1,4 +1,6 @@
 # Scheduler for DHIS 2
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fdhis2%2Fscheduler-app.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fdhis2%2Fscheduler-app?ref=badge_shield)
+
 
 The Scheduler is an app for managing server jobs in DHIS2. It provides the ability to create, modify and delete jobs, given the right permissions. Documentation on scheduling can be found [here](https://docs.dhis2.org/master/en/user/html/dataAdmin_scheduling.html).
 
@@ -51,3 +53,6 @@ The following command is used to deploy the app manually. Always remember to `ya
 ```bash
 > yarn run deploy
 ```
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fdhis2%2Fscheduler-app.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fdhis2%2Fscheduler-app?ref=badge_large)
