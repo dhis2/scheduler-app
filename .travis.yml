@@ -5,13 +5,21 @@ cache:
   yarn: true
   directories:
   - node_modules
+before_script:
+- npm install --global @dhis2/deploy-build
 script:
 - npm run build
-after_success:
-- if ( [ "$TRAVIS_BRANCH" == "master" ] || [ ! -z "$TRAVIS_TAG" ] ) && [ "$TRAVIS_REPO_SLUG/scheduler-app"
-  ]  && [ "$TRAVIS_PULL_REQUEST" == "false" ] ; then mvn clean deploy --settings deploy/settings.xml
-  &&  exit 0; fi
+deploy:
+- provider: script
+  script: deploy-build
+  skip_cleanup: true
+  on:
+    all_branches: true
+- provider: script
+  script: publish-build
+  skip_cleanup: true
+  on:
+    tags: true
 env:
   global:
-  - secure: GmsXTpj9HxWtiG5ml/21xr5WWwvkKLuvFkicmjuLw9AVQX5BewVWqhG0iiZ7hEZyMj9PA9yRwfIGqSGbrvD2j7saNgwNwMvtdP+qyR1vIzyCl7tBxTsAmG7384jLCBZd43AKvQTu2m2+Noy2fbtHxpnOuP6EOEDORYNZXMu4Vk4pywBqsot+0WWawMCHP9mGwXTEpnPjmILo9DzWZckozrlF7wd+vaWjS/ePb7b54fHzPzkgNh75JKt6p6zv88EOI9xRQMl8zpHAWLLKcwfM82Br4Elu5uKBAPK6TWytB9kXsfB47JFRUsZ0BpOj/k42ptJF3QQNhm5LEzxJ2Q7F4nDRWnrU/N7bMsgt3iZc1PPZowMcssc4XFZJu3nrwSbGNvv62N0xf8b4UxxdYuZvBhgIXhrXuiInVCY3r62AmqFVUQ73NDSVYZDxVmobMTkXN822QYndJYieemi2ydHYab5sYojnCPOLoavWfT0dZsA5Ex1BklA+OEsHDwBdgJyDuhYALywmZlzXdToRVcs0qqXXFvVjVJFui8YTMsAQPcFSNSbe7Ffu6qFS//GqcC47YiDx5EQYSD09zDLmp77zA8Md4g61EhcXkTM4Xaw6g/odiTvxbI6MiVyuJk/ot5cordI4vkZYQsoKb8q0wZyy8cGY0sUzEwV76udI26lP4nE=
-  - secure: C/4lpBvo+p2i4ZfGfD5UluogytWHSlT/uB2fYGJL4GQAim9VqQ5JcWID2IA+BSnFvzGB+Am0jWk4mTg2k7+X5d7wBS0E8jdjsSajM0D6zfXvmZZrYWVZ7u4iIsnIItuLNg9r5cvazc/dC0oHcgfnlvAEbwoIIZYYjJABch1wICt3Em7XbrqlW5RLycM73DA3KXnrP/2ke0RAo2twlCxrmTALkKzBxauPui44Pir5ykTRYZmNgEPB54zRjPEI44V2Htli0eeMbIubU9LRPeWYhBFhd/jWpfqztA5pFmB6QhxeJNBD5xK4Gl759qLjeCwmYxdGLrguo3GYCLhH7jLeFUFcdsL/XqwvmYPhoJG0wTkw5ScWYbmsACUXjJ3JhHPpMCWYH6+zaWnalaZvR1l0eSp+7YApTfiN5fstP3DF6kc/QN/ydWchEWyen1FU+bddPw0t9Ss/9KkyuwQcIwrmPrPkWz9hUCppR0+NbVMK8lgYCQwTsJ5jw/8NOp9kk0F0VNAr8SoZKAU5hvhYMVwmZf8UHUA8AFMvIMNrzbT4epts2UVAUHrjtzcu4XrbDB0vibJo9arX2b2XlPXkO4zQ46imiaubPEyU2o1UiHDlJ5tlwvbGCv62EaJ6P7+XARQve04UvsSzf7LNZAOl/BBd5TODe0P5hgSLZP1zAoWwxA4=
+    secure: hLcILALXXJ1/c3f1v8hYNrFtiTZZQh87KLPvyKHYIok20HahmxvSrUQuYG0YA6zxTjEkw1jCFj2hnszP4NdxACP0gTK5eBHhPGmp0IZhsaEOwRH6fX/4DfpiofASqUc2rNLrhDUa2dxmDV+CbEnxIhC8jEyHOhdKjgGaFE1tiC4EjWmWLwOMGXCFil5EhdVIs7U5vo/yBUq+RLbAKxJbojsRLFpmTC0LZD+ECtpPpPqwnlTDvZ1G3TVDYnvl21NToGGPT3isE1GLoNQ/0sMpveamitpw8qzuJMgMhRmf3xPSnhmbrEgq8qhpBs3gQgZRx/o+KexuaZ2Kn/F42Ws5h2GRga6Ojh0ZgfWis3x4GBdDMgV1mSrpOLqDWw9+RiZoNjlfB/8LkoE8nijTr+IT6ZUQEKc31bhqSIi3IqhviPc+lN2iiRTUW8dMkhIunUedvCm7nGZmfZoW3PduwW5df2Qzv3uuhMg30s41xc/GHHxyYONvVN/uzQE2zn3mYIPtZfpIrTjp498IccJhnOgTmB4X97nh0coYIsyJckdoid4UuUM1jbqXcbSEbsqH80HR0jkh6vgstO8Xi4K+zwGTRCGPIl0fstwnGvoHeqqMw9uyt7dzY+0LzoBQjohypozUptvqxCiD4uyczoVyhWPMc7Cc8BVPDEsuHNHp6GMIgr8=
