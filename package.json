@@ -1,6 +1,6 @@
 {
   "name": "scheduler-app",
-  "version": "30.0.0",
+  "version": "31.0.0",
   "description": "Create, modify and delete server jobs",
   "main": "index.js",
   "license": "BSD-3-Clause",
