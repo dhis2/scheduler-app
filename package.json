@@ -11,13 +11,11 @@
     "postbuild": "npm run manifest && cp ./package.json ./build/package.json",
     "manifest": "d2-manifest package.json build/manifest.webapp",
     "format": "prettier --write \"app/**/*.j{s,sx}\"",
-    "deploy": "deploy-build",
     "localize": "npm run extract-pot && d2-i18n-generate -n Scheduler -p ./i18n/ -o ./app/src/locales/",
     "extract-pot": "d2-i18n-extract -p app/src/ -o i18n/",
     "prestart": "npm run localize && d2-manifest package.json ./public/manifest.webapp"
   },
   "devDependencies": {
-    "@dhis2/deploy-build": "^1.0.4",
     "babel-core": "6",
     "babel-eslint": "^8.2.1",
     "babel-jest": "^22.1.0",
