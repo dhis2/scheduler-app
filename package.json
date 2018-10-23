@@ -8,7 +8,7 @@
     "start": "webpack-dev-server --config webpack.dev.js",
     "test": "jest",
     "build": "npm run localize && webpack -p --config webpack.prod.js",
-    "postbuild": "npm run manifest && cp ./package.json ./build/package.json",
+    "postbuild": "npm run manifest",
     "manifest": "d2-manifest package.json build/manifest.webapp",
     "format": "prettier --write \"app/**/*.j{s,sx}\"",
     "localize": "npm run extract-pot && d2-i18n-generate -n Scheduler -p ./i18n/ -o ./app/src/locales/",
