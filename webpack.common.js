@@ -22,15 +22,26 @@ module.exports = {
         }),
     ],
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.jsx?$/,
-                loaders: 'babel-loader',
+                loader: 'babel-loader',
                 exclude: /node_modules/,
             },
             {
                 test: /\.css$/,
                 loaders: ['style-loader', 'css-loader'],
+            },
+            {
+                // Exclude `js` files to keep "css" loader working as it injects
+                // its runtime that would otherwise processed through "file" loader.
+                // Also exclude `html` and `json` extensions so they get processed
+                // by webpacks internal loaders.
+                exclude: [/\.(js|jsx|mjs|css)$/, /\.html$/, /\.json$/],
+                loader: require.resolve('file-loader'),
+                options: {
+                    name: 'static/media/[name].[hash:8].[ext]',
+                },
             },
         ],
     },

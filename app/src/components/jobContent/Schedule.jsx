@@ -71,7 +71,7 @@ const Schedule = ({
                 )}
                 onChange={onCronExpressionChange}
                 style={styles.flexItem}
-                value={cronExpression}
+                value={cronExpression || ''}
             />
             <div style={{ ...styles.flexItem, ...styles.toggle }}>
                 <Toggle

@@ -1,12 +1,12 @@
 import React from 'react';
 import i18n from '@dhis2/d2-i18n';
 import moment from 'moment';
-import Heading from 'd2-ui/lib/headings/Heading.component';
 import { ListItem } from 'material-ui/List';
 import { blue400, cyan400, amber400, pinkA200 } from 'material-ui/styles/colors';
 
 import Avatar from 'material-ui/Avatar';
 import FontIcon from 'material-ui/FontIcon';
+import Heading from '../Heading';
 
 const dateAndTime = 'DD.MM.YYYY HH:mm:ss';
 
