@@ -10,7 +10,7 @@ process.env.NODE_ENV = 'production';
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
 
 module.exports = merge(common, {
-    mode: 'development',
+    mode: 'production',
 
     plugins: [
         new webpack.DefinePlugin({

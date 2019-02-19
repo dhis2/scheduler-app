@@ -26,7 +26,7 @@ try {
 }
 
 module.exports = merge(common, {
-    mode: 'production',
+    mode: 'development',
     output: {
         publicPath: '/',
     },
