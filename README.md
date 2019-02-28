@@ -1,5 +1,7 @@
 # Scheduler for DHIS 2
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/dhis2/scheduler-app.svg)](https://greenkeeper.io/)
+
 The Scheduler is an app for managing server jobs in DHIS2. It provides the ability to create, modify and delete jobs, given the right permissions. Documentation on scheduling can be found [here](https://docs.dhis2.org/master/en/user/html/dataAdmin_scheduling.html).
 
 ### Getting started
