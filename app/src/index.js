@@ -5,9 +5,6 @@ import { init, getManifest, getUserSettings } from 'd2/lib/d2';
 import configI18n from 'utils/configI18n';
 import Scheduler from 'components/Scheduler';
 
-import 'typeface-roboto'
-import 'material-design-icons-iconfont/dist/material-design-icons.css'
-
 let dhisConfig;
 let d2Instance;
 
