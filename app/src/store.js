@@ -7,7 +7,8 @@ import jobsReducer from 'reducers/jobsReducer';
 import messageReducer from 'reducers/messageReducer';
 import pendingReducer from 'reducers/pendingReducer';
 
-const middlewares = [createEpicMiddleware(Epics)];
+const epicMiddleware = createEpicMiddleware();
+const middlewares = [epicMiddleware];
 
 // eslint-disable-next-line
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -23,3 +24,4 @@ const reducer = combineReducers({
 });
 
 export default createStore(reducer, composeEnhancers(applyMiddleware(...middlewares)));
+epicMiddleware.run(Epics);

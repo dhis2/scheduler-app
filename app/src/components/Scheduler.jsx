@@ -1,25 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect, Provider } from 'react-redux';
-import HeaderBarComponent from 'd2-ui/lib/app-header/HeaderBar';
-import headerBarStore$ from 'd2-ui/lib/app-header/headerBar.store';
-import withStateFrom from 'd2-ui/lib/component-helpers/withStateFrom';
 import { Router, Route } from 'react-router-dom';
 import { compose, lifecycle, pure, branch, renderComponent } from 'recompose';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-
+import { HeaderBarContainer } from '@dhis2/ui';
 import List from 'components/jobOverview/List';
 import EditJob from 'components/jobContent/EditJob';
 import AddJob from 'components/jobContent/AddJob';
 import MessagePanel from 'components/MessagePanel';
 import * as actions from 'constants/actions';
 import history from 'utils/history';
-
+import i18n from '@dhis2/d2-i18n';
 import theme from '../styles/theme';
 import '../styles/override.css';
 import store from '../store';
 
-const HeaderBar = withStateFrom(headerBarStore$, HeaderBarComponent);
 
 const styles = {
     content: {
@@ -98,7 +94,7 @@ const Scheduler = ({ d2 }) => (
     <Provider store={store}>
         <AddD2Context d2={d2}>
             <div>
-                <HeaderBar />
+                <HeaderBarContainer appName={i18n.t('Scheduler app')} />
                 <MessagePanel />
                 <ContentLoader d2={d2} />
             </div>

@@ -4,6 +4,8 @@ const merge = require('webpack-merge');
 const webpack = require('webpack');
 const common = require('./webpack.common.js');
 
+process.env.BABEL_ENV = 'development';
+process.env.NODE_ENV = 'development';
 const dhisConfigPath = process.env.DHIS2_HOME && `${process.env.DHIS2_HOME}/config`;
 
 let dhisConfig;
@@ -24,6 +26,7 @@ try {
 }
 
 module.exports = merge(common, {
+    mode: 'development',
     output: {
         publicPath: '/',
     },

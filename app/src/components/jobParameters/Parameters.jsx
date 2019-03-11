@@ -1,5 +1,4 @@
 import React from 'react';
-import Heading from 'd2-ui/lib/headings/Heading.component';
 import TextField from 'material-ui/TextField';
 import Toggle from 'material-ui/Toggle';
 import SelectField from 'material-ui/SelectField';
@@ -13,6 +12,7 @@ import SuggestionList from 'components/jobParameters/SuggestionList';
 import InputList from 'components/jobParameters/InputList';
 import { parseParameters } from 'api/api';
 import { COMPONENTS, PARAMS } from 'api/interface';
+import Heading from '../Heading';
 
 const styles = {
     header: {

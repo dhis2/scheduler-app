@@ -6,7 +6,7 @@ import Divider from 'material-ui/Divider';
 import Toggle from 'material-ui/Toggle';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import FontIcon from 'material-ui/FontIcon';
-import Heading from 'd2-ui/lib/headings/Heading.component';
+import Heading from '../Heading';
 import Paper from 'material-ui/Paper';
 import FlipMove from 'react-flip-move';
 import i18n from '@dhis2/d2-i18n';

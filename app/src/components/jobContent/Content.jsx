@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Heading from 'd2-ui/lib/headings/Heading.component';
 import TextField from 'material-ui/TextField';
 import Paper from 'material-ui/Paper';
 import SelectField from 'material-ui/SelectField';
@@ -15,6 +14,7 @@ import ConditionalIconButton from 'components/ConditionalIconButton';
 import Details from 'components/jobContent/Details';
 import HelpLink from 'components/HelpLink';
 import history from 'utils/history';
+import Heading from '../Heading';
 
 const documentationHref =
     'https://docs.dhis2.org/master/en/user/html/dataAdmin_scheduling.html#dataAdmin_scheduling_config';
@@ -119,9 +119,7 @@ class Content extends Component {
                 <ConditionalIconButton
                     icon="arrow_back"
                     showConfirmation={this.props.dirty}
-                    confirmationMessage={i18n.t(
-                        'Are you sure you want to discard your changes?',
-                    )}
+                    confirmationMessage={i18n.t('Are you sure you want to discard your changes?')}
                     onConfirm={this.discardChanges}
                 />
                 <Heading style={{ paddingBottom: 16, paddingLeft: 24 }}>{this.props.title}</Heading>
@@ -134,7 +132,7 @@ class Content extends Component {
                     </div>
                     <TextField
                         fullWidth
-                        value={this.props.job.name}
+                        value={this.props.job.name || ''}
                         floatingLabelText={`${i18n.t('Name')} *`}
                         disabled={this.props.disableEditing}
                         onChange={this.handleFieldEvent('name')}

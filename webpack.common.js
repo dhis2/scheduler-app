@@ -2,17 +2,15 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const packageJSON = require('./package.json');
 const path = require('path');
 
+const polyfillEntry = path.join(__dirname, 'app/src/polyfills.js');
 module.exports = {
     entry: {
-        app: [
-            'babel-polyfill',
-            'whatwg-fetch',
-            './app/src/index.js',
-        ],
+        polyfills: polyfillEntry,
+        app: ['./app/src/index.js'],
     },
     output: {
         path: path.join(__dirname, 'build'),
-        filename: `[name]_${packageJSON.version}.js`,
+        filename: '[name]_[chunkhash:8].js',
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -21,16 +19,28 @@ module.exports = {
             template: 'public/index.html',
         }),
     ],
+    devtool: 'source-map',
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.jsx?$/,
-                loaders: 'babel-loader',
+                loader: 'babel-loader',
                 exclude: /node_modules/,
             },
             {
                 test: /\.css$/,
-                loaders: ['style-loader', 'css-loader'],
+                use: ['style-loader', 'css-loader'],
+            },
+            {
+                // Exclude `js` files to keep "css" loader working as it injects
+                // its runtime that would otherwise processed through "file" loader.
+                // Also exclude `html` and `json` extensions so they get processed
+                // by webpacks internal loaders.
+                exclude: [/\.(js|jsx|mjs|css)$/, /\.html$/, /\.json$/],
+                loader: require.resolve('file-loader'),
+                options: {
+                    name: 'static/[name].[hash:8].[ext]',
+                },
             },
         ],
     },

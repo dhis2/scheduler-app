@@ -1,7 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { init, getManifest, getUserSettings } from 'd2/lib/d2';
-import 'whatwg-fetch';
 
 import configI18n from 'utils/configI18n';
 import Scheduler from 'components/Scheduler';
@@ -9,8 +8,8 @@ import Scheduler from 'components/Scheduler';
 let dhisConfig;
 let d2Instance;
 
-const dhisVersion = 29;
-const schemas = ['jobConfiguration'];
+const dhisVersion = 32;
+const schemas = [];
 
 getManifest('./manifest.webapp')
     // Fetch API url from manifest file.

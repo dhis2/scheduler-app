@@ -5,14 +5,16 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const common = require('./webpack.common.js');
 
+process.env.BABEL_ENV = 'production';
+process.env.NODE_ENV = 'production';
+const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
+
 module.exports = merge(common, {
+    mode: 'production',
+
     plugins: [
         new webpack.DefinePlugin({
             PRODUCTION: JSON.stringify(true),
-        }),
-        new webpack.optimize.UglifyJsPlugin({
-            minimize: true,
-            comments: false,
         }),
         new CleanWebpackPlugin(['build']),
 
@@ -25,4 +27,5 @@ module.exports = merge(common, {
             },
         ]),
     ],
+    devtool: 'source-map',
 });

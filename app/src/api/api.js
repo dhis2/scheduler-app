@@ -2,12 +2,12 @@ import { getInstance as getD2Instance } from 'd2/lib/d2';
 import { getDefaultParameterValue, determineComponentToRender } from 'api/interface';
 
 const JOB_PARAMETERS_ENDPOINT = 'jobConfigurations/jobTypesExtended';
+const JOBSTATUSES = ['RUNNING', 'COMPLETED', 'STOPPED', 'SCHEDULED', 'DISABLED', 'FAILED'];
 
 export const getConfiguration = async () => {
-    const instance = await getD2Instance();
-    const jobConfiguration = instance.models.jobConfiguration.modelProperties;
-    const jobStatuses = jobConfiguration.jobStatus.constants;
-    const jobParameters = await instance.Api.getApi().get(JOB_PARAMETERS_ENDPOINT);
+    const d2 = await getD2Instance();
+    const jobStatuses = JOBSTATUSES;
+    const jobParameters = await d2.Api.getApi().get(JOB_PARAMETERS_ENDPOINT);
     const jobTypes = Object.keys(jobParameters);
 
     return {
@@ -29,7 +29,7 @@ const attributeOptionExceptions = [
 export const getAttributeOptions = async parameters => {
     const attributeOptions = {};
 
-    const instance = await getD2Instance();
+    const d2 = await getD2Instance();
     await Promise.all(
         Object.keys(parameters).map(async parameterName => {
             const attributes = parameters[parameterName];
@@ -44,7 +44,7 @@ export const getAttributeOptions = async parameters => {
                         if (attribute.relativeApiEndpoint) {
                             const withoutApiPrefix = attribute.relativeApiEndpoint.substring(4);
 
-                            const options = await instance.Api.getApi().get(withoutApiPrefix, {
+                            const options = await d2.Api.getApi().get(withoutApiPrefix, {
                                 paging: 'false',
                             });
                             attributeOptions[parameterName][attributeName] = Array.isArray(options)
