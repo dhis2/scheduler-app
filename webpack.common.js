@@ -42,6 +42,10 @@ module.exports = {
                     name: 'static/[name].[hash:8].[ext]',
                 },
             },
+            {
+                test: /\.(jpe|jpg|woff|woff2|eot|ttf|svg)(\?.*$|$)/,
+                loader: 'file-loader'
+            },
         ],
     },
     resolve: {
