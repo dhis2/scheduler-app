@@ -4,7 +4,7 @@ import { connect, Provider } from 'react-redux';
 import { Router, Route } from 'react-router-dom';
 import { compose, lifecycle, pure, branch, renderComponent } from 'recompose';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import { HeaderBarContainer } from '@dhis2/ui';
+import HeaderBar from '@dhis2/ui/widgets/HeaderBar';
 import List from 'components/jobOverview/List';
 import EditJob from 'components/jobContent/EditJob';
 import AddJob from 'components/jobContent/AddJob';
@@ -16,6 +16,9 @@ import theme from '../styles/theme';
 import '../styles/override.css';
 import store from '../store';
 
+import 'typeface-roboto'
+import 'material-design-icons-iconfont/dist/material-design-icons.css'
+
 
 const styles = {
     content: {
@@ -25,6 +28,7 @@ const styles = {
         margin: '0 auto',
     },
 };
+
 
 const Root = () => (
     <Router history={history}>
@@ -94,7 +98,7 @@ const Scheduler = ({ d2 }) => (
     <Provider store={store}>
         <AddD2Context d2={d2}>
             <div>
-                <HeaderBarContainer appName={i18n.t('Scheduler app')} />
+                <HeaderBar appName={i18n.t('Scheduler')} />
                 <MessagePanel />
                 <ContentLoader d2={d2} />
             </div>
