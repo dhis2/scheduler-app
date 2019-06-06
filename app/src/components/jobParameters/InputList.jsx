@@ -3,8 +3,9 @@ import Chip from 'material-ui/Chip';
 import AutoComplete from 'material-ui/AutoComplete';
 
 const styles = {
+    wrapper: { marginBottom: 16 },
     chip: { margin: 4 },
-    wrapper: {
+    chipWrapper: {
         display: 'flex',
         flexWrap: 'wrap',
     },
@@ -33,7 +34,7 @@ class InputList extends Component {
     };
 
     render = () => (
-        <div style={{ marginBottom: 16 }}>
+        <div style={styles.wrapper}>
             <AutoComplete
                 fullWidth
                 searchText={this.state.input}
@@ -42,8 +43,7 @@ class InputList extends Component {
                 onUpdateInput={this.updateInput}
                 onNewRequest={this.onValueAdd}
             />
-
-            <div style={styles.wrapper}>
+            <div style={styles.chipWrapper}>
                 {this.props.values.map(value => (
                     <Chip
                         key={value}

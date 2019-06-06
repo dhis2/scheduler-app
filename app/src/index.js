@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import { init, getManifest, getUserSettings } from 'd2/lib/d2';
 
 import configI18n from 'utils/configI18n';
-import Scheduler from 'components/Scheduler';
+import App from 'components/App';
 
 let dhisConfig;
 let d2Instance;
@@ -39,7 +39,7 @@ getManifest('./manifest.webapp')
     // Configure i18n with the user settings.
     .then(configI18n)
 
-    // Render the Scheduler root component.
+    // Render the App.
     .then(() => {
-        render(<Scheduler d2={d2Instance} />, document.getElementById('scheduler'));
+        render(<App d2={d2Instance} />, document.getElementById('root'));
     });

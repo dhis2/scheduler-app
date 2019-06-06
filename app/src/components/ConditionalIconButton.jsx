@@ -6,10 +6,8 @@ import IconButton from 'material-ui/IconButton';
 import Dialog from 'material-ui/Dialog';
 import i18n from '@dhis2/d2-i18n';
 
-const styles = {
-    button: {
-        marginLeft: 16,
-    },
+const style = {
+    marginLeft: 16,
 };
 
 class ConditionalIconButton extends Component {
@@ -56,7 +54,7 @@ class ConditionalIconButton extends Component {
                 />
                 <IconButton
                     onClick={this.onClick}
-                    style={styles.button}
+                    style={style}
                     tooltip={this.props.tooltip}
                     iconStyle={this.props.iconStyle}
                 >

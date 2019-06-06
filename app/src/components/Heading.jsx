@@ -8,6 +8,6 @@ const style = {
     padding: '16px 0px 16px 24px',
 };
 
-export default function Heading(props) {
-    return <h1 style={{ ...style, ...props.style }}>{props.children}</h1>;
-}
+const Heading = (props) => <h1 style={{ ...style, ...props.style }}>{props.children}</h1>;
+
+export default Heading;

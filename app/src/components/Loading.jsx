@@ -1,17 +1,15 @@
 import React from 'react';
 import CircularProgress from 'material-ui/CircularProgress';
 
-const styles = {
-    centerContent: {
-        width: '100%',
-        display: 'flex',
-        justifyContent: 'center',
-        paddingTop: 100,
-    },
+const style = {
+    width: '100%',
+    display: 'flex',
+    justifyContent: 'center',
+    paddingTop: 100,
 };
 
 const LoadingJob = () => (
-    <div style={styles.centerContent}>
+    <div style={style}>
         <CircularProgress size={80} thickness={5} />
     </div>
 );

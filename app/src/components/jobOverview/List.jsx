@@ -1,18 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { compose, pure } from 'recompose';
 import Divider from 'material-ui/Divider';
 import Toggle from 'material-ui/Toggle';
-import FloatingActionButton from 'material-ui/FloatingActionButton';
-import FontIcon from 'material-ui/FontIcon';
-import Heading from '../Heading';
 import Paper from 'material-ui/Paper';
 import FlipMove from 'react-flip-move';
 import i18n from '@dhis2/d2-i18n';
+import Heading from '../Heading';
+import AddButton from './AddButton';
+import NoJobs from './NoJobs';
+import EntryWrap from './EntryWrap';
 
 import * as actions from 'constants/actions';
-import Entry from 'components/jobOverview/Entry';
 import HelpLink from 'components/HelpLink';
 
 const documentationHref = 'https://docs.dhis2.org/master/en/user/html/dataAdmin_scheduling.html';
@@ -39,11 +39,6 @@ const styles = {
         fontWeight: 600,
     },
     paper: { backgroundColor: '#e0e0e0' },
-    addButton: {
-        position: 'absolute',
-        right: 36,
-        bottom: 36,
-    },
     systemJobToggleContainer: {
         display: 'flex',
         flexDirection: 'row',
@@ -56,16 +51,6 @@ const styles = {
     },
     systemJobToggleTrack: {
         backgroundColor: '#dddddd',
-    },
-    noJobsText: {
-        backgroundColor: '#f2f2f2',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: '1.2rem',
-        height: 60,
-        color: '#b8b8b8',
-        fontWeight: 300,
     },
 };
 
@@ -110,53 +95,6 @@ const List = ({ jobs, showSystemJobs, toggleJob, toggleSystemJobs, runJob }) => 
         <Link to={'add'}>
             <AddButton />
         </Link>
-    </div>
-);
-
-const NoJobs = () => <div style={styles.noJobsText}>{i18n.t('No jobs to show')}</div>;
-
-class EntryWrap extends Component {
-    state = {
-        backgroundColor: 'white',
-    };
-
-    setBackgroundColor = color => {
-        this.setState({
-            backgroundColor: color,
-        });
-    };
-
-    setNeutral = () => this.setBackgroundColor('white');
-    setFocus = () => this.setBackgroundColor('#e4e4e4');
-    setHover = () => this.setBackgroundColor('#f2f2f2');
-
-    render = () => (
-        <div>
-            <div
-                style={{ transition: 'all 0.1s ease-in-out', ...this.state }}
-                onMouseEnter={this.setHover}
-                onMouseLeave={this.setNeutral}
-                onFocus={this.setFocus}
-                onBlur={this.setNeutral}
-            >
-                <Link to={`edit/${this.props.job.id}`}>
-                    <Entry
-                        job={this.props.job}
-                        onToggle={this.props.onToggle}
-                        onRun={this.props.onRun}
-                    />
-                </Link>
-                <Divider />
-            </div>
-        </div>
-    );
-}
-
-const AddButton = () => (
-    <div style={styles.addButton}>
-        <FloatingActionButton>
-            <FontIcon className="material-icons">add</FontIcon>
-        </FloatingActionButton>
     </div>
 );
 
