@@ -7,7 +7,6 @@ const common = require('./webpack.common.js');
 
 process.env.BABEL_ENV = 'production';
 process.env.NODE_ENV = 'production';
-const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
 
 module.exports = merge(common, {
     mode: 'production',
