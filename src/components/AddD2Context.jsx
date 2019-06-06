@@ -12,7 +12,7 @@ class AddD2Context extends React.Component {
 }
 
 AddD2Context.propTypes = {
-  children: PropTypes.object.isRequired,
+  children: PropTypes.element.isRequired,
   d2: PropTypes.object.isRequired,
 };
 
