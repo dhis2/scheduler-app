@@ -1,9 +1,9 @@
 import React from 'react';
 import { Router, Route } from 'react-router-dom';
 import history from '../utils/history';
-import List from './jobOverview/List';
-import EditJob from './jobContent/EditJob';
-import AddJob from './jobContent/AddJob';
+import List from './List';
+import EditJob from './EditJob';
+import AddJob from './AddJob';
 
 const style = {
     paddingTop: '100px',

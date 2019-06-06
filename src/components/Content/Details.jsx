@@ -13,7 +13,6 @@ const dateAndTime = 'DD.MM.YYYY HH:mm:ss';
 const styles = {
     detailsHeader: {
         paddingTop: 24,
-        paddingBottom: 16,
     },
     container: {
         display: 'flex',

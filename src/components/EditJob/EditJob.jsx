@@ -3,8 +3,8 @@ import { compose, lifecycle, withProps, branch, renderComponent } from 'recompos
 import i18n from '@dhis2/d2-i18n';
 
 import * as actions from '../../constants/actions';
-import Loading from '../Loading';
-import Content from './Content';
+import Spinner from '../Spinner';
+import Content from '../Content';
 
 const isString = value => typeof value === 'string';
 
@@ -63,7 +63,7 @@ const enhance = compose(
                 }),
         }),
     ),
-    branch(props => !props.loaded || !props.job, renderComponent(Loading)),
+    branch(props => !props.loaded || !props.job, renderComponent(Spinner)),
     lifecycle({
         componentWillUnmount() {
             this.props.discard();

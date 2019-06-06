@@ -10,7 +10,7 @@ const style = {
     marginLeft: 16,
 };
 
-class ConditionalIconButton extends Component {
+class DialogButton extends Component {
     state = { dialogOpen: false };
 
     onClick = event => {
@@ -65,4 +65,4 @@ class ConditionalIconButton extends Component {
     };
 }
 
-export default ConditionalIconButton;
+export default DialogButton;

@@ -8,9 +8,8 @@ import Paper from 'material-ui/Paper';
 import FlipMove from 'react-flip-move';
 import i18n from '@dhis2/d2-i18n';
 import * as actions from '../../constants/actions';
-import HelpLink from '../HelpLink';
+import { AddButton, HelpButton } from '../Buttons';
 import Heading from '../Heading';
-import AddButton from './AddButton';
 import NoJobs from './NoJobs';
 import EntryWrap from './EntryWrap';
 
@@ -57,10 +56,8 @@ const List = ({ jobs, showSystemJobs, toggleJob, toggleSystemJobs, runJob }) => 
     <div>
         <div style={styles.header}>
             <div style={styles.headerLeft}>
-                <Heading style={{ paddingBottom: 16, paddingLeft: 24 }}>
-                    {i18n.t('Scheduled jobs')}
-                </Heading>
-                <HelpLink href={documentationHref} />
+                <Heading>{i18n.t('Scheduled jobs')}</Heading>
+                <HelpButton href={documentationHref} />
             </div>
             <div style={styles.systemJobToggleContainer}>
                 {i18n.t('Show system jobs')}

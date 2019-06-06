@@ -3,8 +3,8 @@ import { compose, withProps, lifecycle, branch, renderComponent } from 'recompos
 import i18n from '@dhis2/d2-i18n';
 
 import * as actions from '../../constants/actions';
-import Loading from '../Loading';
-import Content from './Content';
+import Spinner from '../Spinner';
+import Content from '../Content';
 
 const enhance = compose(
     connect(
@@ -25,7 +25,7 @@ const enhance = compose(
                 dispatch({ type: actions.JOB_EDIT, payload: { fieldName, value } }),
         }),
     ),
-    branch(props => !props.loaded, renderComponent(Loading)),
+    branch(props => !props.loaded, renderComponent(Spinner)),
     lifecycle({
         componentWillUnmount() {
             this.props.discard();

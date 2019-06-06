@@ -8,10 +8,10 @@ const style = {
     paddingTop: 100,
 };
 
-const LoadingJob = () => (
+const Spinner = () => (
     <div style={style}>
         <CircularProgress size={80} thickness={5} />
     </div>
 );
 
-export default LoadingJob;
+export default Spinner;

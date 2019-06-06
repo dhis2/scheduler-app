@@ -8,13 +8,11 @@ import i18n from '@dhis2/d2-i18n';
 
 import validCronExpression from '../../utils/validCronExpression';
 import history from '../../utils/history';
-import Parameters from '../jobParameters/Parameters';
-import ConditionalIconButton from '../ConditionalIconButton';
+import Parameters from '../Parameters';
 import Details from './Details';
-import HelpLink from '../HelpLink';
 import Heading from '../Heading';
 import Schedule from './Schedule';
-import ActionButtons from './ActionButtons';
+import { DialogButton, ActionButtons, HelpButton } from '../Buttons';
 
 const documentationHref =
     'https://docs.dhis2.org/master/en/user/html/dataAdmin_scheduling.html#dataAdmin_scheduling_config';
@@ -116,19 +114,19 @@ class Content extends Component {
     render = () => (
         <div>
             <div style={styles.header}>
-                <ConditionalIconButton
+                <DialogButton
                     icon="arrow_back"
                     showConfirmation={this.props.dirty}
                     confirmationMessage={i18n.t('Are you sure you want to discard your changes?')}
                     onConfirm={this.discardChanges}
                 />
-                <Heading style={{ paddingBottom: 16, paddingLeft: 24 }}>{this.props.title}</Heading>
+                <Heading>{this.props.title}</Heading>
             </div>
             {this.props.job ? (
                 <Paper style={styles.jobContent}>
                     <div style={styles.attributeHeaderContainer}>
                         <Heading style={styles.attributeHeader}>{i18n.t('Attributes')}</Heading>
-                        <HelpLink href={documentationHref} />
+                        <HelpButton href={documentationHref} />
                     </div>
                     <TextField
                         fullWidth

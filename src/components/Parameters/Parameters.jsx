@@ -17,7 +17,6 @@ import InputList from './InputList';
 const styles = {
     header: {
         paddingTop: 24,
-        paddingBottom: 16,
     },
     toggle: { paddingTop: 20, paddingBottom: 20 },
     timePicker: { width: '100%' },

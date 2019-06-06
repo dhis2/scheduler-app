@@ -3,7 +3,7 @@ import Toggle from 'material-ui/Toggle';
 import moment from 'moment';
 import i18n from '@dhis2/d2-i18n';
 
-import ConditionalIconButton from '../ConditionalIconButton';
+import { DialogButton } from '../Buttons';
 
 const styles = {
     listEntry: {
@@ -74,7 +74,7 @@ const Entry = ({ job, onSelect, onToggle, onRun }) => {
             <div style={styles.status}>
                 <div>{i18n.t(job.jobStatus)}</div>
                 {canRunNow(job.jobStatus) && (
-                    <ConditionalIconButton
+                    <DialogButton
                         showConfirmation
                         confirmationMessage={`${i18n.t(
                             'Are you sure you want to execute this job?',
