@@ -1,11 +1,11 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
-const polyfillEntry = path.join(__dirname, 'app/src/polyfills.js');
+const polyfillEntry = path.join(__dirname, 'src/polyfills.js');
 module.exports = {
     entry: {
         polyfills: polyfillEntry,
-        app: ['./app/src/index.js'],
+        app: ['./src/index.js'],
     },
     output: {
         path: path.join(__dirname, 'build'),
