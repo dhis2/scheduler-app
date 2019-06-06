@@ -1,5 +1,4 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const packageJSON = require('./package.json');
 const path = require('path');
 
 const polyfillEntry = path.join(__dirname, 'app/src/polyfills.js');
