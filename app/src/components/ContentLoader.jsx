@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { compose, lifecycle, pure, branch, renderComponent } from 'recompose';
-import * as actions from 'constants/actions';
+import * as actions from '../constants/actions';
 import Routes from './Routes';
 
 const getSymbolProperties = symbol => Array.from(symbol[Object.getOwnPropertySymbols(symbol)[0]]);

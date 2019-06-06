@@ -3,10 +3,10 @@ import 'material-design-icons-iconfont/dist/material-design-icons.css';
 import React from 'react';
 import { Provider } from 'react-redux';
 import HeaderBar from '@dhis2/ui/widgets/HeaderBar';
-import MessagePanel from 'components/MessagePanel';
 import i18n from '@dhis2/d2-i18n';
 import '../styles/override.css';
 import store from '../store';
+import MessagePanel from './MessagePanel';
 import ContentLoader from './ContentLoader';
 import AddD2Context from './AddD2Context';
 

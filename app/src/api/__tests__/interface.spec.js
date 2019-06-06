@@ -1,4 +1,4 @@
-import { determineComponentToRender as determine } from 'api/interface';
+import { determineComponentToRender as determine } from '../interface';
 
 const orgUnitSamples = [
     { displayName: 'OrgUnit1', value: 'v' },

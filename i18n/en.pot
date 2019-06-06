@@ -5,8 +5,11 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2019-06-06T08:29:40.053Z\n"
-"PO-Revision-Date: 2019-06-06T08:29:40.053Z\n"
+"POT-Creation-Date: 2019-06-06T10:38:48.729Z\n"
+"PO-Revision-Date: 2019-06-06T10:38:48.729Z\n"
+
+msgid "Scheduler"
+msgstr ""
 
 msgid "Cancel"
 msgstr ""
@@ -15,9 +18,6 @@ msgid "Confirm"
 msgstr ""
 
 msgid "Open user guide"
-msgstr ""
-
-msgid "Scheduler"
 msgstr ""
 
 msgid "Delete"

@@ -7,13 +7,12 @@ import Toggle from 'material-ui/Toggle';
 import Paper from 'material-ui/Paper';
 import FlipMove from 'react-flip-move';
 import i18n from '@dhis2/d2-i18n';
+import * as actions from '../../constants/actions';
+import HelpLink from '../HelpLink';
 import Heading from '../Heading';
 import AddButton from './AddButton';
 import NoJobs from './NoJobs';
 import EntryWrap from './EntryWrap';
-
-import * as actions from 'constants/actions';
-import HelpLink from 'components/HelpLink';
 
 const documentationHref = 'https://docs.dhis2.org/master/en/user/html/dataAdmin_scheduling.html';
 

@@ -1,5 +1,5 @@
-import reducer, { initialState } from 'reducers/jobsReducer';
-import * as actions from 'constants/actions';
+import reducer, { initialState } from '../jobsReducer';
+import * as actions from '../../constants/actions';
 
 describe('jobsReducer', () => {
     it('should return the initial state', () => {

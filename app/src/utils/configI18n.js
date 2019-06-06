@@ -1,5 +1,5 @@
-import apiTranslations from 'utils/apiTranslations';
-import i18n from 'locales';
+import i18n from '../locales';
+import apiTranslations from './apiTranslations';
 
 const isLangRTL = code => {
     const langs = ['ar', 'fa', 'ur'];

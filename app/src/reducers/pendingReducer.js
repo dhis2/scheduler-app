@@ -1,4 +1,4 @@
-import * as actions from 'constants/actions';
+import * as actions from '../constants/actions';
 
 export const initialState = {
     update: false,

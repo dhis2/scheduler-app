@@ -7,12 +7,12 @@ import TimePicker from 'material-ui/TimePicker';
 import { compose, withProps, branch, renderNothing } from 'recompose';
 import i18n from '@dhis2/d2-i18n';
 
-import Suggestion from 'components/jobParameters/Suggestion';
-import SuggestionList from 'components/jobParameters/SuggestionList';
-import InputList from 'components/jobParameters/InputList';
-import { parseParameters } from 'api/api';
-import { COMPONENTS, PARAMS } from 'api/interface';
+import { parseParameters } from '../../api/api';
+import { COMPONENTS, PARAMS } from '../../api/interface';
 import Heading from '../Heading';
+import Suggestion from './Suggestion';
+import SuggestionList from './SuggestionList';
+import InputList from './InputList';
 
 const styles = {
     header: {

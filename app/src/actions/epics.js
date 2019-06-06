@@ -1,8 +1,8 @@
-import * as actions from 'constants/actions';
 import { combineEpics, ofType } from 'redux-observable';
 import { concatMap, switchMap } from 'rxjs/operators';
-import history from 'utils/history';
-import * as api from 'api/api';
+import * as actions from '../constants/actions';
+import history from '../utils/history';
+import * as api from '../api/api';
 
 const loadConfiguration = action$ =>
     action$.pipe(

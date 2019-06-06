@@ -6,15 +6,15 @@ import MenuItem from 'material-ui/MenuItem';
 import moment from 'moment';
 import i18n from '@dhis2/d2-i18n';
 
-import validCronExpression from 'utils/validCronExpression';
-import ActionButtons from 'components/jobContent/ActionButtons';
-import Schedule from 'components/jobContent/Schedule';
-import Parameters from 'components/jobParameters/Parameters';
-import ConditionalIconButton from 'components/ConditionalIconButton';
-import Details from 'components/jobContent/Details';
-import HelpLink from 'components/HelpLink';
-import history from 'utils/history';
+import validCronExpression from '../../utils/validCronExpression';
+import history from '../../utils/history';
+import Parameters from '../jobParameters/Parameters';
+import ConditionalIconButton from '../ConditionalIconButton';
+import Details from './Details';
+import HelpLink from '../HelpLink';
 import Heading from '../Heading';
+import Schedule from './Schedule';
+import ActionButtons from './ActionButtons';
 
 const documentationHref =
     'https://docs.dhis2.org/master/en/user/html/dataAdmin_scheduling.html#dataAdmin_scheduling_config';

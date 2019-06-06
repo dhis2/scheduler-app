@@ -1,4 +1,4 @@
-import isValidCronExpression from 'utils/validCronExpression';
+import isValidCronExpression from '../validCronExpression';
 
 describe('cron expression validation', () => {
     test('should approve wildcard "*" and undefined "?" fields', () => {

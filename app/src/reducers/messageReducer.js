@@ -1,6 +1,6 @@
-import * as actions from 'constants/actions';
 import i18n from '@dhis2/d2-i18n';
-import getErrorMessage from 'utils/getErrorMessage';
+import * as actions from '../constants/actions';
+import getErrorMessage from '../utils/getErrorMessage';
 
 const NEUTRAL = 'NEUTRAL';
 const POSITIVE = 'POSITIVE';

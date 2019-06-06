@@ -45,15 +45,6 @@ module.exports = {
     },
     resolve: {
         alias: {
-            actions: path.resolve(__dirname, 'app/src/actions'),
-            api: path.resolve(__dirname, 'app/src/api'),
-            components: path.resolve(__dirname, 'app/src/components'),
-            constants: path.resolve(__dirname, 'app/src/constants'),
-            locales: path.resolve(__dirname, 'app/src/locales'),
-            react: path.resolve('./node_modules/react'),
-            reducers: path.resolve(__dirname, 'app/src/reducers'),
-            utils: path.resolve(__dirname, 'app/src/utils'),
-
             // Use the app's own d2 version in other packages
             'd2/lib/d2': path.resolve(__dirname, 'node_modules/d2/lib/d2'),
         },

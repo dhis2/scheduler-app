@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Divider from 'material-ui/Divider';
-import Entry from 'components/jobOverview/Entry';
+import Entry from './Entry';
 
 class EntryWrap extends Component {
   state = {

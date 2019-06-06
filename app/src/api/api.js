@@ -1,5 +1,5 @@
 import { getInstance as getD2Instance } from 'd2/lib/d2';
-import { getDefaultParameterValue, determineComponentToRender } from 'api/interface';
+import { getDefaultParameterValue, determineComponentToRender } from './interface';
 
 const JOB_PARAMETERS_ENDPOINT = 'jobConfigurations/jobTypesExtended';
 const JOBSTATUSES = ['RUNNING', 'COMPLETED', 'STOPPED', 'SCHEDULED', 'DISABLED', 'FAILED'];
