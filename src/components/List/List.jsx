@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { compose, pure } from 'recompose';
 import Divider from 'material-ui/Divider';
 import Toggle from 'material-ui/Toggle';
 import Paper from 'material-ui/Paper';
@@ -94,26 +93,24 @@ const List = ({ jobs, showSystemJobs, toggleJob, toggleSystemJobs, runJob }) => 
     </div>
 );
 
-const enhance = compose(
-    connect(
-        state => {
-            const jobs = state.jobs.all.filter(
-                job => (state.jobs.showSystemJobs ? !job.configurable : job.configurable),
-            );
+const mapStateToProps = state => {
+    const jobs = state.jobs.all.filter(
+        job => (state.jobs.showSystemJobs ? !job.configurable : job.configurable),
+    );
 
-            return {
-                jobs,
-                showSystemJobs: state.jobs.showSystemJobs,
-            };
-        },
-        dispatch => ({
-            toggleJob: job => dispatch({ type: actions.JOB_SAVE, payload: { job } }),
-            toggleSystemJobs: enabled =>
-                dispatch({ type: actions.TOGGLE_SYSTEM_JOBS, payload: { enabled } }),
-            runJob: id => dispatch({ type: actions.JOB_RUN, payload: { id } }),
-        }),
-    ),
-    pure,
-);
+    const showSystemJobs = state.jobs.showSystemJobs;
 
-export default enhance(List);
+    return {
+        jobs,
+        showSystemJobs,
+    };
+};
+
+const mapDispatchToProps = dispatch => ({
+    toggleJob: job => dispatch({ type: actions.JOB_SAVE, payload: { job } }),
+    toggleSystemJobs: enabled =>
+        dispatch({ type: actions.TOGGLE_SYSTEM_JOBS, payload: { enabled } }),
+    runJob: id => dispatch({ type: actions.JOB_RUN, payload: { id } }),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(List);
