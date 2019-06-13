@@ -5,10 +5,22 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2019-06-06T15:46:37.246Z\n"
-"PO-Revision-Date: 2019-06-06T15:46:37.246Z\n"
+"POT-Creation-Date: 2019-06-13T13:06:30.599Z\n"
+"PO-Revision-Date: 2019-06-13T13:06:30.599Z\n"
+
+msgid "Are you sure you want to discard your changes?"
+msgstr ""
 
 msgid "Add new job"
+msgstr ""
+
+msgid "Attributes"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Job type"
 msgstr ""
 
 msgid "Scheduler"
@@ -27,51 +39,6 @@ msgid "Confirm"
 msgstr ""
 
 msgid "Open user guide"
-msgstr ""
-
-msgid "Required"
-msgstr ""
-
-msgid "Must be of two or more characters"
-msgstr ""
-
-msgid "Invalid cron expression"
-msgstr ""
-
-msgid "Are you sure you want to discard your changes?"
-msgstr ""
-
-msgid "Attributes"
-msgstr ""
-
-msgid "Name"
-msgstr ""
-
-msgid "Job type"
-msgstr ""
-
-msgid "Could not find job"
-msgstr ""
-
-msgid "Details"
-msgstr ""
-
-msgid "Created"
-msgstr ""
-
-msgid "Last executed"
-msgstr ""
-
-msgid "Last execution status"
-msgstr ""
-
-msgid "Select frequency"
-msgstr ""
-
-msgid "Cron expression"
-msgstr ""
-
-msgid "Continuous execution"
 msgstr ""
 
 msgid "Save changes"
@@ -122,6 +89,15 @@ msgstr ""
 msgid "Parameters"
 msgstr ""
 
+msgid "Select frequency"
+msgstr ""
+
+msgid "Cron expression"
+msgstr ""
+
+msgid "Continuous execution"
+msgstr ""
+
 msgid "Successfully deleted job"
 msgstr ""
 
@@ -141,4 +117,13 @@ msgid "Could not run job"
 msgstr ""
 
 msgid "You are not authorized to use this app"
+msgstr ""
+
+msgid "Required"
+msgstr ""
+
+msgid "Must be of two or more characters"
+msgstr ""
+
+msgid "Invalid cron expression"
 msgstr ""

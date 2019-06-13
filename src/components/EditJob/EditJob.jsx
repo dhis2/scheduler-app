@@ -1,84 +1,165 @@
-import { connect } from 'react-redux';
-import { compose, lifecycle, withProps, branch, renderComponent } from 'recompose';
+import React from 'react';
+import { string, object, func, bool, shape, array } from 'prop-types';
+import TextField from 'material-ui/TextField';
+import Paper from 'material-ui/Paper';
+import SelectField from 'material-ui/SelectField';
+import MenuItem from 'material-ui/MenuItem';
 import i18n from '@dhis2/d2-i18n';
 
-import * as actions from '../../constants/actions';
+import Parameters from '../Parameters';
+import Heading from '../Heading';
+import Schedule from '../Schedule';
+import { DialogButton, ActionButtons, HelpButton } from '../Buttons';
 import Spinner from '../Spinner';
-import Content from '../Content';
 
-const isString = value => typeof value === 'string';
+const documentationHref =
+    'https://docs.dhis2.org/master/en/user/html/dataAdmin_scheduling.html#dataAdmin_scheduling_config';
 
-const enhance = compose(
-    connect(
-        (state, ownProps) => {
-            const currentJob = state.jobs.all.find(job => job.id === ownProps.match.params.id);
-            const changes = state.jobs.changes;
+const styles = {
+    jobContent: {
+        padding: 24,
+    },
+    continuousExecutionToggle: {
+        marginTop: 22,
+    },
+    header: {
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    jobTypeList: {
+        maxHeight: 300,
+        overflowY: 'auto',
+    },
+    attributeHeaderContainer: {
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    attributeHeader: {
+        padding: 0,
+    },
+};
 
-            const job = currentJob
-                ? {
-                      ...currentJob,
-                      id: currentJob.id,
-                      cronExpression: isString(changes.cronExpression)
-                          ? changes.cronExpression
-                          : currentJob.cronExpression,
-                      name: isString(changes.name) ? changes.name : currentJob.name,
-                      continuousExecution:
-                          changes.continuousExecution !== undefined
-                              ? changes.continuousExecution
-                              : currentJob.continuousExecution,
-                      parameters: changes.parameters || currentJob.jobParameters,
-                      type: changes.type || currentJob.jobType,
-                  }
-                : null;
+const EditJob = ({
+    attributeOptions,
+    availableParameters,
+    availableTypes,
+    discardChanges,
+    errors,
+    handleDelete,
+    handleFormChange,
+    handleSubmit,
+    hasLoaded,
+    isDirty,
+    isValid,
+    job,
+    pending,
+}) => {
+    const onJobTypeSelected = (event, index) => {
+        if (index !== -1) {
+            handleFormChange({ jobType: availableTypes[index] });
+        }
+    };
 
-            // Hack because Mui's SelectField won't show values not in list
-            const availableTypes = [...state.jobs.configuration.types];
-            if (job && availableTypes.indexOf(job.type) === -1) {
-                availableTypes.push(job.type);
-            }
+    if (!hasLoaded) {
+        return <Spinner />;
+    }
 
-            return {
-                job,
-                availableTypes,
-                disableEditing: currentJob && currentJob.configurable === false,
-                title: currentJob && currentJob.name,
-                loaded: state.jobs.loaded && state.jobs.configuration.loaded,
-                availableParameters: state.jobs.configuration.parameters,
-                attributeOptions: state.jobs.configuration.attributeOptions,
-                pending: state.pending,
-                dirty: state.jobs.dirty,
-            };
-        },
-        dispatch => ({
-            discard: () => dispatch({ type: actions.JOB_DISCARD }),
-            save: job => dispatch({ type: actions.JOB_SAVE, payload: { job } }),
-            delete: id => dispatch({ type: actions.JOB_DELETE, payload: { id } }),
-            editJob: (fieldName, value) =>
-                dispatch({
-                    type: actions.JOB_EDIT,
-                    payload: {
-                        fieldName,
-                        value,
-                    },
-                }),
-        }),
-    ),
-    branch(props => !props.loaded || !props.job, renderComponent(Spinner)),
-    lifecycle({
-        componentWillUnmount() {
-            this.props.discard();
-        },
-    }),
-    withProps(props => ({
-        saveLabel: i18n.t('Save changes'),
-        deleteLabel: i18n.t('Delete job'),
-        save: () => {
-            props.save({
-                ...props.job,
-                ...props.changes,
-            });
-        },
-    })),
-);
+    return (
+        <div>
+            <div style={styles.header}>
+                <DialogButton
+                    icon="arrow_back"
+                    showConfirmation={isDirty}
+                    confirmationMessage={i18n.t('Are you sure you want to discard your changes?')}
+                    onConfirm={discardChanges}
+                />
+                <Heading>{i18n.t('Add new job')}</Heading>
+            </div>
+            <Paper style={styles.jobContent}>
+                <div style={styles.attributeHeaderContainer}>
+                    <Heading style={styles.attributeHeader}>{i18n.t('Attributes')}</Heading>
+                    <HelpButton href={documentationHref} />
+                </div>
+                <TextField
+                    fullWidth
+                    value={job.name}
+                    floatingLabelText={`${i18n.t('Name')} *`}
+                    onChange={(event, value) => handleFormChange({ name: value })}
+                    errorText={errors.name}
+                />
+                <Schedule
+                    cronExpression={job.cronExpression}
+                    continuousExecution={job.continuousExecution}
+                    onCronExpressionChange={(event, value) => handleFormChange({ cronExpression: value })}
+                    onContinuousExecutionChange={(event, value) => handleFormChange({ continuousExecution: value })}
+                    error={errors.cronExpression}
+                />
+                <SelectField
+                    fullWidth
+                    floatingLabelText={`${i18n.t('Job type')} *`}
+                    value={job.jobType}
+                    onChange={onJobTypeSelected}
+                >
+                    {availableTypes.map(type => (
+                        <MenuItem key={type} value={type} primaryText={i18n.t(type)} />
+                    ))}
+                </SelectField>
 
-export default enhance(Content);
+                {job.jobType && (
+                    <Parameters
+                        type={job.jobType}
+                        parameters={job.parameters}
+                        availableParameters={availableParameters}
+                        attributeOptions={attributeOptions}
+                        onChange={value => handleFormChange({ parameters: value })}
+                    />
+                )}
+
+                <ActionButtons
+                    job={job}
+                    update={{
+                        submit: handleSubmit,
+                        label: i18n.t('Save changes'),
+                        pending: pending.update,
+                        disabled:
+                            !isDirty ||
+                            !isValid ||
+                            pending.update,
+                    }}
+                    delete={{
+                        submit: handleDelete,
+                        label: i18n.t('Delete job'),
+                        pending: pending.delete,
+                        disabled: pending.delete,
+                    }}
+                />
+            </Paper>
+        </div>
+    );
+};
+
+EditJob.propTypes = {
+    job: shape({
+        name: string,
+        cronExpression: string,
+        continuousExecution: bool,
+        jobType: string,
+        parameters: object,
+    }).isRequired,
+    hasLoaded: bool.isRequired,
+    handleSubmit: func.isRequired,
+    handleDelete: func.isRequired,
+    discardChanges: func.isRequired,
+    handleFormChange: func.isRequired,
+    pending: object.isRequired,
+    isDirty: bool.isRequired,
+    availableTypes: array.isRequired,
+    availableParameters: object.isRequired,
+    attributeOptions: object.isRequired,
+    errors: object.isRequired,
+    isValid: bool.isRequired,
+};
+
+export default EditJob;
