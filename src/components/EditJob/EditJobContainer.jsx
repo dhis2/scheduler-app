@@ -41,13 +41,13 @@ class EditJobContainer extends React.Component {
         this.props.delete(this.props.match.params.id);
     }
 
-    discardChanges = () => {
+    handleDiscard = () => {
         history.replace('/');
     }
 
     render() {
         const { isDirty, isValid, errors } = this.state;
-        const { hasLoaded, pending, attributeOptions, availableParameters, availableTypes } = this.props;
+        const { isLoading, isUpdating, isDeleting, attributeOptions, availableParameters, availableTypes } = this.props;
         const currentJob = this.getCurrentJob();
 
         return (
@@ -55,16 +55,17 @@ class EditJobContainer extends React.Component {
                 attributeOptions={attributeOptions}
                 availableParameters={availableParameters}
                 availableTypes={availableTypes}
-                discardChanges={this.discardChanges}
                 errors={errors}
                 handleDelete={this.handleDelete}
+                handleDiscard={this.handleDiscard}
                 handleFormChange={this.handleFormChange}
                 handleSubmit={this.handleSubmit}
-                hasLoaded={hasLoaded}
+                isDeleting={isDeleting}
                 isDirty={isDirty}
+                isLoading={isLoading}
+                isUpdating={isUpdating}
                 isValid={isValid}
                 job={currentJob}
-                pending={pending}
             />
         );
     }
@@ -72,11 +73,12 @@ class EditJobContainer extends React.Component {
 
 const mapStateToProps = state => ({
     jobs: state.jobs,
-    hasLoaded: state.jobs.loaded && state.jobs.configuration.loaded,
+    isLoading: !state.jobs.loaded || !state.jobs.configuration.loaded,
     availableTypes: state.jobs.configuration.types,
     availableParameters: state.jobs.configuration.parameters,
     attributeOptions: state.jobs.configuration.attributeOptions,
-    pending: state.pending,
+    isUpdating: state.pending.update,
+    isDeleting: state.pending.delete,
 });
 
 const mapDispatchToProps = dispatch => ({

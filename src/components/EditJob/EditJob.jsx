@@ -45,16 +45,17 @@ const EditJob = ({
     attributeOptions,
     availableParameters,
     availableTypes,
-    discardChanges,
     errors,
     handleDelete,
+    handleDiscard,
     handleFormChange,
     handleSubmit,
-    hasLoaded,
+    isDeleting,
     isDirty,
+    isLoading,
+    isUpdating,
     isValid,
     job,
-    pending,
 }) => {
     const onJobTypeSelected = (event, index) => {
         if (index !== -1) {
@@ -62,7 +63,7 @@ const EditJob = ({
         }
     };
 
-    if (!hasLoaded) {
+    if (isLoading) {
         return <Spinner />;
     }
 
@@ -73,7 +74,7 @@ const EditJob = ({
                     icon="arrow_back"
                     showConfirmation={isDirty}
                     confirmationMessage={i18n.t('Are you sure you want to discard your changes?')}
-                    onConfirm={discardChanges}
+                    onConfirm={handleDiscard}
                 />
                 <Heading>{i18n.t('Add new job')}</Heading>
             </div>
@@ -122,17 +123,17 @@ const EditJob = ({
                     update={{
                         submit: handleSubmit,
                         label: i18n.t('Save changes'),
-                        pending: pending.update,
+                        pending: isUpdating,
                         disabled:
                             !isDirty ||
                             !isValid ||
-                            pending.update,
+                            isUpdating,
                     }}
                     delete={{
                         submit: handleDelete,
                         label: i18n.t('Delete job'),
-                        pending: pending.delete,
-                        disabled: pending.delete,
+                        pending: isDeleting,
+                        disabled: isDeleting,
                     }}
                 />
             </Paper>
@@ -141,25 +142,26 @@ const EditJob = ({
 };
 
 EditJob.propTypes = {
+    attributeOptions: object.isRequired,
+    availableParameters: object.isRequired,
+    availableTypes: array.isRequired,
+    errors: object.isRequired,
+    handleDelete: func.isRequired,
+    handleDiscard: func.isRequired,
+    handleFormChange: func.isRequired,
+    handleSubmit: func.isRequired,
+    isDeleting: bool.isRequired,
+    isDirty: bool.isRequired,
+    isLoading: bool.isRequired,
+    isUpdating: bool.isRequired,
+    isValid: bool.isRequired,
     job: shape({
-        name: string,
-        cronExpression: string,
         continuousExecution: bool,
+        cronExpression: string,
         jobType: string,
+        name: string,
         parameters: object,
     }).isRequired,
-    hasLoaded: bool.isRequired,
-    handleSubmit: func.isRequired,
-    handleDelete: func.isRequired,
-    discardChanges: func.isRequired,
-    handleFormChange: func.isRequired,
-    pending: object.isRequired,
-    isDirty: bool.isRequired,
-    availableTypes: array.isRequired,
-    availableParameters: object.isRequired,
-    attributeOptions: object.isRequired,
-    errors: object.isRequired,
-    isValid: bool.isRequired,
 };
 
 export default EditJob;

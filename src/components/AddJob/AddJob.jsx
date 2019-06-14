@@ -45,15 +45,15 @@ const AddJob = ({
     attributeOptions,
     availableParameters,
     availableTypes,
-    discardChanges,
     errors,
+    handleDiscard,
     handleFormChange,
     handleSubmit,
     isDirty,
+    isLoading,
+    isUpdating,
     isValid,
     job,
-    hasLoaded,
-    pending,
 }) => {
     const onJobTypeSelected = (event, index) => {
         if (index !== -1) {
@@ -61,7 +61,7 @@ const AddJob = ({
         }
     };
 
-    if (!hasLoaded) {
+    if (isLoading) {
         return <Spinner />;
     }
 
@@ -72,7 +72,7 @@ const AddJob = ({
                     icon="arrow_back"
                     showConfirmation={isDirty}
                     confirmationMessage={i18n.t('Are you sure you want to discard your changes?')}
-                    onConfirm={discardChanges}
+                    onConfirm={handleDiscard}
                 />
                 <Heading>{i18n.t('Add new job')}</Heading>
             </div>
@@ -121,11 +121,11 @@ const AddJob = ({
                     update={{
                         submit: handleSubmit,
                         label: 'Add job',
-                        pending: pending.update,
+                        pending: isUpdating,
                         disabled:
                             !isDirty ||
                             !isValid ||
-                            pending.update,
+                            isUpdating,
                     }}
                 />
             </Paper>
@@ -134,24 +134,24 @@ const AddJob = ({
 };
 
 AddJob.propTypes = {
-    job: shape({
-        name: string,
-        cronExpression: string,
-        continuousExecution: bool,
-        type: string,
-        parameters: object,
-    }).isRequired,
-    hasLoaded: bool.isRequired,
-    handleSubmit: func.isRequired,
-    discardChanges: func.isRequired,
-    handleFormChange: func.isRequired,
-    pending: object.isRequired,
-    isDirty: bool.isRequired,
-    availableTypes: array.isRequired,
-    availableParameters: object.isRequired,
     attributeOptions: object.isRequired,
+    availableParameters: object.isRequired,
+    availableTypes: array.isRequired,
     errors: object.isRequired,
+    handleDiscard: func.isRequired,
+    handleFormChange: func.isRequired,
+    handleSubmit: func.isRequired,
+    isDirty: bool.isRequired,
+    isLoading: bool.isRequired,
+    isUpdating: bool.isRequired,
     isValid: bool.isRequired,
+    job: shape({
+        continuousExecution: bool,
+        cronExpression: string,
+        name: string,
+        parameters: object,
+        type: string,
+    }).isRequired,
 };
 
 export default AddJob;

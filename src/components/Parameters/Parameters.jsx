@@ -4,7 +4,6 @@ import Toggle from 'material-ui/Toggle';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import TimePicker from 'material-ui/TimePicker';
-import { compose, withProps, branch, renderNothing } from 'recompose';
 import i18n from '@dhis2/d2-i18n';
 
 import { parseParameters } from '../../api/api';
@@ -137,11 +136,32 @@ const getComponentToRender = (key, parameter, changeHandler) => {
     }
 };
 
-const Parameters = props => {
-    const paramKeys = Object.keys(props.parameters);
+const Parameters = ({ type, parameters, availableParameters, attributeOptions, onChange }) => {
+    const parsedParameters = parseParameters(
+        availableParameters[type],
+        parameters,
+        attributeOptions[type],
+    );
+
+    const separateByComma = value => value.split(',').map(s => s.trim());
+    const onParameterChange = (fieldName, newValue, collection) => {
+        onChange({
+            ...parsedParameters,
+            [fieldName]: collection ? separateByComma(newValue) : newValue,
+        });
+    };
+
+    const noParameters = Object.keys(parsedParameters).length < 1;
+    const missingProps = (parsedParameters && Object.keys(parsedParameters).length < 1) || Object.keys(attributeOptions).length < 1;
+
+    if (noParameters || missingProps) {
+        return null;
+    }
+
+    const paramKeys = Object.keys(parsedParameters);
     const parametersToRender = paramKeys.map(key => (
         <div key={key}>
-            {getComponentToRender(key, props.parameters[key], props.onParameterChange)}
+            {getComponentToRender(key, parsedParameters[key], onParameterChange)}
         </div>
     ));
 
@@ -153,33 +173,4 @@ const Parameters = props => {
     );
 };
 
-const noParameters = ({ parameters }) => Object.keys(parameters).length < 1;
-const missingProps = ({ parameters, attributeOptions }) =>
-    (parameters && Object.keys(parameters).length < 1) || Object.keys(attributeOptions).length < 1;
-
-const enhance = compose(
-    branch(missingProps, renderNothing),
-    withProps(props => {
-        const parameters = parseParameters(
-            props.availableParameters[props.type],
-            props.parameters,
-            props.attributeOptions[props.type],
-        );
-
-        const separateByComma = value => value.split(',').map(s => s.trim());
-        const onParameterChange = (fieldName, newValue, collection) => {
-            props.onChange({
-                ...props.parameters,
-                [fieldName]: collection ? separateByComma(newValue) : newValue,
-            });
-        };
-
-        return {
-            parameters,
-            onParameterChange,
-        };
-    }),
-    branch(noParameters, renderNothing),
-);
-
-export default enhance(Parameters);
+export default Parameters;

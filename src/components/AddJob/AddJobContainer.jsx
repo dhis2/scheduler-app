@@ -28,7 +28,7 @@ class AddJobContainer extends React.Component {
         this.props.save(this.state.currentJob);
     }
 
-    discardChanges = () => {
+    handleDiscard = () => {
         history.replace('/');
     }
 
@@ -38,26 +38,26 @@ class AddJobContainer extends React.Component {
                 attributeOptions={this.props.attributeOptions}
                 availableParameters={this.props.availableParameters}
                 availableTypes={this.props.availableTypes}
-                hasLoaded={this.props.hasLoaded}
-                pending={this.props.pending}
-                job={this.state.currentJob}
-                isDirty={this.state.isDirty}
-                discardChanges={this.discardChanges}
+                errors={this.state.errors}
+                handleDiscard={this.handleDiscard}
                 handleFormChange={this.handleFormChange}
                 handleSubmit={this.handleSubmit}
+                isDirty={this.state.isDirty}
+                isLoading={this.props.isLoading}
+                isUpdating={this.props.isUpdating}
                 isValid={this.state.isValid}
-                errors={this.state.errors}
+                job={this.state.currentJob}
             />
         );
     }
 }
 
 const mapStateToProps = state => ({
-    availableTypes: state.jobs.configuration.types,
-    availableParameters: state.jobs.configuration.parameters,
     attributeOptions: state.jobs.configuration.attributeOptions,
-    hasLoaded: state.jobs.loaded && state.jobs.configuration.loaded,
-    pending: state.pending,
+    availableParameters: state.jobs.configuration.parameters,
+    availableTypes: state.jobs.configuration.types,
+    isLoading: !state.jobs.loaded || !state.jobs.configuration.loaded,
+    isUpdating: state.pending.update,
 });
 
 const mapDispatchToProps = dispatch => ({
