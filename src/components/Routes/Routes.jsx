@@ -1,7 +1,7 @@
 import React from 'react';
 import { Router, Route } from 'react-router-dom';
 import history from '../../utils/history';
-import List from '../List';
+import JobList from '../JobList';
 import EditJob from '../EditJob';
 import AddJob from '../AddJob';
 
@@ -15,7 +15,7 @@ const style = {
 const Routes = () => (
     <Router history={history}>
         <div style={style}>
-            <Route exact path="/" component={List} />
+            <Route exact path="/" component={JobList} />
             <Route path="/edit/:id" component={EditJob} />
             <Route path="/add" component={AddJob} />
         </div>
