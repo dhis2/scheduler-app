@@ -54,7 +54,6 @@ class AddJobContainer extends React.Component {
     render() {
         return (
             <AddJob
-                availableTypes={this.props.availableTypes}
                 errors={this.state.errors}
                 handleDiscard={this.handleDiscard}
                 handleParameterChange={this.handleParameterChange}
@@ -72,7 +71,6 @@ class AddJobContainer extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    availableTypes: state.jobs.configuration.types,
     isLoading: !state.jobs.loaded || !state.jobs.configuration.loaded,
     isUpdating: state.pending.update,
 });

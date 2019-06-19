@@ -1,9 +1,7 @@
 import React from 'react';
-import { string, object, func, bool, shape, array } from 'prop-types';
+import { string, object, func, bool, shape } from 'prop-types';
 import TextField from 'material-ui/TextField';
 import Paper from 'material-ui/Paper';
-import SelectField from 'material-ui/SelectField';
-import MenuItem from 'material-ui/MenuItem';
 import i18n from '@dhis2/d2-i18n';
 
 import ParameterList from '../ParameterList';
@@ -11,6 +9,7 @@ import Heading from '../Heading';
 import Schedule from '../Schedule';
 import { DialogButton, ActionButtons, HelpButton } from '../Buttons';
 import Spinner from '../Spinner';
+import { Type } from '../JobFields';
 
 const documentationHref =
     'https://docs.dhis2.org/master/en/user/html/dataAdmin_scheduling.html#dataAdmin_scheduling_config';
@@ -42,7 +41,6 @@ const styles = {
 };
 
 const EditJob = ({
-    availableTypes,
     errors,
     handleDelete,
     handleDiscard,
@@ -91,16 +89,7 @@ const EditJob = ({
                     onContinuousExecutionChange={(event, value) => handleFormChange({ continuousExecution: value })}
                     error={errors.cronExpression}
                 />
-                <SelectField
-                    fullWidth
-                    floatingLabelText={`${i18n.t('Job type')} *`}
-                    value={job.type}
-                    onChange={handleTypeChange}
-                >
-                    {availableTypes.map(type => (
-                        <MenuItem key={type} value={type} primaryText={i18n.t(type)} />
-                    ))}
-                </SelectField>
+                <Type value={job.type} onChange={handleTypeChange} />
                 <ParameterList
                     type={job.type}
                     values={job.parameters || {}}
@@ -130,7 +119,6 @@ const EditJob = ({
 };
 
 EditJob.propTypes = {
-    availableTypes: array.isRequired,
     errors: object.isRequired,
     handleDelete: func.isRequired,
     handleDiscard: func.isRequired,

@@ -78,12 +78,11 @@ class EditJobContainer extends React.Component {
 
     render() {
         const { isDirty, isValid, errors } = this.state;
-        const { isLoading, isUpdating, isDeleting, availableTypes } = this.props;
+        const { isLoading, isUpdating, isDeleting } = this.props;
         const currentJob = this.getCurrentJob();
 
         return (
             <EditJob
-                availableTypes={availableTypes}
                 errors={errors}
                 handleDelete={this.handleDelete}
                 handleDiscard={this.handleDiscard}
@@ -105,7 +104,6 @@ class EditJobContainer extends React.Component {
 const mapStateToProps = state => ({
     jobs: state.jobs,
     isLoading: !state.jobs.loaded || !state.jobs.configuration.loaded,
-    availableTypes: state.jobs.configuration.types,
     isUpdating: state.pending.update,
     isDeleting: state.pending.delete,
 });
