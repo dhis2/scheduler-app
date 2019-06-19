@@ -3,8 +3,8 @@ import Toggle from 'material-ui/Toggle';
 import i18n from '@dhis2/d2-i18n';
 import { connect } from 'react-redux';
 import * as actions from '../../constants/actions';
-import Heading from '../Heading';
-import { HelpButton } from '../Buttons';
+import Heading from '../../components/Heading';
+import { HelpButton } from '../../components/Buttons';
 
 const styles = {
   header: {

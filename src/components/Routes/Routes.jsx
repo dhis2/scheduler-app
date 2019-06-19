@@ -1,9 +1,9 @@
 import React from 'react';
 import { Router, Route } from 'react-router-dom';
 import history from '../../utils/history';
-import JobList from '../JobList';
-import EditJob from '../EditJob';
-import AddJob from '../AddJob';
+import ListJobs from '../../pages/ListJobs';
+import EditJob from '../../pages/EditJob';
+import AddJob from '../../pages/AddJob';
 
 const style = {
     paddingTop: '100px',
@@ -15,7 +15,7 @@ const style = {
 const Routes = () => (
     <Router history={history}>
         <div style={style}>
-            <Route exact path="/" component={JobList} />
+            <Route exact path="/" component={ListJobs} />
             <Route path="/edit/:id" component={EditJob} />
             <Route path="/add" component={AddJob} />
         </div>

@@ -29,7 +29,7 @@ const styles = {
 
 const appendRequiredSign = (label, required) => (required ? `${label} *` : label);
 
-const Schedule = ({
+const Cron = ({
     disabled,
     continuousExecution,
     cronExpression,
@@ -85,4 +85,4 @@ const Schedule = ({
     );
 };
 
-export default Schedule;
+export default Cron;

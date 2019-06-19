@@ -5,7 +5,7 @@ import Toggle from 'material-ui/Toggle';
 import Divider from 'material-ui/Divider';
 import { Link } from 'react-router-dom';
 
-import { DialogButton } from '../Buttons';
+import { DialogButton } from '../../components/Buttons';
 
 const styles = {
     listEntry: {

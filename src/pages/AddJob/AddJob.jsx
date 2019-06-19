@@ -1,15 +1,13 @@
 import React from 'react';
 import { string, object, func, bool, shape } from 'prop-types';
-import TextField from 'material-ui/TextField';
 import Paper from 'material-ui/Paper';
 import i18n from '@dhis2/d2-i18n';
 
-import ParameterList from '../ParameterList';
-import Heading from '../Heading';
-import Schedule from '../Schedule';
-import { DialogButton, ActionButtons, HelpButton } from '../Buttons';
-import Spinner from '../Spinner';
-import { Type } from '../JobFields';
+import ParameterList from '../../components/ParameterList';
+import Heading from '../../components/Heading';
+import { DialogButton, ActionButtons, HelpButton } from '../../components/Buttons';
+import Spinner from '../../components/Spinner';
+import { Type, Name, Cron } from '../../components/JobFields';
 
 const documentationHref =
     'https://docs.dhis2.org/master/en/user/html/dataAdmin_scheduling.html#dataAdmin_scheduling_config';
@@ -73,14 +71,12 @@ const AddJob = ({
                     <Heading style={styles.attributeHeader}>{i18n.t('Attributes')}</Heading>
                     <HelpButton href={documentationHref} />
                 </div>
-                <TextField
-                    fullWidth
+                <Name
                     value={job.name}
-                    floatingLabelText={`${i18n.t('Name')} *`}
                     onChange={(event, value) => handleFormChange({ name: value })}
                     errorText={errors.name}
                 />
-                <Schedule
+                <Cron
                     cronExpression={job.cronExpression}
                     continuousExecution={job.continuousExecution}
                     onCronExpressionChange={(event, value) => handleFormChange({ cronExpression: value })}

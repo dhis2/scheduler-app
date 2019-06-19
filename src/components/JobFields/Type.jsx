@@ -1,5 +1,5 @@
 import React from 'react';
-import { string } from 'prop-types';
+import { array, string, func } from 'prop-types';
 import { connect } from 'react-redux';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
@@ -22,6 +22,8 @@ const Type = ({ value, onChange, availableTypes }) => (
 
 Type.propTypes = {
     value: string.isRequired,
+    onChange: func.isRequired,
+    availableTypes: array.isRequired,
 };
 
 const mapStateToProps = state => ({
