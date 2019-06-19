@@ -6,7 +6,7 @@ import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import i18n from '@dhis2/d2-i18n';
 
-import Parameters from '../Parameters';
+import ParameterList from '../ParameterList';
 import Heading from '../Heading';
 import Schedule from '../Schedule';
 import { DialogButton, ActionButtons, HelpButton } from '../Buttons';
@@ -42,14 +42,14 @@ const styles = {
 };
 
 const EditJob = ({
-    attributeOptions,
-    availableParameters,
     availableTypes,
     errors,
     handleDelete,
     handleDiscard,
     handleFormChange,
+    handleParameterChange,
     handleSubmit,
+    handleTypeChange,
     isDeleting,
     isDirty,
     isLoading,
@@ -57,12 +57,6 @@ const EditJob = ({
     isValid,
     job,
 }) => {
-    const onJobTypeSelected = (event, index) => {
-        if (index !== -1) {
-            handleFormChange({ jobType: availableTypes[index] });
-        }
-    };
-
     if (isLoading) {
         return <Spinner />;
     }
@@ -76,7 +70,7 @@ const EditJob = ({
                     confirmationMessage={i18n.t('Are you sure you want to discard your changes?')}
                     onConfirm={handleDiscard}
                 />
-                <Heading>{i18n.t('Add new job')}</Heading>
+                <Heading>{job.name}</Heading>
             </div>
             <Paper style={styles.jobContent}>
                 <div style={styles.attributeHeaderContainer}>
@@ -101,23 +95,17 @@ const EditJob = ({
                     fullWidth
                     floatingLabelText={`${i18n.t('Job type')} *`}
                     value={job.jobType}
-                    onChange={onJobTypeSelected}
+                    onChange={handleTypeChange}
                 >
                     {availableTypes.map(type => (
                         <MenuItem key={type} value={type} primaryText={i18n.t(type)} />
                     ))}
                 </SelectField>
-
-                {job.jobType && (
-                    <Parameters
-                        type={job.jobType}
-                        parameters={job.parameters}
-                        availableParameters={availableParameters}
-                        attributeOptions={attributeOptions}
-                        onChange={value => handleFormChange({ parameters: value })}
-                    />
-                )}
-
+                <ParameterList
+                    type={job.jobType}
+                    values={job.parameters || {}}
+                    handleParameterChange={handleParameterChange}
+                />
                 <ActionButtons
                     job={job}
                     update={{
@@ -142,13 +130,12 @@ const EditJob = ({
 };
 
 EditJob.propTypes = {
-    attributeOptions: object.isRequired,
-    availableParameters: object.isRequired,
     availableTypes: array.isRequired,
     errors: object.isRequired,
     handleDelete: func.isRequired,
     handleDiscard: func.isRequired,
     handleFormChange: func.isRequired,
+    handleParameterChange: func.isRequired,
     handleSubmit: func.isRequired,
     isDeleting: bool.isRequired,
     isDirty: bool.isRequired,

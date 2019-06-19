@@ -16,7 +16,12 @@ class EditJobContainer extends React.Component {
 
     getCurrentJob = () => {
         const { jobs, match } = this.props;
-        const { currentJob } = this.state;
+        const { currentJob, isDirty } = this.state;
+
+        if (isDirty) {
+            return currentJob;
+        }
+
         const originalJob = jobs.all.find(job => job.id === match.params.id);
 
         return { ...originalJob, ...currentJob };
@@ -33,6 +38,21 @@ class EditJobContainer extends React.Component {
         this.setState({ currentJob: changedJob, errors, isValid, isDirty });
     }
 
+    handleTypeChange = (event, index, value) => {
+        const parameters = {};
+        const jobType = value;
+
+        this.handleFormChange({ jobType, parameters });
+    }
+
+    handleParameterChange = (change) => {
+        const currentJob = this.getCurrentJob();
+        const currentParameters = currentJob.parameters || {};
+        const changedParameters = { ...currentParameters, ...change };
+
+        this.handleFormChange({ parameters: changedParameters });
+    }
+
     handleSubmit = () => {
         this.props.save(this.state.currentJob);
     }
@@ -47,17 +67,17 @@ class EditJobContainer extends React.Component {
 
     render() {
         const { isDirty, isValid, errors } = this.state;
-        const { isLoading, isUpdating, isDeleting, attributeOptions, availableParameters, availableTypes } = this.props;
+        const { isLoading, isUpdating, isDeleting, availableTypes } = this.props;
         const currentJob = this.getCurrentJob();
 
         return (
             <EditJob
-                attributeOptions={attributeOptions}
-                availableParameters={availableParameters}
                 availableTypes={availableTypes}
                 errors={errors}
                 handleDelete={this.handleDelete}
                 handleDiscard={this.handleDiscard}
+                handleParameterChange={this.handleParameterChange}
+                handleTypeChange={this.handleTypeChange}
                 handleFormChange={this.handleFormChange}
                 handleSubmit={this.handleSubmit}
                 isDeleting={isDeleting}
@@ -75,8 +95,6 @@ const mapStateToProps = state => ({
     jobs: state.jobs,
     isLoading: !state.jobs.loaded || !state.jobs.configuration.loaded,
     availableTypes: state.jobs.configuration.types,
-    availableParameters: state.jobs.configuration.parameters,
-    attributeOptions: state.jobs.configuration.attributeOptions,
     isUpdating: state.pending.update,
     isDeleting: state.pending.delete,
 });

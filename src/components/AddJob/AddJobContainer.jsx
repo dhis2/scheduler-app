@@ -8,7 +8,13 @@ import AddJob from './AddJob';
 
 class AddJobContainer extends React.Component {
     state = {
-        currentJob: {},
+        currentJob: {
+            name: '',
+            type: '',
+            continuousExecution: false,
+            cronExpression: '',
+            parameters: {},
+        },
         isDirty: false,
         isValid: true,
         errors: {},
@@ -24,6 +30,19 @@ class AddJobContainer extends React.Component {
         this.setState({ currentJob: changedJob, errors, isValid, isDirty });
     }
 
+    handleTypeChange = (event, index, value) => {
+        const parameters = {};
+        const type = value;
+
+        this.handleFormChange({ type, parameters });
+    }
+
+    handleParameterChange = (change) => {
+        const changedParameters = { ...this.state.currentJob.parameters, ...change };
+
+        this.handleFormChange({ parameters: changedParameters });
+    }
+
     handleSubmit = () => {
         this.props.save(this.state.currentJob);
     }
@@ -35,11 +54,11 @@ class AddJobContainer extends React.Component {
     render() {
         return (
             <AddJob
-                attributeOptions={this.props.attributeOptions}
-                availableParameters={this.props.availableParameters}
                 availableTypes={this.props.availableTypes}
                 errors={this.state.errors}
                 handleDiscard={this.handleDiscard}
+                handleParameterChange={this.handleParameterChange}
+                handleTypeChange={this.handleTypeChange}
                 handleFormChange={this.handleFormChange}
                 handleSubmit={this.handleSubmit}
                 isDirty={this.state.isDirty}
@@ -53,8 +72,6 @@ class AddJobContainer extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    attributeOptions: state.jobs.configuration.attributeOptions,
-    availableParameters: state.jobs.configuration.parameters,
     availableTypes: state.jobs.configuration.types,
     isLoading: !state.jobs.loaded || !state.jobs.configuration.loaded,
     isUpdating: state.pending.update,

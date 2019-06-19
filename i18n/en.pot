@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2019-06-14T14:11:15.798Z\n"
-"PO-Revision-Date: 2019-06-14T14:11:15.798Z\n"
+"POT-Creation-Date: 2019-06-18T14:42:06.050Z\n"
+"PO-Revision-Date: 2019-06-18T14:42:06.050Z\n"
 
 msgid "Are you sure you want to discard your changes?"
 msgstr ""
@@ -47,19 +47,13 @@ msgstr ""
 msgid "Delete job"
 msgstr ""
 
-msgid "Are you sure you want to execute this job?"
-msgstr ""
-
-msgid "Execute"
-msgstr ""
-
-msgid "Run now"
-msgstr ""
-
 msgid "Scheduled jobs"
 msgstr ""
 
 msgid "Show system jobs"
+msgstr ""
+
+msgid "No jobs to show"
 msgstr ""
 
 msgid "Type"
@@ -74,16 +68,16 @@ msgstr ""
 msgid "Enabled"
 msgstr ""
 
-msgid "No jobs to show"
+msgid "Are you sure you want to execute this job?"
+msgstr ""
+
+msgid "Execute"
+msgstr ""
+
+msgid "Run now"
 msgstr ""
 
 msgid "Click to select"
-msgstr ""
-
-msgid "Start time"
-msgstr ""
-
-msgid "End time"
 msgstr ""
 
 msgid "Parameters"
