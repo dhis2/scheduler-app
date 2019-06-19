@@ -94,7 +94,7 @@ const EditJob = ({
                 <SelectField
                     fullWidth
                     floatingLabelText={`${i18n.t('Job type')} *`}
-                    value={job.jobType}
+                    value={job.type}
                     onChange={handleTypeChange}
                 >
                     {availableTypes.map(type => (
@@ -102,7 +102,7 @@ const EditJob = ({
                     ))}
                 </SelectField>
                 <ParameterList
-                    type={job.jobType}
+                    type={job.type}
                     values={job.parameters || {}}
                     handleParameterChange={handleParameterChange}
                 />
@@ -145,7 +145,7 @@ EditJob.propTypes = {
     job: shape({
         continuousExecution: bool,
         cronExpression: string,
-        jobType: string,
+        type: string,
         name: string,
         parameters: object,
     }).isRequired,

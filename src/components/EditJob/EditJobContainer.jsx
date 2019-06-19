@@ -23,8 +23,19 @@ class EditJobContainer extends React.Component {
         }
 
         const originalJob = jobs.all.find(job => job.id === match.params.id);
+        const shallowClonedJob = { ...originalJob };
 
-        return { ...originalJob, ...currentJob };
+        if (shallowClonedJob.jobType) {
+            shallowClonedJob.type = shallowClonedJob.jobType;
+            delete shallowClonedJob.jobType;
+        }
+
+        if (shallowClonedJob.jobParameters) {
+            shallowClonedJob.parameters = { ...shallowClonedJob.jobParameters };
+            delete shallowClonedJob.jobParameters;
+        }
+
+        return shallowClonedJob;
     }
 
     handleFormChange = (change) => {
@@ -40,9 +51,9 @@ class EditJobContainer extends React.Component {
 
     handleTypeChange = (event, index, value) => {
         const parameters = {};
-        const jobType = value;
+        const type = value;
 
-        this.handleFormChange({ jobType, parameters });
+        this.handleFormChange({ type, parameters });
     }
 
     handleParameterChange = (change) => {
