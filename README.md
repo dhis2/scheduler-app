@@ -1,53 +1,68 @@
-# Scheduler for DHIS 2
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-The Scheduler is an app for managing server jobs in DHIS2. It provides the ability to create, modify and delete jobs, given the right permissions. Documentation on scheduling can be found [here](https://docs.dhis2.org/master/en/user/html/dataAdmin_scheduling.html).
+## Available Scripts
 
-### Getting started
+In the project directory, you can run:
 
-The dependencies of the app are managed by `npm` or `yarn` (recommended).
+### `npm start`
 
-```bash
-> git clone git@github.com:dhis2/scheduler-app.git
-> cd scheduler-app
-> yarn
-```
+Runs the app in the development mode.<br>
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-Once dependencies are installed, you can run the app locally using yarn (or npm):
+The page will reload if you make edits.<br>
+You will also see any lint errors in the console.
 
-```bash
-> yarn start
-```
+### `npm test`
 
-By default, the app will be served on [localhost:9000](http://localhost:9000), and will attempt to connect to the DHIS2 API at [localhost:8080](http://localhost:8080). These settings can be changed in the `constants/development.js` file, where the basic authentication string is a simple base64-encoded version of the string `user:password`. For example,
+Launches the test runner in the interactive watch mode.<br>
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-```javascript
-btoa('admin:district'); // returns "YWRtaW46ZGlzdHJpY3Q="
-```
+### `npm run build`
 
-This command can be executed in the Chrome inspection panel.
+Builds the app for production to the `build` folder.<br>
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-### Development
+The build is minified and the filenames include the hashes.<br>
+Your app is ready to be deployed!
 
-#### Code style
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-Before commiting a change, please format your code:
+### `npm run eject`
 
-```bash
-> yarn run format
-```
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-For this to work, you must have `prettier` installed globally in either `yarn` or `npm`
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-```bash
-> yarn global add prettier
-```
+Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+
+### Analyzing the Bundle Size
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+
+### Making a Progressive Web App
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+
+### Advanced Configuration
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
 
 ### Deployment
 
-The Scheduler app is embedded in the DHIS2 core, and is therefore deployed via Sonatype. Travis is configured to *deploy successful builds automatically*.
+This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
 
-The following command is used to deploy the app manually. Always remember to `yarn build` before deployment.
+### `npm run build` fails to minify
 
-```bash
-> yarn run deploy
-```
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
