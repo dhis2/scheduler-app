@@ -5,9 +5,9 @@ import i18n from '@dhis2/d2-i18n';
 
 import ParameterList from '../../components/ParameterList';
 import Heading from '../../components/Heading';
-import { DialogButton, ActionButtons, HelpButton } from '../../components/Buttons';
+import { DialogButton, HelpButton } from '../../components/Buttons';
 import Spinner from '../../components/Spinner';
-import { Type, Name, Cron } from '../../components/JobFields';
+import { Type, Name, Cron, ActionButtons } from '../../components/JobFields';
 
 const documentationHref =
     'https://docs.dhis2.org/master/en/user/html/dataAdmin_scheduling.html#dataAdmin_scheduling_config';

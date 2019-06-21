@@ -1,5 +1,5 @@
 import React from 'react';
-import { AddButton } from '../../components/Buttons';
+import AddButton from './AddButton';
 import Header from './Header';
 import Table from './Table';
 
