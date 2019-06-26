@@ -19,6 +19,11 @@
     },
     "devDependencies": {
         "@dhis2/cli-style": "^3.3.4",
+        "eslint-config-prettier": "^6.0.0",
+        "eslint-plugin-compat": "^3.1.2",
+        "eslint-plugin-import": "^2.18.0",
+        "eslint-plugin-jsx-a11y": "^6.2.1",
+        "eslint-plugin-react": "^7.14.2",
         "husky": "^2.5.0"
     },
     "husky": {
@@ -27,4 +32,4 @@
             "pre-commit": "d2-style js apply"
         }
     }
-  }
+}
