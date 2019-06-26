@@ -1,4 +1,13 @@
+# Scheduler
+
+[![build status][build-badge]][build-url]
+[![greenkeeper status][greenkeeper-badge]][greenkeeper-url]
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Env settings
+
+Env variables for this app can be configured per environment (`development`, `production`, `test`). If you're running your local DHIS2 backend on a different port than the one specified in `.env.development`, you can specify an override in a `.env.development.local` file. For more information see https://facebook.github.io/create-react-app/docs/adding-custom-environment-variables
 
 ## Available Scripts
 
@@ -66,3 +75,8 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+[build-badge]: https://travis-ci.com/dhis2/scheduler-app.svg?branch=master
+[build-url]: https://travis-ci.com/dhis2/scheduler-app
+[greenkeeper-badge]: https://badges.greenkeeper.io/dhis2/scheduler-app.svg
+[greenkeeper-url]: https://greenkeeper.io
