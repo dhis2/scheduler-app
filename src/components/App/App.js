@@ -9,7 +9,7 @@ const { REACT_APP_DHIS2_BASE_URL } = process.env
 const App = () => (
     <DataProvider baseUrl={REACT_APP_DHIS2_BASE_URL} apiVersion="">
         <CssReset />
-        <HeaderBar />
+        <HeaderBar appName="Scheduler" />
         <Routes />
     </DataProvider>
 )
