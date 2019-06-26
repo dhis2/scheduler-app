@@ -1,7 +1,5 @@
-import React from 'react';
+import React from 'react'
 
-const JobList = () => (
-  <div>List jobs</div>
-);
+const JobList = () => <div>List jobs</div>
 
-export default JobList;
+export default JobList

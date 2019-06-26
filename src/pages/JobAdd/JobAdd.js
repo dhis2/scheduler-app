@@ -1,7 +1,5 @@
-import React from 'react';
+import React from 'react'
 
-const JobAdd = () => (
-  <div>Add job</div>
-);
+const JobAdd = () => <div>Add job</div>
 
-export default JobAdd;
+export default JobAdd
