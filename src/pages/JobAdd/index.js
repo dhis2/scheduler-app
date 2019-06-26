@@ -1,1 +1,1 @@
-export { default } from './JobAdd';
+export { default } from './JobAdd'

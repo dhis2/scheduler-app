@@ -1,1 +1,1 @@
-export { default } from './JobEdit';
+export { default } from './JobEdit'
