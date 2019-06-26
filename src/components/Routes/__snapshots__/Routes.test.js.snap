@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Routes> renders correctly 1`] = `
+<HashRouter>
+  <Route
+    component={[Function]}
+    exact={true}
+    path="/"
+  />
+  <Route
+    component={[Function]}
+    path="/edit/:id"
+  />
+  <Route
+    component={[Function]}
+    path="/add"
+  />
+</HashRouter>
+`;
