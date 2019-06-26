@@ -21,6 +21,9 @@
     },
     "devDependencies": {
         "@dhis2/cli-style": "^3.3.4",
+        "enzyme": "^3.10.0",
+        "enzyme-adapter-react-16": "^1.14.0",
+        "enzyme-to-json": "^3.3.5",
         "eslint-config-prettier": "^6.0.0",
         "eslint-plugin-compat": "^3.1.2",
         "eslint-plugin-import": "^2.18.0",
@@ -37,5 +40,8 @@
             "commit-msg": "d2-style commit check",
             "pre-commit": "d2-style js apply"
         }
+    },
+    "jest": {
+        "snapshotSerializers": ["enzyme-to-json/serializer"]
     }
 }
