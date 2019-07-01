@@ -1,10 +1,10 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import Arrange from './Arrange'
+import Info from './Info'
 
-describe('<Arrange>', () => {
+describe('<Info>', () => {
     it('renders correctly', () => {
-        const wrapper = shallow(<Arrange>Text</Arrange>)
+        const wrapper = shallow(<Info />)
 
         expect(wrapper).toMatchSnapshot()
     })
