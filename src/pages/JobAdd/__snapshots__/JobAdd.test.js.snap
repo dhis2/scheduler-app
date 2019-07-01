@@ -8,14 +8,58 @@ exports[`<JobAdd> renders correctly 1`] = `
     New Job
   </Title>
   <Card>
-    <Arrange>
-      <Title
-        priority={3}
+    <Title
+      priority={3}
+    >
+      Configuration
+    </Title>
+    <Info />
+    <a
+      href="https://docs.dhis2.org/master/en/user/html/dataAdmin_scheduling.html#dataAdmin_scheduling_config"
+    >
+      About job configuration
+    </a>
+    <InputField
+      label="Name"
+      onBlur={[Function]}
+      onFocus={[Function]}
+      type="text"
+    />
+    <SelectField
+      label="Frequency"
+    >
+      <option
+        value="0"
       >
-        Configuration
-      </Title>
-      Helptext
-    </Arrange>
+        Continuous execution
+      </option>
+    </SelectField>
+    <SelectField
+      label="Job type"
+    >
+      <option
+        value="0"
+      >
+        Monitoring
+      </option>
+    </SelectField>
+    <Button
+      primary={true}
+      type="button"
+    >
+      Save job
+    </Button>
+    <Button
+      type="button"
+    >
+      Cancel
+    </Button>
+    <Button
+      destructive={true}
+      type="button"
+    >
+      Delete job
+    </Button>
   </Card>
 </Fragment>
 `;
