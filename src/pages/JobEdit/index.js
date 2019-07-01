@@ -1,1 +1,3 @@
-export { default } from './JobEdit'
+import JobEdit from './JobEdit'
+
+export { JobEdit }
