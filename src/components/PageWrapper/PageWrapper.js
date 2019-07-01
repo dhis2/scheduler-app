@@ -1,13 +1,13 @@
 import React from 'react'
 import { node } from 'prop-types'
-import styles from './Wrapper.module.css'
+import styles from './PageWrapper.module.css'
 
-const Wrapper = ({ children }) => (
+const PageWrapper = ({ children }) => (
     <div className={styles.wrapper}>{children}</div>
 )
 
-Wrapper.propTypes = {
+PageWrapper.propTypes = {
     children: node.isRequired,
 }
 
-export default Wrapper
+export default PageWrapper

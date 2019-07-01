@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<JobList> renders correctly 1`] = `
-<Wrapper>
+<Fragment>
   <Title
     priority={2}
   >
@@ -10,5 +10,5 @@ exports[`<JobList> renders correctly 1`] = `
   <Card>
     Some content here
   </Card>
-</Wrapper>
+</Fragment>
 `;
