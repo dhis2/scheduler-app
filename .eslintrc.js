@@ -40,6 +40,7 @@ module.exports = {
             },
         ],
         'import/order': ['error', { 'newlines-between': 'never' }],
+        'react/require-default-props': SEVERITY,
     },
     settings: {
         react: {
