@@ -2,7 +2,11 @@
 
 exports[`<JobList> renders correctly 1`] = `
 <Wrapper>
-  List jobs
+  <Title
+    priority={2}
+  >
+    Scheduled Jobs
+  </Title>
   <Card>
     Some content here
   </Card>
