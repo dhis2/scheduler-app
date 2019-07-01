@@ -1,7 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<JobAdd> renders correctly 1`] = `
-<div>
-  Add job
-</div>
+<Fragment>
+  <Title
+    priority={2}
+  >
+    New Job
+  </Title>
+  <Card>
+    <Arrange>
+      <Title
+        priority={3}
+      >
+        Configuration
+      </Title>
+      Helptext
+    </Arrange>
+  </Card>
+</Fragment>
 `;
