@@ -1,1 +1,3 @@
-export { default } from './JobAdd'
+import JobAdd from './JobAdd'
+
+export { JobAdd }
