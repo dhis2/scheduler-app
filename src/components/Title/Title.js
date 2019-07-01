@@ -1,5 +1,5 @@
 import React from 'react'
-import { string, number } from 'prop-types'
+import { string, oneOf } from 'prop-types'
 
 const Title = ({ children, priority }) => {
     const Heading = `h${priority}`
@@ -13,7 +13,7 @@ Title.defaultProps = {
 
 Title.propTypes = {
     children: string.isRequired,
-    priority: number,
+    priority: oneOf([1, 2, 3, 4, 5, 6]),
 }
 
 export default Title
