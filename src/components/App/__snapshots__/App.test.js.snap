@@ -9,6 +9,8 @@ exports[`<App> renders correctly 1`] = `
   <HeaderBar
     appName="Scheduler"
   />
-  <Routes />
+  <PageWrapper>
+    <Routes />
+  </PageWrapper>
 </Provider>
 `;
