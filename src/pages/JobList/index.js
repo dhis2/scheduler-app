@@ -1,1 +1,3 @@
-export { default } from './JobList'
+import JobList from './JobList'
+
+export { JobList }
