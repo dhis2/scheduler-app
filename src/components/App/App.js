@@ -4,6 +4,7 @@ import { HeaderBar } from '@dhis2/ui-widgets'
 import { DataProvider } from '@dhis2/app-runtime'
 import { Routes } from '../Routes'
 import { PageWrapper } from '../PageWrapper'
+import { AuthWall } from '../AuthWall'
 
 const { REACT_APP_DHIS2_BASE_URL } = process.env
 
@@ -12,7 +13,9 @@ const App = () => (
         <CssReset />
         <HeaderBar appName="Scheduler" />
         <PageWrapper>
-            <Routes />
+            <AuthWall>
+                <Routes />
+            </AuthWall>
         </PageWrapper>
     </DataProvider>
 )
