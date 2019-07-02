@@ -1,3 +1,3 @@
-import JobList from './JobList'
+import JobListContainer from './JobListContainer'
 
-export { JobList }
+export { JobListContainer }

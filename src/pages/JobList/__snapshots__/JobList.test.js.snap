@@ -13,6 +13,11 @@ exports[`<JobList> renders correctly 1`] = `
     >
       New job
     </Link>
+    <div
+      key="id"
+    >
+      name
+    </div>
   </Card>
 </Fragment>
 `;

@@ -4,7 +4,13 @@ import JobList from './JobList'
 
 describe('<JobList>', () => {
     it('renders correctly', () => {
-        const wrapper = shallow(<JobList />)
+        const jobs = [
+            {
+                id: 'id',
+                displayName: 'name',
+            },
+        ]
+        const wrapper = shallow(<JobList jobs={jobs} />)
 
         expect(wrapper).toMatchSnapshot()
     })
