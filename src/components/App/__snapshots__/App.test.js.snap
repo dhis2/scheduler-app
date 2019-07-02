@@ -10,7 +10,9 @@ exports[`<App> renders correctly 1`] = `
     appName="Scheduler"
   />
   <PageWrapper>
-    <Routes />
+    <AuthWall>
+      <Routes />
+    </AuthWall>
   </PageWrapper>
 </Provider>
 `;
