@@ -8,7 +8,11 @@ exports[`<JobList> renders correctly 1`] = `
     Scheduled Jobs
   </Title>
   <Card>
-    Some content here
+    <Link
+      to="/add"
+    >
+      New job
+    </Link>
   </Card>
 </Fragment>
 `;
