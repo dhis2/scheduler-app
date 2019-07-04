@@ -3,15 +3,32 @@ import { arrayOf, shape, string } from 'prop-types'
 import { Card } from '@dhis2/ui-core'
 import { Link } from 'react-router-dom'
 import { Title } from '../../components/Title'
+import { Info } from '../../components/Icons'
+import JobListItem from './JobListItem'
 
 const JobList = ({ jobs }) => (
     <React.Fragment>
         <Title priority={2}>Scheduled Jobs</Title>
+        <Info />
         <Card>
             <Link to="/add">New job</Link>
-            {jobs.map(({ id, displayName }) => (
-                <div key={id}>{displayName}</div>
-            ))}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Job name</th>
+                        <th>Type</th>
+                        <th>Frequency</th>
+                        <th>Next run in</th>
+                        <th>Status</th>
+                        <th>On/off</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {jobs.map(job => (
+                        <JobListItem key={job.id} job={job} />
+                    ))}
+                </tbody>
+            </table>
         </Card>
     </React.Fragment>
 )
@@ -20,7 +37,6 @@ JobList.propTypes = {
     jobs: arrayOf(
         shape({
             id: string,
-            displayName: string,
         })
     ).isRequired,
 }

@@ -14,14 +14,8 @@ exports[`<AuthWall> renders errors if they occur 1`] = `
 </span>
 `;
 
-exports[`<AuthWall> renders the children for users with permission ALL 1`] = `
+exports[`<AuthWall> renders the children for authorized users 1`] = `
 <Fragment>
-  Child
-</Fragment>
-`;
-
-exports[`<AuthWall> renders the children for users with permission F_SCHEDULING_ADMIN 1`] = `
-<Fragment>
-  Child
+  Children
 </Fragment>
 `;
