@@ -7,11 +7,12 @@ import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 import nock from 'nock'
 import * as rootSelectors from '../../rootSelectors'
+import endpoints from '../../services/endpoints'
 import * as types from './actionTypes'
 import * as actions from './actions'
 import * as selectors from './reducer'
 
-const { REACT_APP_DHIS2_BASE_URL } = process.env
+const { origin, pathname } = new URL(endpoints.me)
 
 /**
  * Mocks
@@ -69,8 +70,8 @@ describe('fetchMe', () => {
 
     it('should handle successful fetches', () => {
         const mockResponse = { mock: 'data' }
-        nock(REACT_APP_DHIS2_BASE_URL)
-            .get('/api/me')
+        nock(origin)
+            .get(pathname)
             .reply(200, mockResponse)
 
         const store = mockStore({})
@@ -90,8 +91,8 @@ describe('fetchMe', () => {
 
     it('should handle unsuccessful fetches', () => {
         const error = new Error('Internal Server Error')
-        nock(REACT_APP_DHIS2_BASE_URL)
-            .get('/api/me')
+        nock(origin)
+            .get(pathname)
             .reply(500)
 
         const store = mockStore({})
@@ -122,8 +123,8 @@ describe('fetchMeIfNeeded', () => {
 
     it('should fetch me if needed', () => {
         const mockResponse = { mock: 'data' }
-        nock(REACT_APP_DHIS2_BASE_URL)
-            .get('/api/me')
+        nock(origin)
+            .get(pathname)
             .reply(200, mockResponse)
         selectors.getShouldFetch.mockReturnValueOnce(true)
 
