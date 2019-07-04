@@ -1,9 +1,8 @@
 import fetchy from '../../services/fetchy'
 import * as rootSelectors from '../../rootSelectors'
+import endpoints from '../../services/endpoints'
 import * as types from './actionTypes'
 import * as selectors from './reducer'
-
-const endpoint = `${process.env.REACT_APP_DHIS2_BASE_URL}/api/me`
 
 export const fetchMeSuccess = payload => ({
     type: types.FETCH_ME_SUCCESS,
@@ -24,7 +23,7 @@ export const fetchMeFail = error => ({
 export const fetchMe = () => dispatch => {
     dispatch({ type: types.FETCH_ME })
 
-    return fetchy(endpoint, { credentials: 'include' })
+    return fetchy(endpoints.me, { credentials: 'include' })
         .then(response => response.json())
         .then(data => dispatch(fetchMeSuccess(data)))
         .catch(error => dispatch(fetchMeFail(error)))
