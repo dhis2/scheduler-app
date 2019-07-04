@@ -1,5 +1,6 @@
 import React from 'react'
 import { Card, InputField, SelectField, Button } from '@dhis2/ui-core'
+import { Link } from 'react-router-dom'
 import { Title } from '../../components/Title'
 import { Info } from '../../components/Icons'
 
@@ -8,6 +9,7 @@ const infoLink =
 
 const JobAdd = () => (
     <React.Fragment>
+        <Link to="/">Back to all jobs</Link>
         <Title priority={2}>New Job</Title>
         <Card>
             <Title priority={3}>Configuration</Title>
@@ -22,7 +24,6 @@ const JobAdd = () => (
             </SelectField>
             <Button primary>Save job</Button>
             <Button>Cancel</Button>
-            <Button destructive>Delete job</Button>
         </Card>
     </React.Fragment>
 )

@@ -1,44 +1,57 @@
 import React from 'react'
-import { node } from 'prop-types'
-import { useDataQuery } from '@dhis2/app-runtime'
+import { connect } from 'react-redux'
+import { node, func, string, bool } from 'prop-types'
 import { CircularLoader } from '@dhis2/ui-core'
+import { getMe } from '../../rootSelectors'
+import { actions, selectors } from '../../data/me'
 
-const checkAuthorization = permissions => {
-    if (!permissions) {
-        return false
+export class UnconnectedAuthWall extends React.Component {
+    componentDidMount() {
+        this.props.fetchMeIfNeeded()
     }
 
-    const isAuthorized =
-        permissions.includes('ALL') ||
-        permissions.includes('F_SCHEDULING_ADMIN')
+    render() {
+        const { children, isFetching, errorMessage, isAuthorized } = this.props
 
-    return isAuthorized
+        if (isFetching) {
+            return <CircularLoader />
+        }
+
+        if (errorMessage) {
+            return <span>{errorMessage}</span>
+        }
+
+        if (!isAuthorized) {
+            return <span>You are not authorized</span>
+        }
+
+        return <React.Fragment>{children}</React.Fragment>
+    }
 }
 
-const AuthWall = ({ children }) => {
-    const { loading, error, data } = useDataQuery({
-        me: { resource: 'me' },
-    })
-
-    if (loading) {
-        return <CircularLoader />
-    }
-
-    if (error) {
-        return <span>{error.message}</span>
-    }
-
-    const isAuthorized = checkAuthorization(data.me.authorities)
-
-    if (!isAuthorized) {
-        return <span>You are not authorized</span>
-    }
-
-    return <React.Fragment>{children}</React.Fragment>
-}
-
-AuthWall.propTypes = {
+UnconnectedAuthWall.propTypes = {
     children: node.isRequired,
+    isFetching: bool.isRequired,
+    errorMessage: string.isRequired,
+    isAuthorized: bool.isRequired,
+    fetchMeIfNeeded: func.isRequired,
 }
 
-export default AuthWall
+const mapStateToProps = state => {
+    const me = getMe(state)
+
+    return {
+        isFetching: selectors.getIsFetching(me),
+        errorMessage: selectors.getErrorMessage(me),
+        isAuthorized: selectors.getIsAuthorized(me),
+    }
+}
+
+const mapDispatchToProps = {
+    fetchMeIfNeeded: actions.fetchMeIfNeeded,
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(UnconnectedAuthWall)
