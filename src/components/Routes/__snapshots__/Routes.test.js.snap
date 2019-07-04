@@ -3,7 +3,15 @@
 exports[`<Routes> renders correctly 1`] = `
 <HashRouter>
   <Route
-    component={[Function]}
+    component={
+      Object {
+        "$$typeof": Symbol(react.memo),
+        "WrappedComponent": [Function],
+        "compare": null,
+        "displayName": "Connect(UnconnectedJobListContainer)",
+        "type": [Function],
+      }
+    }
     exact={true}
     path="/"
   />

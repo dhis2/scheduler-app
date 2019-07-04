@@ -1,12 +1,10 @@
 import React from 'react'
-import { arrayOf, shape, string } from 'prop-types'
 import { Card } from '@dhis2/ui-core'
 import { Link } from 'react-router-dom'
 import { Title } from '../../components/Title'
 import { Info } from '../../components/Icons'
-import JobListItem from './JobListItem'
 
-const JobList = ({ jobs }) => (
+const JobList = () => (
     <React.Fragment>
         <Title priority={2}>Scheduled Jobs</Title>
         <Info />
@@ -23,22 +21,10 @@ const JobList = ({ jobs }) => (
                         <th>On/off</th>
                     </tr>
                 </thead>
-                <tbody>
-                    {jobs.map(job => (
-                        <JobListItem key={job.id} job={job} />
-                    ))}
-                </tbody>
+                <tbody></tbody>
             </table>
         </Card>
     </React.Fragment>
 )
-
-JobList.propTypes = {
-    jobs: arrayOf(
-        shape({
-            id: string,
-        })
-    ).isRequired,
-}
 
 export default JobList
