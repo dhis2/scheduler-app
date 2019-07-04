@@ -12,7 +12,9 @@ export const UnconnectedAuthWall = ({
     isAuthorized,
     fetchMeIfNeeded,
 }) => {
-    useEffect(() => fetchMeIfNeeded(), [])
+    useEffect(() => {
+        fetchMeIfNeeded()
+    }, [fetchMeIfNeeded])
 
     if (isFetching) {
         return <CircularLoader />
