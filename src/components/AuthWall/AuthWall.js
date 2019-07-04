@@ -1,32 +1,32 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { node, func, string, bool } from 'prop-types'
 import { CircularLoader } from '@dhis2/ui-core'
 import { getMe } from '../../rootSelectors'
 import { actions, selectors } from '../../data/me'
 
-export class UnconnectedAuthWall extends React.Component {
-    componentDidMount() {
-        this.props.fetchMeIfNeeded()
+export const UnconnectedAuthWall = ({
+    children,
+    isFetching,
+    errorMessage,
+    isAuthorized,
+    fetchMeIfNeeded,
+}) => {
+    useEffect(() => fetchMeIfNeeded(), [])
+
+    if (isFetching) {
+        return <CircularLoader />
     }
 
-    render() {
-        const { children, isFetching, errorMessage, isAuthorized } = this.props
-
-        if (isFetching) {
-            return <CircularLoader />
-        }
-
-        if (errorMessage) {
-            return <span>{errorMessage}</span>
-        }
-
-        if (!isAuthorized) {
-            return <span>You are not authorized</span>
-        }
-
-        return <React.Fragment>{children}</React.Fragment>
+    if (errorMessage) {
+        return <span>{errorMessage}</span>
     }
+
+    if (!isAuthorized) {
+        return <span>You are not authorized</span>
+    }
+
+    return <React.Fragment>{children}</React.Fragment>
 }
 
 UnconnectedAuthWall.propTypes = {
