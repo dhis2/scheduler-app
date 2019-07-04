@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { shallow, mount } from 'enzyme'
 import { UnconnectedAuthWall as AuthWall } from './AuthWall'
 
 const defaultProps = {
@@ -41,7 +41,7 @@ describe('<AuthWall>', () => {
 
     it('fetches data on mount', () => {
         const props = { ...defaultProps, fetchMeIfNeeded: jest.fn() }
-        const wrapper = shallow(<AuthWall {...props} />)
+        mount(<AuthWall {...props} />)
 
         expect(props.fetchMeIfNeeded).toHaveBeenCalled()
     })
