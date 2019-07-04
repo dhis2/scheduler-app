@@ -2,17 +2,27 @@
 
 exports[`<App> renders correctly 1`] = `
 <Provider
-  apiVersion=""
-  baseUrl=""
+  store={
+    Object {
+      "dispatch": [Function],
+      "getState": [Function],
+      "subscribe": [Function],
+    }
+  }
 >
-  <CssReset />
-  <HeaderBar
-    appName="Scheduler"
-  />
-  <PageWrapper>
-    <AuthWall>
-      <Routes />
-    </AuthWall>
-  </PageWrapper>
+  <Provider
+    apiVersion=""
+    baseUrl=""
+  >
+    <CssReset />
+    <HeaderBar
+      appName="Scheduler"
+    />
+    <PageWrapper>
+      <Connect(UnconnectedAuthWall)>
+        <Routes />
+      </Connect(UnconnectedAuthWall)>
+    </PageWrapper>
+  </Provider>
 </Provider>
 `;
