@@ -12,7 +12,7 @@ exports[`<App> renders correctly 1`] = `
 >
   <Provider
     apiVersion=""
-    baseUrl=""
+    baseUrl="http://www.dhis2.test"
   >
     <CssReset />
     <HeaderBar
