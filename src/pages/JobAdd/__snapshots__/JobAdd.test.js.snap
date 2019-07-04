@@ -2,6 +2,11 @@
 
 exports[`<JobAdd> renders correctly 1`] = `
 <Fragment>
+  <Link
+    to="/"
+  >
+    Back to all jobs
+  </Link>
   <Title
     priority={2}
   >
@@ -53,12 +58,6 @@ exports[`<JobAdd> renders correctly 1`] = `
       type="button"
     >
       Cancel
-    </Button>
-    <Button
-      destructive={true}
-      type="button"
-    >
-      Delete job
     </Button>
   </Card>
 </Fragment>

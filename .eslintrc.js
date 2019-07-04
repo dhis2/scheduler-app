@@ -7,6 +7,7 @@ module.exports = {
         browser: true,
         node: true,
         jest: true,
+        es6: true,
     },
     parserOptions: {
         ecmaVersion: 2018,
@@ -26,6 +27,7 @@ module.exports = {
         'prettier/react',
     ],
     rules: {
+        'compat/compat': 1,
         'max-params': [
             SEVERITY,
             {
