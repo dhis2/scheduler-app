@@ -18,9 +18,6 @@ const { origin, pathname } = new URL(endpoints.me)
  * Mocks
  */
 
-// Return consistent date for testing
-Date.now = jest.fn(() => 1)
-
 // Allow selectors to be mocked
 selectors.getShouldFetch = jest.fn() // eslint-disable-line import/namespace
 rootSelectors.getMe = jest.fn() // eslint-disable-line import/namespace
@@ -37,7 +34,6 @@ describe('fetchMeSuccess', () => {
         const actual = actions.fetchMeSuccess('payload')
         const expected = {
             type: types.FETCH_ME_SUCCESS,
-            meta: { receivedAt: 1 },
             payload: 'payload',
         }
 
@@ -50,7 +46,6 @@ describe('fetchMeFail', () => {
         const actual = actions.fetchMeFail('error')
         const expected = {
             type: types.FETCH_ME_FAIL,
-            meta: { receivedAt: 1 },
             error: 'error',
         }
 
@@ -79,7 +74,6 @@ describe('fetchMe', () => {
             { type: types.FETCH_ME },
             {
                 type: types.FETCH_ME_SUCCESS,
-                meta: { receivedAt: 1 },
                 payload: mockResponse,
             },
         ]
@@ -100,7 +94,6 @@ describe('fetchMe', () => {
             { type: types.FETCH_ME },
             {
                 type: types.FETCH_ME_FAIL,
-                meta: { receivedAt: 1 },
                 error: error,
             },
         ]
@@ -133,7 +126,6 @@ describe('fetchMeIfNeeded', () => {
             { type: types.FETCH_ME },
             {
                 type: types.FETCH_ME_SUCCESS,
-                meta: { receivedAt: 1 },
                 payload: mockResponse,
             },
         ]
