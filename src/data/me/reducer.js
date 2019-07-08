@@ -3,7 +3,7 @@ import * as types from './actionTypes'
 const fallbackMessage =
     'Something went wrong, but no errormessage was provided.'
 const initialState = {
-    lastUpdated: 0,
+    didFetchSuccessfully: false,
     errorMessage: '',
     isFetching: false,
     data: {},
@@ -15,7 +15,7 @@ const reducer = (state = initialState, action) => {
             return { ...state, isFetching: true }
         case types.FETCH_ME_SUCCESS:
             return {
-                lastUpdated: action.meta.receivedAt,
+                didFetchSuccessfully: true,
                 errorMessage: '',
                 isFetching: false,
                 data: action.payload,
@@ -23,7 +23,6 @@ const reducer = (state = initialState, action) => {
         case types.FETCH_ME_FAIL:
             return {
                 ...state,
-                lastUpdated: action.meta.receivedAt,
                 errorMessage: action.error.message || fallbackMessage,
                 isFetching: false,
                 data: {},
@@ -61,10 +60,9 @@ export const getShouldFetch = state => {
         isFetching,
         errorMessage,
         data: { authorities },
-        lastUpdated,
+        didFetchSuccessfully,
     } = state
     const hasError = !!errorMessage
-    const didFetch = !!lastUpdated
     const hasAuthorities = !!authorities
 
     if (isFetching || hasAuthorities) {
@@ -72,5 +70,5 @@ export const getShouldFetch = state => {
     }
 
     // Fetch if there's an error, if it hasn't fetched yet or there are no authorities
-    return hasError || !didFetch || !hasAuthorities
+    return hasError || !didFetchSuccessfully || !hasAuthorities
 }
