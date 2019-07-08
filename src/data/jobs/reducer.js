@@ -3,9 +3,10 @@ import * as types from './actionTypes'
 const fallbackMessage =
     'Something went wrong, but no errormessage was provided.'
 const initialState = {
-    lastUpdated: 0,
+    didFetchSuccessfully: false,
     errorMessage: '',
     isFetching: false,
+    isDirty: false,
     entities: {},
     ids: [],
 }
@@ -16,18 +17,24 @@ const reducer = (state = initialState, action) => {
             return { ...state, isFetching: true }
         case types.FETCH_JOBS_SUCCESS:
             return {
-                lastUpdated: action.meta.receivedAt,
+                didFetchSuccessfully: true,
                 errorMessage: '',
                 isFetching: false,
+                isDirty: false,
                 entities: action.payload.entities.jobs,
                 ids: action.payload.result,
             }
         case types.FETCH_JOBS_FAIL:
             return {
                 ...state,
-                lastUpdated: action.meta.receivedAt,
                 errorMessage: action.error.message || fallbackMessage,
                 isFetching: false,
+            }
+        case types.ENABLE_JOB_SUCCESS:
+        case types.DISABLE_JOB_SUCCESS:
+            return {
+                ...state,
+                isDirty: true,
             }
         default:
             return state
@@ -46,14 +53,12 @@ export const getEntities = state => state.entities
 export const getIds = state => state.ids
 
 export const getShouldFetch = state => {
-    const { isFetching, errorMessage, lastUpdated } = state
+    const { isFetching, isDirty, errorMessage, didFetchSuccessfully } = state
     const hasError = !!errorMessage
-    const didFetch = !!lastUpdated
 
     if (isFetching) {
         return false
     }
 
-    // Fetch if there's an error or if it hasn't fetched yet
-    return hasError || !didFetch
+    return hasError || isDirty || !didFetchSuccessfully
 }
