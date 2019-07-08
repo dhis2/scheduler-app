@@ -14,6 +14,8 @@ const initialState = {
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case types.FETCH_JOBS:
+        case types.ENABLE_JOB:
+        case types.DISABLE_JOB:
             return { ...state, isFetching: true }
         case types.FETCH_JOBS_SUCCESS:
             return {
@@ -25,6 +27,8 @@ const reducer = (state = initialState, action) => {
                 ids: action.payload.result,
             }
         case types.FETCH_JOBS_FAIL:
+        case types.ENABLE_JOB_FAIL:
+        case types.DISABLE_JOB_FAIL:
             return {
                 ...state,
                 errorMessage: action.error.message || fallbackMessage,
@@ -34,6 +38,7 @@ const reducer = (state = initialState, action) => {
         case types.DISABLE_JOB_SUCCESS:
             return {
                 ...state,
+                isFetching: false,
                 isDirty: true,
             }
         default:
