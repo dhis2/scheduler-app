@@ -3,9 +3,10 @@ import * as types from './actionTypes'
 
 describe('reducer', () => {
     const initialState = {
-        lastUpdated: 0,
+        didFetchSuccessfully: false,
         errorMessage: '',
         isFetching: false,
+        isDirty: false,
         entities: {},
         ids: [],
     }
@@ -37,14 +38,14 @@ describe('reducer', () => {
         }
         const actual = reducer(fetchingState, {
             type: types.FETCH_JOBS_SUCCESS,
-            meta: { receivedAt: 1 },
             payload,
         })
         const expected = {
             ...fetchingState,
-            lastUpdated: 1,
+            didFetchSuccessfully: true,
             errorMessage: '',
             isFetching: false,
+            isDirty: false,
             entities: 'job',
             ids: ['job'],
         }
@@ -55,12 +56,10 @@ describe('reducer', () => {
     it('should handle FETCH_JOBS_FAIL with an errormessage', () => {
         const actual = reducer(fetchingState, {
             type: types.FETCH_JOBS_FAIL,
-            meta: { receivedAt: 1 },
             error: new Error('error'),
         })
         const expected = {
             ...fetchingState,
-            lastUpdated: 1,
             errorMessage: 'error',
             isFetching: false,
         }
@@ -71,12 +70,10 @@ describe('reducer', () => {
     it('should handle FETCH_JOBS_FAIL without an errormessage', () => {
         const actual = reducer(fetchingState, {
             type: types.FETCH_JOBS_FAIL,
-            meta: { receivedAt: 1 },
             error: new Error(),
         })
         const expected = {
             ...fetchingState,
-            lastUpdated: 1,
             errorMessage:
                 'Something went wrong, but no errormessage was provided.',
             isFetching: false,
@@ -108,7 +105,7 @@ describe('getErrorMessage', () => {
 
 describe('getShouldFetch', () => {
     const initialState = {
-        lastUpdated: 0,
+        didFetchSuccessfully: false,
         errorMessage: '',
         isFetching: false,
         entities: {},
@@ -133,6 +130,14 @@ describe('getShouldFetch', () => {
 
     it('should return true if it has not fetched yet', () => {
         const state = { ...initialState }
+        const expected = true
+        const actual = selectors.getShouldFetch(state)
+
+        expect(actual).toEqual(expected)
+    })
+
+    it('should return true if it is dirty', () => {
+        const state = { ...initialState, isDirty: true }
         const expected = true
         const actual = selectors.getShouldFetch(state)
 

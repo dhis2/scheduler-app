@@ -1,13 +1,16 @@
 import React from 'react'
-import { shape, string } from 'prop-types'
+import { bool, shape, string } from 'prop-types'
+import { JobToggleSwitch } from '../../components/Switches'
 
 const JobListItem = ({ job }) => {
     const {
+        id,
         displayName,
         jobType,
         cronExpression,
         jobStatus,
         nextExecutionTime,
+        enabled,
     } = job
 
     return (
@@ -17,7 +20,9 @@ const JobListItem = ({ job }) => {
             <td>{cronExpression}</td>
             <td>{nextExecutionTime}</td>
             <td>{jobStatus}</td>
-            <td>On/onff button here</td>
+            <td>
+                <JobToggleSwitch id={id} checked={enabled} />
+            </td>
             <td>Context menu here</td>
         </tr>
     )
@@ -25,11 +30,13 @@ const JobListItem = ({ job }) => {
 
 JobListItem.propTypes = {
     job: shape({
-        displayName: string,
-        jobType: string,
-        cronExpression: string,
-        nextExecutionTime: string,
-        jobStatus: string,
+        id: string.isRequired,
+        displayName: string.isRequired,
+        jobType: string.isRequired,
+        cronExpression: string.isRequired,
+        nextExecutionTime: string.isRequired,
+        jobStatus: string.isRequired,
+        enabled: bool.isRequired,
     }).isRequired,
 }
 
