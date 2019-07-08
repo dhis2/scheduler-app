@@ -7,9 +7,10 @@
         "test": "react-scripts test",
         "test:coverage": "react-scripts test --coverage --watchAll=false",
         "eject": "react-scripts eject",
-        "lint": "npm run lint:d2 && npm run lint:css",
+        "lint": "npm run lint:d2 && npm run lint:css && npm run lint:js",
         "lint:d2": "d2-style js check --all",
-        "lint:css": "stylelint './src/**/*.css'"
+        "lint:css": "stylelint './src/**/*.css'",
+        "lint:js": "eslint './src/**/*.js'"
     },
     "dependencies": {
         "@dhis2/app-runtime": "^1.2.0",
@@ -47,7 +48,7 @@
     "husky": {
         "hooks": {
             "commit-msg": "d2-style commit check",
-            "pre-commit": "d2-style js apply"
+            "pre-commit": "d2-style js apply && npm run lint:css && npm run lint:js"
         }
     },
     "jest": {
