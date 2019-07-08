@@ -3,7 +3,7 @@ import * as types from './actionTypes'
 
 describe('reducer', () => {
     const initialState = {
-        lastUpdated: 0,
+        didFetchSuccessfully: false,
         errorMessage: '',
         isFetching: false,
         data: {},
@@ -31,11 +31,10 @@ describe('reducer', () => {
         const payload = 'payload'
         const actual = reducer(fetchingState, {
             type: types.FETCH_ME_SUCCESS,
-            meta: { receivedAt: 1 },
             payload,
         })
         const expected = {
-            lastUpdated: 1,
+            didFetchSuccessfully: true,
             errorMessage: '',
             isFetching: false,
             data: payload,
@@ -47,11 +46,10 @@ describe('reducer', () => {
     it('should handle FETCH_ME_FAIL with an errormessage', () => {
         const actual = reducer(fetchingState, {
             type: types.FETCH_ME_FAIL,
-            meta: { receivedAt: 1 },
             error: new Error('error'),
         })
         const expected = {
-            lastUpdated: 1,
+            didFetchSuccessfully: false,
             errorMessage: 'error',
             isFetching: false,
             data: {},
@@ -63,11 +61,10 @@ describe('reducer', () => {
     it('should handle FETCH_ME_FAIL without an errormessage', () => {
         const actual = reducer(fetchingState, {
             type: types.FETCH_ME_FAIL,
-            meta: { receivedAt: 1 },
             error: new Error(),
         })
         const expected = {
-            lastUpdated: 1,
+            didFetchSuccessfully: false,
             errorMessage:
                 'Something went wrong, but no errormessage was provided.',
             isFetching: false,
@@ -146,7 +143,7 @@ describe('getIsAuthorized', () => {
 
 describe('getShouldFetch', () => {
     const initialState = {
-        lastUpdated: 0,
+        didFetchSuccessfully: false,
         errorMessage: '',
         isFetching: false,
         data: {},
