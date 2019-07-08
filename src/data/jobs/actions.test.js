@@ -18,9 +18,6 @@ const { origin, pathname } = new URL(endpoints.jobs)
  * Mocks
  */
 
-// Return consistent date for testing
-Date.now = jest.fn(() => 1)
-
 // Allow selectors to be mocked
 selectors.getShouldFetch = jest.fn() // eslint-disable-line import/namespace
 rootSelectors.getJobs = jest.fn() // eslint-disable-line import/namespace
@@ -37,7 +34,6 @@ describe('fetchJobsSuccess', () => {
         const actual = actions.fetchJobsSuccess('payload')
         const expected = {
             type: types.FETCH_JOBS_SUCCESS,
-            meta: { receivedAt: 1 },
             payload: 'payload',
         }
 
@@ -50,7 +46,6 @@ describe('fetchJobsFail', () => {
         const actual = actions.fetchJobsFail('error')
         const expected = {
             type: types.FETCH_JOBS_FAIL,
-            meta: { receivedAt: 1 },
             error: 'error',
         }
 
@@ -86,7 +81,6 @@ describe('fetchJobs', () => {
             { type: types.FETCH_JOBS },
             {
                 type: types.FETCH_JOBS_SUCCESS,
-                meta: { receivedAt: 1 },
                 payload: mockNormalized,
             },
         ]
@@ -108,7 +102,6 @@ describe('fetchJobs', () => {
             { type: types.FETCH_JOBS },
             {
                 type: types.FETCH_JOBS_FAIL,
-                meta: { receivedAt: 1 },
                 error: error,
             },
         ]
@@ -148,7 +141,6 @@ describe('fetchJobsIfNeeded', () => {
             { type: types.FETCH_JOBS },
             {
                 type: types.FETCH_JOBS_SUCCESS,
-                meta: { receivedAt: 1 },
                 payload: mockNormalized,
             },
         ]
