@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<JobToggleSwitch> renders correctly 1`] = `
+<Switch
+  checked={true}
+  name="toggle-1"
+  onChange={[Function]}
+/>
+`;
