@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { object, arrayOf, number, node, func, string, bool } from 'prop-types'
+import { object, arrayOf, func, string, bool } from 'prop-types'
 import { connect } from 'react-redux'
 import { CircularLoader } from '@dhis2/ui-core'
 import { actions, selectors } from '../../data/jobs'
@@ -29,10 +29,9 @@ export const UnconnectedJobListContainer = ({
 }
 
 UnconnectedJobListContainer.propTypes = {
-    children: node.isRequired,
     isFetching: bool.isRequired,
     errorMessage: string.isRequired,
-    jobIds: arrayOf(number).isRequired,
+    jobIds: arrayOf(string).isRequired,
     jobEntities: object.isRequired,
     fetchJobsIfNeeded: func.isRequired,
 }
