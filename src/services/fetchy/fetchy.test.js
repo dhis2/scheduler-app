@@ -4,7 +4,7 @@ import fetchy from './fetchy'
 window.fetch = jest.fn()
 window.Headers = jest.fn()
 
-describe('fetch', () => {
+describe('fetchy', () => {
     it('should resolve with the response if the response is ok', () => {
         const body = { data: 'data' }
         const init = { status: 200, statusText: 'OK' }
