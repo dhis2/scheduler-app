@@ -13,7 +13,7 @@ const initialState = {
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case types.FETCH_JOBS:
-            return Object.assign({}, state, { isFetching: true })
+            return { ...state, isFetching: true }
         case types.FETCH_JOBS_SUCCESS:
             return {
                 lastUpdated: action.meta.receivedAt,
@@ -23,11 +23,12 @@ const reducer = (state = initialState, action) => {
                 ids: action.payload.result,
             }
         case types.FETCH_JOBS_FAIL:
-            return Object.assign({}, state, {
+            return {
+                ...state,
                 lastUpdated: action.meta.receivedAt,
                 errorMessage: action.error.message || fallbackMessage,
                 isFetching: false,
-            })
+            }
         default:
             return state
     }
