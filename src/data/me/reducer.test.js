@@ -182,7 +182,7 @@ describe('getShouldFetch', () => {
     })
 
     it('should return true if it has no authorities', () => {
-        const state = { ...initialState, lastUpdated: 1 }
+        const state = { ...initialState }
         const expected = true
         const actual = selectors.getShouldFetch(state)
 
