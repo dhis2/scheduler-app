@@ -109,3 +109,30 @@ export const disableJob = id => dispatch => {
         .then(() => dispatch(fetchJobsIfNeeded()))
         .catch(error => dispatch(disableJobFail(error)))
 }
+
+/**
+ * Delete job
+ */
+
+export const deleteJobSuccess = () => ({
+    type: types.DELETE_JOB_SUCCESS,
+})
+
+export const deleteJobFail = error => ({
+    type: types.DELETE_JOB_FAIL,
+    error,
+})
+
+export const deleteJob = id => dispatch => {
+    dispatch({ type: types.DELETE_JOB })
+
+    const fetchOptions = {
+        method: 'DELETE',
+        credentials: 'include',
+    }
+
+    return fetchy(urlJoin(endpoints.jobs, `/${id}`), fetchOptions)
+        .then(() => dispatch(deleteJobSuccess()))
+        .then(() => dispatch(fetchJobsIfNeeded()))
+        .catch(error => dispatch(deleteJobFail(error)))
+}

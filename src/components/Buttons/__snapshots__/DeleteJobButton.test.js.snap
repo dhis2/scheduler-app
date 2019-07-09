@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DeleteJobButton> renders correctly 1`] = `
+<Button
+  destructive={true}
+  disabled={false}
+  name="delete-button-1"
+  onClick={[Function]}
+  type="button"
+>
+  Delete
+</Button>
+`;

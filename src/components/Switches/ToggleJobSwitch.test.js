@@ -1,13 +1,13 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
-import { UnconnectedJobToggleSwitch as JobToggleSwitch } from './JobToggleSwitch'
+import { UnconnectedToggleJobSwitch as ToggleJobSwitch } from './ToggleJobSwitch'
 
-describe('<JobToggleSwitch>', () => {
+describe('<ToggleJobSwitch>', () => {
     it('renders correctly', () => {
         const enableJob = () => {}
         const disableJob = () => {}
         const wrapper = shallow(
-            <JobToggleSwitch
+            <ToggleJobSwitch
                 id="1"
                 isFetching={false}
                 checked={true}
@@ -23,7 +23,7 @@ describe('<JobToggleSwitch>', () => {
         const enableJob = jest.fn()
         const disableJob = () => {}
         const wrapper = mount(
-            <JobToggleSwitch
+            <ToggleJobSwitch
                 id="1"
                 isFetching={false}
                 checked={false}
@@ -41,7 +41,7 @@ describe('<JobToggleSwitch>', () => {
         const disableJob = jest.fn()
         const enableJob = () => {}
         const wrapper = mount(
-            <JobToggleSwitch
+            <ToggleJobSwitch
                 id="1"
                 isFetching={false}
                 checked={true}
@@ -59,7 +59,7 @@ describe('<JobToggleSwitch>', () => {
         const disableJob = () => {}
         const enableJob = () => {}
         const wrapper = mount(
-            <JobToggleSwitch
+            <ToggleJobSwitch
                 id="1"
                 isFetching={true}
                 checked={true}
