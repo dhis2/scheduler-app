@@ -188,4 +188,17 @@ describe('getShouldFetch', () => {
 
         expect(actual).toEqual(expected)
     })
+
+    it('should return true if it has no authorities but did fetch successfully', () => {
+        const state = {
+            didFetchSuccessfully: true,
+            errorMessage: '',
+            isFetching: false,
+            data: {},
+        }
+        const expected = true
+        const actual = selectors.getShouldFetch(state)
+
+        expect(actual).toEqual(expected)
+    })
 })
