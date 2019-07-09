@@ -8,6 +8,7 @@ import { selectors as entitySelectors } from '../../data/entities'
 import JobList from './JobList'
 
 export const UnconnectedJobListContainer = ({
+    didFetchSuccessfully,
     isFetching,
     errorMessage,
     jobIds,
@@ -18,7 +19,7 @@ export const UnconnectedJobListContainer = ({
         fetchJobsIfNeeded()
     }, [fetchJobsIfNeeded])
 
-    if (isFetching) {
+    if (isFetching && !didFetchSuccessfully) {
         return <CircularLoader />
     }
 
@@ -30,6 +31,7 @@ export const UnconnectedJobListContainer = ({
 }
 
 UnconnectedJobListContainer.propTypes = {
+    didFetchSuccessfully: bool.isRequired,
     isFetching: bool.isRequired,
     errorMessage: string.isRequired,
     jobIds: arrayOf(string).isRequired,
@@ -42,6 +44,7 @@ const mapStateToProps = state => {
     const entities = rootSelectors.getEntities(state)
 
     return {
+        didFetchSuccessfully: selectors.getDidFetchSuccessfully(jobs),
         isFetching: selectors.getIsFetching(jobs),
         errorMessage: selectors.getErrorMessage(jobs),
         jobIds: selectors.getResult(jobs),
