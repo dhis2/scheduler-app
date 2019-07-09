@@ -7,8 +7,7 @@ const initialState = {
     errorMessage: '',
     isFetching: false,
     isDirty: false,
-    entities: {},
-    ids: [],
+    result: [],
 }
 
 const reducer = (state = initialState, action) => {
@@ -23,8 +22,7 @@ const reducer = (state = initialState, action) => {
                 errorMessage: '',
                 isFetching: false,
                 isDirty: false,
-                entities: action.payload.entities.jobs,
-                ids: action.payload.result,
+                result: action.payload.result,
             }
         case types.FETCH_JOBS_FAIL:
         case types.ENABLE_JOB_FAIL:
@@ -54,8 +52,7 @@ export default reducer
 
 export const getIsFetching = state => state.isFetching
 export const getErrorMessage = state => state.errorMessage
-export const getEntities = state => state.entities
-export const getIds = state => state.ids
+export const getResult = state => state.result
 
 export const getShouldFetch = state => {
     const { isFetching, isDirty, errorMessage, didFetchSuccessfully } = state

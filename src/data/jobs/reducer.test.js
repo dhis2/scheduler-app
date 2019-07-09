@@ -7,8 +7,7 @@ describe('reducer', () => {
         errorMessage: '',
         isFetching: false,
         isDirty: false,
-        entities: {},
-        ids: [],
+        result: [],
     }
     const fetchingState = {
         ...initialState,
@@ -46,8 +45,7 @@ describe('reducer', () => {
             errorMessage: '',
             isFetching: false,
             isDirty: false,
-            entities: 'job',
-            ids: ['job'],
+            result: ['job'],
         }
 
         expect(actual).toEqual(expected)
@@ -103,13 +101,22 @@ describe('getErrorMessage', () => {
     })
 })
 
+describe('getResult', () => {
+    it('should return the result', () => {
+        const state = { result: ['id'] }
+        const expected = state.result
+        const actual = selectors.getResult(state)
+
+        expect(actual).toEqual(expected)
+    })
+})
+
 describe('getShouldFetch', () => {
     const initialState = {
         didFetchSuccessfully: false,
         errorMessage: '',
         isFetching: false,
-        entities: {},
-        ids: [],
+        result: [],
     }
 
     it('should return false if currently fetching', () => {

@@ -3,7 +3,8 @@ import { object, arrayOf, func, string, bool } from 'prop-types'
 import { connect } from 'react-redux'
 import { CircularLoader } from '@dhis2/ui-core'
 import { actions, selectors } from '../../data/jobs'
-import { getJobs } from '../../rootSelectors'
+import * as rootSelectors from '../../rootSelectors'
+import { selectors as entitySelectors } from '../../data/entities'
 import JobList from './JobList'
 
 export const UnconnectedJobListContainer = ({
@@ -37,13 +38,14 @@ UnconnectedJobListContainer.propTypes = {
 }
 
 const mapStateToProps = state => {
-    const jobs = getJobs(state)
+    const jobs = rootSelectors.getJobs(state)
+    const entities = rootSelectors.getEntities(state)
 
     return {
         isFetching: selectors.getIsFetching(jobs),
         errorMessage: selectors.getErrorMessage(jobs),
-        jobEntities: selectors.getEntities(jobs),
-        jobIds: selectors.getIds(jobs),
+        jobIds: selectors.getResult(jobs),
+        jobEntities: entitySelectors.getJobs(entities),
     }
 }
 
