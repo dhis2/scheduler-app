@@ -322,3 +322,83 @@ describe('disableJob', () => {
             .then(() => expect(store.getActions()).toEqual(expectedActions))
     })
 })
+
+/**
+ * Delete job
+ */
+
+describe('deleteJobSuccess', () => {
+    it('should create a DELETE_JOB_SUCCESS action', () => {
+        const actual = actions.deleteJobSuccess()
+        const expected = {
+            type: types.DELETE_JOB_SUCCESS,
+        }
+
+        expect(actual).toEqual(expected)
+    })
+})
+
+describe('deleteJobFail', () => {
+    it('should create a DELETE_JOB_FAIL action', () => {
+        const error = new Error()
+        const actual = actions.deleteJobFail(error)
+        const expected = {
+            type: types.DELETE_JOB_FAIL,
+            error,
+        }
+
+        expect(actual).toEqual(expected)
+    })
+})
+
+describe('deleteJob', () => {
+    const id = 'id'
+    const { origin, pathname } = new URL(urlJoin(endpoints.jobs, `/${id}`))
+
+    beforeEach(() => {
+        nock.disableNetConnect()
+    })
+
+    afterEach(() => {
+        nock.cleanAll()
+        nock.enableNetConnect()
+    })
+
+    it('should handle successful fetches', () => {
+        nock(origin)
+            .delete(pathname)
+            .reply(200)
+
+        const store = mockStore({})
+        const expectedActions = [
+            { type: types.DELETE_JOB },
+            {
+                type: types.DELETE_JOB_SUCCESS,
+            },
+        ]
+
+        return store
+            .dispatch(actions.deleteJob(id))
+            .then(() => expect(store.getActions()).toEqual(expectedActions))
+    })
+
+    it('should handle unsuccessful fetches', () => {
+        const error = new Error('Internal Server Error')
+        nock(origin)
+            .delete(pathname)
+            .reply(500)
+
+        const store = mockStore({})
+        const expectedActions = [
+            { type: types.DELETE_JOB },
+            {
+                type: types.DELETE_JOB_FAIL,
+                error,
+            },
+        ]
+
+        return store
+            .dispatch(actions.deleteJob(id))
+            .then(() => expect(store.getActions()).toEqual(expectedActions))
+    })
+})

@@ -1,6 +1,7 @@
 import React from 'react'
 import { bool, shape, string } from 'prop-types'
-import { JobToggleSwitch } from '../../components/Switches'
+import { ToggleJobSwitch } from '../../components/Switches'
+import { DeleteJobButton } from '../../components/Buttons'
 
 const JobListItem = ({ job }) => {
     const {
@@ -21,9 +22,11 @@ const JobListItem = ({ job }) => {
             <td>{nextExecutionTime}</td>
             <td>{jobStatus}</td>
             <td>
-                <JobToggleSwitch id={id} checked={enabled} />
+                <ToggleJobSwitch id={id} checked={enabled} />
             </td>
-            <td>Context menu here</td>
+            <td>
+                Context menu here: <DeleteJobButton id={id} />
+            </td>
         </tr>
     )
 }
