@@ -3,6 +3,7 @@
 exports[`<JobToggleSwitch> renders correctly 1`] = `
 <Switch
   checked={true}
+  disabled={false}
   name="toggle-1"
   onChange={[Function]}
 />
