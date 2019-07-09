@@ -179,6 +179,16 @@ describe('reducer', () => {
     })
 })
 
+describe('getDidFetchSuccessfully', () => {
+    it('should return whether it fetched', () => {
+        const state = { didFetchSuccessfully: true }
+        const expected = state.didFetchSuccessfully
+        const actual = selectors.getDidFetchSuccessfully(state)
+
+        expect(actual).toEqual(expected)
+    })
+})
+
 describe('getIsFetching', () => {
     it('should return fetching state', () => {
         const state = { isFetching: true }

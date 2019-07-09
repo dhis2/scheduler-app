@@ -50,6 +50,7 @@ export default reducer
  * Selectors
  */
 
+export const getDidFetchSuccessfully = state => state.didFetchSuccessfully
 export const getIsFetching = state => state.isFetching
 export const getErrorMessage = state => state.errorMessage
 export const getResult = state => state.result
