@@ -15,6 +15,7 @@ const reducer = (state = initialState, action) => {
         case types.FETCH_JOBS:
         case types.ENABLE_JOB:
         case types.DISABLE_JOB:
+        case types.DELETE_JOB:
             return { ...state, isFetching: true }
         case types.FETCH_JOBS_SUCCESS:
             return {
@@ -27,6 +28,7 @@ const reducer = (state = initialState, action) => {
         case types.FETCH_JOBS_FAIL:
         case types.ENABLE_JOB_FAIL:
         case types.DISABLE_JOB_FAIL:
+        case types.DELETE_JOB_FAIL:
             return {
                 ...state,
                 errorMessage: action.error.message || fallbackMessage,
@@ -34,6 +36,7 @@ const reducer = (state = initialState, action) => {
             }
         case types.ENABLE_JOB_SUCCESS:
         case types.DISABLE_JOB_SUCCESS:
+        case types.DELETE_JOB_SUCCESS:
             return {
                 ...state,
                 isFetching: false,
