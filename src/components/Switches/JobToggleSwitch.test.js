@@ -9,6 +9,7 @@ describe('<JobToggleSwitch>', () => {
         const wrapper = shallow(
             <JobToggleSwitch
                 id="1"
+                isFetching={false}
                 checked={true}
                 enableJob={enableJob}
                 disableJob={disableJob}
@@ -24,6 +25,7 @@ describe('<JobToggleSwitch>', () => {
         const wrapper = mount(
             <JobToggleSwitch
                 id="1"
+                isFetching={false}
                 checked={false}
                 enableJob={enableJob}
                 disableJob={disableJob}
@@ -41,6 +43,7 @@ describe('<JobToggleSwitch>', () => {
         const wrapper = mount(
             <JobToggleSwitch
                 id="1"
+                isFetching={false}
                 checked={true}
                 enableJob={enableJob}
                 disableJob={disableJob}
@@ -50,5 +53,23 @@ describe('<JobToggleSwitch>', () => {
         wrapper.find('input').simulate('change', { target: { checked: false } })
 
         expect(disableJob).toHaveBeenCalled()
+    })
+
+    it('disables itself whilst jobs are fetching', () => {
+        const disableJob = () => {}
+        const enableJob = () => {}
+        const wrapper = mount(
+            <JobToggleSwitch
+                id="1"
+                isFetching={true}
+                checked={true}
+                enableJob={enableJob}
+                disableJob={disableJob}
+            />
+        )
+
+        const input = wrapper.find('input')
+
+        expect(input.props().disabled).toBe(true)
     })
 })
