@@ -21,7 +21,9 @@ export const UnconnectedJobListContainer = ({
     }, [fetchJobsIfNeeded])
 
     const [showSystemJobs, setShowSystemJobs] = useState(false)
+    const [jobFilter, setJobFilter] = useState('')
 
+    // Show spinner when there are no jobs to display yet
     if (isFetching && !didFetchSuccessfully) {
         return <CircularLoader />
     }
@@ -30,13 +32,25 @@ export const UnconnectedJobListContainer = ({
         return <span>{errorMessage}</span>
     }
 
+    // Show all jobs, or just the user's jobs
+    const jobIds = showSystemJobs ? allJobIds : userJobIds
+
+    // Filter jobs by the jobFilter string
+    const filteredJobIds = jobIds.filter(id => {
+        const job = jobEntities[id]
+        const name = job.name.toLowerCase()
+        return name.includes(jobFilter.toLowerCase())
+    })
+
     return (
         <JobList
-            jobIds={showSystemJobs ? allJobIds : userJobIds}
+            jobIds={filteredJobIds}
             jobEntities={jobEntities}
             isFetching={isFetching}
             showSystemJobs={showSystemJobs}
             setShowSystemJobs={setShowSystemJobs}
+            jobFilter={jobFilter}
+            setJobFilter={setJobFilter}
         />
     )
 }
