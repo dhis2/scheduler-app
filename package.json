@@ -14,9 +14,11 @@
     },
     "dependencies": {
         "@dhis2/app-runtime": "^1.2.0",
+        "@dhis2/ui-core": "^3.6.0",
         "@dhis2/ui-widgets": "^1.0.6",
         "lodash.merge": "^4.6.1",
         "moment": "^2.24.0",
+        "normalizr": "^3.4.0",
         "prop-types": "^15.7.2",
         "react": "^16.8.6",
         "react-dom": "^16.8.6",
@@ -24,7 +26,8 @@
         "react-router-dom": "^5.0.1",
         "react-scripts": "3.0.1",
         "redux": "^4.0.1",
-        "redux-thunk": "^2.3.0"
+        "redux-thunk": "^2.3.0",
+        "url-join": "^4.0.1"
     },
     "devDependencies": {
         "@dhis2/cli-style": "^3.3.4",
@@ -39,13 +42,11 @@
         "husky": "^2.5.0",
         "isomorphic-fetch": "^2.2.1",
         "nock": "^10.0.6",
-        "normalizr": "^3.4.0",
         "redux-mock-store": "^1.5.3",
         "stylelint": "^10.1.0",
         "stylelint-config-prettier": "^5.2.0",
         "stylelint-config-standard": "^18.3.0",
-        "stylelint-no-unsupported-browser-features": "^3.0.2",
-        "url-join": "^4.0.1"
+        "stylelint-no-unsupported-browser-features": "^3.0.2"
     },
     "husky": {
         "hooks": {
