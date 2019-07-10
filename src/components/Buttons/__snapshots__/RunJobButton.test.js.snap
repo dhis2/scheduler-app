@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<RunJobButton> calls showModal correctly when clicked 1`] = `
+Object {
+  "props": Object {
+    "id": "1",
+  },
+  "type": "RUN_JOB",
+}
+`;
+
+exports[`<RunJobButton> renders correctly 1`] = `
+<Button
+  disabled={false}
+  name="run-job-1"
+  onClick={[Function]}
+  primary={true}
+  type="button"
+>
+  Run
+</Button>
+`;
