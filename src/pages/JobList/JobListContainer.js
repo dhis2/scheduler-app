@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { object, arrayOf, func, string, bool } from 'prop-types'
 import { connect } from 'react-redux'
 import { CircularLoader } from '@dhis2/ui-core'
@@ -11,13 +11,16 @@ export const UnconnectedJobListContainer = ({
     didFetchSuccessfully,
     isFetching,
     errorMessage,
-    jobIds,
+    userJobIds,
+    allJobIds,
     jobEntities,
     fetchJobsIfNeeded,
 }) => {
     useEffect(() => {
         fetchJobsIfNeeded()
     }, [fetchJobsIfNeeded])
+
+    const [showSystemJobs, setShowSystemJobs] = useState(false)
 
     if (isFetching && !didFetchSuccessfully) {
         return <CircularLoader />
@@ -27,14 +30,23 @@ export const UnconnectedJobListContainer = ({
         return <span>{errorMessage}</span>
     }
 
-    return <JobList jobIds={jobIds} jobEntities={jobEntities} />
+    return (
+        <JobList
+            jobIds={showSystemJobs ? allJobIds : userJobIds}
+            jobEntities={jobEntities}
+            isFetching={isFetching}
+            showSystemJobs={showSystemJobs}
+            setShowSystemJobs={setShowSystemJobs}
+        />
+    )
 }
 
 UnconnectedJobListContainer.propTypes = {
     didFetchSuccessfully: bool.isRequired,
     isFetching: bool.isRequired,
     errorMessage: string.isRequired,
-    jobIds: arrayOf(string).isRequired,
+    userJobIds: arrayOf(string).isRequired,
+    allJobIds: arrayOf(string).isRequired,
     jobEntities: object.isRequired,
     fetchJobsIfNeeded: func.isRequired,
 }
@@ -47,7 +59,8 @@ const mapStateToProps = state => {
         didFetchSuccessfully: selectors.getDidFetchSuccessfully(jobs),
         isFetching: selectors.getIsFetching(jobs),
         errorMessage: selectors.getErrorMessage(jobs),
-        jobIds: selectors.getResult(jobs),
+        userJobIds: entitySelectors.getUserJobIds(entities),
+        allJobIds: selectors.getResult(jobs),
         jobEntities: entitySelectors.getJobs(entities),
     }
 }
