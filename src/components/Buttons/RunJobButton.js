@@ -29,8 +29,10 @@ UnconnectedRunJobButton.propTypes = {
 }
 
 const mapStateToProps = state => {
+    /* istanbul ignore next */
     const jobs = rootSelectors.getJobs(state)
 
+    /* istanbul ignore next */
     return {
         isFetching: selectors.getIsFetching(jobs),
     }
