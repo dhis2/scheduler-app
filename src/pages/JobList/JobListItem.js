@@ -1,5 +1,6 @@
 import React from 'react'
 import { bool, shape, string } from 'prop-types'
+import { Link } from 'react-router-dom'
 import { ToggleJobSwitch } from '../../components/Switches'
 import { DeleteJobButton, RunJobButton } from '../../components/Buttons'
 
@@ -25,8 +26,10 @@ const JobListItem = ({ job }) => {
                 <ToggleJobSwitch id={id} checked={enabled} />
             </td>
             <td>
-                Context menu here: <DeleteJobButton id={id} />
+                Context menu here:
+                <DeleteJobButton id={id} />
                 <RunJobButton id={id} />
+                <Link to={`/edit/${id}`}>Edit</Link>
             </td>
         </tr>
     )
