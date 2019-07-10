@@ -1,7 +1,7 @@
 import React from 'react'
 import { bool, shape, string } from 'prop-types'
 import { ToggleJobSwitch } from '../../components/Switches'
-import { DeleteJobButton } from '../../components/Buttons'
+import { DeleteJobButton, RunJobButton } from '../../components/Buttons'
 
 const JobListItem = ({ job }) => {
     const {
@@ -26,6 +26,7 @@ const JobListItem = ({ job }) => {
             </td>
             <td>
                 Context menu here: <DeleteJobButton id={id} />
+                <RunJobButton id={id} />
             </td>
         </tr>
     )
