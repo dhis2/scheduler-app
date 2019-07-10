@@ -1,10 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<DeleteJobButton> calls showModal correctly when clicked 1`] = `
+Object {
+  "props": Object {
+    "id": "1",
+  },
+  "type": "DELETE_JOB",
+}
+`;
+
 exports[`<DeleteJobButton> renders correctly 1`] = `
 <Button
   destructive={true}
   disabled={false}
-  name="delete-button-1"
+  name="delete-job-1"
   onClick={[Function]}
   type="button"
 >

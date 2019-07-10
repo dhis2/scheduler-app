@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DeleteJobModal> renders correctly 1`] = `
+<Modal
+  onClose={[Function]}
+  open={true}
+  small={true}
+>
+  <Content>
+    Are you sure you want to delete this job?
+  </Content>
+  <Actions>
+    <ButtonStrip
+      end={true}
+    >
+      <Button
+        name="hide-modal"
+        onClick={[Function]}
+        secondary={true}
+        type="button"
+      >
+        Cancel
+      </Button>
+      <Button
+        destructive={true}
+        name="delete-job-id"
+        onClick={[Function]}
+        type="button"
+      >
+        Delete
+      </Button>
+    </ButtonStrip>
+  </Actions>
+</Modal>
+`;

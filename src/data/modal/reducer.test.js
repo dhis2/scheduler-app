@@ -3,8 +3,8 @@ import reducer, * as selectors from './reducer'
 
 describe('reducer', () => {
     const initialState = {
-        modalType: null,
-        modalProps: {},
+        type: null,
+        props: {},
     }
 
     it('should return the initial state', () => {
@@ -16,8 +16,8 @@ describe('reducer', () => {
 
     it('should handle SHOW_MODAL', () => {
         const payload = {
-            modalType: 'TYPE',
-            modalProps: {
+            type: 'TYPE',
+            props: {
                 prop: 'prop',
             },
         }
@@ -29,8 +29,8 @@ describe('reducer', () => {
 
     it('should handle HIDE_MODAL', () => {
         const activeState = {
-            modalType: 'TYPE',
-            modalProps: {
+            type: 'TYPE',
+            props: {
                 prop: 'prop',
             },
         }
@@ -44,9 +44,9 @@ describe('reducer', () => {
 describe('getType', () => {
     it('should return modal type', () => {
         const state = {
-            modalType: 'TYPE',
+            type: 'TYPE',
         }
-        const expected = state.modalType
+        const expected = state.type
         const actual = selectors.getType(state)
 
         expect(actual).toEqual(expected)
@@ -56,11 +56,11 @@ describe('getType', () => {
 describe('getProps', () => {
     it('should return modal props', () => {
         const state = {
-            modalProps: {
+            props: {
                 prop: 'prop',
             },
         }
-        const expected = state.modalProps
+        const expected = state.props
         const actual = selectors.getProps(state)
 
         expect(actual).toEqual(expected)
