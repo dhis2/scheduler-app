@@ -52,3 +52,18 @@ describe('getJobs', () => {
         expect(actual).toEqual(expected)
     })
 })
+
+describe('getUserJobIds', () => {
+    it('should return user job ids', () => {
+        const state = {
+            jobs: {
+                '1': { id: 1, configurable: false },
+                '2': { id: 2, configurable: true },
+            },
+        }
+        const expected = ['2']
+        const actual = selectors.getUserJobIds(state)
+
+        expect(actual).toEqual(expected)
+    })
+})
