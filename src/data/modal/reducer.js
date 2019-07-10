@@ -1,16 +1,16 @@
 import * as types from './actionTypes'
 
 const initialState = {
-    modalType: null,
-    modalProps: {},
+    type: null,
+    props: {},
 }
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case types.SHOW_MODAL:
             return {
-                modalType: action.payload.modalType,
-                modalProps: action.payload.modalProps,
+                type: action.payload.type,
+                props: action.payload.props,
             }
         case types.HIDE_MODAL:
             return initialState
@@ -25,5 +25,5 @@ export default reducer
  * Selectors
  */
 
-export const getType = state => state.modalType
-export const getProps = state => state.modalProps
+export const getType = state => state.type
+export const getProps = state => state.props

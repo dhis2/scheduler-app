@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ModalContainer> passes props to DeleteJobModal 1`] = `
+<Connect(UnconnectedDeleteJobModal)
+  id="id"
+/>
+`;
+
+exports[`<ModalContainer> renders DeleteJobModal when requested 1`] = `<Connect(UnconnectedDeleteJobModal) />`;
+
+exports[`<ModalContainer> renders nothing when type is null 1`] = `""`;

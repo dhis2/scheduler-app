@@ -5,27 +5,27 @@ import { UnconnectedDeleteJobButton as DeleteJobButton } from './DeleteJobButton
 describe('<DeleteJobButton>', () => {
     it('renders correctly', () => {
         const wrapper = shallow(
-            <DeleteJobButton id="1" isFetching={false} deleteJob={() => {}} />
+            <DeleteJobButton id="1" isFetching={false} showModal={() => {}} />
         )
 
         expect(wrapper).toMatchSnapshot()
     })
 
-    it('calls deleteJob when clicked', () => {
-        const deleteJob = jest.fn()
+    it('calls showModal correctly when clicked', () => {
+        const showModal = jest.fn()
         const wrapper = mount(
-            <DeleteJobButton id="1" isFetching={false} deleteJob={deleteJob} />
+            <DeleteJobButton id="1" isFetching={false} showModal={showModal} />
         )
 
         wrapper.find('button').simulate('click')
 
-        expect(deleteJob).toHaveBeenCalled()
+        expect(showModal.mock.calls[0][0]).toMatchSnapshot()
     })
 
     it('disables itself whilst jobs are fetching', () => {
-        const deleteJob = () => {}
+        const showModal = () => {}
         const wrapper = mount(
-            <DeleteJobButton id="1" isFetching={true} deleteJob={deleteJob} />
+            <DeleteJobButton id="1" isFetching={true} showModal={showModal} />
         )
 
         const button = wrapper.find('button')
