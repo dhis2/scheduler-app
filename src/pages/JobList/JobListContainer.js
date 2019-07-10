@@ -11,8 +11,7 @@ export const UnconnectedJobListContainer = ({
     didFetchSuccessfully,
     isFetching,
     errorMessage,
-    userJobIds,
-    allJobIds,
+    jobIds,
     jobEntities,
     fetchJobsIfNeeded,
 }) => {
@@ -32,11 +31,18 @@ export const UnconnectedJobListContainer = ({
         return <span>{errorMessage}</span>
     }
 
-    // Show all jobs, or just the user's jobs
-    const jobIds = showSystemJobs ? allJobIds : userJobIds
+    let filteredJobIds = jobIds
+
+    // Filter system jobs if necessary
+    if (!showSystemJobs) {
+        filteredJobIds = filteredJobIds.filter(id => {
+            const job = jobEntities[id]
+            return job.configurable
+        })
+    }
 
     // Filter jobs by the jobFilter string
-    const filteredJobIds = jobIds.filter(id => {
+    filteredJobIds = filteredJobIds.filter(id => {
         const job = jobEntities[id]
         const name = job.name.toLowerCase()
         return name.includes(jobFilter.toLowerCase())
@@ -59,8 +65,7 @@ UnconnectedJobListContainer.propTypes = {
     didFetchSuccessfully: bool.isRequired,
     isFetching: bool.isRequired,
     errorMessage: string.isRequired,
-    userJobIds: arrayOf(string).isRequired,
-    allJobIds: arrayOf(string).isRequired,
+    jobIds: arrayOf(string).isRequired,
     jobEntities: object.isRequired,
     fetchJobsIfNeeded: func.isRequired,
 }
@@ -73,8 +78,7 @@ const mapStateToProps = state => {
         didFetchSuccessfully: selectors.getDidFetchSuccessfully(jobs),
         isFetching: selectors.getIsFetching(jobs),
         errorMessage: selectors.getErrorMessage(jobs),
-        userJobIds: entitySelectors.getUserJobIds(entities),
-        allJobIds: selectors.getResult(jobs),
+        jobIds: selectors.getResult(jobs),
         jobEntities: entitySelectors.getJobs(entities),
     }
 }
