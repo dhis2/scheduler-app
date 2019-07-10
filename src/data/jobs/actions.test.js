@@ -402,3 +402,85 @@ describe('deleteJob', () => {
             .then(() => expect(store.getActions()).toEqual(expectedActions))
     })
 })
+
+/**
+ * Run job
+ */
+
+describe('runJobSuccess', () => {
+    it('should create a RUN_JOB_SUCCESS action', () => {
+        const actual = actions.runJobSuccess()
+        const expected = {
+            type: types.RUN_JOB_SUCCESS,
+        }
+
+        expect(actual).toEqual(expected)
+    })
+})
+
+describe('runJobFail', () => {
+    it('should create a RUN_JOB_FAIL action', () => {
+        const error = new Error()
+        const actual = actions.runJobFail(error)
+        const expected = {
+            type: types.RUN_JOB_FAIL,
+            error,
+        }
+
+        expect(actual).toEqual(expected)
+    })
+})
+
+describe('runJob', () => {
+    const id = 'id'
+    const { origin, pathname } = new URL(
+        urlJoin(endpoints.jobs, `/${id}/execute`)
+    )
+
+    beforeEach(() => {
+        nock.disableNetConnect()
+    })
+
+    afterEach(() => {
+        nock.cleanAll()
+        nock.enableNetConnect()
+    })
+
+    it('should handle successful fetches', () => {
+        nock(origin)
+            .get(pathname)
+            .reply(200)
+
+        const store = mockStore({})
+        const expectedActions = [
+            { type: types.RUN_JOB },
+            {
+                type: types.RUN_JOB_SUCCESS,
+            },
+        ]
+
+        return store
+            .dispatch(actions.runJob(id))
+            .then(() => expect(store.getActions()).toEqual(expectedActions))
+    })
+
+    it('should handle unsuccessful fetches', () => {
+        const error = new Error('Internal Server Error')
+        nock(origin)
+            .get(pathname)
+            .reply(500)
+
+        const store = mockStore({})
+        const expectedActions = [
+            { type: types.RUN_JOB },
+            {
+                type: types.RUN_JOB_FAIL,
+                error,
+            },
+        ]
+
+        return store
+            .dispatch(actions.runJob(id))
+            .then(() => expect(store.getActions()).toEqual(expectedActions))
+    })
+})
