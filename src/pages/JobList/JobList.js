@@ -1,6 +1,6 @@
 import React from 'react'
 import { func, bool, object, arrayOf, string } from 'prop-types'
-import { Card, Switch } from '@dhis2/ui-core'
+import { Card, Switch, InputField } from '@dhis2/ui-core'
 import { Link } from 'react-router-dom'
 import { Title } from '../../components/Title'
 import { Info } from '../../components/Icons'
@@ -12,6 +12,8 @@ const JobList = ({
     isFetching,
     showSystemJobs,
     setShowSystemJobs,
+    jobFilter,
+    setJobFilter,
 }) => (
     <React.Fragment>
         <Title priority={2}>Scheduled Jobs</Title>
@@ -19,11 +21,18 @@ const JobList = ({
         <Card>
             <Link to="/add">New job</Link>
             <Switch
-                disabled={isFetching}
                 checked={showSystemJobs}
+                disabled={isFetching}
                 label="Show system jobs"
                 name="show-system-jobs"
-                onChange={() => setShowSystemJobs(!showSystemJobs)}
+                onChange={event => setShowSystemJobs(event.target.checked)}
+            />
+            <InputField
+                disabled={isFetching}
+                label="Filter jobs by name"
+                name="filter-jobs"
+                onChange={event => setJobFilter(event.target.value)}
+                value={jobFilter}
             />
             <table>
                 <thead>
@@ -52,6 +61,8 @@ JobList.propTypes = {
     isFetching: bool.isRequired,
     showSystemJobs: bool.isRequired,
     setShowSystemJobs: func.isRequired,
+    jobFilter: string.isRequired,
+    setJobFilter: func.isRequired,
 }
 
 export default JobList
