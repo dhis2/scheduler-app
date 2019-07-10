@@ -29,8 +29,10 @@ UnconnectedModalContainer.propTypes = {
 }
 
 const mapStateToProps = state => {
+    /* istanbul ignore next */
     const modal = rootSelectors.getModal(state)
 
+    /* istanbul ignore next */
     return {
         type: selectors.getType(modal),
         props: selectors.getProps(modal),

@@ -40,8 +40,10 @@ UnconnectedAuthWall.propTypes = {
 }
 
 const mapStateToProps = state => {
+    /* istanbul ignore next */
     const me = getMe(state)
 
+    /* istanbul ignore next */
     return {
         isFetching: selectors.getIsFetching(me),
         errorMessage: selectors.getErrorMessage(me),
