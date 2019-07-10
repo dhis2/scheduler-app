@@ -6,6 +6,14 @@ exports[`<ModalContainer> passes props to DeleteJobModal 1`] = `
 />
 `;
 
+exports[`<ModalContainer> passes props to RunJobModal 1`] = `
+<Connect(UnconnectedRunJobModal)
+  id="id"
+/>
+`;
+
 exports[`<ModalContainer> renders DeleteJobModal when requested 1`] = `<Connect(UnconnectedDeleteJobModal) />`;
+
+exports[`<ModalContainer> renders RunJobModal when requested 1`] = `<Connect(UnconnectedRunJobModal) />`;
 
 exports[`<ModalContainer> renders nothing when type is null 1`] = `""`;

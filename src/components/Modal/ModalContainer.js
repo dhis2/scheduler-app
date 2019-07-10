@@ -5,11 +5,14 @@ import * as rootSelectors from '../../rootSelectors'
 import { selectors } from '../../data/modal'
 import * as modalTypes from './modalTypes'
 import DeleteJobModal from './DeleteJobModal'
+import RunJobModal from './RunJobModal'
 
 export const UnconnectedModalContainer = ({ type, props }) => {
     switch (type) {
         case modalTypes.DELETE_JOB:
             return <DeleteJobModal {...props} />
+        case modalTypes.RUN_JOB:
+            return <RunJobModal {...props} />
         default:
             return null
     }
