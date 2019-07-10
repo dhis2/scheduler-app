@@ -17,6 +17,6 @@ exports[`<RunJobButton> renders correctly 1`] = `
   primary={true}
   type="button"
 >
-  Run
+  Run manually
 </Button>
 `;

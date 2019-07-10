@@ -17,7 +17,7 @@ export const UnconnectedRunJobButton = ({ id, showModal, isFetching }) => {
                 showModal({ type: modalTypes.RUN_JOB, props: { id } })
             }
         >
-            Run
+            Run manually
         </Button>
     )
 }
