@@ -136,3 +136,27 @@ export const deleteJob = id => dispatch => {
         .then(() => dispatch(fetchJobsIfNeeded()))
         .catch(error => dispatch(deleteJobFail(error)))
 }
+
+/**
+ * Run job
+ */
+
+export const runJobSuccess = () => ({
+    type: types.RUN_JOB_SUCCESS,
+})
+
+export const runJobFail = error => ({
+    type: types.RUN_JOB_FAIL,
+    error,
+})
+
+export const runJob = id => dispatch => {
+    dispatch({ type: types.RUN_JOB })
+
+    return fetchy(urlJoin(endpoints.jobs, `/${id}/execute`), {
+        credentials: 'include',
+    })
+        .then(() => dispatch(runJobSuccess()))
+        .then(() => dispatch(fetchJobsIfNeeded()))
+        .catch(error => dispatch(runJobFail(error)))
+}
