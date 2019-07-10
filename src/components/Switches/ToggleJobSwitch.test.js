@@ -34,7 +34,7 @@ describe('<ToggleJobSwitch>', () => {
 
         wrapper.find('input').simulate('change', { target: { checked: true } })
 
-        expect(enableJob).toHaveBeenCalled()
+        expect(enableJob).toHaveBeenCalledWith('1')
     })
 
     it('calls disableJob when checked and checkbox changes to false', () => {
@@ -52,7 +52,7 @@ describe('<ToggleJobSwitch>', () => {
 
         wrapper.find('input').simulate('change', { target: { checked: false } })
 
-        expect(disableJob).toHaveBeenCalled()
+        expect(disableJob).toHaveBeenCalledWith('1')
     })
 
     it('disables itself whilst jobs are fetching', () => {

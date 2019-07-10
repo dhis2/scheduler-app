@@ -3,15 +3,19 @@ import { func, string, bool } from 'prop-types'
 import { connect } from 'react-redux'
 import { Button } from '@dhis2/ui-core'
 import * as rootSelectors from '../../rootSelectors'
-import { actions, selectors } from '../../data/jobs'
+import { selectors } from '../../data/jobs'
+import { actions } from '../../data/modal'
+import { modalTypes } from '../Modal'
 
-export const UnconnectedDeleteJobButton = ({ id, isFetching, deleteJob }) => {
+export const UnconnectedDeleteJobButton = ({ id, showModal, isFetching }) => {
     return (
         <Button
             destructive
+            name={`delete-job-${id}`}
             disabled={isFetching}
-            name={`delete-button-${id}`}
-            onClick={() => deleteJob(id)}
+            onClick={() =>
+                showModal({ type: modalTypes.DELETE_JOB, props: { id } })
+            }
         >
             Delete
         </Button>
@@ -21,7 +25,7 @@ export const UnconnectedDeleteJobButton = ({ id, isFetching, deleteJob }) => {
 UnconnectedDeleteJobButton.propTypes = {
     id: string.isRequired,
     isFetching: bool.isRequired,
-    deleteJob: func.isRequired,
+    showModal: func.isRequired,
 }
 
 const mapStateToProps = state => {
@@ -33,7 +37,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = {
-    deleteJob: actions.deleteJob,
+    showModal: actions.showModal,
 }
 
 export default connect(

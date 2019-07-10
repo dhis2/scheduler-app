@@ -7,6 +7,7 @@ import { Provider } from 'react-redux'
 import { Routes } from '../Routes'
 import { PageWrapper } from '../PageWrapper'
 import { AuthWall } from '../AuthWall'
+import { ModalContainer as Modal } from '../Modal'
 
 const { REACT_APP_DHIS2_BASE_URL } = process.env
 
@@ -15,6 +16,7 @@ const App = ({ store }) => (
         <DataProvider baseUrl={REACT_APP_DHIS2_BASE_URL} apiVersion="">
             <CssReset />
             <HeaderBar appName="Scheduler" />
+            <Modal />
             <PageWrapper>
                 <AuthWall>
                     <Routes />

@@ -4,8 +4,8 @@ import * as actions from './actions'
 describe('showModal', () => {
     it('should create a SHOW_MODAL action', () => {
         const payload = {
-            modalType: 'TYPE',
-            modalProps: {
+            type: 'TYPE',
+            props: {
                 prop: 'prop',
             },
         }
