@@ -18,6 +18,7 @@ exports[`<App> renders correctly 1`] = `
     <HeaderBar
       appName="Scheduler"
     />
+    <Connect(UnconnectedModalContainer) />
     <PageWrapper>
       <Connect(UnconnectedAuthWall)>
         <Routes />
