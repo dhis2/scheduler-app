@@ -19,3 +19,11 @@ export default reducer
  */
 
 export const getJobs = state => state.jobs
+
+export const getUserJobIds = state => {
+    const { jobs } = state
+
+    const userJobIds = Object.keys(jobs).filter(id => jobs[id].configurable)
+
+    return userJobIds
+}
