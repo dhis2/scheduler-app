@@ -23,4 +23,18 @@ describe('<ModalContainer>', () => {
 
         expect(wrapper).toMatchSnapshot()
     })
+
+    it('renders RunJobModal when requested', () => {
+        const wrapper = shallow(<ModalContainer type={modalTypes.RUN_JOB} />)
+
+        expect(wrapper).toMatchSnapshot()
+    })
+
+    it('passes props to RunJobModal', () => {
+        const wrapper = shallow(
+            <ModalContainer type={modalTypes.RUN_JOB} props={{ id: 'id' }} />
+        )
+
+        expect(wrapper).toMatchSnapshot()
+    })
 })
