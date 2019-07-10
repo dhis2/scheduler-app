@@ -13,3 +13,7 @@ export const DISABLE_JOB_FAIL = 'DISABLE_JOB_FAIL'
 export const DELETE_JOB = 'DELETE_JOB'
 export const DELETE_JOB_SUCCESS = 'DELETE_JOB_SUCCESS'
 export const DELETE_JOB_FAIL = 'DELETE_JOB_FAIL'
+
+export const RUN_JOB = 'RUN_JOB'
+export const RUN_JOB_SUCCESS = 'RUN_JOB_SUCCESS'
+export const RUN_JOB_FAIL = 'RUN_JOB_FAIL'
