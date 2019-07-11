@@ -3,6 +3,7 @@ import { func, bool, object, arrayOf, string } from 'prop-types'
 import { Card, Switch, InputField } from '@dhis2/ui-core'
 import { Link } from 'react-router-dom'
 import { Title } from '../../components/Title'
+import { Aligner } from '../../components/Aligner'
 import { Info } from '../../components/Icons'
 import { LinkButton } from '../../components/Buttons'
 import JobListItem from './JobListItem'
@@ -17,26 +18,35 @@ const JobList = ({
     setJobFilter,
 }) => (
     <React.Fragment>
-        <Title priority={2}>Scheduled Jobs</Title>
-        <Info />
+        <Aligner>
+            <Title priority={2}>Scheduled Jobs</Title>
+            <Info />
+        </Aligner>
         <Card>
-            <LinkButton as={Link} to="/add">
-                New job
-            </LinkButton>
-            <Switch
-                checked={showSystemJobs}
-                disabled={isFetching}
-                label="Show system jobs"
-                name="show-system-jobs"
-                onChange={event => setShowSystemJobs(event.target.checked)}
-            />
-            <InputField
-                disabled={isFetching}
-                label="Filter jobs by name"
-                name="filter-jobs"
-                onChange={event => setJobFilter(event.target.value)}
-                value={jobFilter}
-            />
+            <Aligner>
+                <InputField
+                    filled
+                    disabled={isFetching}
+                    label="Filter jobs by name"
+                    name="filter-jobs"
+                    onChange={event => setJobFilter(event.target.value)}
+                    value={jobFilter}
+                />
+                <Aligner.Push direction="right">
+                    <Switch
+                        checked={showSystemJobs}
+                        disabled={isFetching}
+                        label="Show system jobs"
+                        name="show-system-jobs"
+                        onChange={event =>
+                            setShowSystemJobs(event.target.checked)
+                        }
+                    />
+                    <LinkButton as={Link} to="/add">
+                        New job
+                    </LinkButton>
+                </Aligner.Push>
+            </Aligner>
             <table>
                 <thead>
                     <tr>
