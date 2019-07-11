@@ -1,0 +1,238 @@
+.wrapper {
+    display: inline-flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.15s cubic-bezier(0.4, 0, 0.6, 1);
+    user-select: none;
+    color: #212934;
+
+    /* medium */
+    height: 36px;
+    padding: 0 16px;
+    font-size: 14px;
+    line-height: 16px;
+
+    /* basic */
+    border: 1px solid #c4c9cc;
+    background-color: #f9fafb;
+}
+
+.disabled {
+    cursor: not-allowed;
+    border-color: #c4c9cc;
+    background-color: #f9fafb;
+    box-shadow: none;
+    color: #a0adba;
+    fill: #a0adba;
+}
+
+.wrapper:focus {
+    /* Prevent default browser behavior which adds an outline */
+    outline: none;
+    background-color: #f9fafb;
+}
+
+/* Use the ::after pseudo-element for focus styles */
+.wrapper::after {
+    content: ' ';
+    pointer-events: none;
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    bottom: -2px;
+    left: -2px;
+    z-index: 1;
+    border: 2px solid transparent;
+    border-radius: inherit;
+    transition: border-color 0.15s cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+.wrapper:focus::after {
+    border-color: #147cd7;
+}
+
+/* Prevent focus styles on active and disabled buttons */
+.wrapper:active:focus::after,
+.wrapper.disabled:focus::after {
+    border-color: transparent;
+}
+
+.wrapper:hover {
+    border-color: #c4c9cc;
+    background-color: #f3f4f5;
+}
+
+.wrapper:active,
+.wrapper:active:focus {
+    border-color: #c5c9cc;
+    background-color: #f3f4f5;
+    box-shadow: 0 0 0 1px rgb(0, 0, 0, 0.1) inset;
+}
+
+.wrapper.icon {
+    padding-left: 12px;
+}
+
+.small {
+    height: 28px;
+    padding: 0 16px;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.large {
+    height: 43px;
+    padding: 0 24px;
+    font-size: 16px;
+    letter-spacing: 0.57px;
+    line-height: 19px;
+}
+
+.icon-only i {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.primary {
+    border-color: #0d47a1;
+    background: linear-gradient(180deg, #1565c0 0%, #0650a3 100%);
+    background-color: #2b61b3;
+    color: #fff;
+    fill: #fff;
+    font-weight: 500;
+}
+
+.primary:hover {
+    border-color: #0d47a1;
+    background: linear-gradient(180deg, #054fa3 0%, #034793 100%);
+    background-color: #21539f;
+}
+
+.primary:focus {
+    background: linear-gradient(180deg, #1565c0 0%, #0650a3 100%);
+    background-color: #285dac;
+}
+
+.primary:active,
+.primary:active:focus {
+    border-color: #0d47a1;
+    background: linear-gradient(180deg, #054fa3 0%, #034793 100%);
+    background-color: #1c4a90;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.18) inset;
+}
+
+.primary:focus::after {
+    border-color: #ffc324;
+}
+
+.primary.disabled {
+    border-color: #0d47a1;
+    background: linear-gradient(180deg, #1565c0 0%, #0650a3 100%);
+    background-color: #b6c8e2;
+    box-shadow: none;
+    color: #fff;
+    fill: #fff;
+    opacity: 0.33;
+}
+
+.secondary {
+    border-color: #d5dde5;
+    background-color: transparent;
+}
+
+.secondary:hover {
+    border-color: #d5dde5;
+    background-color: rgba(158, 158, 158, 0.07);
+}
+
+.secondary:focus {
+    background-color: transparent;
+}
+
+.secondary:active,
+.secondary:active:focus {
+    border-color: #d5dde5;
+    background-color: rgba(158, 158, 158, 0.18);
+    box-shadow: none;
+}
+
+.secondary:focus::after {
+    border-color: #147cd7;
+}
+
+.secondary.disabled {
+    border-color: #d5dde5;
+    background-color: transparent;
+    box-shadow: none;
+    color: #a0adba;
+    fill: #a0adba;
+}
+
+.destructive {
+    border-color: #a10b0b;
+    background: linear-gradient(180deg, #d32f2f 0%, #b71c1c 100%);
+    background-color: #b9242b;
+    color: #fff;
+    fill: #fff;
+    font-weight: 500;
+}
+
+.destructive:hover {
+    border-color: #a10b0b;
+    background: linear-gradient(180deg, #b81c1c 0%, #b80c0b 100%);
+    background-color: #ac0f1a;
+}
+
+.destructive:focus {
+    background: linear-gradient(180deg, #d32f2f 0%, #b71c1c 100%);
+    background-color: #b72229;
+}
+
+.destructive:active,
+.destructive:active:focus {
+    border-color: #a10b0b;
+    background: linear-gradient(180deg, #b81c1c 0%, #b80c0b 100%);
+    background-color: #ac101b;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.18) inset;
+}
+
+.destructive:focus::after {
+    border-color: #5e0303;
+}
+
+.destructive.disabled {
+    border-color: #a10b0b;
+    background: linear-gradient(180deg, #d32f2f 0%, #b71c1c 100%);
+    background-color: #e5b5b7;
+    box-shadow: none;
+    color: #fff;
+    fill: #fff;
+    opacity: 0.33;
+}
+
+/* IE11 hacks */
+@media all and (-ms-high-contrast: none) {
+    /*
+    Graceful degradation: remove the rounded corners on all buttons apart from circle.
+    These are not rendered correctly in IE11, where they produce white pixels in the corners
+    */
+    .wrapper {
+        border-radius: 0;
+    }
+}
+
+.wrapper-icon {
+    margin-right: 12px;
+    color: inherit;
+    fill: inherit;
+    font-size: 26px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+

@@ -2,6 +2,7 @@ import React from 'react'
 import { Card, InputField, SelectField, Button } from '@dhis2/ui-core'
 import { Link } from 'react-router-dom'
 import { Title } from '../../components/Title'
+import { LinkButton } from '../../components/Buttons'
 import { Info } from '../../components/Icons'
 
 const infoLink =
@@ -9,7 +10,9 @@ const infoLink =
 
 const JobAdd = () => (
     <React.Fragment>
-        <Link to="/">Back to all jobs</Link>
+        <LinkButton as={Link} to="/">
+            Back to all jobs
+        </LinkButton>
         <Title priority={2}>New Job</Title>
         <Card>
             <Title priority={3}>Configuration</Title>
