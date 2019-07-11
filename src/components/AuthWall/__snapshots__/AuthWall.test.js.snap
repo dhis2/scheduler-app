@@ -6,7 +6,11 @@ exports[`<AuthWall> renders a message for unauthorized users 1`] = `
 </span>
 `;
 
-exports[`<AuthWall> renders a spinner when loading 1`] = `<CircularLoader />`;
+exports[`<AuthWall> renders a spinner when loading 1`] = `
+<AbsoluteCenter>
+  <CircularLoader />
+</AbsoluteCenter>
+`;
 
 exports[`<AuthWall> renders errors if they occur 1`] = `
 <span>
