@@ -1,0 +1,15 @@
+.right {
+    margin-left: auto;
+}
+
+.left {
+    margin-right: auto;
+}
+
+.up {
+    margin-bottom: auto;
+}
+
+.down {
+    margin-top: auto;
+}

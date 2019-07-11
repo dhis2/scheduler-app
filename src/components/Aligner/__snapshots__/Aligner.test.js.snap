@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Aligner> renders correctly 1`] = `
+<div
+  className="horizontal"
+>
+  Text
+</div>
+`;
+
+exports[`<Aligner> responds to a vertical prop 1`] = `
+<div
+  className="horizontal"
+>
+  Text
+</div>
+`;

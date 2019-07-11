@@ -3,6 +3,7 @@ import { Card, InputField, SelectField, Button } from '@dhis2/ui-core'
 import { Link } from 'react-router-dom'
 import { Title } from '../../components/Title'
 import { LinkButton } from '../../components/Buttons'
+import { Aligner } from '../../components/Aligner'
 import { Info } from '../../components/Icons'
 
 const infoLink =
@@ -15,9 +16,11 @@ const JobAdd = () => (
         </LinkButton>
         <Title priority={2}>New Job</Title>
         <Card>
-            <Title priority={3}>Configuration</Title>
-            <Info />
-            <a href={infoLink}>About job configuration</a>
+            <Aligner>
+                <Title priority={3}>Configuration</Title>
+                <Info />
+                <a href={infoLink}>About job configuration</a>
+            </Aligner>
             <InputField label="Name" type="text" />
             <SelectField label="Frequency">
                 <option value="0">Continuous execution</option>
