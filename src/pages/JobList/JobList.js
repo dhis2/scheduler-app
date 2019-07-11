@@ -4,6 +4,7 @@ import { Card, Switch, InputField } from '@dhis2/ui-core'
 import { Link } from 'react-router-dom'
 import { Title } from '../../components/Title'
 import { Info } from '../../components/Icons'
+import { LinkButton } from '../../components/Buttons'
 import JobListItem from './JobListItem'
 
 const JobList = ({
@@ -19,7 +20,9 @@ const JobList = ({
         <Title priority={2}>Scheduled Jobs</Title>
         <Info />
         <Card>
-            <Link to="/add">New job</Link>
+            <LinkButton as={Link} to="/add">
+                New job
+            </LinkButton>
             <Switch
                 checked={showSystemJobs}
                 disabled={isFetching}
