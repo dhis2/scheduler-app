@@ -14,17 +14,21 @@ exports[`<JobAdd> renders correctly 1`] = `
     New Job
   </Title>
   <Card>
-    <Title
-      priority={3}
+    <Aligner
+      vertical={false}
     >
-      Configuration
-    </Title>
-    <Info />
-    <a
-      href="https://docs.dhis2.org/master/en/user/html/dataAdmin_scheduling.html#dataAdmin_scheduling_config"
-    >
-      About job configuration
-    </a>
+      <Title
+        priority={3}
+      >
+        Configuration
+      </Title>
+      <Info />
+      <a
+        href="https://docs.dhis2.org/master/en/user/html/dataAdmin_scheduling.html#dataAdmin_scheduling_config"
+      >
+        About job configuration
+      </a>
+    </Aligner>
     <InputField
       label="Name"
       onBlur={[Function]}

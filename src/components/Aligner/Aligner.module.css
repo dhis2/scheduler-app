@@ -1,0 +1,9 @@
+.horizontal,
+.vertical {
+    display: flex;
+    align-items: center;
+}
+
+.vertical {
+    flex-direction: column;
+}
