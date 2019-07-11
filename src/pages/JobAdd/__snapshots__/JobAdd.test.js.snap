@@ -2,11 +2,12 @@
 
 exports[`<JobAdd> renders correctly 1`] = `
 <Fragment>
-  <Link
+  <LinkButton
+    as={[Function]}
     to="/"
   >
     Back to all jobs
-  </Link>
+  </LinkButton>
   <Title
     priority={2}
   >
