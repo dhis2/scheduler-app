@@ -5,6 +5,7 @@ import { CircularLoader } from '@dhis2/ui-core'
 import { actions, selectors } from '../../data/jobs'
 import * as rootSelectors from '../../rootSelectors'
 import { selectors as entitySelectors } from '../../data/entities'
+import { AbsoluteCenter } from '../../components/AbsoluteCenter'
 import JobList from './JobList'
 
 export const UnconnectedJobListContainer = ({
@@ -24,7 +25,11 @@ export const UnconnectedJobListContainer = ({
 
     // Show spinner when there are no jobs to display yet
     if (isFetching && !didFetchSuccessfully) {
-        return <CircularLoader />
+        return (
+            <AbsoluteCenter>
+                <CircularLoader />
+            </AbsoluteCenter>
+        )
     }
 
     if (errorMessage) {
