@@ -2,7 +2,11 @@ import React from 'react'
 import { bool, shape, string } from 'prop-types'
 import { Link } from 'react-router-dom'
 import { ToggleJobSwitch } from '../../components/Switches'
-import { DeleteJobButton, RunJobButton } from '../../components/Buttons'
+import {
+    LinkButton,
+    DeleteJobButton,
+    RunJobButton,
+} from '../../components/Buttons'
 
 const JobListItem = ({ job }) => {
     const {
@@ -29,7 +33,9 @@ const JobListItem = ({ job }) => {
                 Context menu here:
                 <DeleteJobButton id={id} />
                 <RunJobButton id={id} />
-                <Link to={`/edit/${id}`}>Edit</Link>
+                <LinkButton as={Link} to={`/edit/${id}`}>
+                    Edit
+                </LinkButton>
             </td>
         </tr>
     )
