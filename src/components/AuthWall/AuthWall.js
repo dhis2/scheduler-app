@@ -4,6 +4,7 @@ import { node, func, string, bool } from 'prop-types'
 import { CircularLoader } from '@dhis2/ui-core'
 import { getMe } from '../../rootSelectors'
 import { actions, selectors } from '../../data/me'
+import { AbsoluteCenter } from '../AbsoluteCenter'
 
 export const UnconnectedAuthWall = ({
     children,
@@ -17,7 +18,11 @@ export const UnconnectedAuthWall = ({
     }, [fetchMeIfNeeded])
 
     if (isFetching) {
-        return <CircularLoader />
+        return (
+            <AbsoluteCenter>
+                <CircularLoader />
+            </AbsoluteCenter>
+        )
     }
 
     if (errorMessage) {
