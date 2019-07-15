@@ -8,4 +8,10 @@ describe('<AbsoluteCenter>', () => {
 
         expect(wrapper).toMatchSnapshot()
     })
+
+    it('responds to a vertical prop', () => {
+        const wrapper = shallow(<AbsoluteCenter vertical>Text</AbsoluteCenter>)
+
+        expect(wrapper).toMatchSnapshot()
+    })
 })

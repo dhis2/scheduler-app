@@ -10,7 +10,7 @@ exports[`<Aligner> renders correctly 1`] = `
 
 exports[`<Aligner> responds to a vertical prop 1`] = `
 <div
-  className="horizontal"
+  className="vertical"
 >
   Text
 </div>
