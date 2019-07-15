@@ -3,7 +3,7 @@ import * as types from './actionTypes'
 const fallbackMessage =
     'Something went wrong, but no errormessage was provided.'
 const initialState = {
-    didFetchSuccessfully: false,
+    lastUpdated: 0,
     errorMessage: '',
     isFetching: false,
     isDirty: false,
@@ -20,19 +20,16 @@ const reducer = (state = initialState, action) => {
             return { ...state, isFetching: true }
         case types.FETCH_JOBS_SUCCESS:
             return {
-                didFetchSuccessfully: true,
+                lastUpdated: action.meta.receivedAt,
                 errorMessage: '',
                 isFetching: false,
                 isDirty: false,
                 result: action.payload.result,
             }
         case types.FETCH_JOBS_FAIL:
-        case types.ENABLE_JOB_FAIL:
-        case types.DISABLE_JOB_FAIL:
-        case types.DELETE_JOB_FAIL:
-        case types.RUN_JOB_FAIL:
             return {
                 ...state,
+                lastUpdated: action.meta.receivedAt,
                 errorMessage: action.error.message || fallbackMessage,
                 isFetching: false,
             }
@@ -45,6 +42,15 @@ const reducer = (state = initialState, action) => {
                 isFetching: false,
                 isDirty: true,
             }
+        case types.ENABLE_JOB_FAIL:
+        case types.DISABLE_JOB_FAIL:
+        case types.DELETE_JOB_FAIL:
+        case types.RUN_JOB_FAIL:
+            return {
+                ...state,
+                errorMessage: action.error.message || fallbackMessage,
+                isFetching: false,
+            }
         default:
             return state
     }
@@ -56,18 +62,19 @@ export default reducer
  * Selectors
  */
 
-export const getDidFetchSuccessfully = state => state.didFetchSuccessfully
-export const getIsFetching = state => state.isFetching
+export const getDidFetch = state => !!state.lastUpdated
 export const getErrorMessage = state => state.errorMessage
+export const getIsFetching = state => state.isFetching
 export const getResult = state => state.result
 
 export const getShouldFetch = state => {
-    const { isFetching, isDirty, errorMessage, didFetchSuccessfully } = state
+    const { isFetching, isDirty, errorMessage, lastUpdated } = state
     const hasError = !!errorMessage
+    const hasFetched = !!lastUpdated
 
     if (isFetching) {
         return false
     }
 
-    return hasError || isDirty || !didFetchSuccessfully
+    return hasError || isDirty || !hasFetched
 }
