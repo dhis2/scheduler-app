@@ -1,5 +1,5 @@
 import React from 'react'
-import { node } from 'prop-types'
+import { node, bool } from 'prop-types'
 import styles from './AbsoluteCenter.module.css'
 
 /**
@@ -8,12 +8,23 @@ import styles from './AbsoluteCenter.module.css'
  * rendered in a row by default.
  */
 
-const AbsoluteCenter = ({ children }) => (
-    <div className={styles.center}>{children}</div>
-)
+const AbsoluteCenter = ({ children, vertical }) => {
+    const classNames = [styles.center]
+
+    if (vertical) {
+        classNames.push(styles.vertical)
+    }
+
+    return <div className={classNames.join(' ')}>{children}</div>
+}
+
+AbsoluteCenter.defaultProps = {
+    vertical: false,
+}
 
 AbsoluteCenter.propTypes = {
     children: node.isRequired,
+    vertical: bool,
 }
 
 export default AbsoluteCenter

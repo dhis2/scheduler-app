@@ -10,7 +10,7 @@ describe('<Aligner>', () => {
     })
 
     it('responds to a vertical prop', () => {
-        const wrapper = shallow(<Aligner>Text</Aligner>)
+        const wrapper = shallow(<Aligner vertical>Text</Aligner>)
 
         expect(wrapper).toMatchSnapshot()
     })
