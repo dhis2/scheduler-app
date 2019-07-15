@@ -6,11 +6,17 @@ import * as selectors from './reducer'
 
 export const fetchMeSuccess = payload => ({
     type: types.FETCH_ME_SUCCESS,
+    meta: {
+        receivedAt: Date.now(),
+    },
     payload,
 })
 
 export const fetchMeFail = error => ({
     type: types.FETCH_ME_FAIL,
+    meta: {
+        receivedAt: Date.now(),
+    },
     error,
 })
 

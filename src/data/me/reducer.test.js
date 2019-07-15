@@ -3,7 +3,7 @@ import * as types from './actionTypes'
 
 describe('reducer', () => {
     const initialState = {
-        didFetchSuccessfully: false,
+        lastUpdated: 0,
         errorMessage: '',
         isFetching: false,
         data: {},
@@ -31,10 +31,13 @@ describe('reducer', () => {
         const payload = 'payload'
         const actual = reducer(fetchingState, {
             type: types.FETCH_ME_SUCCESS,
+            meta: {
+                receivedAt: 1,
+            },
             payload,
         })
         const expected = {
-            didFetchSuccessfully: true,
+            lastUpdated: 1,
             errorMessage: '',
             isFetching: false,
             data: payload,
@@ -46,10 +49,13 @@ describe('reducer', () => {
     it('should handle FETCH_ME_FAIL with an errormessage', () => {
         const actual = reducer(fetchingState, {
             type: types.FETCH_ME_FAIL,
+            meta: {
+                receivedAt: 1,
+            },
             error: new Error('error'),
         })
         const expected = {
-            didFetchSuccessfully: false,
+            lastUpdated: 1,
             errorMessage: 'error',
             isFetching: false,
             data: {},
@@ -61,10 +67,13 @@ describe('reducer', () => {
     it('should handle FETCH_ME_FAIL without an errormessage', () => {
         const actual = reducer(fetchingState, {
             type: types.FETCH_ME_FAIL,
+            meta: {
+                receivedAt: 1,
+            },
             error: new Error(),
         })
         const expected = {
-            didFetchSuccessfully: false,
+            lastUpdated: 1,
             errorMessage:
                 'Something went wrong, but no errormessage was provided.',
             isFetching: false,
@@ -143,7 +152,7 @@ describe('getIsAuthorized', () => {
 
 describe('getShouldFetch', () => {
     const initialState = {
-        didFetchSuccessfully: false,
+        lastUpdated: 0,
         errorMessage: '',
         isFetching: false,
         data: {},
@@ -175,27 +184,6 @@ describe('getShouldFetch', () => {
 
     it('should return true if it has not fetched yet', () => {
         const state = { ...initialState }
-        const expected = true
-        const actual = selectors.getShouldFetch(state)
-
-        expect(actual).toEqual(expected)
-    })
-
-    it('should return true if it has no authorities', () => {
-        const state = { ...initialState }
-        const expected = true
-        const actual = selectors.getShouldFetch(state)
-
-        expect(actual).toEqual(expected)
-    })
-
-    it('should return true if it has no authorities but did fetch successfully', () => {
-        const state = {
-            didFetchSuccessfully: true,
-            errorMessage: '',
-            isFetching: false,
-            data: {},
-        }
         const expected = true
         const actual = selectors.getShouldFetch(state)
 

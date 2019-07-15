@@ -7,8 +7,11 @@ exports[`<AuthWall> renders a message for unauthorized users 1`] = `
 `;
 
 exports[`<AuthWall> renders a spinner when loading 1`] = `
-<AbsoluteCenter>
+<AbsoluteCenter
+  vertical={true}
+>
   <CircularLoader />
+  Checking permissions
 </AbsoluteCenter>
 `;
 

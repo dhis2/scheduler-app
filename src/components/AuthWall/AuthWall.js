@@ -8,7 +8,7 @@ import { AbsoluteCenter } from '../AbsoluteCenter'
 
 export const UnconnectedAuthWall = ({
     children,
-    isFetching,
+    didFetch,
     errorMessage,
     isAuthorized,
     fetchMeIfNeeded,
@@ -17,10 +17,11 @@ export const UnconnectedAuthWall = ({
         fetchMeIfNeeded()
     }, [fetchMeIfNeeded])
 
-    if (isFetching) {
+    if (!didFetch) {
         return (
-            <AbsoluteCenter>
+            <AbsoluteCenter vertical>
                 <CircularLoader />
+                Checking permissions
             </AbsoluteCenter>
         )
     }
@@ -38,7 +39,7 @@ export const UnconnectedAuthWall = ({
 
 UnconnectedAuthWall.propTypes = {
     children: node.isRequired,
-    isFetching: bool.isRequired,
+    didFetch: bool.isRequired,
     errorMessage: string.isRequired,
     isAuthorized: bool.isRequired,
     fetchMeIfNeeded: func.isRequired,
@@ -50,7 +51,7 @@ const mapStateToProps = state => {
 
     /* istanbul ignore next */
     return {
-        isFetching: selectors.getIsFetching(me),
+        didFetch: selectors.getDidFetch(me),
         errorMessage: selectors.getErrorMessage(me),
         isAuthorized: selectors.getIsAuthorized(me),
     }
