@@ -9,7 +9,7 @@ import { AbsoluteCenter } from '../../components/AbsoluteCenter'
 import JobList from './JobList'
 
 export const UnconnectedJobListContainer = ({
-    didFetchSuccessfully,
+    didFetch,
     isFetching,
     errorMessage,
     jobIds,
@@ -24,10 +24,11 @@ export const UnconnectedJobListContainer = ({
     const [jobFilter, setJobFilter] = useState('')
 
     // Show spinner when there are no jobs to display yet
-    if (isFetching && !didFetchSuccessfully) {
+    if (!didFetch) {
         return (
-            <AbsoluteCenter>
+            <AbsoluteCenter vertical>
                 <CircularLoader />
+                Loading jobs
             </AbsoluteCenter>
         )
     }
@@ -67,7 +68,7 @@ export const UnconnectedJobListContainer = ({
 }
 
 UnconnectedJobListContainer.propTypes = {
-    didFetchSuccessfully: bool.isRequired,
+    didFetch: bool.isRequired,
     isFetching: bool.isRequired,
     errorMessage: string.isRequired,
     jobIds: arrayOf(string).isRequired,
@@ -80,7 +81,7 @@ const mapStateToProps = state => {
     const entities = rootSelectors.getEntities(state)
 
     return {
-        didFetchSuccessfully: selectors.getDidFetchSuccessfully(jobs),
+        didFetch: selectors.getDidFetch(jobs),
         isFetching: selectors.getIsFetching(jobs),
         errorMessage: selectors.getErrorMessage(jobs),
         jobIds: selectors.getResult(jobs),

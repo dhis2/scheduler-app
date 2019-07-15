@@ -13,11 +13,17 @@ import * as selectors from './reducer'
 
 export const fetchJobsSuccess = payload => ({
     type: types.FETCH_JOBS_SUCCESS,
+    meta: {
+        receivedAt: Date.now(),
+    },
     payload,
 })
 
 export const fetchJobsFail = error => ({
     type: types.FETCH_JOBS_FAIL,
+    meta: {
+        receivedAt: Date.now(),
+    },
     error,
 })
 

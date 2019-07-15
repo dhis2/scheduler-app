@@ -104,6 +104,16 @@ describe('getErrorMessage', () => {
     })
 })
 
+describe('getDidFetch', () => {
+    it('should return if it fetched', () => {
+        const state = { lastUpdated: 10 }
+        const expected = !!state.lastUpdated
+        const actual = selectors.getDidFetch(state)
+
+        expect(actual).toEqual(expected)
+    })
+})
+
 describe('getIsAuthorized', () => {
     it('should return false if there are no authorities', () => {
         const state = { data: {} }

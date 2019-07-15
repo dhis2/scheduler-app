@@ -38,9 +38,9 @@ export default reducer
  * Selectors
  */
 
-export const getIsFetching = state => state.isFetching
-export const getErrorMessage = state => state.errorMessage
 export const getDidFetch = state => !!state.lastUpdated
+export const getErrorMessage = state => state.errorMessage
+export const getIsFetching = state => state.isFetching
 
 export const getIsAuthorized = state => {
     const { authorities } = state.data
