@@ -3,7 +3,7 @@ import * as types from './actionTypes'
 
 describe('reducer', () => {
     const initialState = {
-        didFetchSuccessfully: false,
+        lastUpdated: 0,
         errorMessage: '',
         isFetching: false,
         isDirty: false,
@@ -65,11 +65,14 @@ describe('reducer', () => {
         }
         const actual = reducer(fetchingState, {
             type: types.FETCH_JOBS_SUCCESS,
+            meta: {
+                receivedAt: 1,
+            },
             payload,
         })
         const expected = {
             ...fetchingState,
-            didFetchSuccessfully: true,
+            lastUpdated: 1,
             errorMessage: '',
             isFetching: false,
             isDirty: false,
@@ -82,10 +85,14 @@ describe('reducer', () => {
     it('should handle FETCH_JOBS_FAIL with an errormessage', () => {
         const actual = reducer(fetchingState, {
             type: types.FETCH_JOBS_FAIL,
+            meta: {
+                receivedAt: 1,
+            },
             error: new Error('error'),
         })
         const expected = {
             ...fetchingState,
+            lastUpdated: 1,
             errorMessage: 'error',
             isFetching: false,
         }
@@ -152,10 +159,14 @@ describe('reducer', () => {
     it('should handle FETCH_JOBS_FAIL without an errormessage', () => {
         const actual = reducer(fetchingState, {
             type: types.FETCH_JOBS_FAIL,
+            meta: {
+                receivedAt: 1,
+            },
             error: new Error(),
         })
         const expected = {
             ...fetchingState,
+            lastUpdated: 1,
             errorMessage:
                 'Something went wrong, but no errormessage was provided.',
             isFetching: false,
@@ -277,11 +288,11 @@ describe('reducer', () => {
     })
 })
 
-describe('getDidFetchSuccessfully', () => {
+describe('getDidFetch', () => {
     it('should return whether it fetched', () => {
-        const state = { didFetchSuccessfully: true }
-        const expected = state.didFetchSuccessfully
-        const actual = selectors.getDidFetchSuccessfully(state)
+        const state = { lastUpdated: 10 }
+        const expected = !!state.lastUpdated
+        const actual = selectors.getDidFetch(state)
 
         expect(actual).toEqual(expected)
     })
