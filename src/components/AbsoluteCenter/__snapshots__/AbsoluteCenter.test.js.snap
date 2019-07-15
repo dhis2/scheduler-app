@@ -7,3 +7,11 @@ exports[`<AbsoluteCenter> renders correctly 1`] = `
   Text
 </div>
 `;
+
+exports[`<AbsoluteCenter> responds to a vertical prop 1`] = `
+<div
+  className="center vertical"
+>
+  Text
+</div>
+`;
