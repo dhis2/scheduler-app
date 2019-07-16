@@ -17,3 +17,7 @@ export const DELETE_JOB_FAIL = 'DELETE_JOB_FAIL'
 export const RUN_JOB = 'RUN_JOB'
 export const RUN_JOB_SUCCESS = 'RUN_JOB_SUCCESS'
 export const RUN_JOB_FAIL = 'RUN_JOB_FAIL'
+
+export const CREATE_JOB = 'CREATE_JOB'
+export const CREATE_JOB_SUCCESS = 'CREATE_JOB_SUCCESS'
+export const CREATE_JOB_FAIL = 'CREATE_JOB_FAIL'
