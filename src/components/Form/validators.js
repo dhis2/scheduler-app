@@ -5,7 +5,7 @@ export const requiredCronExpression = value => {
     const isFilled = isString && value.length > 0
 
     if (!isFilled) {
-        return new Error('Cron expression is required')
+        return new Error('CRON expression is required')
     }
 
     if (!validateCron(value)) {
