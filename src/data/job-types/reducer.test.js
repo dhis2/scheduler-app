@@ -117,6 +117,21 @@ describe('getErrorMessage', () => {
     })
 })
 
+describe('getJobTypes', () => {
+    it('should return the job types', () => {
+        const state = {
+            data: {
+                one: 1,
+                two: 2,
+            },
+        }
+        const expected = ['one', 'two']
+        const actual = selectors.getJobTypes(state)
+
+        expect(actual).toEqual(expected)
+    })
+})
+
 describe('getShouldFetch', () => {
     const initialState = {
         didFetchSuccessfully: false,
