@@ -70,11 +70,11 @@ export const getResult = state => state.result
 export const getShouldFetch = state => {
     const { isFetching, isDirty, errorMessage, lastUpdated } = state
     const hasError = !!errorMessage
-    const hasFetched = !!lastUpdated
+    const didFetch = !!lastUpdated
 
     if (isFetching) {
         return false
     }
 
-    return hasError || isDirty || !hasFetched
+    return hasError || isDirty || !didFetch
 }
