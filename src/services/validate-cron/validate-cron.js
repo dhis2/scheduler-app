@@ -76,15 +76,20 @@ const isValidWeekdayField = field =>
     isAlphabeticWeekday(field) ||
     isUndefined(field)
 
-// isValidation of CronExpression, following the Spring Scheduling pattern:
-// - Documentation: https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/scheduling/support/CronSequenceGenerator.html
-// - Source code: https://git.io/vpoqG
+/**
+ * Cron expression validation. Validates the Spring Scheduling pattern.
+ * Format: <second> <minute> <hour> <day-of-month> <month> <day-of-week>
+ * Source code: https://git.io/vpoqG
+ * Documentation: https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/scheduling/support/CronSequenceGenerator.html
+ */
+
 const validateCron = exp => {
     if (!exp) {
         return false
     }
 
     const fields = exp.trim().split(' ')
+
     if (!isValidFields(fields)) {
         return false
     }
