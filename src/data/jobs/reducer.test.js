@@ -56,6 +56,13 @@ describe('reducer', () => {
         expect(actual).toEqual(expected)
     })
 
+    it('should handle CREATE_JOB', () => {
+        const actual = reducer(undefined, { type: types.CREATE_JOB })
+        const expected = fetchingState
+
+        expect(actual).toEqual(expected)
+    })
+
     it('should handle FETCH_JOBS_SUCCESS', () => {
         const payload = {
             entities: {
@@ -156,6 +163,20 @@ describe('reducer', () => {
         expect(actual).toEqual(expected)
     })
 
+    it('should handle CREATE_JOB_FAIL with an errormessage', () => {
+        const actual = reducer(fetchingState, {
+            type: types.CREATE_JOB_FAIL,
+            error: new Error('error'),
+        })
+        const expected = {
+            ...fetchingState,
+            errorMessage: 'error',
+            isFetching: false,
+        }
+
+        expect(actual).toEqual(expected)
+    })
+
     it('should handle FETCH_JOBS_FAIL without an errormessage', () => {
         const actual = reducer(fetchingState, {
             type: types.FETCH_JOBS_FAIL,
@@ -235,6 +256,21 @@ describe('reducer', () => {
         expect(actual).toEqual(expected)
     })
 
+    it('should handle CREATE_JOB_FAIL without an errormessage', () => {
+        const actual = reducer(fetchingState, {
+            type: types.CREATE_JOB_FAIL,
+            error: new Error(),
+        })
+        const expected = {
+            ...fetchingState,
+            errorMessage:
+                'Something went wrong, but no errormessage was provided.',
+            isFetching: false,
+        }
+
+        expect(actual).toEqual(expected)
+    })
+
     it('should handle ENABLE_JOB_SUCCESS', () => {
         const actual = reducer(fetchingState, {
             type: types.ENABLE_JOB_SUCCESS,
@@ -277,6 +313,19 @@ describe('reducer', () => {
     it('should handle RUN_JOB_SUCCESS', () => {
         const actual = reducer(fetchingState, {
             type: types.RUN_JOB_SUCCESS,
+        })
+        const expected = {
+            ...fetchingState,
+            isFetching: false,
+            isDirty: true,
+        }
+
+        expect(actual).toEqual(expected)
+    })
+
+    it('should handle CREATE_JOB_SUCCESS', () => {
+        const actual = reducer(fetchingState, {
+            type: types.CREATE_JOB_SUCCESS,
         })
         const expected = {
             ...fetchingState,

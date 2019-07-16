@@ -166,3 +166,34 @@ export const runJob = id => dispatch => {
         .then(() => dispatch(fetchJobsIfNeeded()))
         .catch(error => dispatch(runJobFail(error)))
 }
+
+/**
+ * Create job
+ */
+
+export const createJobSuccess = () => ({
+    type: types.CREATE_JOB_SUCCESS,
+})
+
+export const createJobFail = error => ({
+    type: types.CREATE_JOB_FAIL,
+    error,
+})
+
+export const createJob = job => dispatch => {
+    dispatch({ type: types.CREATE_JOB })
+
+    const fetchOptions = {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(job),
+    }
+
+    return fetchy(endpoints.jobs, fetchOptions)
+        .then(() => dispatch(createJobSuccess()))
+        .then(() => dispatch(fetchJobsIfNeeded()))
+        .catch(error => dispatch(createJobFail(error)))
+}
