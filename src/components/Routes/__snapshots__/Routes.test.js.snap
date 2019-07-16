@@ -20,7 +20,15 @@ exports[`<Routes> renders correctly 1`] = `
     path="/edit/:id"
   />
   <Route
-    component={[Function]}
+    component={
+      Object {
+        "$$typeof": Symbol(react.memo),
+        "WrappedComponent": [Function],
+        "compare": null,
+        "displayName": "Connect(UnconnectedJobAddContainer)",
+        "type": [Function],
+      }
+    }
     path="/add"
   />
 </HashRouter>

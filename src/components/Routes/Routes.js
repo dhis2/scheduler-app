@@ -2,7 +2,7 @@ import React from 'react'
 import { HashRouter, Route } from 'react-router-dom'
 import { JobListContainer as JobList } from '../../pages/JobList'
 import { JobEdit } from '../../pages/JobEdit'
-import { JobAdd } from '../../pages/JobAdd'
+import { JobAddContainer as JobAdd } from '../../pages/JobAdd'
 
 const Routes = () => (
     <HashRouter>
