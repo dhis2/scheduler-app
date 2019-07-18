@@ -13,3 +13,7 @@
 .vertical {
     flex-direction: column;
 }
+
+.clickable {
+    pointer-events: auto;
+}

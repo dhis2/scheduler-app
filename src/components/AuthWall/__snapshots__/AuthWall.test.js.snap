@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<AuthWall> renders a message for unauthorized users 1`] = `
-<span>
-  You are not authorized
-</span>
+<FatalError
+  message="You are not authorized"
+/>
 `;
 
 exports[`<AuthWall> renders a spinner when loading 1`] = `
@@ -16,9 +16,9 @@ exports[`<AuthWall> renders a spinner when loading 1`] = `
 `;
 
 exports[`<AuthWall> renders errors if they occur 1`] = `
-<span>
-  Something went wrong
-</span>
+<FatalError
+  message="Something went wrong"
+/>
 `;
 
 exports[`<AuthWall> renders the children for authorized users 1`] = `
