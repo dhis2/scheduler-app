@@ -49,7 +49,7 @@ describe('reducer', () => {
         expect(actual).toEqual(expected)
     })
 
-    it('should handle FETCH_JOB_TYPES_FAIL with an errormessage', () => {
+    it('should handle FETCH_JOB_TYPES_FAIL', () => {
         const actual = reducer(fetchingState, {
             type: types.FETCH_JOB_TYPES_FAIL,
             meta: {
@@ -61,25 +61,6 @@ describe('reducer', () => {
             ...fetchingState,
             lastUpdated: 1,
             errorMessage: 'error',
-            isFetching: false,
-        }
-
-        expect(actual).toEqual(expected)
-    })
-
-    it('should handle FETCH_JOB_TYPES_FAIL without an errormessage', () => {
-        const actual = reducer(fetchingState, {
-            type: types.FETCH_JOB_TYPES_FAIL,
-            meta: {
-                receivedAt: 1,
-            },
-            error: new Error(),
-        })
-        const expected = {
-            ...fetchingState,
-            lastUpdated: 1,
-            errorMessage:
-                'Something went wrong, but no errormessage was provided.',
             isFetching: false,
         }
 

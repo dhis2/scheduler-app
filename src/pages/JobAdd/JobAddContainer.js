@@ -3,7 +3,6 @@ import { func, string, bool } from 'prop-types'
 import { connect } from 'react-redux'
 import { CircularLoader } from '@dhis2/ui-core'
 import { actions, selectors } from '../../data/job-types'
-import { actions as jobActions } from '../../data/jobs'
 import * as rootSelectors from '../../rootSelectors'
 import { AbsoluteCenter } from '../../components/AbsoluteCenter'
 import JobAdd from './JobAdd'
@@ -11,14 +10,13 @@ import JobAdd from './JobAdd'
 export const UnconnectedJobAddContainer = ({
     didFetch,
     errorMessage,
-    createJob,
     fetchJobTypesIfNeeded,
 }) => {
     useEffect(() => {
         fetchJobTypesIfNeeded()
     }, [fetchJobTypesIfNeeded])
 
-    // Show spinner when there are no jobs to display yet
+    // Show spinner when the options haven't loaded yet
     if (!didFetch) {
         return (
             <AbsoluteCenter vertical>
@@ -32,7 +30,7 @@ export const UnconnectedJobAddContainer = ({
         return <span>{errorMessage}</span>
     }
 
-    return <JobAdd createJob={createJob} />
+    return <JobAdd />
 }
 
 UnconnectedJobAddContainer.propTypes = {
@@ -55,7 +53,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
     fetchJobTypesIfNeeded: actions.fetchJobTypesIfNeeded,
-    createJob: jobActions.createJob,
 }
 
 export default connect(

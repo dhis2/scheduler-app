@@ -4,7 +4,11 @@ exports[`<AbsoluteCenter> renders correctly 1`] = `
 <div
   className="center"
 >
-  Text
+  <div
+    className="clickable"
+  >
+    Text
+  </div>
 </div>
 `;
 
@@ -12,6 +16,10 @@ exports[`<AbsoluteCenter> responds to a vertical prop 1`] = `
 <div
   className="center vertical"
 >
-  Text
+  <div
+    className="clickable"
+  >
+    Text
+  </div>
 </div>
 `;

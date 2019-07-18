@@ -27,10 +27,7 @@ export const fetchJobTypesFail = error => ({
 export const fetchJobTypes = () => dispatch => {
     dispatch({ type: types.FETCH_JOB_TYPES })
 
-    return fetchy(endpoints.jobTypes, {
-        credentials: 'include',
-    })
-        .then(response => response.json())
+    return fetchy(endpoints.jobTypes)
         .then(data => dispatch(fetchJobTypesSuccess(data)))
         .catch(error => dispatch(fetchJobTypesFail(error)))
 }
