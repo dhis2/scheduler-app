@@ -75,7 +75,6 @@ export const enableJob = id => dispatch => {
 
     return fetchy(urlJoin(endpoints.jobs, `/${id}`), fetchOptions)
         .then(() => dispatch(enableJobSuccess()))
-        .then(() => dispatch(fetchJobsIfNeeded()))
         .catch(error => dispatch(enableJobFail(error)))
 }
 
@@ -107,7 +106,6 @@ export const disableJob = id => dispatch => {
 
     return fetchy(urlJoin(endpoints.jobs, `/${id}`), fetchOptions)
         .then(() => dispatch(disableJobSuccess()))
-        .then(() => dispatch(fetchJobsIfNeeded()))
         .catch(error => dispatch(disableJobFail(error)))
 }
 
@@ -133,7 +131,6 @@ export const deleteJob = id => dispatch => {
 
     return fetchy(urlJoin(endpoints.jobs, `/${id}`), fetchOptions)
         .then(() => dispatch(deleteJobSuccess()))
-        .then(() => dispatch(fetchJobsIfNeeded()))
         .catch(error => dispatch(deleteJobFail(error)))
 }
 
@@ -155,6 +152,5 @@ export const runJob = id => dispatch => {
 
     return fetchy(urlJoin(endpoints.jobs, `/${id}/execute`))
         .then(() => dispatch(runJobSuccess()))
-        .then(() => dispatch(fetchJobsIfNeeded()))
         .catch(error => dispatch(runJobFail(error)))
 }

@@ -8,15 +8,15 @@ import styles from './AbsoluteCenter.module.css'
  */
 
 const AbsoluteCenter = ({ children, vertical }) => {
-    const classNames = [styles.center]
+    const classNames = [styles.clickable]
 
     if (vertical) {
         classNames.push(styles.vertical)
     }
 
     return (
-        <div className={classNames.join(' ')}>
-            <div className={styles.clickable}>{children}</div>
+        <div className={styles.center}>
+            <div className={classNames.join(' ')}>{children}</div>
         </div>
     )
 }
