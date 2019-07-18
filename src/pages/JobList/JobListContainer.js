@@ -11,6 +11,7 @@ import JobList from './JobList'
 export const UnconnectedJobListContainer = ({
     didFetch,
     isFetching,
+    isDirty,
     errorMessage,
     jobIds,
     jobEntities,
@@ -18,7 +19,7 @@ export const UnconnectedJobListContainer = ({
 }) => {
     useEffect(() => {
         fetchJobsIfNeeded()
-    }, [fetchJobsIfNeeded])
+    }, [fetchJobsIfNeeded, isDirty])
 
     const [showSystemJobs, setShowSystemJobs] = useState(false)
     const [jobFilter, setJobFilter] = useState('')
@@ -70,6 +71,7 @@ export const UnconnectedJobListContainer = ({
 UnconnectedJobListContainer.propTypes = {
     didFetch: bool.isRequired,
     isFetching: bool.isRequired,
+    isDirty: bool.isRequired,
     errorMessage: string.isRequired,
     jobIds: arrayOf(string).isRequired,
     jobEntities: object.isRequired,
@@ -83,6 +85,7 @@ const mapStateToProps = state => {
     return {
         didFetch: selectors.getDidFetch(jobs),
         isFetching: selectors.getIsFetching(jobs),
+        isDirty: selectors.getIsDirty(jobs),
         errorMessage: selectors.getErrorMessage(jobs),
         jobIds: selectors.getResult(jobs),
         jobEntities: entitySelectors.getJobs(entities),

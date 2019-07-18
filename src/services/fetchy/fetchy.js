@@ -6,8 +6,8 @@ const fetchy = async (url, options = {}) => {
         ...options,
         credentials: 'include',
         headers: {
-            'x-requested-with': 'XMLHttpRequest',
-            accept: 'application/json',
+            'X-Requested-With': 'XMLHttpRequest',
+            Accept: 'application/json',
             ...options.headers,
         },
     }
@@ -22,17 +22,25 @@ const fetchy = async (url, options = {}) => {
         )
     }
 
+    const hasJson =
+        response.headers.has('Content-Type') &&
+        response.headers.get('Content-Type').includes('application/json')
+
     // Handle successful responses
     if (response.ok) {
-        try {
-            const data = await response.json()
+        if (hasJson) {
+            try {
+                const data = await response.json()
 
-            return data
-        } catch (e) {
-            throw new Error(
-                'The response succeeded, but contained invalid JSON.'
-            )
+                return data
+            } catch (e) {
+                throw new Error(
+                    'The response succeeded, but contained invalid JSON.'
+                )
+            }
         }
+
+        return
     }
 
     // Handle error responses
