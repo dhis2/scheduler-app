@@ -15,9 +15,10 @@ describe('fetchy', () => {
         return expect(fetchy('endpoint')).rejects.toThrowErrorMatchingSnapshot()
     })
 
-    it('should resolve with the data if the response is ok', () => {
+    it('should resolve with the data if the response is ok and there is data', () => {
         const expected = { data: 'data' }
-        const init = { status: 200, statusText: 'OK' }
+        const headers = { 'Content-Type': 'application/json' }
+        const init = { status: 200, statusText: 'OK', headers }
         const body = JSON.stringify(expected)
         const response = new Response(body, init)
 
@@ -28,8 +29,20 @@ describe('fetchy', () => {
         return expect(fetchy('endpoint')).resolves.toEqual(expected)
     })
 
-    it('should reject with an error if the response is ok but contains invalid json', () => {
+    it('should resolve with undefined if the response is ok and there is no data', () => {
         const init = { status: 200, statusText: 'OK' }
+        const response = new Response(null, init)
+
+        window.fetch.mockImplementationOnce(() => Promise.resolve(response))
+
+        expect.assertions(1)
+
+        return expect(fetchy('endpoint')).resolves.toBeUndefined()
+    })
+
+    it('should reject with an error if the response contains invalid json', () => {
+        const headers = { 'Content-Type': 'application/json' }
+        const init = { status: 200, statusText: 'OK', headers }
         const response = new Response([], init)
 
         window.fetch.mockImplementationOnce(() => Promise.resolve(response))

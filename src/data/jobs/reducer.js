@@ -66,6 +66,7 @@ export default reducer
 export const getDidFetch = state => !!state.lastUpdated
 export const getErrorMessage = state => state.errorMessage
 export const getIsFetching = state => state.isFetching
+export const getIsDirty = state => state.isDirty
 export const getResult = state => state.result
 
 export const getShouldFetch = state => {
