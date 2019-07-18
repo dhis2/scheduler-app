@@ -10,10 +10,14 @@
     pointer-events: none;
 }
 
+.clickable {
+    pointer-events: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .vertical {
     flex-direction: column;
 }
 
-.clickable {
-    pointer-events: auto;
-}

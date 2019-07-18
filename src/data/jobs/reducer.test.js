@@ -285,6 +285,16 @@ describe('getErrorMessage', () => {
     })
 })
 
+describe('getIsDirty', () => {
+    it('should return if it is dirty', () => {
+        const state = { isDirty: true }
+        const expected = state.isDirty
+        const actual = selectors.getIsDirty(state)
+
+        expect(actual).toEqual(expected)
+    })
+})
+
 describe('getResult', () => {
     it('should return the result', () => {
         const state = { result: ['id'] }
