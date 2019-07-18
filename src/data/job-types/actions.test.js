@@ -99,7 +99,7 @@ describe('fetchJobTypes', () => {
         const error = new Error('Internal Server Error')
         nock(origin)
             .get(pathname)
-            .reply(500)
+            .reply(500, {})
 
         const store = mockStore({})
         const expectedActions = [

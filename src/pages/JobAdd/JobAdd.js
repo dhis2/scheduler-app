@@ -1,10 +1,7 @@
 import React from 'react'
-import { func } from 'prop-types'
 import { Card, Button } from '@dhis2/ui-core'
-import { Link } from 'react-router-dom'
 import { Form, Field } from 'react-final-form'
 import { Title } from '../../components/Title'
-import { LinkButton } from '../../components/Buttons'
 import { Aligner } from '../../components/Aligner'
 import { Info } from '../../components/Icons'
 import {
@@ -13,15 +10,19 @@ import {
     CronExpression,
     JobType,
 } from '../../components/Form'
+import { InlineError } from '../../components/Errors'
 
 const infoLink =
     'https://docs.dhis2.org/master/en/user/html/dataAdmin_scheduling.html#dataAdmin_scheduling_config'
 
-const JobAdd = ({ createJob }) => (
+const validate = ({ name, cronExpression, jobType }) => ({
+    name: validators.requiredString(name),
+    cronExpression: validators.requiredCronExpression(cronExpression),
+    jobType: validators.requiredString(jobType),
+})
+
+const JobAdd = () => (
     <React.Fragment>
-        <LinkButton as={Link} to="/">
-            Back to all jobs
-        </LinkButton>
         <Title priority={2}>New Job</Title>
         <Card>
             <Aligner>
@@ -30,9 +31,9 @@ const JobAdd = ({ createJob }) => (
                 <a href={infoLink}>About job configuration</a>
             </Aligner>
             <Form
-                onSubmit={values => createJob(values)}
-                validate={() => {}}
-                render={({ handleSubmit, pristine, invalid }) => (
+                onSubmit={() => {}}
+                validate={validate}
+                render={({ handleSubmit, pristine, submitError }) => (
                     <form onSubmit={handleSubmit}>
                         <Field
                             name="name"
@@ -55,11 +56,15 @@ const JobAdd = ({ createJob }) => (
                             label="Job Type"
                         />
                         <div>
-                            <Button
-                                primary
-                                type="submit"
-                                disabled={pristine || invalid}
-                            >
+                            {submitError && (
+                                <InlineError
+                                    message={submitError.message}
+                                    details={submitError.details}
+                                />
+                            )}
+                        </div>
+                        <div>
+                            <Button primary type="submit" disabled={pristine}>
                                 Save job
                             </Button>
                             <Button>Cancel</Button>
@@ -70,9 +75,5 @@ const JobAdd = ({ createJob }) => (
         </Card>
     </React.Fragment>
 )
-
-JobAdd.propTypes = {
-    createJob: func.isRequired,
-}
 
 export default JobAdd

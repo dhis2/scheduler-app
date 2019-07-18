@@ -23,8 +23,7 @@ export const fetchMeFail = error => ({
 export const fetchMe = () => dispatch => {
     dispatch({ type: types.FETCH_ME })
 
-    return fetchy(endpoints.me, { credentials: 'include' })
-        .then(response => response.json())
+    return fetchy(endpoints.me)
         .then(data => dispatch(fetchMeSuccess(data)))
         .catch(error => dispatch(fetchMeFail(error)))
 }
