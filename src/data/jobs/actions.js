@@ -30,10 +30,7 @@ export const fetchJobsFail = error => ({
 export const fetchJobs = () => dispatch => {
     dispatch({ type: types.FETCH_JOBS })
 
-    return fetchy(urlJoin(endpoints.jobs, '?fields=*'), {
-        credentials: 'include',
-    })
-        .then(response => response.json())
+    return fetchy(urlJoin(endpoints.jobs, '?fields=*'))
         .then(data => normalize(data.jobConfigurations, [schemas.jobs]))
         .then(normalized => dispatch(fetchJobsSuccess(normalized)))
         .catch(error => dispatch(fetchJobsFail(error)))
@@ -68,9 +65,8 @@ export const enableJob = id => dispatch => {
 
     const fetchOptions = {
         method: 'PATCH',
-        credentials: 'include',
         headers: {
-            'Content-Type': 'application/json',
+            'content-type': 'application/json',
         },
         body: JSON.stringify({
             enabled: true,
@@ -101,9 +97,8 @@ export const disableJob = id => dispatch => {
 
     const fetchOptions = {
         method: 'PATCH',
-        credentials: 'include',
         headers: {
-            'Content-Type': 'application/json',
+            'content-type': 'application/json',
         },
         body: JSON.stringify({
             enabled: false,
@@ -134,7 +129,6 @@ export const deleteJob = id => dispatch => {
 
     const fetchOptions = {
         method: 'DELETE',
-        credentials: 'include',
     }
 
     return fetchy(urlJoin(endpoints.jobs, `/${id}`), fetchOptions)
@@ -159,41 +153,8 @@ export const runJobFail = error => ({
 export const runJob = id => dispatch => {
     dispatch({ type: types.RUN_JOB })
 
-    return fetchy(urlJoin(endpoints.jobs, `/${id}/execute`), {
-        credentials: 'include',
-    })
+    return fetchy(urlJoin(endpoints.jobs, `/${id}/execute`))
         .then(() => dispatch(runJobSuccess()))
         .then(() => dispatch(fetchJobsIfNeeded()))
         .catch(error => dispatch(runJobFail(error)))
-}
-
-/**
- * Create job
- */
-
-export const createJobSuccess = () => ({
-    type: types.CREATE_JOB_SUCCESS,
-})
-
-export const createJobFail = error => ({
-    type: types.CREATE_JOB_FAIL,
-    error,
-})
-
-export const createJob = job => dispatch => {
-    dispatch({ type: types.CREATE_JOB })
-
-    const fetchOptions = {
-        method: 'POST',
-        credentials: 'include',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(job),
-    }
-
-    return fetchy(endpoints.jobs, fetchOptions)
-        .then(() => dispatch(createJobSuccess()))
-        .then(() => dispatch(fetchJobsIfNeeded()))
-        .catch(error => dispatch(createJobFail(error)))
 }

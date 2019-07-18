@@ -89,13 +89,15 @@ describe('reducer', () => {
         expect(actual).toEqual(expected)
     })
 
-    it('should handle FETCH_JOBS_FAIL with an errormessage', () => {
+    it('should handle FETCH_JOBS_FAIL', () => {
+        const error = new Error('error')
+
         const actual = reducer(fetchingState, {
             type: types.FETCH_JOBS_FAIL,
             meta: {
                 receivedAt: 1,
             },
-            error: new Error('error'),
+            error,
         })
         const expected = {
             ...fetchingState,
@@ -107,10 +109,12 @@ describe('reducer', () => {
         expect(actual).toEqual(expected)
     })
 
-    it('should handle ENABLE_JOB_FAIL with an errormessage', () => {
+    it('should handle ENABLE_JOB_FAIL', () => {
+        const error = new Error('error')
+
         const actual = reducer(fetchingState, {
             type: types.ENABLE_JOB_FAIL,
-            error: new Error('error'),
+            error,
         })
         const expected = {
             ...fetchingState,
@@ -121,10 +125,12 @@ describe('reducer', () => {
         expect(actual).toEqual(expected)
     })
 
-    it('should handle DISABLE_JOB_FAIL with an errormessage', () => {
+    it('should handle DISABLE_JOB_FAIL', () => {
+        const error = new Error('error')
+
         const actual = reducer(fetchingState, {
             type: types.DISABLE_JOB_FAIL,
-            error: new Error('error'),
+            error,
         })
         const expected = {
             ...fetchingState,
@@ -135,10 +141,12 @@ describe('reducer', () => {
         expect(actual).toEqual(expected)
     })
 
-    it('should handle DELETE_JOB_FAIL with an errormessage', () => {
+    it('should handle DELETE_JOB_FAIL', () => {
+        const error = new Error('error')
+
         const actual = reducer(fetchingState, {
             type: types.DELETE_JOB_FAIL,
-            error: new Error('error'),
+            error,
         })
         const expected = {
             ...fetchingState,
@@ -149,10 +157,12 @@ describe('reducer', () => {
         expect(actual).toEqual(expected)
     })
 
-    it('should handle RUN_JOB_FAIL with an errormessage', () => {
+    it('should handle RUN_JOB_FAIL', () => {
+        const error = new Error('error')
+
         const actual = reducer(fetchingState, {
             type: types.RUN_JOB_FAIL,
-            error: new Error('error'),
+            error,
         })
         const expected = {
             ...fetchingState,
@@ -163,108 +173,16 @@ describe('reducer', () => {
         expect(actual).toEqual(expected)
     })
 
-    it('should handle CREATE_JOB_FAIL with an errormessage', () => {
+    it('should handle CREATE_JOB_FAIL', () => {
+        const error = new Error('error')
+
         const actual = reducer(fetchingState, {
             type: types.CREATE_JOB_FAIL,
-            error: new Error('error'),
+            error,
         })
         const expected = {
             ...fetchingState,
             errorMessage: 'error',
-            isFetching: false,
-        }
-
-        expect(actual).toEqual(expected)
-    })
-
-    it('should handle FETCH_JOBS_FAIL without an errormessage', () => {
-        const actual = reducer(fetchingState, {
-            type: types.FETCH_JOBS_FAIL,
-            meta: {
-                receivedAt: 1,
-            },
-            error: new Error(),
-        })
-        const expected = {
-            ...fetchingState,
-            lastUpdated: 1,
-            errorMessage:
-                'Something went wrong, but no errormessage was provided.',
-            isFetching: false,
-        }
-
-        expect(actual).toEqual(expected)
-    })
-
-    it('should handle ENABLE_JOB_FAIL without an errormessage', () => {
-        const actual = reducer(fetchingState, {
-            type: types.ENABLE_JOB_FAIL,
-            error: new Error(),
-        })
-        const expected = {
-            ...fetchingState,
-            errorMessage:
-                'Something went wrong, but no errormessage was provided.',
-            isFetching: false,
-        }
-
-        expect(actual).toEqual(expected)
-    })
-
-    it('should handle DISABLE_JOB_FAIL without an errormessage', () => {
-        const actual = reducer(fetchingState, {
-            type: types.DISABLE_JOB_FAIL,
-            error: new Error(),
-        })
-        const expected = {
-            ...fetchingState,
-            errorMessage:
-                'Something went wrong, but no errormessage was provided.',
-            isFetching: false,
-        }
-
-        expect(actual).toEqual(expected)
-    })
-
-    it('should handle DELETE_JOB_FAIL without an errormessage', () => {
-        const actual = reducer(fetchingState, {
-            type: types.DELETE_JOB_FAIL,
-            error: new Error(),
-        })
-        const expected = {
-            ...fetchingState,
-            errorMessage:
-                'Something went wrong, but no errormessage was provided.',
-            isFetching: false,
-        }
-
-        expect(actual).toEqual(expected)
-    })
-
-    it('should handle RUN_JOB_FAIL without an errormessage', () => {
-        const actual = reducer(fetchingState, {
-            type: types.RUN_JOB_FAIL,
-            error: new Error(),
-        })
-        const expected = {
-            ...fetchingState,
-            errorMessage:
-                'Something went wrong, but no errormessage was provided.',
-            isFetching: false,
-        }
-
-        expect(actual).toEqual(expected)
-    })
-
-    it('should handle CREATE_JOB_FAIL without an errormessage', () => {
-        const actual = reducer(fetchingState, {
-            type: types.CREATE_JOB_FAIL,
-            error: new Error(),
-        })
-        const expected = {
-            ...fetchingState,
-            errorMessage:
-                'Something went wrong, but no errormessage was provided.',
             isFetching: false,
         }
 

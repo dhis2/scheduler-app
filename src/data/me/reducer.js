@@ -1,7 +1,5 @@
 import * as types from './actionTypes'
 
-const fallbackMessage =
-    'Something went wrong, but no errormessage was provided.'
 const initialState = {
     lastUpdated: 0,
     errorMessage: '',
@@ -23,7 +21,7 @@ const reducer = (state = initialState, action) => {
         case types.FETCH_ME_FAIL:
             return {
                 lastUpdated: action.meta.receivedAt,
-                errorMessage: action.error.message || fallbackMessage,
+                errorMessage: action.error.message,
                 isFetching: false,
                 data: {},
             }

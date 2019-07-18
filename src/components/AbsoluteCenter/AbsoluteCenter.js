@@ -3,9 +3,8 @@ import { node, bool } from 'prop-types'
 import styles from './AbsoluteCenter.module.css'
 
 /**
- * Centers its children in the viewport vertically and horizontally. Children are not clickable due
- * to pointer-events: none, to allow underlying elements to still respond to clicks. Children are
- * rendered in a row by default.
+ * Centers its children in the viewport vertically and horizontally. Children are rendered in a row
+ * by default. The wrapper itself is not clickable but children are.
  */
 
 const AbsoluteCenter = ({ children, vertical }) => {
@@ -15,7 +14,11 @@ const AbsoluteCenter = ({ children, vertical }) => {
         classNames.push(styles.vertical)
     }
 
-    return <div className={classNames.join(' ')}>{children}</div>
+    return (
+        <div className={classNames.join(' ')}>
+            <div className={styles.clickable}>{children}</div>
+        </div>
+    )
 }
 
 AbsoluteCenter.defaultProps = {

@@ -99,7 +99,7 @@ describe('fetchMe', () => {
         const error = new Error('Internal Server Error')
         nock(origin)
             .get(pathname)
-            .reply(500)
+            .reply(500, {})
 
         const store = mockStore({})
         const expectedActions = [
@@ -109,7 +109,7 @@ describe('fetchMe', () => {
                 meta: {
                     receivedAt: 1,
                 },
-                error: error,
+                error,
             },
         ]
 

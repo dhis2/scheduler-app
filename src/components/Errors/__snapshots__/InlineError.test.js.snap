@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<InlineError> renders correctly 1`] = `
+<div
+  className="wrapper"
+>
+  <Title
+    priority={1}
+  >
+    Something went wrong
+  </Title>
+  <p>
+    The error message was: "
+    Error
+    "
+  </p>
+  <Title
+    priority={2}
+  >
+    Details
+  </Title>
+  <p
+    key="Details"
+  >
+    Details
+  </p>
+</div>
+`;

@@ -46,36 +46,20 @@ describe('reducer', () => {
         expect(actual).toEqual(expected)
     })
 
-    it('should handle FETCH_ME_FAIL with an errormessage', () => {
+    it('should handle FETCH_ME_FAIL', () => {
+        const error = new Error('error')
+        error.details = ['details']
+
         const actual = reducer(fetchingState, {
             type: types.FETCH_ME_FAIL,
             meta: {
                 receivedAt: 1,
             },
-            error: new Error('error'),
+            error,
         })
         const expected = {
             lastUpdated: 1,
             errorMessage: 'error',
-            isFetching: false,
-            data: {},
-        }
-
-        expect(actual).toEqual(expected)
-    })
-
-    it('should handle FETCH_ME_FAIL without an errormessage', () => {
-        const actual = reducer(fetchingState, {
-            type: types.FETCH_ME_FAIL,
-            meta: {
-                receivedAt: 1,
-            },
-            error: new Error(),
-        })
-        const expected = {
-            lastUpdated: 1,
-            errorMessage:
-                'Something went wrong, but no errormessage was provided.',
             isFetching: false,
             data: {},
         }
