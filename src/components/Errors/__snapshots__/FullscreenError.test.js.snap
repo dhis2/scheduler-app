@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<FatalError> renders correctly 1`] = `
+exports[`<FullscreenError> renders correctly 1`] = `
 <AbsoluteCenter
   vertical={false}
 >

@@ -5,6 +5,7 @@ import { CircularLoader } from '@dhis2/ui-core'
 import { actions, selectors } from '../../data/job-types'
 import * as rootSelectors from '../../rootSelectors'
 import { AbsoluteCenter } from '../../components/AbsoluteCenter'
+import { FullscreenError } from '../../components/Errors'
 import JobAdd from './JobAdd'
 
 export const UnconnectedJobAddContainer = ({
@@ -27,7 +28,7 @@ export const UnconnectedJobAddContainer = ({
     }
 
     if (errorMessage) {
-        return <span>{errorMessage}</span>
+        return <FullscreenError message={errorMessage} />
     }
 
     return <JobAdd />

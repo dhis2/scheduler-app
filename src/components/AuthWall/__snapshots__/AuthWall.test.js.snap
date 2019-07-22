@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<AuthWall> renders a message for unauthorized users 1`] = `
-<FatalError
+<FullscreenError
   message="You are not authorized"
 />
 `;
@@ -16,7 +16,7 @@ exports[`<AuthWall> renders a spinner when loading 1`] = `
 `;
 
 exports[`<AuthWall> renders errors if they occur 1`] = `
-<FatalError
+<FullscreenError
   message="Something went wrong"
 />
 `;
