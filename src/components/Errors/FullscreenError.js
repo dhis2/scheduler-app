@@ -2,10 +2,10 @@ import React from 'react'
 import { AbsoluteCenter } from '../AbsoluteCenter'
 import InlineError from './InlineError'
 
-const FatalError = props => (
+const FullscreenError = props => (
     <AbsoluteCenter>
         <InlineError {...props} />
     </AbsoluteCenter>
 )
 
-export default FatalError
+export default FullscreenError

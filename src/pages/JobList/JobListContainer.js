@@ -6,6 +6,7 @@ import { actions, selectors } from '../../data/jobs'
 import * as rootSelectors from '../../rootSelectors'
 import { selectors as entitySelectors } from '../../data/entities'
 import { AbsoluteCenter } from '../../components/AbsoluteCenter'
+import { FullscreenError } from '../../components/Errors'
 import JobList from './JobList'
 
 export const UnconnectedJobListContainer = ({
@@ -35,7 +36,7 @@ export const UnconnectedJobListContainer = ({
     }
 
     if (errorMessage) {
-        return <span>{errorMessage}</span>
+        return <FullscreenError message={errorMessage} />
     }
 
     let filteredJobIds = jobIds

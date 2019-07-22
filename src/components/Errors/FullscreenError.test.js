@@ -1,11 +1,11 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import FatalError from './FatalError'
+import FullscreenError from './FullscreenError'
 
-describe('<FatalError>', () => {
+describe('<FullscreenError>', () => {
     it('renders correctly', () => {
         const wrapper = shallow(
-            <FatalError message="Error" details={['Details']} />
+            <FullscreenError message="Error" details={['Details']} />
         )
 
         expect(wrapper).toMatchSnapshot()
