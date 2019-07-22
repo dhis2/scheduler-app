@@ -502,3 +502,88 @@ describe('runJob', () => {
             .then(() => expect(store.getActions()).toEqual(expectedActions))
     })
 })
+
+/**
+ * Create job
+ */
+
+describe('createJobSuccess', () => {
+    it('should create a CREATE_JOB_SUCCESS action', () => {
+        const actual = actions.createJobSuccess()
+        const expected = {
+            type: types.CREATE_JOB_SUCCESS,
+        }
+
+        expect(actual).toEqual(expected)
+    })
+})
+
+describe('createJobFail', () => {
+    it('should create a CREATE_JOB_FAIL action', () => {
+        const error = new Error()
+        const actual = actions.createJobFail(error)
+        const expected = {
+            type: types.CREATE_JOB_FAIL,
+            error,
+        }
+
+        expect(actual).toEqual(expected)
+    })
+})
+
+describe('createJob', () => {
+    const job = { job: 'job' }
+    const { origin, pathname } = new URL(endpoints.jobs)
+
+    beforeEach(() => {
+        nock.disableNetConnect()
+    })
+
+    afterEach(() => {
+        nock.cleanAll()
+        nock.enableNetConnect()
+    })
+
+    it('should handle successful fetches', () => {
+        nock(origin)
+            .post(pathname)
+            .reply(200, {})
+
+        const store = mockStore({})
+        const expectedActions = [
+            { type: types.CREATE_JOB },
+            {
+                type: types.CREATE_JOB_SUCCESS,
+            },
+        ]
+
+        return store
+            .dispatch(actions.createJob(job))
+            .then(() => expect(store.getActions()).toEqual(expectedActions))
+    })
+
+    it('should handle unsuccessful fetches', () => {
+        const error = new Error('Internal Server Error')
+        nock(origin)
+            .post(pathname)
+            .reply(500, {})
+
+        const store = mockStore({})
+        const expectedActions = [
+            { type: types.CREATE_JOB },
+            {
+                type: types.CREATE_JOB_FAIL,
+                error,
+            },
+        ]
+
+        expect.assertions(2)
+
+        return store
+            .dispatch(actions.createJob(job))
+            .catch(error => {
+                expect(error).toBeInstanceOf(Error)
+            })
+            .then(() => expect(store.getActions()).toEqual(expectedActions))
+    })
+})
