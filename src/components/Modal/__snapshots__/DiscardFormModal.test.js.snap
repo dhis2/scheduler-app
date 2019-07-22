@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DiscardFormModal> renders correctly 1`] = `
+<Modal
+  onClose={[Function]}
+  open={true}
+  small={true}
+>
+  <Content>
+    Are you sure you want to discard this form?
+  </Content>
+  <Actions>
+    <ButtonStrip
+      end={true}
+    >
+      <Button
+        name="cancel-discard-form"
+        onClick={[Function]}
+        secondary={true}
+        type="button"
+      >
+        Cancel
+      </Button>
+      <Button
+        destructive={true}
+        name="discard-form"
+        onClick={[Function]}
+        type="button"
+      >
+        Discard
+      </Button>
+    </ButtonStrip>
+  </Actions>
+</Modal>
+`;

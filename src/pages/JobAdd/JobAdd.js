@@ -1,8 +1,10 @@
 import React from 'react'
+import { bool, func } from 'prop-types'
 import { Card, Button } from '@dhis2/ui-core'
-import { Form, Field } from 'react-final-form'
+import { FormSpy, Form, Field } from 'react-final-form'
 import { Title } from '../../components/Title'
 import { Aligner } from '../../components/Aligner'
+import { DiscardFormButton } from '../../components/Buttons'
 import { Info } from '../../components/Icons'
 import {
     validators,
@@ -21,8 +23,11 @@ const validate = ({ name, cronExpression, jobType }) => ({
     jobType: validators.requiredString(jobType),
 })
 
-const JobAdd = () => (
+const JobAdd = ({ isPristine, setIsPristine }) => (
     <React.Fragment>
+        <DiscardFormButton shouldConfirm={!isPristine}>
+            Back to all jobs
+        </DiscardFormButton>
         <Title priority={2}>New Job</Title>
         <Card>
             <Aligner>
@@ -35,6 +40,10 @@ const JobAdd = () => (
                 validate={validate}
                 render={({ handleSubmit, pristine, submitError }) => (
                     <form onSubmit={handleSubmit}>
+                        <FormSpy
+                            subscription={{ pristine: true }}
+                            onChange={({ pristine }) => setIsPristine(pristine)}
+                        />
                         <Field
                             name="name"
                             component={JobName}
@@ -67,7 +76,9 @@ const JobAdd = () => (
                             <Button primary type="submit" disabled={pristine}>
                                 Save job
                             </Button>
-                            <Button>Cancel</Button>
+                            <DiscardFormButton shouldConfirm={!pristine}>
+                                Cancel
+                            </DiscardFormButton>
                         </div>
                     </form>
                 )}
@@ -75,5 +86,10 @@ const JobAdd = () => (
         </Card>
     </React.Fragment>
 )
+
+JobAdd.propTypes = {
+    isPristine: bool.isRequired,
+    setIsPristine: func.isRequired,
+}
 
 export default JobAdd
