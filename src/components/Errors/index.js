@@ -1,4 +1,4 @@
-import FatalError from './FatalError'
+import FullscreenError from './FullscreenError'
 import InlineError from './InlineError'
 
-export { FatalError, InlineError }
+export { FullscreenError, InlineError }
