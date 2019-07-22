@@ -5,7 +5,7 @@ import { CircularLoader } from '@dhis2/ui-core'
 import { getMe } from '../../rootSelectors'
 import { actions, selectors } from '../../data/me'
 import { AbsoluteCenter } from '../AbsoluteCenter'
-import { FatalError } from '../Errors'
+import { FullscreenError } from '../Errors'
 
 export const UnconnectedAuthWall = ({
     children,
@@ -28,11 +28,11 @@ export const UnconnectedAuthWall = ({
     }
 
     if (errorMessage) {
-        return <FatalError message={errorMessage} />
+        return <FullscreenError message={errorMessage} />
     }
 
     if (!isAuthorized) {
-        return <FatalError message={'You are not authorized'} />
+        return <FullscreenError message={'You are not authorized'} />
     }
 
     return <React.Fragment>{children}</React.Fragment>
