@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { func, string, bool } from 'prop-types'
 import { connect } from 'react-redux'
 import { CircularLoader } from '@dhis2/ui-core'
@@ -17,6 +17,8 @@ export const UnconnectedJobAddContainer = ({
         fetchJobTypesIfNeeded()
     }, [fetchJobTypesIfNeeded])
 
+    const [isPristine, setIsPristine] = useState(true)
+
     // Show spinner when the options haven't loaded yet
     if (!didFetch) {
         return (
@@ -31,14 +33,12 @@ export const UnconnectedJobAddContainer = ({
         return <FullscreenError message={errorMessage} />
     }
 
-    return <JobAdd />
+    return <JobAdd isPristine={isPristine} setIsPristine={setIsPristine} />
 }
 
 UnconnectedJobAddContainer.propTypes = {
     didFetch: bool.isRequired,
-    isFetching: bool.isRequired,
     errorMessage: string.isRequired,
-    createJob: func.isRequired,
     fetchJobTypesIfNeeded: func.isRequired,
 }
 
@@ -47,7 +47,6 @@ const mapStateToProps = state => {
 
     return {
         didFetch: selectors.getDidFetch(jobTypes),
-        isFetching: selectors.getIsFetching(jobTypes),
         errorMessage: selectors.getErrorMessage(jobTypes),
     }
 }
