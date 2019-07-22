@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DiscardFormButton> calls history correctly when clicked and it should not confirm 1`] = `"/"`;
+
+exports[`<DiscardFormButton> calls showModal correctly when clicked and it should confirm 1`] = `
+Object {
+  "type": "DISCARD_FORM",
+}
+`;
+
+exports[`<DiscardFormButton> renders correctly 1`] = `
+<Button
+  onClick={[Function]}
+  type="button"
+>
+  Discard
+</Button>
+`;
