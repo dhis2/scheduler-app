@@ -154,3 +154,37 @@ export const runJob = id => dispatch => {
         .then(() => dispatch(runJobSuccess()))
         .catch(error => dispatch(runJobFail(error)))
 }
+
+/**
+ * Create job
+ */
+
+export const createJobSuccess = () => ({
+    type: types.CREATE_JOB_SUCCESS,
+})
+
+export const createJobFail = error => ({
+    type: types.CREATE_JOB_FAIL,
+    error,
+})
+
+export const createJob = job => dispatch => {
+    const fetchOptions = {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json',
+        },
+        body: JSON.stringify(job),
+    }
+
+    dispatch({ type: types.CREATE_JOB })
+
+    return fetchy(endpoints.jobs, fetchOptions)
+        .then(() => dispatch(createJobSuccess()))
+        .catch(error => {
+            dispatch(createJobFail(error))
+
+            // Throw the error so final-form can catch it as well for validation
+            throw error
+        })
+}
