@@ -113,6 +113,72 @@ describe('getJobTypes', () => {
     })
 })
 
+describe('getJobTypeParameter', () => {
+    it('should return a parameters for a job type', () => {
+        const state = {
+            data: {
+                jobType: {
+                    parameter: {
+                        name: 'name',
+                        klass: 'klass',
+                        fieldName: 'fieldName',
+                    },
+                },
+            },
+        }
+
+        const expected = {
+            name: 'name',
+            type: 'klass',
+            label: 'fieldName',
+        }
+        const actual = selectors.getJobTypeParameter(
+            state,
+            'jobType',
+            'parameter'
+        )
+
+        expect(actual).toEqual(expected)
+    })
+})
+
+describe('getJobTypeParameters', () => {
+    it('should return all parameters for a job type', () => {
+        const state = {
+            data: {
+                jobType: {
+                    firstParameter: {
+                        name: 'nameOne',
+                        klass: 'klassOne',
+                        fieldName: 'fieldOne',
+                    },
+                    secondParameter: {
+                        name: 'nameTwo',
+                        klass: 'klassTwo',
+                        fieldName: 'fieldTwo',
+                    },
+                },
+            },
+        }
+
+        const expected = {
+            firstParameter: {
+                name: 'nameOne',
+                type: 'klassOne',
+                label: 'fieldOne',
+            },
+            secondParameter: {
+                name: 'nameTwo',
+                type: 'klassTwo',
+                label: 'fieldTwo',
+            },
+        }
+        const actual = selectors.getJobTypeParameters(state, 'jobType')
+
+        expect(actual).toEqual(expected)
+    })
+})
+
 describe('getShouldFetch', () => {
     const initialState = {
         didFetchSuccessfully: false,
