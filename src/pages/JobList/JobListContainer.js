@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import { CircularLoader } from '@dhis2/ui-core'
 import { actions, selectors } from '../../data/jobs'
 import * as rootSelectors from '../../rootSelectors'
-import { selectors as entitySelectors } from '../../data/entities'
 import { AbsoluteCenter } from '../../components/AbsoluteCenter'
 import { FullscreenError } from '../../components/Errors'
 import JobList from './JobList'
@@ -14,7 +13,8 @@ export const UnconnectedJobListContainer = ({
     isFetching,
     isDirty,
     errorMessage,
-    jobIds,
+    allJobIds,
+    userJobIds,
     jobEntities,
     fetchJobsIfNeeded,
 }) => {
@@ -39,18 +39,10 @@ export const UnconnectedJobListContainer = ({
         return <FullscreenError message={errorMessage} />
     }
 
-    let filteredJobIds = jobIds
-
-    // Filter system jobs if necessary
-    if (!showSystemJobs) {
-        filteredJobIds = filteredJobIds.filter(id => {
-            const job = jobEntities[id]
-            return job.configurable
-        })
-    }
+    let jobIds = showSystemJobs ? allJobIds : userJobIds
 
     // Filter jobs by the jobFilter string
-    filteredJobIds = filteredJobIds.filter(id => {
+    jobIds = jobIds.filter(id => {
         const job = jobEntities[id]
         const name = job.name.toLowerCase()
         return name.includes(jobFilter.toLowerCase())
@@ -58,7 +50,7 @@ export const UnconnectedJobListContainer = ({
 
     return (
         <JobList
-            jobIds={filteredJobIds}
+            jobIds={jobIds}
             jobEntities={jobEntities}
             isFetching={isFetching}
             showSystemJobs={showSystemJobs}
@@ -74,22 +66,23 @@ UnconnectedJobListContainer.propTypes = {
     isFetching: bool.isRequired,
     isDirty: bool.isRequired,
     errorMessage: string.isRequired,
-    jobIds: arrayOf(string).isRequired,
+    allJobIds: arrayOf(string).isRequired,
+    userJobIds: arrayOf(string).isRequired,
     jobEntities: object.isRequired,
     fetchJobsIfNeeded: func.isRequired,
 }
 
 const mapStateToProps = state => {
     const jobs = rootSelectors.getJobs(state)
-    const entities = rootSelectors.getEntities(state)
 
     return {
         didFetch: selectors.getDidFetch(jobs),
         isFetching: selectors.getIsFetching(jobs),
         isDirty: selectors.getIsDirty(jobs),
         errorMessage: selectors.getErrorMessage(jobs),
-        jobIds: selectors.getResult(jobs),
-        jobEntities: entitySelectors.getJobs(entities),
+        allJobIds: selectors.getIds(jobs),
+        userJobIds: selectors.getUserJobIds(jobs),
+        jobEntities: selectors.getEntities(jobs),
     }
 }
 

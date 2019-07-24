@@ -5,7 +5,7 @@ const initialState = {
     errorMessage: '',
     isFetching: false,
     isDirty: false,
-    result: [],
+    data: [],
 }
 
 const reducer = (state = initialState, action) => {
@@ -23,7 +23,7 @@ const reducer = (state = initialState, action) => {
                 errorMessage: '',
                 isFetching: false,
                 isDirty: false,
-                result: action.payload.result,
+                data: action.payload.jobConfigurations,
             }
         case types.FETCH_JOBS_FAIL:
             return {
@@ -67,7 +67,33 @@ export const getDidFetch = state => !!state.lastUpdated
 export const getErrorMessage = state => state.errorMessage
 export const getIsFetching = state => state.isFetching
 export const getIsDirty = state => state.isDirty
-export const getResult = state => state.result
+
+/**
+ * Reduces the array of jobs to an object with the job ids as the key for each job
+ */
+
+export const getEntities = state => {
+    const data = state.data
+
+    return data.reduce((entities, job) => {
+        const id = job.id
+        entities[id] = job
+
+        return entities
+    }, {})
+}
+
+export const getIds = state => {
+    const data = state.data
+
+    return data.map(job => job.id)
+}
+
+export const getUserJobIds = state => {
+    const data = state.data
+
+    return data.filter(job => job.configurable).map(job => job.id)
+}
 
 export const getShouldFetch = state => {
     const { isFetching, isDirty, errorMessage, lastUpdated } = state
