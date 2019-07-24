@@ -1,14 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { object, string } from 'prop-types'
+import { arrayOf, object, string } from 'prop-types'
 import { Field } from 'react-final-form'
 import { InputField, Switch } from '../FormBase'
 import * as rootSelectors from '../../rootSelectors'
 import { selectors } from '../../data/job-types'
 
 export const UnconnectedParameterField = ({ parameters }) => {
-    return Object.keys(parameters).map(key => {
-        const { name, type, label } = parameters[key]
+    return parameters.map(({ name, type, label }) => {
         const defaultProps = {
             label,
             key: name,
@@ -57,12 +56,12 @@ export const UnconnectedParameterField = ({ parameters }) => {
 
 UnconnectedParameterField.defaultProps = {
     jobType: '',
-    parameters: {},
+    parameters: [],
 }
 
 UnconnectedParameterField.propTypes = {
     jobType: string,
-    parameters: object,
+    parameters: arrayOf(object),
 }
 
 const mapStateToProps = (state, { jobType }) => {
