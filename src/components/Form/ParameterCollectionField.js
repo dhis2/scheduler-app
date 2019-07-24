@@ -5,9 +5,10 @@ import { Field } from 'react-final-form'
 import { InputField, Switch } from '../FormBase'
 import * as rootSelectors from '../../rootSelectors'
 import { selectors } from '../../data/job-types'
+import ParameterSetField from './ParameterSetField'
 
-export const UnconnectedParameterField = ({ parameters }) => {
-    return parameters.map(({ name, type, label }) => {
+export const UnconnectedParameterCollectionField = ({ parameters }) => {
+    return parameters.map(({ name, type, label, parameterName, jobType }) => {
         const defaultProps = {
             label,
             key: name,
@@ -40,6 +41,13 @@ export const UnconnectedParameterField = ({ parameters }) => {
                     />
                 )
             case 'java.util.Set':
+                return (
+                    <ParameterSetField
+                        {...defaultProps}
+                        parameterName={parameterName}
+                        jobType={jobType}
+                    />
+                )
             case 'java.util.List':
                 return (
                     <Field
@@ -54,12 +62,12 @@ export const UnconnectedParameterField = ({ parameters }) => {
     })
 }
 
-UnconnectedParameterField.defaultProps = {
+UnconnectedParameterCollectionField.defaultProps = {
     jobType: '',
     parameters: [],
 }
 
-UnconnectedParameterField.propTypes = {
+UnconnectedParameterCollectionField.propTypes = {
     jobType: string,
     parameters: arrayOf(object),
 }
@@ -76,4 +84,4 @@ const mapStateToProps = (state, { jobType }) => {
     }
 }
 
-export default connect(mapStateToProps)(UnconnectedParameterField)
+export default connect(mapStateToProps)(UnconnectedParameterCollectionField)
