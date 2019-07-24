@@ -2,16 +2,17 @@ import React from 'react'
 import { bool, func } from 'prop-types'
 import { Card, Button } from '@dhis2/ui-core'
 import { FORM_ERROR } from 'final-form'
-import { FormSpy, Form, Field } from 'react-final-form'
+import { FormSpy, Form } from 'react-final-form'
 import { Title } from '../../components/Title'
 import { Aligner } from '../../components/Aligner'
 import { DiscardFormButton } from '../../components/Buttons'
 import { Info } from '../../components/Icons'
 import {
     validators,
-    JobName,
-    CronExpression,
-    JobType,
+    JobNameField,
+    CronField,
+    JobTypeField,
+    ParameterField,
 } from '../../components/Form'
 import { InlineError } from '../../components/Errors'
 import history from '../../services/history'
@@ -46,56 +47,49 @@ const JobAdd = ({ isPristine, setIsPristine, createJob }) => {
                 <Form
                     onSubmit={onSubmit}
                     validate={validate}
-                    render={({ handleSubmit, pristine, submitError }) => (
-                        <form onSubmit={handleSubmit}>
-                            <FormSpy
-                                subscription={{ pristine: true }}
-                                onChange={({ pristine }) =>
-                                    setIsPristine(pristine)
-                                }
-                            />
-                            <Field
-                                name="name"
-                                component={JobName}
-                                validate={validators.requiredString}
-                                label="Name"
-                                type="text"
-                            />
-                            <Field
-                                name="cronExpression"
-                                component={CronExpression}
-                                validate={validators.requiredCronExpression}
-                                label="CRON Expression"
-                                type="text"
-                            />
-                            <Field
-                                name="jobType"
-                                component={JobType}
-                                validate={validators.requiredString}
-                                label="Job Type"
-                            />
-                            <div>
-                                {submitError && (
-                                    <InlineError
-                                        message={submitError.message}
-                                        details={submitError.details}
-                                    />
-                                )}
-                            </div>
-                            <div>
-                                <Button
-                                    primary
-                                    type="submit"
-                                    disabled={pristine}
-                                >
-                                    Save job
-                                </Button>
-                                <DiscardFormButton shouldConfirm={!pristine}>
-                                    Cancel
-                                </DiscardFormButton>
-                            </div>
-                        </form>
-                    )}
+                    render={({
+                        handleSubmit,
+                        pristine,
+                        submitError,
+                        values,
+                    }) => {
+                        return (
+                            <form onSubmit={handleSubmit}>
+                                <FormSpy
+                                    subscription={{ pristine: true }}
+                                    onChange={({ pristine }) =>
+                                        setIsPristine(pristine)
+                                    }
+                                />
+                                <JobNameField />
+                                <CronField />
+                                <JobTypeField />
+                                <ParameterField jobType={values.jobType} />
+                                <div>
+                                    {submitError && (
+                                        <InlineError
+                                            message={submitError.message}
+                                            details={submitError.details}
+                                        />
+                                    )}
+                                </div>
+                                <div>
+                                    <Button
+                                        primary
+                                        type="submit"
+                                        disabled={pristine}
+                                    >
+                                        Save job
+                                    </Button>
+                                    <DiscardFormButton
+                                        shouldConfirm={!pristine}
+                                    >
+                                        Cancel
+                                    </DiscardFormButton>
+                                </div>
+                            </form>
+                        )
+                    }}
                 />
             </Card>
         </React.Fragment>
