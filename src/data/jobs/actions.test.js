@@ -75,12 +75,6 @@ describe('fetchJobs', () => {
 
     it('should handle successful fetches', () => {
         const mockResponse = { jobConfigurations: [{ id: 1 }] }
-        const mockNormalized = {
-            entities: {
-                jobs: { 1: { id: 1 } },
-            },
-            result: [1],
-        }
         nock(origin)
             .get(pathname)
             .query(true)
@@ -94,7 +88,7 @@ describe('fetchJobs', () => {
                 meta: {
                     receivedAt: 1,
                 },
-                payload: mockNormalized,
+                payload: mockResponse,
             },
         ]
 
@@ -142,16 +136,12 @@ describe('fetchJobsIfNeeded', () => {
 
     it('should fetch jobs if needed', () => {
         const mockResponse = { jobConfigurations: [{ id: 1 }] }
-        const mockNormalized = {
-            entities: {
-                jobs: { 1: { id: 1 } },
-            },
-            result: [1],
-        }
+
         nock(origin)
             .get(pathname)
             .query(true)
             .reply(200, mockResponse)
+
         selectors.getShouldFetch.mockReturnValueOnce(true)
 
         const store = mockStore({})
@@ -162,7 +152,7 @@ describe('fetchJobsIfNeeded', () => {
                 meta: {
                     receivedAt: 1,
                 },
-                payload: mockNormalized,
+                payload: mockResponse,
             },
         ]
 

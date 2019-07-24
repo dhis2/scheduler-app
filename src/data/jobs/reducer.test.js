@@ -7,7 +7,7 @@ describe('reducer', () => {
         errorMessage: '',
         isFetching: false,
         isDirty: false,
-        result: [],
+        data: [],
     }
     const fetchingState = {
         ...initialState,
@@ -65,10 +65,7 @@ describe('reducer', () => {
 
     it('should handle FETCH_JOBS_SUCCESS', () => {
         const payload = {
-            entities: {
-                jobs: 'job',
-            },
-            result: ['job'],
+            jobConfigurations: ['data'],
         }
         const actual = reducer(fetchingState, {
             type: types.FETCH_JOBS_SUCCESS,
@@ -83,7 +80,7 @@ describe('reducer', () => {
             errorMessage: '',
             isFetching: false,
             isDirty: false,
-            result: ['job'],
+            data: ['data'],
         }
 
         expect(actual).toEqual(expected)
@@ -295,11 +292,43 @@ describe('getIsDirty', () => {
     })
 })
 
-describe('getResult', () => {
-    it('should return the result', () => {
-        const state = { result: ['id'] }
-        const expected = state.result
-        const actual = selectors.getResult(state)
+describe('getEntities', () => {
+    it('should return the job entities', () => {
+        const state = {
+            data: [{ id: 1 }, { id: 2 }],
+        }
+        const expected = {
+            1: { id: 1 },
+            2: { id: 2 },
+        }
+        const actual = selectors.getEntities(state)
+
+        expect(actual).toEqual(expected)
+    })
+})
+
+describe('getIds', () => {
+    it('should return the job ids', () => {
+        const state = {
+            data: [{ id: 1 }, { id: 2 }],
+        }
+        const expected = [1, 2]
+        const actual = selectors.getIds(state)
+
+        expect(actual).toEqual(expected)
+    })
+})
+
+describe('getUserJobIds', () => {
+    it('should return the user configurable job ids', () => {
+        const state = {
+            data: [
+                { id: 1, configurable: true },
+                { id: 2, configurable: false },
+            ],
+        }
+        const expected = [1]
+        const actual = selectors.getUserJobIds(state)
 
         expect(actual).toEqual(expected)
     })
@@ -310,7 +339,7 @@ describe('getShouldFetch', () => {
         didFetchSuccessfully: false,
         errorMessage: '',
         isFetching: false,
-        result: [],
+        data: [],
     }
 
     it('should return false if currently fetching', () => {

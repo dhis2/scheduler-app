@@ -1,10 +1,8 @@
-import { normalize } from 'normalizr'
 import urlJoin from 'url-join'
 import fetchy from '../../services/fetchy'
 import * as rootSelectors from '../../rootSelectors'
 import endpoints from '../../services/endpoints'
 import * as types from './actionTypes'
-import * as schemas from './schemas'
 import * as selectors from './reducer'
 
 /**
@@ -30,9 +28,8 @@ export const fetchJobsFail = error => ({
 export const fetchJobs = () => dispatch => {
     dispatch({ type: types.FETCH_JOBS })
 
-    return fetchy(urlJoin(endpoints.jobs, '?fields=*'))
-        .then(data => normalize(data.jobConfigurations, [schemas.jobs]))
-        .then(normalized => dispatch(fetchJobsSuccess(normalized)))
+    return fetchy(urlJoin(endpoints.jobs, '?fields=*&paging=false'))
+        .then(data => dispatch(fetchJobsSuccess(data)))
         .catch(error => dispatch(fetchJobsFail(error)))
 }
 
