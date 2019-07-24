@@ -12,7 +12,7 @@ import {
     JobNameField,
     CronField,
     JobTypeField,
-    ParameterField,
+    ParameterCollectionField,
 } from '../../components/Form'
 import { InlineError } from '../../components/Errors'
 import history from '../../services/history'
@@ -64,7 +64,9 @@ const JobAdd = ({ isPristine, setIsPristine, createJob }) => {
                                 <JobNameField />
                                 <CronField />
                                 <JobTypeField />
-                                <ParameterField jobType={values.jobType} />
+                                <ParameterCollectionField
+                                    jobType={values.jobType}
+                                />
                                 <div>
                                     {submitError && (
                                         <InlineError

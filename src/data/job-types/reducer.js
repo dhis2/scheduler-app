@@ -56,6 +56,8 @@ export const getJobTypeParameter = (state, jobType, parameterName) => {
         name: parameter.name,
         type: parameter.klass,
         label: parameter.fieldName,
+        parameterName: parameterName,
+        jobType: jobType,
     }
 }
 

@@ -114,7 +114,7 @@ describe('getJobTypes', () => {
 })
 
 describe('getJobTypeParameter', () => {
-    it('should return a parameters for a job type', () => {
+    it('should return a parameter for a job type', () => {
         const state = {
             data: {
                 jobType: {
@@ -131,6 +131,8 @@ describe('getJobTypeParameter', () => {
             name: 'name',
             type: 'klass',
             label: 'fieldName',
+            parameterName: 'parameter',
+            jobType: 'jobType',
         }
         const actual = selectors.getJobTypeParameter(
             state,
@@ -166,11 +168,15 @@ describe('getJobTypeParameters', () => {
                 name: 'nameOne',
                 type: 'klassOne',
                 label: 'fieldOne',
+                parameterName: 'firstParameter',
+                jobType: 'jobType',
             },
             {
                 name: 'nameTwo',
                 type: 'klassTwo',
                 label: 'fieldTwo',
+                parameterName: 'secondParameter',
+                jobType: 'jobType',
             },
         ]
         const actual = selectors.getJobTypeParameters(state, 'jobType')
