@@ -161,19 +161,41 @@ describe('getJobTypeParameters', () => {
             },
         }
 
-        const expected = {
-            firstParameter: {
+        const expected = [
+            {
                 name: 'nameOne',
                 type: 'klassOne',
                 label: 'fieldOne',
             },
-            secondParameter: {
+            {
                 name: 'nameTwo',
                 type: 'klassTwo',
                 label: 'fieldTwo',
             },
-        }
+        ]
         const actual = selectors.getJobTypeParameters(state, 'jobType')
+
+        expect(actual).toEqual(expected)
+    })
+})
+
+describe('getParameterOptionEndpoint', () => {
+    it('should return the endpoint for fetching jobType options', () => {
+        const state = {
+            data: {
+                jobType: {
+                    firstParameter: {
+                        relativeApiEndpoint: 'endpoint',
+                    },
+                },
+            },
+        }
+        const expected = 'endpoint'
+        const actual = selectors.getParameterOptionEndpoint(
+            state,
+            'jobType',
+            'firstParameter'
+        )
 
         expect(actual).toEqual(expected)
     })
