@@ -60,22 +60,29 @@ export const getJobTypeParameter = (state, jobType, parameterName) => {
 }
 
 /**
- * Returns an object with all parameters for a certain jobType
+ * Returns an array with all parameters for a certain jobType
  */
 
 export const getJobTypeParameters = (state, jobType) => {
     const data = state.data
     const parameterNames = Object.keys(data[jobType])
 
-    return parameterNames.reduce((parameters, parameterName) => {
-        parameters[parameterName] = getJobTypeParameter(
-            state,
-            jobType,
-            parameterName
-        )
+    return parameterNames.map(parameterName =>
+        getJobTypeParameter(state, jobType, parameterName)
+    )
+}
 
-        return parameters
-    }, {})
+/**
+ * Returns the relativeApiEndpoint prop of a jobType's parameter, if it exists. This can be used to
+ * retrieve the options for this parameter.
+ */
+
+export const getParameterOptionEndpoint = (state, jobType, parameterName) => {
+    const data = state.data
+    const job = data[jobType]
+    const parameter = job[parameterName]
+
+    return parameter.relativeApiEndpoint
 }
 
 export const getShouldFetch = state => {
