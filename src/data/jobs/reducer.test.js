@@ -336,7 +336,7 @@ describe('getUserJobIds', () => {
 
 describe('getShouldFetch', () => {
     const initialState = {
-        didFetchSuccessfully: false,
+        lastUpdated: 0,
         errorMessage: '',
         isFetching: false,
         data: [],
