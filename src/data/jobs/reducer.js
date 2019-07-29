@@ -1,4 +1,3 @@
-import cloneDeep from 'clone-deep'
 import * as types from './actionTypes'
 
 const initialState = {
@@ -17,7 +16,10 @@ const reducer = (state = initialState, action) => {
         case types.DELETE_JOB:
         case types.RUN_JOB:
         case types.CREATE_JOB:
-            return { ...cloneDeep(state), isFetching: true }
+            return {
+                ...state,
+                isFetching: true,
+            }
         case types.FETCH_JOBS_SUCCESS:
             return {
                 lastUpdated: action.meta.receivedAt,
@@ -28,7 +30,7 @@ const reducer = (state = initialState, action) => {
             }
         case types.FETCH_JOBS_FAIL:
             return {
-                ...cloneDeep(state),
+                ...state,
                 lastUpdated: action.meta.receivedAt,
                 errorMessage: action.error.message,
                 isFetching: false,
@@ -39,7 +41,7 @@ const reducer = (state = initialState, action) => {
         case types.RUN_JOB_SUCCESS:
         case types.CREATE_JOB_SUCCESS:
             return {
-                ...cloneDeep(state),
+                ...state,
                 isFetching: false,
                 isDirty: true,
             }
@@ -49,7 +51,7 @@ const reducer = (state = initialState, action) => {
         case types.RUN_JOB_FAIL:
         case types.CREATE_JOB_FAIL:
             return {
-                ...cloneDeep(state),
+                ...state,
                 errorMessage: action.error.message,
                 isFetching: false,
             }
