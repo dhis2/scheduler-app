@@ -1,4 +1,3 @@
-import cloneDeep from 'clone-deep'
 import * as types from './actionTypes'
 
 const initialState = {
@@ -11,7 +10,10 @@ const initialState = {
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case types.FETCH_ME:
-            return { ...cloneDeep(state), isFetching: true }
+            return {
+                ...state,
+                isFetching: true,
+            }
         case types.FETCH_ME_SUCCESS:
             return {
                 lastUpdated: action.meta.receivedAt,

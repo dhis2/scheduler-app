@@ -1,61 +1,49 @@
-import cloneDeep from 'clone-deep'
 import * as types from './actionTypes'
 
 const initialState = {}
-const initialSubState = {
-    lastUpdated: 0,
-    errorMessage: '',
-    isFetching: false,
-    data: [],
-}
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case types.FETCH_PARAMETER_OPTIONS: {
-            const parameterKey = getParameterKey(
-                action.meta.jobType,
-                action.meta.parameterName
-            )
-            const currentState = getCurrentState(state, parameterKey)
+            const { jobType, parameterName } = action.meta
+            const parameterKey = getParameterKey(jobType, parameterName)
+            const subState = getSubState(state, parameterKey)
 
-            currentState[parameterKey] = {
-                ...currentState[parameterKey],
-                isFetching: true,
+            return {
+                ...state,
+                [parameterKey]: {
+                    ...subState,
+                    isFetching: true,
+                },
             }
-
-            return currentState
         }
         case types.FETCH_PARAMETER_OPTIONS_SUCCESS: {
-            const parameterKey = getParameterKey(
-                action.meta.jobType,
-                action.meta.parameterName
-            )
-            const currentState = getCurrentState(state, parameterKey)
+            const { jobType, parameterName } = action.meta
+            const parameterKey = getParameterKey(jobType, parameterName)
 
-            currentState[parameterKey] = {
-                lastUpdated: action.meta.receivedAt,
-                errorMessage: '',
-                isFetching: false,
-                data: action.payload,
+            return {
+                ...state,
+                [parameterKey]: {
+                    lastUpdated: action.meta.receivedAt,
+                    errorMessage: '',
+                    isFetching: false,
+                    data: action.payload,
+                },
             }
-
-            return currentState
         }
         case types.FETCH_PARAMETER_OPTIONS_FAIL: {
-            const parameterKey = getParameterKey(
-                action.meta.jobType,
-                action.meta.parameterName
-            )
-            const currentState = getCurrentState(state, parameterKey)
+            const { jobType, parameterName } = action.meta
+            const parameterKey = getParameterKey(jobType, parameterName)
 
-            currentState[parameterKey] = {
-                ...currentState[parameterKey],
-                lastUpdated: action.meta.receivedAt,
-                errorMessage: action.error.message,
-                isFetching: false,
+            return {
+                ...state,
+                [parameterKey]: {
+                    lastUpdated: action.meta.receivedAt,
+                    errorMessage: action.error.message,
+                    isFetching: false,
+                    data: [],
+                },
             }
-
-            return currentState
         }
         default:
             return state
@@ -70,6 +58,7 @@ export default reducer
 
 export const getParameterKey = (jobType, parameterName) =>
     `${jobType}/${parameterName}`
+
 export const getHasParameter = (state, parameterKey) => parameterKey in state
 
 export const getDidFetch = (state, jobType, parameterName) => {
@@ -128,15 +117,17 @@ export const getParameterOptions = (state, jobType, parameterName) => {
  * Redux helpers
  */
 
-const getCurrentState = (state, parameterKey) => {
+const getSubState = (state, parameterKey) => {
     const hasParameter = getHasParameter(state, parameterKey)
-    const clonedState = cloneDeep(state)
 
     if (hasParameter) {
-        return clonedState
+        return state[parameterKey]
     }
 
-    clonedState[parameterKey] = cloneDeep(initialSubState)
-
-    return clonedState
+    return {
+        lastUpdated: 0,
+        errorMessage: '',
+        isFetching: false,
+        data: [],
+    }
 }
