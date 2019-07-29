@@ -209,7 +209,7 @@ describe('getParameterOptionEndpoint', () => {
 
 describe('getShouldFetch', () => {
     const initialState = {
-        didFetchSuccessfully: false,
+        lastUpdated: 0,
         errorMessage: '',
         isFetching: false,
         data: {},
