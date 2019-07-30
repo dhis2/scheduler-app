@@ -30,7 +30,7 @@ export const fetchParameterSet = (endpoint, meta) => dispatch => {
     dispatch({ type: types.FETCH_PARAMETER_SET, meta })
     const base = process.env.REACT_APP_DHIS2_BASE_URL
 
-    return fetchy(urlJoin(base, endpoint, '?paging=false'))
+    return fetchy(urlJoin(base, endpoint))
         .then(data => dispatch(fetchParameterSetSuccess(data, meta)))
         .catch(error => dispatch(fetchParameterSetFail(error, meta)))
 }

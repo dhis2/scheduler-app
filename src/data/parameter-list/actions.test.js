@@ -26,24 +26,29 @@ Date.now = jest.fn(() => 1)
 
 // Allow selectors to be mocked
 selectors.getShouldFetch = jest.fn() // eslint-disable-line import/namespace
-rootSelectors.getParameterSet = jest.fn() // eslint-disable-line import/namespace
+rootSelectors.getParameterList = jest.fn() // eslint-disable-line import/namespace
 
 const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)
 
 /**
- * Fetch parameter set
+ * Fetch parameter list
  */
 
-describe('fetchParameterSetSuccess', () => {
-    it('should create a FETCH_PARAMETER_SET_SUCCESS action', () => {
-        const actual = actions.fetchParameterSetSuccess('payload', {
-            meta: 'meta',
-        })
+describe('fetchParameterListSuccess', () => {
+    it('should create a FETCH_PARAMETER_LIST_SUCCESS action', () => {
+        const actual = actions.fetchParameterListSuccess(
+            { parameterName: 'payload' },
+            {
+                jobType: 'jobType',
+                parameterName: 'parameterName',
+            }
+        )
         const expected = {
-            type: types.FETCH_PARAMETER_SET_SUCCESS,
+            type: types.FETCH_PARAMETER_LIST_SUCCESS,
             meta: {
-                meta: 'meta',
+                jobType: 'jobType',
+                parameterName: 'parameterName',
                 receivedAt: 1,
             },
             payload: 'payload',
@@ -53,13 +58,13 @@ describe('fetchParameterSetSuccess', () => {
     })
 })
 
-describe('fetchParameterSetFail', () => {
-    it('should create a FETCH_PARAMETER_SET_FAIL action', () => {
-        const actual = actions.fetchParameterSetFail('error', {
+describe('fetchParameterListFail', () => {
+    it('should create a FETCH_PARAMETER_LIST_FAIL action', () => {
+        const actual = actions.fetchParameterListFail('error', {
             meta: 'meta',
         })
         const expected = {
-            type: types.FETCH_PARAMETER_SET_FAIL,
+            type: types.FETCH_PARAMETER_LIST_FAIL,
             meta: {
                 meta: 'meta',
                 receivedAt: 1,
@@ -71,7 +76,7 @@ describe('fetchParameterSetFail', () => {
     })
 })
 
-describe('fetchParameterSet', () => {
+describe('fetchParameterList', () => {
     beforeEach(() => {
         nock.disableNetConnect()
     })
@@ -83,31 +88,35 @@ describe('fetchParameterSet', () => {
 
     it('should handle successful fetches', () => {
         const { origin, pathname } = new URL(url)
-        const meta = { meta: 'data' }
-        const mockResponse = { data: 'data' }
+        const meta = {
+            jobType: 'jobType',
+            parameterName: 'parameterName',
+        }
+        const mockResponse = { parameterName: 'data' }
 
         nock(origin)
             .get(pathname)
+            .query(true)
             .reply(200, mockResponse)
 
         const store = mockStore({})
         const expectedActions = [
             {
-                type: types.FETCH_PARAMETER_SET,
+                type: types.FETCH_PARAMETER_LIST,
                 meta,
             },
             {
-                type: types.FETCH_PARAMETER_SET_SUCCESS,
+                type: types.FETCH_PARAMETER_LIST_SUCCESS,
                 meta: {
                     ...meta,
                     receivedAt: 1,
                 },
-                payload: mockResponse,
+                payload: 'data',
             },
         ]
 
         return store
-            .dispatch(actions.fetchParameterSet(endpoint, meta))
+            .dispatch(actions.fetchParameterList(endpoint, meta))
             .then(() => expect(store.getActions()).toEqual(expectedActions))
     })
 
@@ -118,16 +127,17 @@ describe('fetchParameterSet', () => {
 
         nock(origin)
             .get(pathname)
+            .query(true)
             .reply(500, {})
 
         const store = mockStore({})
         const expectedActions = [
             {
-                type: types.FETCH_PARAMETER_SET,
+                type: types.FETCH_PARAMETER_LIST,
                 meta,
             },
             {
-                type: types.FETCH_PARAMETER_SET_FAIL,
+                type: types.FETCH_PARAMETER_LIST_FAIL,
                 meta: {
                     ...meta,
                     receivedAt: 1,
@@ -137,12 +147,12 @@ describe('fetchParameterSet', () => {
         ]
 
         return store
-            .dispatch(actions.fetchParameterSet(endpoint, meta))
+            .dispatch(actions.fetchParameterList(endpoint, meta))
             .then(() => expect(store.getActions()).toEqual(expectedActions))
     })
 })
 
-describe('fetchParameterSetIfNeeded', () => {
+describe('fetchParameterListIfNeeded', () => {
     const { origin, pathname } = new URL(url)
 
     beforeEach(() => {
@@ -154,36 +164,39 @@ describe('fetchParameterSetIfNeeded', () => {
         nock.enableNetConnect()
     })
 
-    it('should fetch parameter set if needed', () => {
-        const mockResponse = { data: 'data' }
+    it('should fetch parameter list if needed', () => {
+        const mockResponse = {
+            parameterName: 'data',
+        }
         nock(origin)
             .get(pathname)
+            .query(true)
             .reply(200, mockResponse)
         selectors.getShouldFetch.mockReturnValueOnce(true)
 
         const store = mockStore({})
         const expectedActions = [
             {
-                type: types.FETCH_PARAMETER_SET,
+                type: types.FETCH_PARAMETER_LIST,
                 meta: {
                     jobType: 'jobType',
                     parameterName: 'parameterName',
                 },
             },
             {
-                type: types.FETCH_PARAMETER_SET_SUCCESS,
+                type: types.FETCH_PARAMETER_LIST_SUCCESS,
                 meta: {
                     jobType: 'jobType',
                     parameterName: 'parameterName',
                     receivedAt: 1,
                 },
-                payload: mockResponse,
+                payload: 'data',
             },
         ]
 
         return store
             .dispatch(
-                actions.fetchParameterSetIfNeeded(
+                actions.fetchParameterListIfNeeded(
                     endpoint,
                     'jobType',
                     'parameterName'
@@ -192,12 +205,12 @@ describe('fetchParameterSetIfNeeded', () => {
             .then(() => expect(store.getActions()).toEqual(expectedActions))
     })
 
-    it('should not fetch parameter set if not needed', () => {
+    it('should not fetch parameter list if not needed', () => {
         selectors.getShouldFetch.mockReturnValueOnce(false)
         const store = mockStore({})
 
         return store
-            .dispatch(actions.fetchParameterSetIfNeeded())
+            .dispatch(actions.fetchParameterListIfNeeded())
             .then(() => expect(store.getActions()).toEqual([]))
     })
 })
