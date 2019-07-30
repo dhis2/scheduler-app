@@ -26,22 +26,22 @@ Date.now = jest.fn(() => 1)
 
 // Allow selectors to be mocked
 selectors.getShouldFetch = jest.fn() // eslint-disable-line import/namespace
-rootSelectors.getParameterOptions = jest.fn() // eslint-disable-line import/namespace
+rootSelectors.getParameterSet = jest.fn() // eslint-disable-line import/namespace
 
 const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)
 
 /**
- * Fetch job types
+ * Fetch parameter set
  */
 
-describe('fetchParameterOptionsSuccess', () => {
-    it('should create a FETCH_PARAMETER_OPTIONS_SUCCESS action', () => {
-        const actual = actions.fetchParameterOptionsSuccess('payload', {
+describe('fetchParameterSetSuccess', () => {
+    it('should create a FETCH_PARAMETER_SET_SUCCESS action', () => {
+        const actual = actions.fetchParameterSetSuccess('payload', {
             meta: 'meta',
         })
         const expected = {
-            type: types.FETCH_PARAMETER_OPTIONS_SUCCESS,
+            type: types.FETCH_PARAMETER_SET_SUCCESS,
             meta: {
                 meta: 'meta',
                 receivedAt: 1,
@@ -53,13 +53,13 @@ describe('fetchParameterOptionsSuccess', () => {
     })
 })
 
-describe('fetchParameterOptionsFail', () => {
-    it('should create a FETCH_PARAMETER_OPTIONS_FAIL action', () => {
-        const actual = actions.fetchParameterOptionsFail('error', {
+describe('fetchParameterSetFail', () => {
+    it('should create a FETCH_PARAMETER_SET_FAIL action', () => {
+        const actual = actions.fetchParameterSetFail('error', {
             meta: 'meta',
         })
         const expected = {
-            type: types.FETCH_PARAMETER_OPTIONS_FAIL,
+            type: types.FETCH_PARAMETER_SET_FAIL,
             meta: {
                 meta: 'meta',
                 receivedAt: 1,
@@ -71,7 +71,7 @@ describe('fetchParameterOptionsFail', () => {
     })
 })
 
-describe('fetchParameterOptions', () => {
+describe('fetchParameterSet', () => {
     beforeEach(() => {
         nock.disableNetConnect()
     })
@@ -83,21 +83,22 @@ describe('fetchParameterOptions', () => {
 
     it('should handle successful fetches', () => {
         const { origin, pathname } = new URL(url)
-
         const meta = { meta: 'data' }
         const mockResponse = { data: 'data' }
+
         nock(origin)
             .get(pathname)
+            .query(true)
             .reply(200, mockResponse)
 
         const store = mockStore({})
         const expectedActions = [
             {
-                type: types.FETCH_PARAMETER_OPTIONS,
+                type: types.FETCH_PARAMETER_SET,
                 meta,
             },
             {
-                type: types.FETCH_PARAMETER_OPTIONS_SUCCESS,
+                type: types.FETCH_PARAMETER_SET_SUCCESS,
                 meta: {
                     ...meta,
                     receivedAt: 1,
@@ -107,27 +108,28 @@ describe('fetchParameterOptions', () => {
         ]
 
         return store
-            .dispatch(actions.fetchParameterOptions(endpoint, meta))
+            .dispatch(actions.fetchParameterSet(endpoint, meta))
             .then(() => expect(store.getActions()).toEqual(expectedActions))
     })
 
     it('should handle unsuccessful fetches', () => {
         const { origin, pathname } = new URL(url)
         const meta = { meta: 'data' }
-
         const error = new Error('Internal Server Error')
+
         nock(origin)
             .get(pathname)
+            .query(true)
             .reply(500, {})
 
         const store = mockStore({})
         const expectedActions = [
             {
-                type: types.FETCH_PARAMETER_OPTIONS,
+                type: types.FETCH_PARAMETER_SET,
                 meta,
             },
             {
-                type: types.FETCH_PARAMETER_OPTIONS_FAIL,
+                type: types.FETCH_PARAMETER_SET_FAIL,
                 meta: {
                     ...meta,
                     receivedAt: 1,
@@ -137,12 +139,12 @@ describe('fetchParameterOptions', () => {
         ]
 
         return store
-            .dispatch(actions.fetchParameterOptions(endpoint, meta))
+            .dispatch(actions.fetchParameterSet(endpoint, meta))
             .then(() => expect(store.getActions()).toEqual(expectedActions))
     })
 })
 
-describe('fetchParameterOptionsIfNeeded', () => {
+describe('fetchParameterSetIfNeeded', () => {
     const { origin, pathname } = new URL(url)
 
     beforeEach(() => {
@@ -154,24 +156,25 @@ describe('fetchParameterOptionsIfNeeded', () => {
         nock.enableNetConnect()
     })
 
-    it('should fetch job types if needed', () => {
+    it('should fetch parameter set if needed', () => {
         const mockResponse = { data: 'data' }
         nock(origin)
             .get(pathname)
+            .query(true)
             .reply(200, mockResponse)
         selectors.getShouldFetch.mockReturnValueOnce(true)
 
         const store = mockStore({})
         const expectedActions = [
             {
-                type: types.FETCH_PARAMETER_OPTIONS,
+                type: types.FETCH_PARAMETER_SET,
                 meta: {
                     jobType: 'jobType',
                     parameterName: 'parameterName',
                 },
             },
             {
-                type: types.FETCH_PARAMETER_OPTIONS_SUCCESS,
+                type: types.FETCH_PARAMETER_SET_SUCCESS,
                 meta: {
                     jobType: 'jobType',
                     parameterName: 'parameterName',
@@ -183,7 +186,7 @@ describe('fetchParameterOptionsIfNeeded', () => {
 
         return store
             .dispatch(
-                actions.fetchParameterOptionsIfNeeded(
+                actions.fetchParameterSetIfNeeded(
                     endpoint,
                     'jobType',
                     'parameterName'
@@ -192,12 +195,12 @@ describe('fetchParameterOptionsIfNeeded', () => {
             .then(() => expect(store.getActions()).toEqual(expectedActions))
     })
 
-    it('should not fetch job types if not needed', () => {
+    it('should not fetch parameter set if not needed', () => {
         selectors.getShouldFetch.mockReturnValueOnce(false)
         const store = mockStore({})
 
         return store
-            .dispatch(actions.fetchParameterOptionsIfNeeded())
+            .dispatch(actions.fetchParameterSetIfNeeded())
             .then(() => expect(store.getActions()).toEqual([]))
     })
 })
