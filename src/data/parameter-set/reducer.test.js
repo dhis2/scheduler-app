@@ -17,10 +17,10 @@ describe('reducer', () => {
         expect(actual).toEqual(expected)
     })
 
-    it('should handle FETCH_PARAMETER_OPTIONS', () => {
+    it('should handle FETCH_PARAMETER_SET', () => {
         const meta = { jobType: 'jobType', parameterName: 'parameterName' }
         const actual = reducer(undefined, {
-            type: types.FETCH_PARAMETER_OPTIONS,
+            type: types.FETCH_PARAMETER_SET,
             meta,
         })
         const expected = {
@@ -33,7 +33,7 @@ describe('reducer', () => {
         expect(actual).toEqual(expected)
     })
 
-    it('should handle FETCH_PARAMETER_OPTIONS_SUCCESS', () => {
+    it('should handle FETCH_PARAMETER_SET_SUCCESS', () => {
         const meta = { jobType: 'jobType', parameterName: 'parameterName' }
         const payload = 'data'
         const fetchingState = {
@@ -44,7 +44,7 @@ describe('reducer', () => {
         }
 
         const actual = reducer(fetchingState, {
-            type: types.FETCH_PARAMETER_OPTIONS_SUCCESS,
+            type: types.FETCH_PARAMETER_SET_SUCCESS,
             meta: {
                 ...meta,
                 receivedAt: 1,
@@ -63,7 +63,7 @@ describe('reducer', () => {
         expect(actual).toEqual(expected)
     })
 
-    it('should handle FETCH_PARAMETER_OPTIONS_FAIL', () => {
+    it('should handle FETCH_PARAMETER_SET_FAIL', () => {
         const meta = { jobType: 'jobType', parameterName: 'parameterName' }
         const fetchingState = {
             'jobType/parameterName': {
@@ -73,7 +73,7 @@ describe('reducer', () => {
         }
 
         const actual = reducer(fetchingState, {
-            type: types.FETCH_PARAMETER_OPTIONS_FAIL,
+            type: types.FETCH_PARAMETER_SET_FAIL,
             meta: {
                 ...meta,
                 receivedAt: 1,
@@ -157,11 +157,11 @@ describe('getErrorMessage', () => {
     })
 })
 
-describe('getParameterOptions', () => {
+describe('getParameterSet', () => {
     it('returns an empty array if the parameter does not exist', () => {
         const state = {}
         const expected = []
-        const actual = selectors.getParameterOptions(
+        const actual = selectors.getParameterSet(
             state,
             'jobType',
             'parameterName'
@@ -170,10 +170,10 @@ describe('getParameterOptions', () => {
         expect(actual).toEqual(expected)
     })
 
-    it('returns the options if the parameter exists', () => {
+    it('returns the set of options if the parameter exists', () => {
         const state = { 'jobType/parameterName': { data: ['option'] } }
         const expected = ['option']
-        const actual = selectors.getParameterOptions(
+        const actual = selectors.getParameterSet(
             state,
             'jobType',
             'parameterName'
