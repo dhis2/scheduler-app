@@ -1,18 +1,18 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-import { arrayOf, func, bool, string } from 'prop-types'
+import { arrayOf, object, func, bool, string } from 'prop-types'
 import { Field } from 'react-final-form'
 import { SelectField } from '@dhis2/ui-core'
 import * as rootSelectors from '../../rootSelectors'
 import { selectors as jobTypeSelectors } from '../../data/job-types'
-import { actions, selectors } from '../../data/parameter-set'
+import { actions, selectors } from '../../data/parameter-list'
 import { InlineError } from '../Errors'
 
-export const UnconnectedParameterSetField = ({
+export const UnconnectedParameterListField = ({
     didFetch,
     endpoint,
     errorMessage,
-    fetchParameterSetIfNeeded,
+    fetchParameterListIfNeeded,
     jobType,
     label,
     name,
@@ -20,8 +20,8 @@ export const UnconnectedParameterSetField = ({
     parameterName,
 }) => {
     useEffect(() => {
-        fetchParameterSetIfNeeded(endpoint, jobType, parameterName)
-    }, [fetchParameterSetIfNeeded, endpoint, jobType, parameterName])
+        fetchParameterListIfNeeded(endpoint, jobType, parameterName)
+    }, [fetchParameterListIfNeeded, endpoint, jobType, parameterName])
 
     // Show loading state when options are loading
     if (!didFetch) {
@@ -37,9 +37,9 @@ export const UnconnectedParameterSetField = ({
             name={name}
             render={({ input }) => (
                 <SelectField {...input} label={label}>
-                    {options.map(option => (
-                        <option key={option} value={option}>
-                            {option}
+                    {options.map(({ id, displayName }) => (
+                        <option key={id} value={id}>
+                            {displayName}
                         </option>
                     ))}
                 </SelectField>
@@ -48,22 +48,22 @@ export const UnconnectedParameterSetField = ({
     )
 }
 
-UnconnectedParameterSetField.propTypes = {
+UnconnectedParameterListField.propTypes = {
     didFetch: bool.isRequired,
     endpoint: string.isRequired,
     errorMessage: string.isRequired,
-    fetchParameterSetIfNeeded: func.isRequired,
+    fetchParameterListIfNeeded: func.isRequired,
     jobType: string.isRequired,
     label: string.isRequired,
     name: string.isRequired,
-    options: arrayOf(string).isRequired,
+    options: arrayOf(object).isRequired,
     parameterName: string.isRequired,
 }
 
 const mapStateToProps = (state, ownProps) => {
     const { jobType, parameterName } = ownProps
     const jobTypes = rootSelectors.getJobTypes(state)
-    const parameterSet = rootSelectors.getParameterSet(state)
+    const parameterList = rootSelectors.getParameterList(state)
 
     return {
         endpoint: jobTypeSelectors.getParameterOptionEndpoint(
@@ -71,14 +71,14 @@ const mapStateToProps = (state, ownProps) => {
             jobType,
             parameterName
         ),
-        didFetch: selectors.getDidFetch(parameterSet, jobType, parameterName),
+        didFetch: selectors.getDidFetch(parameterList, jobType, parameterName),
         errorMessage: selectors.getErrorMessage(
-            parameterSet,
+            parameterList,
             jobType,
             parameterName
         ),
-        options: selectors.getParameterSet(
-            parameterSet,
+        options: selectors.getParameterList(
+            parameterList,
             jobType,
             parameterName
         ),
@@ -86,10 +86,10 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 const mapDispatchToProps = {
-    fetchParameterSetIfNeeded: actions.fetchParameterSetIfNeeded,
+    fetchParameterListIfNeeded: actions.fetchParameterListIfNeeded,
 }
 
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(UnconnectedParameterSetField)
+)(UnconnectedParameterListField)
