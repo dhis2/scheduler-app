@@ -6,6 +6,7 @@ import { InputField, Switch } from '../FormBase'
 import * as rootSelectors from '../../rootSelectors'
 import { selectors } from '../../data/job-types'
 import ParameterSetField from './ParameterSetField'
+import ParameterListField from './ParameterListField'
 
 export const UnconnectedParameterCollectionField = ({ parameters }) => {
     return parameters.map(({ name, type, label, parameterName, jobType }) => {
@@ -13,6 +14,10 @@ export const UnconnectedParameterCollectionField = ({ parameters }) => {
             label,
             key: name,
             name: `parameters.${name}`,
+        }
+
+        if (!type) {
+            return null
         }
 
         switch (type) {
@@ -50,14 +55,14 @@ export const UnconnectedParameterCollectionField = ({ parameters }) => {
                 )
             case 'java.util.List':
                 return (
-                    <Field
+                    <ParameterListField
                         {...defaultProps}
-                        component={InputField}
-                        type="text"
+                        parameterName={parameterName}
+                        jobType={jobType}
                     />
                 )
             default:
-                return null
+                throw new Error('Unrecognised type')
         }
     })
 }

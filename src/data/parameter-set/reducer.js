@@ -4,7 +4,7 @@ const initialState = {}
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case types.FETCH_PARAMETER_OPTIONS: {
+        case types.FETCH_PARAMETER_SET: {
             const { jobType, parameterName } = action.meta
             const parameterKey = getParameterKey(jobType, parameterName)
             const subState = getSubState(state, parameterKey)
@@ -17,7 +17,7 @@ const reducer = (state = initialState, action) => {
                 },
             }
         }
-        case types.FETCH_PARAMETER_OPTIONS_SUCCESS: {
+        case types.FETCH_PARAMETER_SET_SUCCESS: {
             const { jobType, parameterName } = action.meta
             const parameterKey = getParameterKey(jobType, parameterName)
 
@@ -31,7 +31,7 @@ const reducer = (state = initialState, action) => {
                 },
             }
         }
-        case types.FETCH_PARAMETER_OPTIONS_FAIL: {
+        case types.FETCH_PARAMETER_SET_FAIL: {
             const { jobType, parameterName } = action.meta
             const parameterKey = getParameterKey(jobType, parameterName)
 
@@ -102,7 +102,7 @@ export const getShouldFetch = (state, jobType, parameterName) => {
     return hasError || !didFetch
 }
 
-export const getParameterOptions = (state, jobType, parameterName) => {
+export const getParameterSet = (state, jobType, parameterName) => {
     const parameterKey = getParameterKey(jobType, parameterName)
     const hasParameter = getHasParameter(state, parameterKey)
 
