@@ -8,16 +8,19 @@ import { selectors } from '../../data/job-types'
 import ParameterSetField from './ParameterSetField'
 import ParameterListField from './ParameterListField'
 
-export const UnconnectedParameterCollectionField = ({ parameters }) => {
+export const UnconnectedParameterCollectionField = ({
+    parameters,
+    jobType,
+}) => {
+    if (!jobType) {
+        return null
+    }
+
     return parameters.map(({ name, type, label, parameterName, jobType }) => {
         const defaultProps = {
             label,
             key: name,
-            name: `parameters.${name}`,
-        }
-
-        if (!type) {
-            return null
+            name: `jobParameters.${name}`,
         }
 
         switch (type) {
