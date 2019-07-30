@@ -25,11 +25,15 @@ export const UnconnectedParameterListField = ({
 
     // Show loading state when options are loading
     if (!didFetch) {
-        return <SelectField label={label} loading />
+        return <SelectField label={label} disabled loading />
     }
 
     if (errorMessage) {
         return <InlineError message={errorMessage} />
+    }
+
+    if (options.length === 0) {
+        return <SelectField label={label} disabled />
     }
 
     return (
