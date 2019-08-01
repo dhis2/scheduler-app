@@ -4,12 +4,15 @@ import { arrayOf, string } from 'prop-types'
 import { Field } from 'react-final-form'
 import * as rootSelectors from '../../rootSelectors'
 import { selectors } from '../../data/job-types'
-import { SelectField } from '../FormBase'
-import { requiredString } from './validators'
+import { SelectField } from '../FormBaseFields'
+import { requiredString } from '../../services/validators'
+
+// The key under which this field will be sent to the backend
+const fieldName = 'jobType'
 
 export const UnconnectedJobTypeField = ({ jobTypes }) => (
     <Field
-        name="jobType"
+        name={fieldName}
         validate={requiredString}
         render={props => (
             <SelectField {...props} label="Job Type" required>
@@ -22,6 +25,9 @@ export const UnconnectedJobTypeField = ({ jobTypes }) => (
         )}
     />
 )
+
+UnconnectedJobTypeField.fieldName = fieldName
+UnconnectedJobTypeField.validator = requiredString
 
 UnconnectedJobTypeField.propTypes = {
     jobTypes: arrayOf(string).isRequired,

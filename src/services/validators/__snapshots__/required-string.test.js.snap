@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`requiredString should return an error when input is not a string 1`] = `"This field is required"`;
+
+exports[`requiredString should return an error when there is no input 1`] = `"This field is required"`;
