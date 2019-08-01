@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SelectField> renders correctly 1`] = `
+<Fragment>
+  <SelectField
+    error={false}
+    label="label"
+    name="name"
+    onChange={[Function]}
+    required={false}
+    value="value"
+  >
+    <option
+      value="option"
+    >
+      option
+    </option>
+  </SelectField>
+</Fragment>
+`;
+
+exports[`<SelectField> renders errors correctly 1`] = `
+<Fragment>
+  <SelectField
+    error={true}
+    label="label"
+    name="name"
+    onChange={[Function]}
+    required={false}
+    value="value"
+  >
+    <option
+      value="option"
+    >
+      option
+    </option>
+  </SelectField>
+  <Help
+    error={true}
+  >
+    error
+  </Help>
+</Fragment>
+`;
