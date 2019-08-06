@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
-import { UnconnectedRunJobModal as RunJobModal } from './RunJobModal'
+import { DumbRunJobModal as RunJobModal } from './RunJobModal'
 
 describe('<RunJobModal>', () => {
     it('renders correctly', () => {

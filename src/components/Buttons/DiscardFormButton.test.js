@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
 import history from '../../services/history'
-import { UnconnectedDiscardFormButton as DiscardFormButton } from './DiscardFormButton'
+import { DumbDiscardFormButton as DiscardFormButton } from './DiscardFormButton'
 
 describe('<DiscardFormButton>', () => {
     beforeEach(() => {

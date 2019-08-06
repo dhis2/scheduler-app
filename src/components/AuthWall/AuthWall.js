@@ -7,7 +7,7 @@ import { actions, selectors } from '../../data/me'
 import { AbsoluteCenter } from '../AbsoluteCenter'
 import { FullscreenError } from '../Errors'
 
-export const UnconnectedAuthWall = ({
+export const DumbAuthWall = ({
     children,
     didFetch,
     errorMessage,
@@ -38,7 +38,7 @@ export const UnconnectedAuthWall = ({
     return <React.Fragment>{children}</React.Fragment>
 }
 
-UnconnectedAuthWall.propTypes = {
+DumbAuthWall.propTypes = {
     children: node.isRequired,
     didFetch: bool.isRequired,
     errorMessage: string.isRequired,
@@ -65,4 +65,4 @@ const mapDispatchToProps = {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(UnconnectedAuthWall)
+)(DumbAuthWall)

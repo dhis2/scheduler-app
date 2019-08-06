@@ -10,7 +10,7 @@ import { requiredString } from '../../services/validators'
 // The key under which this field will be sent to the backend
 const fieldName = 'jobType'
 
-export const UnconnectedJobTypeField = ({ jobTypes }) => (
+export const DumbJobTypeField = ({ jobTypes }) => (
     <Field
         name={fieldName}
         validate={requiredString}
@@ -26,10 +26,10 @@ export const UnconnectedJobTypeField = ({ jobTypes }) => (
     />
 )
 
-UnconnectedJobTypeField.fieldName = fieldName
-UnconnectedJobTypeField.validator = requiredString
+DumbJobTypeField.fieldName = fieldName
+DumbJobTypeField.validator = requiredString
 
-UnconnectedJobTypeField.propTypes = {
+DumbJobTypeField.propTypes = {
     jobTypes: arrayOf(string).isRequired,
 }
 
@@ -41,4 +41,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(UnconnectedJobTypeField)
+export default connect(mapStateToProps)(DumbJobTypeField)

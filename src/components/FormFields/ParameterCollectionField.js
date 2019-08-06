@@ -8,10 +8,7 @@ import { selectors } from '../../data/job-types'
 import ParameterSetField from './ParameterSetField'
 import ParameterListField from './ParameterListField'
 
-export const UnconnectedParameterCollectionField = ({
-    parameters,
-    jobType,
-}) => {
+export const DumbParameterCollectionField = ({ parameters, jobType }) => {
     if (!jobType) {
         return null
     }
@@ -70,12 +67,12 @@ export const UnconnectedParameterCollectionField = ({
     })
 }
 
-UnconnectedParameterCollectionField.defaultProps = {
+DumbParameterCollectionField.defaultProps = {
     jobType: '',
     parameters: [],
 }
 
-UnconnectedParameterCollectionField.propTypes = {
+DumbParameterCollectionField.propTypes = {
     jobType: string,
     parameters: arrayOf(object),
 }
@@ -92,4 +89,4 @@ const mapStateToProps = (state, { jobType }) => {
     }
 }
 
-export default connect(mapStateToProps)(UnconnectedParameterCollectionField)
+export default connect(mapStateToProps)(DumbParameterCollectionField)

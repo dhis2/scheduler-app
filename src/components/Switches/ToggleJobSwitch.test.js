@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
-import { UnconnectedToggleJobSwitch as ToggleJobSwitch } from './ToggleJobSwitch'
+import { DumbToggleJobSwitch as ToggleJobSwitch } from './ToggleJobSwitch'
 
 describe('<ToggleJobSwitch>', () => {
     it('renders correctly', () => {

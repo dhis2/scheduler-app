@@ -7,7 +7,7 @@ import { selectors } from '../../data/jobs'
 import { actions } from '../../data/modal'
 import { modalTypes } from '../Modal'
 
-export const UnconnectedRunJobButton = ({ id, showModal, isFetching }) => {
+export const DumbRunJobButton = ({ id, showModal, isFetching }) => {
     return (
         <Button
             primary
@@ -22,7 +22,7 @@ export const UnconnectedRunJobButton = ({ id, showModal, isFetching }) => {
     )
 }
 
-UnconnectedRunJobButton.propTypes = {
+DumbRunJobButton.propTypes = {
     id: string.isRequired,
     isFetching: bool.isRequired,
     showModal: func.isRequired,
@@ -45,4 +45,4 @@ const mapDispatchToProps = {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(UnconnectedRunJobButton)
+)(DumbRunJobButton)

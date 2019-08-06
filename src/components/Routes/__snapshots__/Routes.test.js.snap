@@ -29,7 +29,7 @@ exports[`<Routes> renders correctly 1`] = `
         "$$typeof": Symbol(react.memo),
         "WrappedComponent": [Function],
         "compare": null,
-        "displayName": "Connect(UnconnectedJobListContainer)",
+        "displayName": "Connect(DumbJobListContainer)",
         "type": [Function],
       }
     }
@@ -46,7 +46,7 @@ exports[`<Routes> renders correctly 1`] = `
         "$$typeof": Symbol(react.memo),
         "WrappedComponent": [Function],
         "compare": null,
-        "displayName": "Connect(UnconnectedJobAddContainer)",
+        "displayName": "Connect(DumbJobAddContainer)",
         "type": [Function],
       }
     }

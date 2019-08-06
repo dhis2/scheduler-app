@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
-import { UnconnectedDeleteJobButton as DeleteJobButton } from './DeleteJobButton'
+import { DumbDeleteJobButton as DeleteJobButton } from './DeleteJobButton'
 
 describe('<DeleteJobButton>', () => {
     it('renders correctly', () => {

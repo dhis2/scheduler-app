@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { UnconnectedModalContainer as ModalContainer } from './ModalContainer'
+import { DumbModalContainer as ModalContainer } from './ModalContainer'
 import * as modalTypes from './modalTypes'
 
 describe('<ModalContainer>', () => {
