@@ -5,6 +5,7 @@ import jobTypes from './data/job-types'
 import parameterSet from './data/parameter-set'
 import parameterList from './data/parameter-list'
 import modal from './data/modal'
+import cronPreset from './data/cron-preset'
 
 export default combineReducers({
     me,
@@ -13,4 +14,5 @@ export default combineReducers({
     parameterSet,
     parameterList,
     modal,
+    cronPreset,
 })
