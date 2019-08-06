@@ -26,7 +26,7 @@ const validate = values => {
     }
 }
 
-const UnconnectedJobFormContainer = ({ setIsPristine, createJob }) => {
+const DumbJobFormContainer = ({ setIsPristine, createJob }) => {
     const onSubmit = job =>
         createJob(job)
             .then(() => history.push('/'))
@@ -42,7 +42,7 @@ const UnconnectedJobFormContainer = ({ setIsPristine, createJob }) => {
     )
 }
 
-UnconnectedJobFormContainer.propTypes = {
+DumbJobFormContainer.propTypes = {
     setIsPristine: func.isRequired,
     createJob: func.isRequired,
 }
@@ -54,4 +54,4 @@ const mapDispatchToProps = {
 export default connect(
     null,
     mapDispatchToProps
-)(UnconnectedJobFormContainer)
+)(DumbJobFormContainer)

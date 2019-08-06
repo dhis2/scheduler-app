@@ -8,7 +8,7 @@ import { selectors as jobTypeSelectors } from '../../data/job-types'
 import { actions, selectors } from '../../data/parameter-list'
 import { InlineError } from '../Errors'
 
-export const UnconnectedParameterListField = ({
+export const DumbParameterListField = ({
     didFetch,
     endpoint,
     errorMessage,
@@ -52,7 +52,7 @@ export const UnconnectedParameterListField = ({
     )
 }
 
-UnconnectedParameterListField.propTypes = {
+DumbParameterListField.propTypes = {
     didFetch: bool.isRequired,
     endpoint: string.isRequired,
     errorMessage: string.isRequired,
@@ -96,4 +96,4 @@ const mapDispatchToProps = {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(UnconnectedParameterListField)
+)(DumbParameterListField)

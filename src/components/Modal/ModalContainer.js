@@ -8,7 +8,7 @@ import DiscardFormModal from './DiscardFormModal'
 import DeleteJobModal from './DeleteJobModal'
 import RunJobModal from './RunJobModal'
 
-export const UnconnectedModalContainer = ({ type, props }) => {
+export const DumbModalContainer = ({ type, props }) => {
     switch (type) {
         case modalTypes.DISCARD_FORM:
             return <DiscardFormModal {...props} />
@@ -21,12 +21,12 @@ export const UnconnectedModalContainer = ({ type, props }) => {
     }
 }
 
-UnconnectedModalContainer.defaultProps = {
+DumbModalContainer.defaultProps = {
     type: null,
     props: {},
 }
 
-UnconnectedModalContainer.propTypes = {
+DumbModalContainer.propTypes = {
     type: string,
     props: object,
 }
@@ -42,4 +42,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(UnconnectedModalContainer)
+export default connect(mapStateToProps)(DumbModalContainer)

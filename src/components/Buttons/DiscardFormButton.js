@@ -6,7 +6,7 @@ import { actions } from '../../data/modal'
 import { modalTypes } from '../Modal'
 import history from '../../services/history'
 
-export const UnconnectedDiscardFormButton = ({
+export const DumbDiscardFormButton = ({
     shouldConfirm,
     children,
     showModal,
@@ -18,7 +18,7 @@ export const UnconnectedDiscardFormButton = ({
     return <Button onClick={onClick}>{children}</Button>
 }
 
-UnconnectedDiscardFormButton.propTypes = {
+DumbDiscardFormButton.propTypes = {
     children: string.isRequired,
     shouldConfirm: bool.isRequired,
     showModal: func.isRequired,
@@ -31,4 +31,4 @@ const mapDispatchToProps = {
 export default connect(
     null,
     mapDispatchToProps
-)(UnconnectedDiscardFormButton)
+)(DumbDiscardFormButton)

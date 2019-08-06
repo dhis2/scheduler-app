@@ -8,7 +8,7 @@ import { AbsoluteCenter } from '../../components/AbsoluteCenter'
 import { FullscreenError } from '../../components/Errors'
 import JobList from './JobList'
 
-export const UnconnectedJobListContainer = ({
+export const DumbJobListContainer = ({
     didFetch,
     isFetching,
     isDirty,
@@ -61,7 +61,7 @@ export const UnconnectedJobListContainer = ({
     )
 }
 
-UnconnectedJobListContainer.propTypes = {
+DumbJobListContainer.propTypes = {
     didFetch: bool.isRequired,
     isFetching: bool.isRequired,
     isDirty: bool.isRequired,
@@ -93,4 +93,4 @@ const mapDispatchToProps = {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(UnconnectedJobListContainer)
+)(DumbJobListContainer)

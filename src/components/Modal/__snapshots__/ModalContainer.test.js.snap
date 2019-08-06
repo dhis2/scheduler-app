@@ -1,19 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<ModalContainer> passes props to DeleteJobModal 1`] = `
-<Connect(UnconnectedDeleteJobModal)
+<Connect(DumbDeleteJobModal)
   id="id"
 />
 `;
 
 exports[`<ModalContainer> passes props to RunJobModal 1`] = `
-<Connect(UnconnectedRunJobModal)
+<Connect(DumbRunJobModal)
   id="id"
 />
 `;
 
-exports[`<ModalContainer> renders DeleteJobModal when requested 1`] = `<Connect(UnconnectedDeleteJobModal) />`;
+exports[`<ModalContainer> renders DeleteJobModal when requested 1`] = `<Connect(DumbDeleteJobModal) />`;
 
-exports[`<ModalContainer> renders RunJobModal when requested 1`] = `<Connect(UnconnectedRunJobModal) />`;
+exports[`<ModalContainer> renders RunJobModal when requested 1`] = `<Connect(DumbRunJobModal) />`;
 
 exports[`<ModalContainer> renders nothing when type is null 1`] = `""`;
