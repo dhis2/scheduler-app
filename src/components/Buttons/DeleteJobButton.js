@@ -7,7 +7,7 @@ import { selectors } from '../../data/jobs'
 import { actions } from '../../data/modal'
 import { modalTypes } from '../Modal'
 
-export const UnconnectedDeleteJobButton = ({ id, showModal, isFetching }) => {
+export const DumbDeleteJobButton = ({ id, showModal, isFetching }) => {
     return (
         <Button
             destructive
@@ -22,7 +22,7 @@ export const UnconnectedDeleteJobButton = ({ id, showModal, isFetching }) => {
     )
 }
 
-UnconnectedDeleteJobButton.propTypes = {
+DumbDeleteJobButton.propTypes = {
     id: string.isRequired,
     isFetching: bool.isRequired,
     showModal: func.isRequired,
@@ -45,4 +45,4 @@ const mapDispatchToProps = {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(UnconnectedDeleteJobButton)
+)(DumbDeleteJobButton)

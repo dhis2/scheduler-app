@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import { actions as modalActions } from '../../data/modal'
 import history from '../../services/history'
 
-export const UnconnectedDiscardFormModal = ({ hideModal }) => (
+export const DumbDiscardFormModal = ({ hideModal }) => (
     <Modal open small onClose={hideModal}>
         <Modal.Content>
             Are you sure you want to discard this form?
@@ -34,7 +34,7 @@ export const UnconnectedDiscardFormModal = ({ hideModal }) => (
     </Modal>
 )
 
-UnconnectedDiscardFormModal.propTypes = {
+DumbDiscardFormModal.propTypes = {
     hideModal: func.isRequired,
 }
 
@@ -45,4 +45,4 @@ const mapDispatchToProps = {
 export default connect(
     null,
     mapDispatchToProps
-)(UnconnectedDiscardFormModal)
+)(DumbDiscardFormModal)

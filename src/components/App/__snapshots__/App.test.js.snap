@@ -18,11 +18,11 @@ exports[`<App> renders correctly 1`] = `
     <HeaderBar
       appName="Scheduler"
     />
-    <Connect(UnconnectedModalContainer) />
+    <Connect(DumbModalContainer) />
     <PageWrapper>
-      <Connect(UnconnectedAuthWall)>
+      <Connect(DumbAuthWall)>
         <Routes />
-      </Connect(UnconnectedAuthWall)>
+      </Connect(DumbAuthWall)>
     </PageWrapper>
   </Provider>
 </Provider>
