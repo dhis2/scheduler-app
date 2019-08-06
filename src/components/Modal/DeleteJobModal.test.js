@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
-import { UnconnectedDeleteJobModal as DeleteJobModal } from './DeleteJobModal'
+import { DumbDeleteJobModal as DeleteJobModal } from './DeleteJobModal'
 
 describe('<DeleteJobModal>', () => {
     it('renders correctly', () => {

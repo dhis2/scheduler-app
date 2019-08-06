@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
-import { UnconnectedRunJobButton as RunJobButton } from './RunJobButton'
+import { DumbRunJobButton as RunJobButton } from './RunJobButton'
 
 describe('<RunJobButton>', () => {
     it('renders correctly', () => {

@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
-import { UnconnectedAuthWall as AuthWall } from './AuthWall'
+import { DumbAuthWall as AuthWall } from './AuthWall'
 
 const defaultProps = {
     children: 'Children',

@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import { actions as modalActions } from '../../data/modal'
 import { actions as jobActions } from '../../data/jobs'
 
-export const UnconnectedDeleteJobModal = ({ id, hideModal, deleteJob }) => (
+export const DumbDeleteJobModal = ({ id, hideModal, deleteJob }) => (
     <Modal open small onClose={hideModal}>
         <Modal.Content>Are you sure you want to delete this job?</Modal.Content>
         <Modal.Actions>
@@ -28,7 +28,7 @@ export const UnconnectedDeleteJobModal = ({ id, hideModal, deleteJob }) => (
     </Modal>
 )
 
-UnconnectedDeleteJobModal.propTypes = {
+DumbDeleteJobModal.propTypes = {
     id: string.isRequired,
     hideModal: func.isRequired,
     deleteJob: func.isRequired,
@@ -42,4 +42,4 @@ const mapDispatchToProps = {
 export default connect(
     null,
     mapDispatchToProps
-)(UnconnectedDeleteJobModal)
+)(DumbDeleteJobModal)

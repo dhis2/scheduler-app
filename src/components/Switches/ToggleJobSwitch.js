@@ -5,7 +5,7 @@ import { Switch } from '@dhis2/ui-core'
 import * as rootSelectors from '../../rootSelectors'
 import { actions, selectors } from '../../data/jobs'
 
-export const UnconnectedToggleJobSwitch = ({
+export const DumbToggleJobSwitch = ({
     id,
     checked,
     enableJob,
@@ -24,7 +24,7 @@ export const UnconnectedToggleJobSwitch = ({
     )
 }
 
-UnconnectedToggleJobSwitch.propTypes = {
+DumbToggleJobSwitch.propTypes = {
     id: string.isRequired,
     checked: bool.isRequired,
     enableJob: func.isRequired,
@@ -50,4 +50,4 @@ const mapDispatchToProps = {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(UnconnectedToggleJobSwitch)
+)(DumbToggleJobSwitch)
