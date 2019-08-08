@@ -4,20 +4,18 @@ import { InputField } from '../../components/FormBaseFields'
 import { requiredCron } from '../../services/validators'
 
 // The key under which this field will be sent to the backend
-const fieldName = 'cronExpression'
+export const FIELD_NAME = 'cronExpression'
+export const VALIDATOR = requiredCron
 
 const CronField = () => (
     <Field
-        name={fieldName}
+        name={FIELD_NAME}
         component={InputField}
-        validate={requiredCron}
+        validate={VALIDATOR}
         label="CRON Expression"
         type="text"
         required
     />
 )
-
-CronField.fieldName = fieldName
-CronField.validator = requiredCron
 
 export default CronField

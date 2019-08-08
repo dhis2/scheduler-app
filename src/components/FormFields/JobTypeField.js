@@ -8,12 +8,13 @@ import { SelectField } from '../FormBaseFields'
 import { requiredString } from '../../services/validators'
 
 // The key under which this field will be sent to the backend
-const fieldName = 'jobType'
+export const FIELD_NAME = 'jobType'
+export const VALIDATOR = requiredString
 
 export const DumbJobTypeField = ({ jobTypes }) => (
     <Field
-        name={fieldName}
-        validate={requiredString}
+        name={FIELD_NAME}
+        validate={VALIDATOR}
         render={props => (
             <SelectField {...props} label="Job Type" required>
                 {jobTypes.map(type => (
@@ -25,9 +26,6 @@ export const DumbJobTypeField = ({ jobTypes }) => (
         )}
     />
 )
-
-DumbJobTypeField.fieldName = fieldName
-DumbJobTypeField.validator = requiredString
 
 DumbJobTypeField.propTypes = {
     jobTypes: arrayOf(string).isRequired,
