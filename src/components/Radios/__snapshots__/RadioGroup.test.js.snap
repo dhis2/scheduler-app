@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<RadioGroup> renders correctly 1`] = `
+<Fragment>
+  <Radio
+    checked={false}
+    key="one"
+    label="one"
+    name="name"
+    onChange={[Function]}
+    value="one"
+  />
+  <Radio
+    checked={false}
+    key="two"
+    label="two"
+    name="name"
+    onChange={[Function]}
+    value="two"
+  />
+</Fragment>
+`;
