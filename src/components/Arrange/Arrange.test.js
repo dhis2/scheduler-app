@@ -1,16 +1,16 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import Aligner from './Aligner'
+import Arrange from './Arrange'
 
-describe('<Aligner>', () => {
+describe('<Arrange>', () => {
     it('renders correctly', () => {
-        const wrapper = shallow(<Aligner>Text</Aligner>)
+        const wrapper = shallow(<Arrange>Text</Arrange>)
 
         expect(wrapper).toMatchSnapshot()
     })
 
     it('responds to a vertical prop', () => {
-        const wrapper = shallow(<Aligner vertical>Text</Aligner>)
+        const wrapper = shallow(<Arrange vertical>Text</Arrange>)
 
         expect(wrapper).toMatchSnapshot()
     })
