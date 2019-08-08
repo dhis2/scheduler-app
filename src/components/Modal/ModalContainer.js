@@ -7,9 +7,12 @@ import * as modalTypes from './modalTypes'
 import DiscardFormModal from './DiscardFormModal'
 import DeleteJobModal from './DeleteJobModal'
 import RunJobModal from './RunJobModal'
+import CronPresetModal from './CronPresetModal'
 
 export const DumbModalContainer = ({ type, props }) => {
     switch (type) {
+        case modalTypes.CRON_PRESET:
+            return <CronPresetModal {...props} />
         case modalTypes.DISCARD_FORM:
             return <DiscardFormModal {...props} />
         case modalTypes.DELETE_JOB:
