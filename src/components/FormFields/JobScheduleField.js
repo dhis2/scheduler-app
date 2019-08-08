@@ -5,7 +5,7 @@ import { FormSpy } from 'react-final-form'
 import { getCronPreset } from '../../rootSelectors'
 import { selectors, actions } from '../../data/cron-preset'
 import { ShowCronPresetButton } from '../Buttons'
-import { Aligner } from '../Aligner'
+import { Arrange } from '../Arrange'
 import CronField, { FIELD_NAME as CRON } from './CronField'
 import ContinuousExecutionField, {
     FIELD_NAME as CONTINUOUS,
@@ -27,7 +27,7 @@ const DumbJobScheduleField = ({ cronPreset, clearPreset }) => (
             return (
                 <React.Fragment>
                     When should the job run?
-                    <Aligner>
+                    <Arrange>
                         <div>
                             <CronField disabled={currentContinuousValue} />
                             <ShowCronPresetButton />
@@ -35,7 +35,7 @@ const DumbJobScheduleField = ({ cronPreset, clearPreset }) => (
                         <div>
                             <ContinuousExecutionField />
                         </div>
-                    </Aligner>
+                    </Arrange>
                 </React.Fragment>
             )
         }}
