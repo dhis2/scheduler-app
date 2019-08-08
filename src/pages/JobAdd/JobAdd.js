@@ -2,7 +2,7 @@ import React from 'react'
 import { bool, func } from 'prop-types'
 import { Card } from '@dhis2/ui-core'
 import { Title } from '../../components/Title'
-import { Aligner } from '../../components/Aligner'
+import { Arrange } from '../../components/Arrange'
 import { DiscardFormButton } from '../../components/Buttons'
 import { Info } from '../../components/Icons'
 import { JobFormContainer } from '../../components/Forms'
@@ -18,11 +18,11 @@ const JobAdd = ({ isPristine, setIsPristine }) => {
             </DiscardFormButton>
             <Title priority={2}>New Job</Title>
             <Card>
-                <Aligner>
+                <Arrange>
                     <Title priority={3}>Configuration</Title>
                     <Info />
                     <a href={infoLink}>About job configuration</a>
-                </Aligner>
+                </Arrange>
                 <JobFormContainer setIsPristine={setIsPristine} />
             </Card>
         </React.Fragment>
