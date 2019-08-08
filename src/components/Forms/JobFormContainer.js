@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import { Form } from 'react-final-form'
 import { actions } from '../../data/jobs'
 import history from '../../services/history'
-import { JobNameField, CronField, JobTypeField } from '../FormFields'
+import { fieldNames, validators } from '../FormFields'
 import JobForm from './JobForm'
 
 /**
@@ -15,14 +15,21 @@ import JobForm from './JobForm'
  */
 
 const validate = values => {
-    const jobNameValue = values[JobNameField.fieldName]
-    const cronValue = values[CronField.fieldName]
-    const jobTypeValue = values[JobTypeField.fieldName]
+    const { JOB_NAME, JOB_TYPE, CRON } = fieldNames
+    const {
+        JOB_NAME_VALIDATOR,
+        JOB_TYPE_VALIDATOR,
+        CRON_VALIDATOR,
+    } = validators
+
+    const jobNameValue = values[JOB_NAME]
+    const cronValue = values[CRON]
+    const jobTypeValue = values[JOB_TYPE]
 
     return {
-        [JobNameField.fieldName]: JobNameField.validator(jobNameValue),
-        [CronField.fieldName]: CronField.validator(cronValue),
-        [JobTypeField.fieldName]: JobTypeField.validator(jobTypeValue),
+        [JOB_NAME]: JOB_NAME_VALIDATOR(jobNameValue),
+        [CRON]: CRON_VALIDATOR(cronValue),
+        [JOB_TYPE]: JOB_TYPE_VALIDATOR(jobTypeValue),
     }
 }
 
