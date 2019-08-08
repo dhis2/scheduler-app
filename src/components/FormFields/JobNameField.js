@@ -4,20 +4,18 @@ import { InputField } from '../../components/FormBaseFields'
 import { requiredString } from '../../services/validators'
 
 // The key under which this field will be sent to the backend
-const fieldName = 'name'
+export const FIELD_NAME = 'name'
+export const VALIDATOR = requiredString
 
 const JobNameField = () => (
     <Field
-        name={fieldName}
+        name={FIELD_NAME}
         component={InputField}
-        validate={requiredString}
+        validate={VALIDATOR}
         label="Name"
         type="text"
         required
     />
 )
-
-JobNameField.fieldName = fieldName
-JobNameField.validator = requiredString
 
 export default JobNameField
