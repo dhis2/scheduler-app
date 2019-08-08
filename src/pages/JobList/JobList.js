@@ -3,7 +3,7 @@ import { func, bool, object, arrayOf, string } from 'prop-types'
 import { Card, Switch, InputField } from '@dhis2/ui-core'
 import { Link } from 'react-router-dom'
 import { Title } from '../../components/Title'
-import { Aligner } from '../../components/Aligner'
+import { Arrange } from '../../components/Arrange'
 import { Info } from '../../components/Icons'
 import { LinkButton } from '../../components/Buttons'
 import JobListItem from './JobListItem'
@@ -18,12 +18,12 @@ const JobList = ({
     setJobFilter,
 }) => (
     <React.Fragment>
-        <Aligner>
+        <Arrange>
             <Title priority={2}>Scheduled Jobs</Title>
             <Info />
-        </Aligner>
+        </Arrange>
         <Card>
-            <Aligner>
+            <Arrange>
                 <InputField
                     filled
                     disabled={isFetching}
@@ -32,7 +32,7 @@ const JobList = ({
                     onChange={event => setJobFilter(event.target.value)}
                     value={jobFilter}
                 />
-                <Aligner.Push direction="right">
+                <Arrange.Push direction="right">
                     <Switch
                         checked={showSystemJobs}
                         disabled={isFetching}
@@ -45,8 +45,8 @@ const JobList = ({
                     <LinkButton as={Link} to="/add">
                         New job
                     </LinkButton>
-                </Aligner.Push>
-            </Aligner>
+                </Arrange.Push>
+            </Arrange>
             <table>
                 <thead>
                     <tr>
