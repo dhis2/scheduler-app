@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CronPresetModal> renders correctly 1`] = `
+<Modal
+  onClose={[Function]}
+  open={true}
+  small={true}
+>
+  <Title>
+    Choose a preset time/interval
+  </Title>
+  <Content>
+    <RadioGroup
+      name="cron-presets"
+      options={
+        Array [
+          Object {
+            "label": "Every hour",
+            "value": "0 0 * ? * *",
+          },
+          Object {
+            "label": "Every day at midnight",
+            "value": "0 0 1 ? * *",
+          },
+          Object {
+            "label": "Every day at 3 am",
+            "value": "0 0 3 ? * *",
+          },
+          Object {
+            "label": "Every day at noon",
+            "value": "0 0 12 ? * MON-FRI",
+          },
+          Object {
+            "label": "Every week",
+            "value": "0 0 3 ? * MON",
+          },
+        ]
+      }
+      selected=""
+      setSelected={[Function]}
+    />
+  </Content>
+  <Actions>
+    <ButtonStrip
+      end={true}
+    >
+      <Button
+        name="hide-modal"
+        onClick={[Function]}
+        secondary={true}
+        type="button"
+      >
+        Cancel
+      </Button>
+      <Button
+        disabled={true}
+        name="insert-preset"
+        onClick={[Function]}
+        primary={true}
+        type="button"
+      >
+        Insert preset
+      </Button>
+    </ButtonStrip>
+  </Actions>
+</Modal>
+`;
