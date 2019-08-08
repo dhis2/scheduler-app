@@ -2,7 +2,7 @@ import React from 'react'
 import { bool, shape, string, object } from 'prop-types'
 import { InputField as CoreInput, Help } from '@dhis2/ui-core'
 
-const InputField = ({ input, meta, label, required }) => {
+const InputField = ({ input, meta, label, required, disabled }) => {
     const { touched, error } = meta
     const hasError = touched && !!error
 
@@ -13,6 +13,7 @@ const InputField = ({ input, meta, label, required }) => {
                 label={label}
                 error={hasError}
                 required={required}
+                disabled={disabled}
             />
             {hasError && <Help error>{meta.error.message}</Help>}
         </React.Fragment>
@@ -21,6 +22,7 @@ const InputField = ({ input, meta, label, required }) => {
 
 InputField.defaultProps = {
     required: false,
+    disabled: false,
 }
 
 InputField.propTypes = {
@@ -31,6 +33,7 @@ InputField.propTypes = {
     }).isRequired,
     input: object.isRequired,
     required: bool,
+    disabled: bool,
 }
 
 export default InputField
