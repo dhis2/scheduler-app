@@ -3,10 +3,11 @@ import { func, bool, object, arrayOf, string } from 'prop-types'
 import { Card, Switch, InputField } from '@dhis2/ui-core'
 import { Link } from 'react-router-dom'
 import { Title } from '../../components/Title'
-import { Arrange } from '../../components/Arrange'
+import { Arrange, ArrangeFit, ArrangeFill } from '../../components/Arrange'
 import { Info } from '../../components/Icons'
 import { LinkButton } from '../../components/Buttons'
 import JobListItem from './JobListItem'
+import styles from './JobList.module.css'
 
 const JobList = ({
     jobIds,
@@ -24,28 +25,32 @@ const JobList = ({
         </Arrange>
         <Card>
             <Arrange>
-                <InputField
-                    filled
-                    disabled={isFetching}
-                    label="Filter jobs by name"
-                    name="filter-jobs"
-                    onChange={event => setJobFilter(event.target.value)}
-                    value={jobFilter}
-                />
-                <Arrange.Push direction="right">
-                    <Switch
-                        checked={showSystemJobs}
+                <ArrangeFit>
+                    <InputField
+                        filled
                         disabled={isFetching}
-                        label="Show system jobs"
-                        name="show-system-jobs"
-                        onChange={event =>
-                            setShowSystemJobs(event.target.checked)
-                        }
+                        label="Filter jobs by name"
+                        name="filter-jobs"
+                        onChange={event => setJobFilter(event.target.value)}
+                        value={jobFilter}
                     />
-                    <LinkButton as={Link} to="/add">
-                        New job
-                    </LinkButton>
-                </Arrange.Push>
+                </ArrangeFit>
+                <ArrangeFill>
+                    <div className={styles.alignRight}>
+                        <Switch
+                            checked={showSystemJobs}
+                            disabled={isFetching}
+                            label="Show system jobs"
+                            name="show-system-jobs"
+                            onChange={event =>
+                                setShowSystemJobs(event.target.checked)
+                            }
+                        />
+                        <LinkButton as={Link} to="/add">
+                            New job
+                        </LinkButton>
+                    </div>
+                </ArrangeFill>
             </Arrange>
             <table>
                 <thead>
