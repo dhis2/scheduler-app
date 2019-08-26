@@ -1,9 +1,11 @@
 import React from 'react'
+import cronstrue from 'cronstrue'
 import { func, string } from 'prop-types'
 import { connect } from 'react-redux'
 import { FormSpy } from 'react-final-form'
 import { getCronPreset } from '../../rootSelectors'
 import { selectors, actions } from '../../data/cron-preset'
+import { validateCron } from '../../services/validators'
 import { ShowCronPresetButton } from '../Buttons'
 import { Arrange, ArrangeFill } from '../Arrange'
 import CronField, { FIELD_NAME as CRON } from './CronField'
@@ -24,12 +26,21 @@ const DumbJobScheduleField = ({ cronPreset, clearPreset }) => (
                 clearPreset()
             }
 
+            let humanReadableCron = ''
+
+            if (currentCronValue && validateCron(currentCronValue)) {
+                humanReadableCron = cronstrue.toString(currentCronValue)
+            }
+
             return (
                 <React.Fragment>
                     When should the job run?
                     <Arrange>
                         <ArrangeFill>
                             <CronField disabled={currentContinuousValue} />
+                            {humanReadableCron && !currentContinuousValue && (
+                                <div>{humanReadableCron}</div>
+                            )}
                             <ShowCronPresetButton />
                         </ArrangeFill>
                         <ArrangeFill>
