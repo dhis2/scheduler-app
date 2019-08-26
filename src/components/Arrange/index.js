@@ -1,6 +1,5 @@
 import Arrange from './Arrange'
-import Push from './Push'
+import ArrangeFit from './ArrangeFit'
+import ArrangeFill from './ArrangeFill'
 
-Arrange.Push = Push
-
-export { Arrange }
+export { Arrange, ArrangeFill, ArrangeFit }
