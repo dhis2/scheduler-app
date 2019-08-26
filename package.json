@@ -16,6 +16,7 @@
         "@dhis2/app-runtime": "^1.2.0",
         "@dhis2/ui-core": "^3.6.0",
         "@dhis2/ui-widgets": "^1.0.6",
+        "cronstrue": "^1.82.0",
         "final-form": "^4.17.0",
         "history": "^4.9.0",
         "moment": "^2.24.0",
