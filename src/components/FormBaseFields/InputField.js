@@ -4,7 +4,8 @@ import { InputField as CoreInput, Help } from '@dhis2/ui-core'
 
 const InputField = ({ input, meta, ...rest }) => {
     const { touched, error } = meta
-    const hasError = touched && !!error
+    const { disabled } = rest
+    const hasError = touched && !disabled && !!error
 
     return (
         <React.Fragment>
