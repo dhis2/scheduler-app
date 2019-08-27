@@ -10,12 +10,12 @@ export const VALIDATOR = requiredCron
 
 const CronField = ({ disabled }) => (
     <Field
-        name={FIELD_NAME}
         component={InputField}
+        name={FIELD_NAME}
         validate={VALIDATOR}
         label="CRON Expression"
         type="text"
-        required
+        required={!disabled}
         disabled={disabled}
     />
 )
