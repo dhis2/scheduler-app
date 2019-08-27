@@ -4,7 +4,8 @@ import { SelectField as CoreSelect, Help } from '@dhis2/ui-core'
 
 const SelectField = ({ input, meta, children, ...rest }) => {
     const { touched, error } = meta
-    const hasError = touched && !!error
+    const { disabled } = rest
+    const hasError = touched && !disabled && !!error
 
     return (
         <React.Fragment>

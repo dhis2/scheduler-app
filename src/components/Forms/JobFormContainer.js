@@ -15,7 +15,7 @@ import JobForm from './JobForm'
  */
 
 const validate = values => {
-    const { JOB_NAME, JOB_TYPE, CRON } = fieldNames
+    const { JOB_NAME, JOB_TYPE, CRON, CONTINUOUS_EXECUTION } = fieldNames
     const {
         JOB_NAME_VALIDATOR,
         JOB_TYPE_VALIDATOR,
@@ -25,10 +25,14 @@ const validate = values => {
     const jobNameValue = values[JOB_NAME]
     const cronValue = values[CRON]
     const jobTypeValue = values[JOB_TYPE]
+    const continuousExecutionValue = values[CONTINUOUS_EXECUTION]
 
     return {
         [JOB_NAME]: JOB_NAME_VALIDATOR(jobNameValue),
-        [CRON]: CRON_VALIDATOR(cronValue),
+        // Only validate the cron if it's not set to continuous execution
+        [CRON]: continuousExecutionValue
+            ? undefined
+            : CRON_VALIDATOR(cronValue),
         [JOB_TYPE]: JOB_TYPE_VALIDATOR(jobTypeValue),
     }
 }
