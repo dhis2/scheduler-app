@@ -22,19 +22,21 @@ const validate = values => {
         CRON_VALIDATOR,
     } = validators
 
-    const jobNameValue = values[JOB_NAME]
-    const cronValue = values[CRON]
-    const jobTypeValue = values[JOB_TYPE]
-    const continuousExecutionValue = values[CONTINUOUS_EXECUTION]
+    const jobName = values[JOB_NAME]
+    const cronExpression = values[CRON]
+    const jobType = values[JOB_TYPE]
+    const continuousExecution = values[CONTINUOUS_EXECUTION]
 
-    return {
-        [JOB_NAME]: JOB_NAME_VALIDATOR(jobNameValue),
-        // Only validate the cron if it's not set to continuous execution
-        [CRON]: continuousExecutionValue
+    const validation = {
+        [JOB_NAME]: JOB_NAME_VALIDATOR(jobName),
+        // Only validate the cron expression if the job is not set to continuous execution
+        [CRON]: continuousExecution
             ? undefined
-            : CRON_VALIDATOR(cronValue),
-        [JOB_TYPE]: JOB_TYPE_VALIDATOR(jobTypeValue),
+            : CRON_VALIDATOR(cronExpression),
+        [JOB_TYPE]: JOB_TYPE_VALIDATOR(jobType),
     }
+
+    return validation
 }
 
 const DumbJobFormContainer = ({ setIsPristine, createJob }) => {
@@ -49,6 +51,7 @@ const DumbJobFormContainer = ({ setIsPristine, createJob }) => {
             validate={validate}
             component={JobForm}
             setIsPristine={setIsPristine}
+            destroyOnUnregister
         />
     )
 }
