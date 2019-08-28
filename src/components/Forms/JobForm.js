@@ -6,7 +6,7 @@ import { InlineError } from '../Errors'
 import { DiscardFormButton } from '../Buttons'
 import {
     JobNameField,
-    JobScheduleField,
+    ContinuousExecutionField,
     JobTypeField,
     ParameterCollectionField,
     fieldNames,
@@ -26,7 +26,7 @@ const JobForm = ({
                 onChange={({ pristine }) => setIsPristine(pristine)}
             />
             <JobNameField />
-            <JobScheduleField />
+            <ContinuousExecutionField />
             <JobTypeField />
             <ParameterCollectionField jobType={values[fieldNames.JOB_TYPE]} />
             <div>
