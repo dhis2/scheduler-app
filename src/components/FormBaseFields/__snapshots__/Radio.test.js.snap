@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Radio> renders correctly 1`] = `
+<Radio
+  label="label"
+  name="name"
+  onChange={[Function]}
+  value="value"
+/>
+`;
