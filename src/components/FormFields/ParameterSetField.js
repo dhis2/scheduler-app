@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { arrayOf, func, bool, string } from 'prop-types'
 import { Field } from 'react-final-form'
-import { SelectField } from '@dhis2/ui-core'
 import * as rootSelectors from '../../rootSelectors'
 import { selectors as jobTypeSelectors } from '../../data/job-types'
 import { actions, selectors } from '../../data/parameter-set'
@@ -25,7 +24,14 @@ export const DumbParameterSetField = ({
 
     // Show loading state when options are loading
     if (!didFetch) {
-        return <SelectField label={label} disabled loading />
+        return (
+            <label>
+                <div>{label}</div>
+                <select disabled>
+                    <option>Loading...</option>
+                </select>
+            </label>
+        )
     }
 
     if (errorMessage) {
@@ -33,22 +39,27 @@ export const DumbParameterSetField = ({
     }
 
     if (options.length === 0) {
-        return <SelectField label={label} disabled />
+        return (
+            <label>
+                <div>{label}</div>
+                <select disabled>
+                    <option>No available options</option>
+                </select>
+            </label>
+        )
     }
 
     return (
-        <Field
-            name={name}
-            render={({ input }) => (
-                <SelectField {...input} label={label}>
-                    {options.map(option => (
-                        <option key={option} value={option}>
-                            {option}
-                        </option>
-                    ))}
-                </SelectField>
-            )}
-        />
+        <label>
+            <div>{label}</div>
+            <Field name={name} component="select" type="select" multiple>
+                {options.map(option => (
+                    <option key={option} value={option}>
+                        {option}
+                    </option>
+                ))}
+            </Field>
+        </label>
     )
 }
 
