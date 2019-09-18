@@ -22,6 +22,7 @@ const apiTranslations = {
         DATA_SET_NOTIFICATION: 'Data Set Notification',
         DATA_STATISTICS: 'Data Statistics',
         DATA_SYNC: 'Data Synchronization',
+        EVENT_PROGRAMS_DATA_SYNC: 'Event Programs Data Sync',
         FILE_RESOURCE_CLEANUP: 'File Resource Cleanup',
         META_DATA_SYNC: 'Metadata Synchronization',
         MONITORING: 'Monitoring',
@@ -32,6 +33,7 @@ const apiTranslations = {
         REMOVE_EXPIRED_RESERVED_VALUES: 'Remove Expired Reserved Values',
         RESOURCE_TABLE: 'Resource Table',
         SEND_SCHEDULED_MESSAGE: 'Send Scheduled Message',
+        TRACKER_PROGRAMS_DATA_SYNC: 'Tracker Programs Data Sync',
         VALIDATION_RESULTS_NOTIFICATION: 'Validation Results Notification',
 
         // Job parameters
