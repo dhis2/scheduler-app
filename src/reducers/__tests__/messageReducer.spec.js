@@ -1,10 +1,6 @@
 import reducer, { initialState } from 'reducers/messageReducer';
 import * as actions from 'constants/actions';
 
-jest.mock('i18next', () => ({
-    t: str => `${str}_translated`,
-}));
-
 describe('messageReducer', () => {
     it('should return the initial state', () => {
         const expectedState = { ...initialState };
