@@ -17,7 +17,7 @@
     "prestart": "npm run localize && d2-manifest package.json ./public/manifest.webapp"
   },
   "devDependencies": {
-    "@dhis2/d2-i18n-extract": "^1.0.6",
+    "@dhis2/d2-i18n-extract": "^1.0.8",
     "@dhis2/d2-i18n-generate": "^1.1.1",
     "babel-core": "6",
     "babel-eslint": "^8.2.1",
