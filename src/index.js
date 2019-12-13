@@ -7,8 +7,9 @@ import App from './components/App';
 
 let dhisConfig;
 let d2Instance;
+let baseUrl;
 
-const dhisVersion = 32;
+const dhisVersion = 33;
 const schemas = [];
 
 getManifest('./manifest.webapp')
@@ -20,6 +21,7 @@ getManifest('./manifest.webapp')
 
     // Initialize d2 with url, authorization and schema settings.
     .then(url => {
+        baseUrl = url;
         dhisConfig = {
             baseUrl: `${url}/api/${dhisVersion}`,
             headers: PRODUCTION ? null : DHIS_CONFIG.authorization,
@@ -41,5 +43,5 @@ getManifest('./manifest.webapp')
 
     // Render the App.
     .then(() => {
-        render(<App d2={d2Instance} />, document.getElementById('root'));
+        render(<App d2={d2Instance} baseUrl={baseUrl} apiVersion={dhisVersion} />, document.getElementById('root'));
     });
