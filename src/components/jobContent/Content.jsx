@@ -23,9 +23,6 @@ const styles = {
     jobContent: {
         padding: 24,
     },
-    continuousExecutionToggle: {
-        marginTop: 22,
-    },
     header: {
         display: 'flex',
         flexDirection: 'row',
@@ -53,12 +50,10 @@ const validateFields = values => {
         errors.name = i18n.t('Must be of two or more characters');
     }
 
-    if (!values.continuousExecution) {
-        if (!values.cronExpression) {
-            errors.cronExpression = i18n.t('Required');
-        } else if (!validCronExpression(values.cronExpression)) {
-            errors.cronExpression = i18n.t('Invalid cron expression');
-        }
+    if (!values.cronExpression) {
+        errors.cronExpression = i18n.t('Required');
+    } else if (!validCronExpression(values.cronExpression)) {
+        errors.cronExpression = i18n.t('Invalid cron expression');
     }
 
     return errors;
@@ -141,9 +136,7 @@ class Content extends Component {
                     <Schedule
                         disabled={false}
                         cronExpression={this.props.job.cronExpression}
-                        continuousExecution={this.props.job.continuousExecution}
                         onCronExpressionChange={this.handleFieldEvent('cronExpression')}
-                        onContinuousExecutionChange={this.handleFieldEvent('continuousExecution')}
                         error={this.state.errors.cronExpression}
                     />
                     <SelectField

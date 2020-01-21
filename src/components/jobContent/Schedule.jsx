@@ -2,7 +2,6 @@ import React from 'react';
 import TextField from 'material-ui/TextField';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
-import Toggle from 'material-ui/Toggle';
 import i18n from '@dhis2/d2-i18n';
 import cronExpressions from '../../constants/cronExpressions';
 
@@ -31,10 +30,8 @@ const appendRequiredSign = (label, required) => (required ? `${label} *` : label
 
 const Schedule = ({
     disabled,
-    continuousExecution,
     cronExpression,
     error,
-    onContinuousExecutionChange,
     onCronExpressionChange,
 }) => {
     const selectedCron = cronExpressions.find(cron => cron.value === cronExpression);
@@ -47,7 +44,7 @@ const Schedule = ({
     return (
         <div style={styles.container}>
             <SelectField
-                disabled={continuousExecution || disabled}
+                disabled={disabled}
                 floatingLabelFixed
                 floatingLabelText={i18n.t('Select frequency')}
                 onChange={onCronSelected}
@@ -63,24 +60,13 @@ const Schedule = ({
                 ))}
             </SelectField>
             <TextField
-                disabled={continuousExecution || disabled}
+                disabled={disabled}
                 errorText={error}
-                floatingLabelText={appendRequiredSign(
-                    i18n.t('Cron expression'),
-                    !continuousExecution,
-                )}
+                floatingLabelText={appendRequiredSign(i18n.t('Cron expression'))}
                 onChange={onCronExpressionChange}
                 style={styles.flexItem}
                 value={cronExpression || ''}
             />
-            <div style={{ ...styles.flexItem, ...styles.toggle }}>
-                <Toggle
-                    disabled={disabled}
-                    label={i18n.t('Continuous execution')}
-                    defaultToggled={continuousExecution}
-                    onToggle={onContinuousExecutionChange}
-                />
-            </div>
         </div>
     );
 };
