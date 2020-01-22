@@ -79,7 +79,6 @@ export const postJob = job =>
                 cronExpression: job.cronExpression,
                 jobType: job.type,
                 jobParameters: job.parameters,
-                continuousExecution: job.continuousExecution,
             }),
         )
         .catch(error => {
@@ -93,7 +92,6 @@ export const saveJob = job =>
                 name: job.name,
                 enabled: job.enabled,
                 cronExpression: job.cronExpression,
-                continuousExecution: job.continuousExecution,
                 jobType: job.type || job.jobType,
                 jobParameters: job.parameters || job.jobParameters,
             }),

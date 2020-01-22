@@ -22,10 +22,6 @@ const enhance = compose(
                           ? changes.cronExpression
                           : currentJob.cronExpression,
                       name: isString(changes.name) ? changes.name : currentJob.name,
-                      continuousExecution:
-                          changes.continuousExecution !== undefined
-                              ? changes.continuousExecution
-                              : currentJob.continuousExecution,
                       parameters: changes.parameters || currentJob.jobParameters,
                       type: changes.type || currentJob.jobType,
                   }
