@@ -45,11 +45,13 @@ function jobsReducer(state = initialState, action) {
             let updates = { ...state.changes }
 
             if (field === 'type') {
-                if (value === FIXED_DELAY && updates.cronExpression) {
+                const scheduleType = state.configuration.typeToSchedulingTypes[value]
+
+                if (scheduleType === FIXED_DELAY && updates.cronExpression) {
                     delete updates.cronExpression
                 }
 
-                if (value === CRON && updates.delay) {
+                if (scheduleType === CRON && updates.delay) {
                     delete updates.delay
                 }
             }
