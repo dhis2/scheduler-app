@@ -4,29 +4,37 @@ import { getDefaultParameterValue, determineComponentToRender } from './interfac
 const JOB_PARAMETERS_ENDPOINT = 'jobConfigurations/jobTypes';
 const JOBSTATUSES = ['RUNNING', 'COMPLETED', 'STOPPED', 'SCHEDULED', 'DISABLED', 'FAILED'];
 
+const createJobTypeMapping = (cb, jobTypes) => jobTypes.reduce(
+    (mapping, jobType) => ({ ...mapping, [jobType.jobType]: cb(jobType) }),
+    {},
+)
+
+
 export const getConfiguration = () => getD2Instance()
     .then(d2 => d2.Api.getApi())
     .then(api => api.get(JOB_PARAMETERS_ENDPOINT))
-    .then(response => {
-        const jobTypes = response.jobTypes.map(({ jobType }) => jobType)
-        const jobTypeToSchedulingTypes = jobTypes.reduce(
-            (mapping, jobType) => {
-                const job = response.jobTypes.find(job => job.jobType === jobType)
-                return { ...mapping, [jobType]: job.schedulingType }
-            },
-            {},
+    .then(({ jobTypes: response }) => {
+        const jobTypes = response.map(({ jobType }) => jobType)
+
+        const jobTypeToSchedulingTypes = createJobTypeMapping(
+            ({ schedulingType }) => schedulingType,
+            response,
         )
-        const jobParameters = response.jobTypes.reduce(
-            (parameters, job) => ({
-                ...parameters,
-                [job.jobType]: job.jobParameters || [],
-            }),
-            {}
+
+        const jobTypeNames = createJobTypeMapping(
+            ({ name }) => name,
+            response,
+        )
+
+        const jobParameters = createJobTypeMapping(
+            ({ jobParameters }) => jobParameters || [],
+            response,
         )
 
         return {
             jobStatuses: JOBSTATUSES,
             jobParameters,
+            jobTypeNames,
             jobTypes,
             jobTypeToSchedulingTypes,
         };

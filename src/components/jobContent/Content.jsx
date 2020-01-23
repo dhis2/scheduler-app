@@ -1,23 +1,24 @@
 import { connect } from 'react-redux'
-import React, { Component } from 'react';
-import TextField from 'material-ui/TextField';
-import Paper from 'material-ui/Paper';
-import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
-import moment from 'moment';
+import Paper from 'material-ui/Paper';
+import React, { Component } from 'react';
+import SelectField from 'material-ui/SelectField';
+import TextField from 'material-ui/TextField';
 import i18n from '@dhis2/d2-i18n';
+import moment from 'moment';
 
 import { CRON, FIXED_DELAY } from '../../constants/schedulingTypes'
-import validCronExpression from '../../utils/validCronExpression';
-import validDelay from '../../utils/validDelay';
-import history from '../../utils/history';
-import Parameters from '../jobParameters/Parameters';
+import ActionButtons from './ActionButtons';
 import ConditionalIconButton from '../ConditionalIconButton';
 import Details from './Details';
-import HelpLink from '../HelpLink';
 import Heading from '../Heading';
+import HelpLink from '../HelpLink';
+import JobType from './JobType';
+import Parameters from '../jobParameters/Parameters';
 import Schedule from './Schedule';
-import ActionButtons from './ActionButtons';
+import history from '../../utils/history';
+import validCronExpression from '../../utils/validCronExpression';
+import validDelay from '../../utils/validDelay';
 
 const documentationHref =
     'https://docs.dhis2.org/master/en/user/html/dataAdmin_scheduling.html#dataAdmin_scheduling_config';
@@ -156,18 +157,12 @@ class Content extends Component {
                         errorText={this.state.errors.name}
                     />
 
-                    <SelectField
-                        fullWidth
+                    <JobType
                         disabled={this.props.disableEditing}
-                        floatingLabelText={`${i18n.t('Job type')} *`}
                         value={this.props.job.type}
                         onChange={this.onJobTypeSelected}
                         errorText={this.state.errors.type}
-                    >
-                        {this.props.availableTypes.map(type => (
-                            <MenuItem key={type} value={type} primaryText={i18n.t(type)} />
-                        ))}
-                    </SelectField>
+                    />
 
                     <Schedule
                         jobType={this.props.job.type}
