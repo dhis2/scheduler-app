@@ -14,6 +14,7 @@ export const initialState = {
         statuses: [],
         parameters: {},
         attributeOptions: {},
+        typeToSchedulingTypes: {},
     },
     pending: {
         update: false,
@@ -59,6 +60,7 @@ function jobsReducer(state = initialState, action) {
                     types: action.payload.configuration.jobTypes,
                     statuses: action.payload.configuration.jobStatuses,
                     parameters: action.payload.configuration.jobParameters,
+                    typeToSchedulingTypes: action.payload.configuration.jobTypeToSchedulingTypes,
                 },
             };
 
