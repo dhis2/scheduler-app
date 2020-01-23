@@ -1,4 +1,5 @@
 import * as actions from '../constants/actions';
+import { CRON, FIXED_DELAY } from '../constants/schedulingTypes'
 
 export const initialState = {
     all: [],
@@ -39,13 +40,24 @@ function jobsReducer(state = initialState, action) {
             };
 
         case actions.JOB_EDIT: {
-            const field = action.payload.fieldName;
+            const { fieldName: field, value } = action.payload;
+            let updates = { ...state.changes }
+
+            if (field === 'type') {
+                if (value === FIXED_DELAY && updates.cronExpression) {
+                    delete updates.cronExpression
+                }
+
+                if (value === CRON && updates.delay) {
+                    delete updates.delay
+                }
+            }
 
             return {
                 ...state,
                 dirty: true,
                 changes: {
-                    ...state.changes,
+                    ...updates,
                     [field]: action.payload.value,
                 },
             };

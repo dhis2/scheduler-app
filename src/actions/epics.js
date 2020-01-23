@@ -55,8 +55,13 @@ const loadJobs = action$ =>
 const addJob = action$ =>
     action$.pipe(
         ofType(actions.JOB_POST),
-        concatMap(action =>
-            api
+        concatMap(action => {
+            return Promise.resolve({
+                type: actions.JOB_POST_ERROR,
+                payload: { error: new Error('@TODO') }
+            })
+
+            return api
                 .postJob(action.payload.job)
                 .then(result => {
                     history.replace('/');
@@ -65,8 +70,8 @@ const addJob = action$ =>
                         payload: { result },
                     };
                 })
-                .catch(error => ({ type: actions.JOB_POST_ERROR, payload: { error } })),
-        ),
+                .catch(error => ({ type: actions.JOB_POST_ERROR, payload: { error } }))
+        }),
     );
 
 const saveJob = action$ =>

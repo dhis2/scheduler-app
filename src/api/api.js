@@ -4,29 +4,33 @@ import { getDefaultParameterValue, determineComponentToRender } from './interfac
 const JOB_PARAMETERS_ENDPOINT = 'jobConfigurations/jobTypes';
 const JOBSTATUSES = ['RUNNING', 'COMPLETED', 'STOPPED', 'SCHEDULED', 'DISABLED', 'FAILED'];
 
-export const getConfiguration = async () => {
-    const d2 = await getD2Instance();
-    const jobStatuses = JOBSTATUSES;
-    const jobParameters = await d2.Api.getApi()
-      .get(JOB_PARAMETERS_ENDPOINT)
-      .catch(() => Promise.resolve(fakeReponse));
+export const getConfiguration = () => getD2Instance()
+    .then(d2 => d2.Api.getApi())
+    .then(api => api.get(JOB_PARAMETERS_ENDPOINT).catch(() => fakeReponse))
+    .then(response => {
+        const jobTypes = response.jobTypes.map(({ jobType }) => jobType)
+        const jobTypeToSchedulingTypes = jobTypes.reduce(
+            (mapping, jobType) => {
+                const job = response.jobTypes.find(job => job.jobType === jobType)
+                return { ...mapping, [jobType]: job.schedulingType }
+            },
+            {},
+        )
+        const jobParameters = response.jobTypes.reduce(
+            (parameters, job) => ({
+                ...parameters,
+                [job.jobType]: job.jobParameters || [],
+            }),
+            {}
+        )
 
-    const jobTypes = jobParameters.jobTypes.map(({ jobType }) => jobType)
-    const jobTypeToSchedulingTypes = jobTypes.reduce(
-        (mapping, jobType) => {
-          const job = jobParameters.jobTypes.find(job => job.jobType === jobType)
-          return { ...mapping, [jobType]: job.schedulingType }
-        },
-        {},
-    )
-
-    return {
-        jobStatuses,
-        jobParameters,
-        jobTypes,
-        jobTypeToSchedulingTypes,
-    };
-};
+        return {
+            jobStatuses: JOBSTATUSES,
+            jobParameters,
+            jobTypes,
+            jobTypeToSchedulingTypes,
+        };
+    });
 
 const attributeOptionExceptions = [
     'organisationUnits', // Org units selection are handled via d2
