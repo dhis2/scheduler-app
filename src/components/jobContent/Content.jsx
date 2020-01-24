@@ -69,9 +69,11 @@ const validateFields = (values, jobTypeToSchedulingTypes) => {
     }
 
     if (jobTypeToSchedulingTypes[type] === FIXED_DELAY) {
-        if (!values.delay) {
+        const { delay } = values
+
+        if (delay !== 0 && !delay) {
             errors.delay = i18n.t('Required');
-        } else if (!values.delay.match(/^\d+/)) {
+        } else if (!Number.isInteger(delay) && !delay.match(/^\d+/)) {
             errors.delay = i18n.t('Delay needs to be an integer');
         }
     }

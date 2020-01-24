@@ -6,9 +6,7 @@ export const initialState = {
     loaded: false,
     dirty: false,
     showSystemJobs: false,
-    changes: {
-        parameters: null,
-    },
+    changes: {},
     configuration: {
         loaded: false,
         types: [],

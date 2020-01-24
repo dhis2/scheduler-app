@@ -110,15 +110,24 @@ export const postJob = job =>
 
 export const saveJob = job =>
     getD2Instance()
-        .then(instance =>
-            instance.Api.getApi().update(`jobConfigurations/${job.id}`, {
+        .then(instance => {
+            const toBeSaved = {
                 name: job.name,
                 enabled: job.enabled,
-                cronExpression: job.cronExpression,
                 jobType: job.type || job.jobType,
                 jobParameters: job.parameters || job.jobParameters,
-            }),
-        )
+            }
+
+            if (job.cronExpression) {
+                toBeSaved.cronExpression = job.cronExpression
+            }
+
+            if (job.delay) {
+                toBeSaved.delay = job.delay
+            }
+
+            return instance.Api.getApi().update(`jobConfigurations/${job.id}`, toBeSaved)
+        })
         .catch(error => {
             throw error;
         });
