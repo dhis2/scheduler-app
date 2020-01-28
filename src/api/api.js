@@ -96,14 +96,23 @@ export const getJobs = () =>
 
 export const postJob = job =>
     getD2Instance()
-        .then(instance =>
-            instance.Api.getApi().post('jobConfigurations', {
+        .then(instance => {
+            const toBeSaved = {
                 name: job.name,
-                cronExpression: job.cronExpression,
                 jobType: job.type,
-                jobParameters: job.parameters,
-            }),
-        )
+                jobParameters: job.parameters || {},
+            }
+
+            if (job.cronExpression) {
+                toBeSaved.cronExpression = job.cronExpression
+            }
+
+            if (job.delay) {
+                toBeSaved.delay = job.delay
+            }
+
+            return instance.Api.getApi().post('jobConfigurations', toBeSaved)
+        })
         .catch(error => {
             throw error;
         });

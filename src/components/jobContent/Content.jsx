@@ -75,6 +75,10 @@ const validateFields = (values, jobTypeToSchedulingTypes) => {
             errors.delay = i18n.t('Required');
         } else if (!Number.isInteger(delay) && !delay.match(/^\d+/)) {
             errors.delay = i18n.t('Delay needs to be an integer');
+        } else if (delay === 0) {
+            errors.delay = i18n.t('Delay must be greater than 0');
+        } else if (delay > 86400) {
+            errors.delay = i18n.t("Delay can't exceed 86400 seconds");
         }
     }
 

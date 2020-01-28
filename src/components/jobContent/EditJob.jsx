@@ -96,7 +96,7 @@ const EditJob = ({ match }) => {
             deleteLabel={i18n.t('Delete job')}
             save={() => dispatch({
                 type: actions.JOB_SAVE,
-                payload: { ...job, ...changes },
+                payload: { job: {  ...job, ...changes  } },
             })}
             delete={id => dispatch({
                 type: actions.JOB_DELETE,

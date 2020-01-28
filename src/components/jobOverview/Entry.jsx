@@ -52,6 +52,7 @@ const Entry = ({ job, onSelect, onToggle, onRun }) => {
         onToggle({
             id: job.id,
             name: job.name,
+            delay: job.delay,
             jobType: job.jobType,
             jobParameters: job.jobParameters,
             cronExpression: job.cronExpression,

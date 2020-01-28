@@ -56,11 +56,6 @@ const addJob = action$ =>
     action$.pipe(
         ofType(actions.JOB_POST),
         concatMap(action => {
-            return Promise.resolve({
-                type: actions.JOB_POST_ERROR,
-                payload: { error: new Error('@TODO') }
-            })
-
             return api
                 .postJob(action.payload.job)
                 .then(result => {
@@ -78,7 +73,7 @@ const saveJob = action$ =>
     action$.pipe(
         ofType(actions.JOB_SAVE),
         switchMap(action => {
-            const { jobParameters, ...job } = action.payload
+            const { jobParameters, ...job } = action.payload.job
             const toBeSaved = { ...job, jobParameters: jobParameters || {} }
 
             return api
