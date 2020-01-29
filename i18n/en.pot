@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-01-28T09:17:05.418Z\n"
-"PO-Revision-Date: 2020-01-28T09:17:05.418Z\n"
+"POT-Creation-Date: 2020-01-29T15:16:04.305Z\n"
+"PO-Revision-Date: 2020-01-29T15:16:04.305Z\n"
 
 msgid "Scheduler"
 msgstr ""
@@ -39,6 +39,12 @@ msgid "Invalid cron expression"
 msgstr ""
 
 msgid "Delay needs to be an integer"
+msgstr ""
+
+msgid "Delay must be greater than 0"
+msgstr ""
+
+msgid "Delay can't exceed 86400 seconds"
 msgstr ""
 
 msgid "Are you sure you want to discard your changes?"
@@ -80,7 +86,7 @@ msgstr ""
 msgid "Cron expression"
 msgstr ""
 
-msgid "Delay"
+msgid "Delay in seconds"
 msgstr ""
 
 msgid "Are you sure you want to execute this job?"

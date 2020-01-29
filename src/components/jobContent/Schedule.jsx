@@ -83,7 +83,7 @@ const ScheduleDelay = ({
         <TextField
             disabled={disabled}
             errorText={error}
-            floatingLabelText={`${i18n.t('Delay')} *`}
+            floatingLabelText={`${i18n.t('Delay in seconds')} *`}
             onChange={onDelayChange}
             style={styles.flexItem}
             value={delay || ''}
