@@ -41,7 +41,7 @@ const useCreateJob = (currentJob, changes) => {
 
     const type = changes.type || currentJob.jobType
     const name = isString(changes.name) ? changes.name : currentJob.name
-    const parameters = changes.parameters || currentJob.parameters
+    const parameters = changes.parameters || currentJob.jobParameters
     const job = { ...currentJob, name, parameters, type }
 
     const schedulingType = jobTypeToSchedulingTypes[type]
