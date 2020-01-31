@@ -1,20 +1,24 @@
-import React, { Component } from 'react';
-import TextField from 'material-ui/TextField';
-import Paper from 'material-ui/Paper';
-import SelectField from 'material-ui/SelectField';
+import { connect } from 'react-redux'
 import MenuItem from 'material-ui/MenuItem';
-import moment from 'moment';
+import Paper from 'material-ui/Paper';
+import React, { Component } from 'react';
+import SelectField from 'material-ui/SelectField';
+import TextField from 'material-ui/TextField';
 import i18n from '@dhis2/d2-i18n';
+import moment from 'moment';
 
-import validCronExpression from '../../utils/validCronExpression';
-import history from '../../utils/history';
-import Parameters from '../jobParameters/Parameters';
+import { CRON, FIXED_DELAY } from '../../constants/schedulingTypes'
+import ActionButtons from './ActionButtons';
 import ConditionalIconButton from '../ConditionalIconButton';
 import Details from './Details';
-import HelpLink from '../HelpLink';
 import Heading from '../Heading';
+import HelpLink from '../HelpLink';
+import JobType from './JobType';
+import Parameters from '../jobParameters/Parameters';
 import Schedule from './Schedule';
-import ActionButtons from './ActionButtons';
+import history from '../../utils/history';
+import validCronExpression from '../../utils/validCronExpression';
+import validDelay from '../../utils/validDelay';
 
 const documentationHref =
     'https://docs.dhis2.org/master/en/user/html/dataAdmin_scheduling.html#dataAdmin_scheduling_config';
@@ -42,18 +46,40 @@ const styles = {
     },
 };
 
-const validateFields = values => {
+const validateFields = (values, jobTypeToSchedulingTypes) => {
     const errors = {};
+    const { type } = values
+
     if (!values.name) {
         errors.name = i18n.t('Required');
     } else if (values.name.length < 2) {
         errors.name = i18n.t('Must be of two or more characters');
     }
 
-    if (!values.cronExpression) {
-        errors.cronExpression = i18n.t('Required');
-    } else if (!validCronExpression(values.cronExpression)) {
-        errors.cronExpression = i18n.t('Invalid cron expression');
+    if (!values.type) {
+        errors.type = i18n.t('Required');
+    }
+
+    if (jobTypeToSchedulingTypes[type] === CRON) {
+        if (!values.cronExpression) {
+            errors.cronExpression = i18n.t('Required');
+        } else if (!validCronExpression(values.cronExpression)) {
+            errors.cronExpression = i18n.t('Invalid cron expression');
+        }
+    }
+
+    if (jobTypeToSchedulingTypes[type] === FIXED_DELAY) {
+        const { delay } = values
+
+        if (delay !== 0 && !delay) {
+            errors.delay = i18n.t('Required');
+        } else if (!Number.isInteger(delay) && !delay.match(/^\d+/)) {
+            errors.delay = i18n.t('Delay needs to be an integer');
+        } else if (delay === 0) {
+            errors.delay = i18n.t('Delay must be greater than 0');
+        } else if (delay > 86400) {
+            errors.delay = i18n.t("Delay can't exceed 86400 seconds");
+        }
     }
 
     return errors;
@@ -63,8 +89,10 @@ class Content extends Component {
     state = { isValid: true, errors: {} };
 
     componentWillReceiveProps = nextProps => {
-        if (this.props.job !== nextProps.job) {
-            const errors = validateFields(nextProps.job);
+        const { job, jobTypeToSchedulingTypes } = nextProps
+        if (this.props.job !== job) {
+            const errors = validateFields(job, jobTypeToSchedulingTypes);
+
             this.setState({
                 isValid: Object.keys(errors).length === 0,
                 errors,
@@ -125,6 +153,7 @@ class Content extends Component {
                         <Heading style={styles.attributeHeader}>{i18n.t('Attributes')}</Heading>
                         <HelpLink href={documentationHref} />
                     </div>
+
                     <TextField
                         fullWidth
                         value={this.props.job.name || ''}
@@ -133,23 +162,24 @@ class Content extends Component {
                         onChange={this.handleFieldEvent('name')}
                         errorText={this.state.errors.name}
                     />
-                    <Schedule
-                        disabled={false}
-                        cronExpression={this.props.job.cronExpression}
-                        onCronExpressionChange={this.handleFieldEvent('cronExpression')}
-                        error={this.state.errors.cronExpression}
-                    />
-                    <SelectField
-                        fullWidth
+
+                    <JobType
                         disabled={this.props.disableEditing}
-                        floatingLabelText={`${i18n.t('Job type')} *`}
                         value={this.props.job.type}
                         onChange={this.onJobTypeSelected}
-                    >
-                        {this.props.availableTypes.map(type => (
-                            <MenuItem key={type} value={type} primaryText={i18n.t(type)} />
-                        ))}
-                    </SelectField>
+                        errorText={this.state.errors.type}
+                    />
+
+                    <Schedule
+                        jobType={this.props.job.type}
+                        disabled={false}
+                        cronExpression={this.props.job.cronExpression}
+                        delay={this.props.job.delay}
+                        onCronExpressionChange={this.handleFieldEvent('cronExpression')}
+                        onDelayChange={this.handleFieldEvent('delay')}
+                        cronError={this.state.errors.cronExpression}
+                        delayError={this.state.errors.delay}
+                    />
 
                     {this.props.job.type && (
                         <Parameters
@@ -199,4 +229,10 @@ class Content extends Component {
     );
 }
 
-export default Content;
+const ConnectedContent = connect(
+    state => ({
+        jobTypeToSchedulingTypes: state.jobs.configuration.typeToSchedulingTypes,
+    }),
+)(Content)
+
+export default ConnectedContent;

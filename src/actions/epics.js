@@ -55,8 +55,8 @@ const loadJobs = action$ =>
 const addJob = action$ =>
     action$.pipe(
         ofType(actions.JOB_POST),
-        concatMap(action =>
-            api
+        concatMap(action => {
+            return api
                 .postJob(action.payload.job)
                 .then(result => {
                     history.replace('/');
@@ -65,16 +65,19 @@ const addJob = action$ =>
                         payload: { result },
                     };
                 })
-                .catch(error => ({ type: actions.JOB_POST_ERROR, payload: { error } })),
-        ),
+                .catch(error => ({ type: actions.JOB_POST_ERROR, payload: { error } }))
+        }),
     );
 
 const saveJob = action$ =>
     action$.pipe(
         ofType(actions.JOB_SAVE),
-        switchMap(action =>
-            api
-                .saveJob(action.payload.job)
+        switchMap(action => {
+            const { jobParameters, ...job } = action.payload.job
+            const toBeSaved = { ...job, jobParameters: jobParameters || {} }
+
+            return api
+                .saveJob(toBeSaved)
                 .then(result => {
                     history.replace('/');
                     return {
@@ -82,8 +85,8 @@ const saveJob = action$ =>
                         payload: { result },
                     };
                 })
-                .catch(error => ({ type: actions.JOB_SAVE_ERROR, payload: { error } })),
-        ),
+                .catch(error => ({ type: actions.JOB_SAVE_ERROR, payload: { error } }))
+        }),
     );
 
 const deleteJob = action$ =>

@@ -1,9 +1,11 @@
+import { useSelector } from 'react-redux'
 import React from 'react';
 import TextField from 'material-ui/TextField';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import i18n from '@dhis2/d2-i18n';
 import cronExpressions from '../../constants/cronExpressions';
+import { CRON, FIXED_DELAY } from '../../constants/schedulingTypes'
 
 const styles = {
     container: {
@@ -28,7 +30,7 @@ const styles = {
 
 const appendRequiredSign = (label, required) => (required ? `${label} *` : label);
 
-const Schedule = ({
+const ScheduleCron = ({
     disabled,
     cronExpression,
     error,
@@ -70,5 +72,45 @@ const Schedule = ({
         </div>
     );
 };
+
+const ScheduleDelay = ({
+    disabled,
+    delay,
+    error,
+    onDelayChange,
+}) => (
+    <div style={styles.container}>
+        <TextField
+            disabled={disabled}
+            errorText={error}
+            floatingLabelText={`${i18n.t('Delay in seconds')} *`}
+            onChange={onDelayChange}
+            style={styles.flexItem}
+            value={delay || ''}
+        />
+    </div>
+)
+
+const Schedule = props => {
+    const jobTypeToSchedulingTypes = useSelector(state => state.jobs.configuration.typeToSchedulingTypes)
+    const schedulingType = jobTypeToSchedulingTypes[props.jobType]
+    const { cronError, delayError, ...rest } = props
+
+    if (schedulingType === CRON) {
+        return <ScheduleCron
+            {...rest}
+            error={cronError}
+        />
+    }
+
+    if (schedulingType === FIXED_DELAY) {
+        return <ScheduleDelay
+            {...rest}
+            error={delayError}
+        />
+    }
+
+    return null
+}
 
 export default Schedule;

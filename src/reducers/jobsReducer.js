@@ -1,19 +1,20 @@
 import * as actions from '../constants/actions';
+import { CRON, FIXED_DELAY } from '../constants/schedulingTypes'
 
 export const initialState = {
     all: [],
     loaded: false,
     dirty: false,
     showSystemJobs: false,
-    changes: {
-        parameters: null,
-    },
+    changes: {},
     configuration: {
         loaded: false,
         types: [],
         statuses: [],
         parameters: {},
         attributeOptions: {},
+        typeToSchedulingTypes: {},
+        jobTypeNames: {},
     },
     pending: {
         update: false,
@@ -38,13 +39,26 @@ function jobsReducer(state = initialState, action) {
             };
 
         case actions.JOB_EDIT: {
-            const field = action.payload.fieldName;
+            const { fieldName: field, value } = action.payload;
+            let updates = { ...state.changes }
+
+            if (field === 'type') {
+                const scheduleType = state.configuration.typeToSchedulingTypes[value]
+
+                if (scheduleType === FIXED_DELAY && updates.cronExpression) {
+                    delete updates.cronExpression
+                }
+
+                if (scheduleType === CRON && updates.delay) {
+                    delete updates.delay
+                }
+            }
 
             return {
                 ...state,
                 dirty: true,
                 changes: {
-                    ...state.changes,
+                    ...updates,
                     [field]: action.payload.value,
                 },
             };
@@ -59,6 +73,8 @@ function jobsReducer(state = initialState, action) {
                     types: action.payload.configuration.jobTypes,
                     statuses: action.payload.configuration.jobStatuses,
                     parameters: action.payload.configuration.jobParameters,
+                    typeToSchedulingTypes: action.payload.configuration.jobTypeToSchedulingTypes,
+                    jobTypeNames: action.payload.configuration.jobTypeNames,
                 },
             };
 

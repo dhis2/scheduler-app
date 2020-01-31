@@ -1,21 +1,44 @@
 import { getInstance as getD2Instance } from 'd2/lib/d2';
 import { getDefaultParameterValue, determineComponentToRender } from './interface';
 
-const JOB_PARAMETERS_ENDPOINT = 'jobConfigurations/jobTypesExtended';
+const JOB_PARAMETERS_ENDPOINT = 'jobConfigurations/jobTypes';
 const JOBSTATUSES = ['RUNNING', 'COMPLETED', 'STOPPED', 'SCHEDULED', 'DISABLED', 'FAILED'];
 
-export const getConfiguration = async () => {
-    const d2 = await getD2Instance();
-    const jobStatuses = JOBSTATUSES;
-    const jobParameters = await d2.Api.getApi().get(JOB_PARAMETERS_ENDPOINT);
-    const jobTypes = Object.keys(jobParameters);
+const createJobTypeMapping = (cb, jobTypes) => jobTypes.reduce(
+    (mapping, jobType) => ({ ...mapping, [jobType.jobType]: cb(jobType) }),
+    {},
+)
 
-    return {
-        jobStatuses,
-        jobParameters,
-        jobTypes,
-    };
-};
+
+export const getConfiguration = () => getD2Instance()
+    .then(d2 => d2.Api.getApi())
+    .then(api => api.get(JOB_PARAMETERS_ENDPOINT))
+    .then(({ jobTypes: response }) => {
+        const jobTypes = response.map(({ jobType }) => jobType)
+
+        const jobTypeToSchedulingTypes = createJobTypeMapping(
+            ({ schedulingType }) => schedulingType,
+            response,
+        )
+
+        const jobTypeNames = createJobTypeMapping(
+            ({ name }) => name,
+            response,
+        )
+
+        const jobParameters = createJobTypeMapping(
+            ({ jobParameters }) => jobParameters || [],
+            response,
+        )
+
+        return {
+            jobStatuses: JOBSTATUSES,
+            jobParameters,
+            jobTypeNames,
+            jobTypes,
+            jobTypeToSchedulingTypes,
+        };
+    });
 
 const attributeOptionExceptions = [
     'organisationUnits', // Org units selection are handled via d2
@@ -73,29 +96,47 @@ export const getJobs = () =>
 
 export const postJob = job =>
     getD2Instance()
-        .then(instance =>
-            instance.Api.getApi().post('jobConfigurations', {
+        .then(instance => {
+            const toBeSaved = {
                 name: job.name,
-                cronExpression: job.cronExpression,
                 jobType: job.type,
-                jobParameters: job.parameters,
-            }),
-        )
+                jobParameters: job.parameters || {},
+            }
+
+            if (job.cronExpression) {
+                toBeSaved.cronExpression = job.cronExpression
+            }
+
+            if (job.delay) {
+                toBeSaved.delay = job.delay
+            }
+
+            return instance.Api.getApi().post('jobConfigurations', toBeSaved)
+        })
         .catch(error => {
             throw error;
         });
 
 export const saveJob = job =>
     getD2Instance()
-        .then(instance =>
-            instance.Api.getApi().update(`jobConfigurations/${job.id}`, {
+        .then(instance => {
+            const toBeSaved = {
                 name: job.name,
                 enabled: job.enabled,
-                cronExpression: job.cronExpression,
                 jobType: job.type || job.jobType,
                 jobParameters: job.parameters || job.jobParameters,
-            }),
-        )
+            }
+
+            if (job.cronExpression) {
+                toBeSaved.cronExpression = job.cronExpression
+            }
+
+            if (job.delay) {
+                toBeSaved.delay = job.delay
+            }
+
+            return instance.Api.getApi().update(`jobConfigurations/${job.id}`, toBeSaved)
+        })
         .catch(error => {
             throw error;
         });

@@ -1,8 +1,9 @@
 import React from 'react';
 import Toggle from 'material-ui/Toggle';
-import moment from 'moment';
 import i18n from '@dhis2/d2-i18n';
+import moment from 'moment';
 
+import { CRON } from '../../constants/schedulingTypes';
 import ConditionalIconButton from '../ConditionalIconButton';
 
 const styles = {
@@ -51,6 +52,7 @@ const Entry = ({ job, onSelect, onToggle, onRun }) => {
         onToggle({
             id: job.id,
             name: job.name,
+            delay: job.delay,
             jobType: job.jobType,
             jobParameters: job.jobParameters,
             cronExpression: job.cronExpression,
@@ -65,6 +67,7 @@ const Entry = ({ job, onSelect, onToggle, onRun }) => {
         event.preventDefault();
         event.stopPropagation();
     };
+    const isCron = job.schedulingType === CRON
 
     return (
         <div onClick={onSelect} style={styles.listEntry}>
@@ -86,7 +89,11 @@ const Entry = ({ job, onSelect, onToggle, onRun }) => {
                     />
                 )}
             </div>
-            <div style={{ flex: 9 }}>{nextExecutionText}</div>
+            <div style={{ flex: 9 }}>{
+                isCron
+                    ? nextExecutionText
+                    : i18n.t('Runs {{seconds}} second(s) after previous run', { seconds: job.delay })
+            }</div>
             <div>
                 <Toggle
                     disabled={job.configurable === false}
