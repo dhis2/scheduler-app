@@ -154,3 +154,21 @@ msgstr ""
 
 msgid "You are not authorized to use this app"
 msgstr ""
+
+msgid "Custom"
+msgstr ""
+
+msgid "Every hour"
+msgstr ""
+
+msgid "Every day midnight"
+msgstr ""
+
+msgid "Every day at three am"
+msgstr ""
+
+msgid "Every weekday at noon"
+msgstr ""
+
+msgid "Every week"
+msgstr ""
