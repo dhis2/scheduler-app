@@ -16,10 +16,11 @@ export const DumbRunJobModal = ({ id, hideModal, runJob }) => (
         <ModalContent>Are you sure you want to run this job?</ModalContent>
         <ModalActions>
             <ButtonStrip end>
-                <Button secondary onClick={hideModal}>
+                <Button name="hide-modal" secondary onClick={hideModal}>
                     Cancel
                 </Button>
                 <Button
+                    name={`run-job-${id}`}
                     primary
                     onClick={() => {
                         runJob(id)
