@@ -5,11 +5,11 @@ const requiredCron = value => {
     const isFilled = isString && value.length > 0
 
     if (!isFilled) {
-        return new Error('CRON expression is required')
+        return 'A CRON expression is required'
     }
 
     if (!validateCron(value)) {
-        return new Error('Needs to be a valid CRON expression')
+        return 'Please enter a valid CRON expression'
     }
 
     return undefined

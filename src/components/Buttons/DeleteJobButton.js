@@ -11,7 +11,6 @@ export const DumbDeleteJobButton = ({ id, showModal, isFetching }) => {
     return (
         <Button
             destructive
-            name={`delete-job-${id}`}
             disabled={isFetching}
             onClick={() =>
                 showModal({ type: modalTypes.DELETE_JOB, props: { id } })

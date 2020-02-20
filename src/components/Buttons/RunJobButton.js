@@ -11,7 +11,6 @@ export const DumbRunJobButton = ({ id, showModal, isFetching }) => {
     return (
         <Button
             primary
-            name={`run-job-${id}`}
             disabled={isFetching}
             onClick={() =>
                 showModal({ type: modalTypes.RUN_JOB, props: { id } })

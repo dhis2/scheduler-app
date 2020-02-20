@@ -2,6 +2,8 @@ import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { arrayOf, object, func, bool, string } from 'prop-types'
 import { Field } from 'react-final-form'
+import { MultiSelectField } from '@dhis2/ui-core'
+import { MultiSelect } from '@dhis2/ui-forms'
 import * as rootSelectors from '../../rootSelectors'
 import { selectors as jobTypeSelectors } from '../../data/job-types'
 import { actions, selectors } from '../../data/parameter-list'
@@ -27,9 +29,7 @@ export const DumbParameterListField = ({
         return (
             <label>
                 <div>{label}</div>
-                <select disabled>
-                    <option>Loading...</option>
-                </select>
+                <MultiSelectField loading />
             </label>
         )
     }
@@ -42,9 +42,7 @@ export const DumbParameterListField = ({
         return (
             <label>
                 <div>{label}</div>
-                <select disabled>
-                    <option>No available options</option>
-                </select>
+                <MultiSelectField disabled helpText="No options available" />
             </label>
         )
     }
@@ -52,13 +50,14 @@ export const DumbParameterListField = ({
     return (
         <label>
             <div>{label}</div>
-            <Field name={name} component="select" type="select" multiple>
-                {options.map(({ id, displayName }) => (
-                    <option key={id} value={id}>
-                        {displayName}
-                    </option>
-                ))}
-            </Field>
+            <Field
+                name={name}
+                component={MultiSelect}
+                options={options.map(({ id, displayName }) => ({
+                    value: id,
+                    label: displayName,
+                }))}
+            />
         </label>
     )
 }
