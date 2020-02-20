@@ -16,10 +16,15 @@ export const DumbDiscardFormModal = ({ hideModal }) => (
         <ModalContent>Are you sure you want to discard this form?</ModalContent>
         <ModalActions>
             <ButtonStrip end>
-                <Button secondary onClick={hideModal}>
+                <Button
+                    name="cancel-discard-form"
+                    secondary
+                    onClick={hideModal}
+                >
                     Cancel
                 </Button>
                 <Button
+                    name="discard-form"
                     destructive
                     onClick={() => {
                         history.push('/')

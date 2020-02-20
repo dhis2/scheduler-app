@@ -10,6 +10,7 @@ Object {
 
 exports[`<DiscardFormButton> renders correctly 1`] = `
 <Button
+  dataTest="dhis2-uicore-button"
   onClick={[Function]}
   type="button"
 >

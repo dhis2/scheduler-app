@@ -10,7 +10,9 @@ exports[`<AuthWall> renders a spinner when loading 1`] = `
 <AbsoluteCenter
   vertical={true}
 >
-  <CircularLoader />
+  <CircularLoader
+    dataTest="dhis2-uicore-circularloader"
+  />
   Checking permissions
 </AbsoluteCenter>
 `;

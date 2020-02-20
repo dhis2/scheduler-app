@@ -11,8 +11,8 @@ Object {
 
 exports[`<RunJobButton> renders correctly 1`] = `
 <Button
+  dataTest="dhis2-uicore-button"
   disabled={false}
-  name="run-job-1"
   onClick={[Function]}
   primary={true}
   type="button"
