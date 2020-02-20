@@ -27,11 +27,9 @@ const JobList = ({
             <Arrange>
                 <ArrangeFit>
                     <InputField
-                        filled
                         disabled={isFetching}
                         label="Filter jobs by name"
-                        name="filter-jobs"
-                        onChange={event => setJobFilter(event.target.value)}
+                        onChange={({ value }) => setJobFilter(value)}
                         value={jobFilter}
                     />
                 </ArrangeFit>
@@ -41,9 +39,8 @@ const JobList = ({
                             checked={showSystemJobs}
                             disabled={isFetching}
                             label="Show system jobs"
-                            name="show-system-jobs"
-                            onChange={event =>
-                                setShowSystemJobs(event.target.checked)
+                            onChange={({ checked }) =>
+                                setShowSystemJobs(checked)
                             }
                         />
                         <LinkButton as={Link} to="/add">

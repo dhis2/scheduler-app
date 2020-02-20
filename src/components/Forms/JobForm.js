@@ -5,8 +5,8 @@ import { Button } from '@dhis2/ui-core'
 import { InlineError } from '../Errors'
 import { DiscardFormButton } from '../Buttons'
 import {
+    CronField,
     JobNameField,
-    ContinuousExecutionField,
     JobTypeField,
     ParameterCollectionField,
     fieldNames,
@@ -19,6 +19,10 @@ const JobForm = ({
     values,
     setIsPristine,
 }) => {
+    const hasJobType =
+        values[fieldNames.JOB_TYPE] && 'value' in values[fieldNames.JOB_TYPE]
+    const jobType = hasJobType ? values[fieldNames.JOB_TYPE].value : undefined
+
     return (
         <form onSubmit={handleSubmit}>
             <FormSpy
@@ -26,9 +30,9 @@ const JobForm = ({
                 onChange={({ pristine }) => setIsPristine(pristine)}
             />
             <JobNameField />
-            <ContinuousExecutionField />
+            <CronField />
             <JobTypeField />
-            <ParameterCollectionField jobType={values[fieldNames.JOB_TYPE]} />
+            <ParameterCollectionField jobType={jobType} />
             <div>
                 {!!submitError.message && (
                     <InlineError
