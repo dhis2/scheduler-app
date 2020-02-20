@@ -10,16 +10,12 @@ import JobTypeField, {
     FIELD_NAME as JOB_TYPE,
     VALIDATOR as JOB_TYPE_VALIDATOR,
 } from './JobTypeField'
-import ContinuousExecutionField, {
-    FIELD_NAME as CONTINUOUS_EXECUTION,
-} from './ContinuousExecutionField'
 import ParameterCollectionField from './ParameterCollectionField'
 
 const fieldNames = {
     JOB_NAME,
     JOB_TYPE,
     CRON,
-    CONTINUOUS_EXECUTION,
 }
 
 const validators = {
@@ -30,7 +26,6 @@ const validators = {
 
 export {
     JobNameField,
-    ContinuousExecutionField,
     CronField,
     JobTypeField,
     ParameterCollectionField,
