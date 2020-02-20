@@ -2,18 +2,26 @@
 
 exports[`<RunJobModal> renders correctly 1`] = `
 <Modal
+  dataTest="dhis2-uicore-modal"
   onClose={[Function]}
   open={true}
+  position="top"
   small={true}
 >
-  <Content>
+  <ModalContent
+    dataTest="dhis2-uicore-modalcontent"
+  >
     Are you sure you want to run this job?
-  </Content>
-  <Actions>
+  </ModalContent>
+  <ModalActions
+    dataTest="dhis2-uicore-modalactions"
+  >
     <ButtonStrip
+      dataTest="dhis2-uicore-buttonstrip"
       end={true}
     >
       <Button
+        dataTest="dhis2-uicore-button"
         name="hide-modal"
         onClick={[Function]}
         secondary={true}
@@ -22,6 +30,7 @@ exports[`<RunJobModal> renders correctly 1`] = `
         Cancel
       </Button>
       <Button
+        dataTest="dhis2-uicore-button"
         name="run-job-id"
         onClick={[Function]}
         primary={true}
@@ -30,6 +39,6 @@ exports[`<RunJobModal> renders correctly 1`] = `
         Run
       </Button>
     </ButtonStrip>
-  </Actions>
+  </ModalActions>
 </Modal>
 `;

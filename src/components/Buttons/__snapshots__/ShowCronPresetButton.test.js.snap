@@ -8,7 +8,7 @@ Object {
 
 exports[`<CronPresetButton> renders correctly 1`] = `
 <Button
-  name="show-cron-preset-modal"
+  dataTest="dhis2-uicore-button"
   onClick={[Function]}
   primary={true}
   type="button"

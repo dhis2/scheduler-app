@@ -55,11 +55,12 @@ export const DumbCronPresetModal = ({ setPreset, hideModal }) => {
             </ModalContent>
             <ModalActions>
                 <ButtonStrip end>
-                    <Button secondary onClick={hideModal}>
+                    <Button secondary onClick={hideModal} name="hide-modal">
                         Cancel
                     </Button>
                     <Button
                         primary
+                        name="insert-preset"
                         disabled={!currentPreset}
                         onClick={() => {
                             setPreset(currentPreset)
