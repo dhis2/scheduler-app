@@ -3,9 +3,9 @@ import { func, string } from 'prop-types'
 import { connect } from 'react-redux'
 import { Field, FormSpy } from 'react-final-form'
 import cronstrue from 'cronstrue'
+import { Input } from '@dhis2/ui-forms'
 import { getCronPreset } from '../../rootSelectors'
 import { selectors, actions } from '../../data/cron-preset'
-import { InputField } from '../../components/FormBaseFields'
 import { ShowCronPresetButton } from '../Buttons'
 import { requiredCron, validateCron } from '../../services/validators'
 
@@ -34,14 +34,14 @@ const DumbCronField = ({ cronPreset, clearPreset }) => (
             return (
                 <React.Fragment>
                     <Field
-                        component={InputField}
+                        component={Input}
                         name={FIELD_NAME}
                         validate={VALIDATOR}
                         label="CRON Expression"
                         type="text"
+                        helpText={humanReadableCron}
                         required
                     />
-                    <p>{humanReadableCron}</p>
                     <ShowCronPresetButton />
                 </React.Fragment>
             )

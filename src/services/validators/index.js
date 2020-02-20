@@ -1,5 +1,5 @@
 import requiredCron from './required-cron'
-import requiredString from './required-string'
+import requiredSingleSelectOption from './required-single-select-option'
 import validateCron from './validate-cron'
 
-export { requiredCron, requiredString, validateCron }
+export { requiredCron, requiredSingleSelectOption, validateCron }

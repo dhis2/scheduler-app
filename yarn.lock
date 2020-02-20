@@ -898,6 +898,13 @@
   dependencies:
     regenerator-runtime "^0.13.2"
 
+"@babel/runtime@^7.8.3":
+  version "7.8.4"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.8.4.tgz#d79f5a2040f7caa24d53e563aad49cbc05581308"
+  integrity sha512-neAp3zt80trRVBI1x0azq6c57aNBqYZH8KhMm3TaB7wEI5Q4A2SHfBHE8w9gOhI/lrqxtEbXZgQIrHP+wvSGwQ==
+  dependencies:
+    regenerator-runtime "^0.13.2"
+
 "@babel/template@^7.1.0", "@babel/template@^7.4.0", "@babel/template@^7.4.4":
   version "7.4.4"
   resolved "https://registry.yarnpkg.com/@babel/template/-/template-7.4.4.tgz#f4b88d1225689a08f5bc3a17483545be9e4ed237"
@@ -1121,6 +1128,13 @@
   dependencies:
     i18next "^10.3"
 
+"@dhis2/prop-types@^1.5", "@dhis2/prop-types@^1.5.0":
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/prop-types/-/prop-types-1.5.0.tgz#7e69919f66698be373dd21940a8a770234ded6a1"
+  integrity sha512-dueFkkAMOIMbXiU7Mhr3Y+DBRyOd/rHA+5/IDiYWN1xttlUTSuGZLQ5AnJ7osBicEhx+qElaGbTdRYQj3SMBtA==
+  dependencies:
+    prop-types "^15"
+
 "@dhis2/ui-core@3.3.0":
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/@dhis2/ui-core/-/ui-core-3.3.0.tgz#cc83fdaea714851ee616643d260b14b84d25d738"
@@ -1129,13 +1143,24 @@
     classnames "^2.2.6"
     styled-jsx "^3.2.1"
 
-"@dhis2/ui-core@^3.6.0":
-  version "3.6.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/ui-core/-/ui-core-3.6.0.tgz#5b315e54c4af87cee6d5b58fd6a565d4294e4252"
-  integrity sha512-Ro34VwDxHte8EprMmYS+N+C0ZYk1pou3+fait1cCnZxTTju1aFLCv+2BOqJfSZ3nr+anuqgIdgA3rO5/nbUEZA==
+"@dhis2/ui-core@^4.11.1":
+  version "4.11.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui-core/-/ui-core-4.11.1.tgz#251a3c225b78bd510dd6c81e8694066374f11751"
+  integrity sha512-/3wrpshhdheMl6Wc+sXJFIPjx9NAv14B6JAv8FTEmPuQa+jYklMo+1MHdYwW5sPTSyfEe2+ll983VglynaHF3A==
   dependencies:
+    "@dhis2/prop-types" "^1.5.0"
+    "@popperjs/core" "^2.0.6"
     classnames "^2.2.6"
-    styled-jsx "^3.2.1"
+
+"@dhis2/ui-forms@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui-forms/-/ui-forms-1.0.1.tgz#7927bf2ccb48909394f03d935be544765c3cd7f0"
+  integrity sha512-JBoIwl3oL3XNgpzLQ/HeSbj5lfPguOcOTOhPd/QbFGJRaS6kbXtf3k3WZqBcN1KLWcGlTicF/kNyJcwr7UT+ng==
+  dependencies:
+    "@dhis2/prop-types" "^1.5"
+    classnames "^2.2.6"
+    final-form "^4.18.5"
+    react-final-form "^6.3.0"
 
 "@dhis2/ui-widgets@^1.0.6":
   version "1.0.6"
@@ -1340,6 +1365,11 @@
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.3.tgz#2b5a3ab3f918cca48a8c754c08168e3f03eba61b"
   integrity sha512-shAmDyaQC4H92APFoIaVDHCx5bStIocgvbwQyxPRrbUY20V1EYTbSDchWbuwlMG3V17cprZhA6+78JfB+3DTPw==
+
+"@popperjs/core@^2.0.6":
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.0.6.tgz#5a39ac118811ca844155b0ad5190b8c24f35e533"
+  integrity sha512-zj7Gw8QC4jmR92eKUvtrZUEpl2ypRbq+qlE4pwf9n2hnUO9BOAcWUs4/Ht+gNIbFt98xtqhLvccdCfD469MzpQ==
 
 "@sindresorhus/is@^0.14.0":
   version "0.14.0"
@@ -4825,6 +4855,13 @@ final-form@^4.17.0:
   integrity sha512-/vFaHCybK89qR4E6ytKRKiDCqMNtW+H9FtEGcJQEKyLJU2znPRMmKXSEGnDHnTCkuud5fGhegLepW3+h/RvblQ==
   dependencies:
     "@babel/runtime" "^7.3.1"
+
+final-form@^4.18.5:
+  version "4.18.7"
+  resolved "https://registry.yarnpkg.com/final-form/-/final-form-4.18.7.tgz#c30239ac9154cbfbf4f6d19e831f5fc9cbc1ba78"
+  integrity sha512-XdlYYGDcoUcKKVzRJxLg8N/ZG3wVLZvhO7K7PKQWVMjCiIUWdmtBwApw2NFS4P7RJvg8OdF73qGXhhE3K5PuDQ==
+  dependencies:
+    "@babel/runtime" "^7.8.3"
 
 finalhandler@1.1.1:
   version "1.1.1"
@@ -9387,7 +9424,7 @@ prop-types-exact@^1.2.0:
     object.assign "^4.1.0"
     reflect.ownkeys "^0.2.0"
 
-prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@^15, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==

@@ -9,7 +9,6 @@ export const DumbShowCronPresetButton = ({ showModal }) => {
     return (
         <Button
             primary
-            name="show-cron-preset-modal"
             onClick={() => showModal({ type: modalTypes.CRON_PRESET })}
         >
             Choose from preset times

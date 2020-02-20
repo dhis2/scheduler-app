@@ -1,16 +1,15 @@
 import React from 'react'
 import { Field } from 'react-final-form'
-import { InputField } from '../../components/FormBaseFields'
-import { requiredString } from '../../services/validators'
+import { Input, composeValidators, hasValue, string } from '@dhis2/ui-forms'
 
 // The key under which this field will be sent to the backend
 export const FIELD_NAME = 'name'
-export const VALIDATOR = requiredString
+export const VALIDATOR = composeValidators(string, hasValue)
 
 const JobNameField = () => (
     <Field
         name={FIELD_NAME}
-        component={InputField}
+        component={Input}
         validate={VALIDATOR}
         label="Name"
         type="text"

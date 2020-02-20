@@ -2,6 +2,8 @@ import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { arrayOf, func, bool, string } from 'prop-types'
 import { Field } from 'react-final-form'
+import { SingleSelectField } from '@dhis2/ui-core'
+import { SingleSelect } from '@dhis2/ui-forms'
 import * as rootSelectors from '../../rootSelectors'
 import { selectors as jobTypeSelectors } from '../../data/job-types'
 import { actions, selectors } from '../../data/parameter-set'
@@ -27,9 +29,7 @@ export const DumbParameterSetField = ({
         return (
             <label>
                 <div>{label}</div>
-                <select disabled>
-                    <option>Loading...</option>
-                </select>
+                <SingleSelectField loading />
             </label>
         )
     }
@@ -42,9 +42,7 @@ export const DumbParameterSetField = ({
         return (
             <label>
                 <div>{label}</div>
-                <select disabled>
-                    <option>No available options</option>
-                </select>
+                <SingleSelectField disabled helpText="No options available" />
             </label>
         )
     }
@@ -52,13 +50,14 @@ export const DumbParameterSetField = ({
     return (
         <label>
             <div>{label}</div>
-            <Field name={name} component="select" type="select" multiple>
-                {options.map(option => (
-                    <option key={option} value={option}>
-                        {option}
-                    </option>
-                ))}
-            </Field>
+            <Field
+                name={name}
+                component={SingleSelect}
+                options={options.map(({ option }) => ({
+                    value: option,
+                    label: option,
+                }))}
+            />
         </label>
     )
 }
