@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`requiredSingleSelectOption should return an error message when input has no label prop 1`] = `"Please select an option"`;
+
+exports[`requiredSingleSelectOption should return an error message when input has no props 1`] = `"Please select an option"`;
+
+exports[`requiredSingleSelectOption should return an error message when input has no value prop 1`] = `"Please select an option"`;
+
+exports[`requiredSingleSelectOption should return an error message when input is not an object 1`] = `"Please select an option"`;
+
+exports[`requiredSingleSelectOption should return an error message when there is no input 1`] = `"Please select an option"`;
