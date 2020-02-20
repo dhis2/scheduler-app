@@ -3,8 +3,8 @@
 exports[`<ToggleJobSwitch> renders correctly 1`] = `
 <Switch
   checked={true}
+  dataTest="dhis2-uicore-switch"
   disabled={false}
-  name="toggle-1"
   onChange={[Function]}
 />
 `;

@@ -2,49 +2,66 @@
 
 exports[`<CronPresetModal> renders correctly 1`] = `
 <Modal
+  dataTest="dhis2-uicore-modal"
   onClose={[Function]}
   open={true}
+  position="top"
   small={true}
 >
-  <Title>
+  <ModalTitle
+    dataTest="dhis2-uicore-modaltitle"
+  >
     Choose a preset time/interval
-  </Title>
-  <Content>
+  </ModalTitle>
+  <ModalContent
+    dataTest="dhis2-uicore-modalcontent"
+  >
     <RadioGroup
-      name="cron-presets"
-      options={
-        Array [
-          Object {
-            "label": "Every hour",
-            "value": "0 0 * ? * *",
-          },
-          Object {
-            "label": "Every day at midnight",
-            "value": "0 0 1 ? * *",
-          },
-          Object {
-            "label": "Every day at 3 am",
-            "value": "0 0 3 ? * *",
-          },
-          Object {
-            "label": "Every day at noon",
-            "value": "0 0 12 ? * MON-FRI",
-          },
-          Object {
-            "label": "Every week",
-            "value": "0 0 3 ? * MON",
-          },
-        ]
-      }
-      selected=""
-      setSelected={[Function]}
-    />
-  </Content>
-  <Actions>
+      dataTest="dhis2-uicore-radiogroup"
+      onChange={[Function]}
+      value=""
+    >
+      <Radio
+        dataTest="dhis2-uicore-radio"
+        key="0 0 * ? * *"
+        label="Every hour"
+        value="0 0 * ? * *"
+      />
+      <Radio
+        dataTest="dhis2-uicore-radio"
+        key="0 0 1 ? * *"
+        label="Every day at midnight"
+        value="0 0 1 ? * *"
+      />
+      <Radio
+        dataTest="dhis2-uicore-radio"
+        key="0 0 3 ? * *"
+        label="Every day at 3 am"
+        value="0 0 3 ? * *"
+      />
+      <Radio
+        dataTest="dhis2-uicore-radio"
+        key="0 0 12 ? * MON-FRI"
+        label="Every day at noon"
+        value="0 0 12 ? * MON-FRI"
+      />
+      <Radio
+        dataTest="dhis2-uicore-radio"
+        key="0 0 3 ? * MON"
+        label="Every week"
+        value="0 0 3 ? * MON"
+      />
+    </RadioGroup>
+  </ModalContent>
+  <ModalActions
+    dataTest="dhis2-uicore-modalactions"
+  >
     <ButtonStrip
+      dataTest="dhis2-uicore-buttonstrip"
       end={true}
     >
       <Button
+        dataTest="dhis2-uicore-button"
         name="hide-modal"
         onClick={[Function]}
         secondary={true}
@@ -53,6 +70,7 @@ exports[`<CronPresetModal> renders correctly 1`] = `
         Cancel
       </Button>
       <Button
+        dataTest="dhis2-uicore-button"
         disabled={true}
         name="insert-preset"
         onClick={[Function]}
@@ -62,6 +80,6 @@ exports[`<CronPresetModal> renders correctly 1`] = `
         Insert preset
       </Button>
     </ButtonStrip>
-  </Actions>
+  </ModalActions>
 </Modal>
 `;

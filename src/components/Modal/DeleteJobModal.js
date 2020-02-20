@@ -16,10 +16,11 @@ export const DumbDeleteJobModal = ({ id, hideModal, deleteJob }) => (
         <ModalContent>Are you sure you want to delete this job?</ModalContent>
         <ModalActions>
             <ButtonStrip end>
-                <Button secondary onClick={hideModal}>
+                <Button name="hide-modal" secondary onClick={hideModal}>
                     Cancel
                 </Button>
                 <Button
+                    name={`delete-job-${id}`}
                     destructive
                     onClick={() => {
                         deleteJob(id)
