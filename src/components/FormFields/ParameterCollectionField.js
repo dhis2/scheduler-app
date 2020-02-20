@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { arrayOf, object, string } from 'prop-types'
 import { Field } from 'react-final-form'
-import { InputField, Switch } from '../FormBaseFields'
+import { Input, Switch } from '@dhis2/ui-forms'
 import * as rootSelectors from '../../rootSelectors'
 import { selectors } from '../../data/job-types'
 import ParameterSetField from './ParameterSetField'
@@ -22,13 +22,7 @@ export const DumbParameterCollectionField = ({ parameters, jobType }) => {
 
         switch (type) {
             case 'java.lang.String':
-                return (
-                    <Field
-                        {...defaultProps}
-                        component={InputField}
-                        type="text"
-                    />
-                )
+                return <Field {...defaultProps} component={Input} type="text" />
             case 'java.lang.Boolean':
                 return (
                     <Field
@@ -39,11 +33,7 @@ export const DumbParameterCollectionField = ({ parameters, jobType }) => {
                 )
             case 'java.lang.Integer':
                 return (
-                    <Field
-                        {...defaultProps}
-                        component={InputField}
-                        type="number"
-                    />
+                    <Field {...defaultProps} component={Input} type="number" />
                 )
             case 'java.util.Set':
                 return (

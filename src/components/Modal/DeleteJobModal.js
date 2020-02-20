@@ -1,21 +1,26 @@
 import React from 'react'
 import { func, string } from 'prop-types'
-import { Button, Modal, ButtonStrip } from '@dhis2/ui-core'
+import {
+    Button,
+    Modal,
+    ModalContent,
+    ModalActions,
+    ButtonStrip,
+} from '@dhis2/ui-core'
 import { connect } from 'react-redux'
 import { actions as modalActions } from '../../data/modal'
 import { actions as jobActions } from '../../data/jobs'
 
 export const DumbDeleteJobModal = ({ id, hideModal, deleteJob }) => (
     <Modal open small onClose={hideModal}>
-        <Modal.Content>Are you sure you want to delete this job?</Modal.Content>
-        <Modal.Actions>
+        <ModalContent>Are you sure you want to delete this job?</ModalContent>
+        <ModalActions>
             <ButtonStrip end>
-                <Button secondary name="hide-modal" onClick={hideModal}>
+                <Button secondary onClick={hideModal}>
                     Cancel
                 </Button>
                 <Button
                     destructive
-                    name={`delete-job-${id}`}
                     onClick={() => {
                         deleteJob(id)
                         hideModal()
@@ -24,7 +29,7 @@ export const DumbDeleteJobModal = ({ id, hideModal, deleteJob }) => (
                     Delete
                 </Button>
             </ButtonStrip>
-        </Modal.Actions>
+        </ModalActions>
     </Modal>
 )
 

@@ -18,7 +18,6 @@ export const DumbToggleJobSwitch = ({
         <Switch
             disabled={isFetching}
             checked={checked}
-            name={`toggle-${id}`}
             onChange={() => toggleJob(id)}
         />
     )

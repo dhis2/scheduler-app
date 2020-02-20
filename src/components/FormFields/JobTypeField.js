@@ -2,28 +2,21 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { arrayOf, string } from 'prop-types'
 import { Field } from 'react-final-form'
+import { SingleSelect } from '@dhis2/ui-forms'
 import * as rootSelectors from '../../rootSelectors'
 import { selectors } from '../../data/job-types'
-import { SelectField } from '../FormBaseFields'
-import { requiredString } from '../../services/validators'
+import { requiredSingleSelectOption } from '../../services/validators'
 
 // The key under which this field will be sent to the backend
 export const FIELD_NAME = 'jobType'
-export const VALIDATOR = requiredString
+export const VALIDATOR = requiredSingleSelectOption
 
 export const DumbJobTypeField = ({ jobTypes }) => (
     <Field
         name={FIELD_NAME}
         validate={VALIDATOR}
-        render={props => (
-            <SelectField {...props} label="Job Type" required>
-                {jobTypes.map(type => (
-                    <option key={type} value={type}>
-                        {type}
-                    </option>
-                ))}
-            </SelectField>
-        )}
+        component={SingleSelect}
+        options={jobTypes.map(type => ({ value: type, label: type }))}
     />
 )
 
