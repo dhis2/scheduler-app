@@ -1,0 +1,128 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<JobListTable> renders correctly when there are jobs 1`] = `
+<Table
+  dataTest="dhis2-uicore-table"
+>
+  <TableHead
+    dataTest="dhis2-uicore-tablehead"
+  >
+    <TableRowHead
+      dataTest="dhis2-uicore-tablerowhead"
+    >
+      <TableCellHead
+        dataTest="dhis2-uicore-tablecellhead"
+      >
+        Job name
+      </TableCellHead>
+      <TableCellHead
+        dataTest="dhis2-uicore-tablecellhead"
+      >
+        Type
+      </TableCellHead>
+      <TableCellHead
+        dataTest="dhis2-uicore-tablecellhead"
+      >
+        Schedule
+      </TableCellHead>
+      <TableCellHead
+        dataTest="dhis2-uicore-tablecellhead"
+      >
+        Next run
+      </TableCellHead>
+      <TableCellHead
+        dataTest="dhis2-uicore-tablecellhead"
+      >
+        Status
+      </TableCellHead>
+      <TableCellHead
+        dataTest="dhis2-uicore-tablecellhead"
+      >
+        On/off
+      </TableCellHead>
+      <TableCellHead
+        dataTest="dhis2-uicore-tablecellhead"
+      />
+    </TableRowHead>
+  </TableHead>
+  <TableBody
+    dataTest="dhis2-uicore-tablebody"
+  >
+    <JobListTableItem
+      job={
+        Object {
+          "cronExpression": "",
+          "displayName": "",
+          "enabled": true,
+          "id": "1",
+          "jobStatus": "",
+          "jobType": "",
+          "nextExecutionTime": "",
+        }
+      }
+      key="1"
+    />
+  </TableBody>
+</Table>
+`;
+
+exports[`<JobListTable> renders correctly when there are no jobs 1`] = `
+<Table
+  dataTest="dhis2-uicore-table"
+>
+  <TableHead
+    dataTest="dhis2-uicore-tablehead"
+  >
+    <TableRowHead
+      dataTest="dhis2-uicore-tablerowhead"
+    >
+      <TableCellHead
+        dataTest="dhis2-uicore-tablecellhead"
+      >
+        Job name
+      </TableCellHead>
+      <TableCellHead
+        dataTest="dhis2-uicore-tablecellhead"
+      >
+        Type
+      </TableCellHead>
+      <TableCellHead
+        dataTest="dhis2-uicore-tablecellhead"
+      >
+        Schedule
+      </TableCellHead>
+      <TableCellHead
+        dataTest="dhis2-uicore-tablecellhead"
+      >
+        Next run
+      </TableCellHead>
+      <TableCellHead
+        dataTest="dhis2-uicore-tablecellhead"
+      >
+        Status
+      </TableCellHead>
+      <TableCellHead
+        dataTest="dhis2-uicore-tablecellhead"
+      >
+        On/off
+      </TableCellHead>
+      <TableCellHead
+        dataTest="dhis2-uicore-tablecellhead"
+      />
+    </TableRowHead>
+  </TableHead>
+  <TableBody
+    dataTest="dhis2-uicore-tablebody"
+  >
+    <TableRow
+      dataTest="dhis2-uicore-tablerow"
+    >
+      <TableCell
+        dataTest="dhis2-uicore-tablecell"
+      >
+        No jobs to display
+      </TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+`;

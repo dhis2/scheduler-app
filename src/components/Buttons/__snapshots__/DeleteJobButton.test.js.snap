@@ -13,7 +13,6 @@ exports[`<DeleteJobButton> renders correctly 1`] = `
 <Button
   dataTest="dhis2-uicore-button"
   destructive={true}
-  disabled={false}
   onClick={[Function]}
   type="button"
 >

@@ -1,22 +1,22 @@
 import React from 'react'
 import { func, string } from 'prop-types'
 import { connect } from 'react-redux'
-import { Button } from '@dhis2/ui-core'
+import { MenuItem } from '@dhis2/ui-core'
 import { actions } from '../../data/modal'
-import { modalTypes } from '../Modal'
+import { modalTypes } from '../../components/Modal'
 
-export const DumbDeleteJobButton = ({ id, showModal }) => (
-    <Button
+export const DumbDeleteJobMenuItem = ({ id, showModal }) => (
+    <MenuItem
+        dense
         destructive
         onClick={() =>
             showModal({ type: modalTypes.DELETE_JOB, props: { id } })
         }
-    >
-        Delete
-    </Button>
+        label="Delete"
+    />
 )
 
-DumbDeleteJobButton.propTypes = {
+DumbDeleteJobMenuItem.propTypes = {
     id: string.isRequired,
     showModal: func.isRequired,
 }
@@ -28,4 +28,4 @@ const mapDispatchToProps = {
 export default connect(
     null,
     mapDispatchToProps
-)(DumbDeleteJobButton)
+)(DumbDeleteJobMenuItem)
