@@ -14,10 +14,11 @@
     },
     "dependencies": {
         "@dhis2/app-runtime": "^1.2.0",
-        "@dhis2/ui-core": "^4.11.1",
+        "@dhis2/ui-core": "^4.13.0",
         "@dhis2/ui-forms": "^1.0.1",
         "@dhis2/ui-widgets": "^1.0.6",
         "cronstrue": "^1.82.0",
+        "date-fns": "^2.10.0",
         "final-form": "^4.17.0",
         "history": "^4.9.0",
         "moment": "^2.24.0",

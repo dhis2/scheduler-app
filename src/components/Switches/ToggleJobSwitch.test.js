@@ -54,22 +54,4 @@ describe('<ToggleJobSwitch>', () => {
 
         expect(disableJob).toHaveBeenCalledWith('1')
     })
-
-    it('disables itself whilst jobs are fetching', () => {
-        const disableJob = () => {}
-        const enableJob = () => {}
-        const wrapper = mount(
-            <ToggleJobSwitch
-                id="1"
-                isFetching={true}
-                checked={true}
-                enableJob={enableJob}
-                disableJob={disableJob}
-            />
-        )
-
-        const input = wrapper.find('input')
-
-        expect(input.props().disabled).toBe(true)
-    })
 })

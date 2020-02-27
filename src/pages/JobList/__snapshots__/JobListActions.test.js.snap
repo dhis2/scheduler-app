@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<JobListActions> renders correctly 1`] = `
+<DropdownButton
+  component={
+    <Menu
+      dataTest="dhis2-uicore-menu"
+      maxWidth="380px"
+    >
+      <EditJobMenuItem
+        id="1"
+      />
+      <Memo(ConnectFunction)
+        id="1"
+      />
+      <Memo(ConnectFunction)
+        id="1"
+      />
+    </Menu>
+  }
+  dataTest="dhis2-uicore-dropdownbutton"
+  small={true}
+>
+  Actions
+</DropdownButton>
+`;
