@@ -21,15 +21,4 @@ describe('<DeleteJobButton>', () => {
 
         expect(showModal.mock.calls[0][0]).toMatchSnapshot()
     })
-
-    it('disables itself whilst jobs are fetching', () => {
-        const showModal = () => {}
-        const wrapper = mount(
-            <DeleteJobButton id="1" isFetching={true} showModal={showModal} />
-        )
-
-        const button = wrapper.find('button')
-
-        expect(button.props().disabled).toBe(true)
-    })
 })

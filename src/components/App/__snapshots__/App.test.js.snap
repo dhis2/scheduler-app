@@ -15,6 +15,13 @@ exports[`<App> renders correctly 1`] = `
     baseUrl="http://www.dhis2.test"
   >
     <CssReset />
+    <CssVariables
+      colors={false}
+      elevations={false}
+      layers={false}
+      spacers={true}
+      theme={false}
+    />
     <HeaderBar
       appName="Scheduler"
     />

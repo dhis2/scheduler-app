@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<RunJobMenuItem> renders correctly 1`] = `
+<MenuItem
+  dataTest="dhis2-uicore-menuitem"
+  dense={true}
+  label="Run manually"
+  onClick={[Function]}
+/>
+`;
