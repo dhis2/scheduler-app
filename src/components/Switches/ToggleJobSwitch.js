@@ -2,25 +2,12 @@ import React from 'react'
 import { func, string, bool } from 'prop-types'
 import { connect } from 'react-redux'
 import { Switch } from '@dhis2/ui-core'
-import * as rootSelectors from '../../rootSelectors'
-import { actions, selectors } from '../../data/jobs'
+import { actions } from '../../data/jobs'
 
-export const DumbToggleJobSwitch = ({
-    id,
-    checked,
-    enableJob,
-    disableJob,
-    isFetching,
-}) => {
+export const DumbToggleJobSwitch = ({ id, checked, enableJob, disableJob }) => {
     const toggleJob = checked ? disableJob : enableJob
 
-    return (
-        <Switch
-            disabled={isFetching}
-            checked={checked}
-            onChange={() => toggleJob(id)}
-        />
-    )
+    return <Switch checked={checked} onChange={() => toggleJob(id)} />
 }
 
 DumbToggleJobSwitch.propTypes = {
@@ -28,17 +15,6 @@ DumbToggleJobSwitch.propTypes = {
     checked: bool.isRequired,
     enableJob: func.isRequired,
     disableJob: func.isRequired,
-    isFetching: bool.isRequired,
-}
-
-const mapStateToProps = state => {
-    /* istanbul ignore next */
-    const jobs = rootSelectors.getJobs(state)
-
-    /* istanbul ignore next */
-    return {
-        isFetching: selectors.getIsFetching(jobs),
-    }
 }
 
 const mapDispatchToProps = {
@@ -47,6 +23,6 @@ const mapDispatchToProps = {
 }
 
 export default connect(
-    mapStateToProps,
+    null,
     mapDispatchToProps
 )(DumbToggleJobSwitch)

@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<JobStatus> renders correctly for DISABLED status 1`] = `
+<Tag
+  dataTest="dhis2-uicore-tag"
+>
+  DISABLED
+</Tag>
+`;
+
+exports[`<JobStatus> renders correctly for DONE status 1`] = `
+<Tag
+  dataTest="dhis2-uicore-tag"
+  positive={true}
+>
+  DONE
+</Tag>
+`;
+
+exports[`<JobStatus> renders correctly for FAILED status 1`] = `
+<Tag
+  dataTest="dhis2-uicore-tag"
+  negative={true}
+>
+  FAILED
+</Tag>
+`;
+
+exports[`<JobStatus> renders correctly for NOT_STARTED status 1`] = `
+<Tag
+  dataTest="dhis2-uicore-tag"
+  neutral={true}
+>
+  NOT_STARTED
+</Tag>
+`;
+
+exports[`<JobStatus> renders correctly for RUNNING status 1`] = `
+<Tag
+  dataTest="dhis2-uicore-tag"
+  neutral={true}
+>
+  RUNNING
+</Tag>
+`;
+
+exports[`<JobStatus> renders correctly for SCHEDULED status 1`] = `
+<Tag
+  dataTest="dhis2-uicore-tag"
+  neutral={true}
+>
+  SCHEDULED
+</Tag>
+`;
+
+exports[`<JobStatus> renders correctly for STOPPED status 1`] = `
+<Tag
+  dataTest="dhis2-uicore-tag"
+>
+  STOPPED
+</Tag>
+`;
+
+exports[`<JobStatus> renders correctly for an invalid status 1`] = `""`;
