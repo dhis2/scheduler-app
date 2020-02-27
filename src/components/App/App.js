@@ -1,6 +1,6 @@
 import React from 'react'
 import { shape, func } from 'prop-types'
-import { CssReset } from '@dhis2/ui-core'
+import { CssReset, CssVariables } from '@dhis2/ui-core'
 import { HeaderBar } from '@dhis2/ui-widgets'
 import { DataProvider } from '@dhis2/app-runtime'
 import { Provider } from 'react-redux'
@@ -15,6 +15,7 @@ const App = ({ store }) => (
     <Provider store={store}>
         <DataProvider baseUrl={REACT_APP_DHIS2_BASE_URL} apiVersion="">
             <CssReset />
+            <CssVariables spacers />
             <HeaderBar appName="Scheduler" />
             <Modal />
             <PageWrapper>

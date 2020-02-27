@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<JobListTableItem> renders correctly 1`] = `
+<TableRow
+  dataTest="dhis2-uicore-tablerow"
+>
+  <TableCell
+    dataTest="dhis2-uicore-tablecell"
+  >
+    Name
+  </TableCell>
+  <TableCell
+    dataTest="dhis2-uicore-tablecell"
+  >
+    Type
+  </TableCell>
+  <TableCell
+    dataTest="dhis2-uicore-tablecell"
+  >
+    Every hour
+  </TableCell>
+  <TableCell
+    dataTest="dhis2-uicore-tablecell"
+  >
+    Monday at 2:48 PM
+  </TableCell>
+  <TableCell
+    dataTest="dhis2-uicore-tablecell"
+  >
+    <JobStatus
+      status="ENABLED"
+    />
+  </TableCell>
+  <TableCell
+    dataTest="dhis2-uicore-tablecell"
+  >
+    <Connect(DumbToggleJobSwitch)
+      checked={true}
+      id="1"
+    />
+  </TableCell>
+  <TableCell
+    dataTest="dhis2-uicore-tablecell"
+  >
+    <JobListActions
+      id="1"
+    />
+  </TableCell>
+</TableRow>
+`;

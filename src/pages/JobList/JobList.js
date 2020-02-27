@@ -1,12 +1,9 @@
 import React from 'react'
 import { func, bool, object, arrayOf, string } from 'prop-types'
-import { Card, Switch, InputField } from '@dhis2/ui-core'
-import { Link } from 'react-router-dom'
-import { Title } from '../../components/Title'
-import { Arrange, ArrangeFit, ArrangeFill } from '../../components/Arrange'
+import { Card, Switch, Input, Button } from '@dhis2/ui-core'
 import { Info } from '../../components/Icons'
-import { LinkButton } from '../../components/Buttons'
-import JobListItem from './JobListItem'
+import history from '../../services/history'
+import JobListTable from './JobListTable'
 import styles from './JobList.module.css'
 
 const JobList = ({
@@ -19,53 +16,30 @@ const JobList = ({
     setJobFilter,
 }) => (
     <React.Fragment>
-        <Arrange>
-            <Title priority={2}>Scheduled Jobs</Title>
+        <div className={styles.titleContainer}>
+            <h1 className={styles.title}>Scheduled Jobs</h1>
             <Info />
-        </Arrange>
+        </div>
         <Card>
-            <Arrange>
-                <ArrangeFit>
-                    <InputField
+            <div className={styles.controlContainer}>
+                <Input
+                    placeholder="Filter jobs"
+                    onChange={({ value }) => setJobFilter(value)}
+                    value={jobFilter}
+                />
+                <div className={styles.controlRight}>
+                    <Switch
+                        checked={showSystemJobs}
                         disabled={isFetching}
-                        label="Filter jobs by name"
-                        onChange={({ value }) => setJobFilter(value)}
-                        value={jobFilter}
+                        label="Show system jobs"
+                        onChange={({ checked }) => setShowSystemJobs(checked)}
                     />
-                </ArrangeFit>
-                <ArrangeFill>
-                    <div className={styles.alignRight}>
-                        <Switch
-                            checked={showSystemJobs}
-                            disabled={isFetching}
-                            label="Show system jobs"
-                            onChange={({ checked }) =>
-                                setShowSystemJobs(checked)
-                            }
-                        />
-                        <LinkButton as={Link} to="/add">
-                            New job
-                        </LinkButton>
-                    </div>
-                </ArrangeFill>
-            </Arrange>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Job name</th>
-                        <th>Type</th>
-                        <th>Frequency</th>
-                        <th>Next run in</th>
-                        <th>Status</th>
-                        <th>On/off</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {jobIds.map(id => (
-                        <JobListItem key={id} job={jobEntities[id]} />
-                    ))}
-                </tbody>
-            </table>
+                    <Button onClick={() => history.push('/add')}>
+                        New job
+                    </Button>
+                </div>
+            </div>
+            <JobListTable jobIds={jobIds} jobEntities={jobEntities} />
         </Card>
     </React.Fragment>
 )
