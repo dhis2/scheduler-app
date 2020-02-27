@@ -1,6 +1,11 @@
 import React from 'react'
-import { Field } from 'react-final-form'
-import { Input, composeValidators, hasValue, string } from '@dhis2/ui-forms'
+import {
+    Field,
+    Input,
+    composeValidators,
+    hasValue,
+    string,
+} from '@dhis2/ui-forms'
 
 // The key under which this field will be sent to the backend
 export const FIELD_NAME = 'name'
