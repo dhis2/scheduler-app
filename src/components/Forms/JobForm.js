@@ -1,6 +1,6 @@
 import React from 'react'
 import { object, bool, func, shape, string } from 'prop-types'
-import { FormSpy } from 'react-final-form'
+import { FormSpy } from '@dhis2/ui-forms'
 import { Button } from '@dhis2/ui-core'
 import { InlineError } from '../Errors'
 import { DiscardFormButton } from '../Buttons'
