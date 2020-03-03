@@ -2,55 +2,49 @@
     "name": "scheduler-app",
     "private": true,
     "scripts": {
-        "start": "react-scripts start",
-        "build": "react-scripts build",
-        "test": "react-scripts test",
-        "test:coverage": "react-scripts test --coverage --watchAll=false",
-        "eject": "react-scripts eject",
-        "lint": "npm run lint:d2 && npm run lint:css && npm run lint:js",
-        "lint:d2": "d2-style js check --all",
-        "lint:css": "stylelint './src/**/*.css'",
-        "lint:js": "eslint './src/**/*.js'"
+        "build": "d2-app-scripts build",
+        "start": "d2-app-scripts start",
+        "test": "d2-app-scripts test",
+        "test:coverage": "d2-app-scripts test --coverage",
+        "lint": "yarn lint:js && yarn lint:text && yarn lint:css",
+        "lint:js": "d2-style js check",
+        "lint:text": "d2-style text check",
+        "lint:css": "stylelint './src/**/*.css' && prettier './src/**/*.css' --check",
+        "format": "yarn format:js && yarn format:text && yarn format:css",
+        "format:js": "d2-style js apply",
+        "format:text": "d2-style text apply",
+        "format:css": "prettier './src/**/*.css' --write"
     },
     "dependencies": {
-        "@dhis2/app-runtime": "^1.2.0",
-        "@dhis2/ui-core": "^4.13.0",
+        "@dhis2/app-runtime": "^2.1.0",
+        "@dhis2/ui-core": "^4.14.0",
         "@dhis2/ui-forms": "^1.0.1",
         "@dhis2/ui-widgets": "^1.0.6",
         "cronstrue": "^1.82.0",
-        "date-fns": "^2.10.0",
         "final-form": "^4.17.0",
         "history": "^4.9.0",
         "moment": "^2.24.0",
-        "prop-types": "^15.7.2",
-        "react": "^16.8.6",
-        "react-dom": "^16.8.6",
-        "react-redux": "^7.1.0",
         "react-router": "^5.0.1",
-        "react-router-dom": "^5.0.1",
-        "react-scripts": "3.0.1",
-        "redux": "^4.0.1",
-        "redux-thunk": "^2.3.0",
-        "url-join": "^4.0.1"
+        "react-router-dom": "^5.0.1"
     },
     "devDependencies": {
-        "@dhis2/cli-style": "^3.3.4",
+        "@dhis2/cli-app-scripts": "^3.2.2",
+        "@dhis2/cli-style": "^5.1.0",
         "enzyme": "^3.10.0",
         "enzyme-adapter-react-16": "^1.14.0",
         "enzyme-to-json": "^3.3.5",
-        "eslint-config-prettier": "^6.0.0",
         "eslint-plugin-compat": "^3.1.2",
         "eslint-plugin-import": "^2.18.0",
         "eslint-plugin-jsx-a11y": "^6.2.1",
-        "eslint-plugin-react": "^7.14.2",
-        "husky": "^2.5.0",
-        "isomorphic-fetch": "^2.2.1",
-        "nock": "^10.0.6",
-        "redux-mock-store": "^1.5.3",
+        "eslint-plugin-react-hooks": "^2.5.0",
+        "identity-obj-proxy": "^3.0.0",
         "stylelint": "^10.1.0",
         "stylelint-config-prettier": "^5.2.0",
         "stylelint-config-standard": "^18.3.0",
         "stylelint-no-unsupported-browser-features": "^3.0.2"
+    },
+    "resolutions": {
+        "@dhis2/ui-core": "^4.14.0"
     },
     "husky": {
         "hooks": {
@@ -59,6 +53,9 @@
         }
     },
     "jest": {
+        "setupFilesAfterEnv": [
+            "<rootDir>/src/setupTests.js"
+        ],
         "snapshotSerializers": [
             "enzyme-to-json/serializer"
         ],
@@ -66,6 +63,9 @@
             "src/**/*.{js,jsx}",
             "!src/{index.js,serviceWorker.js,setupTests.js}",
             "!<rootDir>/node_modules/"
-        ]
+        ],
+        "moduleNameMapper": {
+            "\\.css$": "identity-obj-proxy"
+        }
     }
 }

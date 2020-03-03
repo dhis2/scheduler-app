@@ -1,57 +1,44 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
 import history from '../../services/history'
-import { DumbDiscardFormModal as DiscardFormModal } from './DiscardFormModal'
+import DiscardFormModal from './DiscardFormModal'
+
+jest.mock('../../services/history', () => ({
+    push: jest.fn(),
+}))
 
 describe('<DiscardFormModal>', () => {
-    beforeEach(() => {
-        history.push = jest.fn()
-    })
-
     it('renders correctly', () => {
-        const props = {
-            hideModal: () => {},
-            children: 'Discard',
-        }
-        const wrapper = shallow(<DiscardFormModal {...props} />)
+        const wrapper = shallow(<DiscardFormModal hideModal={() => {}} />)
 
         expect(wrapper).toMatchSnapshot()
     })
 
     it('calls hideModal when cancel button is clicked', () => {
-        const props = {
-            hideModal: jest.fn(),
-            children: 'Discard',
-        }
-        const wrapper = mount(<DiscardFormModal {...props} />)
+        const spy = jest.fn()
+        const wrapper = mount(<DiscardFormModal hideModal={spy} />)
 
         wrapper.find('button[name="cancel-discard-form"]').simulate('click')
 
-        expect(props.hideModal).toHaveBeenCalled()
+        expect(spy).toHaveBeenCalled()
     })
 
     it('calls history push and hideModal when discard button is clicked', () => {
-        const props = {
-            hideModal: jest.fn(),
-            children: 'Discard',
-        }
-        const wrapper = mount(<DiscardFormModal {...props} />)
+        const spy = jest.fn()
+        const wrapper = mount(<DiscardFormModal hideModal={spy} />)
 
         wrapper.find('button[name="discard-form"]').simulate('click')
 
         expect(history.push).toHaveBeenCalledWith('/')
-        expect(props.hideModal).toHaveBeenCalled()
+        expect(spy).toHaveBeenCalled()
     })
 
     it('calls hideModal when cover is clicked', () => {
-        const props = {
-            hideModal: jest.fn(),
-            children: 'Discard',
-        }
-        const wrapper = mount(<DiscardFormModal {...props} />)
+        const spy = jest.fn()
+        const wrapper = mount(<DiscardFormModal hideModal={spy} />)
 
         wrapper.find('.backdrop').simulate('click')
 
-        expect(props.hideModal).toHaveBeenCalled()
+        expect(spy).toHaveBeenCalled()
     })
 })

@@ -24,15 +24,7 @@ exports[`<Routes> renders correctly 1`] = `
   }
 >
   <Route
-    component={
-      Object {
-        "$$typeof": Symbol(react.memo),
-        "WrappedComponent": [Function],
-        "compare": null,
-        "displayName": "Connect(DumbJobListContainer)",
-        "type": [Function],
-      }
-    }
+    component={[Function]}
     exact={true}
     path="/"
   />
@@ -41,15 +33,7 @@ exports[`<Routes> renders correctly 1`] = `
     path="/edit/:id"
   />
   <Route
-    component={
-      Object {
-        "$$typeof": Symbol(react.memo),
-        "WrappedComponent": [Function],
-        "compare": null,
-        "displayName": "Connect(DumbJobAddContainer)",
-        "type": [Function],
-      }
-    }
+    component={[Function]}
     path="/add"
   />
 </Router>

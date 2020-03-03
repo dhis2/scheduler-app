@@ -1,21 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<DeleteJobButton> calls showModal correctly when clicked 1`] = `
-Object {
-  "props": Object {
-    "id": "1",
-  },
-  "type": "DELETE_JOB",
-}
-`;
-
 exports[`<DeleteJobButton> renders correctly 1`] = `
-<Button
-  dataTest="dhis2-uicore-button"
-  destructive={true}
-  onClick={[Function]}
-  type="button"
->
-  Delete
-</Button>
+<Fragment>
+  <Button
+    dataTest="dhis2-uicore-button"
+    destructive={true}
+    onClick={[Function]}
+    type="button"
+  >
+    Delete
+  </Button>
+</Fragment>
 `;

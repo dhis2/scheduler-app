@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom'
 import { Router } from 'react-router'
 import { JobListContainer as JobList } from '../../pages/JobList'
 import { JobEdit } from '../../pages/JobEdit'
-import { JobAddContainer as JobAdd } from '../../pages/JobAdd'
+import { JobAdd } from '../../pages/JobAdd'
 import history from '../../services/history'
 
 const Routes = () => (
