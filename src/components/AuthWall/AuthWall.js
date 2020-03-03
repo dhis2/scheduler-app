@@ -1,24 +1,14 @@
-import React, { useEffect } from 'react'
-import { connect } from 'react-redux'
-import { node, func, string, bool } from 'prop-types'
+import React from 'react'
+import { node } from 'prop-types'
 import { CircularLoader } from '@dhis2/ui-core'
-import { getMe } from '../../rootSelectors'
-import { actions, selectors } from '../../data/me'
+import { useGetMe, selectors } from '../../hooks/me'
 import { AbsoluteCenter } from '../AbsoluteCenter'
 import { FullscreenError } from '../Errors'
 
-export const DumbAuthWall = ({
-    children,
-    didFetch,
-    errorMessage,
-    isAuthorized,
-    fetchMeIfNeeded,
-}) => {
-    useEffect(() => {
-        fetchMeIfNeeded()
-    }, [fetchMeIfNeeded])
+const AuthWall = ({ children }) => {
+    const { loading, error, data } = useGetMe()
 
-    if (!didFetch) {
+    if (loading) {
         return (
             <AbsoluteCenter vertical>
                 <CircularLoader />
@@ -27,9 +17,11 @@ export const DumbAuthWall = ({
         )
     }
 
-    if (errorMessage) {
-        return <FullscreenError message={errorMessage} />
+    if (error) {
+        return <FullscreenError message={error.message} />
     }
+
+    const isAuthorized = selectors.getAuthorized(data)
 
     if (!isAuthorized) {
         return <FullscreenError message={'You are not authorized'} />
@@ -38,31 +30,8 @@ export const DumbAuthWall = ({
     return <React.Fragment>{children}</React.Fragment>
 }
 
-DumbAuthWall.propTypes = {
+AuthWall.propTypes = {
     children: node.isRequired,
-    didFetch: bool.isRequired,
-    errorMessage: string.isRequired,
-    isAuthorized: bool.isRequired,
-    fetchMeIfNeeded: func.isRequired,
 }
 
-const mapStateToProps = state => {
-    /* istanbul ignore next */
-    const me = getMe(state)
-
-    /* istanbul ignore next */
-    return {
-        didFetch: selectors.getDidFetch(me),
-        errorMessage: selectors.getErrorMessage(me),
-        isAuthorized: selectors.getIsAuthorized(me),
-    }
-}
-
-const mapDispatchToProps = {
-    fetchMeIfNeeded: actions.fetchMeIfNeeded,
-}
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(DumbAuthWall)
+export default AuthWall

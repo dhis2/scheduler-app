@@ -4,12 +4,7 @@ import App from './App'
 
 describe('<App>', () => {
     it('renders correctly', () => {
-        const mockStore = {
-            dispatch: () => {},
-            getState: () => {},
-            subscribe: () => {},
-        }
-        const wrapper = shallow(<App store={mockStore} />)
+        const wrapper = shallow(<App />)
 
         expect(wrapper).toMatchSnapshot()
     })

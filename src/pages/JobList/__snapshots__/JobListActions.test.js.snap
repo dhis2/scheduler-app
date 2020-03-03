@@ -10,10 +10,10 @@ exports[`<JobListActions> renders correctly 1`] = `
       <EditJobMenuItem
         id="1"
       />
-      <Memo(ConnectFunction)
+      <RunJobMenuItem
         id="1"
       />
-      <Memo(ConnectFunction)
+      <DeleteJobMenuItem
         id="1"
       />
     </Menu>

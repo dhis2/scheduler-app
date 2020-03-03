@@ -1,45 +1,38 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
 import history from '../../services/history'
-import { DumbDiscardFormButton as DiscardFormButton } from './DiscardFormButton'
+import DiscardFormButton from './DiscardFormButton'
+
+jest.mock('../../services/history', () => ({
+    push: jest.fn(),
+}))
 
 describe('<DiscardFormButton>', () => {
-    beforeEach(() => {
-        history.push = jest.fn()
-    })
-
     it('renders correctly', () => {
         const wrapper = shallow(
-            <DiscardFormButton showModal={() => {}} shouldConfirm={false}>
-                Discard
-            </DiscardFormButton>
+            <DiscardFormButton shouldConfirm={false}>Discard</DiscardFormButton>
         )
 
         expect(wrapper).toMatchSnapshot()
     })
 
-    it('calls showModal correctly when clicked and it should confirm', () => {
-        const showModal = jest.fn()
+    it('shows the modal when it should confirm and button is clicked', () => {
         const wrapper = mount(
-            <DiscardFormButton showModal={showModal} shouldConfirm>
-                Discard
-            </DiscardFormButton>
+            <DiscardFormButton shouldConfirm>Discard</DiscardFormButton>
         )
+
+        expect(wrapper.find('DiscardFormModal')).toHaveLength(0)
 
         wrapper.find('button').simulate('click')
 
-        expect(showModal.mock.calls[0][0]).toMatchSnapshot()
+        expect(wrapper.find('DiscardFormModal')).toHaveLength(1)
     })
 
-    it('calls history correctly when clicked and it should not confirm', () => {
-        const wrapper = mount(
-            <DiscardFormButton showModal={() => {}} shouldConfirm={false}>
-                Discard
-            </DiscardFormButton>
-        )
+    it('changes route when it should not confirm and button is clicked', () => {
+        const wrapper = mount(<DiscardFormButton>Discard</DiscardFormButton>)
 
         wrapper.find('button').simulate('click')
 
-        expect(history.push.mock.calls[0][0]).toMatchSnapshot()
+        expect(history.push).toHaveBeenCalledWith('/')
     })
 })

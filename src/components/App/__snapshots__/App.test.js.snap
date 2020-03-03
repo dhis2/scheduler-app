@@ -1,36 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<App> renders correctly 1`] = `
-<Provider
-  store={
-    Object {
-      "dispatch": [Function],
-      "getState": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <Provider
-    apiVersion=""
-    baseUrl="http://www.dhis2.test"
-  >
-    <CssReset />
-    <CssVariables
-      colors={false}
-      elevations={false}
-      layers={false}
-      spacers={true}
-      theme={false}
-    />
-    <HeaderBar
-      appName="Scheduler"
-    />
-    <Connect(DumbModalContainer) />
-    <PageWrapper>
-      <Connect(DumbAuthWall)>
-        <Routes />
-      </Connect(DumbAuthWall)>
-    </PageWrapper>
-  </Provider>
-</Provider>
+<Fragment>
+  <CssReset />
+  <CssVariables
+    colors={false}
+    elevations={false}
+    layers={false}
+    spacers={true}
+    theme={false}
+  />
+  <PageWrapper>
+    <AuthWall>
+      <Routes />
+    </AuthWall>
+  </PageWrapper>
+</Fragment>
 `;

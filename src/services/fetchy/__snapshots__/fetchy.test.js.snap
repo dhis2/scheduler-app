@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`fetchy should reject with an error if the response contains invalid json 1`] = `"The response succeeded, but contained invalid JSON."`;
-
-exports[`fetchy should reject with an error if the response is not ok and contains malformed json 1`] = `"The request did not succeed and did not contain valid JSON."`;
-
-exports[`fetchy should reject with an error on fetch errors 1`] = `"Something went wrong whilst retrieving data. Check if you have a working internet connection."`;
-
-exports[`fetchy should reject with an error with the fallback message if the response is not ok and there is no message or statusText 1`] = `"Something went wrong, but no errormessage was provided."`;

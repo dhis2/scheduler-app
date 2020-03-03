@@ -1,31 +1,30 @@
-import React from 'react'
-import { func, string } from 'prop-types'
-import { connect } from 'react-redux'
+import React, { useState } from 'react'
+import { string } from 'prop-types'
 import { MenuItem } from '@dhis2/ui-core'
-import { actions } from '../../data/modal'
-import { modalTypes } from '../../components/Modal'
+import { DeleteJobModal } from '../../components/Modal'
 
-export const DumbDeleteJobMenuItem = ({ id, showModal }) => (
-    <MenuItem
-        dense
-        destructive
-        onClick={() =>
-            showModal({ type: modalTypes.DELETE_JOB, props: { id } })
-        }
-        label="Delete"
-    />
-)
+const DeleteJobMenuItem = ({ id }) => {
+    const [showModal, setShowModal] = useState(false)
 
-DumbDeleteJobMenuItem.propTypes = {
+    return (
+        <React.Fragment>
+            <MenuItem
+                dense
+                destructive
+                onClick={() => {
+                    setShowModal(true)
+                }}
+                label="Delete"
+            />
+            {showModal && (
+                <DeleteJobModal id={id} hideModal={() => setShowModal(false)} />
+            )}
+        </React.Fragment>
+    )
+}
+
+DeleteJobMenuItem.propTypes = {
     id: string.isRequired,
-    showModal: func.isRequired,
 }
 
-const mapDispatchToProps = {
-    showModal: actions.showModal,
-}
-
-export default connect(
-    null,
-    mapDispatchToProps
-)(DumbDeleteJobMenuItem)
+export default DeleteJobMenuItem
