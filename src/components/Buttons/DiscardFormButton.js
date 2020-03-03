@@ -1,34 +1,32 @@
-import React from 'react'
-import { string, func, bool } from 'prop-types'
-import { connect } from 'react-redux'
+import React, { useState } from 'react'
+import { string, bool } from 'prop-types'
 import { Button } from '@dhis2/ui-core'
-import { actions } from '../../data/modal'
-import { modalTypes } from '../Modal'
 import history from '../../services/history'
+import { DiscardFormModal } from '../Modal'
 
-export const DumbDiscardFormButton = ({
-    shouldConfirm,
-    children,
-    showModal,
-}) => {
+const DiscardFormButton = ({ shouldConfirm, children }) => {
+    const [showModal, setShowModal] = useState(false)
     const onClick = shouldConfirm
-        ? () => showModal({ type: modalTypes.DISCARD_FORM })
+        ? () => setShowModal(true)
         : () => history.push('/')
 
-    return <Button onClick={onClick}>{children}</Button>
+    return (
+        <React.Fragment>
+            <Button onClick={onClick}>{children}</Button>
+            {showModal && (
+                <DiscardFormModal hideModal={() => setShowModal(false)} />
+            )}
+        </React.Fragment>
+    )
 }
 
-DumbDiscardFormButton.propTypes = {
+DiscardFormButton.defaultProps = {
+    shouldConfirm: false,
+}
+
+DiscardFormButton.propTypes = {
     children: string.isRequired,
-    shouldConfirm: bool.isRequired,
-    showModal: func.isRequired,
+    shouldConfirm: bool,
 }
 
-const mapDispatchToProps = {
-    showModal: actions.showModal,
-}
-
-export default connect(
-    null,
-    mapDispatchToProps
-)(DumbDiscardFormButton)
+export default DiscardFormButton

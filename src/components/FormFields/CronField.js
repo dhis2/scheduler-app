@@ -1,34 +1,18 @@
 import React from 'react'
-import { func, string } from 'prop-types'
-import { connect } from 'react-redux'
 import cronstrue from 'cronstrue'
 import { Field, FormSpy, Input } from '@dhis2/ui-forms'
-import { getCronPreset } from '../../rootSelectors'
-import { selectors, actions } from '../../data/cron-preset'
-import { ShowCronPresetButton } from '../Buttons'
+import { CronPresetButton } from '../Buttons'
 import { requiredCron, validateCron } from '../../services/validators'
 
 // The key under which this field will be sent to the backend
 export const FIELD_NAME = 'cronExpression'
 export const VALIDATOR = requiredCron
 
-const DumbCronField = ({ cronPreset, clearPreset }) => (
+const CronField = () => (
     <FormSpy subscription={{ values: true }}>
         {({ form, values }) => {
-            let humanReadableCron = ''
             const cronExpression = values[FIELD_NAME]
-
-            // Update the cron expression if a preset has been selected
-            if (cronPreset && cronExpression !== cronPreset) {
-                form.change(FIELD_NAME, cronPreset)
-
-                // Clear the preset to prevent further updates
-                clearPreset()
-            }
-
-            if (cronExpression && validateCron(cronExpression)) {
-                humanReadableCron = cronstrue.toString(cronExpression)
-            }
+            const hasValidCron = cronExpression && validateCron(cronExpression)
 
             return (
                 <React.Fragment>
@@ -38,36 +22,18 @@ const DumbCronField = ({ cronPreset, clearPreset }) => (
                         validate={VALIDATOR}
                         label="CRON Expression"
                         type="text"
-                        helpText={humanReadableCron}
+                        helpText={
+                            hasValidCron && cronstrue.toString(cronExpression)
+                        }
                         required
                     />
-                    <ShowCronPresetButton />
+                    <CronPresetButton
+                        setCron={cron => form.change(FIELD_NAME, cron)}
+                    />
                 </React.Fragment>
             )
         }}
     </FormSpy>
 )
 
-DumbCronField.propTypes = {
-    cronPreset: string.isRequired,
-    clearPreset: func.isRequired,
-}
-
-const mapStateToProps = state => {
-    /* istanbul ignore next */
-    const cronPreset = getCronPreset(state)
-
-    /* istanbul ignore next */
-    return {
-        cronPreset: selectors.getPreset(cronPreset),
-    }
-}
-
-const mapDispatchToProps = {
-    clearPreset: actions.clearPreset,
-}
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(DumbCronField)
+export default CronField

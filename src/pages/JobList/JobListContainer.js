@@ -1,32 +1,18 @@
-import React, { useEffect, useState } from 'react'
-import { object, arrayOf, func, string, bool } from 'prop-types'
-import { connect } from 'react-redux'
+import React, { useState } from 'react'
 import { CircularLoader } from '@dhis2/ui-core'
-import { actions, selectors } from '../../data/jobs'
-import * as rootSelectors from '../../rootSelectors'
+import { selectors, useGetJobs } from '../../hooks/jobs'
 import { AbsoluteCenter } from '../../components/AbsoluteCenter'
 import { FullscreenError } from '../../components/Errors'
+import { RefetchJobsContext } from '../../components/Context'
 import JobList from './JobList'
 
-export const DumbJobListContainer = ({
-    didFetch,
-    isFetching,
-    isDirty,
-    errorMessage,
-    allJobIds,
-    userJobIds,
-    jobEntities,
-    fetchJobsIfNeeded,
-}) => {
-    useEffect(() => {
-        fetchJobsIfNeeded()
-    }, [fetchJobsIfNeeded, isDirty])
-
+const JobListContainer = () => {
+    const { loading, error, data, refetch } = useGetJobs()
     const [showSystemJobs, setShowSystemJobs] = useState(false)
     const [jobFilter, setJobFilter] = useState('')
 
     // Show spinner when there are no jobs to display yet
-    if (!didFetch) {
+    if (loading) {
         return (
             <AbsoluteCenter vertical>
                 <CircularLoader />
@@ -35,9 +21,13 @@ export const DumbJobListContainer = ({
         )
     }
 
-    if (errorMessage) {
-        return <FullscreenError message={errorMessage} />
+    if (error) {
+        return <FullscreenError message={error.message} />
     }
+
+    const allJobIds = selectors.getIds(data)
+    const userJobIds = selectors.getUserJobIds(data)
+    const jobEntities = selectors.getEntities(data)
 
     let jobIds = showSystemJobs ? allJobIds : userJobIds
 
@@ -49,48 +39,18 @@ export const DumbJobListContainer = ({
     })
 
     return (
-        <JobList
-            jobIds={jobIds}
-            jobEntities={jobEntities}
-            isFetching={isFetching}
-            showSystemJobs={showSystemJobs}
-            setShowSystemJobs={setShowSystemJobs}
-            jobFilter={jobFilter}
-            setJobFilter={setJobFilter}
-        />
+        <RefetchJobsContext.Provider value={refetch}>
+            <JobList
+                jobIds={jobIds}
+                jobEntities={jobEntities}
+                isLoading={loading}
+                showSystemJobs={showSystemJobs}
+                setShowSystemJobs={setShowSystemJobs}
+                jobFilter={jobFilter}
+                setJobFilter={setJobFilter}
+            />
+        </RefetchJobsContext.Provider>
     )
 }
 
-DumbJobListContainer.propTypes = {
-    didFetch: bool.isRequired,
-    isFetching: bool.isRequired,
-    isDirty: bool.isRequired,
-    errorMessage: string.isRequired,
-    allJobIds: arrayOf(string).isRequired,
-    userJobIds: arrayOf(string).isRequired,
-    jobEntities: object.isRequired,
-    fetchJobsIfNeeded: func.isRequired,
-}
-
-const mapStateToProps = state => {
-    const jobs = rootSelectors.getJobs(state)
-
-    return {
-        didFetch: selectors.getDidFetch(jobs),
-        isFetching: selectors.getIsFetching(jobs),
-        isDirty: selectors.getIsDirty(jobs),
-        errorMessage: selectors.getErrorMessage(jobs),
-        allJobIds: selectors.getIds(jobs),
-        userJobIds: selectors.getUserJobIds(jobs),
-        jobEntities: selectors.getEntities(jobs),
-    }
-}
-
-const mapDispatchToProps = {
-    fetchJobsIfNeeded: actions.fetchJobsIfNeeded,
-}
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(DumbJobListContainer)
+export default JobListContainer

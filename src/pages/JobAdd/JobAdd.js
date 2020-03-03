@@ -1,5 +1,4 @@
-import React from 'react'
-import { bool, func } from 'prop-types'
+import React, { useState } from 'react'
 import { Card } from '@dhis2/ui-core'
 import { Title } from '../../components/Title'
 import { Arrange } from '../../components/Arrange'
@@ -10,7 +9,9 @@ import { JobFormContainer } from '../../components/Forms'
 const infoLink =
     'https://docs.dhis2.org/master/en/user/html/dataAdmin_scheduling.html#dataAdmin_scheduling_config'
 
-const JobAdd = ({ isPristine, setIsPristine }) => {
+const JobAdd = () => {
+    const [isPristine, setIsPristine] = useState(true)
+
     return (
         <React.Fragment>
             <DiscardFormButton shouldConfirm={!isPristine}>
@@ -27,11 +28,6 @@ const JobAdd = ({ isPristine, setIsPristine }) => {
             </Card>
         </React.Fragment>
     )
-}
-
-JobAdd.propTypes = {
-    isPristine: bool.isRequired,
-    setIsPristine: func.isRequired,
 }
 
 export default JobAdd

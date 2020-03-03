@@ -10,9 +10,6 @@ import {
     Radio,
     RadioGroup,
 } from '@dhis2/ui-core'
-import { connect } from 'react-redux'
-import { actions as modalActions } from '../../data/modal'
-import { actions as presetActions } from '../../data/cron-preset'
 
 const cronPresets = [
     {
@@ -37,7 +34,7 @@ const cronPresets = [
     },
 ]
 
-export const DumbCronPresetModal = ({ setPreset, hideModal }) => {
+const CronPresetModal = ({ setCron, hideModal }) => {
     const [currentPreset, setCurrentPreset] = useState('')
 
     return (
@@ -63,8 +60,8 @@ export const DumbCronPresetModal = ({ setPreset, hideModal }) => {
                         name="insert-preset"
                         disabled={!currentPreset}
                         onClick={() => {
-                            setPreset(currentPreset)
                             hideModal()
+                            setCron(currentPreset)
                         }}
                     >
                         Insert preset
@@ -75,17 +72,9 @@ export const DumbCronPresetModal = ({ setPreset, hideModal }) => {
     )
 }
 
-DumbCronPresetModal.propTypes = {
+CronPresetModal.propTypes = {
     hideModal: func.isRequired,
-    setPreset: func.isRequired,
+    setCron: func.isRequired,
 }
 
-const mapDispatchToProps = {
-    setPreset: presetActions.setPreset,
-    hideModal: modalActions.hideModal,
-}
-
-export default connect(
-    null,
-    mapDispatchToProps
-)(DumbCronPresetModal)
+export default CronPresetModal
