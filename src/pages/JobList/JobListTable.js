@@ -39,8 +39,8 @@ const JobListTable = ({ jobIds, jobEntities }) => (
 )
 
 JobListTable.propTypes = {
-    jobIds: arrayOf(string).isRequired,
     jobEntities: object.isRequired,
+    jobIds: arrayOf(string).isRequired,
 }
 
 export default JobListTable

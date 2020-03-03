@@ -1,34 +1,37 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { arrayOf, string } from 'prop-types'
 import { Field, SingleSelect } from '@dhis2/ui-forms'
-import * as rootSelectors from '../../rootSelectors'
-import { selectors } from '../../data/job-types'
+import { SingleSelectField } from '@dhis2/ui-core'
 import { requiredSingleSelectOption } from '../../services/validators'
+import { useGetJobTypes, selectors } from '../../hooks/job-types'
 
 // The key under which this field will be sent to the backend
 export const FIELD_NAME = 'jobType'
 export const VALIDATOR = requiredSingleSelectOption
 
-export const DumbJobTypeField = ({ jobTypes }) => (
-    <Field
-        name={FIELD_NAME}
-        validate={VALIDATOR}
-        component={SingleSelect}
-        options={jobTypes.map(type => ({ value: type, label: type }))}
-    />
-)
+const JobTypeField = () => {
+    const { loading, error, data } = useGetJobTypes()
 
-DumbJobTypeField.propTypes = {
-    jobTypes: arrayOf(string).isRequired,
-}
-
-const mapStateToProps = state => {
-    const jobTypes = rootSelectors.getJobTypes(state)
-
-    return {
-        jobTypes: selectors.getJobTypes(jobTypes),
+    if (loading) {
+        return <SingleSelectField loading loadingText="Loading job types" />
     }
+
+    if (error) {
+        return <SingleSelectField error helpText={error.message} />
+    }
+
+    const options = selectors.getJobTypes(data).map(type => ({
+        value: type,
+        label: type,
+    }))
+
+    return (
+        <Field
+            name={FIELD_NAME}
+            validate={VALIDATOR}
+            component={SingleSelect}
+            options={options}
+        />
+    )
 }
 
-export default connect(mapStateToProps)(DumbJobTypeField)
+export default JobTypeField

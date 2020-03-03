@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { func, string } from 'prop-types'
+import { useDataEngine } from '@dhis2/app-runtime'
 import {
     Button,
     Modal,
@@ -7,45 +8,47 @@ import {
     ModalActions,
     ButtonStrip,
 } from '@dhis2/ui-core'
-import { connect } from 'react-redux'
-import { actions as modalActions } from '../../data/modal'
-import { actions as jobActions } from '../../data/jobs'
+import { RefetchJobsContext } from '../Context'
 
-export const DumbRunJobModal = ({ id, hideModal, runJob }) => (
-    <Modal open small onClose={hideModal}>
-        <ModalContent>Are you sure you want to run this job?</ModalContent>
-        <ModalActions>
-            <ButtonStrip end>
-                <Button name="hide-modal" secondary onClick={hideModal}>
-                    Cancel
-                </Button>
-                <Button
-                    name={`run-job-${id}`}
-                    primary
-                    onClick={() => {
-                        runJob(id)
-                        hideModal()
-                    }}
-                >
-                    Run
-                </Button>
-            </ButtonStrip>
-        </ModalActions>
-    </Modal>
-)
+const RunJobModal = ({ id, hideModal }) => {
+    const engine = useDataEngine()
+    const query = {
+        jobs: {
+            resource: `jobConfigurations/${id}/execute`,
+        },
+    }
+    const runJob = () => engine.query(query)
+    const refetch = useContext(RefetchJobsContext)
 
-DumbRunJobModal.propTypes = {
-    id: string.isRequired,
+    return (
+        <Modal open small onClose={hideModal}>
+            <ModalContent>Are you sure you want to run this job?</ModalContent>
+            <ModalActions>
+                <ButtonStrip end>
+                    <Button name="hide-modal" secondary onClick={hideModal}>
+                        Cancel
+                    </Button>
+                    <Button
+                        name={`run-job-${id}`}
+                        primary
+                        onClick={() => {
+                            runJob({ id }).then(() => {
+                                hideModal()
+                                refetch()
+                            })
+                        }}
+                    >
+                        Run
+                    </Button>
+                </ButtonStrip>
+            </ModalActions>
+        </Modal>
+    )
+}
+
+RunJobModal.propTypes = {
     hideModal: func.isRequired,
-    runJob: func.isRequired,
+    id: string.isRequired,
 }
 
-const mapDispatchToProps = {
-    runJob: jobActions.runJob,
-    hideModal: modalActions.hideModal,
-}
-
-export default connect(
-    null,
-    mapDispatchToProps
-)(DumbRunJobModal)
+export default RunJobModal

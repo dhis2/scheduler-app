@@ -1,28 +1,29 @@
-import React from 'react'
-import { func, string, bool } from 'prop-types'
-import { connect } from 'react-redux'
+import React, { useContext } from 'react'
+import { string, bool } from 'prop-types'
 import { Switch } from '@dhis2/ui-core'
-import { actions } from '../../data/jobs'
+import { useToggleJob } from '../../hooks/jobs'
+import { RefetchJobsContext } from '../Context'
 
-export const DumbToggleJobSwitch = ({ id, checked, enableJob, disableJob }) => {
-    const toggleJob = checked ? disableJob : enableJob
+const ToggleJobSwitch = ({ id, checked }) => {
+    const [toggleJob, { loading }] = useToggleJob()
+    const refetch = useContext(RefetchJobsContext)
+    const enabled = !checked
 
-    return <Switch checked={checked} onChange={() => toggleJob(id)} />
+    return (
+        <Switch
+            name={`toggle-job-${id}`}
+            disabled={loading}
+            checked={checked}
+            onChange={() => {
+                toggleJob({ id, enabled }).then(() => refetch())
+            }}
+        />
+    )
 }
 
-DumbToggleJobSwitch.propTypes = {
-    id: string.isRequired,
+ToggleJobSwitch.propTypes = {
     checked: bool.isRequired,
-    enableJob: func.isRequired,
-    disableJob: func.isRequired,
+    id: string.isRequired,
 }
 
-const mapDispatchToProps = {
-    enableJob: actions.enableJob,
-    disableJob: actions.disableJob,
-}
-
-export default connect(
-    null,
-    mapDispatchToProps
-)(DumbToggleJobSwitch)
+export default ToggleJobSwitch

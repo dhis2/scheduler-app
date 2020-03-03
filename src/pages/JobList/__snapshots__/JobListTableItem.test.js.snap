@@ -22,7 +22,7 @@ exports[`<JobListTableItem> renders correctly 1`] = `
   <TableCell
     dataTest="dhis2-uicore-tablecell"
   >
-    Monday at 2:48 PM
+    in 10 days
   </TableCell>
   <TableCell
     dataTest="dhis2-uicore-tablecell"
@@ -34,7 +34,7 @@ exports[`<JobListTableItem> renders correctly 1`] = `
   <TableCell
     dataTest="dhis2-uicore-tablecell"
   >
-    <Connect(DumbToggleJobSwitch)
+    <ToggleJobSwitch
       checked={true}
       id="1"
     />

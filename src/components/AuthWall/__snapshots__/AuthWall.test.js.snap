@@ -1,11 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<AuthWall> renders a message for unauthorized users 1`] = `
-<FullscreenError
-  message="You are not authorized"
-/>
-`;
-
 exports[`<AuthWall> renders a spinner when loading 1`] = `
 <AbsoluteCenter
   vertical={true}
@@ -17,14 +11,20 @@ exports[`<AuthWall> renders a spinner when loading 1`] = `
 </AbsoluteCenter>
 `;
 
-exports[`<AuthWall> renders errors if they occur 1`] = `
+exports[`<AuthWall> renders an error message for unauthorized users 1`] = `
+<FullscreenError
+  message="You are not authorized"
+/>
+`;
+
+exports[`<AuthWall> renders fetching errors if they occur 1`] = `
 <FullscreenError
   message="Something went wrong"
 />
 `;
 
-exports[`<AuthWall> renders the children for authorized users 1`] = `
+exports[`<AuthWall> renders the children for users that are authorized 1`] = `
 <Fragment>
-  Children
+  Child
 </Fragment>
 `;

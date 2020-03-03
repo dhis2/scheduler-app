@@ -9,49 +9,59 @@ import styles from './JobList.module.css'
 const JobList = ({
     jobIds,
     jobEntities,
-    isFetching,
+    isLoading,
     showSystemJobs,
     setShowSystemJobs,
     jobFilter,
     setJobFilter,
-}) => (
-    <React.Fragment>
-        <div className={styles.titleContainer}>
-            <h1 className={styles.title}>Scheduled Jobs</h1>
-            <Info />
-        </div>
-        <Card>
-            <div className={styles.controlContainer}>
-                <Input
-                    placeholder="Filter jobs"
-                    onChange={({ value }) => setJobFilter(value)}
-                    value={jobFilter}
-                />
-                <div className={styles.controlRight}>
-                    <Switch
-                        checked={showSystemJobs}
-                        disabled={isFetching}
-                        label="Show system jobs"
-                        onChange={({ checked }) => setShowSystemJobs(checked)}
-                    />
-                    <Button onClick={() => history.push('/add')}>
-                        New job
-                    </Button>
-                </div>
+}) => {
+    return (
+        <React.Fragment>
+            <div className={styles.titleContainer}>
+                <h1 className={styles.title}>Scheduled Jobs</h1>
+                <Info />
             </div>
-            <JobListTable jobIds={jobIds} jobEntities={jobEntities} />
-        </Card>
-    </React.Fragment>
-)
+            <Card>
+                <div className={styles.controlContainer}>
+                    <Input
+                        placeholder="Filter jobs"
+                        onChange={({ value }) => {
+                            setJobFilter(value)
+                        }}
+                        value={jobFilter}
+                    />
+                    <div className={styles.controlRight}>
+                        <Switch
+                            checked={showSystemJobs}
+                            disabled={isLoading}
+                            label="Show system jobs"
+                            onChange={({ checked }) => {
+                                setShowSystemJobs(checked)
+                            }}
+                        />
+                        <Button
+                            onClick={() => {
+                                history.push('/add')
+                            }}
+                        >
+                            New job
+                        </Button>
+                    </div>
+                </div>
+                <JobListTable jobIds={jobIds} jobEntities={jobEntities} />
+            </Card>
+        </React.Fragment>
+    )
+}
 
 JobList.propTypes = {
-    jobIds: arrayOf(string).isRequired,
+    isLoading: bool.isRequired,
     jobEntities: object.isRequired,
-    isFetching: bool.isRequired,
-    showSystemJobs: bool.isRequired,
-    setShowSystemJobs: func.isRequired,
     jobFilter: string.isRequired,
+    jobIds: arrayOf(string).isRequired,
     setJobFilter: func.isRequired,
+    setShowSystemJobs: func.isRequired,
+    showSystemJobs: bool.isRequired,
 }
 
 export default JobList
