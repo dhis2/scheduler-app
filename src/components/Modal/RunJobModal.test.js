@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
-import { DumbRunJobModal as RunJobModal } from './RunJobModal'
+import RunJobModal from './RunJobModal'
 
 describe('<RunJobModal>', () => {
     it('renders correctly', () => {
@@ -24,20 +24,6 @@ describe('<RunJobModal>', () => {
 
         wrapper.find('button[name="hide-modal"]').simulate('click')
 
-        expect(props.hideModal).toHaveBeenCalled()
-    })
-
-    it('calls runJob and hideModal when run button is clicked', () => {
-        const props = {
-            id: 'id',
-            hideModal: jest.fn(),
-            runJob: jest.fn(),
-        }
-        const wrapper = mount(<RunJobModal {...props} />)
-
-        wrapper.find('button[name="run-job-id"]').simulate('click')
-
-        expect(props.runJob).toHaveBeenCalledWith('id')
         expect(props.hideModal).toHaveBeenCalled()
     })
 

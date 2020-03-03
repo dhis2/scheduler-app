@@ -8,7 +8,7 @@ import {
     CronField,
     JobNameField,
     JobTypeField,
-    ParameterCollectionField,
+    ParameterFields,
     fieldNames,
 } from '../FormFields'
 
@@ -21,7 +21,7 @@ const JobForm = ({
 }) => {
     const hasJobType =
         values[fieldNames.JOB_TYPE] && 'value' in values[fieldNames.JOB_TYPE]
-    const jobType = hasJobType ? values[fieldNames.JOB_TYPE].value : undefined
+    const jobType = hasJobType ? values[fieldNames.JOB_TYPE].value : ''
 
     return (
         <form onSubmit={handleSubmit}>
@@ -32,7 +32,7 @@ const JobForm = ({
             <JobNameField />
             <CronField />
             <JobTypeField />
-            <ParameterCollectionField jobType={jobType} />
+            <ParameterFields jobType={jobType} />
             <div>
                 {!!submitError.message && (
                     <InlineError
@@ -60,12 +60,12 @@ JobForm.defaultProps = {
 JobForm.propTypes = {
     handleSubmit: func.isRequired,
     pristine: bool.isRequired,
+    setIsPristine: func.isRequired,
+    values: object.isRequired,
     submitError: shape({
         message: string,
         details: string,
     }),
-    values: object.isRequired,
-    setIsPristine: func.isRequired,
 }
 
 export default JobForm

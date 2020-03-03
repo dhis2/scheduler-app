@@ -1,28 +1,29 @@
-import React from 'react'
-import { func, string } from 'prop-types'
-import { connect } from 'react-redux'
+import React, { useState } from 'react'
+import { string } from 'prop-types'
 import { MenuItem } from '@dhis2/ui-core'
-import { actions } from '../../data/modal'
-import { modalTypes } from '../../components/Modal'
+import { RunJobModal } from '../../components/Modal'
 
-export const DumbRunJobMenuItem = ({ id, showModal }) => (
-    <MenuItem
-        dense
-        onClick={() => showModal({ type: modalTypes.RUN_JOB, props: { id } })}
-        label="Run manually"
-    />
-)
+const RunJobMenuItem = ({ id }) => {
+    const [showModal, setShowModal] = useState(false)
 
-DumbRunJobMenuItem.propTypes = {
+    return (
+        <React.Fragment>
+            <MenuItem
+                dense
+                onClick={() => {
+                    setShowModal(true)
+                }}
+                label="Run manually"
+            />
+            {showModal && (
+                <RunJobModal id={id} hideModal={() => setShowModal(false)} />
+            )}
+        </React.Fragment>
+    )
+}
+
+RunJobMenuItem.propTypes = {
     id: string.isRequired,
-    showModal: func.isRequired,
 }
 
-const mapDispatchToProps = {
-    showModal: actions.showModal,
-}
-
-export default connect(
-    null,
-    mapDispatchToProps
-)(DumbRunJobMenuItem)
+export default RunJobMenuItem

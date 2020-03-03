@@ -1,52 +1,58 @@
 import React from 'react'
-import { shallow, mount } from 'enzyme'
-import { DumbAuthWall as AuthWall } from './AuthWall'
+import { shallow } from 'enzyme'
+import { useGetMe, selectors } from '../../hooks/me'
+import AuthWall from './AuthWall'
 
-const defaultProps = {
-    children: 'Children',
-    didFetch: false,
-    errorMessage: '',
-    isAuthorized: false,
-    fetchMeIfNeeded: () => {},
-}
+jest.mock('../../hooks/me', () => ({
+    useGetMe: jest.fn(),
+    selectors: {
+        getAuthorized: jest.fn(),
+    },
+}))
 
 describe('<AuthWall>', () => {
     it('renders a spinner when loading', () => {
-        const props = { ...defaultProps, didFetch: false }
-        const wrapper = shallow(<AuthWall {...props} />)
+        useGetMe.mockImplementationOnce(() => ({ loading: true }))
+
+        const wrapper = shallow(<AuthWall>Child</AuthWall>)
 
         expect(wrapper).toMatchSnapshot()
     })
 
-    it('renders errors if they occur', () => {
-        const props = {
-            ...defaultProps,
-            didFetch: true,
-            errorMessage: 'Something went wrong',
-        }
-        const wrapper = shallow(<AuthWall {...props} />)
+    it('renders fetching errors if they occur', () => {
+        useGetMe.mockImplementationOnce(() => ({
+            loading: false,
+            error: { message: 'Something went wrong' },
+        }))
+
+        const wrapper = shallow(<AuthWall>Child</AuthWall>)
 
         expect(wrapper).toMatchSnapshot()
     })
 
-    it('renders a message for unauthorized users', () => {
-        const props = { ...defaultProps, didFetch: true, isAuthorized: false }
-        const wrapper = shallow(<AuthWall {...props} />)
+    it('renders an error message for unauthorized users', () => {
+        useGetMe.mockImplementationOnce(() => ({
+            loading: false,
+            error: undefined,
+            data: {},
+        }))
+        selectors.getAuthorized.mockImplementationOnce(() => false)
+
+        const wrapper = shallow(<AuthWall>Child</AuthWall>)
 
         expect(wrapper).toMatchSnapshot()
     })
 
-    it('renders the children for authorized users', () => {
-        const props = { ...defaultProps, didFetch: true, isAuthorized: true }
-        const wrapper = shallow(<AuthWall {...props} />)
+    it('renders the children for users that are authorized', () => {
+        useGetMe.mockImplementationOnce(() => ({
+            loading: false,
+            error: undefined,
+            data: {},
+        }))
+        selectors.getAuthorized.mockImplementationOnce(() => true)
+
+        const wrapper = shallow(<AuthWall>Child</AuthWall>)
 
         expect(wrapper).toMatchSnapshot()
-    })
-
-    it('fetches data on mount', () => {
-        const props = { ...defaultProps, fetchMeIfNeeded: jest.fn() }
-        mount(<AuthWall {...props} />)
-
-        expect(props.fetchMeIfNeeded).toHaveBeenCalled()
     })
 })

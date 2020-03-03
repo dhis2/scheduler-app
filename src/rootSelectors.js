@@ -1,7 +1,0 @@
-export const getMe = state => state.me
-export const getJobs = state => state.jobs
-export const getJobTypes = state => state.jobTypes
-export const getParameterSet = state => state.parameterSet
-export const getParameterList = state => state.parameterList
-export const getModal = state => state.modal
-export const getCronPreset = state => state.cronPreset

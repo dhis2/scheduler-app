@@ -1,27 +1,21 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
-import { DumbRunJobMenuItem } from './RunJobMenuItem'
+import RunJobMenuItem from './RunJobMenuItem'
 
 describe('<RunJobMenuItem>', () => {
     it('renders correctly', () => {
-        const props = {
-            id: 'id',
-            showModal: () => {},
-        }
-        const wrapper = shallow(<DumbRunJobMenuItem {...props} />)
+        const wrapper = shallow(<RunJobMenuItem id="id" />)
 
         expect(wrapper).toMatchSnapshot()
     })
 
-    it('calls showModal when MenuItem is clicked', () => {
-        const props = {
-            id: 'id',
-            showModal: jest.fn(),
-        }
-        const wrapper = mount(<DumbRunJobMenuItem {...props} />)
+    it('shows the modal when MenuItem is clicked', () => {
+        const wrapper = mount(<RunJobMenuItem id="id" />)
+
+        expect(wrapper.find('RunJobModal')).toHaveLength(0)
 
         wrapper.find('a').simulate('click')
 
-        expect(props.showModal).toHaveBeenCalled()
+        expect(wrapper.find('RunJobModal')).toHaveLength(1)
     })
 })

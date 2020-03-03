@@ -1,57 +1,48 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
-import { DumbToggleJobSwitch as ToggleJobSwitch } from './ToggleJobSwitch'
+import { useToggleJob } from '../../hooks/jobs'
+import { RefetchJobsContext } from '../Context'
+import ToggleJobSwitch from './ToggleJobSwitch'
+
+jest.mock('../../hooks/jobs', () => ({
+    useToggleJob: jest.fn(() => [() => {}, {}]),
+}))
 
 describe('<ToggleJobSwitch>', () => {
     it('renders correctly', () => {
-        const enableJob = () => {}
-        const disableJob = () => {}
-        const wrapper = shallow(
-            <ToggleJobSwitch
-                id="1"
-                isFetching={false}
-                checked={true}
-                enableJob={enableJob}
-                disableJob={disableJob}
-            />
-        )
+        const wrapper = shallow(<ToggleJobSwitch id="1" checked={true} />)
 
         expect(wrapper).toMatchSnapshot()
     })
 
-    it('calls enableJob when unchecked and checkbox changes to true', () => {
-        const enableJob = jest.fn()
-        const disableJob = () => {}
+    it('calls toggleJob and refetches when toggle is clicked', async () => {
+        const checked = false
+        const toggle = Promise.resolve()
+        const toggleJobSpy = jest.fn(() => toggle)
+        const refetchSpy = jest.fn(() => {})
+        const props = {
+            id: 'id',
+            checked,
+        }
+
+        useToggleJob.mockImplementationOnce(() => [toggleJobSpy, {}])
+
         const wrapper = mount(
-            <ToggleJobSwitch
-                id="1"
-                isFetching={false}
-                checked={false}
-                enableJob={enableJob}
-                disableJob={disableJob}
-            />
+            <RefetchJobsContext.Provider value={refetchSpy}>
+                <ToggleJobSwitch {...props} />
+            </RefetchJobsContext.Provider>
         )
 
-        wrapper.find('input').simulate('change', { target: { checked: true } })
+        wrapper
+            .find('input[name="toggle-job-id"]')
+            .simulate('change', { target: { checked: !checked } })
 
-        expect(enableJob).toHaveBeenCalledWith('1')
-    })
+        await toggle
 
-    it('calls disableJob when checked and checkbox changes to false', () => {
-        const disableJob = jest.fn()
-        const enableJob = () => {}
-        const wrapper = mount(
-            <ToggleJobSwitch
-                id="1"
-                isFetching={false}
-                checked={true}
-                enableJob={enableJob}
-                disableJob={disableJob}
-            />
-        )
-
-        wrapper.find('input').simulate('change', { target: { checked: false } })
-
-        expect(disableJob).toHaveBeenCalledWith('1')
+        expect(toggleJobSpy).toHaveBeenCalledWith({
+            id: 'id',
+            enabled: !checked,
+        })
+        expect(refetchSpy).toHaveBeenCalled()
     })
 })

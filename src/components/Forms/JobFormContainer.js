@@ -1,9 +1,8 @@
 import React from 'react'
 import { func } from 'prop-types'
 import { FORM_ERROR } from 'final-form'
-import { connect } from 'react-redux'
 import { Form } from '@dhis2/ui-forms'
-import { actions } from '../../data/jobs'
+import { useCreateJob } from '../../hooks/jobs'
 import history from '../../services/history'
 import { fieldNames, validators } from '../FormFields'
 import JobForm from './JobForm'
@@ -11,8 +10,18 @@ import JobForm from './JobForm'
 /**
  * This validation function checks the entire form on submission. It receives an object with the
  * values for each field, with the keys corresponding to the name of the field. To not have these
- * field names all over the app I'm exporting them from the fields themselves.
+ * field names all over the app they're exported from the fields themselves.
  */
+
+const formatValues = ({ job }) => {
+    const { JOB_TYPE } = fieldNames
+    const formatted = {
+        ...job,
+        [JOB_TYPE]: job[JOB_TYPE].value,
+    }
+
+    return { job: formatted }
+}
 
 const validate = values => {
     const { JOB_NAME, JOB_TYPE, CRON } = fieldNames
@@ -35,11 +44,13 @@ const validate = values => {
     return validation
 }
 
-const DumbJobFormContainer = ({ setIsPristine, createJob }) => {
+const JobFormContainer = ({ setIsPristine }) => {
+    const [createJob] = useCreateJob()
+
     const onSubmit = job =>
-        createJob(job)
+        createJob(formatValues({ job }))
             .then(() => history.push('/'))
-            .catch(error => ({ [FORM_ERROR]: error }))
+            .catch(error => ({ [FORM_ERROR]: error.message }))
 
     return (
         <Form
@@ -52,16 +63,8 @@ const DumbJobFormContainer = ({ setIsPristine, createJob }) => {
     )
 }
 
-DumbJobFormContainer.propTypes = {
+JobFormContainer.propTypes = {
     setIsPristine: func.isRequired,
-    createJob: func.isRequired,
 }
 
-const mapDispatchToProps = {
-    createJob: actions.createJob,
-}
-
-export default connect(
-    null,
-    mapDispatchToProps
-)(DumbJobFormContainer)
+export default JobFormContainer

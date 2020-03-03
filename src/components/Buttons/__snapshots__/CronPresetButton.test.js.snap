@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CronPresetButton> renders correctly 1`] = `
+<Fragment>
+  <Button
+    dataTest="dhis2-uicore-button"
+    onClick={[Function]}
+    primary={true}
+    type="button"
+  >
+    Choose from preset times
+  </Button>
+</Fragment>
+`;

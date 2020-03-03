@@ -10,7 +10,7 @@ import JobTypeField, {
     FIELD_NAME as JOB_TYPE,
     VALIDATOR as JOB_TYPE_VALIDATOR,
 } from './JobTypeField'
-import ParameterCollectionField from './ParameterCollectionField'
+import ParameterFields from './ParameterFields'
 
 const fieldNames = {
     JOB_NAME,
@@ -28,7 +28,7 @@ export {
     JobNameField,
     CronField,
     JobTypeField,
-    ParameterCollectionField,
+    ParameterFields,
     fieldNames,
     validators,
 }
