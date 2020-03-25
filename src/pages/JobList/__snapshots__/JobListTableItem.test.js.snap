@@ -22,7 +22,10 @@ exports[`<JobListTableItem> renders correctly 1`] = `
   <TableCell
     dataTest="dhis2-uicore-tablecell"
   >
-    in 10 days
+    <JobNextRun
+      enabled={true}
+      nextExecutionTime="2100-10-10T14:48:00"
+    />
   </TableCell>
   <TableCell
     dataTest="dhis2-uicore-tablecell"
