@@ -2,9 +2,6 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import JobListTableItem from './JobListTableItem'
 
-// Return a fixed relative time when fromNow is called
-jest.mock('moment', () => () => ({ fromNow: () => 'in 10 days' }))
-
 describe('<JobListTableItem>', () => {
     it('renders correctly', () => {
         const job = {
