@@ -51,16 +51,32 @@ exports[`<JobListTable> renders correctly when there are jobs 1`] = `
     <JobListTableItem
       job={
         Object {
-          "cronExpression": "",
-          "displayName": "",
+          "cronExpression": "0 0 * ? * *",
+          "displayName": "Name",
           "enabled": true,
           "id": "1",
-          "jobStatus": "",
-          "jobType": "",
-          "nextExecutionTime": "",
+          "jobStatus": "ENABLED",
+          "jobType": "Type",
+          "nextExecutionTime": "2100-10-10T14:48:00",
+          "schedulingType": "CRON",
         }
       }
       key="1"
+    />
+    <JobListTableItem
+      job={
+        Object {
+          "delay": 6000,
+          "displayName": "Name",
+          "enabled": true,
+          "id": "2",
+          "jobStatus": "ENABLED",
+          "jobType": "Type",
+          "nextExecutionTime": "",
+          "schedulingType": "FIXED_DELAY",
+        }
+      }
+      key="2"
     />
   </TableBody>
 </Table>

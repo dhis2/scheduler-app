@@ -5,7 +5,7 @@ import { Button } from '@dhis2/ui-core'
 import { InlineError } from '../Errors'
 import { DiscardFormButton } from '../Buttons'
 import {
-    CronField,
+    ScheduleField,
     JobNameField,
     JobTypeField,
     ParameterFields,
@@ -19,6 +19,7 @@ const JobForm = ({
     values,
     setIsPristine,
 }) => {
+    // Check if there's currently a selected job type
     const hasJobType =
         values[fieldNames.JOB_TYPE] && 'value' in values[fieldNames.JOB_TYPE]
     const jobType = hasJobType ? values[fieldNames.JOB_TYPE].value : ''
@@ -30,9 +31,9 @@ const JobForm = ({
                 onChange={({ pristine }) => setIsPristine(pristine)}
             />
             <JobNameField />
-            <CronField />
             <JobTypeField />
-            <ParameterFields jobType={jobType} />
+            {jobType && <ScheduleField jobType={jobType} />}
+            {jobType && <ParameterFields jobType={jobType} />}
             <div>
                 {!!submitError.message && (
                     <InlineError

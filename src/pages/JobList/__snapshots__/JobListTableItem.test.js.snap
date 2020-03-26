@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<JobListTableItem> renders correctly 1`] = `
+exports[`<JobListTableItem> renders cron jobs correctly 1`] = `
 <TableRow
   dataTest="dhis2-uicore-tablerow"
 >
@@ -17,7 +17,10 @@ exports[`<JobListTableItem> renders correctly 1`] = `
   <TableCell
     dataTest="dhis2-uicore-tablecell"
   >
-    Every hour
+    <JobSchedule
+      cronExpression="0 0 * ? * *"
+      schedulingType="CRON"
+    />
   </TableCell>
   <TableCell
     dataTest="dhis2-uicore-tablecell"
@@ -25,6 +28,61 @@ exports[`<JobListTableItem> renders correctly 1`] = `
     <JobNextRun
       enabled={true}
       nextExecutionTime="2100-10-10T14:48:00"
+    />
+  </TableCell>
+  <TableCell
+    dataTest="dhis2-uicore-tablecell"
+  >
+    <JobStatus
+      status="ENABLED"
+    />
+  </TableCell>
+  <TableCell
+    dataTest="dhis2-uicore-tablecell"
+  >
+    <ToggleJobSwitch
+      checked={true}
+      id="1"
+    />
+  </TableCell>
+  <TableCell
+    dataTest="dhis2-uicore-tablecell"
+  >
+    <JobListActions
+      id="1"
+    />
+  </TableCell>
+</TableRow>
+`;
+
+exports[`<JobListTableItem> renders fixed delay jobs correctly 1`] = `
+<TableRow
+  dataTest="dhis2-uicore-tablerow"
+>
+  <TableCell
+    dataTest="dhis2-uicore-tablecell"
+  >
+    Name
+  </TableCell>
+  <TableCell
+    dataTest="dhis2-uicore-tablecell"
+  >
+    Type
+  </TableCell>
+  <TableCell
+    dataTest="dhis2-uicore-tablecell"
+  >
+    <JobSchedule
+      delay={6000}
+      schedulingType="FIXED_DELAY"
+    />
+  </TableCell>
+  <TableCell
+    dataTest="dhis2-uicore-tablecell"
+  >
+    <JobNextRun
+      enabled={true}
+      nextExecutionTime=""
     />
   </TableCell>
   <TableCell
