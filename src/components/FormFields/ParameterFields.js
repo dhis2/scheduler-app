@@ -15,10 +15,6 @@ const FIELD_NAME = 'jobParameters'
 const ParameterFields = ({ jobType }) => {
     const { loading, error, data } = useGetJobTypes()
 
-    if (!jobType) {
-        return null
-    }
-
     if (loading) {
         return <span>Loading</span>
     }
@@ -35,6 +31,7 @@ const ParameterFields = ({ jobType }) => {
             key: name,
             name: `${FIELD_NAME}.${name}`,
         }
+        const endpoint = selectors.getParameterEndpoint(relativeApiEndpoint)
 
         switch (klass) {
             case 'java.lang.String':
@@ -55,7 +52,7 @@ const ParameterFields = ({ jobType }) => {
                 return (
                     <UnlabeledOptionsField
                         {...defaultProps}
-                        endpoint={relativeApiEndpoint}
+                        endpoint={endpoint}
                     />
                 )
             case 'java.util.List':
@@ -63,7 +60,7 @@ const ParameterFields = ({ jobType }) => {
                     <LabeledOptionsField
                         {...defaultProps}
                         parameterName={name}
-                        endpoint={relativeApiEndpoint}
+                        endpoint={endpoint}
                     />
                 )
             default:
