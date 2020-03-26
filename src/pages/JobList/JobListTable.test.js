@@ -4,16 +4,27 @@ import JobListTable from './JobListTable'
 
 describe('<JobListTable>', () => {
     it('renders correctly when there are jobs', () => {
-        const jobIds = ['1']
+        const jobIds = ['1', '2']
         const jobEntities = {
             1: {
-                id: '1',
-                displayName: '',
-                jobType: '',
-                cronExpression: '',
-                jobStatus: '',
-                nextExecutionTime: '',
+                cronExpression: '0 0 * ? * *',
+                displayName: 'Name',
                 enabled: true,
+                id: '1',
+                jobStatus: 'ENABLED',
+                jobType: 'Type',
+                nextExecutionTime: '2100-10-10T14:48:00',
+                schedulingType: 'CRON',
+            },
+            2: {
+                delay: 6000,
+                displayName: 'Name',
+                enabled: true,
+                id: '2',
+                jobStatus: 'ENABLED',
+                jobType: 'Type',
+                nextExecutionTime: '',
+                schedulingType: 'FIXED_DELAY',
             },
         }
         const wrapper = shallow(

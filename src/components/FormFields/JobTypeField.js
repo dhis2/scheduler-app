@@ -2,7 +2,7 @@ import React from 'react'
 import { Field, SingleSelect } from '@dhis2/ui-forms'
 import { SingleSelectField } from '@dhis2/ui-core'
 import { requiredSingleSelectOption } from '../../services/validators'
-import { useGetJobTypes, selectors } from '../../hooks/job-types'
+import { useGetJobTypes } from '../../hooks/job-types'
 
 // The key under which this field will be sent to the backend
 export const FIELD_NAME = 'jobType'
@@ -19,9 +19,9 @@ const JobTypeField = () => {
         return <SingleSelectField error helpText={error.message} />
     }
 
-    const options = selectors.getJobTypes(data).map(type => ({
-        value: type,
-        label: type,
+    const options = data.map(({ jobType, name }) => ({
+        value: jobType,
+        label: name,
     }))
 
     return (
@@ -30,6 +30,8 @@ const JobTypeField = () => {
             validate={VALIDATOR}
             component={SingleSelect}
             options={options}
+            label="Job type"
+            required
         />
     )
 }
