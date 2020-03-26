@@ -2,7 +2,7 @@ import moment from 'moment'
 import { string, bool } from 'prop-types'
 
 const JobNextRun = ({ nextExecutionTime, enabled }) => {
-    if (!enabled) {
+    if (!enabled || !nextExecutionTime) {
         return '-'
     }
 
@@ -31,7 +31,7 @@ const JobNextRun = ({ nextExecutionTime, enabled }) => {
 
 JobNextRun.propTypes = {
     enabled: bool.isRequired,
-    nextExecutionTime: string.isRequired,
+    nextExecutionTime: string,
 }
 
 export default JobNextRun
