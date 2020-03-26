@@ -2,15 +2,15 @@ import { useDataQuery } from '@dhis2/app-runtime'
 
 const query = {
     jobTypes: {
-        resource: 'jobConfigurations/jobTypesExtended',
+        resource: 'jobConfigurations/jobTypes',
     },
 }
 
 const useGetJobTypes = () => {
     const { loading, error, data, refetch } = useDataQuery(query)
 
-    if (data && data.jobTypes) {
-        return { loading, error, refetch, data: data.jobTypes }
+    if (data && data.jobTypes && data.jobTypes.jobTypes) {
+        return { loading, error, refetch, data: data.jobTypes.jobTypes }
     }
 
     return { loading, error, refetch, data }
@@ -22,15 +22,11 @@ export default useGetJobTypes
  * Selectors
  */
 
-export const getJobTypes = jobTypes => {
-    return Object.keys(jobTypes)
-}
-
 /**
- * Returns the parameter and cleans up the endpoint for use with the data engine
+ * Cleans up the endpoint for use with the data engine
  */
 
-const formatEndpoint = endpoint => {
+export const getParameterEndpoint = endpoint => {
     if (!endpoint || !endpoint.startsWith('/api/')) {
         return endpoint
     }
@@ -39,14 +35,12 @@ const formatEndpoint = endpoint => {
     return endpoint.slice(5)
 }
 
-export const getJobTypeParameter = (jobTypes, jobType, parameterName) => {
-    const job = jobTypes[jobType]
-    const parameter = job[parameterName]
+/**
+ * Find a jobType object by the jobType string
+ */
 
-    return {
-        ...parameter,
-        relativeApiEndpoint: formatEndpoint(parameter.relativeApiEndpoint),
-    }
+export const getJobTypeObject = (jobTypes, jobType) => {
+    return jobTypes.find(job => job.jobType === jobType)
 }
 
 /**
@@ -54,9 +48,12 @@ export const getJobTypeParameter = (jobTypes, jobType, parameterName) => {
  */
 
 export const getJobTypeParameters = (jobTypes, jobType) => {
-    const parameterNames = Object.keys(jobTypes[jobType])
+    const selectedJobType = getJobTypeObject(jobTypes, jobType)
+    const hasParameters = 'jobParameters' in selectedJobType
 
-    return parameterNames.map(parameterName =>
-        getJobTypeParameter(jobTypes, jobType, parameterName)
-    )
+    if (!hasParameters) {
+        return []
+    }
+
+    return selectedJobType.jobParameters
 }
