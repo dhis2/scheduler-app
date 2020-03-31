@@ -1,7 +1,8 @@
 import React from 'react'
-import cronstrue from 'cronstrue'
 import { Field, FormSpy, Input } from '@dhis2/ui-forms'
+import i18n from '@dhis2/d2-i18n'
 import { CronPresetButton } from '../Buttons'
+import { HumanReadableCron } from '../Cron'
 import { requiredCron, validateCron } from '../../services/validators'
 
 // The key under which this field will be sent to the backend
@@ -20,10 +21,14 @@ const CronField = () => (
                         component={Input}
                         name={FIELD_NAME}
                         validate={VALIDATOR}
-                        label="CRON Expression"
+                        label={i18n.t('CRON Expression')}
                         type="text"
                         helpText={
-                            hasValidCron && cronstrue.toString(cronExpression)
+                            hasValidCron && (
+                                <HumanReadableCron
+                                    cronExpression={cronExpression}
+                                />
+                            )
                         }
                         required
                     />

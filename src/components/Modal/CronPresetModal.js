@@ -10,26 +10,27 @@ import {
     Radio,
     RadioGroup,
 } from '@dhis2/ui-core'
+import i18n from '@dhis2/d2-i18n'
 
 const cronPresets = [
     {
-        label: 'Every hour',
+        label: i18n.t('Every hour'),
         value: '0 0 * ? * *',
     },
     {
-        label: 'Every day at midnight',
+        label: i18n.t('Every day at midnight'),
         value: '0 0 1 ? * *',
     },
     {
-        label: 'Every day at 3 am',
+        label: i18n.t('Every day at 3 am'),
         value: '0 0 3 ? * *',
     },
     {
-        label: 'Every day at noon',
+        label: i18n.t('Every day at noon'),
         value: '0 0 12 ? * MON-FRI',
     },
     {
-        label: 'Every week',
+        label: i18n.t('Every week'),
         value: '0 0 3 ? * MON',
     },
 ]
@@ -39,7 +40,7 @@ const CronPresetModal = ({ setCron, hideModal }) => {
 
     return (
         <Modal open small onClose={hideModal}>
-            <ModalTitle>Choose a preset time/interval</ModalTitle>
+            <ModalTitle>{i18n.t('Choose a preset time/interval')}</ModalTitle>
             <ModalContent>
                 <RadioGroup
                     onChange={({ value }) => setCurrentPreset(value)}
@@ -53,7 +54,7 @@ const CronPresetModal = ({ setCron, hideModal }) => {
             <ModalActions>
                 <ButtonStrip end>
                     <Button secondary onClick={hideModal} name="hide-modal">
-                        Cancel
+                        {i18n.t('Cancel')}
                     </Button>
                     <Button
                         primary
@@ -64,7 +65,7 @@ const CronPresetModal = ({ setCron, hideModal }) => {
                             setCron(currentPreset)
                         }}
                     >
-                        Insert preset
+                        {i18n.t('Insert preset')}
                     </Button>
                 </ButtonStrip>
             </ModalActions>

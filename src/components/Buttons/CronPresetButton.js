@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { func } from 'prop-types'
 import { Button } from '@dhis2/ui-core'
+import i18n from '@dhis2/d2-i18n'
 import { CronPresetModal } from '../Modal'
 
 const CronPresetButton = ({ setCron }) => {
@@ -9,7 +10,7 @@ const CronPresetButton = ({ setCron }) => {
     return (
         <React.Fragment>
             <Button primary onClick={() => setShowModal(true)}>
-                Choose from preset times
+                {i18n.t('Choose from preset times')}
             </Button>
             {showModal && (
                 <CronPresetModal

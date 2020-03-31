@@ -8,6 +8,7 @@ import {
     ModalActions,
     ButtonStrip,
 } from '@dhis2/ui-core'
+import i18n from '@dhis2/d2-i18n'
 import { RefetchJobsContext } from '../Context'
 
 const RunJobModal = ({ id, hideModal }) => {
@@ -22,11 +23,13 @@ const RunJobModal = ({ id, hideModal }) => {
 
     return (
         <Modal open small onClose={hideModal}>
-            <ModalContent>Are you sure you want to run this job?</ModalContent>
+            <ModalContent>
+                {i18n.t('Are you sure you want to run this job?')}
+            </ModalContent>
             <ModalActions>
                 <ButtonStrip end>
                     <Button name="hide-modal" secondary onClick={hideModal}>
-                        Cancel
+                        {i18n.t('Cancel')}
                     </Button>
                     <Button
                         name={`run-job-${id}`}
@@ -38,7 +41,7 @@ const RunJobModal = ({ id, hideModal }) => {
                             })
                         }}
                     >
-                        Run
+                        {i18n.t('Run')}
                     </Button>
                 </ButtonStrip>
             </ModalActions>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { string } from 'prop-types'
 import { MenuItem } from '@dhis2/ui-core'
+import i18n from '@dhis2/d2-i18n'
 import { RunJobModal } from '../../components/Modal'
 
 const RunJobMenuItem = ({ id }) => {
@@ -13,7 +14,7 @@ const RunJobMenuItem = ({ id }) => {
                 onClick={() => {
                     setShowModal(true)
                 }}
-                label="Run manually"
+                label={i18n.t('Run manually')}
             />
             {showModal && (
                 <RunJobModal id={id} hideModal={() => setShowModal(false)} />

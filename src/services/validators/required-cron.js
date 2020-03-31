@@ -1,3 +1,4 @@
+import i18n from '@dhis2/d2-i18n'
 import validateCron from './validate-cron'
 
 const requiredCron = value => {
@@ -5,11 +6,11 @@ const requiredCron = value => {
     const isFilled = isString && value.length > 0
 
     if (!isFilled) {
-        return 'A CRON expression is required'
+        return i18n.t('A CRON expression is required')
     }
 
     if (!validateCron(value)) {
-        return 'Please enter a valid CRON expression'
+        return i18n.t('Please enter a valid CRON expression')
     }
 
     return undefined

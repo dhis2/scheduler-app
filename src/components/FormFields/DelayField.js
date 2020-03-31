@@ -7,16 +7,17 @@ import {
     integer,
     createNumberRange,
 } from '@dhis2/ui-forms'
+import i18n from '@dhis2/d2-i18n'
 
-const LOWER_BOUND = 1
-const UPPER_BOUND = 86400
+const lowerBound = 1
+const upperBound = 86400
 
 // The key under which this field will be sent to the backend
 export const FIELD_NAME = 'delay'
 export const VALIDATOR = composeValidators(
     integer,
     hasValue,
-    createNumberRange(LOWER_BOUND, UPPER_BOUND)
+    createNumberRange(lowerBound, upperBound)
 )
 
 const DelayField = () => (
@@ -24,9 +25,15 @@ const DelayField = () => (
         component={Input}
         name={FIELD_NAME}
         validate={VALIDATOR}
-        label="Delay"
+        label={i18n.t('Delay')}
         type="number"
-        helpText={`Delay in seconds (${LOWER_BOUND} - ${UPPER_BOUND})`}
+        helpText={i18n.t(
+            'Delay in seconds ({{ lowerBound }} - {{ upperBound }})',
+            {
+                lowerBound,
+                upperBound,
+            }
+        )}
         required
     />
 )

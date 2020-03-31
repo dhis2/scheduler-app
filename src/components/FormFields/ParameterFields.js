@@ -1,6 +1,7 @@
 import React from 'react'
 import { string } from 'prop-types'
 import { Field, Input, Switch } from '@dhis2/ui-forms'
+import i18n from '@dhis2/d2-i18n'
 import { useGetJobTypes, selectors } from '../../hooks/job-types'
 import UnlabeledOptionsField from './UnlabeledOptionsField'
 import LabeledOptionsField from './LabeledOptionsField'
@@ -16,7 +17,7 @@ const ParameterFields = ({ jobType }) => {
     const { loading, error, data } = useGetJobTypes()
 
     if (loading) {
-        return <span>Loading</span>
+        return <span>{i18n.t('Loading')}</span>
     }
 
     if (error) {

@@ -1,20 +1,22 @@
 import React from 'react'
 import { string } from 'prop-types'
 import { Tag } from '@dhis2/ui-core'
+import { jobStatusMap } from '../../services/server-translations'
 
 const JobStatus = ({ status }) => {
     switch (status) {
         case 'STOPPED':
         case 'DISABLED':
-            return <Tag>{status}</Tag>
+            return <Tag>{jobStatusMap[status]}</Tag>
         case 'RUNNING':
         case 'NOT_STARTED':
         case 'SCHEDULED':
-            return <Tag neutral>{status}</Tag>
+            return <Tag neutral>{jobStatusMap[status]}</Tag>
         case 'FAILED':
-            return <Tag negative>{status}</Tag>
+            return <Tag negative>{jobStatusMap[status]}</Tag>
         case 'DONE':
-            return <Tag positive>{status}</Tag>
+            return <Tag positive>{jobStatusMap[status]}</Tag>
+        // Unrecognised status
         default:
             return null
     }

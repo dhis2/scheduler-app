@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { string } from 'prop-types'
 import { Button } from '@dhis2/ui-core'
+import i18n from '@dhis2/d2-i18n'
 import { DeleteJobModal } from '../Modal'
 
 const DeleteJobButton = ({ id }) => {
@@ -9,7 +10,7 @@ const DeleteJobButton = ({ id }) => {
     return (
         <React.Fragment>
             <Button destructive onClick={() => setShowModal(true)}>
-                Delete
+                {i18n.t('Delete')}
             </Button>
             {showModal && (
                 <DeleteJobModal id={id} hideModal={() => setShowModal(false)} />
