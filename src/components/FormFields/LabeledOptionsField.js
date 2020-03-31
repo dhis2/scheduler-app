@@ -2,6 +2,7 @@ import React from 'react'
 import { string } from 'prop-types'
 import { MultiSelectField } from '@dhis2/ui-core'
 import { Field, MultiSelect } from '@dhis2/ui-forms'
+import i18n from '@dhis2/d2-i18n'
 import { useGetLabeledOptions } from '../../hooks/parameter-options'
 
 /**
@@ -28,7 +29,7 @@ const LabeledOptionsField = ({ endpoint, label, name, parameterName }) => {
         return (
             <MultiSelectField
                 disabled
-                helpText="No options available"
+                helpText={i18n.t('No options available')}
                 label={label}
             />
         )

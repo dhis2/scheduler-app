@@ -1,4 +1,6 @@
-const invalidOptionMessage = 'Please select an option'
+import i18n from '@dhis2/d2-i18n'
+
+const invalidOptionMessage = i18n.t('Please select an option')
 
 const requiredSingleSelectOption = value => {
     const isObject = typeof value === 'object'

@@ -12,7 +12,7 @@ exports[`<JobListTableItem> renders cron jobs correctly 1`] = `
   <TableCell
     dataTest="dhis2-uicore-tablecell"
   >
-    Type
+    Send scheduled message
   </TableCell>
   <TableCell
     dataTest="dhis2-uicore-tablecell"
@@ -67,7 +67,7 @@ exports[`<JobListTableItem> renders fixed delay jobs correctly 1`] = `
   <TableCell
     dataTest="dhis2-uicore-tablecell"
   >
-    Type
+    Continuous analytics table
   </TableCell>
   <TableCell
     dataTest="dhis2-uicore-tablecell"

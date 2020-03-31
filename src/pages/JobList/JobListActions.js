@@ -1,6 +1,7 @@
 import React from 'react'
 import { string } from 'prop-types'
 import { Menu, DropdownButton } from '@dhis2/ui-core'
+import i18n from '@dhis2/d2-i18n'
 import EditJobMenuItem from './EditJobMenuItem'
 import RunJobMenuItem from './RunJobMenuItem'
 import DeleteJobMenuItem from './DeleteJobMenuItem'
@@ -16,7 +17,7 @@ const JobListActions = ({ id }) => (
             </Menu>
         }
     >
-        Actions
+        {i18n.t('Actions')}
     </DropdownButton>
 )
 
