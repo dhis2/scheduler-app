@@ -1,12 +1,14 @@
-import cronstrue from 'cronstrue'
+import React from 'react'
 import { string, number } from 'prop-types'
+import i18n from '@dhis2/d2-i18n'
+import { HumanReadableCron } from '../../components/Cron'
 
 const JobSchedule = ({ cronExpression, schedulingType, delay }) => {
     switch (schedulingType) {
         case 'CRON':
-            return cronstrue.toString(cronExpression)
+            return <HumanReadableCron cronExpression={cronExpression} />
         case 'FIXED_DELAY':
-            return delay + ' seconds after last run'
+            return i18n.t('{{ delay }} seconds after last run', { delay })
         default:
             // Unrecognised or invalid type
             return '-'

@@ -6,6 +6,7 @@ import {
     hasValue,
     string,
 } from '@dhis2/ui-forms'
+import i18n from '@dhis2/d2-i18n'
 
 // The key under which this field will be sent to the backend
 export const FIELD_NAME = 'name'
@@ -16,7 +17,7 @@ const JobNameField = () => (
         name={FIELD_NAME}
         component={Input}
         validate={VALIDATOR}
-        label="Name"
+        label={i18n.t('Name')}
         type="text"
         required
     />

@@ -2,7 +2,6 @@
 
 exports[`<App> renders correctly 1`] = `
 <Fragment>
-  <CssReset />
   <CssVariables
     colors={false}
     elevations={false}
