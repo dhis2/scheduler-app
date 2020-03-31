@@ -7,11 +7,14 @@ import {
     ModalActions,
     ButtonStrip,
 } from '@dhis2/ui-core'
+import i18n from '@dhis2/d2-i18n'
 import history from '../../services/history'
 
 const DiscardFormModal = ({ hideModal }) => (
     <Modal open small onClose={hideModal}>
-        <ModalContent>Are you sure you want to discard this form?</ModalContent>
+        <ModalContent>
+            {i18n.t('Are you sure you want to discard this form?')}
+        </ModalContent>
         <ModalActions>
             <ButtonStrip end>
                 <Button
@@ -19,7 +22,7 @@ const DiscardFormModal = ({ hideModal }) => (
                     secondary
                     onClick={hideModal}
                 >
-                    Cancel
+                    {i18n.t('Cancel')}
                 </Button>
                 <Button
                     name="discard-form"
@@ -29,7 +32,7 @@ const DiscardFormModal = ({ hideModal }) => (
                         history.push('/')
                     }}
                 >
-                    Discard
+                    {i18n.t('Discard')}
                 </Button>
             </ButtonStrip>
         </ModalActions>

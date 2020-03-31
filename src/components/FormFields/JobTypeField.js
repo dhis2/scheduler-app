@@ -1,7 +1,9 @@
 import React from 'react'
 import { Field, SingleSelect } from '@dhis2/ui-forms'
 import { SingleSelectField } from '@dhis2/ui-core'
+import i18n from '@dhis2/d2-i18n'
 import { requiredSingleSelectOption } from '../../services/validators'
+import { jobTypesMap } from '../../services/server-translations'
 import { useGetJobTypes } from '../../hooks/job-types'
 
 // The key under which this field will be sent to the backend
@@ -12,16 +14,21 @@ const JobTypeField = () => {
     const { loading, error, data } = useGetJobTypes()
 
     if (loading) {
-        return <SingleSelectField loading loadingText="Loading job types" />
+        return (
+            <SingleSelectField
+                loading
+                loadingText={i18n.t('Loading job types')}
+            />
+        )
     }
 
     if (error) {
         return <SingleSelectField error helpText={error.message} />
     }
 
-    const options = data.map(({ jobType, name }) => ({
+    const options = data.map(({ jobType }) => ({
         value: jobType,
-        label: name,
+        label: jobTypesMap[jobType],
     }))
 
     return (
@@ -30,7 +37,7 @@ const JobTypeField = () => {
             validate={VALIDATOR}
             component={SingleSelect}
             options={options}
-            label="Job type"
+            label={i18n.t('Job type')}
             required
         />
     )

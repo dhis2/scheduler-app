@@ -2,6 +2,7 @@ import React from 'react'
 import { object, bool, func, shape, string } from 'prop-types'
 import { FormSpy } from '@dhis2/ui-forms'
 import { Button } from '@dhis2/ui-core'
+import i18n from '@dhis2/d2-i18n'
 import { InlineError } from '../Errors'
 import { DiscardFormButton } from '../Buttons'
 import {
@@ -44,10 +45,10 @@ const JobForm = ({
             </div>
             <div>
                 <Button primary type="submit" disabled={pristine}>
-                    Save job
+                    {i18n.t('Save job')}
                 </Button>
                 <DiscardFormButton shouldConfirm={!pristine}>
-                    Cancel
+                    {i18n.t('Cancel')}
                 </DiscardFormButton>
             </div>
         </form>

@@ -1,6 +1,7 @@
 import React from 'react'
 import { func, bool, object, arrayOf, string } from 'prop-types'
 import { Card, Switch, Input, Button } from '@dhis2/ui-core'
+import i18n from '@dhis2/d2-i18n'
 import { Info } from '../../components/Icons'
 import history from '../../services/history'
 import JobListTable from './JobListTable'
@@ -18,13 +19,13 @@ const JobList = ({
     return (
         <React.Fragment>
             <div className={styles.titleContainer}>
-                <h1 className={styles.title}>Scheduled Jobs</h1>
+                <h1 className={styles.title}>{i18n.t('Scheduled jobs')}</h1>
                 <Info />
             </div>
             <Card>
                 <div className={styles.controlContainer}>
                     <Input
-                        placeholder="Filter jobs"
+                        placeholder={i18n.t('Filter jobs')}
                         onChange={({ value }) => {
                             setJobFilter(value)
                         }}
@@ -34,7 +35,7 @@ const JobList = ({
                         <Switch
                             checked={showSystemJobs}
                             disabled={isLoading}
-                            label="Show system jobs"
+                            label={i18n.t('Show system jobs')}
                             onChange={({ checked }) => {
                                 setShowSystemJobs(checked)
                             }}
@@ -44,7 +45,7 @@ const JobList = ({
                                 history.push('/add')
                             }}
                         >
-                            New job
+                            {i18n.t('New job')}
                         </Button>
                     </div>
                 </div>

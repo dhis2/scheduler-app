@@ -1,5 +1,5 @@
 import { useDataQuery } from '@dhis2/app-runtime'
-import useGetMe, { getAuthorized } from './use-get-me.js'
+import useGetMe, { getAuthorized } from './use-get-me'
 
 jest.mock('@dhis2/app-runtime', () => ({
     useDataQuery: jest.fn(),

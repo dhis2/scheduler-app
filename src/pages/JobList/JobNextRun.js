@@ -1,5 +1,6 @@
 import moment from 'moment'
 import { string, bool } from 'prop-types'
+import i18n from '@dhis2/d2-i18n'
 
 const JobNextRun = ({ nextExecutionTime, enabled }) => {
     if (!enabled || !nextExecutionTime) {
@@ -23,7 +24,7 @@ const JobNextRun = ({ nextExecutionTime, enabled }) => {
      */
 
     if (nextRunIsInPast) {
-        return 'Not scheduled'
+        return i18n.t('Not scheduled')
     }
 
     return now.to(nextRun)

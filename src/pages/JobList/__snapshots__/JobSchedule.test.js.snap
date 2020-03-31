@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<JobSchedule> renders a human readable cron for the CRON scheduling type 1`] = `
+<HumanReadableCron
+  cronExpression="cronExpression"
+/>
+`;

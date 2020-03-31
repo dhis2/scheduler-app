@@ -9,25 +9,26 @@ import {
     TableCellHead,
     TableBody,
 } from '@dhis2/ui-core'
+import i18n from '@dhis2/d2-i18n'
 import JobListTableItem from './JobListTableItem'
 
 const JobListTable = ({ jobIds, jobEntities }) => (
     <Table>
         <TableHead>
             <TableRowHead>
-                <TableCellHead>Job name</TableCellHead>
-                <TableCellHead>Type</TableCellHead>
-                <TableCellHead>Schedule</TableCellHead>
-                <TableCellHead>Next run</TableCellHead>
-                <TableCellHead>Status</TableCellHead>
-                <TableCellHead>On/off</TableCellHead>
+                <TableCellHead>{i18n.t('Job name')}</TableCellHead>
+                <TableCellHead>{i18n.t('Type')}</TableCellHead>
+                <TableCellHead>{i18n.t('Schedule')}</TableCellHead>
+                <TableCellHead>{i18n.t('Next run')}</TableCellHead>
+                <TableCellHead>{i18n.t('Status')}</TableCellHead>
+                <TableCellHead>{i18n.t('On/off')}</TableCellHead>
                 <TableCellHead />
             </TableRowHead>
         </TableHead>
         <TableBody>
             {jobIds.length === 0 ? (
                 <TableRow>
-                    <TableCell>No jobs to display</TableCell>
+                    <TableCell>{i18n.t('No jobs to display')}</TableCell>
                 </TableRow>
             ) : (
                 jobIds.map(id => (
