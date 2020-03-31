@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Card } from '@dhis2/ui-core'
+import i18n from '@dhis2/d2-i18n'
 import { Title } from '../../components/Title'
 import { Arrange } from '../../components/Arrange'
 import { DiscardFormButton } from '../../components/Buttons'
@@ -15,14 +16,14 @@ const JobAdd = () => {
     return (
         <React.Fragment>
             <DiscardFormButton shouldConfirm={!isPristine}>
-                Back to all jobs
+                {i18n.t('Back to all jobs')}
             </DiscardFormButton>
-            <Title priority={2}>New Job</Title>
+            <Title priority={2}>{i18n.t('New Job')}</Title>
             <Card>
                 <Arrange>
-                    <Title priority={3}>Configuration</Title>
+                    <Title priority={3}>{i18n.t('Configuration')}</Title>
                     <Info />
-                    <a href={infoLink}>About job configuration</a>
+                    <a href={infoLink}>{i18n.t('About job configuration')}</a>
                 </Arrange>
                 <JobFormContainer setIsPristine={setIsPristine} />
             </Card>

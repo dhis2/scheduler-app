@@ -10,9 +10,7 @@ exports[`<InlineError> renders correctly 1`] = `
     Something went wrong
   </Title>
   <p>
-    The error message was: "
-    Error
-    "
+    The error message was: Error
   </p>
   <Title
     priority={2}

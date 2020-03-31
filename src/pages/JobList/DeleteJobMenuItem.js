@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { string } from 'prop-types'
 import { MenuItem } from '@dhis2/ui-core'
+import i18n from '@dhis2/d2-i18n'
 import { DeleteJobModal } from '../../components/Modal'
 
 const DeleteJobMenuItem = ({ id }) => {
@@ -14,7 +15,7 @@ const DeleteJobMenuItem = ({ id }) => {
                 onClick={() => {
                     setShowModal(true)
                 }}
-                label="Delete"
+                label={i18n.t('Delete')}
             />
             {showModal && (
                 <DeleteJobModal id={id} hideModal={() => setShowModal(false)} />

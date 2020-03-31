@@ -1,6 +1,7 @@
 import React from 'react'
 import { node } from 'prop-types'
 import { CircularLoader } from '@dhis2/ui-core'
+import i18n from '@dhis2/d2-i18n'
 import { useGetMe, selectors } from '../../hooks/me'
 import { AbsoluteCenter } from '../AbsoluteCenter'
 import { FullscreenError } from '../Errors'
@@ -12,7 +13,7 @@ const AuthWall = ({ children }) => {
         return (
             <AbsoluteCenter vertical>
                 <CircularLoader />
-                Checking permissions
+                {i18n.t('Checking permissions')}
             </AbsoluteCenter>
         )
     }
@@ -24,7 +25,7 @@ const AuthWall = ({ children }) => {
     const isAuthorized = selectors.getAuthorized(data)
 
     if (!isAuthorized) {
-        return <FullscreenError message={'You are not authorized'} />
+        return <FullscreenError message={i18n.t('You are not authorized')} />
     }
 
     return <React.Fragment>{children}</React.Fragment>

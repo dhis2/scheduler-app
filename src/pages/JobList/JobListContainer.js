@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { CircularLoader } from '@dhis2/ui-core'
+import i18n from '@dhis2/d2-i18n'
 import { selectors, useGetJobs } from '../../hooks/jobs'
 import { AbsoluteCenter } from '../../components/AbsoluteCenter'
 import { FullscreenError } from '../../components/Errors'
@@ -16,7 +17,7 @@ const JobListContainer = () => {
         return (
             <AbsoluteCenter vertical>
                 <CircularLoader />
-                Loading jobs
+                {i18n.t('Loading jobs')}
             </AbsoluteCenter>
         )
     }

@@ -17,6 +17,7 @@
     },
     "dependencies": {
         "@dhis2/app-runtime": "^2.1.0",
+        "@dhis2/d2-i18n": "^1.0.6",
         "@dhis2/ui-core": "^4.14.0",
         "@dhis2/ui-forms": "^1.0.1",
         "@dhis2/ui-widgets": "^1.0.6",
@@ -44,7 +45,8 @@
         "stylelint-no-unsupported-browser-features": "^3.0.2"
     },
     "resolutions": {
-        "@dhis2/ui-core": "^4.14.0"
+        "@dhis2/ui-core": "^4.14.0",
+        "@dhis2/d2-i18n": "^1.0.6"
     },
     "husky": {
         "hooks": {

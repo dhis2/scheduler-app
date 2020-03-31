@@ -7,7 +7,7 @@ describe('<JobListTableItem>', () => {
         const job = {
             id: '1',
             displayName: 'Name',
-            jobType: 'Type',
+            jobType: 'SEND_SCHEDULED_MESSAGE',
             cronExpression: '0 0 * ? * *',
             jobStatus: 'ENABLED',
             nextExecutionTime: '2100-10-10T14:48:00',
@@ -23,7 +23,7 @@ describe('<JobListTableItem>', () => {
         const job = {
             id: '1',
             displayName: 'Name',
-            jobType: 'Type',
+            jobType: 'CONTINUOUS_ANALYTICS_TABLE',
             jobStatus: 'ENABLED',
             nextExecutionTime: '',
             enabled: true,
