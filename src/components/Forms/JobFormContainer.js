@@ -1,5 +1,5 @@
 import React from 'react'
-import { func } from 'prop-types'
+import { func } from '@dhis2/prop-types'
 import { FORM_ERROR } from 'final-form'
 import { Form } from '@dhis2/ui-forms'
 import { useCreateJob } from '../../hooks/jobs'

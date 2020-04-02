@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { string } from 'prop-types'
+import { string } from '@dhis2/prop-types'
 import { MenuItem } from '@dhis2/ui-core'
 import i18n from '@dhis2/d2-i18n'
 import { RunJobModal } from '../../components/Modal'

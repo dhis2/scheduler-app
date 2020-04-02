@@ -1,5 +1,5 @@
 import React from 'react'
-import { object, arrayOf, string } from 'prop-types'
+import { object, arrayOf, string } from '@dhis2/prop-types'
 import {
     Table,
     TableHead,

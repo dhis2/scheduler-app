@@ -1,5 +1,5 @@
 import React from 'react'
-import { string, oneOf } from 'prop-types'
+import { string, oneOf } from '@dhis2/prop-types'
 
 const Title = ({ children, priority }) => {
     const Heading = `h${priority}`
