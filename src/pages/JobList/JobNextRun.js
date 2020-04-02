@@ -1,5 +1,5 @@
 import moment from 'moment'
-import { string, bool } from 'prop-types'
+import { string, bool } from '@dhis2/prop-types'
 import i18n from '@dhis2/d2-i18n'
 
 const JobNextRun = ({ nextExecutionTime, enabled }) => {

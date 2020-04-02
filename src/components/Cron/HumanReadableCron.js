@@ -1,4 +1,4 @@
-import { string } from 'prop-types'
+import { string } from '@dhis2/prop-types'
 import cronstrue from 'cronstrue/i18n'
 import { useGetUserSettings, selectors } from '../../hooks/user-settings'
 
