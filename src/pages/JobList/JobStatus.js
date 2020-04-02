@@ -1,5 +1,5 @@
 import React from 'react'
-import { string } from 'prop-types'
+import { string } from '@dhis2/prop-types'
 import { Tag } from '@dhis2/ui-core'
 import { jobStatusMap } from '../../services/server-translations'
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { string, arrayOf } from 'prop-types'
+import { string, arrayOf } from '@dhis2/prop-types'
 import i18n from '@dhis2/d2-i18n'
 import { Title } from '../Title'
 import styles from './InlineError.module.css'
