@@ -1,5 +1,5 @@
 import React from 'react'
-import { node } from 'prop-types'
+import { node } from '@dhis2/prop-types'
 import { CircularLoader } from '@dhis2/ui-core'
 import i18n from '@dhis2/d2-i18n'
 import { useGetMe, selectors } from '../../hooks/me'

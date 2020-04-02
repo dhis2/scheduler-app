@@ -1,5 +1,5 @@
 import React from 'react'
-import { node } from 'prop-types'
+import { node } from '@dhis2/prop-types'
 import styles from './ArrangeFit.module.css'
 
 /**

@@ -1,5 +1,5 @@
 import React from 'react'
-import { node, bool } from 'prop-types'
+import { node, bool } from '@dhis2/prop-types'
 import styles from './AbsoluteCenter.module.css'
 
 /**

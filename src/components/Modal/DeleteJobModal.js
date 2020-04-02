@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { func, string } from 'prop-types'
+import { func, string } from '@dhis2/prop-types'
 import {
     Button,
     Modal,

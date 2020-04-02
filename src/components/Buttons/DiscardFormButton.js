@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { string, bool } from 'prop-types'
+import { string, bool } from '@dhis2/prop-types'
 import { Button } from '@dhis2/ui-core'
 import history from '../../services/history'
 import { DiscardFormModal } from '../Modal'

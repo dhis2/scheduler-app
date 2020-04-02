@@ -1,5 +1,5 @@
 import React from 'react'
-import { object, bool, func, shape, string } from 'prop-types'
+import { object, bool, func, shape, string } from '@dhis2/prop-types'
 import { FormSpy } from '@dhis2/ui-forms'
 import { Button } from '@dhis2/ui-core'
 import i18n from '@dhis2/d2-i18n'

@@ -1,5 +1,5 @@
 import React from 'react'
-import { bool, shape, string, number } from 'prop-types'
+import { bool, shape, string, number } from '@dhis2/prop-types'
 import { TableRow, TableCell } from '@dhis2/ui-core'
 import { jobTypesMap } from '../../services/server-translations'
 import { ToggleJobSwitch } from '../../components/Switches'
