@@ -1,5 +1,5 @@
 import React from 'react'
-import { func } from 'prop-types'
+import { func } from '@dhis2/prop-types'
 import {
     Button,
     Modal,
