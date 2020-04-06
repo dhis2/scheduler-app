@@ -19,18 +19,18 @@ describe('<AuthWall>', () => {
         expect(wrapper).toMatchSnapshot()
     })
 
-    it('renders fetching errors if they occur', () => {
+    it('throws fetching errors if they occur', () => {
+        const props = { children: 'Child' }
+        const error = new Error('Something went wrong')
         useGetMe.mockImplementationOnce(() => ({
             loading: false,
-            error: { message: 'Something went wrong' },
+            error,
         }))
 
-        const wrapper = shallow(<AuthWall>Child</AuthWall>)
-
-        expect(wrapper).toMatchSnapshot()
+        expect(() => AuthWall(props)).toThrow(error)
     })
 
-    it('renders an error message for unauthorized users', () => {
+    it('redirects unauthorized users', () => {
         useGetMe.mockImplementationOnce(() => ({
             loading: false,
             error: undefined,

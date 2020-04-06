@@ -3,7 +3,7 @@ import { object, bool, func, shape, string } from '@dhis2/prop-types'
 import { FormSpy } from '@dhis2/ui-forms'
 import { Button } from '@dhis2/ui-core'
 import i18n from '@dhis2/d2-i18n'
-import { InlineError } from '../Errors'
+import { NoticeBox } from '../NoticeBox'
 import { DiscardFormButton } from '../Buttons'
 import {
     ScheduleField,
@@ -35,14 +35,11 @@ const JobForm = ({
             <JobTypeField />
             {jobType && <ScheduleField jobType={jobType} />}
             {jobType && <ParameterFields jobType={jobType} />}
-            <div>
-                {!!submitError.message && (
-                    <InlineError
-                        message={submitError.message}
-                        details={submitError.details}
-                    />
-                )}
-            </div>
+            {!!submitError.message && (
+                <NoticeBox error title={submitError.message}>
+                    {submitError.details}
+                </NoticeBox>
+            )}
             <div>
                 <Button primary type="submit" disabled={pristine}>
                     {i18n.t('Save job')}

@@ -3,16 +3,14 @@
 exports[`<App> renders correctly 1`] = `
 <Fragment>
   <CssVariables
-    colors={false}
+    colors={true}
     elevations={false}
     layers={false}
     spacers={true}
     theme={false}
   />
   <PageWrapper>
-    <AuthWall>
-      <Routes />
-    </AuthWall>
+    <Routes />
   </PageWrapper>
 </Fragment>
 `;

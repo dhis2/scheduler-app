@@ -1,26 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<AuthWall> redirects unauthorized users 1`] = `
+<Redirect
+  push={true}
+  to="/notauthorized"
+/>
+`;
+
 exports[`<AuthWall> renders a spinner when loading 1`] = `
-<AbsoluteCenter
-  vertical={true}
+<ScreenCover
+  dataTest="dhis2-uicore-screencover"
+  position="middle"
 >
-  <CircularLoader
-    dataTest="dhis2-uicore-circularloader"
-  />
+  <div>
+    <CircularLoader
+      dataTest="dhis2-uicore-circularloader"
+    />
+  </div>
   Checking permissions
-</AbsoluteCenter>
-`;
-
-exports[`<AuthWall> renders an error message for unauthorized users 1`] = `
-<FullscreenError
-  message="You are not authorized"
-/>
-`;
-
-exports[`<AuthWall> renders fetching errors if they occur 1`] = `
-<FullscreenError
-  message="Something went wrong"
-/>
+</ScreenCover>
 `;
 
 exports[`<AuthWall> renders the children for users that are authorized 1`] = `
