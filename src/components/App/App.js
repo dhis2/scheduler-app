@@ -2,16 +2,13 @@ import React from 'react'
 import { CssVariables } from '@dhis2/ui-core'
 import { Routes } from '../Routes'
 import { PageWrapper } from '../PageWrapper'
-import { AuthWall } from '../AuthWall'
 import './App.css'
 
 const App = () => (
     <React.Fragment>
-        <CssVariables spacers />
+        <CssVariables spacers colors />
         <PageWrapper>
-            <AuthWall>
-                <Routes />
-            </AuthWall>
+            <Routes />
         </PageWrapper>
     </React.Fragment>
 )
