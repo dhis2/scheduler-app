@@ -5,25 +5,16 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-04-01T08:43:39.898Z\n"
-"PO-Revision-Date: 2020-04-01T08:43:39.898Z\n"
+"POT-Creation-Date: 2020-04-13T13:03:25.890Z\n"
+"PO-Revision-Date: 2020-04-13T13:03:25.890Z\n"
 
 msgid "Checking permissions"
-msgstr ""
-
-msgid "You are not authorized"
 msgstr ""
 
 msgid "Choose from preset times"
 msgstr ""
 
 msgid "Delete"
-msgstr ""
-
-msgid "Something went wrong"
-msgstr ""
-
-msgid "The error message was"
 msgstr ""
 
 msgid "CRON Expression"
@@ -152,28 +143,31 @@ msgstr ""
 msgid "{{ delay }} seconds after last run"
 msgstr ""
 
-msgid "Stopped"
+msgid "Run manually"
+msgstr ""
+
+msgid "You are not authorized"
 msgstr ""
 
 msgid "Disabled"
 msgstr ""
 
-msgid "Running"
-msgstr ""
-
-msgid "Not started"
-msgstr ""
-
-msgid "Scheduled"
+msgid "Done"
 msgstr ""
 
 msgid "Failed"
 msgstr ""
 
-msgid "Done"
+msgid "Not started"
 msgstr ""
 
-msgid "Run manually"
+msgid "Running"
+msgstr ""
+
+msgid "Scheduled"
+msgstr ""
+
+msgid "Stopped"
 msgstr ""
 
 msgid "Analytics table"
@@ -185,13 +179,13 @@ msgstr ""
 msgid "Credentials expiry alert"
 msgstr ""
 
+msgid "Data integrity"
+msgstr ""
+
 msgid "Dataset notification"
 msgstr ""
 
 msgid "Data statistics"
-msgstr ""
-
-msgid "Data integrity"
 msgstr ""
 
 msgid "Data sync"
@@ -230,7 +224,7 @@ msgstr ""
 msgid "Tracker programs data sync"
 msgstr ""
 
-msgid "Validation result notification"
+msgid "Validation results notification"
 msgstr ""
 
 msgid "A CRON expression is required"

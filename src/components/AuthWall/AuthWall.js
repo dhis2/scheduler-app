@@ -1,31 +1,36 @@
 import React from 'react'
 import { node } from '@dhis2/prop-types'
-import { CircularLoader } from '@dhis2/ui-core'
+import { Redirect } from 'react-router-dom'
+import { CircularLoader, ScreenCover } from '@dhis2/ui-core'
 import i18n from '@dhis2/d2-i18n'
 import { useGetMe, selectors } from '../../hooks/me'
-import { AbsoluteCenter } from '../AbsoluteCenter'
-import { FullscreenError } from '../Errors'
 
 const AuthWall = ({ children }) => {
     const { loading, error, data } = useGetMe()
 
     if (loading) {
         return (
-            <AbsoluteCenter vertical>
-                <CircularLoader />
+            <ScreenCover>
+                <div>
+                    <CircularLoader />
+                </div>
                 {i18n.t('Checking permissions')}
-            </AbsoluteCenter>
+            </ScreenCover>
         )
     }
 
     if (error) {
-        return <FullscreenError message={error.message} />
+        /**
+         * The app can't continue if this fails, because it doesn't
+         * know if the user is authorized, so throw the error.
+         */
+        throw error
     }
 
     const isAuthorized = selectors.getAuthorized(data)
 
     if (!isAuthorized) {
-        return <FullscreenError message={i18n.t('You are not authorized')} />
+        return <Redirect push to="/notauthorized" />
     }
 
     return <React.Fragment>{children}</React.Fragment>
