@@ -23,18 +23,24 @@ exports[`<Routes> renders correctly 1`] = `
     }
   }
 >
+  <AuthWall>
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/"
+    />
+    <Route
+      component={[Function]}
+      path="/edit/:id"
+    />
+    <Route
+      component={[Function]}
+      path="/add"
+    />
+  </AuthWall>
   <Route
     component={[Function]}
-    exact={true}
-    path="/"
-  />
-  <Route
-    component={[Function]}
-    path="/edit/:id"
-  />
-  <Route
-    component={[Function]}
-    path="/add"
+    path="/notauthorized"
   />
 </Router>
 `;

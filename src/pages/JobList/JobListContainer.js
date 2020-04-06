@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
-import { CircularLoader } from '@dhis2/ui-core'
+import { CircularLoader, ScreenCover } from '@dhis2/ui-core'
 import i18n from '@dhis2/d2-i18n'
 import { selectors, useGetJobs } from '../../hooks/jobs'
-import { AbsoluteCenter } from '../../components/AbsoluteCenter'
-import { FullscreenError } from '../../components/Errors'
 import { RefetchJobsContext } from '../../components/Context'
 import JobList from './JobList'
 
@@ -15,15 +13,22 @@ const JobListContainer = () => {
     // Show spinner when there are no jobs to display yet
     if (loading) {
         return (
-            <AbsoluteCenter vertical>
-                <CircularLoader />
+            <ScreenCover>
+                <div>
+                    <CircularLoader />
+                </div>
                 {i18n.t('Loading jobs')}
-            </AbsoluteCenter>
+            </ScreenCover>
         )
     }
 
     if (error) {
-        return <FullscreenError message={error.message} />
+        /**
+         * If we don't have any data to render this route is
+         * useless, so throw the error and let the user know
+         * they should refresh.
+         */
+        throw error
     }
 
     const allJobIds = selectors.getIds(data)
