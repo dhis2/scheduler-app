@@ -1,46 +1,41 @@
 import React from 'react'
-import { ReactFinalForm, InputFieldFF } from '@dhis2/ui'
+import { Box, ReactFinalForm, InputFieldFF } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
+import { useHumanReadableCron } from '../../hooks/human-readable-cron'
+import { requiredCron } from '../../services/validators'
 import { CronPresetButton } from '../Buttons'
-import { HumanReadableCron } from '../Cron'
-import { requiredCron, validateCron } from '../../services/validators'
 
-const { Field, FormSpy } = ReactFinalForm
+const { Field, useFormState, useForm } = ReactFinalForm
 
 // The key under which this field will be sent to the backend
-export const FIELD_NAME = 'cronExpression'
-export const VALIDATOR = requiredCron
+const FIELD_NAME = 'cronExpression'
+const VALIDATOR = requiredCron
 
-const CronField = () => (
-    <FormSpy subscription={{ values: true }}>
-        {({ form, values }) => {
-            const cronExpression = values[FIELD_NAME]
-            const hasValidCron = cronExpression && validateCron(cronExpression)
+const CronField = () => {
+    const form = useForm()
+    const { values } = useFormState({ subscription: { values: true } })
+    const cronExpression = values[FIELD_NAME]
+    const helpText = useHumanReadableCron(cronExpression)
 
-            return (
-                <React.Fragment>
-                    <Field
-                        component={InputFieldFF}
-                        name={FIELD_NAME}
-                        validate={VALIDATOR}
-                        label={i18n.t('CRON Expression')}
-                        type="text"
-                        helpText={
-                            hasValidCron && (
-                                <HumanReadableCron
-                                    cronExpression={cronExpression}
-                                />
-                            )
-                        }
-                        required
-                    />
-                    <CronPresetButton
-                        setCron={cron => form.change(FIELD_NAME, cron)}
-                    />
-                </React.Fragment>
-            )
-        }}
-    </FormSpy>
-)
+    return (
+        <React.Fragment>
+            <Field
+                component={InputFieldFF}
+                name={FIELD_NAME}
+                validate={VALIDATOR}
+                label={i18n.t('CRON Expression')}
+                type="text"
+                helpText={helpText}
+                required
+            />
+            <Box marginTop="8px">
+                <CronPresetButton
+                    setCron={cron => form.change(FIELD_NAME, cron)}
+                    small
+                />
+            </Box>
+        </React.Fragment>
+    )
+}
 
 export default CronField

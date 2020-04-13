@@ -9,6 +9,12 @@ describe('<CronPresetButton>', () => {
         expect(wrapper).toMatchSnapshot()
     })
 
+    it('renders small correctly', () => {
+        const wrapper = shallow(<CronPresetButton setCron={() => {}} small />)
+
+        expect(wrapper).toMatchSnapshot()
+    })
+
     it('shows the modal when button is clicked', () => {
         const wrapper = mount(<CronPresetButton setCron={() => {}} />)
 
