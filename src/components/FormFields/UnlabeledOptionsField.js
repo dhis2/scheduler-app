@@ -22,7 +22,11 @@ const UnlabeledOptionsField = ({ endpoint, label, name }) => {
     }
 
     if (error) {
-        return <MultiSelectField error helpText={error.message} label={label} />
+        /**
+         * We need these values, so throw the error if they
+         * can't be loaded.
+         */
+        throw error
     }
 
     if (data.length === 0) {

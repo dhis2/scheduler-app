@@ -1,6 +1,5 @@
 import React from 'react'
 import { PropTypes } from '@dhis2/prop-types'
-import i18n from '@dhis2/d2-i18n'
 import { useGetJobTypes, selectors } from '../../hooks/job-types'
 import CronField from './CronField'
 import DelayField from './DelayField'
@@ -9,11 +8,15 @@ const ScheduleField = ({ jobType }) => {
     const { loading, error, data } = useGetJobTypes()
 
     if (loading) {
-        return <span>{i18n.t('Loading job types')}</span>
+        return null
     }
 
     if (error) {
-        return <span>{error.message}</span>
+        /**
+         * We need the jobtypes, so throw the error if these
+         * can't be loaded.
+         */
+        throw error
     }
 
     const currentJob = selectors.getJobTypeObject(data, jobType)
