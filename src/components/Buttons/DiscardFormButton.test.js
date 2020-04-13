@@ -16,6 +16,26 @@ describe('<DiscardFormButton>', () => {
         expect(wrapper).toMatchSnapshot()
     })
 
+    it('renders small correctly', () => {
+        const wrapper = shallow(
+            <DiscardFormButton shouldConfirm={false} small>
+                Discard
+            </DiscardFormButton>
+        )
+
+        expect(wrapper).toMatchSnapshot()
+    })
+
+    it('applies className correctly', () => {
+        const wrapper = shallow(
+            <DiscardFormButton shouldConfirm={false} className="className">
+                Discard
+            </DiscardFormButton>
+        )
+
+        expect(wrapper).toMatchSnapshot()
+    })
+
     it('shows the modal when it should confirm and button is clicked', () => {
         const wrapper = mount(
             <DiscardFormButton shouldConfirm>Discard</DiscardFormButton>

@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-04-30T08:35:39.556Z\n"
-"PO-Revision-Date: 2020-04-30T08:35:39.556Z\n"
+"POT-Creation-Date: 2020-06-25T09:59:16.015Z\n"
+"PO-Revision-Date: 2020-06-25T09:59:16.015Z\n"
 
 msgid "Checking permissions"
 msgstr ""
@@ -17,13 +17,16 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
+msgid "Something went wrong whilst creating your job"
+msgstr ""
+
 msgid "CRON Expression"
 msgstr ""
 
 msgid "Delay"
 msgstr ""
 
-msgid "Delay in seconds ({{ lowerBound }} - {{ upperBound }})"
+msgid "Delay in seconds ({{ LOWERBOUND }} - {{ UPPERBOUND }})"
 msgstr ""
 
 msgid "Name"
@@ -36,9 +39,6 @@ msgid "Job type"
 msgstr ""
 
 msgid "No options available"
-msgstr ""
-
-msgid "Loading"
 msgstr ""
 
 msgid "Save job"

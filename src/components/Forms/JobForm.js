@@ -1,8 +1,9 @@
 import React from 'react'
 import { PropTypes } from '@dhis2/prop-types'
-import { Button, ReactFinalForm, NoticeBox } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
+import { Button, CircularLoader, Box, ReactFinalForm } from '@dhis2/ui'
 import { DiscardFormButton } from '../Buttons'
+import { FormErrorBox } from '../FormErrorBox'
 import {
     ScheduleField,
     JobNameField,
@@ -10,36 +11,60 @@ import {
     ParameterFields,
     fieldNames,
 } from '../FormFields'
+import styles from './JobForm.module.css'
 
-const { FormSpy } = ReactFinalForm
+const { useForm } = ReactFinalForm
 
 const JobForm = ({
     handleSubmit,
     pristine,
+    submitting,
     submitError,
+    hasSubmitErrors,
     values,
     setIsPristine,
 }) => {
+    // Lift pristine state up on changes
+    const { subscribe } = useForm()
+    subscribe(({ pristine }) => setIsPristine(pristine), { pristine: true })
+
     // Check if there's currently a selected job type
     const jobType = values[fieldNames.JOB_TYPE]
 
+    // Show a spinner only when submitting
+    const Spinner = submitting ? <CircularLoader small /> : null
+
     return (
         <form onSubmit={handleSubmit}>
-            <FormSpy
-                subscription={{ pristine: true }}
-                onChange={({ pristine }) => setIsPristine(pristine)}
-            />
-            <JobNameField />
-            <JobTypeField />
-            {jobType && <ScheduleField jobType={jobType} />}
-            {jobType && <ParameterFields jobType={jobType} />}
-            {!!submitError.message && (
-                <NoticeBox error title={submitError.message}>
-                    {submitError.details}
-                </NoticeBox>
+            <Box maxWidth="600px">
+                <JobNameField />
+            </Box>
+            <Box marginTop="16px" maxWidth="400px">
+                <JobTypeField />
+            </Box>
+            {jobType && (
+                <Box marginTop="16px" maxWidth="400px">
+                    <ScheduleField jobType={jobType} />
+                </Box>
             )}
-            <div>
-                <Button primary type="submit" disabled={pristine}>
+            {jobType && (
+                <Box marginTop="32px" maxWidth="400px">
+                    <ParameterFields jobType={jobType} />
+                </Box>
+            )}
+            {hasSubmitErrors && (
+                <Box marginTop="32px" maxWidth="600px">
+                    <FormErrorBox submitError={submitError} />
+                </Box>
+            )}
+            <div className={styles.formButtonContainer}>
+                <Button
+                    primary
+                    type="submit"
+                    disabled={pristine || submitting}
+                    icon={Spinner}
+                    className={styles.saveButton}
+                >
                     {i18n.t('Save job')}
                 </Button>
                 <DiscardFormButton shouldConfirm={!pristine}>
@@ -50,21 +75,20 @@ const JobForm = ({
     )
 }
 
-JobForm.defaultProps = {
-    submitError: {},
-}
+const { func, bool, object, array } = PropTypes
 
-const { func, bool, object, shape, string } = PropTypes
+JobForm.defaultProps = {
+    submitError: [],
+}
 
 JobForm.propTypes = {
     handleSubmit: func.isRequired,
+    hasSubmitErrors: bool.isRequired,
     pristine: bool.isRequired,
     setIsPristine: func.isRequired,
+    submitting: bool.isRequired,
     values: object.isRequired,
-    submitError: shape({
-        details: string,
-        message: string,
-    }),
+    submitError: array,
 }
 
 export default JobForm
