@@ -1,3 +1,3 @@
-import Info from './Info'
+import InfoIcon from './InfoIcon'
 
-export { Info }
+export { InfoIcon }

@@ -1,14 +1,19 @@
-.titleContainer {
+.header {
     display: flex;
     align-items: center;
-    margin: var(--spacers-dp32) 0 var(--spacers-dp12);
+    margin-bottom: var(--spacers-dp12);
 }
 
-.title {
+.headerTitle {
     font-size: 18px;
     font-weight: 400;
     line-height: 1;
     margin: 0 var(--spacers-dp4) 0 0;
+}
+
+.headerIcon {
+    width: 16px;
+    height: 16px;
 }
 
 .controlContainer {

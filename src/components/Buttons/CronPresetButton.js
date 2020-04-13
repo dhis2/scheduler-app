@@ -4,12 +4,12 @@ import { Button } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
 import { CronPresetModal } from '../Modal'
 
-const CronPresetButton = ({ setCron }) => {
+const CronPresetButton = ({ setCron, small }) => {
     const [showModal, setShowModal] = useState(false)
 
     return (
         <React.Fragment>
-            <Button primary onClick={() => setShowModal(true)}>
+            <Button onClick={() => setShowModal(true)} small={small}>
                 {i18n.t('Choose from preset times')}
             </Button>
             {showModal && (
@@ -22,10 +22,15 @@ const CronPresetButton = ({ setCron }) => {
     )
 }
 
-const { func } = PropTypes
+CronPresetButton.defaultProps = {
+    small: false,
+}
+
+const { func, bool } = PropTypes
 
 CronPresetButton.propTypes = {
     setCron: func.isRequired,
+    small: bool,
 }
 
 export default CronPresetButton

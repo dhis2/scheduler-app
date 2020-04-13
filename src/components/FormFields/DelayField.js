@@ -11,15 +11,16 @@ import i18n from '@dhis2/d2-i18n'
 
 const { Field } = ReactFinalForm
 
-const lowerBound = 1
-const upperBound = 86400
+// Omitting the underscore here since it messes up i18n
+const LOWERBOUND = 1
+const UPPERBOUND = 86400
 
 // The key under which this field will be sent to the backend
 const FIELD_NAME = 'delay'
 const VALIDATOR = composeValidators(
     integer,
     hasValue,
-    createNumberRange(lowerBound, upperBound)
+    createNumberRange(LOWERBOUND, UPPERBOUND)
 )
 
 const DelayField = () => (
@@ -30,10 +31,10 @@ const DelayField = () => (
         label={i18n.t('Delay')}
         type="number"
         helpText={i18n.t(
-            'Delay in seconds ({{ lowerBound }} - {{ upperBound }})',
+            'Delay in seconds ({{ LOWERBOUND }} - {{ UPPERBOUND }})',
             {
-                lowerBound,
-                upperBound,
+                LOWERBOUND,
+                UPPERBOUND,
             }
         )}
         required
