@@ -16,10 +16,10 @@
         "format:css": "prettier './src/**/*.css' --write"
     },
     "dependencies": {
-        "@dhis2/app-runtime": "^2.1.2",
+        "@dhis2/app-runtime": "^2.2.2",
         "@dhis2/d2-i18n": "^1.0.6",
-        "@dhis2/prop-types": "^2.0.0",
-        "@dhis2/ui": "^5.0.3",
+        "@dhis2/prop-types": "2.0.0",
+        "@dhis2/ui": "^5.0.5",
         "cronstrue": "^1.82.0",
         "history": "^4.9.0",
         "moment": "^2.24.0",
@@ -43,8 +43,7 @@
         "stylelint-no-unsupported-browser-features": "^3.0.2"
     },
     "resolutions": {
-        "@dhis2/prop-types": "^1.6.4",
-        "@dhis2/app-runtime": "^2.1.2",
+        "@dhis2/app-runtime": "^2.2.2",
         "@dhis2/d2-i18n": "^1.0.6"
     },
     "husky": {

@@ -1,3 +1,3 @@
-import JobAdd from './JobAdd'
+import JobAddContainer from './JobAddContainer'
 
-export { JobAdd }
+export { JobAddContainer }

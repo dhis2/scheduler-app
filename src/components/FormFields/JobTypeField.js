@@ -15,7 +15,7 @@ const { Field } = ReactFinalForm
 
 // The key under which this field will be sent to the backend
 export const FIELD_NAME = 'jobType'
-export const VALIDATOR = composeValidators(string, hasValue)
+const VALIDATOR = composeValidators(string, hasValue)
 
 const JobTypeField = () => {
     const { loading, error, data } = useGetJobTypes()
@@ -25,12 +25,18 @@ const JobTypeField = () => {
             <SingleSelectField
                 loading
                 loadingText={i18n.t('Loading job types')}
+                label={i18n.t('Job type')}
+                required
             />
         )
     }
 
     if (error) {
-        return <SingleSelectField error helpText={error.message} />
+        /**
+         * We need the jobtypes, so throw the error if these
+         * can't be loaded.
+         */
+        throw error
     }
 
     const options = data.map(({ jobType }) => ({

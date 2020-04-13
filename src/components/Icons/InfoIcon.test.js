@@ -1,10 +1,10 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import Info from './Info'
+import InfoIcon from './InfoIcon'
 
-describe('<Info>', () => {
+describe('<InfoIcon>', () => {
     it('renders correctly', () => {
-        const wrapper = shallow(<Info />)
+        const wrapper = shallow(<InfoIcon />)
 
         expect(wrapper).toMatchSnapshot()
     })

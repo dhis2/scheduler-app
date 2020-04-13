@@ -11,8 +11,8 @@ import i18n from '@dhis2/d2-i18n'
 const { Field } = ReactFinalForm
 
 // The key under which this field will be sent to the backend
-export const FIELD_NAME = 'name'
-export const VALIDATOR = composeValidators(string, hasValue)
+const FIELD_NAME = 'name'
+const VALIDATOR = composeValidators(string, hasValue)
 
 const JobNameField = () => (
     <Field
