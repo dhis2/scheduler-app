@@ -2,9 +2,7 @@ const { config } = require('@dhis2/cli-style')
 
 module.exports = {
     root: true,
-    plugins: [
-        "react-hooks"
-    ],
+    plugins: ['react-hooks'],
     extends: [
         config.eslintReact,
         'plugin:import/errors',
@@ -13,10 +11,22 @@ module.exports = {
         'plugin:compat/recommended',
     ],
     rules: {
-        'compat/compat': 1,
+        'compat/compat': 'warn',
         'import/order': ['error', { 'newlines-between': 'never' }],
-        'react/require-default-props': 2,
-        "react-hooks/rules-of-hooks": "error",
-        "react-hooks/exhaustive-deps": "warn"
-    }
+        'import/no-unused-modules': [
+            'error',
+            {
+                unusedExports: true,
+                missingExports: true,
+                ignoreExports: [
+                    '**/*.test.js',
+                    'src/setupTests.js',
+                    'src/components/App/index.js',
+                ],
+            },
+        ],
+        'react/require-default-props': 'warn',
+        'react-hooks/rules-of-hooks': 'error',
+        'react-hooks/exhaustive-deps': 'warn',
+    },
 }

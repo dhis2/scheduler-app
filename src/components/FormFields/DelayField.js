@@ -13,8 +13,8 @@ const lowerBound = 1
 const upperBound = 86400
 
 // The key under which this field will be sent to the backend
-export const FIELD_NAME = 'delay'
-export const VALIDATOR = composeValidators(
+const FIELD_NAME = 'delay'
+const VALIDATOR = composeValidators(
     integer,
     hasValue,
     createNumberRange(lowerBound, upperBound)
