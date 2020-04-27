@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import NoticeBoxIcon from './NoticeBoxIcon.js'
+import NoticeBoxIcon from './NoticeBoxIcon'
 
 describe('NoticeBoxIcon', () => {
     it('should render info icon by default', () => {
