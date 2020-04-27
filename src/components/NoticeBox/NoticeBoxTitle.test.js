@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import NoticeBoxTitle from './NoticeBoxTitle.js'
+import NoticeBoxTitle from './NoticeBoxTitle'
 
 describe('NoticeBoxTitle', () => {
     it('should return null when there is no title', () => {
