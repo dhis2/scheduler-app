@@ -4,5 +4,6 @@
 coverage
 node_modules
 public
+src/locales
 
 d2.config.js
