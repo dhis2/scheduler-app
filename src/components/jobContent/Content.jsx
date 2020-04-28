@@ -1,13 +1,11 @@
-import { connect } from 'react-redux'
-import MenuItem from 'material-ui/MenuItem';
+import { connect } from 'react-redux';
 import Paper from 'material-ui/Paper';
 import React, { Component } from 'react';
-import SelectField from 'material-ui/SelectField';
 import TextField from 'material-ui/TextField';
 import i18n from '@dhis2/d2-i18n';
 import moment from 'moment';
 
-import { CRON, FIXED_DELAY } from '../../constants/schedulingTypes'
+import { CRON, FIXED_DELAY } from '../../constants/schedulingTypes';
 import ActionButtons from './ActionButtons';
 import ConditionalIconButton from '../ConditionalIconButton';
 import Details from './Details';
@@ -18,7 +16,6 @@ import Parameters from '../jobParameters/Parameters';
 import Schedule from './Schedule';
 import history from '../../utils/history';
 import validCronExpression from '../../utils/validCronExpression';
-import validDelay from '../../utils/validDelay';
 
 const documentationHref =
     'https://docs.dhis2.org/master/en/user/html/dataAdmin_scheduling.html#dataAdmin_scheduling_config';
@@ -48,7 +45,7 @@ const styles = {
 
 const validateFields = (values, jobTypeToSchedulingTypes) => {
     const errors = {};
-    const { type } = values
+    const { type } = values;
 
     if (!values.name) {
         errors.name = i18n.t('Required');
@@ -69,7 +66,7 @@ const validateFields = (values, jobTypeToSchedulingTypes) => {
     }
 
     if (jobTypeToSchedulingTypes[type] === FIXED_DELAY) {
-        const { delay } = values
+        const { delay } = values;
 
         if (delay !== 0 && !delay) {
             errors.delay = i18n.t('Required');
@@ -89,7 +86,7 @@ class Content extends Component {
     state = { isValid: true, errors: {} };
 
     componentWillReceiveProps = nextProps => {
-        const { job, jobTypeToSchedulingTypes } = nextProps
+        const { job, jobTypeToSchedulingTypes } = nextProps;
         if (this.props.job !== job) {
             const errors = validateFields(job, jobTypeToSchedulingTypes);
 
@@ -124,16 +121,6 @@ class Content extends Component {
 
     handleFieldEvent = field => (event, value) => {
         this.props.editJob(field, value);
-    };
-
-    renderLastExecutionText = () => {
-        const lastExecution = moment(this.props.job.lastExecuted);
-        return (
-            <div>
-                Last executed on <b>{}</b> at <b>{lastExecution.format('HH:ss')}</b>, status:{' '}
-                {this.props.job.lastExecutedStatus}
-            </div>
-        );
     };
 
     render = () => (
@@ -233,6 +220,6 @@ const ConnectedContent = connect(
     state => ({
         jobTypeToSchedulingTypes: state.jobs.configuration.typeToSchedulingTypes,
     }),
-)(Content)
+)(Content);
 
 export default ConnectedContent;

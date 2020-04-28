@@ -67,7 +67,7 @@ const Entry = ({ job, onSelect, onToggle, onRun }) => {
         event.preventDefault();
         event.stopPropagation();
     };
-    const isCron = job.schedulingType === CRON
+    const isCron = job.schedulingType === CRON;
 
     return (
         <div onClick={onSelect} style={styles.listEntry}>

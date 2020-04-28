@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-01-29T15:16:04.305Z\n"
-"PO-Revision-Date: 2020-01-29T15:16:04.305Z\n"
+"POT-Creation-Date: 2020-04-28T12:20:25.090Z\n"
+"PO-Revision-Date: 2020-04-28T12:20:25.090Z\n"
 
 msgid "Scheduler"
 msgstr ""
@@ -27,6 +27,9 @@ msgid "Are you sure you want to delete this job?"
 msgstr ""
 
 msgid "Add new job"
+msgstr ""
+
+msgid "Add job"
 msgstr ""
 
 msgid "Required"
@@ -153,22 +156,4 @@ msgid "Could not run job"
 msgstr ""
 
 msgid "You are not authorized to use this app"
-msgstr ""
-
-msgid "Custom"
-msgstr ""
-
-msgid "Every hour"
-msgstr ""
-
-msgid "Every day midnight"
-msgstr ""
-
-msgid "Every day at three am"
-msgstr ""
-
-msgid "Every weekday at noon"
-msgstr ""
-
-msgid "Every week"
 msgstr ""

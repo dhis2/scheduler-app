@@ -1,11 +1,11 @@
-import { useSelector } from 'react-redux'
+import { useSelector } from 'react-redux';
 import React from 'react';
 import TextField from 'material-ui/TextField';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import i18n from '@dhis2/d2-i18n';
 import cronExpressions from '../../constants/cronExpressions';
-import { CRON, FIXED_DELAY } from '../../constants/schedulingTypes'
+import { CRON, FIXED_DELAY } from '../../constants/schedulingTypes';
 
 const styles = {
     container: {
@@ -89,28 +89,28 @@ const ScheduleDelay = ({
             value={delay || ''}
         />
     </div>
-)
+);
 
 const Schedule = props => {
-    const jobTypeToSchedulingTypes = useSelector(state => state.jobs.configuration.typeToSchedulingTypes)
-    const schedulingType = jobTypeToSchedulingTypes[props.jobType]
-    const { cronError, delayError, ...rest } = props
+    const jobTypeToSchedulingTypes = useSelector(state => state.jobs.configuration.typeToSchedulingTypes);
+    const schedulingType = jobTypeToSchedulingTypes[props.jobType];
+    const { cronError, delayError, ...rest } = props;
 
     if (schedulingType === CRON) {
-        return <ScheduleCron
+        return (<ScheduleCron
             {...rest}
             error={cronError}
-        />
+        />);
     }
 
     if (schedulingType === FIXED_DELAY) {
-        return <ScheduleDelay
+        return (<ScheduleDelay
             {...rest}
             error={delayError}
-        />
+        />);
     }
 
-    return null
-}
+    return null;
+};
 
 export default Schedule;
