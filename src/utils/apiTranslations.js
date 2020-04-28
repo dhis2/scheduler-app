@@ -17,6 +17,7 @@ const apiTranslations = {
 
         // Job types
         ANALYTICS_TABLE: 'Analytics Table',
+        CONTINUOUS_ANALYTICS_TABLE: 'Continuous Analytics Table',
         CREDENTIALS_EXPIRY_ALERT: 'Credential Expiry Alert',
         DATA_INTEGRITY: 'Data Integrity',
         DATA_SET_NOTIFICATION: 'Data Set Notification',
@@ -37,14 +38,20 @@ const apiTranslations = {
         VALIDATION_RESULTS_NOTIFICATION: 'Validation Results Notification',
 
         // Job parameters
+        'Data values page size': 'Data values page size',
+        'Event program page size': 'Event program page size',
+        'Full update hour of day': 'Full update hour of day',
         'Last years': 'Last years',
+        'Page size': 'Page size',
         'Persist results': 'Persist results',
+        'Predictor groups': 'Predictor groups',
         'Push analysis': 'Push analysis',
         'Relative end': 'Relative end',
         'Relative start': 'Relative start',
         'Send notifications': 'Send notifications',
         'Skip resource tables': 'Skip resource tables',
         'Skip table types': 'Skip table types',
+        'Tracker program page size': 'Tracker program page size',
         'Validation rule groups': 'Validation rule groups',
         Predictors: 'Predictors',
 

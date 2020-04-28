@@ -1,9 +1,9 @@
-const isValidInteger = value => value.match(/^\d+$/)
+const isValidInteger = value => value.match(/^\d+$/);
 
 export default delay => {
     if (!isValidInteger(delay)) {
-        return false
+        return false;
     }
 
-    return true
-}
+    return true;
+};
