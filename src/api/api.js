@@ -7,34 +7,28 @@ const JOBSTATUSES = ['RUNNING', 'COMPLETED', 'STOPPED', 'SCHEDULED', 'DISABLED',
 const createJobTypeMapping = (cb, jobTypes) => jobTypes.reduce(
     (mapping, jobType) => ({ ...mapping, [jobType.jobType]: cb(jobType) }),
     {},
-)
+);
 
 
 export const getConfiguration = () => getD2Instance()
     .then(d2 => d2.Api.getApi())
     .then(api => api.get(JOB_PARAMETERS_ENDPOINT))
     .then(({ jobTypes: response }) => {
-        const jobTypes = response.map(({ jobType }) => jobType)
+        const jobTypes = response.map(({ jobType }) => jobType);
 
         const jobTypeToSchedulingTypes = createJobTypeMapping(
             ({ schedulingType }) => schedulingType,
             response,
-        )
+        );
 
-        const jobTypeNames = createJobTypeMapping(
-            ({ name }) => name,
-            response,
-        )
-
-        const jobParameters = createJobTypeMapping(
+        const parameters = createJobTypeMapping(
             ({ jobParameters }) => jobParameters || [],
             response,
-        )
+        );
 
         return {
             jobStatuses: JOBSTATUSES,
-            jobParameters,
-            jobTypeNames,
+            jobParameters: parameters,
             jobTypes,
             jobTypeToSchedulingTypes,
         };
@@ -101,17 +95,17 @@ export const postJob = job =>
                 name: job.name,
                 jobType: job.type,
                 jobParameters: job.parameters || {},
-            }
+            };
 
             if (job.cronExpression) {
-                toBeSaved.cronExpression = job.cronExpression
+                toBeSaved.cronExpression = job.cronExpression;
             }
 
             if (job.delay) {
-                toBeSaved.delay = job.delay
+                toBeSaved.delay = job.delay;
             }
 
-            return instance.Api.getApi().post('jobConfigurations', toBeSaved)
+            return instance.Api.getApi().post('jobConfigurations', toBeSaved);
         })
         .catch(error => {
             throw error;
@@ -125,17 +119,17 @@ export const saveJob = job =>
                 enabled: job.enabled,
                 jobType: job.type || job.jobType,
                 jobParameters: job.parameters || job.jobParameters,
-            }
+            };
 
             if (job.cronExpression) {
-                toBeSaved.cronExpression = job.cronExpression
+                toBeSaved.cronExpression = job.cronExpression;
             }
 
             if (job.delay) {
-                toBeSaved.delay = job.delay
+                toBeSaved.delay = job.delay;
             }
 
-            return instance.Api.getApi().update(`jobConfigurations/${job.id}`, toBeSaved)
+            return instance.Api.getApi().update(`jobConfigurations/${job.id}`, toBeSaved);
         })
         .catch(error => {
             throw error;

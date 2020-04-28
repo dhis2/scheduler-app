@@ -1,5 +1,5 @@
 import * as actions from '../constants/actions';
-import { CRON, FIXED_DELAY } from '../constants/schedulingTypes'
+import { CRON, FIXED_DELAY } from '../constants/schedulingTypes';
 
 export const initialState = {
     all: [],
@@ -14,7 +14,6 @@ export const initialState = {
         parameters: {},
         attributeOptions: {},
         typeToSchedulingTypes: {},
-        jobTypeNames: {},
     },
     pending: {
         update: false,
@@ -40,17 +39,17 @@ function jobsReducer(state = initialState, action) {
 
         case actions.JOB_EDIT: {
             const { fieldName: field, value } = action.payload;
-            let updates = { ...state.changes }
+            const updates = { ...state.changes };
 
             if (field === 'type') {
-                const scheduleType = state.configuration.typeToSchedulingTypes[value]
+                const scheduleType = state.configuration.typeToSchedulingTypes[value];
 
                 if (scheduleType === FIXED_DELAY && updates.cronExpression) {
-                    delete updates.cronExpression
+                    delete updates.cronExpression;
                 }
 
                 if (scheduleType === CRON && updates.delay) {
-                    delete updates.delay
+                    delete updates.delay;
                 }
             }
 
@@ -74,7 +73,6 @@ function jobsReducer(state = initialState, action) {
                     statuses: action.payload.configuration.jobStatuses,
                     parameters: action.payload.configuration.jobParameters,
                     typeToSchedulingTypes: action.payload.configuration.jobTypeToSchedulingTypes,
-                    jobTypeNames: action.payload.configuration.jobTypeNames,
                 },
             };
 
