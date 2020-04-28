@@ -16,7 +16,7 @@ const configI18n = userSettings => {
     i18n.changeLanguage(lang);
 
     const translations = apiTranslations[lang] || apiTranslations.en;
-    i18n.addResources(lang, 'Scheduler', translations);
+    i18n.addResources(lang, 'default', translations);
 };
 
 export default configI18n;

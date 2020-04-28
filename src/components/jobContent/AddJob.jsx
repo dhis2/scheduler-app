@@ -32,7 +32,7 @@ const enhance = compose(
         },
     }),
     withProps(() => ({
-        saveLabel: 'Add job',
+        saveLabel: i18n.t('Add job'),
     })),
 );
 
