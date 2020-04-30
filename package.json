@@ -19,11 +19,8 @@
         "@dhis2/app-runtime": "^2.1.0",
         "@dhis2/d2-i18n": "^1.0.6",
         "@dhis2/prop-types": "^1.6.4",
-        "@dhis2/ui-core": "^4.14.0",
-        "@dhis2/ui-forms": "^1.0.1",
-        "@dhis2/ui-widgets": "^1.0.6",
+        "@dhis2/ui": "^5.0.3",
         "cronstrue": "^1.82.0",
-        "final-form": "^4.17.0",
         "history": "^4.9.0",
         "moment": "^2.24.0",
         "react-router": "^5.0.1",
@@ -47,7 +44,6 @@
     },
     "resolutions": {
         "@dhis2/prop-types": "^1.6.4",
-        "@dhis2/ui-core": "^4.14.0",
         "@dhis2/d2-i18n": "^1.0.6"
     },
     "husky": {

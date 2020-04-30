@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-04-13T13:03:25.890Z\n"
-"PO-Revision-Date: 2020-04-13T13:03:25.890Z\n"
+"POT-Creation-Date: 2020-04-30T08:35:39.556Z\n"
+"PO-Revision-Date: 2020-04-30T08:35:39.556Z\n"
 
 msgid "Checking permissions"
 msgstr ""
@@ -231,7 +231,4 @@ msgid "A CRON expression is required"
 msgstr ""
 
 msgid "Please enter a valid CRON expression"
-msgstr ""
-
-msgid "Please select an option"
 msgstr ""

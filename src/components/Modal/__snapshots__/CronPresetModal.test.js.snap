@@ -16,42 +16,46 @@ exports[`<CronPresetModal> renders correctly 1`] = `
   <ModalContent
     dataTest="dhis2-uicore-modalcontent"
   >
-    <RadioGroup
-      dataTest="dhis2-uicore-radiogroup"
+    <Radio
+      checked={false}
+      dataTest="dhis2-uicore-radio"
+      key="0 0 * ? * *"
+      label="Every hour"
       onChange={[Function]}
-      value=""
-    >
-      <Radio
-        dataTest="dhis2-uicore-radio"
-        key="0 0 * ? * *"
-        label="Every hour"
-        value="0 0 * ? * *"
-      />
-      <Radio
-        dataTest="dhis2-uicore-radio"
-        key="0 0 1 ? * *"
-        label="Every day at midnight"
-        value="0 0 1 ? * *"
-      />
-      <Radio
-        dataTest="dhis2-uicore-radio"
-        key="0 0 3 ? * *"
-        label="Every day at 3 am"
-        value="0 0 3 ? * *"
-      />
-      <Radio
-        dataTest="dhis2-uicore-radio"
-        key="0 0 12 ? * MON-FRI"
-        label="Every day at noon"
-        value="0 0 12 ? * MON-FRI"
-      />
-      <Radio
-        dataTest="dhis2-uicore-radio"
-        key="0 0 3 ? * MON"
-        label="Every week"
-        value="0 0 3 ? * MON"
-      />
-    </RadioGroup>
+      value="0 0 * ? * *"
+    />
+    <Radio
+      checked={false}
+      dataTest="dhis2-uicore-radio"
+      key="0 0 1 ? * *"
+      label="Every day at midnight"
+      onChange={[Function]}
+      value="0 0 1 ? * *"
+    />
+    <Radio
+      checked={false}
+      dataTest="dhis2-uicore-radio"
+      key="0 0 3 ? * *"
+      label="Every day at 3 am"
+      onChange={[Function]}
+      value="0 0 3 ? * *"
+    />
+    <Radio
+      checked={false}
+      dataTest="dhis2-uicore-radio"
+      key="0 0 12 ? * MON-FRI"
+      label="Every day at noon"
+      onChange={[Function]}
+      value="0 0 12 ? * MON-FRI"
+    />
+    <Radio
+      checked={false}
+      dataTest="dhis2-uicore-radio"
+      key="0 0 3 ? * MON"
+      label="Every week"
+      onChange={[Function]}
+      value="0 0 3 ? * MON"
+    />
   </ModalContent>
   <ModalActions
     dataTest="dhis2-uicore-modalactions"

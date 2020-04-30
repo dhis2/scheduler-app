@@ -1,14 +1,21 @@
 import React from 'react'
-import { Field, SingleSelect } from '@dhis2/ui-forms'
-import { SingleSelectField } from '@dhis2/ui-core'
+import {
+    ReactFinalForm,
+    SingleSelectFieldFF,
+    SingleSelectField,
+    composeValidators,
+    hasValue,
+    string,
+} from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
-import { requiredSingleSelectOption } from '../../services/validators'
 import { jobTypesMap } from '../../services/server-translations'
 import { useGetJobTypes } from '../../hooks/job-types'
 
+const { Field } = ReactFinalForm
+
 // The key under which this field will be sent to the backend
 export const FIELD_NAME = 'jobType'
-export const VALIDATOR = requiredSingleSelectOption
+export const VALIDATOR = composeValidators(string, hasValue)
 
 const JobTypeField = () => {
     const { loading, error, data } = useGetJobTypes()
@@ -35,7 +42,7 @@ const JobTypeField = () => {
         <Field
             name={FIELD_NAME}
             validate={VALIDATOR}
-            component={SingleSelect}
+            component={SingleSelectFieldFF}
             options={options}
             label={i18n.t('Job type')}
             required

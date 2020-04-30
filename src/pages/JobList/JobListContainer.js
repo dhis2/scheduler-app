@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { CircularLoader, ScreenCover } from '@dhis2/ui-core'
+import { CircularLoader, Layer, CenteredContent } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
 import { selectors, useGetJobs } from '../../hooks/jobs'
 import { RefetchJobsContext } from '../../components/Context'
@@ -13,12 +13,12 @@ const JobListContainer = () => {
     // Show spinner when there are no jobs to display yet
     if (loading) {
         return (
-            <ScreenCover>
-                <div>
+            <Layer>
+                <CenteredContent>
                     <CircularLoader />
-                </div>
-                {i18n.t('Loading jobs')}
-            </ScreenCover>
+                    {i18n.t('Loading jobs')}
+                </CenteredContent>
+            </Layer>
         )
     }
 

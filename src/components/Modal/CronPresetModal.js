@@ -8,8 +8,7 @@ import {
     ModalActions,
     ButtonStrip,
     Radio,
-    RadioGroup,
-} from '@dhis2/ui-core'
+} from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
 
 const cronPresets = [
@@ -42,14 +41,14 @@ const CronPresetModal = ({ setCron, hideModal }) => {
         <Modal open small onClose={hideModal}>
             <ModalTitle>{i18n.t('Choose a preset time/interval')}</ModalTitle>
             <ModalContent>
-                <RadioGroup
-                    onChange={({ value }) => setCurrentPreset(value)}
-                    value={currentPreset}
-                >
-                    {cronPresets.map(preset => (
-                        <Radio {...preset} key={preset.value} />
-                    ))}
-                </RadioGroup>
+                {cronPresets.map(preset => (
+                    <Radio
+                        {...preset}
+                        checked={currentPreset === preset.value}
+                        key={preset.value}
+                        onChange={({ value }) => setCurrentPreset(value)}
+                    />
+                ))}
             </ModalContent>
             <ModalActions>
                 <ButtonStrip end>

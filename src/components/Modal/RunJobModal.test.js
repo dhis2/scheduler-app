@@ -35,7 +35,7 @@ describe('<RunJobModal>', () => {
         }
         const wrapper = mount(<RunJobModal {...props} />)
 
-        wrapper.find('.backdrop').simulate('click')
+        wrapper.find('div[data-test="dhis2-uicore-layer"]').simulate('click')
 
         expect(props.hideModal).toHaveBeenCalled()
     })

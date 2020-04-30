@@ -1,9 +1,10 @@
 import React from 'react'
 import { string } from '@dhis2/prop-types'
 import i18n from '@dhis2/d2-i18n'
-import { MultiSelectField } from '@dhis2/ui-core'
-import { Field, MultiSelect } from '@dhis2/ui-forms'
+import { MultiSelectField, ReactFinalForm, MultiSelectFieldFF } from '@dhis2/ui'
 import { useGetUnlabeledOptions } from '../../hooks/parameter-options'
+
+const { Field } = ReactFinalForm
 
 /**
  * An unlabeled options field has options that are just values, as opposed
@@ -42,7 +43,7 @@ const UnlabeledOptionsField = ({ endpoint, label, name }) => {
     return (
         <Field
             name={name}
-            component={MultiSelect}
+            component={MultiSelectFieldFF}
             options={options}
             label={label}
         />

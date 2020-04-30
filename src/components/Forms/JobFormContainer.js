@@ -1,11 +1,13 @@
 import React from 'react'
 import { func } from '@dhis2/prop-types'
-import { FORM_ERROR } from 'final-form'
-import { Form } from '@dhis2/ui-forms'
+import { FinalForm, ReactFinalForm } from '@dhis2/ui'
 import { useCreateJob } from '../../hooks/jobs'
 import history from '../../services/history'
 import { fieldNames, validators } from '../FormFields'
 import JobForm from './JobForm'
+
+const { FORM_ERROR } = FinalForm
+const { Form } = ReactFinalForm
 
 /**
  * This validation function checks the entire form on submission. It receives an object with the
