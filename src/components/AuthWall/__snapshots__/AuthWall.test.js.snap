@@ -8,17 +8,21 @@ exports[`<AuthWall> redirects unauthorized users 1`] = `
 `;
 
 exports[`<AuthWall> renders a spinner when loading 1`] = `
-<ScreenCover
-  dataTest="dhis2-uicore-screencover"
-  position="middle"
+<Layer
+  dataTest="dhis2-uicore-layer"
+  level={2000}
+  position="fixed"
 >
-  <div>
+  <CenteredContent
+    dataTest="dhis2-uicore-centeredcontent"
+    position="middle"
+  >
     <CircularLoader
       dataTest="dhis2-uicore-circularloader"
     />
-  </div>
-  Checking permissions
-</ScreenCover>
+    Checking permissions
+  </CenteredContent>
+</Layer>
 `;
 
 exports[`<AuthWall> renders the children for users that are authorized 1`] = `

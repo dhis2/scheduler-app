@@ -1,7 +1,7 @@
 import React from 'react'
 import { node } from '@dhis2/prop-types'
 import { Redirect } from 'react-router-dom'
-import { CircularLoader, ScreenCover } from '@dhis2/ui-core'
+import { CircularLoader, Layer, CenteredContent } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
 import { useGetMe, selectors } from '../../hooks/me'
 
@@ -10,12 +10,12 @@ const AuthWall = ({ children }) => {
 
     if (loading) {
         return (
-            <ScreenCover>
-                <div>
+            <Layer>
+                <CenteredContent>
                     <CircularLoader />
-                </div>
-                {i18n.t('Checking permissions')}
-            </ScreenCover>
+                    {i18n.t('Checking permissions')}
+                </CenteredContent>
+            </Layer>
         )
     }
 
