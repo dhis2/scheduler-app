@@ -37,7 +37,7 @@ describe('<DiscardFormModal>', () => {
         const spy = jest.fn()
         const wrapper = mount(<DiscardFormModal hideModal={spy} />)
 
-        wrapper.find('.backdrop').simulate('click')
+        wrapper.find('div[data-test="dhis2-uicore-layer"]').simulate('click')
 
         expect(spy).toHaveBeenCalled()
     })

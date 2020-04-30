@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { string, bool } from '@dhis2/prop-types'
-import { Switch } from '@dhis2/ui-core'
+import { Switch } from '@dhis2/ui'
 import { useToggleJob } from '../../hooks/jobs'
 import { RefetchJobsContext } from '../Context'
 
