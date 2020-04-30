@@ -1,6 +1,6 @@
 import React from 'react'
 import { func, bool, object, arrayOf, string } from '@dhis2/prop-types'
-import { Card, Switch, Input, Button } from '@dhis2/ui-core'
+import { Card, Switch, Input, Button } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
 import { Info } from '../../components/Icons'
 import history from '../../services/history'

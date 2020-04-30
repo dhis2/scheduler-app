@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { string } from '@dhis2/prop-types'
-import { MenuItem } from '@dhis2/ui-core'
+import { MenuItem } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
 import { DeleteJobModal } from '../../components/Modal'
 

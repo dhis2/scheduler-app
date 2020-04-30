@@ -50,7 +50,7 @@ describe('<CronPresetModal>', () => {
         }
         const wrapper = mount(<CronPresetModal {...props} />)
 
-        wrapper.find('.backdrop').simulate('click')
+        wrapper.find('div[data-test="dhis2-uicore-layer"]').simulate('click')
 
         expect(props.hideModal).toHaveBeenCalled()
     })

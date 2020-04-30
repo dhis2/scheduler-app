@@ -1,10 +1,12 @@
 import React from 'react'
 import { string } from '@dhis2/prop-types'
-import { Field, Input, Switch } from '@dhis2/ui-forms'
+import { ReactFinalForm, InputFieldFF, SwitchFieldFF } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
 import { useGetJobTypes, selectors } from '../../hooks/job-types'
 import UnlabeledOptionsField from './UnlabeledOptionsField'
 import LabeledOptionsField from './LabeledOptionsField'
+
+const { Field } = ReactFinalForm
 
 // The key under which the parameters will be sent to the backend
 const FIELD_NAME = 'jobParameters'
@@ -36,18 +38,28 @@ const ParameterFields = ({ jobType }) => {
 
         switch (klass) {
             case 'java.lang.String':
-                return <Field {...defaultProps} component={Input} type="text" />
+                return (
+                    <Field
+                        {...defaultProps}
+                        component={InputFieldFF}
+                        type="text"
+                    />
+                )
             case 'java.lang.Boolean':
                 return (
                     <Field
                         {...defaultProps}
-                        component={Switch}
+                        component={SwitchFieldFF}
                         type="checkbox"
                     />
                 )
             case 'java.lang.Integer':
                 return (
-                    <Field {...defaultProps} component={Input} type="number" />
+                    <Field
+                        {...defaultProps}
+                        component={InputFieldFF}
+                        type="number"
+                    />
                 )
             case 'java.util.Set':
                 return (

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Card } from '@dhis2/ui-core'
+import { Card } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
 import { DiscardFormButton } from '../../components/Buttons'
 import { Info } from '../../components/Icons'

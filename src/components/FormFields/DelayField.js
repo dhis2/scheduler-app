@@ -1,13 +1,15 @@
 import React from 'react'
 import {
-    Field,
-    Input,
+    ReactFinalForm,
+    InputFieldFF,
     composeValidators,
     hasValue,
     integer,
     createNumberRange,
-} from '@dhis2/ui-forms'
+} from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
+
+const { Field } = ReactFinalForm
 
 const lowerBound = 1
 const upperBound = 86400
@@ -22,7 +24,7 @@ const VALIDATOR = composeValidators(
 
 const DelayField = () => (
     <Field
-        component={Input}
+        component={InputFieldFF}
         name={FIELD_NAME}
         validate={VALIDATOR}
         label={i18n.t('Delay')}

@@ -1,9 +1,10 @@
 import React from 'react'
 import { string } from '@dhis2/prop-types'
-import { MultiSelectField } from '@dhis2/ui-core'
-import { Field, MultiSelect } from '@dhis2/ui-forms'
+import { MultiSelectFieldFF, ReactFinalForm, MultiSelectField } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
 import { useGetLabeledOptions } from '../../hooks/parameter-options'
+
+const { Field } = ReactFinalForm
 
 /**
  * A labeled options field has options that have both a label and a value,
@@ -43,7 +44,7 @@ const LabeledOptionsField = ({ endpoint, label, name, parameterName }) => {
     return (
         <Field
             name={name}
-            component={MultiSelect}
+            component={MultiSelectFieldFF}
             options={options}
             label={label}
         />

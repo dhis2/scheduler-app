@@ -4,8 +4,7 @@ exports[`<JobListActions> renders correctly 1`] = `
 <DropdownButton
   component={
     <Menu
-      dataTest="dhis2-uicore-menu"
-      maxWidth="380px"
+      dataTest="dhis2-uicore-menulist"
     >
       <EditJobMenuItem
         id="1"
