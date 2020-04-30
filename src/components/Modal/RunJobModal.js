@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { func, string } from '@dhis2/prop-types'
+import { PropTypes } from '@dhis2/prop-types'
 import { useDataEngine } from '@dhis2/app-runtime'
 import {
     Button,
@@ -50,8 +50,8 @@ const RunJobModal = ({ id, hideModal }) => {
 }
 
 RunJobModal.propTypes = {
-    hideModal: func.isRequired,
-    id: string.isRequired,
+    hideModal: PropTypes.func.isRequired,
+    id: PropTypes.string.isRequired,
 }
 
 export default RunJobModal

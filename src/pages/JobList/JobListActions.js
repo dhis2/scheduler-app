@@ -1,5 +1,5 @@
 import React from 'react'
-import { string } from '@dhis2/prop-types'
+import { PropTypes } from '@dhis2/prop-types'
 import { Menu, DropdownButton } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
 import EditJobMenuItem from './EditJobMenuItem'
@@ -22,7 +22,7 @@ const JobListActions = ({ id }) => (
 )
 
 JobListActions.propTypes = {
-    id: string.isRequired,
+    id: PropTypes.string.isRequired,
 }
 
 export default JobListActions

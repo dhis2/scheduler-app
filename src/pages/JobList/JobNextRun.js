@@ -1,5 +1,5 @@
 import moment from 'moment'
-import { string, bool } from '@dhis2/prop-types'
+import { PropTypes } from '@dhis2/prop-types'
 import i18n from '@dhis2/d2-i18n'
 
 const JobNextRun = ({ nextExecutionTime, enabled }) => {
@@ -31,8 +31,8 @@ const JobNextRun = ({ nextExecutionTime, enabled }) => {
 }
 
 JobNextRun.propTypes = {
-    enabled: bool.isRequired,
-    nextExecutionTime: string,
+    enabled: PropTypes.bool.isRequired,
+    nextExecutionTime: PropTypes.string,
 }
 
 export default JobNextRun
