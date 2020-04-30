@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { string, bool } from '@dhis2/prop-types'
+import { PropTypes } from '@dhis2/prop-types'
 import { Button } from '@dhis2/ui'
 import history from '../../services/history'
 import { DiscardFormModal } from '../Modal'
@@ -25,8 +25,8 @@ DiscardFormButton.defaultProps = {
 }
 
 DiscardFormButton.propTypes = {
-    children: string.isRequired,
-    shouldConfirm: bool,
+    children: PropTypes.string.isRequired,
+    shouldConfirm: PropTypes.bool,
 }
 
 export default DiscardFormButton

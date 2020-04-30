@@ -1,5 +1,5 @@
 import React from 'react'
-import { string } from '@dhis2/prop-types'
+import { PropTypes } from '@dhis2/prop-types'
 import i18n from '@dhis2/d2-i18n'
 import { useGetJobTypes, selectors } from '../../hooks/job-types'
 import CronField from './CronField'
@@ -31,7 +31,7 @@ const ScheduleField = ({ jobType }) => {
 }
 
 ScheduleField.propTypes = {
-    jobType: string.isRequired,
+    jobType: PropTypes.string.isRequired,
 }
 
 export default ScheduleField

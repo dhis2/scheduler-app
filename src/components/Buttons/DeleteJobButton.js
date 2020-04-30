@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { string } from '@dhis2/prop-types'
+import { PropTypes } from '@dhis2/prop-types'
 import { Button } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
 import { DeleteJobModal } from '../Modal'
@@ -20,7 +20,7 @@ const DeleteJobButton = ({ id }) => {
 }
 
 DeleteJobButton.propTypes = {
-    id: string.isRequired,
+    id: PropTypes.string.isRequired,
 }
 
 export default DeleteJobButton

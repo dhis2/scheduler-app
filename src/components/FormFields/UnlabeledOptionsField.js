@@ -1,5 +1,5 @@
 import React from 'react'
-import { string } from '@dhis2/prop-types'
+import { PropTypes } from '@dhis2/prop-types'
 import i18n from '@dhis2/d2-i18n'
 import { MultiSelectField, ReactFinalForm, MultiSelectFieldFF } from '@dhis2/ui'
 import { useGetUnlabeledOptions } from '../../hooks/parameter-options'
@@ -51,9 +51,9 @@ const UnlabeledOptionsField = ({ endpoint, label, name }) => {
 }
 
 UnlabeledOptionsField.propTypes = {
-    endpoint: string.isRequired,
-    label: string.isRequired,
-    name: string.isRequired,
+    endpoint: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
 }
 
 export default UnlabeledOptionsField

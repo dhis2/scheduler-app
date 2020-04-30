@@ -1,5 +1,5 @@
 import React from 'react'
-import { string } from '@dhis2/prop-types'
+import { PropTypes } from '@dhis2/prop-types'
 import { ReactFinalForm, InputFieldFF, SwitchFieldFF } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
 import { useGetJobTypes, selectors } from '../../hooks/job-types'
@@ -83,7 +83,7 @@ const ParameterFields = ({ jobType }) => {
 }
 
 ParameterFields.propTypes = {
-    jobType: string.isRequired,
+    jobType: PropTypes.string.isRequired,
 }
 
 export default ParameterFields

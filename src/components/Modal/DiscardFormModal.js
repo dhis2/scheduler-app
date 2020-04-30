@@ -1,5 +1,5 @@
 import React from 'react'
-import { func } from '@dhis2/prop-types'
+import { PropTypes } from '@dhis2/prop-types'
 import {
     Button,
     Modal,
@@ -40,7 +40,7 @@ const DiscardFormModal = ({ hideModal }) => (
 )
 
 DiscardFormModal.propTypes = {
-    hideModal: func.isRequired,
+    hideModal: PropTypes.func.isRequired,
 }
 
 export default DiscardFormModal

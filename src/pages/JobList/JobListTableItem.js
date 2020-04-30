@@ -1,5 +1,5 @@
 import React from 'react'
-import { bool, shape, string, number } from '@dhis2/prop-types'
+import { PropTypes } from '@dhis2/prop-types'
 import { TableRow, TableCell } from '@dhis2/ui'
 import { jobTypesMap } from '../../services/server-translations'
 import { ToggleJobSwitch } from '../../components/Switches'
@@ -50,16 +50,16 @@ const JobListTableItem = ({
 )
 
 JobListTableItem.propTypes = {
-    job: shape({
-        displayName: string.isRequired,
-        enabled: bool.isRequired,
-        id: string.isRequired,
-        jobStatus: string.isRequired,
-        jobType: string.isRequired,
-        schedulingType: string.isRequired,
-        cronExpression: string,
-        delay: number,
-        nextExecutionTime: string,
+    job: PropTypes.shape({
+        displayName: PropTypes.string.isRequired,
+        enabled: PropTypes.bool.isRequired,
+        id: PropTypes.string.isRequired,
+        jobStatus: PropTypes.string.isRequired,
+        jobType: PropTypes.string.isRequired,
+        schedulingType: PropTypes.string.isRequired,
+        cronExpression: PropTypes.string,
+        delay: PropTypes.number,
+        nextExecutionTime: PropTypes.string,
     }).isRequired,
 }
 
