@@ -1,4 +1,4 @@
-import { string } from '@dhis2/prop-types'
+import { PropTypes } from '@dhis2/prop-types'
 import cronstrue from 'cronstrue/i18n'
 import { useGetUserSettings, selectors } from '../../hooks/user-settings'
 
@@ -20,7 +20,7 @@ const HumanReadableCron = ({ cronExpression }) => {
 }
 
 HumanReadableCron.propTypes = {
-    cronExpression: string.isRequired,
+    cronExpression: PropTypes.string.isRequired,
 }
 
 export default HumanReadableCron

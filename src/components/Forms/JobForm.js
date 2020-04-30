@@ -1,5 +1,5 @@
 import React from 'react'
-import { object, bool, func, shape, string } from '@dhis2/prop-types'
+import { PropTypes } from '@dhis2/prop-types'
 import { Button, ReactFinalForm, NoticeBox } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
 import { DiscardFormButton } from '../Buttons'
@@ -55,13 +55,13 @@ JobForm.defaultProps = {
 }
 
 JobForm.propTypes = {
-    handleSubmit: func.isRequired,
-    pristine: bool.isRequired,
-    setIsPristine: func.isRequired,
-    values: object.isRequired,
-    submitError: shape({
-        message: string,
-        details: string,
+    handleSubmit: PropTypes.func.isRequired,
+    pristine: PropTypes.bool.isRequired,
+    setIsPristine: PropTypes.func.isRequired,
+    values: PropTypes.object.isRequired,
+    submitError: PropTypes.shape({
+        details: PropTypes.string,
+        message: PropTypes.string,
     }),
 }
 
