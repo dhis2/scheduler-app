@@ -1,5 +1,5 @@
 import React from 'react'
-import { node } from '@dhis2/prop-types'
+import { PropTypes } from '@dhis2/prop-types'
 import { Redirect } from 'react-router-dom'
 import { CircularLoader, Layer, CenteredContent } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
@@ -37,7 +37,7 @@ const AuthWall = ({ children }) => {
 }
 
 AuthWall.propTypes = {
-    children: node.isRequired,
+    children: PropTypes.node.isRequired,
 }
 
 export default AuthWall

@@ -1,5 +1,5 @@
 import React from 'react'
-import { func } from '@dhis2/prop-types'
+import { PropTypes } from '@dhis2/prop-types'
 import { FinalForm, ReactFinalForm } from '@dhis2/ui'
 import { useCreateJob } from '../../hooks/jobs'
 import history from '../../services/history'
@@ -66,7 +66,7 @@ const JobFormContainer = ({ setIsPristine }) => {
 }
 
 JobFormContainer.propTypes = {
-    setIsPristine: func.isRequired,
+    setIsPristine: PropTypes.func.isRequired,
 }
 
 export default JobFormContainer

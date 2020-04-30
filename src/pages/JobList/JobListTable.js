@@ -1,5 +1,5 @@
 import React from 'react'
-import { object, arrayOf, string } from '@dhis2/prop-types'
+import { PropTypes } from '@dhis2/prop-types'
 import {
     Table,
     TableHead,
@@ -40,8 +40,8 @@ const JobListTable = ({ jobIds, jobEntities }) => (
 )
 
 JobListTable.propTypes = {
-    jobEntities: object.isRequired,
-    jobIds: arrayOf(string).isRequired,
+    jobEntities: PropTypes.object.isRequired,
+    jobIds: PropTypes.arrayOf(PropTypes.string).isRequired,
 }
 
 export default JobListTable

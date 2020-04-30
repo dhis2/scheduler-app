@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { func } from '@dhis2/prop-types'
+import { PropTypes } from '@dhis2/prop-types'
 import {
     Button,
     Modal,
@@ -73,8 +73,8 @@ const CronPresetModal = ({ setCron, hideModal }) => {
 }
 
 CronPresetModal.propTypes = {
-    hideModal: func.isRequired,
-    setCron: func.isRequired,
+    hideModal: PropTypes.func.isRequired,
+    setCron: PropTypes.func.isRequired,
 }
 
 export default CronPresetModal

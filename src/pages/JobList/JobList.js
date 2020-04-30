@@ -1,5 +1,5 @@
 import React from 'react'
-import { func, bool, object, arrayOf, string } from '@dhis2/prop-types'
+import { PropTypes } from '@dhis2/prop-types'
 import { Card, Switch, Input, Button } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
 import { Info } from '../../components/Icons'
@@ -56,13 +56,13 @@ const JobList = ({
 }
 
 JobList.propTypes = {
-    isLoading: bool.isRequired,
-    jobEntities: object.isRequired,
-    jobFilter: string.isRequired,
-    jobIds: arrayOf(string).isRequired,
-    setJobFilter: func.isRequired,
-    setShowSystemJobs: func.isRequired,
-    showSystemJobs: bool.isRequired,
+    isLoading: PropTypes.bool.isRequired,
+    jobEntities: PropTypes.object.isRequired,
+    jobFilter: PropTypes.string.isRequired,
+    jobIds: PropTypes.arrayOf(PropTypes.string).isRequired,
+    setJobFilter: PropTypes.func.isRequired,
+    setShowSystemJobs: PropTypes.func.isRequired,
+    showSystemJobs: PropTypes.bool.isRequired,
 }
 
 export default JobList

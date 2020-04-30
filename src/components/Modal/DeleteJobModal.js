@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { func, string } from '@dhis2/prop-types'
+import { PropTypes } from '@dhis2/prop-types'
 import {
     Button,
     Modal,
@@ -44,8 +44,8 @@ const DeleteJobModal = ({ id, hideModal }) => {
 }
 
 DeleteJobModal.propTypes = {
-    hideModal: func.isRequired,
-    id: string.isRequired,
+    hideModal: PropTypes.func.isRequired,
+    id: PropTypes.string.isRequired,
 }
 
 export default DeleteJobModal

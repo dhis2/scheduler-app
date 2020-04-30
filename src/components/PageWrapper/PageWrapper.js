@@ -1,5 +1,5 @@
 import React from 'react'
-import { node } from '@dhis2/prop-types'
+import { PropTypes } from '@dhis2/prop-types'
 import styles from './PageWrapper.module.css'
 
 const PageWrapper = ({ children }) => (
@@ -7,7 +7,7 @@ const PageWrapper = ({ children }) => (
 )
 
 PageWrapper.propTypes = {
-    children: node.isRequired,
+    children: PropTypes.node.isRequired,
 }
 
 export default PageWrapper

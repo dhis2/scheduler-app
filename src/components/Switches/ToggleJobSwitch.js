@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { string, bool } from '@dhis2/prop-types'
+import { PropTypes } from '@dhis2/prop-types'
 import { Switch } from '@dhis2/ui'
 import { useToggleJob } from '../../hooks/jobs'
 import { RefetchJobsContext } from '../Context'
@@ -22,8 +22,8 @@ const ToggleJobSwitch = ({ id, checked }) => {
 }
 
 ToggleJobSwitch.propTypes = {
-    checked: bool.isRequired,
-    id: string.isRequired,
+    checked: PropTypes.bool.isRequired,
+    id: PropTypes.string.isRequired,
 }
 
 export default ToggleJobSwitch
