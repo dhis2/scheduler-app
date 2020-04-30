@@ -1,6 +1,6 @@
 import React from 'react'
 import { string } from '@dhis2/prop-types'
-import { Tag } from '@dhis2/ui-core'
+import { Tag } from '@dhis2/ui'
 import { jobStatusMap } from '../../services/server-translations'
 
 const JobStatus = ({ status }) => {

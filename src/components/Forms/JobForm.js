@@ -1,9 +1,7 @@
 import React from 'react'
 import { object, bool, func, shape, string } from '@dhis2/prop-types'
-import { FormSpy } from '@dhis2/ui-forms'
-import { Button } from '@dhis2/ui-core'
+import { Button, ReactFinalForm, NoticeBox } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
-import { NoticeBox } from '../NoticeBox'
 import { DiscardFormButton } from '../Buttons'
 import {
     ScheduleField,
@@ -13,6 +11,8 @@ import {
     fieldNames,
 } from '../FormFields'
 
+const { FormSpy } = ReactFinalForm
+
 const JobForm = ({
     handleSubmit,
     pristine,
@@ -21,9 +21,7 @@ const JobForm = ({
     setIsPristine,
 }) => {
     // Check if there's currently a selected job type
-    const hasJobType =
-        values[fieldNames.JOB_TYPE] && 'value' in values[fieldNames.JOB_TYPE]
-    const jobType = hasJobType ? values[fieldNames.JOB_TYPE].value : ''
+    const jobType = values[fieldNames.JOB_TYPE]
 
     return (
         <form onSubmit={handleSubmit}>
