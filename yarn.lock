@@ -1997,6 +1997,13 @@
   dependencies:
     prop-types "^15"
 
+"@dhis2/prop-types@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/prop-types/-/prop-types-2.0.0.tgz#681f0d358cec4829e675e1db96c71c38469bb34e"
+  integrity sha512-gL7KkGu0ytWfFXWigIsS8Rm8Ix1IesPakIs4DqqDlz14NGiwU/Pc+mHc/0iXru/AQ++XYUBpsWf91ni8nGXarA==
+  dependencies:
+    prop-types "^15"
+
 "@dhis2/ui-constants@5.0.3":
   version "5.0.3"
   resolved "https://registry.yarnpkg.com/@dhis2/ui-constants/-/ui-constants-5.0.3.tgz#8d6e6adc5c7ac3de92236dd97f9be01cc18c3ed5"
@@ -11664,10 +11671,15 @@ react-final-form@^6.5.0:
     "@scarf/scarf" "^1.0.5"
     ts-essentials "^6.0.5"
 
-react-is@^16.12.0, react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.4, react-is@^16.8.6, react-is@^16.9.0:
+react-is@^16.12.0, react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.4, react-is@^16.8.6, react-is@^16.9.0:
   version "16.13.0"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.0.tgz#0f37c3613c34fe6b37cd7f763a0d6293ab15c527"
   integrity sha512-GFMtL0vHkiBv9HluwNZTggSn/sCyEt9n02aM0dSAjGGyqyNlAyftYm4phPxdvCigG15JreC5biwxCgTAJZ7yAA==
+
+react-is@^16.8.1:
+  version "16.13.1"
+  resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
+  integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
 react-popper@^2.2.3:
   version "2.2.3"

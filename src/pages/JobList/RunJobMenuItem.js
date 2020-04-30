@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { string } from '@dhis2/prop-types'
+import { PropTypes } from '@dhis2/prop-types'
 import { MenuItem } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
 import { RunJobModal } from '../../components/Modal'
@@ -24,7 +24,7 @@ const RunJobMenuItem = ({ id }) => {
 }
 
 RunJobMenuItem.propTypes = {
-    id: string.isRequired,
+    id: PropTypes.string.isRequired,
 }
 
 export default RunJobMenuItem

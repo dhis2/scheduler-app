@@ -1,5 +1,5 @@
 import React from 'react'
-import { string } from '@dhis2/prop-types'
+import { PropTypes } from '@dhis2/prop-types'
 import { MultiSelectFieldFF, ReactFinalForm, MultiSelectField } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
 import { useGetLabeledOptions } from '../../hooks/parameter-options'
@@ -52,10 +52,10 @@ const LabeledOptionsField = ({ endpoint, label, name, parameterName }) => {
 }
 
 LabeledOptionsField.propTypes = {
-    endpoint: string.isRequired,
-    label: string.isRequired,
-    name: string.isRequired,
-    parameterName: string.isRequired,
+    endpoint: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    parameterName: PropTypes.string.isRequired,
 }
 
 export default LabeledOptionsField
