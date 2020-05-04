@@ -22,8 +22,10 @@ const CronPresetButton = ({ setCron }) => {
     )
 }
 
+const { func } = PropTypes
+
 CronPresetButton.propTypes = {
-    setCron: PropTypes.func.isRequired,
+    setCron: func.isRequired,
 }
 
 export default CronPresetButton

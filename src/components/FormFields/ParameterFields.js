@@ -82,8 +82,10 @@ const ParameterFields = ({ jobType }) => {
     })
 }
 
+const { string } = PropTypes
+
 ParameterFields.propTypes = {
-    jobType: PropTypes.string.isRequired,
+    jobType: string.isRequired,
 }
 
 export default ParameterFields

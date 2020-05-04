@@ -23,8 +23,10 @@ const RunJobMenuItem = ({ id }) => {
     )
 }
 
+const { string } = PropTypes
+
 RunJobMenuItem.propTypes = {
-    id: PropTypes.string.isRequired,
+    id: string.isRequired,
 }
 
 export default RunJobMenuItem

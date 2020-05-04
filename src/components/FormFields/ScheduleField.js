@@ -30,8 +30,10 @@ const ScheduleField = ({ jobType }) => {
     }
 }
 
+const { string } = PropTypes
+
 ScheduleField.propTypes = {
-    jobType: PropTypes.string.isRequired,
+    jobType: string.isRequired,
 }
 
 export default ScheduleField

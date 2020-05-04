@@ -39,9 +39,11 @@ const JobListTable = ({ jobIds, jobEntities }) => (
     </Table>
 )
 
+const { object, arrayOf, string } = PropTypes
+
 JobListTable.propTypes = {
-    jobEntities: PropTypes.object.isRequired,
-    jobIds: PropTypes.arrayOf(PropTypes.string).isRequired,
+    jobEntities: object.isRequired,
+    jobIds: arrayOf(string).isRequired,
 }
 
 export default JobListTable
