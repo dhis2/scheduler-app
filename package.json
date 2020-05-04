@@ -16,7 +16,7 @@
         "format:css": "prettier './src/**/*.css' --write"
     },
     "dependencies": {
-        "@dhis2/app-runtime": "^2.1.0",
+        "@dhis2/app-runtime": "^2.1.2",
         "@dhis2/d2-i18n": "^1.0.6",
         "@dhis2/prop-types": "^2.0.0",
         "@dhis2/ui": "^5.0.3",
