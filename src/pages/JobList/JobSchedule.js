@@ -15,10 +15,12 @@ const JobSchedule = ({ cronExpression, schedulingType, delay }) => {
     }
 }
 
+const { string, number } = PropTypes
+
 JobSchedule.propTypes = {
-    schedulingType: PropTypes.string.isRequired,
-    cronExpression: PropTypes.string,
-    delay: PropTypes.number,
+    schedulingType: string.isRequired,
+    cronExpression: string,
+    delay: number,
 }
 
 export default JobSchedule

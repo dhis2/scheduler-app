@@ -49,17 +49,19 @@ const JobListTableItem = ({
     </TableRow>
 )
 
+const { shape, string, bool, number } = PropTypes
+
 JobListTableItem.propTypes = {
-    job: PropTypes.shape({
-        displayName: PropTypes.string.isRequired,
-        enabled: PropTypes.bool.isRequired,
-        id: PropTypes.string.isRequired,
-        jobStatus: PropTypes.string.isRequired,
-        jobType: PropTypes.string.isRequired,
-        schedulingType: PropTypes.string.isRequired,
-        cronExpression: PropTypes.string,
-        delay: PropTypes.number,
-        nextExecutionTime: PropTypes.string,
+    job: shape({
+        displayName: string.isRequired,
+        enabled: bool.isRequired,
+        id: string.isRequired,
+        jobStatus: string.isRequired,
+        jobType: string.isRequired,
+        schedulingType: string.isRequired,
+        cronExpression: string,
+        delay: number,
+        nextExecutionTime: string,
     }).isRequired,
 }
 

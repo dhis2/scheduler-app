@@ -51,11 +51,13 @@ const LabeledOptionsField = ({ endpoint, label, name, parameterName }) => {
     )
 }
 
+const { string } = PropTypes
+
 LabeledOptionsField.propTypes = {
-    endpoint: PropTypes.string.isRequired,
-    label: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    parameterName: PropTypes.string.isRequired,
+    endpoint: string.isRequired,
+    label: string.isRequired,
+    name: string.isRequired,
+    parameterName: string.isRequired,
 }
 
 export default LabeledOptionsField

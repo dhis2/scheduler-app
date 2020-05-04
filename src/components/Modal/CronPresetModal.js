@@ -72,9 +72,11 @@ const CronPresetModal = ({ setCron, hideModal }) => {
     )
 }
 
+const { func } = PropTypes
+
 CronPresetModal.propTypes = {
-    hideModal: PropTypes.func.isRequired,
-    setCron: PropTypes.func.isRequired,
+    hideModal: func.isRequired,
+    setCron: func.isRequired,
 }
 
 export default CronPresetModal

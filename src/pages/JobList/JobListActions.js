@@ -21,8 +21,10 @@ const JobListActions = ({ id }) => (
     </DropdownButton>
 )
 
+const { string } = PropTypes
+
 JobListActions.propTypes = {
-    id: PropTypes.string.isRequired,
+    id: string.isRequired,
 }
 
 export default JobListActions
