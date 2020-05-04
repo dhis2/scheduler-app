@@ -54,14 +54,16 @@ JobForm.defaultProps = {
     submitError: {},
 }
 
+const { func, bool, object, shape, string } = PropTypes
+
 JobForm.propTypes = {
-    handleSubmit: PropTypes.func.isRequired,
-    pristine: PropTypes.bool.isRequired,
-    setIsPristine: PropTypes.func.isRequired,
-    values: PropTypes.object.isRequired,
-    submitError: PropTypes.shape({
-        details: PropTypes.string,
-        message: PropTypes.string,
+    handleSubmit: func.isRequired,
+    pristine: bool.isRequired,
+    setIsPristine: func.isRequired,
+    values: object.isRequired,
+    submitError: shape({
+        details: string,
+        message: string,
     }),
 }
 

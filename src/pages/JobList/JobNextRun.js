@@ -30,9 +30,11 @@ const JobNextRun = ({ nextExecutionTime, enabled }) => {
     return now.to(nextRun)
 }
 
+const { bool, string } = PropTypes
+
 JobNextRun.propTypes = {
-    enabled: PropTypes.bool.isRequired,
-    nextExecutionTime: PropTypes.string,
+    enabled: bool.isRequired,
+    nextExecutionTime: string,
 }
 
 export default JobNextRun

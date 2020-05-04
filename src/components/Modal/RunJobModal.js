@@ -49,9 +49,11 @@ const RunJobModal = ({ id, hideModal }) => {
     )
 }
 
+const { func, string } = PropTypes
+
 RunJobModal.propTypes = {
-    hideModal: PropTypes.func.isRequired,
-    id: PropTypes.string.isRequired,
+    hideModal: func.isRequired,
+    id: string.isRequired,
 }
 
 export default RunJobModal
