@@ -5,8 +5,6 @@ module.exports = {
     plugins: ['react-hooks'],
     extends: [
         config.eslintReact,
-        'plugin:import/errors',
-        'plugin:import/warnings',
         'plugin:jsx-a11y/recommended',
         'plugin:compat/recommended',
     ],
