@@ -44,6 +44,7 @@
     },
     "resolutions": {
         "@dhis2/prop-types": "^1.6.4",
+        "@dhis2/app-runtime": "^2.1.2",
         "@dhis2/d2-i18n": "^1.0.6"
     },
     "husky": {
