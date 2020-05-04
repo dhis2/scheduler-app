@@ -36,8 +36,10 @@ const AuthWall = ({ children }) => {
     return <React.Fragment>{children}</React.Fragment>
 }
 
+const { node } = PropTypes
+
 AuthWall.propTypes = {
-    children: PropTypes.node.isRequired,
+    children: node.isRequired,
 }
 
 export default AuthWall

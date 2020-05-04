@@ -12,8 +12,10 @@ const EditJobMenuItem = ({ id }) => (
     />
 )
 
+const { string } = PropTypes
+
 EditJobMenuItem.propTypes = {
-    id: PropTypes.string.isRequired,
+    id: string.isRequired,
 }
 
 export default EditJobMenuItem

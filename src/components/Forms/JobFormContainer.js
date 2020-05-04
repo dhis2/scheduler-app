@@ -65,8 +65,10 @@ const JobFormContainer = ({ setIsPristine }) => {
     )
 }
 
+const { func } = PropTypes
+
 JobFormContainer.propTypes = {
-    setIsPristine: PropTypes.func.isRequired,
+    setIsPristine: func.isRequired,
 }
 
 export default JobFormContainer

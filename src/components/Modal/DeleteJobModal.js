@@ -43,9 +43,11 @@ const DeleteJobModal = ({ id, hideModal }) => {
     )
 }
 
+const { func, string } = PropTypes
+
 DeleteJobModal.propTypes = {
-    hideModal: PropTypes.func.isRequired,
-    id: PropTypes.string.isRequired,
+    hideModal: func.isRequired,
+    id: string.isRequired,
 }
 
 export default DeleteJobModal

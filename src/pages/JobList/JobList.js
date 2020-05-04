@@ -55,14 +55,16 @@ const JobList = ({
     )
 }
 
+const { bool, object, string, arrayOf, func } = PropTypes
+
 JobList.propTypes = {
-    isLoading: PropTypes.bool.isRequired,
-    jobEntities: PropTypes.object.isRequired,
-    jobFilter: PropTypes.string.isRequired,
-    jobIds: PropTypes.arrayOf(PropTypes.string).isRequired,
-    setJobFilter: PropTypes.func.isRequired,
-    setShowSystemJobs: PropTypes.func.isRequired,
-    showSystemJobs: PropTypes.bool.isRequired,
+    isLoading: bool.isRequired,
+    jobEntities: object.isRequired,
+    jobFilter: string.isRequired,
+    jobIds: arrayOf(string).isRequired,
+    setJobFilter: func.isRequired,
+    setShowSystemJobs: func.isRequired,
+    showSystemJobs: bool.isRequired,
 }
 
 export default JobList
