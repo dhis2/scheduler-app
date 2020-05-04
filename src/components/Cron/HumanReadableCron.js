@@ -19,8 +19,10 @@ const HumanReadableCron = ({ cronExpression }) => {
     return cronstrue.toString(cronExpression, { locale })
 }
 
+const { string } = PropTypes
+
 HumanReadableCron.propTypes = {
-    cronExpression: PropTypes.string.isRequired,
+    cronExpression: string.isRequired,
 }
 
 export default HumanReadableCron

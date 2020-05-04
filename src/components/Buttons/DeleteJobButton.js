@@ -19,8 +19,10 @@ const DeleteJobButton = ({ id }) => {
     )
 }
 
+const { string } = PropTypes
+
 DeleteJobButton.propTypes = {
-    id: PropTypes.string.isRequired,
+    id: string.isRequired,
 }
 
 export default DeleteJobButton

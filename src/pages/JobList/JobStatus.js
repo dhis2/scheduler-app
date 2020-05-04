@@ -22,8 +22,10 @@ const JobStatus = ({ status }) => {
     }
 }
 
+const { string } = PropTypes
+
 JobStatus.propTypes = {
-    status: PropTypes.string.isRequired,
+    status: string.isRequired,
 }
 
 export default JobStatus

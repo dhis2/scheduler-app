@@ -24,9 +24,11 @@ DiscardFormButton.defaultProps = {
     shouldConfirm: false,
 }
 
+const { string, bool } = PropTypes
+
 DiscardFormButton.propTypes = {
-    children: PropTypes.string.isRequired,
-    shouldConfirm: PropTypes.bool,
+    children: string.isRequired,
+    shouldConfirm: bool,
 }
 
 export default DiscardFormButton

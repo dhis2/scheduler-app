@@ -21,9 +21,11 @@ const ToggleJobSwitch = ({ id, checked }) => {
     )
 }
 
+const { bool, string } = PropTypes
+
 ToggleJobSwitch.propTypes = {
-    checked: PropTypes.bool.isRequired,
-    id: PropTypes.string.isRequired,
+    checked: bool.isRequired,
+    id: string.isRequired,
 }
 
 export default ToggleJobSwitch

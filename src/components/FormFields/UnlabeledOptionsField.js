@@ -50,10 +50,12 @@ const UnlabeledOptionsField = ({ endpoint, label, name }) => {
     )
 }
 
+const { string } = PropTypes
+
 UnlabeledOptionsField.propTypes = {
-    endpoint: PropTypes.string.isRequired,
-    label: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
+    endpoint: string.isRequired,
+    label: string.isRequired,
+    name: string.isRequired,
 }
 
 export default UnlabeledOptionsField

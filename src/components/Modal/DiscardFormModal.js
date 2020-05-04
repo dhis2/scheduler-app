@@ -39,8 +39,10 @@ const DiscardFormModal = ({ hideModal }) => (
     </Modal>
 )
 
+const { func } = PropTypes
+
 DiscardFormModal.propTypes = {
-    hideModal: PropTypes.func.isRequired,
+    hideModal: func.isRequired,
 }
 
 export default DiscardFormModal

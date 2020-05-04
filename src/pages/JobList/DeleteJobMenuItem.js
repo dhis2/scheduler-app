@@ -24,8 +24,10 @@ const DeleteJobMenuItem = ({ id }) => {
     )
 }
 
+const { string } = PropTypes
+
 DeleteJobMenuItem.propTypes = {
-    id: PropTypes.string.isRequired,
+    id: string.isRequired,
 }
 
 export default DeleteJobMenuItem

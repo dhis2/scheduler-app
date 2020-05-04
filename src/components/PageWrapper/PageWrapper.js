@@ -6,8 +6,10 @@ const PageWrapper = ({ children }) => (
     <div className={styles.wrapper}>{children}</div>
 )
 
+const { node } = PropTypes
+
 PageWrapper.propTypes = {
-    children: PropTypes.node.isRequired,
+    children: node.isRequired,
 }
 
 export default PageWrapper
