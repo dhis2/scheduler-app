@@ -3,10 +3,8 @@ import { shallow, mount } from 'enzyme'
 import RunJobMenuItem from './RunJobMenuItem'
 
 describe('<RunJobMenuItem>', () => {
-    it('renders correctly', () => {
-        const wrapper = shallow(<RunJobMenuItem id="id" />)
-
-        expect(wrapper).toMatchSnapshot()
+    it('renders without errors', () => {
+        shallow(<RunJobMenuItem id="id" />)
     })
 
     it('shows the modal when MenuItem is clicked', () => {

@@ -3,9 +3,11 @@ import { shallow } from 'enzyme'
 import JobListActions from './JobListActions'
 
 describe('<JobListActions>', () => {
-    it('renders correctly', () => {
-        const wrapper = shallow(<JobListActions id="1" />)
+    it('renders without errors for configurable jobs', () => {
+        shallow(<JobListActions id="1" configurable />)
+    })
 
-        expect(wrapper).toMatchSnapshot()
+    it('renders without errors for non configurable jobs', () => {
+        shallow(<JobListActions id="1" />)
     })
 })

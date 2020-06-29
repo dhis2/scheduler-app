@@ -5,7 +5,7 @@ import formatError from '../../services/format-error'
 const mutation = {
     resource: 'jobConfigurations',
     type: 'create',
-    data: ({ job }) => job,
+    data: /* istanbul ignore next */ ({ job }) => job,
 }
 
 const useSubmitJob = () => {

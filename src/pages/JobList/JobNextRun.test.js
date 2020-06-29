@@ -11,32 +11,35 @@ const future = '2011-10-10T10:10:10.000'
 
 describe('<JobNextRun>', () => {
     it('returns the next run time for an enabled job and a future execution time', () => {
-        jest.spyOn(global.Date, 'now').mockImplementationOnce(() => now)
+        const expected = 'in a year'
+        jest.spyOn(global.Date, 'now').mockImplementation(() => now)
 
         const wrapper = shallow(
             <JobNextRun nextExecutionTime={future} enabled={true} />
         )
 
-        expect(wrapper).toMatchSnapshot()
+        expect(wrapper.text()).toEqual(expect.stringMatching(expected))
     })
 
     it('returns fallback message for an enabled job and a past execution time', () => {
-        jest.spyOn(global.Date, 'now').mockImplementationOnce(() => now)
+        const expected = 'Not scheduled'
+        jest.spyOn(global.Date, 'now').mockImplementation(() => now)
 
         const wrapper = shallow(
             <JobNextRun nextExecutionTime={past} enabled={true} />
         )
 
-        expect(wrapper).toMatchSnapshot()
+        expect(wrapper.text()).toEqual(expect.stringMatching(expected))
     })
 
     it('returns fallback message for a disabled job', () => {
-        jest.spyOn(global.Date, 'now').mockImplementationOnce(() => now)
+        const expected = '-'
+        jest.spyOn(global.Date, 'now').mockImplementation(() => now)
 
         const wrapper = shallow(
             <JobNextRun nextExecutionTime={''} enabled={false} />
         )
 
-        expect(wrapper).toMatchSnapshot()
+        expect(wrapper.text()).toEqual(expect.stringMatching(expected))
     })
 })

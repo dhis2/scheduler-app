@@ -3,10 +3,8 @@ import { shallow, mount } from 'enzyme'
 import DeleteJobButton from './DeleteJobButton'
 
 describe('<DeleteJobButton>', () => {
-    it('renders correctly', () => {
-        const wrapper = shallow(<DeleteJobButton id="1" />)
-
-        expect(wrapper).toMatchSnapshot()
+    it('renders without errors', () => {
+        shallow(<DeleteJobButton id="1" />)
     })
 
     it('shows the modal when button is clicked', () => {

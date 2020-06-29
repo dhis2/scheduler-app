@@ -30,7 +30,10 @@ const CronField = () => {
             />
             <Box marginTop="8px">
                 <CronPresetButton
-                    setCron={cron => form.change(FIELD_NAME, cron)}
+                    setCron={
+                        /* istanbul ignore next */
+                        cron => form.change(FIELD_NAME, cron)
+                    }
                     small
                 />
             </Box>

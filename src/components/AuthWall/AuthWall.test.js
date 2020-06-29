@@ -1,58 +1,76 @@
 import React from 'react'
-import { shallow } from 'enzyme'
-import { useGetMe, selectors } from '../../hooks/me'
+import { shallow, mount } from 'enzyme'
+import { useDataQuery } from '@dhis2/app-runtime'
+import expectRenderError from '../../../test/expect-render-error'
+import { getAuthorized } from './selectors'
 import AuthWall from './AuthWall'
 
-jest.mock('../../hooks/me', () => ({
-    useGetMe: jest.fn(),
-    selectors: {
-        getAuthorized: jest.fn(),
-    },
+jest.mock('@dhis2/app-runtime', () => ({
+    useDataQuery: jest.fn(),
 }))
 
+jest.mock('./selectors', () => ({
+    getAuthorized: jest.fn(),
+}))
+
+afterEach(() => {
+    jest.resetAllMocks()
+})
+
 describe('<AuthWall>', () => {
-    it('renders a spinner when loading', () => {
-        useGetMe.mockImplementationOnce(() => ({ loading: true }))
+    it('shows a loading message when loading', () => {
+        useDataQuery.mockImplementation(() => ({ loading: true }))
 
-        const wrapper = shallow(<AuthWall>Child</AuthWall>)
+        const wrapper = mount(<AuthWall>Child</AuthWall>)
+        const loadingIndicator = wrapper.find({
+            'data-test': 'dhis2-uicore-circularloader',
+        })
 
-        expect(wrapper).toMatchSnapshot()
+        expect(loadingIndicator).toHaveLength(1)
+        expect(wrapper.text()).toEqual(
+            expect.stringContaining('Checking permissions')
+        )
     })
 
     it('throws fetching errors if they occur', () => {
         const props = { children: 'Child' }
-        const error = new Error('Something went wrong')
-        useGetMe.mockImplementationOnce(() => ({
+        const message = 'Something went wrong'
+        const error = new Error(message)
+
+        useDataQuery.mockImplementation(() => ({
             loading: false,
             error,
         }))
 
-        expect(() => AuthWall(props)).toThrow(error)
+        expectRenderError(<AuthWall {...props} />, message)
     })
 
-    it('redirects unauthorized users', () => {
-        useGetMe.mockImplementationOnce(() => ({
+    it('redirects unauthorized users to /notauthorized', () => {
+        useDataQuery.mockImplementation(() => ({
             loading: false,
             error: undefined,
             data: {},
         }))
-        selectors.getAuthorized.mockImplementationOnce(() => false)
+        getAuthorized.mockImplementation(() => false)
 
         const wrapper = shallow(<AuthWall>Child</AuthWall>)
+        const redirect = wrapper.find('Redirect')
+        const props = redirect.props()
 
-        expect(wrapper).toMatchSnapshot()
+        expect(redirect).toHaveLength(1)
+        expect(props).toEqual(expect.objectContaining({ to: '/notauthorized' }))
     })
 
     it('renders the children for users that are authorized', () => {
-        useGetMe.mockImplementationOnce(() => ({
+        useDataQuery.mockImplementation(() => ({
             loading: false,
             error: undefined,
             data: {},
         }))
-        selectors.getAuthorized.mockImplementationOnce(() => true)
+        getAuthorized.mockImplementation(() => true)
 
         const wrapper = shallow(<AuthWall>Child</AuthWall>)
 
-        expect(wrapper).toMatchSnapshot()
+        expect(wrapper.text()).toEqual(expect.stringContaining('Child'))
     })
 })

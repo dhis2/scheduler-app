@@ -8,6 +8,7 @@ import {
     createNumberRange,
 } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
+import { getStringValue } from './selectors'
 
 const { Field } = ReactFinalForm
 
@@ -30,6 +31,7 @@ const DelayField = () => (
         validate={VALIDATOR}
         label={i18n.t('Delay')}
         type="number"
+        format={getStringValue}
         helpText={i18n.t(
             'Delay in seconds ({{ LOWERBOUND }} - {{ UPPERBOUND }})',
             {
