@@ -27,6 +27,7 @@ const JobList = ({
             <Card>
                 <div className={styles.controlContainer}>
                     <Input
+                        dataTest="job-filter-input"
                         placeholder={i18n.t('Filter jobs')}
                         onChange={({ value }) => {
                             setJobFilter(value)
@@ -35,6 +36,7 @@ const JobList = ({
                     />
                     <div className={styles.controlRight}>
                         <Switch
+                            dataTest="job-toggle-switch"
                             checked={showSystemJobs}
                             disabled={isLoading}
                             label={i18n.t('Show system jobs')}
@@ -43,6 +45,7 @@ const JobList = ({
                             }}
                         />
                         <Button
+                            dataTest="new-job-button"
                             onClick={() => {
                                 history.push('/add')
                             }}

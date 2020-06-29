@@ -34,6 +34,7 @@ const isValidFraction = (fraction, x, y) => {
     const components = fraction.split('/')
     if (!components || components.length !== 2) return false
 
+    /* istanbul ignore next */
     return (
         (isWildcard(components[0]) || isValidNumber(components[0], x, y)) &&
         isValidNumber(components[1], x, y)
@@ -52,6 +53,8 @@ const isAlphabeticWeekday = field => {
 const isAlphabeticMonth = field => {
     const months = field.split('-')
     const [firstMonth, secondMonth] = months.map(m => MONTHS.indexOf(m))
+
+    /* istanbul ignore next */
     return (
         (firstMonth !== -1 && secondMonth === undefined) ||
         (firstMonth !== -1 && secondMonth !== -1 && firstMonth <= secondMonth)

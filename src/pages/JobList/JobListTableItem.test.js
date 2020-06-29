@@ -3,7 +3,7 @@ import { shallow } from 'enzyme'
 import JobListTableItem from './JobListTableItem'
 
 describe('<JobListTableItem>', () => {
-    it('renders cron jobs correctly', () => {
+    it('renders cron jobs without errors', () => {
         const job = {
             id: '1',
             displayName: 'Name',
@@ -13,13 +13,13 @@ describe('<JobListTableItem>', () => {
             nextExecutionTime: '2100-10-10T14:48:00',
             enabled: true,
             schedulingType: 'CRON',
+            configurable: true,
         }
-        const wrapper = shallow(<JobListTableItem job={job} />)
 
-        expect(wrapper).toMatchSnapshot()
+        shallow(<JobListTableItem job={job} />)
     })
 
-    it('renders fixed delay jobs correctly', () => {
+    it('renders fixed delay jobs without errors', () => {
         const job = {
             id: '1',
             displayName: 'Name',
@@ -29,9 +29,9 @@ describe('<JobListTableItem>', () => {
             enabled: true,
             schedulingType: 'FIXED_DELAY',
             delay: 6000,
+            configurable: true,
         }
-        const wrapper = shallow(<JobListTableItem job={job} />)
 
-        expect(wrapper).toMatchSnapshot()
+        shallow(<JobListTableItem job={job} />)
     })
 })

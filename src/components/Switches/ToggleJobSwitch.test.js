@@ -1,18 +1,22 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
-import { useToggleJob } from '../../hooks/jobs'
+import { useDataMutation } from '@dhis2/app-runtime'
 import { RefetchJobsContext } from '../Context'
 import ToggleJobSwitch from './ToggleJobSwitch'
 
-jest.mock('../../hooks/jobs', () => ({
-    useToggleJob: jest.fn(() => [() => {}, {}]),
+jest.mock('@dhis2/app-runtime', () => ({
+    useDataMutation: jest.fn(),
 }))
 
-describe('<ToggleJobSwitch>', () => {
-    it('renders correctly', () => {
-        const wrapper = shallow(<ToggleJobSwitch id="1" checked={true} />)
+afterEach(() => {
+    jest.resetAllMocks()
+})
 
-        expect(wrapper).toMatchSnapshot()
+describe('<ToggleJobSwitch>', () => {
+    it('renders without errors', () => {
+        useDataMutation.mockImplementation(() => [() => {}, {}])
+
+        shallow(<ToggleJobSwitch id="1" checked={true} />)
     })
 
     it('calls toggleJob and refetches when toggle is clicked', async () => {
@@ -25,7 +29,7 @@ describe('<ToggleJobSwitch>', () => {
             checked,
         }
 
-        useToggleJob.mockImplementationOnce(() => [toggleJobSpy, {}])
+        useDataMutation.mockImplementation(() => [toggleJobSpy, {}])
 
         const wrapper = mount(
             <RefetchJobsContext.Provider value={refetchSpy}>
@@ -34,7 +38,8 @@ describe('<ToggleJobSwitch>', () => {
         )
 
         wrapper
-            .find('input[name="toggle-job-id"]')
+            .find('input')
+            .find({ name: 'toggle-job-id' })
             .simulate('change', { target: { checked: !checked } })
 
         await toggle

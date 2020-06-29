@@ -8,10 +8,8 @@ jest.mock('../../services/history', () => ({
 }))
 
 describe('<EditJobMenuItem>', () => {
-    it('renders correctly', () => {
-        const wrapper = shallow(<EditJobMenuItem id="id" />)
-
-        expect(wrapper).toMatchSnapshot()
+    it('renders without errors', () => {
+        shallow(<EditJobMenuItem id="id" />)
     })
 
     it('calls history.push correctly when MenuItem is clicked', () => {

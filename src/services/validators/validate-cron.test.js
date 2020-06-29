@@ -27,4 +27,12 @@ describe('validateCron', () => {
     it('should allow string ranges for day-of-week', () => {
         expect(validateCron('* * * * * MON-FRI')).toEqual(true)
     })
+
+    it('should allow for valid fractions', () => {
+        expect(validateCron('0 0 */3 * * *')).toEqual(true)
+    })
+
+    it('should allow for number ranges', () => {
+        expect(validateCron('0 0 1-5 * * *')).toEqual(true)
+    })
 })

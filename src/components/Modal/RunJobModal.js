@@ -35,7 +35,7 @@ const RunJobModal = ({ id, hideModal }) => {
                         name={`run-job-${id}`}
                         primary
                         onClick={() => {
-                            runJob({ id }).then(() => {
+                            runJob().then(() => {
                                 hideModal()
                                 refetch()
                             })

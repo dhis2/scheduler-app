@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`requiredCron should return an error message when input is not a string 1`] = `"A CRON expression is required"`;
-
-exports[`requiredCron should return an error message when input is not a valid CRON expression 1`] = `"Please enter a valid CRON expression"`;
-
-exports[`requiredCron should return an error message when there is no input 1`] = `"A CRON expression is required"`;
