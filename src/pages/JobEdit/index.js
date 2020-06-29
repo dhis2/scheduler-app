@@ -1,3 +1,3 @@
-import JobEdit from './JobEdit'
+import JobEditContainer from './JobEditContainer'
 
-export { JobEdit }
+export { JobEditContainer }
