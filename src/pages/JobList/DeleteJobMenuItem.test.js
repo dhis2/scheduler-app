@@ -3,10 +3,8 @@ import { shallow, mount } from 'enzyme'
 import DeleteJobMenuItem from './DeleteJobMenuItem'
 
 describe('<DeleteJobMenuItem>', () => {
-    it('renders correctly', () => {
-        const wrapper = shallow(<DeleteJobMenuItem id="id" />)
-
-        expect(wrapper).toMatchSnapshot()
+    it('renders without errors', () => {
+        shallow(<DeleteJobMenuItem id="id" />)
     })
 
     it('shows the modal when MenuItem is clicked', () => {

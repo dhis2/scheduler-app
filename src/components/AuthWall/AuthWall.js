@@ -3,10 +3,17 @@ import { PropTypes } from '@dhis2/prop-types'
 import { Redirect } from 'react-router-dom'
 import { CircularLoader, Layer, CenteredContent } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
-import { useGetMe, selectors } from '../../hooks/me'
+import { useDataQuery } from '@dhis2/app-runtime'
+import { getAuthorized } from './selectors'
+
+const query = {
+    me: {
+        resource: 'me',
+    },
+}
 
 const AuthWall = ({ children }) => {
-    const { loading, error, data } = useGetMe()
+    const { loading, error, data } = useDataQuery(query)
 
     if (loading) {
         return (
@@ -27,7 +34,7 @@ const AuthWall = ({ children }) => {
         throw error
     }
 
-    const isAuthorized = selectors.getAuthorized(data)
+    const isAuthorized = getAuthorized(data.me)
 
     if (!isAuthorized) {
         return <Redirect push to="/notauthorized" />

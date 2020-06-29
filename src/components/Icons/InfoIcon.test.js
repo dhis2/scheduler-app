@@ -3,9 +3,7 @@ import { shallow } from 'enzyme'
 import InfoIcon from './InfoIcon'
 
 describe('<InfoIcon>', () => {
-    it('renders correctly', () => {
-        const wrapper = shallow(<InfoIcon />)
-
-        expect(wrapper).toMatchSnapshot()
+    it('renders without errors', () => {
+        shallow(<InfoIcon />)
     })
 })

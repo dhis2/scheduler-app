@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { PropTypes } from '@dhis2/prop-types'
 import i18n from '@dhis2/d2-i18n'
 import { Button, CircularLoader, Box, ReactFinalForm } from '@dhis2/ui'
@@ -24,9 +24,15 @@ const JobForm = ({
     values,
     setIsPristine,
 }) => {
-    // Lift pristine state up on changes
     const { subscribe } = useForm()
-    subscribe(({ pristine }) => setIsPristine(pristine), { pristine: true })
+
+    /**
+     * Lift pristine state up on changes, wrapped in useEffect because calls to setState
+     * outside of the component that owns the setState should not happen synchronously.
+     */
+    useEffect(() => {
+        subscribe(({ pristine }) => setIsPristine(pristine), { pristine: true })
+    })
 
     // Check if there's currently a selected job type
     const jobType = values[fieldNames.JOB_TYPE]
@@ -65,7 +71,7 @@ const JobForm = ({
                     icon={Spinner}
                     className={styles.saveButton}
                 >
-                    {i18n.t('Save job')}
+                    {i18n.t('Save')}
                 </Button>
                 <DiscardFormButton shouldConfirm={!pristine}>
                     {i18n.t('Cancel')}

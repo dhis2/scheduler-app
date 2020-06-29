@@ -18,7 +18,7 @@ describe('useSubmitJob', () => {
         const engine = {
             mutate: () => Promise.resolve(),
         }
-        useDataEngine.mockImplementationOnce(() => engine)
+        useDataEngine.mockImplementation(() => engine)
         const [submitJob] = useSubmitJob()
 
         expect.assertions(1)
@@ -36,16 +36,14 @@ describe('useSubmitJob', () => {
         const engine = {
             mutate: () => Promise.reject(error),
         }
-        useDataEngine.mockImplementationOnce(() => engine)
-        formatError.mockImplementationOnce(error => error)
+        useDataEngine.mockImplementation(() => engine)
+        formatError.mockImplementation(error => error)
 
         const [submitJob] = useSubmitJob()
 
         expect.assertions(1)
 
-        submitJob().then(error => {
-            expect(error).toBe(error)
-        })
+        return expect(submitJob()).resolves.toBe(error)
     })
 
     it('should reject with an error on any other errors', () => {
@@ -54,14 +52,12 @@ describe('useSubmitJob', () => {
         const engine = {
             mutate: () => Promise.reject(error),
         }
-        useDataEngine.mockImplementationOnce(() => engine)
+        useDataEngine.mockImplementation(() => engine)
 
         const [submitJob] = useSubmitJob()
 
         expect.assertions(1)
 
-        submitJob().catch(error => {
-            expect(error).toBe(error)
-        })
+        return expect(submitJob()).rejects.toBe(error)
     })
 })

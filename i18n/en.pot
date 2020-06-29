@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-06-25T09:59:16.015Z\n"
-"PO-Revision-Date: 2020-06-25T09:59:16.015Z\n"
+"POT-Creation-Date: 2020-07-22T08:26:40.694Z\n"
+"PO-Revision-Date: 2020-07-22T08:26:40.694Z\n"
 
 msgid "Checking permissions"
 msgstr ""
@@ -32,7 +32,7 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-msgid "Loading job types"
+msgid "Loading"
 msgstr ""
 
 msgid "Job type"
@@ -41,7 +41,7 @@ msgstr ""
 msgid "No options available"
 msgstr ""
 
-msgid "Save job"
+msgid "Save"
 msgstr ""
 
 msgid "Cancel"
@@ -93,6 +93,9 @@ msgid "Configuration"
 msgstr ""
 
 msgid "About job configuration"
+msgstr ""
+
+msgid "Job: {{ JOBNAME }}"
 msgstr ""
 
 msgid "Edit"

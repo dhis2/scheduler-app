@@ -17,7 +17,13 @@ const RunJobMenuItem = ({ id }) => {
                 label={i18n.t('Run manually')}
             />
             {showModal && (
-                <RunJobModal id={id} hideModal={() => setShowModal(false)} />
+                <RunJobModal
+                    id={id}
+                    hideModal={
+                        /* istanbul ignore next */
+                        () => setShowModal(false)
+                    }
+                />
             )}
         </React.Fragment>
     )

@@ -3,7 +3,7 @@ import { shallow } from 'enzyme'
 import JobListTable from './JobListTable'
 
 describe('<JobListTable>', () => {
-    it('renders correctly when there are jobs', () => {
+    it('renders without errors when there are jobs', () => {
         const jobIds = ['1', '2']
         const jobEntities = {
             1: {
@@ -27,20 +27,14 @@ describe('<JobListTable>', () => {
                 schedulingType: 'FIXED_DELAY',
             },
         }
-        const wrapper = shallow(
-            <JobListTable jobIds={jobIds} jobEntities={jobEntities} />
-        )
 
-        expect(wrapper).toMatchSnapshot()
+        shallow(<JobListTable jobIds={jobIds} jobEntities={jobEntities} />)
     })
 
-    it('renders correctly when there are no jobs', () => {
+    it('renders without errors when there are no jobs', () => {
         const jobIds = []
         const jobEntities = {}
-        const wrapper = shallow(
-            <JobListTable jobIds={jobIds} jobEntities={jobEntities} />
-        )
 
-        expect(wrapper).toMatchSnapshot()
+        shallow(<JobListTable jobIds={jobIds} jobEntities={jobEntities} />)
     })
 })

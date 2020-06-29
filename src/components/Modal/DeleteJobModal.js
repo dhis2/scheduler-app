@@ -8,11 +8,17 @@ import {
     ButtonStrip,
 } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
+import { useDataMutation } from '@dhis2/app-runtime'
 import { RefetchJobsContext } from '../Context'
-import { useDeleteJob } from '../../hooks/jobs'
+
+const mutation = {
+    resource: 'jobConfigurations',
+    id: /* istanbul ignore next */ ({ id }) => id,
+    type: 'delete',
+}
 
 const DeleteJobModal = ({ id, hideModal }) => {
-    const [deleteJob] = useDeleteJob()
+    const [deleteJob] = useDataMutation(mutation)
     const refetch = useContext(RefetchJobsContext)
 
     return (

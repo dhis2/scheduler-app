@@ -1,7 +1,12 @@
 import React from 'react'
 import { PropTypes } from '@dhis2/prop-types'
 import { ReactFinalForm, InputFieldFF, SwitchFieldFF, Box } from '@dhis2/ui'
-import { useGetJobTypes, selectors } from '../../hooks/job-types'
+import { useDataQuery } from '@dhis2/app-runtime'
+import {
+    getJobTypeParameters,
+    getParameterEndpoint,
+    getStringValue,
+} from './selectors'
 import UnlabeledOptionsField from './UnlabeledOptionsField'
 import LabeledOptionsField from './LabeledOptionsField'
 import styles from './ParameterFields.module.css'
@@ -11,9 +16,15 @@ const { Field } = ReactFinalForm
 // The key under which the parameters will be sent to the backend
 const FIELD_NAME = 'jobParameters'
 
+const query = {
+    jobTypes: {
+        resource: 'jobConfigurations/jobTypes',
+    },
+}
+
 // Renders all parameters for a given jobtype
 const ParameterFields = ({ jobType }) => {
-    const { loading, error, data } = useGetJobTypes()
+    const { loading, error, data } = useDataQuery(query)
 
     if (loading) {
         return null
@@ -27,7 +38,7 @@ const ParameterFields = ({ jobType }) => {
         throw error
     }
 
-    const parameters = selectors.getJobTypeParameters(data, jobType)
+    const parameters = getJobTypeParameters(data.jobTypes.jobTypes, jobType)
 
     if (parameters.length === 0) {
         return null
@@ -40,7 +51,7 @@ const ParameterFields = ({ jobType }) => {
                 label: fieldName,
                 name: `${FIELD_NAME}.${name}`,
             }
-            const endpoint = selectors.getParameterEndpoint(relativeApiEndpoint)
+            const endpoint = getParameterEndpoint(relativeApiEndpoint)
             let parameterComponent = null
 
             switch (klass) {
@@ -67,6 +78,7 @@ const ParameterFields = ({ jobType }) => {
                         <Field
                             {...defaultProps}
                             component={InputFieldFF}
+                            format={getStringValue}
                             type="number"
                         />
                     )

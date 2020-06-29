@@ -3,14 +3,13 @@ import { shallow, mount } from 'enzyme'
 import CronPresetModal from './CronPresetModal'
 
 describe('<CronPresetModal>', () => {
-    it('renders correctly', () => {
+    it('renders without errors', () => {
         const props = {
             hideModal: () => {},
             setCron: () => {},
         }
-        const wrapper = shallow(<CronPresetModal {...props} />)
 
-        expect(wrapper).toMatchSnapshot()
+        shallow(<CronPresetModal {...props} />)
     })
 
     it('calls hideModal when cancel button is clicked', () => {
@@ -20,7 +19,10 @@ describe('<CronPresetModal>', () => {
         }
         const wrapper = mount(<CronPresetModal {...props} />)
 
-        wrapper.find('button[name="hide-modal"]').simulate('click')
+        wrapper
+            .find('button')
+            .find({ name: 'hide-modal' })
+            .simulate('click')
 
         expect(props.hideModal).toHaveBeenCalled()
     })
@@ -35,9 +37,14 @@ describe('<CronPresetModal>', () => {
         const wrapper = mount(<CronPresetModal {...props} />)
 
         wrapper
-            .find(`input[value="${value}"]`)
+            .find('input')
+            .find({ value })
             .simulate('change', { target: { value } })
-        wrapper.find('button[name="insert-preset"]').simulate('click')
+
+        wrapper
+            .find('button')
+            .find({ name: 'insert-preset' })
+            .simulate('click')
 
         expect(props.setCron).toHaveBeenCalledWith(value)
         expect(props.hideModal).toHaveBeenCalled()
@@ -50,7 +57,10 @@ describe('<CronPresetModal>', () => {
         }
         const wrapper = mount(<CronPresetModal {...props} />)
 
-        wrapper.find('div[data-test="dhis2-uicore-layer"]').simulate('click')
+        wrapper
+            .find('div')
+            .find({ 'data-test': 'dhis2-uicore-layer' })
+            .simulate('click')
 
         expect(props.hideModal).toHaveBeenCalled()
     })

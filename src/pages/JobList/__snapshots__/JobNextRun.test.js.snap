@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`<JobNextRun> returns fallback message for a disabled job 1`] = `"-"`;
-
-exports[`<JobNextRun> returns fallback message for an enabled job and a past execution time 1`] = `"Not scheduled"`;
-
-exports[`<JobNextRun> returns the next run time for an enabled job and a future execution time 1`] = `"in a year"`;
