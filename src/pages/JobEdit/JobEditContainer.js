@@ -1,21 +1,23 @@
 import React, { useState } from 'react'
+import { CircularLoader, Layer, CenteredContent } from '@dhis2/ui'
 import { useParams } from 'react-router-dom'
 import { useDataQuery } from '@dhis2/app-runtime'
-import { CircularLoader, Layer, CenteredContent } from '@dhis2/ui'
 import JobEdit from './JobEdit'
 
 const query = {
     job: {
         resource: 'jobConfigurations',
+        id: ({ id }) => id,
+        params: {
+            paging: false,
+        },
     },
 }
 
 const JobEditContainer = () => {
-    const { id } = useParams()
     const [isPristine, setIsPristine] = useState(true)
-    const { loading, error, data } = useDataQuery(query, {
-        id,
-    })
+    const { id } = useParams()
+    const { loading, error, data } = useDataQuery(query, { variables: { id } })
 
     if (loading) {
         return (

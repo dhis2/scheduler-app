@@ -15,7 +15,7 @@ import styles from './JobForm.module.css'
 
 const { useForm } = ReactFinalForm
 
-const JobForm = ({
+const JobEditForm = ({
     handleSubmit,
     pristine,
     submitting,
@@ -77,11 +77,11 @@ const JobForm = ({
 
 const { func, bool, object, array } = PropTypes
 
-JobForm.defaultProps = {
+JobEditForm.defaultProps = {
     submitError: [],
 }
 
-JobForm.propTypes = {
+JobEditForm.propTypes = {
     handleSubmit: func.isRequired,
     hasSubmitErrors: bool.isRequired,
     pristine: bool.isRequired,
@@ -91,4 +91,4 @@ JobForm.propTypes = {
     submitError: array,
 }
 
-export default JobForm
+export default JobEditForm

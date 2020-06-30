@@ -1,23 +1,3 @@
-import { useDataQuery } from '@dhis2/app-runtime'
-
-const query = {
-    jobTypes: {
-        resource: 'jobConfigurations/jobTypes',
-    },
-}
-
-const useGetJobTypes = () => {
-    const { loading, error, data, refetch } = useDataQuery(query)
-
-    if (data && data.jobTypes && data.jobTypes.jobTypes) {
-        return { loading, error, refetch, data: data.jobTypes.jobTypes }
-    }
-
-    return { loading, error, refetch, data }
-}
-
-export default useGetJobTypes
-
 /**
  * Selectors
  */

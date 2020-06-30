@@ -2,11 +2,11 @@ import React from 'react'
 import { PropTypes } from '@dhis2/prop-types'
 import { ReactFinalForm } from '@dhis2/ui'
 import { useSubmitJob } from '../../hooks/jobs'
-import JobForm from './JobForm'
+import JobAddForm from './JobAddForm'
 
 const { Form } = ReactFinalForm
 
-const JobFormContainer = ({ setIsPristine }) => {
+const JobAddFormContainer = ({ setIsPristine }) => {
     const [submitJob] = useSubmitJob()
 
     /**
@@ -16,7 +16,7 @@ const JobFormContainer = ({ setIsPristine }) => {
     return (
         <Form
             onSubmit={submitJob}
-            component={JobForm}
+            component={JobAddForm}
             setIsPristine={setIsPristine}
             destroyOnUnregister
         />
@@ -25,8 +25,8 @@ const JobFormContainer = ({ setIsPristine }) => {
 
 const { func } = PropTypes
 
-JobFormContainer.propTypes = {
+JobAddFormContainer.propTypes = {
     setIsPristine: func.isRequired,
 }
 
-export default JobFormContainer
+export default JobAddFormContainer

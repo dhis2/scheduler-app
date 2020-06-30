@@ -1,12 +1,23 @@
 import React, { useState } from 'react'
 import { CircularLoader, Layer, CenteredContent } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
-import { selectors, useGetJobs } from '../../hooks/jobs'
+import { useDataQuery } from '@dhis2/app-runtime'
+import { selectors } from '../../hooks/jobs'
 import { RefetchJobsContext } from '../../components/Context'
 import JobList from './JobList'
 
+const query = {
+    jobs: {
+        resource: 'jobConfigurations',
+        params: {
+            fields: '*',
+            paging: false,
+        },
+    },
+}
+
 const JobListContainer = () => {
-    const { loading, error, data, refetch } = useGetJobs()
+    const { loading, error, data, refetch } = useDataQuery(query)
     const [showSystemJobs, setShowSystemJobs] = useState(false)
     const [jobFilter, setJobFilter] = useState('')
 
@@ -31,9 +42,9 @@ const JobListContainer = () => {
         throw error
     }
 
-    const allJobIds = selectors.getIds(data)
-    const userJobIds = selectors.getUserJobIds(data)
-    const jobEntities = selectors.getEntities(data)
+    const allJobIds = selectors.getIds(data.jobs.jobConfigurations)
+    const userJobIds = selectors.getUserJobIds(data.jobs.jobConfigurations)
+    const jobEntities = selectors.getEntities(data.jobs.jobConfigurations)
 
     let jobIds = showSystemJobs ? allJobIds : userJobIds
 

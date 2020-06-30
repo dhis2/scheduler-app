@@ -4,7 +4,7 @@ import { Card } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
 import { DiscardFormButton } from '../../components/Buttons'
 import { InfoIcon } from '../../components/Icons'
-import { JobFormContainer } from '../../components/Forms'
+import { JobEditFormContainer } from '../../components/Forms'
 import styles from './JobEdit.module.css'
 
 const infoLink =
@@ -34,7 +34,7 @@ const JobEdit = ({ isPristine, setIsPristine, name: JOBNAME }) => (
                     {i18n.t('About job configuration')}
                 </a>
             </header>
-            <JobFormContainer setIsPristine={setIsPristine} />
+            <JobEditFormContainer setIsPristine={setIsPristine} />
         </Card>
     </React.Fragment>
 )
