@@ -65,7 +65,7 @@ const JobEditForm = ({
                     icon={Spinner}
                     className={styles.saveButton}
                 >
-                    {i18n.t('Save job')}
+                    {i18n.t('Save changes')}
                 </Button>
                 <DiscardFormButton shouldConfirm={!pristine}>
                     {i18n.t('Cancel')}
