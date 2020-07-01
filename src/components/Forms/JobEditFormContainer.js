@@ -3,7 +3,7 @@ import { PropTypes } from '@dhis2/prop-types'
 import { ReactFinalForm } from '@dhis2/ui'
 import { useParams } from 'react-router-dom'
 import { useDataQuery } from '@dhis2/app-runtime'
-import { useSubmitJob } from '../../hooks/jobs'
+import { useUpdateJob } from '../../hooks/jobs'
 import JobEditForm from './JobEditForm'
 
 const { Form } = ReactFinalForm
@@ -21,7 +21,7 @@ const query = {
 const JobEditFormContainer = ({ setIsPristine }) => {
     const { id } = useParams()
     const { loading, error, data } = useDataQuery(query, { variables: { id } })
-    const [submitJob] = useSubmitJob()
+    const [updateJob] = useUpdateJob({ id })
 
     if (loading) {
         return 'Loading'
@@ -41,7 +41,7 @@ const JobEditFormContainer = ({ setIsPristine }) => {
      */
     return (
         <Form
-            onSubmit={submitJob}
+            onSubmit={updateJob}
             component={JobEditForm}
             setIsPristine={setIsPristine}
             initialValues={data.job}
