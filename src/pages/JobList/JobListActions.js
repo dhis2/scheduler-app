@@ -6,12 +6,12 @@ import EditJobMenuItem from './EditJobMenuItem'
 import RunJobMenuItem from './RunJobMenuItem'
 import DeleteJobMenuItem from './DeleteJobMenuItem'
 
-const JobListActions = ({ id }) => (
+const JobListActions = ({ id, configurable }) => (
     <DropdownButton
         small
         component={
             <Menu>
-                <EditJobMenuItem id={id} />
+                {configurable && <EditJobMenuItem id={id} />}
                 <RunJobMenuItem id={id} />
                 <DeleteJobMenuItem id={id} />
             </Menu>
@@ -21,10 +21,15 @@ const JobListActions = ({ id }) => (
     </DropdownButton>
 )
 
-const { string } = PropTypes
+JobListActions.defaultProps = {
+    configurable: false,
+}
+
+const { string, bool } = PropTypes
 
 JobListActions.propTypes = {
     id: string.isRequired,
+    configurable: bool,
 }
 
 export default JobListActions

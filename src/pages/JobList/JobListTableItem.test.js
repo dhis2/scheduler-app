@@ -13,6 +13,7 @@ describe('<JobListTableItem>', () => {
             nextExecutionTime: '2100-10-10T14:48:00',
             enabled: true,
             schedulingType: 'CRON',
+            configurable: true,
         }
         const wrapper = shallow(<JobListTableItem job={job} />)
 
@@ -29,6 +30,7 @@ describe('<JobListTableItem>', () => {
             enabled: true,
             schedulingType: 'FIXED_DELAY',
             delay: 6000,
+            configurable: true,
         }
         const wrapper = shallow(<JobListTableItem job={job} />)
 

@@ -19,6 +19,7 @@ const JobListTableItem = ({
         nextExecutionTime,
         schedulingType,
         enabled,
+        configurable,
     },
 }) => (
     <TableRow>
@@ -44,7 +45,7 @@ const JobListTableItem = ({
             <ToggleJobSwitch id={id} checked={enabled} />
         </TableCell>
         <TableCell>
-            <JobListActions id={id} />
+            <JobListActions id={id} configurable={configurable} />
         </TableCell>
     </TableRow>
 )

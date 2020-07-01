@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<JobListActions> renders correctly 1`] = `
+exports[`<JobListActions> renders correctly for configurable jobs 1`] = `
 <DropdownButton
   component={
     <Menu
@@ -9,6 +9,27 @@ exports[`<JobListActions> renders correctly 1`] = `
       <EditJobMenuItem
         id="1"
       />
+      <RunJobMenuItem
+        id="1"
+      />
+      <DeleteJobMenuItem
+        id="1"
+      />
+    </Menu>
+  }
+  dataTest="dhis2-uicore-dropdownbutton"
+  small={true}
+>
+  Actions
+</DropdownButton>
+`;
+
+exports[`<JobListActions> renders correctly for non configurable jobs 1`] = `
+<DropdownButton
+  component={
+    <Menu
+      dataTest="dhis2-uicore-menulist"
+    >
       <RunJobMenuItem
         id="1"
       />

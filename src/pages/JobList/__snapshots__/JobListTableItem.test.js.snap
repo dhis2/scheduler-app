@@ -49,6 +49,7 @@ exports[`<JobListTableItem> renders cron jobs correctly 1`] = `
     dataTest="dhis2-uicore-tablecell"
   >
     <JobListActions
+      configurable={true}
       id="1"
     />
   </TableCell>
@@ -104,6 +105,7 @@ exports[`<JobListTableItem> renders fixed delay jobs correctly 1`] = `
     dataTest="dhis2-uicore-tablecell"
   >
     <JobListActions
+      configurable={true}
       id="1"
     />
   </TableCell>
