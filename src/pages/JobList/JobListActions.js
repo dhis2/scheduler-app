@@ -1,6 +1,6 @@
 import React from 'react'
 import { PropTypes } from '@dhis2/prop-types'
-import { Menu, DropdownButton } from '@dhis2/ui'
+import { FlyoutMenu, DropdownButton } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
 import EditJobMenuItem from './EditJobMenuItem'
 import RunJobMenuItem from './RunJobMenuItem'
@@ -10,11 +10,11 @@ const JobListActions = ({ id, configurable }) => (
     <DropdownButton
         small
         component={
-            <Menu>
+            <FlyoutMenu>
                 {configurable && <EditJobMenuItem id={id} />}
                 <RunJobMenuItem id={id} />
                 <DeleteJobMenuItem id={id} />
-            </Menu>
+            </FlyoutMenu>
         }
     >
         {i18n.t('Actions')}

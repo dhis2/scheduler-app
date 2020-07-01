@@ -3,8 +3,10 @@
 exports[`<JobListActions> renders correctly for configurable jobs 1`] = `
 <DropdownButton
   component={
-    <Menu
-      dataTest="dhis2-uicore-menulist"
+    <FlyoutMenu
+      dataTest="dhis2-uicore-menu"
+      maxHeight="auto"
+      maxWidth="380px"
     >
       <EditJobMenuItem
         id="1"
@@ -15,7 +17,7 @@ exports[`<JobListActions> renders correctly for configurable jobs 1`] = `
       <DeleteJobMenuItem
         id="1"
       />
-    </Menu>
+    </FlyoutMenu>
   }
   dataTest="dhis2-uicore-dropdownbutton"
   small={true}
@@ -27,8 +29,10 @@ exports[`<JobListActions> renders correctly for configurable jobs 1`] = `
 exports[`<JobListActions> renders correctly for non configurable jobs 1`] = `
 <DropdownButton
   component={
-    <Menu
-      dataTest="dhis2-uicore-menulist"
+    <FlyoutMenu
+      dataTest="dhis2-uicore-menu"
+      maxHeight="auto"
+      maxWidth="380px"
     >
       <RunJobMenuItem
         id="1"
@@ -36,7 +40,7 @@ exports[`<JobListActions> renders correctly for non configurable jobs 1`] = `
       <DeleteJobMenuItem
         id="1"
       />
-    </Menu>
+    </FlyoutMenu>
   }
   dataTest="dhis2-uicore-dropdownbutton"
   small={true}
