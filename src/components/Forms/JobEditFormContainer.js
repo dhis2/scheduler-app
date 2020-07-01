@@ -8,12 +8,28 @@ import JobEditForm from './JobEditForm'
 
 const { Form } = ReactFinalForm
 
+/**
+ * The fields we need for the initialValues for our form fields. Since we use
+ * these values to set the initial values in final-form, if we wouldn't filter
+ * them we'd end up submitting way more data than we intend to.
+ */
+
+const whitelistedFields = [
+    'cronExpression',
+    'delay',
+    'jobParameters',
+    'jobType',
+    'name',
+    'schedulingType',
+]
+
 const query = {
     job: {
         resource: 'jobConfigurations',
         id: ({ id }) => id,
         params: {
             paging: false,
+            fields: whitelistedFields.join(','),
         },
     },
 }
