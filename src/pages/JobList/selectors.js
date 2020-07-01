@@ -1,7 +1,3 @@
-/**
- * Selectors
- */
-
 export const getEntities = jobs => {
     return jobs.reduce((entities, job) => {
         const id = job.id

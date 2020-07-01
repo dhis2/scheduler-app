@@ -2,7 +2,7 @@ import React from 'react'
 import { PropTypes } from '@dhis2/prop-types'
 import { ReactFinalForm, InputFieldFF, SwitchFieldFF, Box } from '@dhis2/ui'
 import { useDataQuery } from '@dhis2/app-runtime'
-import { selectors } from '../../hooks/job-types'
+import { getJobTypeParameters, getParameterEndpoint } from './selectors'
 import UnlabeledOptionsField from './UnlabeledOptionsField'
 import LabeledOptionsField from './LabeledOptionsField'
 import styles from './ParameterFields.module.css'
@@ -34,10 +34,7 @@ const ParameterFields = ({ jobType }) => {
         throw error
     }
 
-    const parameters = selectors.getJobTypeParameters(
-        data.jobTypes.jobTypes,
-        jobType
-    )
+    const parameters = getJobTypeParameters(data.jobTypes.jobTypes, jobType)
 
     if (parameters.length === 0) {
         return null
@@ -50,7 +47,7 @@ const ParameterFields = ({ jobType }) => {
                 label: fieldName,
                 name: `${FIELD_NAME}.${name}`,
             }
-            const endpoint = selectors.getParameterEndpoint(relativeApiEndpoint)
+            const endpoint = getParameterEndpoint(relativeApiEndpoint)
             let parameterComponent = null
 
             switch (klass) {

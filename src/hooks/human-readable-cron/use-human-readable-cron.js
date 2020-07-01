@@ -1,9 +1,16 @@
 import cronstrue from 'cronstrue/i18n'
-import { useGetUserSettings, selectors } from '../user-settings'
+import { useDataQuery } from '@dhis2/app-runtime'
 import { validateCron } from '../../services/validators'
+import { getLocale } from './selectors'
+
+const query = {
+    userSettings: {
+        resource: 'userSettings',
+    },
+}
 
 const useHumanReadableCron = cron => {
-    const { loading, error, data } = useGetUserSettings()
+    const { loading, error, data } = useDataQuery(query)
     const isValid = cron && validateCron(cron)
 
     if (loading || !isValid) {
@@ -15,7 +22,7 @@ const useHumanReadableCron = cron => {
         return cronstrue.toString(cron)
     }
 
-    const locale = selectors.getLocale(data)
+    const locale = getLocale(data)
 
     return cronstrue.toString(cron, { locale })
 }

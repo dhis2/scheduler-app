@@ -1,8 +1,4 @@
 /**
- * Selectors
- */
-
-/**
  * Cleans up the endpoint for use with the data engine
  */
 

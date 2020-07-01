@@ -1,11 +1,11 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
-import { useDeleteJob } from '../../hooks/jobs'
+import { useDataMutation } from '@dhis2/app-runtime'
 import { RefetchJobsContext } from '../Context'
 import DeleteJobModal from './DeleteJobModal'
 
-jest.mock('../../hooks/jobs', () => ({
-    useDeleteJob: jest.fn(() => [() => {}]),
+jest.mock('@dhis2/app-runtime', () => ({
+    useDataMutation: jest.fn(() => [() => {}]),
 }))
 
 describe('<DeleteJobModal>', () => {
@@ -41,7 +41,7 @@ describe('<DeleteJobModal>', () => {
             hideModal: hideModalSpy,
         }
 
-        useDeleteJob.mockImplementationOnce(() => [deleteJobSpy])
+        useDataMutation.mockImplementationOnce(() => [deleteJobSpy])
 
         const wrapper = mount(
             <RefetchJobsContext.Provider value={refetchSpy}>

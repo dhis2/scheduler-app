@@ -1,7 +1,7 @@
 import React from 'react'
 import { PropTypes } from '@dhis2/prop-types'
 import { useDataQuery } from '@dhis2/app-runtime'
-import { selectors } from '../../hooks/job-types'
+import { getJobTypeObject } from './selectors'
 import CronField from './CronField'
 import DelayField from './DelayField'
 
@@ -26,10 +26,7 @@ const ScheduleField = ({ jobType }) => {
         throw error
     }
 
-    const currentJob = selectors.getJobTypeObject(
-        data.jobTypes.jobTypes,
-        jobType
-    )
+    const currentJob = getJobTypeObject(data.jobTypes.jobTypes, jobType)
     const schedulingType = currentJob.schedulingType
 
     switch (schedulingType) {

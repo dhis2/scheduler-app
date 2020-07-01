@@ -1,4 +1,4 @@
-import { getLocale } from './use-get-user-settings'
+import { getLocale } from './selectors'
 
 describe('getLocale', () => {
     it('should return empty string if there is no keyUiLocale', () => {

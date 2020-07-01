@@ -1,11 +1,11 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
-import { useToggleJob } from '../../hooks/jobs'
+import { useDataMutation } from '@dhis2/app-runtime'
 import { RefetchJobsContext } from '../Context'
 import ToggleJobSwitch from './ToggleJobSwitch'
 
-jest.mock('../../hooks/jobs', () => ({
-    useToggleJob: jest.fn(() => [() => {}, {}]),
+jest.mock('@dhis2/app-runtime', () => ({
+    useDataMutation: jest.fn(() => [() => {}, {}]),
 }))
 
 describe('<ToggleJobSwitch>', () => {
@@ -25,7 +25,7 @@ describe('<ToggleJobSwitch>', () => {
             checked,
         }
 
-        useToggleJob.mockImplementationOnce(() => [toggleJobSpy, {}])
+        useDataMutation.mockImplementationOnce(() => [toggleJobSpy, {}])
 
         const wrapper = mount(
             <RefetchJobsContext.Provider value={refetchSpy}>

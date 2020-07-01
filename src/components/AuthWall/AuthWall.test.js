@@ -1,18 +1,20 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { useGetMe, selectors } from '../../hooks/me'
+import { useDataQuery } from '@dhis2/app-runtime'
+import { getAuthorized } from './selectors'
 import AuthWall from './AuthWall'
 
-jest.mock('../../hooks/me', () => ({
-    useGetMe: jest.fn(),
-    selectors: {
-        getAuthorized: jest.fn(),
-    },
+jest.mock('@dhis2/app-runtime', () => ({
+    useDataQuery: jest.fn(),
+}))
+
+jest.mock('./selectors', () => ({
+    getAuthorized: jest.fn(),
 }))
 
 describe('<AuthWall>', () => {
     it('renders a spinner when loading', () => {
-        useGetMe.mockImplementationOnce(() => ({ loading: true }))
+        useDataQuery.mockImplementationOnce(() => ({ loading: true }))
 
         const wrapper = shallow(<AuthWall>Child</AuthWall>)
 
@@ -22,7 +24,7 @@ describe('<AuthWall>', () => {
     it('throws fetching errors if they occur', () => {
         const props = { children: 'Child' }
         const error = new Error('Something went wrong')
-        useGetMe.mockImplementationOnce(() => ({
+        useDataQuery.mockImplementationOnce(() => ({
             loading: false,
             error,
         }))
@@ -31,12 +33,12 @@ describe('<AuthWall>', () => {
     })
 
     it('redirects unauthorized users', () => {
-        useGetMe.mockImplementationOnce(() => ({
+        useDataQuery.mockImplementationOnce(() => ({
             loading: false,
             error: undefined,
             data: {},
         }))
-        selectors.getAuthorized.mockImplementationOnce(() => false)
+        getAuthorized.mockImplementationOnce(() => false)
 
         const wrapper = shallow(<AuthWall>Child</AuthWall>)
 
@@ -44,12 +46,12 @@ describe('<AuthWall>', () => {
     })
 
     it('renders the children for users that are authorized', () => {
-        useGetMe.mockImplementationOnce(() => ({
+        useDataQuery.mockImplementationOnce(() => ({
             loading: false,
             error: undefined,
             data: {},
         }))
-        selectors.getAuthorized.mockImplementationOnce(() => true)
+        getAuthorized.mockImplementationOnce(() => true)
 
         const wrapper = shallow(<AuthWall>Child</AuthWall>)
 

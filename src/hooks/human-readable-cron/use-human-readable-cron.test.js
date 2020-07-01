@@ -1,16 +1,18 @@
-import { useGetUserSettings, selectors } from '../user-settings'
+import { useDataQuery } from '@dhis2/app-runtime'
+import { getLocale } from './selectors'
 import useHumanReadableCron from './use-human-readable-cron'
 
-jest.mock('../user-settings', () => ({
-    useGetUserSettings: jest.fn(),
-    selectors: {
-        getLocale: jest.fn(),
-    },
+jest.mock('@dhis2/app-runtime', () => ({
+    useDataQuery: jest.fn(),
+}))
+
+jest.mock('./selectors', () => ({
+    getLocale: jest.fn(),
 }))
 
 describe('useHumanReadableCron', () => {
     it('should return an empty string when loading', () => {
-        useGetUserSettings.mockImplementationOnce(() => ({
+        useDataQuery.mockImplementationOnce(() => ({
             loading: true,
             error: undefined,
             data: null,
@@ -23,7 +25,7 @@ describe('useHumanReadableCron', () => {
     })
 
     it('should return an empty string when invalid', () => {
-        useGetUserSettings.mockImplementationOnce(() => ({
+        useDataQuery.mockImplementationOnce(() => ({
             loading: false,
             error: undefined,
             data: null,
@@ -36,7 +38,7 @@ describe('useHumanReadableCron', () => {
     })
 
     it('should return an english translation if there is an error', () => {
-        useGetUserSettings.mockImplementationOnce(() => ({
+        useDataQuery.mockImplementationOnce(() => ({
             loading: false,
             error: new Error(''),
             data: null,
@@ -49,12 +51,12 @@ describe('useHumanReadableCron', () => {
     })
 
     it('should return a translated cron if there is a locale', () => {
-        useGetUserSettings.mockImplementationOnce(() => ({
+        useDataQuery.mockImplementationOnce(() => ({
             loading: false,
             error: undefined,
             data: {},
         }))
-        selectors.getLocale.mockImplementationOnce(() => 'fr')
+        getLocale.mockImplementationOnce(() => 'fr')
 
         const cron = '0 0 * ? * *'
         const actual = useHumanReadableCron(cron)
