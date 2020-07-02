@@ -22,7 +22,7 @@ const useHumanReadableCron = cron => {
         return cronstrue.toString(cron)
     }
 
-    const locale = getLocale(data)
+    const locale = getLocale(data.userSettings)
 
     return cronstrue.toString(cron, { locale })
 }
