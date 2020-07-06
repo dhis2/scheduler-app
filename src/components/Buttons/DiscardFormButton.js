@@ -16,7 +16,12 @@ const DiscardFormButton = ({ shouldConfirm, children, small, className }) => {
                 {children}
             </Button>
             {showModal && (
-                <DiscardFormModal hideModal={() => setShowModal(false)} />
+                <DiscardFormModal
+                    hideModal={
+                        /* istanbul ignore next: already tested in DiscardFormModal */
+                        () => setShowModal(false)
+                    }
+                />
             )}
         </React.Fragment>
     )

@@ -13,7 +13,13 @@ const DeleteJobButton = ({ id }) => {
                 {i18n.t('Delete')}
             </Button>
             {showModal && (
-                <DeleteJobModal id={id} hideModal={() => setShowModal(false)} />
+                <DeleteJobModal
+                    id={id}
+                    hideModal={
+                        /* istanbul ignore next: already tested in DeleteJobModal */
+                        () => setShowModal(false)
+                    }
+                />
             )}
         </React.Fragment>
     )
