@@ -21,7 +21,10 @@ const JobEdit = ({ isPristine, setIsPristine, name: JOBNAME }) => (
                 {i18n.t('Back to all jobs')}
             </DiscardFormButton>
             <h2 className={styles.pageHeaderTitle}>
-                {i18n.t('Job: {{ JOBNAME }}', { JOBNAME })}
+                {i18n.t('Job: {{ JOBNAME }}', {
+                    JOBNAME,
+                    nsSeparator: '>',
+                })}
             </h2>
         </header>
         <Card className={styles.card}>

@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-07-01T08:15:22.969Z\n"
-"PO-Revision-Date: 2020-07-01T08:15:22.969Z\n"
+"POT-Creation-Date: 2020-07-06T14:44:30.019Z\n"
+"PO-Revision-Date: 2020-07-06T14:44:30.019Z\n"
 
 msgid "Checking permissions"
 msgstr ""
@@ -96,6 +96,9 @@ msgid "Configuration"
 msgstr ""
 
 msgid "About job configuration"
+msgstr ""
+
+msgid "Job: {{ JOBNAME }}"
 msgstr ""
 
 msgid "Edit"
