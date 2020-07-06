@@ -43,8 +43,6 @@
         "stylelint-no-unsupported-browser-features": "^3.0.2"
     },
     "resolutions": {
-        "react": "^16.13.1",
-        "react-dom": "^16.13.1",
         "@dhis2/app-runtime": "^2.2.2",
         "@dhis2/d2-i18n": "^1.0.6"
     },
