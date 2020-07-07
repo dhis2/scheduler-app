@@ -11,6 +11,18 @@ import i18n from '@dhis2/d2-i18n'
 
 const { Field } = ReactFinalForm
 
+/**
+ * Our backend returns the delay as a number, but our inputs expect
+ * and return a string, so we're formatting it to a string.
+ */
+const formatToString = value => {
+    if (typeof value === 'number') {
+        return value.toString()
+    }
+
+    return value
+}
+
 // Omitting the underscore here since it messes up i18n
 const LOWERBOUND = 1
 const UPPERBOUND = 86400
@@ -30,6 +42,7 @@ const DelayField = () => (
         validate={VALIDATOR}
         label={i18n.t('Delay')}
         type="number"
+        format={formatToString}
         helpText={i18n.t(
             'Delay in seconds ({{ LOWERBOUND }} - {{ UPPERBOUND }})',
             {

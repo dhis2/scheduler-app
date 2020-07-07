@@ -9,6 +9,18 @@ import styles from './ParameterFields.module.css'
 
 const { Field } = ReactFinalForm
 
+/**
+ * Our backend returns  'java.lang.Integer' as a number, but our
+ * inputs expect and return a string, so we're formatting it to a string.
+ */
+const formatToString = value => {
+    if (typeof value === 'number') {
+        return value.toString()
+    }
+
+    return value
+}
+
 // The key under which the parameters will be sent to the backend
 const FIELD_NAME = 'jobParameters'
 
@@ -74,6 +86,7 @@ const ParameterFields = ({ jobType }) => {
                         <Field
                             {...defaultProps}
                             component={InputFieldFF}
+                            format={formatToString}
                             type="number"
                         />
                     )
