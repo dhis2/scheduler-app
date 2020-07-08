@@ -16,7 +16,7 @@ const DeleteJobButton = ({ id }) => {
                 <DeleteJobModal
                     id={id}
                     hideModal={
-                        /* istanbul ignore next: already tested in DeleteJobModal */
+                        /* istanbul ignore next */
                         () => setShowModal(false)
                     }
                 />

@@ -18,7 +18,7 @@ const DiscardFormButton = ({ shouldConfirm, children, small, className }) => {
             {showModal && (
                 <DiscardFormModal
                     hideModal={
-                        /* istanbul ignore next: already tested in DiscardFormModal */
+                        /* istanbul ignore next */
                         () => setShowModal(false)
                     }
                 />

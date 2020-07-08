@@ -24,8 +24,7 @@ module.exports = {
                     '**/hooks/*',
                     '**/pages/*',
                     '**/services/*',
-                    'cronstrue/*',
-                    'test/*',
+                    'cronstrue/*'
                 ],
             },
         ],

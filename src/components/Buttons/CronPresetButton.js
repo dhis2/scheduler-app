@@ -15,7 +15,7 @@ const CronPresetButton = ({ setCron, small }) => {
             {showModal && (
                 <CronPresetModal
                     hideModal={
-                        /* istanbul ignore next: already tested in CronPresetModal */
+                        /* istanbul ignore next */
                         () => setShowModal(false)
                     }
                     setCron={setCron}
