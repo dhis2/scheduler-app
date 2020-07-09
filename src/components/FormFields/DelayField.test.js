@@ -23,6 +23,7 @@ describe('<DelayField>', () => {
         const actual = wrapper.find(`input[name="delay"]`).props().value
 
         expect(typeof actual).toBe('string')
+
         wrapper.unmount()
     })
 
@@ -44,10 +45,11 @@ describe('<DelayField>', () => {
             .simulate('blur')
 
         const actual = wrapper
-            .find('p[data-test="dhis2-uiwidgets-inputfield-validation"]')
+            .find({ 'data-test': 'dhis2-uiwidgets-inputfield-validation' })
             .text()
 
         expect(actual).toBe('Number cannot be less than 1 or more than 86400')
+
         wrapper.unmount()
     })
 
@@ -69,10 +71,11 @@ describe('<DelayField>', () => {
             .simulate('blur')
 
         const actual = wrapper
-            .find('p[data-test="dhis2-uiwidgets-inputfield-validation"]')
+            .find({ 'data-test': 'dhis2-uiwidgets-inputfield-validation' })
             .text()
 
         expect(actual).toBe('Number cannot be less than 1 or more than 86400')
+
         wrapper.unmount()
     })
 
@@ -93,35 +96,35 @@ describe('<DelayField>', () => {
             .simulate('change', { target: { value: delay } })
             .simulate('blur')
 
-        const actual = wrapper.find(
-            'p[data-test="dhis2-uiwidgets-inputfield-validation"]'
-        )
+        const actual = wrapper.find({
+            'data-test': 'dhis2-uiwidgets-inputfield-validation',
+        })
 
         expect(actual.length).toBe(0)
+
         wrapper.unmount()
     })
 
-    it('shows an error that the field is required on change to empty string', () => {
+    it('shows an error that the field is required on empty values', () => {
         const wrapper = mount(
             <Form onSubmit={() => {}}>
-                {() => (
-                    <form>
+                {({ handleSubmit }) => (
+                    <form onSubmit={handleSubmit}>
                         <DelayField />
                     </form>
                 )}
             </Form>
         )
 
-        wrapper
-            .find('input[name="delay"]')
-            .simulate('change', { target: { value: '' } })
-            .simulate('blur')
+        // Trigger validation
+        wrapper.find('form').simulate('submit')
 
         const actual = wrapper
-            .find('p[data-test="dhis2-uiwidgets-inputfield-validation"]')
+            .find({ 'data-test': 'dhis2-uiwidgets-inputfield-validation' })
             .text()
 
         expect(actual).toBe('Please provide a value')
+
         wrapper.unmount()
     })
 })

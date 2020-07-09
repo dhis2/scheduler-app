@@ -33,7 +33,7 @@ describe('<CronField>', () => {
             .simulate('change', { target: { value: cronExpression } })
 
         const actual = wrapper
-            .find('p[data-test="dhis2-uiwidgets-inputfield-help"]')
+            .find({ 'data-test': 'dhis2-uiwidgets-inputfield-help' })
             .text()
 
         expect(actual.includes(expected)).toBe(true)
@@ -60,9 +60,9 @@ describe('<CronField>', () => {
             .simulate('change', { target: { value: cronExpression } })
             .simulate('blur')
 
-        const actual = wrapper.find(
-            'p[data-test="dhis2-uiwidgets-inputfield-validation"]'
-        )
+        const actual = wrapper.find({
+            'data-test': 'dhis2-uiwidgets-inputfield-validation',
+        })
 
         expect(actual.length).toBe(0)
 
@@ -88,36 +88,34 @@ describe('<CronField>', () => {
             .simulate('blur')
 
         const actual = wrapper
-            .find('p[data-test="dhis2-uiwidgets-inputfield-validation"]')
+            .find({ 'data-test': 'dhis2-uiwidgets-inputfield-validation' })
             .text()
 
         expect(actual).toBe('Please enter a valid CRON expression')
 
-        useHumanReadableCron.mockReset()
         wrapper.unmount()
     })
 
-    it('shows an error that the field is required on change to empty string', () => {
+    it('shows an error that the field is required on empty values', () => {
         const wrapper = mount(
             <Form onSubmit={() => {}}>
-                {() => (
-                    <form>
+                {({ handleSubmit }) => (
+                    <form onSubmit={handleSubmit}>
                         <CronField />
                     </form>
                 )}
             </Form>
         )
 
-        wrapper
-            .find('input[name="cronExpression"]')
-            .simulate('change', { target: { value: '' } })
-            .simulate('blur')
+        // Trigger validation
+        wrapper.find('form').simulate('submit')
 
         const actual = wrapper
-            .find('p[data-test="dhis2-uiwidgets-inputfield-validation"]')
+            .find({ 'data-test': 'dhis2-uiwidgets-inputfield-validation' })
             .text()
 
         expect(actual).toBe('A CRON expression is required')
+
         wrapper.unmount()
     })
 })
