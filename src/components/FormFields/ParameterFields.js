@@ -2,24 +2,16 @@ import React from 'react'
 import { PropTypes } from '@dhis2/prop-types'
 import { ReactFinalForm, InputFieldFF, SwitchFieldFF, Box } from '@dhis2/ui'
 import { useDataQuery } from '@dhis2/app-runtime'
-import { getJobTypeParameters, getParameterEndpoint } from './selectors'
+import {
+    getJobTypeParameters,
+    getParameterEndpoint,
+    getStringValue,
+} from './selectors'
 import UnlabeledOptionsField from './UnlabeledOptionsField'
 import LabeledOptionsField from './LabeledOptionsField'
 import styles from './ParameterFields.module.css'
 
 const { Field } = ReactFinalForm
-
-/**
- * Our backend returns  'java.lang.Integer' as a number, but our
- * inputs expect and return a string, so we're formatting it to a string.
- */
-const formatToString = value => {
-    if (typeof value === 'number') {
-        return value.toString()
-    }
-
-    return value
-}
 
 // The key under which the parameters will be sent to the backend
 const FIELD_NAME = 'jobParameters'
@@ -86,7 +78,7 @@ const ParameterFields = ({ jobType }) => {
                         <Field
                             {...defaultProps}
                             component={InputFieldFF}
-                            format={formatToString}
+                            format={getStringValue}
                             type="number"
                         />
                     )
