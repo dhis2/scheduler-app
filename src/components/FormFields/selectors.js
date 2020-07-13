@@ -35,8 +35,8 @@ export const getJobTypeParameters = (jobTypes, jobType) => {
 }
 
 /**
- * Our backend returns  'java.lang.Integer' as a number, but our
- * inputs expect and return a string, so we're formatting it to a string.
+ * Our backend returns certain values as a number, but our
+ * inputs expect and return a string, so we're formatting them to strings
  */
 
 export const getStringValue = value => {
