@@ -10,12 +10,6 @@ describe('RefetchJobsContext', () => {
 })
 
 describe('RefetchJobsContext.Consumer', () => {
-    /**
-     * This test would probably be more straightforward if we used react testing
-     * library (https://testing-library.com). But since we're using enzyme here
-     * I stuck with that, to avoid having two test approaches in this codebase.
-     */
-
     it('returns a function that throws an error if used outside of the provider', () => {
         const createWrapper = () =>
             shallow(
