@@ -26,7 +26,7 @@ const whitelistedFields = [
 const query = {
     job: {
         resource: 'jobConfigurations',
-        id: ({ id }) => id,
+        id: /* istanbul ignore next */ ({ id }) => id,
         params: {
             paging: false,
             fields: whitelistedFields.join(','),
@@ -40,7 +40,7 @@ const JobEditFormContainer = ({ setIsPristine }) => {
     const [updateJob] = useUpdateJob({ id })
 
     if (loading) {
-        return 'Loading'
+        return null
     }
 
     if (error) {
