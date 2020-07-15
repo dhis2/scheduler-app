@@ -4,6 +4,7 @@ import { Switch } from '@dhis2/ui'
 import { useDataMutation } from '@dhis2/app-runtime'
 import { RefetchJobsContext } from '../Context'
 
+/* istanbul ignore next */
 const mutation = {
     resource: 'jobConfigurations',
     id: ({ id }) => id,

@@ -1,13 +1,18 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
+import { useDataEngine } from '@dhis2/app-runtime'
+import { RefetchJobsContext } from '../Context'
 import RunJobModal from './RunJobModal'
+
+jest.mock('@dhis2/app-runtime', () => ({
+    useDataEngine: jest.fn(() => ({ query: () => () => Promise.resolve() })),
+}))
 
 describe('<RunJobModal>', () => {
     it('renders correctly', () => {
         const props = {
             id: 'id',
             hideModal: () => {},
-            runJob: () => {},
         }
         const wrapper = shallow(<RunJobModal {...props} />)
 
@@ -18,7 +23,6 @@ describe('<RunJobModal>', () => {
         const props = {
             id: 'id',
             hideModal: jest.fn(),
-            runJob: () => {},
         }
         const wrapper = mount(<RunJobModal {...props} />)
 
@@ -31,12 +35,43 @@ describe('<RunJobModal>', () => {
         const props = {
             id: 'id',
             hideModal: jest.fn(),
-            runJob: () => {},
         }
         const wrapper = mount(<RunJobModal {...props} />)
 
-        wrapper.find('div[data-test="dhis2-uicore-layer"]').simulate('click')
+        wrapper.find({ 'data-test': 'dhis2-uicore-layer' }).simulate('click')
 
         expect(props.hideModal).toHaveBeenCalled()
+    })
+
+    it('runs the expected tasks after a click on run job', async () => {
+        const resolvedPromise = Promise.resolve()
+        const querySpy = jest.fn(() => resolvedPromise)
+        const refetchSpy = jest.fn()
+        const hideModalSpy = jest.fn()
+        const engineMock = {
+            query: querySpy,
+        }
+        useDataEngine.mockImplementation(() => engineMock)
+
+        const props = {
+            id: 'id',
+            hideModal: hideModalSpy,
+        }
+        const wrapper = mount(
+            <RefetchJobsContext.Provider value={refetchSpy}>
+                <RunJobModal {...props} />
+            </RefetchJobsContext.Provider>
+        )
+
+        wrapper
+            .find('button')
+            .find({ name: 'run-job-id', type: 'button' })
+            .simulate('click')
+
+        await resolvedPromise
+
+        expect(querySpy).toHaveBeenCalled()
+        expect(hideModalSpy).toHaveBeenCalled()
+        expect(refetchSpy).toHaveBeenCalled()
     })
 })

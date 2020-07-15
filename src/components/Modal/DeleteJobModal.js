@@ -13,7 +13,7 @@ import { RefetchJobsContext } from '../Context'
 
 const mutation = {
     resource: 'jobConfigurations',
-    id: ({ id }) => id,
+    id: /* istanbul ignore next */ ({ id }) => id,
     type: 'delete',
 }
 
