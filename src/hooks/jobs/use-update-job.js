@@ -5,17 +5,18 @@ import formatError from '../../services/format-error'
 /**
  * A partial mutation, or PATCH, because PUT isn't allowed for this endpoint
  */
+
 const mutation = {
     resource: 'jobConfigurations',
     type: 'update',
     partial: true,
-    id: ({ id }) => id,
-    data: ({ job }) => job,
+    id: /* istanbul ignore next */ ({ id }) => id,
+    data: /* istanbul ignore next */ ({ job }) => job,
 }
 
 const useUpdateJob = ({ id }) => {
     const engine = useDataEngine()
-    const submitJob = job =>
+    const updateJob = job =>
         engine
             .mutate(mutation, { variables: { job, id } })
             .then(() => {
@@ -33,7 +34,7 @@ const useUpdateJob = ({ id }) => {
                 throw error
             })
 
-    return [submitJob]
+    return [updateJob]
 }
 
 export default useUpdateJob
