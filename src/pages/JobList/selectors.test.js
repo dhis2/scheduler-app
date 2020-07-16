@@ -1,4 +1,9 @@
-import { getEntities, getIds, getUserJobIds } from './selectors'
+import {
+    getEntities,
+    getIds,
+    getUserJobs,
+    getJobsMatchingFilter,
+} from './selectors'
 
 describe('getEntities', () => {
     it('reduces an array of jobs to an object with jobs indexed by id', () => {
@@ -47,7 +52,7 @@ describe('getIds', () => {
     })
 })
 
-describe('getUserJobIds', () => {
+describe('getUserJobs', () => {
     it('returns the ids of jobs with a truthy configurable property', () => {
         const jobs = [
             {
@@ -60,8 +65,54 @@ describe('getUserJobIds', () => {
                 content: 'two',
             },
         ]
-        const expected = ['one']
-        const actual = getUserJobIds(jobs)
+        const expected = [
+            {
+                id: 'one',
+                content: 'one',
+                configurable: true,
+            },
+        ]
+        const actual = getUserJobs(jobs)
+
+        expect(actual).toEqual(expected)
+    })
+})
+
+describe('getJobsMatchingFilter', () => {
+    it('returns the jobs that match the filter', () => {
+        const jobs = [
+            {
+                id: 'one',
+                name: 'one',
+            },
+            {
+                id: 'two',
+                name: 'two',
+            },
+            {
+                id: 'three',
+                name: 'One',
+            },
+            {
+                id: 'four',
+                name: 'Oneeee',
+            },
+        ]
+        const expected = [
+            {
+                id: 'one',
+                name: 'one',
+            },
+            {
+                id: 'three',
+                name: 'One',
+            },
+            {
+                id: 'four',
+                name: 'Oneeee',
+            },
+        ]
+        const actual = getJobsMatchingFilter(jobs, 'one')
 
         expect(actual).toEqual(expected)
     })
