@@ -61,8 +61,11 @@
         ],
         "collectCoverageFrom": [
             "src/**/*.{js,jsx}",
-            "!src/{index.js,serviceWorker.js,setupTests.js}",
-            "!<rootDir>/node_modules/"
+            "!src/{index.js,serviceWorker.js,setupTests.js}"
+        ],
+        "coveragePathIgnorePatterns": [
+            "/node_modules/",
+            "/src/locales/"
         ],
         "moduleNameMapper": {
             "\\.css$": "identity-obj-proxy"
