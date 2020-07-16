@@ -1,19 +1,19 @@
 import React from 'react'
 import { mount } from 'enzyme'
 import { ReactFinalForm } from '@dhis2/ui'
-import { useGetUnlabeledOptions } from '../../hooks/parameter-options'
+import { useDataQuery } from '@dhis2/app-runtime'
 import expectRenderError from '../../../test/expect-render-error'
 import UnlabeledOptionsField from './UnlabeledOptionsField'
 
 const { Form } = ReactFinalForm
 
-jest.mock('../../hooks/parameter-options', () => ({
-    useGetUnlabeledOptions: jest.fn(),
+jest.mock('@dhis2/app-runtime', () => ({
+    useDataQuery: jest.fn(),
 }))
 
 describe('<UnlabeledOptionsField>', () => {
     it('shows a loading message when loading', () => {
-        useGetUnlabeledOptions.mockImplementation(() => ({
+        useDataQuery.mockImplementation(() => ({
             loading: true,
             error: undefined,
             data: null,
@@ -46,7 +46,7 @@ describe('<UnlabeledOptionsField>', () => {
         expect(loadingIndicator.length).toBe(1)
         expect(loadingIndicator.text().includes('Loading')).toBe(true)
 
-        useGetUnlabeledOptions.mockReset()
+        useDataQuery.mockReset()
         wrapper.unmount()
     })
 
@@ -58,7 +58,7 @@ describe('<UnlabeledOptionsField>', () => {
             name: 'name',
             parameterName: 'parameterName',
         }
-        useGetUnlabeledOptions.mockImplementation(() => ({
+        useDataQuery.mockImplementation(() => ({
             loading: false,
             error: new Error(message),
             data: null,
@@ -75,14 +75,14 @@ describe('<UnlabeledOptionsField>', () => {
             message
         )
 
-        useGetUnlabeledOptions.mockReset()
+        useDataQuery.mockReset()
     })
 
     it('shows a message when there are no options', () => {
-        useGetUnlabeledOptions.mockImplementation(() => ({
+        useDataQuery.mockImplementation(() => ({
             loading: false,
             error: undefined,
-            data: [],
+            data: { options: [] },
         }))
         const props = {
             endpoint: 'endpoint',
@@ -108,15 +108,15 @@ describe('<UnlabeledOptionsField>', () => {
 
         expect(actual.includes('No options available')).toBe(true)
 
-        useGetUnlabeledOptions.mockReset()
+        useDataQuery.mockReset()
         wrapper.unmount()
     })
 
     it('renders the field when there are options', () => {
-        useGetUnlabeledOptions.mockImplementation(() => ({
+        useDataQuery.mockImplementation(() => ({
             loading: false,
             error: undefined,
-            data: ['one', 'two'],
+            data: { options: ['one', 'two'] },
         }))
         const props = {
             endpoint: 'endpoint',
@@ -138,7 +138,7 @@ describe('<UnlabeledOptionsField>', () => {
 
         expect(actual.length > 0).toBe(true)
 
-        useGetUnlabeledOptions.mockReset()
+        useDataQuery.mockReset()
         wrapper.unmount()
     })
 })

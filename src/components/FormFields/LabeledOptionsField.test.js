@@ -1,19 +1,19 @@
 import React from 'react'
 import { mount } from 'enzyme'
 import { ReactFinalForm } from '@dhis2/ui'
-import { useGetLabeledOptions } from '../../hooks/parameter-options'
+import { useDataQuery } from '@dhis2/app-runtime'
 import expectRenderError from '../../../test/expect-render-error'
 import LabeledOptionsField from './LabeledOptionsField'
 
 const { Form } = ReactFinalForm
 
-jest.mock('../../hooks/parameter-options', () => ({
-    useGetLabeledOptions: jest.fn(),
+jest.mock('@dhis2/app-runtime', () => ({
+    useDataQuery: jest.fn(),
 }))
 
 describe('<LabeledOptionsField>', () => {
     it('shows a loading message when loading', () => {
-        useGetLabeledOptions.mockImplementation(() => ({
+        useDataQuery.mockImplementation(() => ({
             loading: true,
             error: undefined,
             data: null,
@@ -46,7 +46,7 @@ describe('<LabeledOptionsField>', () => {
         expect(loadingIndicator.length).toBe(1)
         expect(loadingIndicator.text().includes('Loading')).toBe(true)
 
-        useGetLabeledOptions.mockReset()
+        useDataQuery.mockReset()
         wrapper.unmount()
     })
 
@@ -58,7 +58,7 @@ describe('<LabeledOptionsField>', () => {
             name: 'name',
             parameterName: 'parameterName',
         }
-        useGetLabeledOptions.mockImplementation(() => ({
+        useDataQuery.mockImplementation(() => ({
             loading: false,
             error: new Error(message),
             data: null,
@@ -75,14 +75,14 @@ describe('<LabeledOptionsField>', () => {
             message
         )
 
-        useGetLabeledOptions.mockReset()
+        useDataQuery.mockReset()
     })
 
-    it('shows a message when there are no options', () => {
-        useGetLabeledOptions.mockImplementation(() => ({
+    it('shows a message when there is no parameterName field', () => {
+        useDataQuery.mockImplementation(() => ({
             loading: false,
             error: undefined,
-            data: [],
+            data: { options: {} },
         }))
         const props = {
             endpoint: 'endpoint',
@@ -108,15 +108,53 @@ describe('<LabeledOptionsField>', () => {
 
         expect(actual.includes('No options available')).toBe(true)
 
-        useGetLabeledOptions.mockReset()
+        useDataQuery.mockReset()
+        wrapper.unmount()
+    })
+
+    it('shows a message when there are no options', () => {
+        useDataQuery.mockImplementation(() => ({
+            loading: false,
+            error: undefined,
+            data: { options: { parameterName: [] } },
+        }))
+        const props = {
+            endpoint: 'endpoint',
+            label: 'label',
+            name: 'name',
+            parameterName: 'parameterName',
+        }
+        const wrapper = mount(
+            <Form onSubmit={() => {}}>
+                {() => (
+                    <form>
+                        <LabeledOptionsField {...props} />
+                    </form>
+                )}
+            </Form>
+        )
+
+        const actual = wrapper
+            .find({
+                'data-test': 'dhis2-uiwidgets-multiselectfield-help',
+            })
+            .text()
+
+        expect(actual.includes('No options available')).toBe(true)
+
+        useDataQuery.mockReset()
         wrapper.unmount()
     })
 
     it('renders the field when there are options', () => {
-        useGetLabeledOptions.mockImplementation(() => ({
+        useDataQuery.mockImplementation(() => ({
             loading: false,
             error: undefined,
-            data: [{ id: 'id', displayName: 'displayName' }],
+            data: {
+                options: {
+                    parameterName: [{ id: 'id', displayName: 'displayName' }],
+                },
+            },
         }))
         const props = {
             endpoint: 'endpoint',
@@ -138,7 +176,7 @@ describe('<LabeledOptionsField>', () => {
 
         expect(actual.length > 0).toBe(true)
 
-        useGetLabeledOptions.mockReset()
+        useDataQuery.mockReset()
         wrapper.unmount()
     })
 })
