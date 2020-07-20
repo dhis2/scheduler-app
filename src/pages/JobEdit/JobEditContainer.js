@@ -7,7 +7,7 @@ import JobEdit from './JobEdit'
 const query = {
     job: {
         resource: 'jobConfigurations',
-        id: ({ id }) => id,
+        id: /* istanbul ignore next */ ({ id }) => id,
         params: {
             paging: false,
         },
