@@ -18,7 +18,13 @@ const DeleteJobMenuItem = ({ id }) => {
                 label={i18n.t('Delete')}
             />
             {showModal && (
-                <DeleteJobModal id={id} hideModal={() => setShowModal(false)} />
+                <DeleteJobModal
+                    id={id}
+                    hideModal={
+                        /* istanbul ignore next */
+                        () => setShowModal(false)
+                    }
+                />
             )}
         </React.Fragment>
     )
