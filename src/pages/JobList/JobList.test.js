@@ -76,11 +76,10 @@ describe('<JobList>', () => {
         }
         const wrapper = mount(<JobList {...props} />)
 
-        /**
-         * This should be made more specific once
-         * https://github.com/dhis2/ui/issues/215 has been fixed
-         */
-        wrapper.find('button').simulate('click')
+        wrapper
+            .find('button')
+            .find({ 'data-test': 'new-job-button' })
+            .simulate('click')
 
         expect(spy).toHaveBeenCalledWith('/add')
 
