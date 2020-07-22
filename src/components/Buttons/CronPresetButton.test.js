@@ -3,16 +3,12 @@ import { shallow, mount } from 'enzyme'
 import CronPresetButton from './CronPresetButton'
 
 describe('<CronPresetButton>', () => {
-    it('renders correctly', () => {
-        const wrapper = shallow(<CronPresetButton setCron={() => {}} />)
-
-        expect(wrapper).toMatchSnapshot()
+    it('renders without errors', () => {
+        shallow(<CronPresetButton setCron={() => {}} />)
     })
 
-    it('renders small correctly', () => {
-        const wrapper = shallow(<CronPresetButton setCron={() => {}} small />)
-
-        expect(wrapper).toMatchSnapshot()
+    it('renders without errors when small', () => {
+        shallow(<CronPresetButton setCron={() => {}} small />)
     })
 
     it('shows the modal when button is clicked', () => {

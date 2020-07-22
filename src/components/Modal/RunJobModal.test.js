@@ -13,7 +13,7 @@ afterEach(() => {
 })
 
 describe('<RunJobModal>', () => {
-    it('renders correctly', () => {
+    it('renders without errors', () => {
         useDataEngine.mockImplementation(() => ({
             query: () => () => Promise.resolve(),
         }))
@@ -22,9 +22,8 @@ describe('<RunJobModal>', () => {
             id: 'id',
             hideModal: () => {},
         }
-        const wrapper = shallow(<RunJobModal {...props} />)
 
-        expect(wrapper).toMatchSnapshot()
+        shallow(<RunJobModal {...props} />)
     })
 
     it('calls hideModal when cancel button is clicked', () => {
@@ -38,7 +37,10 @@ describe('<RunJobModal>', () => {
         }
         const wrapper = mount(<RunJobModal {...props} />)
 
-        wrapper.find('button[name="hide-modal"]').simulate('click')
+        wrapper
+            .find('button')
+            .find({ name: 'hide-modal' })
+            .simulate('click')
 
         expect(props.hideModal).toHaveBeenCalled()
     })

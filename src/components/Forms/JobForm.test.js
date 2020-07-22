@@ -41,8 +41,8 @@ describe('<JobForm>', () => {
             'data-test': 'dhis2-uicore-noticebox-message',
         })
 
-        expect(actual.length > 0).toBe(true)
-        expect(actual.text().includes(message)).toBe(true)
+        expect(actual).toHaveLength(1)
+        expect(actual.text()).toEqual(expect.stringContaining(message))
     })
 
     it('calls setIsPristine on form changes', () => {
@@ -83,8 +83,8 @@ describe('<JobForm>', () => {
         })
         const progressBar = submitButton.find({ role: 'progressbar' })
 
-        expect(circularLoader.length > 0).toBe(true)
-        expect(progressBar.length > 0).toBe(true)
+        expect(circularLoader).toHaveLength(1)
+        expect(progressBar).toHaveLength(1)
     })
 
     it('shows the schedule field when a jobtype is selected', () => {
@@ -101,7 +101,7 @@ describe('<JobForm>', () => {
 
         const actual = wrapper.find({ 'data-test': 'job-type-field' })
 
-        expect(actual.length > 0).toBe(true)
+        expect(actual).toHaveLength(1)
     })
 
     it('shows the parameter fields when a jobtype is selected', () => {
@@ -118,7 +118,7 @@ describe('<JobForm>', () => {
 
         const actual = wrapper.find({ 'data-test': 'parameter-fields' })
 
-        expect(actual.length > 0).toBe(true)
+        expect(actual).toHaveLength(1)
     })
 
     it('disables the submit button when pristine', () => {
@@ -136,13 +136,13 @@ describe('<JobForm>', () => {
             <Form onSubmit={() => {}}>{() => <JobForm {...props} />}</Form>
         )
 
-        const actual = wrapper.find({
+        const actual = wrapper.find('button').find({
             'data-test': 'dhis2-uicore-button',
             type: 'submit',
             disabled: true,
         })
 
-        expect(actual.length > 0).toBe(true)
+        expect(actual).toHaveLength(1)
     })
 
     it('disables the submit button when submitting', () => {
@@ -160,12 +160,12 @@ describe('<JobForm>', () => {
             <Form onSubmit={() => {}}>{() => <JobForm {...props} />}</Form>
         )
 
-        const actual = wrapper.find({
+        const actual = wrapper.find('button').find({
             'data-test': 'dhis2-uicore-button',
             type: 'submit',
             disabled: true,
         })
 
-        expect(actual.length > 0).toBe(true)
+        expect(actual).toHaveLength(1)
     })
 })

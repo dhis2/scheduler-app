@@ -43,9 +43,7 @@ describe('useSubmitJob', () => {
 
         expect.assertions(1)
 
-        submitJob().then(error => {
-            expect(error).toBe(error)
-        })
+        return expect(submitJob()).resolves.toBe(error)
     })
 
     it('should reject with an error on any other errors', () => {
@@ -60,8 +58,6 @@ describe('useSubmitJob', () => {
 
         expect.assertions(1)
 
-        submitJob().catch(error => {
-            expect(error).toBe(error)
-        })
+        return expect(submitJob()).rejects.toBe(error)
     })
 })

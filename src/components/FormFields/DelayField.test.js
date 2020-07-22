@@ -26,6 +26,7 @@ describe('<DelayField>', () => {
     })
 
     it('shows an error for a delay that is too low', () => {
+        const expected = 'Number cannot be less than 1 or more than 86400'
         const delay = '0'
         const wrapper = mount(
             <Form onSubmit={() => {}}>
@@ -46,10 +47,11 @@ describe('<DelayField>', () => {
             .find({ 'data-test': 'dhis2-uiwidgets-inputfield-validation' })
             .text()
 
-        expect(actual).toBe('Number cannot be less than 1 or more than 86400')
+        expect(actual).toEqual(expect.stringMatching(expected))
     })
 
     it('shows an error for a delay that is too high', () => {
+        const expected = 'Number cannot be less than 1 or more than 86400'
         const delay = '86401'
         const wrapper = mount(
             <Form onSubmit={() => {}}>
@@ -70,7 +72,7 @@ describe('<DelayField>', () => {
             .find({ 'data-test': 'dhis2-uiwidgets-inputfield-validation' })
             .text()
 
-        expect(actual).toBe('Number cannot be less than 1 or more than 86400')
+        expect(actual).toEqual(expect.stringMatching(expected))
     })
 
     it('does not show an error for a valid delay', () => {
@@ -94,10 +96,11 @@ describe('<DelayField>', () => {
             'data-test': 'dhis2-uiwidgets-inputfield-validation',
         })
 
-        expect(actual.length).toBe(0)
+        expect(actual).toHaveLength(0)
     })
 
     it('shows an error that the field is required on empty values', () => {
+        const expected = 'Please provide a value'
         const wrapper = mount(
             <Form onSubmit={() => {}}>
                 {({ handleSubmit }) => (
@@ -115,6 +118,6 @@ describe('<DelayField>', () => {
             .find({ 'data-test': 'dhis2-uiwidgets-inputfield-validation' })
             .text()
 
-        expect(actual).toBe('Please provide a value')
+        expect(actual).toEqual(expect.stringMatching(expected))
     })
 })

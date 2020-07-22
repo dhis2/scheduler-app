@@ -41,8 +41,10 @@ describe('<JobTypeField>', () => {
             'data-test': 'dhis2-uicore-singleselect-loading',
         })
 
-        expect(loadingIndicator.length).toBe(1)
-        expect(loadingIndicator.text().includes('Loading')).toBe(true)
+        expect(loadingIndicator).toHaveLength(1)
+        expect(loadingIndicator.text()).toEqual(
+            expect.stringContaining('Loading')
+        )
 
         /**
          * Umounting manually here prevents React throwing an act warning. I suspect the warning
@@ -106,6 +108,8 @@ describe('<JobTypeField>', () => {
             })
             .text()
 
-        expect(actual.includes('Please provide a value')).toBe(true)
+        expect(actual).toEqual(
+            expect.stringContaining('Please provide a value')
+        )
     })
 })

@@ -1,18 +1,19 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { shallow, mount } from 'enzyme'
 import FormErrorBox from './FormErrorBox'
 
 describe('<FormErrorBox>', () => {
     it('returns null if there are no errors', () => {
-        const props = { submitError: [] }
+        const wrapper = shallow(<FormErrorBox submitError={[]} />)
 
-        expect(FormErrorBox(props)).toBeNull()
+        expect(wrapper.isEmptyRender()).toBe(true)
     })
 
     it('shows errors if there are errors', () => {
-        const submitError = ['Error']
-        const wrapper = shallow(<FormErrorBox submitError={submitError} />)
+        const message = 'An error message'
+        const submitError = [message]
+        const wrapper = mount(<FormErrorBox submitError={submitError} />)
 
-        expect(wrapper).toMatchSnapshot()
+        expect(wrapper.text()).toEqual(expect.stringContaining(message))
     })
 })

@@ -47,8 +47,10 @@ describe('<LabeledOptionsField>', () => {
             'data-test': 'dhis2-uicore-multiselect-loading',
         })
 
-        expect(loadingIndicator.length).toBe(1)
-        expect(loadingIndicator.text().includes('Loading')).toBe(true)
+        expect(loadingIndicator).toHaveLength(1)
+        expect(loadingIndicator.text()).toEqual(
+            expect.stringContaining('Loading')
+        )
 
         /**
          * Umounting manually here prevents React throwing an act warning. I suspect the warning
@@ -115,7 +117,7 @@ describe('<LabeledOptionsField>', () => {
             })
             .text()
 
-        expect(actual.includes('No options available')).toBe(true)
+        expect(actual).toEqual(expect.stringContaining('No options available'))
     })
 
     it('shows a message when there are no options', () => {
@@ -146,7 +148,7 @@ describe('<LabeledOptionsField>', () => {
             })
             .text()
 
-        expect(actual.includes('No options available')).toBe(true)
+        expect(actual).toEqual(expect.stringContaining('No options available'))
     })
 
     it('renders the field when there are options', () => {
@@ -175,8 +177,8 @@ describe('<LabeledOptionsField>', () => {
             </Form>
         )
 
-        const actual = wrapper.find({ name: 'fieldName' })
+        const actual = wrapper.find('LabeledOptionsField')
 
-        expect(actual.length > 0).toBe(true)
+        expect(actual).toHaveLength(1)
     })
 })

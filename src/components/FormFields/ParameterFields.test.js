@@ -129,7 +129,7 @@ describe('<ParameterFields>', () => {
 
         const component = wrapper.find('InputFieldFF')
 
-        expect(component.length > 0).toBe(true)
+        expect(component).toHaveLength(1)
     })
 
     it('returns the expected component for java.lang.Boolean', () => {
@@ -170,7 +170,7 @@ describe('<ParameterFields>', () => {
 
         const component = wrapper.find('SwitchFieldFF')
 
-        expect(component.length > 0).toBe(true)
+        expect(component).toHaveLength(1)
     })
 
     it('returns the expected component for java.lang.Integer', () => {
@@ -211,7 +211,7 @@ describe('<ParameterFields>', () => {
 
         const component = wrapper.find('InputFieldFF')
 
-        expect(component.length > 0).toBe(true)
+        expect(component).toHaveLength(1)
     })
 
     it('returns the expected component for java.util.Set', () => {
@@ -250,9 +250,9 @@ describe('<ParameterFields>', () => {
             </Form>
         )
 
-        const text = wrapper.text()
+        const actual = wrapper.text()
 
-        expect(text.includes('UnlabeledOptionsField')).toBe(true)
+        expect(actual).toEqual(expect.stringContaining('UnlabeledOptionsField'))
     })
 
     it('returns the expected component for java.util.List', () => {
@@ -291,8 +291,8 @@ describe('<ParameterFields>', () => {
             </Form>
         )
 
-        const text = wrapper.text()
+        const actual = wrapper.text()
 
-        expect(text.includes('LabeledOptionsField')).toBe(true)
+        expect(actual).toEqual(expect.stringContaining('LabeledOptionsField'))
     })
 })

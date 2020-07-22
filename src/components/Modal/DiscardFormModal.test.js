@@ -12,17 +12,18 @@ afterEach(() => {
 })
 
 describe('<DiscardFormModal>', () => {
-    it('renders correctly', () => {
-        const wrapper = shallow(<DiscardFormModal hideModal={() => {}} />)
-
-        expect(wrapper).toMatchSnapshot()
+    it('renders without errors', () => {
+        shallow(<DiscardFormModal hideModal={() => {}} />)
     })
 
     it('calls hideModal when cancel button is clicked', () => {
         const spy = jest.fn()
         const wrapper = mount(<DiscardFormModal hideModal={spy} />)
 
-        wrapper.find('button[name="cancel-discard-form"]').simulate('click')
+        wrapper
+            .find('button')
+            .find({ name: 'cancel-discard-form' })
+            .simulate('click')
 
         expect(spy).toHaveBeenCalled()
     })
@@ -31,7 +32,10 @@ describe('<DiscardFormModal>', () => {
         const spy = jest.fn()
         const wrapper = mount(<DiscardFormModal hideModal={spy} />)
 
-        wrapper.find('button[name="discard-form"]').simulate('click')
+        wrapper
+            .find('button')
+            .find({ name: 'discard-form' })
+            .simulate('click')
 
         expect(history.push).toHaveBeenCalledWith('/')
         expect(spy).toHaveBeenCalled()
@@ -41,7 +45,10 @@ describe('<DiscardFormModal>', () => {
         const spy = jest.fn()
         const wrapper = mount(<DiscardFormModal hideModal={spy} />)
 
-        wrapper.find('div[data-test="dhis2-uicore-layer"]').simulate('click')
+        wrapper
+            .find('div')
+            .find({ 'data-test': 'dhis2-uicore-layer' })
+            .simulate('click')
 
         expect(spy).toHaveBeenCalled()
     })

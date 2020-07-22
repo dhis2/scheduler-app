@@ -8,6 +8,8 @@ describe('getLocale', () => {
     it('should return the keyUiLocale if it is in the data', () => {
         const keyUiLocale = 'en'
 
-        expect(getLocale({ keyUiLocale })).toBe('en')
+        expect(getLocale({ keyUiLocale })).toEqual(
+            expect.stringMatching(keyUiLocale)
+        )
     })
 })

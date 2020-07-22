@@ -13,16 +13,15 @@ afterEach(() => {
 })
 
 describe('<DeleteJobModal>', () => {
-    it('renders correctly', () => {
+    it('renders without errors', () => {
         useDataMutation.mockImplementation(() => [() => {}])
 
         const props = {
             id: 'id',
             hideModal: () => {},
         }
-        const wrapper = shallow(<DeleteJobModal {...props} />)
 
-        expect(wrapper).toMatchSnapshot()
+        shallow(<DeleteJobModal {...props} />)
     })
 
     it('calls hideModal when cancel button is clicked', () => {
@@ -34,7 +33,10 @@ describe('<DeleteJobModal>', () => {
         }
         const wrapper = mount(<DeleteJobModal {...props} />)
 
-        wrapper.find('button[name="hide-modal"]').simulate('click')
+        wrapper
+            .find('button')
+            .find({ name: 'hide-modal' })
+            .simulate('click')
 
         expect(props.hideModal).toHaveBeenCalled()
     })
@@ -57,7 +59,10 @@ describe('<DeleteJobModal>', () => {
             </RefetchJobsContext.Provider>
         )
 
-        wrapper.find('button[name="delete-job-id"]').simulate('click')
+        wrapper
+            .find('button')
+            .find({ name: 'delete-job-id' })
+            .simulate('click')
 
         await deletion
 
@@ -75,7 +80,10 @@ describe('<DeleteJobModal>', () => {
         }
         const wrapper = mount(<DeleteJobModal {...props} />)
 
-        wrapper.find('div[data-test="dhis2-uicore-layer"]').simulate('click')
+        wrapper
+            .find('div')
+            .find({ 'data-test': 'dhis2-uicore-layer' })
+            .simulate('click')
 
         expect(props.hideModal).toHaveBeenCalled()
     })

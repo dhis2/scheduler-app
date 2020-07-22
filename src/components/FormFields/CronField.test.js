@@ -40,7 +40,7 @@ describe('<CronField>', () => {
             .find({ 'data-test': 'dhis2-uiwidgets-inputfield-help' })
             .text()
 
-        expect(actual.includes(expected)).toBe(true)
+        expect(actual).toEqual(expect.stringContaining(expected))
     })
 
     it('does not show an error for valid cron expressions', () => {
@@ -65,11 +65,12 @@ describe('<CronField>', () => {
             'data-test': 'dhis2-uiwidgets-inputfield-validation',
         })
 
-        expect(actual.length).toBe(0)
+        expect(actual).toHaveLength(0)
     })
 
     it('shows an error for invalid cronExpressions', () => {
         const cronExpression = 'not a cron expression'
+        const expected = 'Please enter a valid CRON expression'
 
         const wrapper = mount(
             <Form onSubmit={() => {}}>
@@ -90,10 +91,11 @@ describe('<CronField>', () => {
             .find({ 'data-test': 'dhis2-uiwidgets-inputfield-validation' })
             .text()
 
-        expect(actual).toBe('Please enter a valid CRON expression')
+        expect(actual).toEqual(expect.stringMatching(expected))
     })
 
     it('shows an error that the field is required on empty values', () => {
+        const expected = 'A CRON expression is required'
         const wrapper = mount(
             <Form onSubmit={() => {}}>
                 {({ handleSubmit }) => (
@@ -111,6 +113,6 @@ describe('<CronField>', () => {
             .find({ 'data-test': 'dhis2-uiwidgets-inputfield-validation' })
             .text()
 
-        expect(actual).toBe('A CRON expression is required')
+        expect(actual).toEqual(expect.stringMatching(expected))
     })
 })

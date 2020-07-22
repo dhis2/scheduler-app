@@ -48,7 +48,9 @@ describe('<UnlabeledOptionsField>', () => {
         })
 
         expect(loadingIndicator.length).toBe(1)
-        expect(loadingIndicator.text().includes('Loading')).toBe(true)
+        expect(loadingIndicator.text()).toEqual(
+            expect.stringContaining('Loading')
+        )
 
         /**
          * Umounting manually here prevents React throwing an act warning. I suspect the warning
@@ -115,7 +117,7 @@ describe('<UnlabeledOptionsField>', () => {
             })
             .text()
 
-        expect(actual.includes('No options available')).toBe(true)
+        expect(actual).toEqual(expect.stringContaining('No options available'))
     })
 
     it('renders the field when there are options', () => {
@@ -140,8 +142,8 @@ describe('<UnlabeledOptionsField>', () => {
             </Form>
         )
 
-        const actual = wrapper.find({ name: 'fieldName' })
+        const actual = wrapper.find('UnlabeledOptionsField')
 
-        expect(actual.length > 0).toBe(true)
+        expect(actual).toHaveLength(1)
     })
 })

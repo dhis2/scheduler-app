@@ -94,8 +94,8 @@ describe('<ScheduleField>', () => {
 
         const actual = wrapper.text()
 
-        expect(actual.includes('CronField')).toBe(true)
-        expect(actual.includes('DelayField')).toBe(false)
+        expect(actual).toEqual(expect.stringContaining('CronField'))
+        expect(actual).toEqual(expect.not.stringContaining('DelayField'))
     })
 
     it('renders the delay field if the scheduling type is FIXED_DELAY', () => {
@@ -119,8 +119,8 @@ describe('<ScheduleField>', () => {
 
         const actual = wrapper.text()
 
-        expect(actual.includes('DelayField')).toBe(true)
-        expect(actual.includes('CronField')).toBe(false)
+        expect(actual).toEqual(expect.stringContaining('DelayField'))
+        expect(actual).toEqual(expect.not.stringContaining('CronField'))
     })
 
     it('returns null for unrecognised scheduling types', () => {

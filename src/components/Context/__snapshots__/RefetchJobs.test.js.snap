@@ -1,3 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`RefetchJobsContext.Consumer returns a function that throws an error if used outside of the provider 1`] = `"RefetchJobsContext consumer needs to have a valid Provider as parent"`;

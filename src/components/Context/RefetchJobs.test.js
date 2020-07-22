@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import expectRenderError from '../../../test/expect-render-error'
 import RefetchJobsContext from './RefetchJobs'
 
 describe('RefetchJobsContext', () => {
@@ -11,13 +11,14 @@ describe('RefetchJobsContext', () => {
 
 describe('RefetchJobsContext.Consumer', () => {
     it('returns a function that throws an error if used outside of the provider', () => {
-        const createWrapper = () =>
-            shallow(
-                <RefetchJobsContext.Consumer>
-                    {refetch => refetch()}
-                </RefetchJobsContext.Consumer>
-            )
+        const message =
+            'RefetchJobsContext consumer needs to have a valid Provider as parent'
 
-        expect(createWrapper).toThrowErrorMatchingSnapshot()
+        expectRenderError(
+            <RefetchJobsContext.Consumer>
+                {refetch => refetch()}
+            </RefetchJobsContext.Consumer>,
+            message
+        )
     })
 })

@@ -51,7 +51,7 @@ describe('useHumanReadableCron', () => {
         const cron = '0 0 * ? * *'
         const actual = useHumanReadableCron(cron)
 
-        expect(actual).toBe('Every hour')
+        expect(actual).toEqual(expect.stringMatching('Every hour'))
     })
 
     it('should return a translated cron if there is a locale', () => {
@@ -65,6 +65,6 @@ describe('useHumanReadableCron', () => {
         const cron = '0 0 * ? * *'
         const actual = useHumanReadableCron(cron)
 
-        expect(actual).toBe('Toutes les heures')
+        expect(actual).toEqual(expect.stringMatching('Toutes les heures'))
     })
 })

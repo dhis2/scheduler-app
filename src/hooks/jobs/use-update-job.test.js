@@ -27,7 +27,7 @@ describe('useUpdateJob', () => {
 
         expect.assertions(1)
 
-        updateJob().then(() => {
+        return updateJob().then(() => {
             expect(history.push).toHaveBeenCalledWith('/')
         })
     })
@@ -47,9 +47,7 @@ describe('useUpdateJob', () => {
 
         expect.assertions(1)
 
-        updateJob().then(error => {
-            expect(error).toBe(error)
-        })
+        return expect(updateJob()).resolves.toBe(error)
     })
 
     it('should reject with an error on any other errors', () => {
@@ -64,8 +62,6 @@ describe('useUpdateJob', () => {
 
         expect.assertions(1)
 
-        updateJob().catch(error => {
-            expect(error).toBe(error)
-        })
+        return expect(updateJob()).rejects.toBe(error)
     })
 })

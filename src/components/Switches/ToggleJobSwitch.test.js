@@ -13,12 +13,10 @@ afterEach(() => {
 })
 
 describe('<ToggleJobSwitch>', () => {
-    it('renders correctly', () => {
+    it('renders without errors', () => {
         useDataMutation.mockImplementation(() => [() => {}, {}])
 
-        const wrapper = shallow(<ToggleJobSwitch id="1" checked={true} />)
-
-        expect(wrapper).toMatchSnapshot()
+        shallow(<ToggleJobSwitch id="1" checked={true} />)
     })
 
     it('calls toggleJob and refetches when toggle is clicked', async () => {
@@ -40,7 +38,8 @@ describe('<ToggleJobSwitch>', () => {
         )
 
         wrapper
-            .find('input[name="toggle-job-id"]')
+            .find('input')
+            .find({ name: 'toggle-job-id' })
             .simulate('change', { target: { checked: !checked } })
 
         await toggle

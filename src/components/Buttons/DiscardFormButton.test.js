@@ -8,32 +8,32 @@ jest.mock('../../services/history', () => ({
 }))
 
 describe('<DiscardFormButton>', () => {
-    it('renders correctly', () => {
-        const wrapper = shallow(
+    it('renders without errors', () => {
+        shallow(
             <DiscardFormButton shouldConfirm={false}>Discard</DiscardFormButton>
         )
-
-        expect(wrapper).toMatchSnapshot()
     })
 
-    it('renders small correctly', () => {
-        const wrapper = shallow(
+    it('renders without errors when small', () => {
+        shallow(
             <DiscardFormButton shouldConfirm={false} small>
                 Discard
             </DiscardFormButton>
         )
-
-        expect(wrapper).toMatchSnapshot()
     })
 
     it('applies className correctly', () => {
-        const wrapper = shallow(
+        const wrapper = mount(
             <DiscardFormButton shouldConfirm={false} className="className">
                 Discard
             </DiscardFormButton>
         )
 
-        expect(wrapper).toMatchSnapshot()
+        const buttonProps = wrapper.find('Button').props()
+
+        expect(buttonProps).toEqual(
+            expect.objectContaining({ className: 'className' })
+        )
     })
 
     it('shows the modal when it should confirm and button is clicked', () => {

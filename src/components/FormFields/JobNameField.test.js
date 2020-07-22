@@ -7,6 +7,7 @@ const { Form } = ReactFinalForm
 
 describe('<JobNameField>', () => {
     it('shows an error that the field is required on empty values', () => {
+        const expected = 'Please provide a value'
         const wrapper = mount(
             <Form onSubmit={() => {}}>
                 {({ handleSubmit }) => (
@@ -24,6 +25,6 @@ describe('<JobNameField>', () => {
             .find({ 'data-test': 'dhis2-uiwidgets-inputfield-validation' })
             .text()
 
-        expect(actual).toBe('Please provide a value')
+        expect(actual).toEqual(expect.stringMatching(expected))
     })
 })
