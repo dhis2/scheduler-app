@@ -49,6 +49,16 @@ describe('<UnlabeledOptionsField>', () => {
 
         expect(loadingIndicator.length).toBe(1)
         expect(loadingIndicator.text().includes('Loading')).toBe(true)
+
+        /**
+         * Umounting manually here prevents React throwing an act warning. I suspect the warning
+         * is caused by the popper setting state at a point where it's not wrapped in act.
+         * See here: https://github.com/popperjs/react-popper/issues/368
+         * Neither wrapping mount, nor the click simulation resolves the warning, but unmounting
+         * manually seems to silence it. It should be ok to do that since the popper changes
+         * should only affect placement, which we're not testing here.
+         */
+        wrapper.unmount()
     })
 
     it('throws errors it encounters during fetching', () => {
