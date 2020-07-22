@@ -4,7 +4,7 @@ import { ReactFinalForm } from '@dhis2/ui'
 import { useParams } from 'react-router-dom'
 import { useDataQuery } from '@dhis2/app-runtime'
 import { useUpdateJob } from '../../hooks/jobs'
-import JobEditForm from './JobEditForm'
+import JobForm from './JobForm'
 
 const { Form } = ReactFinalForm
 
@@ -60,7 +60,7 @@ const JobEditFormContainer = ({ setIsPristine }) => {
     return (
         <Form
             onSubmit={updateJob}
-            component={JobEditForm}
+            component={JobForm}
             setIsPristine={setIsPristine}
             initialValues={data.job}
             destroyOnUnregister

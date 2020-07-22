@@ -2,7 +2,7 @@ import React from 'react'
 import { PropTypes } from '@dhis2/prop-types'
 import { ReactFinalForm } from '@dhis2/ui'
 import { useSubmitJob } from '../../hooks/jobs'
-import JobAddForm from './JobAddForm'
+import JobForm from './JobForm'
 
 const { Form } = ReactFinalForm
 
@@ -16,7 +16,7 @@ const JobAddFormContainer = ({ setIsPristine }) => {
     return (
         <Form
             onSubmit={submitJob}
-            component={JobAddForm}
+            component={JobForm}
             setIsPristine={setIsPristine}
             destroyOnUnregister
         />

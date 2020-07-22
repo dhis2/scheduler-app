@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-07-06T14:44:30.019Z\n"
-"PO-Revision-Date: 2020-07-06T14:44:30.019Z\n"
+"POT-Creation-Date: 2020-07-22T08:26:40.694Z\n"
+"PO-Revision-Date: 2020-07-22T08:26:40.694Z\n"
 
 msgid "Checking permissions"
 msgstr ""
@@ -41,13 +41,10 @@ msgstr ""
 msgid "No options available"
 msgstr ""
 
-msgid "Save job"
+msgid "Save"
 msgstr ""
 
 msgid "Cancel"
-msgstr ""
-
-msgid "Save changes"
 msgstr ""
 
 msgid "Every hour"

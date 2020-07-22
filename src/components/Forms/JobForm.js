@@ -15,7 +15,7 @@ import styles from './JobForm.module.css'
 
 const { useForm } = ReactFinalForm
 
-const JobEditForm = ({
+const JobForm = ({
     handleSubmit,
     pristine,
     submitting,
@@ -71,7 +71,7 @@ const JobEditForm = ({
                     icon={Spinner}
                     className={styles.saveButton}
                 >
-                    {i18n.t('Save changes')}
+                    {i18n.t('Save')}
                 </Button>
                 <DiscardFormButton shouldConfirm={!pristine}>
                     {i18n.t('Cancel')}
@@ -83,11 +83,11 @@ const JobEditForm = ({
 
 const { func, bool, object, array } = PropTypes
 
-JobEditForm.defaultProps = {
+JobForm.defaultProps = {
     submitError: [],
 }
 
-JobEditForm.propTypes = {
+JobForm.propTypes = {
     handleSubmit: func.isRequired,
     hasSubmitErrors: bool.isRequired,
     pristine: bool.isRequired,
@@ -97,4 +97,4 @@ JobEditForm.propTypes = {
     submitError: array,
 }
 
-export default JobEditForm
+export default JobForm
