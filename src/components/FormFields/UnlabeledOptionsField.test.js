@@ -11,6 +11,10 @@ jest.mock('@dhis2/app-runtime', () => ({
     useDataQuery: jest.fn(),
 }))
 
+afterEach(() => {
+    jest.resetAllMocks()
+})
+
 describe('<UnlabeledOptionsField>', () => {
     it('shows a loading message when loading', () => {
         useDataQuery.mockImplementation(() => ({
@@ -45,9 +49,6 @@ describe('<UnlabeledOptionsField>', () => {
 
         expect(loadingIndicator.length).toBe(1)
         expect(loadingIndicator.text().includes('Loading')).toBe(true)
-
-        useDataQuery.mockReset()
-        wrapper.unmount()
     })
 
     it('throws errors it encounters during fetching', () => {
@@ -74,8 +75,6 @@ describe('<UnlabeledOptionsField>', () => {
             </Form>,
             message
         )
-
-        useDataQuery.mockReset()
     })
 
     it('shows a message when there are no options', () => {
@@ -107,9 +106,6 @@ describe('<UnlabeledOptionsField>', () => {
             .text()
 
         expect(actual.includes('No options available')).toBe(true)
-
-        useDataQuery.mockReset()
-        wrapper.unmount()
     })
 
     it('renders the field when there are options', () => {
@@ -137,8 +133,5 @@ describe('<UnlabeledOptionsField>', () => {
         const actual = wrapper.find({ name: 'fieldName' })
 
         expect(actual.length > 0).toBe(true)
-
-        useDataQuery.mockReset()
-        wrapper.unmount()
     })
 })

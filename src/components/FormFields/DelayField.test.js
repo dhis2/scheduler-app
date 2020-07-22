@@ -23,8 +23,6 @@ describe('<DelayField>', () => {
         const actual = wrapper.find(`input[name="delay"]`).props().value
 
         expect(typeof actual).toBe('string')
-
-        wrapper.unmount()
     })
 
     it('shows an error for a delay that is too low', () => {
@@ -49,8 +47,6 @@ describe('<DelayField>', () => {
             .text()
 
         expect(actual).toBe('Number cannot be less than 1 or more than 86400')
-
-        wrapper.unmount()
     })
 
     it('shows an error for a delay that is too high', () => {
@@ -75,8 +71,6 @@ describe('<DelayField>', () => {
             .text()
 
         expect(actual).toBe('Number cannot be less than 1 or more than 86400')
-
-        wrapper.unmount()
     })
 
     it('does not show an error for a valid delay', () => {
@@ -101,8 +95,6 @@ describe('<DelayField>', () => {
         })
 
         expect(actual.length).toBe(0)
-
-        wrapper.unmount()
     })
 
     it('shows an error that the field is required on empty values', () => {
@@ -124,7 +116,5 @@ describe('<DelayField>', () => {
             .text()
 
         expect(actual).toBe('Please provide a value')
-
-        wrapper.unmount()
     })
 })

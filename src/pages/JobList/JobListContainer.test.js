@@ -11,6 +11,10 @@ jest.mock('@dhis2/app-runtime', () => ({
 
 jest.mock('./JobList', () => jest.fn())
 
+afterEach(() => {
+    jest.resetAllMocks()
+})
+
 describe('<JobListContainer>', () => {
     it('renders a spinner when loading', () => {
         useDataQuery.mockImplementation(() => ({
@@ -26,9 +30,6 @@ describe('<JobListContainer>', () => {
 
         expect(content.includes('Loading jobs')).toBe(true)
         expect(wrapper.find('CircularLoader').length > 0).toBe(true)
-
-        useDataQuery.mockReset()
-        wrapper.unmount()
     })
 
     it('throws errors it encounters during fetching', () => {
@@ -41,8 +42,6 @@ describe('<JobListContainer>', () => {
         }))
 
         expectRenderError(<JobListContainer />, message)
-
-        useDataQuery.mockReset()
     })
 
     it('renders without errors when there is data', () => {
@@ -60,7 +59,6 @@ describe('<JobListContainer>', () => {
         }))
 
         shallow(<JobListContainer />)
-        useDataQuery.mockReset()
     })
 
     it('omits system job ids by default', () => {
@@ -85,10 +83,6 @@ describe('<JobListContainer>', () => {
 
         expect(childProps.jobIds.length).toBe(1)
         expect(childProps.jobIds.includes('user')).toBe(true)
-
-        useDataQuery.mockReset()
-        JobList.mockReset()
-        wrapper.unmount()
     })
 
     it('passes system and user job ids after toggling', () => {
@@ -122,10 +116,6 @@ describe('<JobListContainer>', () => {
 
         expect(childProps.jobIds.length).toBe(2)
         expect(childProps.jobIds.includes('system'))
-
-        useDataQuery.mockReset()
-        JobList.mockReset()
-        wrapper.unmount()
     })
 
     it('filters jobs ids after updating the filter', () => {
@@ -162,9 +152,5 @@ describe('<JobListContainer>', () => {
 
         expect(childProps.jobIds.length).toBe(1)
         expect(childProps.jobIds.includes('three'))
-
-        useDataQuery.mockReset()
-        JobList.mockReset()
-        wrapper.unmount()
     })
 })

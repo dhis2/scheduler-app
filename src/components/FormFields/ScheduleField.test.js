@@ -20,6 +20,10 @@ jest.mock('@dhis2/app-runtime', () => ({
     useDataQuery: jest.fn(),
 }))
 
+afterEach(() => {
+    jest.resetAllMocks()
+})
+
 describe('<ScheduleField>', () => {
     it('returns null when loading', () => {
         useDataQuery.mockImplementation(() => ({
@@ -43,9 +47,6 @@ describe('<ScheduleField>', () => {
         const children = wrapper.find('form').children()
 
         expect(children.isEmptyRender()).toBe(true)
-
-        useDataQuery.mockReset()
-        wrapper.unmount()
     })
 
     it('throws errors it encounters during fetching', () => {
@@ -70,8 +71,6 @@ describe('<ScheduleField>', () => {
             </Form>,
             message
         )
-
-        useDataQuery.mockReset()
     })
 
     it('renders the cron field if the scheduling type is CRON', () => {
@@ -97,9 +96,6 @@ describe('<ScheduleField>', () => {
 
         expect(actual.includes('CronField')).toBe(true)
         expect(actual.includes('DelayField')).toBe(false)
-
-        useDataQuery.mockReset()
-        wrapper.unmount()
     })
 
     it('renders the delay field if the scheduling type is FIXED_DELAY', () => {
@@ -125,9 +121,6 @@ describe('<ScheduleField>', () => {
 
         expect(actual.includes('DelayField')).toBe(true)
         expect(actual.includes('CronField')).toBe(false)
-
-        useDataQuery.mockReset()
-        wrapper.unmount()
     })
 
     it('returns null for unrecognised scheduling types', () => {
@@ -154,8 +147,5 @@ describe('<ScheduleField>', () => {
         const children = wrapper.find('form').children()
 
         expect(children.isEmptyRender()).toBe(true)
-
-        useDataQuery.mockReset()
-        wrapper.unmount()
     })
 })

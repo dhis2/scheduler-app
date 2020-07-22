@@ -12,6 +12,10 @@ jest.mock('react-router-dom', () => ({
     useParams: () => ({ id: 'id' }),
 }))
 
+afterEach(() => {
+    jest.resetAllMocks()
+})
+
 describe('<JobEditContainer>', () => {
     it('renders a spinner when loading', () => {
         useDataQuery.mockImplementation(() => ({
@@ -23,9 +27,6 @@ describe('<JobEditContainer>', () => {
         const wrapper = mount(<JobEditContainer />)
 
         expect(wrapper.find('CircularLoader').length > 0).toBe(true)
-
-        useDataQuery.mockReset()
-        wrapper.unmount()
     })
 
     it('throws errors it encounters during fetching', () => {
@@ -38,8 +39,6 @@ describe('<JobEditContainer>', () => {
         }))
 
         expectRenderError(<JobEditContainer />, message)
-
-        useDataQuery.mockReset()
     })
 
     it('renders without errors when there is data', () => {
@@ -54,6 +53,5 @@ describe('<JobEditContainer>', () => {
         }))
 
         shallow(<JobEditContainer />)
-        useDataQuery.mockReset()
     })
 })

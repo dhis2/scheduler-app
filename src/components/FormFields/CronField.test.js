@@ -10,6 +10,10 @@ jest.mock('../../hooks/human-readable-cron', () => ({
     useHumanReadableCron: jest.fn(),
 }))
 
+afterEach(() => {
+    jest.resetAllMocks()
+})
+
 describe('<CronField>', () => {
     it('shows a human readable schedule if a cron expression exists', () => {
         const cronExpression = '0 0 * ? * *'
@@ -37,9 +41,6 @@ describe('<CronField>', () => {
             .text()
 
         expect(actual.includes(expected)).toBe(true)
-
-        useHumanReadableCron.mockReset()
-        wrapper.unmount()
     })
 
     it('does not show an error for valid cron expressions', () => {
@@ -65,8 +66,6 @@ describe('<CronField>', () => {
         })
 
         expect(actual.length).toBe(0)
-
-        wrapper.unmount()
     })
 
     it('shows an error for invalid cronExpressions', () => {
@@ -92,8 +91,6 @@ describe('<CronField>', () => {
             .text()
 
         expect(actual).toBe('Please enter a valid CRON expression')
-
-        wrapper.unmount()
     })
 
     it('shows an error that the field is required on empty values', () => {
@@ -115,7 +112,5 @@ describe('<CronField>', () => {
             .text()
 
         expect(actual).toBe('A CRON expression is required')
-
-        wrapper.unmount()
     })
 })

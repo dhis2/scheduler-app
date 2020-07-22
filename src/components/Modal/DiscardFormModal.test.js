@@ -7,6 +7,10 @@ jest.mock('../../services/history', () => ({
     push: jest.fn(),
 }))
 
+afterEach(() => {
+    jest.resetAllMocks()
+})
+
 describe('<DiscardFormModal>', () => {
     it('renders correctly', () => {
         const wrapper = shallow(<DiscardFormModal hideModal={() => {}} />)

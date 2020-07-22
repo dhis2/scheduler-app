@@ -13,6 +13,10 @@ jest.mock('@dhis2/app-runtime', () => ({
     useDataEngine: () => {},
 }))
 
+afterEach(() => {
+    jest.resetAllMocks()
+})
+
 describe('<JobEditFormContainer>', () => {
     it('returns null when loading', () => {
         useDataQuery.mockImplementation(() => ({
@@ -40,8 +44,6 @@ describe('<JobEditFormContainer>', () => {
         }))
 
         expectRenderError(<JobEditFormContainer {...props} />, message)
-
-        useDataQuery.mockReset()
     })
 
     it('renders without errors if there is data', () => {

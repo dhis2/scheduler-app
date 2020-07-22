@@ -12,9 +12,13 @@ jest.mock('./selectors', () => ({
     getAuthorized: jest.fn(),
 }))
 
+afterEach(() => {
+    jest.resetAllMocks()
+})
+
 describe('<AuthWall>', () => {
     it('renders a spinner when loading', () => {
-        useDataQuery.mockImplementationOnce(() => ({ loading: true }))
+        useDataQuery.mockImplementation(() => ({ loading: true }))
 
         const wrapper = shallow(<AuthWall>Child</AuthWall>)
 
@@ -24,7 +28,8 @@ describe('<AuthWall>', () => {
     it('throws fetching errors if they occur', () => {
         const props = { children: 'Child' }
         const error = new Error('Something went wrong')
-        useDataQuery.mockImplementationOnce(() => ({
+
+        useDataQuery.mockImplementation(() => ({
             loading: false,
             error,
         }))
@@ -33,12 +38,12 @@ describe('<AuthWall>', () => {
     })
 
     it('redirects unauthorized users', () => {
-        useDataQuery.mockImplementationOnce(() => ({
+        useDataQuery.mockImplementation(() => ({
             loading: false,
             error: undefined,
             data: {},
         }))
-        getAuthorized.mockImplementationOnce(() => false)
+        getAuthorized.mockImplementation(() => false)
 
         const wrapper = shallow(<AuthWall>Child</AuthWall>)
 
@@ -46,12 +51,12 @@ describe('<AuthWall>', () => {
     })
 
     it('renders the children for users that are authorized', () => {
-        useDataQuery.mockImplementationOnce(() => ({
+        useDataQuery.mockImplementation(() => ({
             loading: false,
             error: undefined,
             data: {},
         }))
-        getAuthorized.mockImplementationOnce(() => true)
+        getAuthorized.mockImplementation(() => true)
 
         const wrapper = shallow(<AuthWall>Child</AuthWall>)
 

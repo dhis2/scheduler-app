@@ -25,7 +25,5 @@ describe('<JobNameField>', () => {
             .text()
 
         expect(actual).toBe('Please provide a value')
-
-        wrapper.unmount()
     })
 })

@@ -5,11 +5,17 @@ import { RefetchJobsContext } from '../Context'
 import DeleteJobModal from './DeleteJobModal'
 
 jest.mock('@dhis2/app-runtime', () => ({
-    useDataMutation: jest.fn(() => [() => {}]),
+    useDataMutation: jest.fn(),
 }))
+
+afterEach(() => {
+    jest.resetAllMocks()
+})
 
 describe('<DeleteJobModal>', () => {
     it('renders correctly', () => {
+        useDataMutation.mockImplementation(() => [() => {}])
+
         const props = {
             id: 'id',
             hideModal: () => {},
@@ -20,6 +26,8 @@ describe('<DeleteJobModal>', () => {
     })
 
     it('calls hideModal when cancel button is clicked', () => {
+        useDataMutation.mockImplementation(() => [() => {}])
+
         const props = {
             id: 'id',
             hideModal: jest.fn(),
@@ -41,7 +49,7 @@ describe('<DeleteJobModal>', () => {
             hideModal: hideModalSpy,
         }
 
-        useDataMutation.mockImplementationOnce(() => [deleteJobSpy])
+        useDataMutation.mockImplementation(() => [deleteJobSpy])
 
         const wrapper = mount(
             <RefetchJobsContext.Provider value={refetchSpy}>
@@ -59,6 +67,8 @@ describe('<DeleteJobModal>', () => {
     })
 
     it('calls hideModal when cover is clicked', () => {
+        useDataMutation.mockImplementation(() => [() => {}])
+
         const props = {
             id: 'id',
             hideModal: jest.fn(),

@@ -5,11 +5,19 @@ import { RefetchJobsContext } from '../Context'
 import RunJobModal from './RunJobModal'
 
 jest.mock('@dhis2/app-runtime', () => ({
-    useDataEngine: jest.fn(() => ({ query: () => () => Promise.resolve() })),
+    useDataEngine: jest.fn(),
 }))
+
+afterEach(() => {
+    jest.resetAllMocks()
+})
 
 describe('<RunJobModal>', () => {
     it('renders correctly', () => {
+        useDataEngine.mockImplementation(() => ({
+            query: () => () => Promise.resolve(),
+        }))
+
         const props = {
             id: 'id',
             hideModal: () => {},
@@ -20,6 +28,10 @@ describe('<RunJobModal>', () => {
     })
 
     it('calls hideModal when cancel button is clicked', () => {
+        useDataEngine.mockImplementation(() => ({
+            query: () => () => Promise.resolve(),
+        }))
+
         const props = {
             id: 'id',
             hideModal: jest.fn(),
@@ -32,6 +44,10 @@ describe('<RunJobModal>', () => {
     })
 
     it('calls hideModal when cover is clicked', () => {
+        useDataEngine.mockImplementation(() => ({
+            query: () => () => Promise.resolve(),
+        }))
+
         const props = {
             id: 'id',
             hideModal: jest.fn(),

@@ -5,11 +5,17 @@ import { RefetchJobsContext } from '../Context'
 import ToggleJobSwitch from './ToggleJobSwitch'
 
 jest.mock('@dhis2/app-runtime', () => ({
-    useDataMutation: jest.fn(() => [() => {}, {}]),
+    useDataMutation: jest.fn(),
 }))
+
+afterEach(() => {
+    jest.resetAllMocks()
+})
 
 describe('<ToggleJobSwitch>', () => {
     it('renders correctly', () => {
+        useDataMutation.mockImplementation(() => [() => {}, {}])
+
         const wrapper = shallow(<ToggleJobSwitch id="1" checked={true} />)
 
         expect(wrapper).toMatchSnapshot()
@@ -25,7 +31,7 @@ describe('<ToggleJobSwitch>', () => {
             checked,
         }
 
-        useDataMutation.mockImplementationOnce(() => [toggleJobSpy, {}])
+        useDataMutation.mockImplementation(() => [toggleJobSpy, {}])
 
         const wrapper = mount(
             <RefetchJobsContext.Provider value={refetchSpy}>

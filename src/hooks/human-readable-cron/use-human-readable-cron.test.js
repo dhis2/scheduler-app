@@ -10,9 +10,13 @@ jest.mock('./selectors', () => ({
     getLocale: jest.fn(),
 }))
 
+afterEach(() => {
+    jest.resetAllMocks()
+})
+
 describe('useHumanReadableCron', () => {
     it('should return an empty string when loading', () => {
-        useDataQuery.mockImplementationOnce(() => ({
+        useDataQuery.mockImplementation(() => ({
             loading: true,
             error: undefined,
             data: null,
@@ -25,7 +29,7 @@ describe('useHumanReadableCron', () => {
     })
 
     it('should return an empty string when invalid', () => {
-        useDataQuery.mockImplementationOnce(() => ({
+        useDataQuery.mockImplementation(() => ({
             loading: false,
             error: undefined,
             data: null,
@@ -38,7 +42,7 @@ describe('useHumanReadableCron', () => {
     })
 
     it('should return an english translation if there is an error', () => {
-        useDataQuery.mockImplementationOnce(() => ({
+        useDataQuery.mockImplementation(() => ({
             loading: false,
             error: new Error(''),
             data: null,
@@ -51,12 +55,12 @@ describe('useHumanReadableCron', () => {
     })
 
     it('should return a translated cron if there is a locale', () => {
-        useDataQuery.mockImplementationOnce(() => ({
+        useDataQuery.mockImplementation(() => ({
             loading: false,
             error: undefined,
             data: {},
         }))
-        getLocale.mockImplementationOnce(() => 'fr')
+        getLocale.mockImplementation(() => 'fr')
 
         const cron = '0 0 * ? * *'
         const actual = useHumanReadableCron(cron)

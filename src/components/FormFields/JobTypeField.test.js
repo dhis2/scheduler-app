@@ -11,6 +11,10 @@ jest.mock('@dhis2/app-runtime', () => ({
     useDataQuery: jest.fn(),
 }))
 
+afterEach(() => {
+    jest.resetAllMocks()
+})
+
 describe('<JobTypeField>', () => {
     it('shows a loading message when loading', () => {
         useDataQuery.mockImplementation(() => ({
@@ -39,9 +43,6 @@ describe('<JobTypeField>', () => {
 
         expect(loadingIndicator.length).toBe(1)
         expect(loadingIndicator.text().includes('Loading')).toBe(true)
-
-        useDataQuery.mockReset()
-        wrapper.unmount()
     })
 
     it('throws errors it encounters during fetching', () => {
@@ -63,8 +64,6 @@ describe('<JobTypeField>', () => {
             </Form>,
             message
         )
-
-        useDataQuery.mockReset()
     })
 
     it('shows an error that the field is required on empty values', () => {
@@ -98,8 +97,5 @@ describe('<JobTypeField>', () => {
             .text()
 
         expect(actual.includes('Please provide a value')).toBe(true)
-
-        useDataQuery.mockReset()
-        wrapper.unmount()
     })
 })

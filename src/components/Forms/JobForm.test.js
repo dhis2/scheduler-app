@@ -17,6 +17,10 @@ jest.mock('../FormFields/ParameterFields', () => () => (
     <div data-test="parameter-fields">ParameterFields</div>
 ))
 
+afterEach(() => {
+    jest.resetAllMocks()
+})
+
 describe('<JobForm>', () => {
     it('shows submit errors if there are any', () => {
         const message = 'Generic submit error'
@@ -39,8 +43,6 @@ describe('<JobForm>', () => {
 
         expect(actual.length > 0).toBe(true)
         expect(actual.text().includes(message)).toBe(true)
-
-        wrapper.unmount()
     })
 
     it('calls setIsPristine on form changes', () => {
@@ -54,8 +56,6 @@ describe('<JobForm>', () => {
             .simulate('change', { target: { value: 'A change' } })
 
         expect(spy).toHaveBeenCalledWith(false)
-
-        wrapper.unmount()
     })
 
     it('shows a spinner when submitting', () => {

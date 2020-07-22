@@ -18,7 +18,7 @@ describe('useSubmitJob', () => {
         const engine = {
             mutate: () => Promise.resolve(),
         }
-        useDataEngine.mockImplementationOnce(() => engine)
+        useDataEngine.mockImplementation(() => engine)
         const [submitJob] = useSubmitJob()
 
         expect.assertions(1)
@@ -36,8 +36,8 @@ describe('useSubmitJob', () => {
         const engine = {
             mutate: () => Promise.reject(error),
         }
-        useDataEngine.mockImplementationOnce(() => engine)
-        formatError.mockImplementationOnce(error => error)
+        useDataEngine.mockImplementation(() => engine)
+        formatError.mockImplementation(error => error)
 
         const [submitJob] = useSubmitJob()
 
@@ -54,7 +54,7 @@ describe('useSubmitJob', () => {
         const engine = {
             mutate: () => Promise.reject(error),
         }
-        useDataEngine.mockImplementationOnce(() => engine)
+        useDataEngine.mockImplementation(() => engine)
 
         const [submitJob] = useSubmitJob()
 

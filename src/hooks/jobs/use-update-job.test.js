@@ -14,7 +14,6 @@ jest.mock('../../services/history', () => ({
 jest.mock('../../services/format-error', () => jest.fn())
 
 afterEach(() => {
-    // https://jestjs.io/docs/en/jest-object#jestresetallmocks
     jest.resetAllMocks()
 })
 
@@ -23,7 +22,7 @@ describe('useUpdateJob', () => {
         const engine = {
             mutate: () => Promise.resolve(),
         }
-        useDataEngine.mockImplementationOnce(() => engine)
+        useDataEngine.mockImplementation(() => engine)
         const [updateJob] = useUpdateJob({ id: 'id' })
 
         expect.assertions(1)
@@ -41,8 +40,8 @@ describe('useUpdateJob', () => {
         const engine = {
             mutate: () => Promise.reject(error),
         }
-        useDataEngine.mockImplementationOnce(() => engine)
-        formatError.mockImplementationOnce(error => error)
+        useDataEngine.mockImplementation(() => engine)
+        formatError.mockImplementation(error => error)
 
         const [updateJob] = useUpdateJob({ id: 'id' })
 
@@ -59,7 +58,7 @@ describe('useUpdateJob', () => {
         const engine = {
             mutate: () => Promise.reject(error),
         }
-        useDataEngine.mockImplementationOnce(() => engine)
+        useDataEngine.mockImplementation(() => engine)
 
         const [updateJob] = useUpdateJob({ id: 'id' })
 

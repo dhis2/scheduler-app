@@ -15,6 +15,7 @@ const statuses = [
 describe('<JobStatus>', () => {
     it.each(statuses)('renders correctly for %s status', status => {
         const wrapper = shallow(<JobStatus status={status} />)
+
         expect(wrapper).toMatchSnapshot()
     })
 

@@ -11,9 +11,13 @@ jest.mock('@dhis2/app-runtime', () => ({
     useDataQuery: jest.fn(),
 }))
 
-// Use mocks here, to prevent these components from making network requests
+// Using mocks here to prevent these components from making network requests
 jest.mock('./LabeledOptionsField', () => () => 'LabeledOptionsField')
 jest.mock('./UnlabeledOptionsField', () => () => 'UnlabeledOptionsField')
+
+afterEach(() => {
+    jest.resetAllMocks()
+})
 
 describe('<ParameterFields>', () => {
     it('returns null when loading', () => {
@@ -38,9 +42,6 @@ describe('<ParameterFields>', () => {
         const children = wrapper.find('form').children()
 
         expect(children.isEmptyRender()).toBe(true)
-
-        useDataQuery.mockReset()
-        wrapper.unmount()
     })
 
     it('throws errors it encounters during fetching', () => {
@@ -63,8 +64,6 @@ describe('<ParameterFields>', () => {
             </Form>,
             message
         )
-
-        useDataQuery.mockReset()
     })
 
     it('returns null if there are no parameters', () => {
@@ -90,9 +89,6 @@ describe('<ParameterFields>', () => {
         const children = wrapper.find('form').children()
 
         expect(children.isEmptyRender()).toBe(true)
-
-        useDataQuery.mockReset()
-        wrapper.unmount()
     })
 
     it('returns the expected component for java.lang.String', () => {
@@ -134,8 +130,6 @@ describe('<ParameterFields>', () => {
         const component = wrapper.find('InputFieldFF')
 
         expect(component.length > 0).toBe(true)
-
-        useDataQuery.mockReset()
     })
 
     it('returns the expected component for java.lang.Boolean', () => {
@@ -177,8 +171,6 @@ describe('<ParameterFields>', () => {
         const component = wrapper.find('SwitchFieldFF')
 
         expect(component.length > 0).toBe(true)
-
-        useDataQuery.mockReset()
     })
 
     it('returns the expected component for java.lang.Integer', () => {
@@ -220,8 +212,6 @@ describe('<ParameterFields>', () => {
         const component = wrapper.find('InputFieldFF')
 
         expect(component.length > 0).toBe(true)
-
-        useDataQuery.mockReset()
     })
 
     it('returns the expected component for java.util.Set', () => {
@@ -263,8 +253,6 @@ describe('<ParameterFields>', () => {
         const text = wrapper.text()
 
         expect(text.includes('UnlabeledOptionsField')).toBe(true)
-
-        useDataQuery.mockReset()
     })
 
     it('returns the expected component for java.util.List', () => {
@@ -306,7 +294,5 @@ describe('<ParameterFields>', () => {
         const text = wrapper.text()
 
         expect(text.includes('LabeledOptionsField')).toBe(true)
-
-        useDataQuery.mockReset()
     })
 })

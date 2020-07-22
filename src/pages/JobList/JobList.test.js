@@ -9,6 +9,10 @@ jest.mock('../../services/history', () => ({
     push: jest.fn(),
 }))
 
+afterEach(() => {
+    jest.resetAllMocks()
+})
+
 describe('<JobList>', () => {
     it('calls setJobFilter with changes to the job filter input', () => {
         const spy = jest.fn()
@@ -31,8 +35,6 @@ describe('<JobList>', () => {
             .simulate('change', { target: { value: 'Change' } })
 
         expect(spy).toHaveBeenCalledWith('Change')
-
-        wrapper.unmount()
     })
 
     it('calls setShowSystemJobs when the show system jobs toggle is clicked', () => {
@@ -56,13 +58,12 @@ describe('<JobList>', () => {
             .simulate('change', { target: { value: !props.showSystemJobs } })
 
         expect(spy).toHaveBeenCalledWith(true)
-
-        wrapper.unmount()
     })
 
     it('redirects to /add when the new job button is clicked', () => {
         const spy = jest.fn()
-        history.push = spy
+        history.push.mockImplementation(spy)
+
         const props = {
             jobIds: ['one'],
             jobEntities: {
@@ -82,7 +83,5 @@ describe('<JobList>', () => {
             .simulate('click')
 
         expect(spy).toHaveBeenCalledWith('/add')
-
-        wrapper.unmount()
     })
 })
