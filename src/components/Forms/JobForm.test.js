@@ -99,7 +99,7 @@ describe('<JobForm>', () => {
             />
         )
 
-        const actual = wrapper.find({ 'data-test': 'job-type-field' })
+        const actual = wrapper.find({ 'data-test': 'schedule-field' })
 
         expect(actual).toHaveLength(1)
     })
