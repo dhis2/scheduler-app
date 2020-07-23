@@ -10,8 +10,9 @@ describe('<JobSchedule>', () => {
                 cronExpression="cronExpression"
             />
         )
+        const component = wrapper.find('HumanReadableCron')
 
-        expect(wrapper).toMatchSnapshot()
+        expect(component).toHaveLength(1)
     })
 
     it('renders a delay for the FIXED_DELAY scheduling type', () => {

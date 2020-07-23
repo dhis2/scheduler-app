@@ -28,8 +28,8 @@ describe('<JobListContainer>', () => {
             .find({ 'data-test': 'dhis2-uicore-centeredcontent' })
             .text()
 
-        expect(content.includes('Loading jobs')).toBe(true)
-        expect(wrapper.find('CircularLoader').length > 0).toBe(true)
+        expect(content).toEqual(expect.stringContaining('Loading jobs'))
+        expect(wrapper.find('CircularLoader')).toHaveLength(1)
     })
 
     it('throws errors it encounters during fetching', () => {
@@ -81,8 +81,8 @@ describe('<JobListContainer>', () => {
         const wrapper = mount(<JobListContainer />)
         const childProps = wrapper.children().props()
 
-        expect(childProps.jobIds.length).toBe(1)
-        expect(childProps.jobIds.includes('user')).toBe(true)
+        expect(childProps.jobIds).toHaveLength(1)
+        expect(childProps.jobIds).toEqual(expect.arrayContaining(['user']))
     })
 
     it('passes system and user job ids after toggling', () => {
@@ -114,8 +114,8 @@ describe('<JobListContainer>', () => {
 
         const childProps = wrapper.children().props()
 
-        expect(childProps.jobIds.length).toBe(2)
-        expect(childProps.jobIds.includes('system'))
+        expect(childProps.jobIds).toHaveLength(2)
+        expect(childProps.jobIds).toEqual(expect.arrayContaining(['system']))
     })
 
     it('filters jobs ids after updating the filter', () => {
@@ -150,7 +150,7 @@ describe('<JobListContainer>', () => {
 
         const childProps = wrapper.children().props()
 
-        expect(childProps.jobIds.length).toBe(1)
-        expect(childProps.jobIds.includes('three'))
+        expect(childProps.jobIds).toHaveLength(1)
+        expect(childProps.jobIds).toEqual(expect.arrayContaining(['three']))
     })
 })

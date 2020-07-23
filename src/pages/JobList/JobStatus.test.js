@@ -13,15 +13,13 @@ const statuses = [
 ]
 
 describe('<JobStatus>', () => {
-    it.each(statuses)('renders correctly for %s status', status => {
-        const wrapper = shallow(<JobStatus status={status} />)
-
-        expect(wrapper).toMatchSnapshot()
+    it.each(statuses)('renders without errors for %s status', status => {
+        shallow(<JobStatus status={status} />)
     })
 
-    it('renders correctly for an invalid status', () => {
+    it('returns null for an invalid status', () => {
         const wrapper = shallow(<JobStatus status="INVALID" />)
 
-        expect(wrapper).toMatchSnapshot()
+        expect(wrapper.isEmptyRender()).toBe(true)
     })
 })

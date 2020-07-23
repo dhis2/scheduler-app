@@ -25,8 +25,9 @@ describe('<JobEditContainer>', () => {
         }))
 
         const wrapper = mount(<JobEditContainer />)
+        const loader = wrapper.find('CircularLoader')
 
-        expect(wrapper.find('CircularLoader').length > 0).toBe(true)
+        expect(loader).toHaveLength(1)
     })
 
     it('throws errors it encounters during fetching', () => {
