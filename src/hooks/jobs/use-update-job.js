@@ -2,14 +2,9 @@ import { useDataEngine } from '@dhis2/app-runtime'
 import history from '../../services/history'
 import formatError from '../../services/format-error'
 
-/**
- * A partial mutation, or PATCH, because PUT isn't allowed for this endpoint
- */
-
 const mutation = {
     resource: 'jobConfigurations',
     type: 'update',
-    partial: true,
     id: /* istanbul ignore next */ ({ id }) => id,
     data: /* istanbul ignore next */ ({ job }) => job,
 }
