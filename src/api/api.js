@@ -147,7 +147,7 @@ export const runJob = id =>
     getD2Instance()
         .then(instance => instance.Api.getApi().get(`jobConfigurations/${id}/execute`))
         .then(result => {
-            if (result.errorReports) {
+            if (result.errorReports && result.errorReports.length > 0) {
                 throw result;
             }
         })
