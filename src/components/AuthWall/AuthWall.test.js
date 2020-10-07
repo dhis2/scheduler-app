@@ -1,27 +1,51 @@
 import React from 'react'
-import { shallow, mount } from 'enzyme'
-import { useDataQuery } from '@dhis2/app-runtime'
-import expectRenderError from '../../../test/expect-render-error'
-import { getAuthorized } from './selectors'
+import { BrowserRouter as Router } from 'react-router-dom'
+import nock from 'nock'
+import fetch from 'node-fetch'
+import { mount } from 'enzyme'
+import waitForExpect from 'wait-for-expect'
+import { DataProvider } from '@dhis2/app-runtime'
 import AuthWall from './AuthWall'
 
-jest.mock('@dhis2/app-runtime', () => ({
-    useDataQuery: jest.fn(),
-}))
+beforeAll(() => {
+    // Polyfill fetch
+    if (!global.fetch) {
+        global.fetch = fetch
+    }
 
-jest.mock('./selectors', () => ({
-    getAuthorized: jest.fn(),
-}))
+    // Disable real requests
+    nock.disableNetConnect()
+})
 
 afterEach(() => {
-    jest.resetAllMocks()
+    // Clean all prepared mocks
+    nock.cleanAll()
+})
+
+afterAll(() => {
+    if (global.fetch) {
+        delete global.fetch
+    }
+
+    // Enable requests again
+    nock.enableNetConnect()
 })
 
 describe('<AuthWall>', () => {
-    it('shows a loading message when loading', () => {
-        useDataQuery.mockImplementation(() => ({ loading: true }))
+    it('redirects unauthorized users to /notauthorized', async () => {
+        nock('https://debug.dhis2.org')
+            .get('/dev/api/31/me')
+            .reply(200, { authorities: [] })
 
-        const wrapper = mount(<AuthWall>Child</AuthWall>)
+        const wrapper = mount(
+            <DataProvider baseUrl="https://debug.dhis2.org/dev" apiVersion={31}>
+                <Router>
+                    <AuthWall>Child</AuthWall>
+                </Router>
+            </DataProvider>
+        )
+
+        // Show loading state initially
         const loadingIndicator = wrapper.find({
             'data-test': 'dhis2-uicore-circularloader',
         })
@@ -30,47 +54,46 @@ describe('<AuthWall>', () => {
         expect(wrapper.text()).toEqual(
             expect.stringContaining('Checking permissions')
         )
+
+        // Redirects after response
+        await waitForExpect(() => {
+            wrapper.update()
+
+            const redirect = wrapper.find('Redirect')
+            const props = redirect.props()
+
+            expect(redirect).toHaveLength(1)
+            expect(props).toEqual(
+                expect.objectContaining({ to: '/notauthorized' })
+            )
+        })
     })
 
-    it('throws fetching errors if they occur', () => {
-        const props = { children: 'Child' }
-        const message = 'Something went wrong'
-        const error = new Error(message)
+    it('renders the children for users that are authorized', async () => {
+        nock('https://debug.dhis2.org')
+            .get('/dev/api/31/me')
+            .reply(200, { authorities: ['ALL'] })
 
-        useDataQuery.mockImplementation(() => ({
-            loading: false,
-            error,
-        }))
+        const wrapper = mount(
+            <DataProvider baseUrl="https://debug.dhis2.org/dev" apiVersion={31}>
+                <AuthWall>Child</AuthWall>
+            </DataProvider>
+        )
 
-        expectRenderError(<AuthWall {...props} />, message)
-    })
+        // Show loading state initially
+        const loadingIndicator = wrapper.find({
+            'data-test': 'dhis2-uicore-circularloader',
+        })
 
-    it('redirects unauthorized users to /notauthorized', () => {
-        useDataQuery.mockImplementation(() => ({
-            loading: false,
-            error: undefined,
-            data: {},
-        }))
-        getAuthorized.mockImplementation(() => false)
+        expect(loadingIndicator).toHaveLength(1)
+        expect(wrapper.text()).toEqual(
+            expect.stringContaining('Checking permissions')
+        )
 
-        const wrapper = shallow(<AuthWall>Child</AuthWall>)
-        const redirect = wrapper.find('Redirect')
-        const props = redirect.props()
-
-        expect(redirect).toHaveLength(1)
-        expect(props).toEqual(expect.objectContaining({ to: '/notauthorized' }))
-    })
-
-    it('renders the children for users that are authorized', () => {
-        useDataQuery.mockImplementation(() => ({
-            loading: false,
-            error: undefined,
-            data: {},
-        }))
-        getAuthorized.mockImplementation(() => true)
-
-        const wrapper = shallow(<AuthWall>Child</AuthWall>)
-
-        expect(wrapper.text()).toEqual(expect.stringContaining('Child'))
+        // Renders children once authorized
+        await waitForExpect(() => {
+            wrapper.update()
+            expect(wrapper.text()).toEqual(expect.stringContaining('Child'))
+        })
     })
 })

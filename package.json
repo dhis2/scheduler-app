@@ -30,16 +30,19 @@
         "@dhis2/cli-app-scripts": "^4.0.9",
         "@dhis2/cli-style": "^7.1.0-alpha.9",
         "enzyme": "^3.10.0",
-        "enzyme-adapter-react-16": "^1.14.0",
+        "enzyme-adapter-react-16": "^1.15.5",
         "eslint-plugin-compat": "^3.1.2",
         "eslint-plugin-import": "^2.18.0",
         "eslint-plugin-jsx-a11y": "^6.2.1",
         "eslint-plugin-react-hooks": "^2.5.0",
         "identity-obj-proxy": "^3.0.0",
+        "nock": "^13.0.4",
+        "node-fetch": "^2.6.1",
         "stylelint": "^10.1.0",
         "stylelint-config-prettier": "^5.2.0",
         "stylelint-config-standard": "^18.3.0",
-        "stylelint-no-unsupported-browser-features": "^3.0.2"
+        "stylelint-no-unsupported-browser-features": "^3.0.2",
+        "wait-for-expect": "^3.0.2"
     },
     "resolutions": {
         "@dhis2/app-runtime": "^2.2.2",
