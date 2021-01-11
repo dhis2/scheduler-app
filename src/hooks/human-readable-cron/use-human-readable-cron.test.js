@@ -1,13 +1,9 @@
-import { useDataQuery } from '@dhis2/app-runtime'
-import { getLocale } from './selectors'
+import { useContext } from 'react'
 import useHumanReadableCron from './use-human-readable-cron'
 
-jest.mock('@dhis2/app-runtime', () => ({
-    useDataQuery: jest.fn(),
-}))
-
-jest.mock('./selectors', () => ({
-    getLocale: jest.fn(),
+jest.mock('react', () => ({
+    useContext: jest.fn(),
+    createContext: jest.fn(),
 }))
 
 afterEach(() => {
@@ -15,12 +11,8 @@ afterEach(() => {
 })
 
 describe('useHumanReadableCron', () => {
-    it('should return an empty string when loading', () => {
-        useDataQuery.mockImplementation(() => ({
-            loading: true,
-            error: undefined,
-            data: null,
-        }))
+    it('should return an empty string when there is no locale', () => {
+        useContext.mockImplementationOnce(() => '')
 
         const cron = '0 0 * ? * *'
         const actual = useHumanReadableCron(cron)
@@ -28,12 +20,8 @@ describe('useHumanReadableCron', () => {
         expect(actual).toBe('')
     })
 
-    it('should return an empty string when invalid', () => {
-        useDataQuery.mockImplementation(() => ({
-            loading: false,
-            error: undefined,
-            data: null,
-        }))
+    it('should return an empty string when cron is invalid', () => {
+        useContext.mockImplementationOnce(() => 'en')
 
         const cron = 'invalid'
         const actual = useHumanReadableCron(cron)
@@ -41,26 +29,8 @@ describe('useHumanReadableCron', () => {
         expect(actual).toBe('')
     })
 
-    it('should return an english translation if there is an error', () => {
-        useDataQuery.mockImplementation(() => ({
-            loading: false,
-            error: new Error(''),
-            data: null,
-        }))
-
-        const cron = '0 0 * ? * *'
-        const actual = useHumanReadableCron(cron)
-
-        expect(actual).toEqual(expect.stringMatching('Every hour'))
-    })
-
     it('should return a translated cron if there is a locale', () => {
-        useDataQuery.mockImplementation(() => ({
-            loading: false,
-            error: undefined,
-            data: {},
-        }))
-        getLocale.mockImplementation(() => 'fr')
+        useContext.mockImplementationOnce(() => 'fr')
 
         const cron = '0 0 * ? * *'
         const actual = useHumanReadableCron(cron)

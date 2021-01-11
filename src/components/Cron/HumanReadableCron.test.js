@@ -1,8 +1,9 @@
-import { useHumanReadableCron } from '../../hooks/human-readable-cron'
+import { useContext } from 'react'
 import HumanReadableCron from './HumanReadableCron'
 
-jest.mock('../../hooks/human-readable-cron', () => ({
-    useHumanReadableCron: jest.fn(),
+jest.mock('react', () => ({
+    useContext: jest.fn(),
+    createContext: jest.fn(),
 }))
 
 afterEach(() => {
@@ -11,10 +12,10 @@ afterEach(() => {
 
 describe('<HumanReadableCron>', () => {
     it('returns a human readable cron', () => {
-        const cronExpression = '0 0 1 ? * *'
-        const humanReadableCron = 'Every day'
+        useContext.mockImplementation(() => 'en')
 
-        useHumanReadableCron.mockImplementation(() => humanReadableCron)
+        const cronExpression = '0 0 1 ? * *'
+        const humanReadableCron = 'At 01:00 AM'
 
         expect(HumanReadableCron({ cronExpression })).toBe(humanReadableCron)
     })
