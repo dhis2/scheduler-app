@@ -1,30 +1,17 @@
 import cronstrue from 'cronstrue/i18n'
-import { useDataQuery } from '@dhis2/app-runtime'
+import { useContext } from 'react'
 import { validateCron } from '../../services/validators'
-import { getLocale } from './selectors'
+import { LocaleContext } from '../../components/Context'
 
-const query = {
-    userSettings: {
-        resource: 'userSettings',
-    },
-}
+const useHumanReadableCron = cronExpression => {
+    const locale = useContext(LocaleContext)
+    const isValid = cronExpression && validateCron(cronExpression)
 
-const useHumanReadableCron = cron => {
-    const { loading, error, data } = useDataQuery(query)
-    const isValid = cron && validateCron(cron)
-
-    if (loading || !isValid) {
+    if (!locale || !isValid) {
         return ''
     }
 
-    // Fall back to default locale in case of errors (English for cronstrue)
-    if (error) {
-        return cronstrue.toString(cron)
-    }
-
-    const locale = getLocale(data.userSettings)
-
-    return cronstrue.toString(cron, { locale })
+    return cronstrue.toString(cronExpression, { locale })
 }
 
 export default useHumanReadableCron

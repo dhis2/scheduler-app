@@ -1,11 +1,8 @@
 import { PropTypes } from '@dhis2/prop-types'
 import { useHumanReadableCron } from '../../hooks/human-readable-cron'
 
-const HumanReadableCron = ({ cronExpression }) => {
-    const humanReadableCron = useHumanReadableCron(cronExpression)
-
-    return humanReadableCron
-}
+const HumanReadableCron = ({ cronExpression }) =>
+    useHumanReadableCron(cronExpression)
 
 const { string } = PropTypes
 
