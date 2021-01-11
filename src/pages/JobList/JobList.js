@@ -2,7 +2,6 @@ import React from 'react'
 import { PropTypes } from '@dhis2/prop-types'
 import { Card, Switch, Input, Button } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
-import { InfoIcon } from '../../components/Icons'
 import history from '../../services/history'
 import JobListTable from './JobListTable'
 import styles from './JobList.module.css'
@@ -22,7 +21,6 @@ const JobList = ({
                 <h1 className={styles.headerTitle}>
                     {i18n.t('Scheduled jobs')}
                 </h1>
-                <InfoIcon className={styles.headerIcon} />
             </header>
             <Card>
                 <div className={styles.controlContainer}>
