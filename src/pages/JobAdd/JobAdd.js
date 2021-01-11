@@ -1,9 +1,8 @@
 import React from 'react'
 import { PropTypes } from '@dhis2/prop-types'
-import { Card } from '@dhis2/ui'
+import { Card, IconInfo16 } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
 import { DiscardFormButton } from '../../components/Buttons'
-import { InfoIcon } from '../../components/Icons'
 import { JobAddFormContainer } from '../../components/Forms'
 import styles from './JobAdd.module.css'
 
@@ -33,7 +32,9 @@ const JobAdd = ({ isPristine, setIsPristine }) => (
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    <InfoIcon className={styles.cardHeaderInfo} />
+                    <span className={styles.cardHeaderInfo}>
+                        <IconInfo16 />
+                    </span>
                     {i18n.t('About job configuration')}
                 </a>
             </header>
