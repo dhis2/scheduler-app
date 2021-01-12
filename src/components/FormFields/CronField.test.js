@@ -1,26 +1,13 @@
 import React from 'react'
 import { mount } from 'enzyme'
 import { ReactFinalForm } from '@dhis2/ui'
-import { useHumanReadableCron } from '../../hooks/human-readable-cron'
 import CronField from './CronField'
 
 const { Form } = ReactFinalForm
 
-jest.mock('../../hooks/human-readable-cron', () => ({
-    useHumanReadableCron: jest.fn(),
-}))
-
-afterEach(() => {
-    jest.resetAllMocks()
-})
-
 describe('<CronField>', () => {
     it('shows a human readable schedule if a cron expression exists', () => {
         const cronExpression = '0 0 * ? * *'
-        const makeHumanReadable = value => `Human readable version of ${value}`
-        const expected = makeHumanReadable(cronExpression)
-
-        useHumanReadableCron.mockImplementation(makeHumanReadable)
 
         const wrapper = mount(
             <Form onSubmit={() => {}}>
@@ -40,7 +27,7 @@ describe('<CronField>', () => {
             .find({ 'data-test': 'dhis2-uiwidgets-inputfield-help' })
             .text()
 
-        expect(actual).toEqual(expect.stringContaining(expected))
+        expect(actual).toEqual(expect.stringContaining('Every hour'))
     })
 
     it('does not show an error for valid cron expressions', () => {

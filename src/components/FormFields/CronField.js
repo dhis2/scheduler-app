@@ -1,9 +1,9 @@
 import React from 'react'
 import { Box, ReactFinalForm, InputFieldFF } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
-import { useHumanReadableCron } from '../../hooks/human-readable-cron'
 import { requiredCron } from '../../services/validators'
 import { CronPresetButton } from '../Buttons'
+import translateCron from '../../services/translate-cron'
 
 const { Field, useFormState, useForm } = ReactFinalForm
 
@@ -15,7 +15,7 @@ const CronField = () => {
     const form = useForm()
     const { values } = useFormState({ subscription: { values: true } })
     const cronExpression = values[FIELD_NAME]
-    const helpText = useHumanReadableCron(cronExpression)
+    const helpText = translateCron(cronExpression)
 
     return (
         <React.Fragment>

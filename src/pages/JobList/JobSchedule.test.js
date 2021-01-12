@@ -5,14 +5,10 @@ import JobSchedule from './JobSchedule'
 describe('<JobSchedule>', () => {
     it('renders a human readable cron for the CRON scheduling type', () => {
         const wrapper = shallow(
-            <JobSchedule
-                schedulingType="CRON"
-                cronExpression="cronExpression"
-            />
+            <JobSchedule schedulingType="CRON" cronExpression="0 0 1 ? * *" />
         )
-        const component = wrapper.find('HumanReadableCron')
 
-        expect(component).toHaveLength(1)
+        expect(wrapper.text()).toEqual(expect.stringContaining('At 01:00 AM'))
     })
 
     it('renders a delay for the FIXED_DELAY scheduling type', () => {
