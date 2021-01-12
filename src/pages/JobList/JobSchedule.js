@@ -1,12 +1,11 @@
-import React from 'react'
 import { PropTypes } from '@dhis2/prop-types'
 import i18n from '@dhis2/d2-i18n'
-import { HumanReadableCron } from '../../components/Cron'
+import translateCron from '../../services/translate-cron'
 
 const JobSchedule = ({ cronExpression, schedulingType, delay }) => {
     switch (schedulingType) {
         case 'CRON':
-            return <HumanReadableCron cronExpression={cronExpression} />
+            return translateCron(cronExpression)
         case 'FIXED_DELAY':
             return i18n.t('{{ delay }} seconds after last run', { delay })
         default:
