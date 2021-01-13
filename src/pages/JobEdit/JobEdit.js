@@ -31,7 +31,12 @@ const JobEdit = ({ isPristine, setIsPristine, name: JOBNAME }) => (
                 <h3 className={styles.cardHeaderTitle}>
                     {i18n.t('Configuration')}
                 </h3>
-                <a href={infoLink} className={styles.cardHeaderLink}>
+                <a
+                    href={infoLink}
+                    className={styles.cardHeaderLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
                     <span className={styles.cardHeaderInfo}>
                         <IconInfo16 />
                     </span>
