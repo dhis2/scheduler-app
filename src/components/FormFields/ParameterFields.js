@@ -1,4 +1,5 @@
 import React from 'react'
+import i18n from '@dhis2/d2-i18n'
 import { PropTypes } from '@dhis2/prop-types'
 import { ReactFinalForm, InputFieldFF, SwitchFieldFF, Box } from '@dhis2/ui'
 import { useDataQuery } from '@dhis2/app-runtime'
@@ -114,7 +115,7 @@ const ParameterFields = ({ jobType }) => {
     return (
         <React.Fragment>
             <header>
-                <h4 className={styles.headerTitle}>Monitoring parameters</h4>
+                <h4 className={styles.headerTitle}>{i18n.t('Parameters')}</h4>
             </header>
             {parameterComponents}
         </React.Fragment>
