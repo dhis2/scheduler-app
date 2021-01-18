@@ -2,13 +2,17 @@ const { config } = require('@dhis2/cli-style')
 
 module.exports = {
     root: true,
-    plugins: ['react-hooks'],
+    plugins: ['react-hooks', 'i18next'],
     extends: [
         config.eslintReact,
         'plugin:jsx-a11y/recommended',
         'plugin:compat/recommended',
     ],
     rules: {
+        'i18next/no-literal-string': [
+            'error',
+            { markupOnly: true, onlyAttribute: [""] },
+        ],
         'compat/compat': 'warn',
         'import/export': 'error',
         'import/extensions': ['error', 'never'],
@@ -52,4 +56,12 @@ module.exports = {
         'react-hooks/rules-of-hooks': 'error',
         'react-hooks/exhaustive-deps': 'warn',
     },
+    overrides: [
+        {
+            files: ['*.test.js'],
+            rules: {
+                'i18next/no-literal-string': 'off',
+            },
+        },
+    ],
 }
