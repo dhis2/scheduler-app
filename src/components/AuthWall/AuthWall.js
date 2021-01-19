@@ -2,7 +2,6 @@ import React from 'react'
 import { PropTypes } from '@dhis2/prop-types'
 import { Redirect } from 'react-router-dom'
 import { CircularLoader, Layer, CenteredContent } from '@dhis2/ui'
-import i18n from '@dhis2/d2-i18n'
 import { useDataQuery } from '@dhis2/app-runtime'
 import { getAuthorized } from './selectors'
 
@@ -20,7 +19,6 @@ const AuthWall = ({ children }) => {
             <Layer>
                 <CenteredContent>
                     <CircularLoader />
-                    {i18n.t('Checking permissions')}
                 </CenteredContent>
             </Layer>
         )

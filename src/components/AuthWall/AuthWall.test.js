@@ -18,7 +18,7 @@ afterEach(() => {
 })
 
 describe('<AuthWall>', () => {
-    it('shows a loading message when loading', () => {
+    it('shows a spinner when loading', () => {
         useDataQuery.mockImplementation(() => ({ loading: true }))
 
         const wrapper = mount(<AuthWall>Child</AuthWall>)
@@ -27,9 +27,6 @@ describe('<AuthWall>', () => {
         })
 
         expect(loadingIndicator).toHaveLength(1)
-        expect(wrapper.text()).toEqual(
-            expect.stringContaining('Checking permissions')
-        )
     })
 
     it('throws fetching errors if they occur', () => {
