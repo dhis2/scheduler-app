@@ -5,11 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-01-13T13:57:54.508Z\n"
-"PO-Revision-Date: 2021-01-13T13:57:54.508Z\n"
-
-msgid "Checking permissions"
-msgstr ""
+"POT-Creation-Date: 2021-01-19T15:10:10.361Z\n"
+"PO-Revision-Date: 2021-01-19T15:10:10.361Z\n"
 
 msgid "Choose from preset times"
 msgstr ""
@@ -117,9 +114,6 @@ msgid "New job"
 msgstr ""
 
 msgid "Actions"
-msgstr ""
-
-msgid "Loading jobs"
 msgstr ""
 
 msgid "Job name"

@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { CircularLoader, Layer, CenteredContent } from '@dhis2/ui'
-import i18n from '@dhis2/d2-i18n'
 import { useDataQuery } from '@dhis2/app-runtime'
 import { RefetchJobsContext } from '../../components/Context'
 import {
@@ -32,7 +31,6 @@ const JobListContainer = () => {
             <Layer>
                 <CenteredContent>
                     <CircularLoader />
-                    {i18n.t('Loading jobs')}
                 </CenteredContent>
             </Layer>
         )
