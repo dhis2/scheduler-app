@@ -9,6 +9,7 @@ import {
     getStringValue,
 } from './selectors'
 import UnlabeledOptionsField from './UnlabeledOptionsField'
+import SkipTableTypesField from './SkipTableTypesField'
 import LabeledOptionsField from './LabeledOptionsField'
 import styles from './ParameterFields.module.css'
 
@@ -55,6 +56,19 @@ const ParameterFields = ({ jobType }) => {
             const endpoint = getParameterEndpoint(relativeApiEndpoint)
             let parameterComponent = null
 
+            // Specific case
+            if (name === 'skipTableTypes') {
+                return (
+                    <Box marginTop="16px" key={name}>
+                        <SkipTableTypesField
+                            {...defaultProps}
+                            endpoint={endpoint}
+                        />
+                    </Box>
+                )
+            }
+
+            // Generic field rendering
             switch (klass) {
                 case 'java.lang.String':
                     parameterComponent = (

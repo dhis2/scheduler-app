@@ -1,5 +1,5 @@
 import React from 'react'
-import { mount } from 'enzyme'
+import { mount, shallow } from 'enzyme'
 import { ReactFinalForm } from '@dhis2/ui'
 import { useDataQuery } from '@dhis2/app-runtime'
 import expectRenderError from '../../../test/expect-render-error'
@@ -89,6 +89,50 @@ describe('<ParameterFields>', () => {
         const children = wrapper.find('form').children()
 
         expect(children.isEmptyRender()).toBe(true)
+    })
+
+    it('returns the expected component for skipTableTypes', () => {
+        const data = {
+            jobTypes: {
+                jobTypes: [
+                    {
+                        jobType: 'jobType',
+                        jobParameters: [
+                            {
+                                fieldName: 'fieldName',
+                                name: 'skipTableTypes',
+                                klass: 'java.lang.String',
+                                relativeApiEndpoint: 'relativeApiEndpoint',
+                            },
+                        ],
+                    },
+                ],
+            },
+        }
+        useDataQuery.mockImplementation(() => ({
+            loading: false,
+            error: undefined,
+            data,
+        }))
+        const props = {
+            jobType: 'jobType',
+        }
+        const wrapper = shallow(
+            <Form onSubmit={() => {}}>
+                {() => (
+                    <form>
+                        <ParameterFields {...props} />
+                    </form>
+                )}
+            </Form>
+        )
+
+        const component = wrapper
+            .find('ParameterFields')
+            .dive()
+            .find('SkipTableTypesField')
+
+        expect(component).toHaveLength(1)
     })
 
     it('returns the expected component for java.lang.String', () => {
