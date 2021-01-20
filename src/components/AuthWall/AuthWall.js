@@ -1,9 +1,10 @@
 import React from 'react'
 import { PropTypes } from '@dhis2/prop-types'
-import { Redirect } from 'react-router-dom'
-import { CircularLoader, Layer, CenteredContent } from '@dhis2/ui'
+import { CircularLoader, Layer, CenteredContent, NoticeBox } from '@dhis2/ui'
+import i18n from '@dhis2/d2-i18n'
 import { useDataQuery } from '@dhis2/app-runtime'
 import { getAuthorized } from './selectors'
+import styles from './AuthWall.module.css'
 
 const query = {
     me: {
@@ -35,7 +36,15 @@ const AuthWall = ({ children }) => {
     const isAuthorized = getAuthorized(data.me)
 
     if (!isAuthorized) {
-        return <Redirect push to="/notauthorized" />
+        return (
+            <div className={styles.noticeBoxWrapper}>
+                <NoticeBox error title={i18n.t('Not authorized')}>
+                    {i18n.t(
+                        "You don't have access to the Job Scheduler. Contact a system administrator to request access."
+                    )}
+                </NoticeBox>
+            </div>
+        )
     }
 
     return <React.Fragment>{children}</React.Fragment>
