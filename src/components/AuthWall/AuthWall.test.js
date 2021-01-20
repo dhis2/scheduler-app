@@ -42,7 +42,7 @@ describe('<AuthWall>', () => {
         expectRenderError(<AuthWall {...props} />, message)
     })
 
-    it('redirects unauthorized users to /notauthorized', () => {
+    it('shows a noticebox for unauthorized users', () => {
         useDataQuery.mockImplementation(() => ({
             loading: false,
             error: undefined,
@@ -51,11 +51,9 @@ describe('<AuthWall>', () => {
         getAuthorized.mockImplementation(() => false)
 
         const wrapper = shallow(<AuthWall>Child</AuthWall>)
-        const redirect = wrapper.find('Redirect')
-        const props = redirect.props()
+        const noticebox = wrapper.find('NoticeBox')
 
-        expect(redirect).toHaveLength(1)
-        expect(props).toEqual(expect.objectContaining({ to: '/notauthorized' }))
+        expect(noticebox).toHaveLength(1)
     })
 
     it('renders the children for users that are authorized', () => {

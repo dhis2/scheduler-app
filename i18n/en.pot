@@ -5,8 +5,16 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-01-20T09:35:25.928Z\n"
-"PO-Revision-Date: 2021-01-20T09:35:25.928Z\n"
+"POT-Creation-Date: 2021-01-20T15:37:59.006Z\n"
+"PO-Revision-Date: 2021-01-20T15:37:59.007Z\n"
+
+msgid "Not authorized"
+msgstr ""
+
+msgid ""
+"You don't have access to the Job Scheduler. Contact a system administrator "
+"to request access."
+msgstr ""
 
 msgid "Choose from preset times"
 msgstr ""
@@ -144,9 +152,6 @@ msgid "{{ delay }} seconds after last run"
 msgstr ""
 
 msgid "Run manually"
-msgstr ""
-
-msgid "You are not authorized"
 msgstr ""
 
 msgid "Data value"
