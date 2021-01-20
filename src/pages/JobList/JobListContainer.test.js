@@ -24,11 +24,7 @@ describe('<JobListContainer>', () => {
         }))
 
         const wrapper = mount(<JobListContainer />)
-        const content = wrapper
-            .find({ 'data-test': 'dhis2-uicore-centeredcontent' })
-            .text()
 
-        expect(content).toEqual(expect.stringContaining('Loading jobs'))
         expect(wrapper.find('CircularLoader')).toHaveLength(1)
     })
 
