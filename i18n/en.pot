@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-01-19T15:10:10.361Z\n"
-"PO-Revision-Date: 2021-01-19T15:10:10.361Z\n"
+"POT-Creation-Date: 2021-01-20T09:35:25.928Z\n"
+"PO-Revision-Date: 2021-01-20T09:35:25.928Z\n"
 
 msgid "Choose from preset times"
 msgstr ""
@@ -147,6 +147,27 @@ msgid "Run manually"
 msgstr ""
 
 msgid "You are not authorized"
+msgstr ""
+
+msgid "Data value"
+msgstr ""
+
+msgid "Completeness"
+msgstr ""
+
+msgid "Completeness target"
+msgstr ""
+
+msgid "Org unit target"
+msgstr ""
+
+msgid "Event"
+msgstr ""
+
+msgid "Enrollment"
+msgstr ""
+
+msgid "Validation result"
 msgstr ""
 
 msgid "Disabled"
