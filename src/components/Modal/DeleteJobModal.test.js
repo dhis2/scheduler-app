@@ -1,7 +1,6 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
 import { useDataMutation } from '@dhis2/app-runtime'
-import { RefetchJobsContext } from '../Context'
 import DeleteJobModal from './DeleteJobModal'
 
 jest.mock('@dhis2/app-runtime', () => ({
@@ -19,6 +18,7 @@ describe('<DeleteJobModal>', () => {
         const props = {
             id: 'id',
             hideModal: () => {},
+            onSuccess: () => {},
         }
 
         shallow(<DeleteJobModal {...props} />)
@@ -30,6 +30,7 @@ describe('<DeleteJobModal>', () => {
         const props = {
             id: 'id',
             hideModal: jest.fn(),
+            onSuccess: () => {},
         }
         const wrapper = mount(<DeleteJobModal {...props} />)
 
@@ -41,23 +42,20 @@ describe('<DeleteJobModal>', () => {
         expect(props.hideModal).toHaveBeenCalled()
     })
 
-    it('calls deleteJob, refetch and hideModal when delete button is clicked', async () => {
+    it('calls deleteJob, onSuccess and hideModal when delete button is clicked', async () => {
         const deletion = Promise.resolve()
         const deleteJobSpy = jest.fn(() => deletion)
-        const refetchSpy = jest.fn(() => {})
+        const onSuccessSpy = jest.fn(() => {})
         const hideModalSpy = jest.fn(() => {})
         const props = {
             id: 'id',
             hideModal: hideModalSpy,
+            onSuccess: onSuccessSpy,
         }
 
         useDataMutation.mockImplementation(() => [deleteJobSpy])
 
-        const wrapper = mount(
-            <RefetchJobsContext.Provider value={refetchSpy}>
-                <DeleteJobModal {...props} />
-            </RefetchJobsContext.Provider>
-        )
+        const wrapper = mount(<DeleteJobModal {...props} />)
 
         wrapper
             .find('button')
@@ -68,7 +66,7 @@ describe('<DeleteJobModal>', () => {
 
         expect(deleteJobSpy).toHaveBeenCalledWith({ id: 'id' })
         expect(hideModalSpy).toHaveBeenCalled()
-        expect(refetchSpy).toHaveBeenCalled()
+        expect(onSuccessSpy).toHaveBeenCalled()
     })
 
     it('calls hideModal when cover is clicked', () => {
@@ -77,6 +75,7 @@ describe('<DeleteJobModal>', () => {
         const props = {
             id: 'id',
             hideModal: jest.fn(),
+            onSuccess: () => {},
         }
         const wrapper = mount(<DeleteJobModal {...props} />)
 

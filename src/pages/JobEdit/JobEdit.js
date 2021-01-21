@@ -4,12 +4,20 @@ import { Card, IconInfo16 } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
 import { DiscardFormButton } from '../../components/Buttons'
 import { JobEditFormContainer } from '../../components/Forms'
+import { JobDetails } from '../../components/JobDetails'
 import styles from './JobEdit.module.css'
 
 const infoLink =
     'https://docs.dhis2.org/master/en/user/html/dataAdmin_scheduling.html#dataAdmin_scheduling_config'
 
-const JobEdit = ({ isPristine, setIsPristine, name: JOBNAME }) => (
+const JobEdit = ({
+    isPristine,
+    setIsPristine,
+    name,
+    created,
+    lastExecutedStatus,
+    lastExecuted,
+}) => (
     <React.Fragment>
         <header className={styles.pageHeader}>
             <DiscardFormButton
@@ -20,8 +28,8 @@ const JobEdit = ({ isPristine, setIsPristine, name: JOBNAME }) => (
                 {i18n.t('Back to all jobs')}
             </DiscardFormButton>
             <h2 className={styles.pageHeaderTitle}>
-                {i18n.t('Job: {{ JOBNAME }}', {
-                    JOBNAME,
+                {i18n.t('Job: {{ name }}', {
+                    name,
                     nsSeparator: '>',
                 })}
             </h2>
@@ -43,6 +51,11 @@ const JobEdit = ({ isPristine, setIsPristine, name: JOBNAME }) => (
                     {i18n.t('About job configuration')}
                 </a>
             </header>
+            <JobDetails
+                created={created}
+                lastExecutedStatus={lastExecutedStatus}
+                lastExecuted={lastExecuted}
+            />
             <JobEditFormContainer setIsPristine={setIsPristine} />
         </Card>
     </React.Fragment>
@@ -51,7 +64,10 @@ const JobEdit = ({ isPristine, setIsPristine, name: JOBNAME }) => (
 const { bool, func, string } = PropTypes
 
 JobEdit.propTypes = {
+    created: string.isRequired,
     isPristine: bool.isRequired,
+    lastExecuted: string.isRequired,
+    lastExecutedStatus: string.isRequired,
     name: string.isRequired,
     setIsPristine: func.isRequired,
 }
