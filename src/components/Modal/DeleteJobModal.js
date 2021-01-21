@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { PropTypes } from '@dhis2/prop-types'
 import {
     Button,
@@ -9,7 +9,6 @@ import {
 } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
 import { useDataMutation } from '@dhis2/app-runtime'
-import { RefetchJobsContext } from '../Context'
 
 const mutation = {
     resource: 'jobConfigurations',
@@ -17,9 +16,8 @@ const mutation = {
     type: 'delete',
 }
 
-const DeleteJobModal = ({ id, hideModal }) => {
+const DeleteJobModal = ({ id, hideModal, onSuccess }) => {
     const [deleteJob] = useDataMutation(mutation)
-    const refetch = useContext(RefetchJobsContext)
 
     return (
         <Modal open small onClose={hideModal}>
@@ -37,7 +35,7 @@ const DeleteJobModal = ({ id, hideModal }) => {
                         onClick={() => {
                             deleteJob({ id }).then(() => {
                                 hideModal()
-                                refetch()
+                                onSuccess()
                             })
                         }}
                     >
@@ -54,6 +52,7 @@ const { func, string } = PropTypes
 DeleteJobModal.propTypes = {
     hideModal: func.isRequired,
     id: string.isRequired,
+    onSuccess: func.isRequired,
 }
 
 export default DeleteJobModal

@@ -1,6 +1,7 @@
 import i18n from '@dhis2/d2-i18n'
 
 const jobStatusMap = {
+    COMPLETED: i18n.t('Completed'),
     DISABLED: i18n.t('Disabled'),
     DONE: i18n.t('Done'),
     FAILED: i18n.t('Failed'),

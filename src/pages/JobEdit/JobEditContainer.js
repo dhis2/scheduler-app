@@ -42,6 +42,9 @@ const JobEditContainer = () => {
             isPristine={isPristine}
             setIsPristine={setIsPristine}
             name={data.job.name}
+            created={data.job.created}
+            lastExecutedStatus={data.job.lastExecutedStatus}
+            lastExecuted={data.job.lastExecuted}
         />
     )
 }

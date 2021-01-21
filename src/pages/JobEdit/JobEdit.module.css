@@ -19,7 +19,7 @@
 
 .cardHeader {
     align-items: center;
-    display: flex;
+    display: inline-flex;
     margin-bottom: var(--spacers-dp16);
 }
 
