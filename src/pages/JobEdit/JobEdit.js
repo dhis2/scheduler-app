@@ -51,11 +51,13 @@ const JobEdit = ({
                     {i18n.t('About job configuration')}
                 </a>
             </header>
-            <JobDetails
-                created={created}
-                lastExecutedStatus={lastExecutedStatus}
-                lastExecuted={lastExecuted}
-            />
+            <div className={styles.jobDetails}>
+                <JobDetails
+                    created={created}
+                    lastExecutedStatus={lastExecutedStatus}
+                    lastExecuted={lastExecuted}
+                />
+            </div>
             <JobEditFormContainer setIsPristine={setIsPristine} />
         </Card>
     </React.Fragment>

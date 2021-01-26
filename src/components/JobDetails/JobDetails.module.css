@@ -2,7 +2,6 @@
     border-radius: 5px;
     padding: var(--spacers-dp12);
     background: var(--colors-grey200);
-    float: right;
     min-width: 300px;
 }
 

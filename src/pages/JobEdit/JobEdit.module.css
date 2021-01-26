@@ -40,3 +40,7 @@
     color: var(--colors-grey600);
     fill: var(--colors-grey600);
 }
+
+.jobDetails {
+    float: right;
+}
