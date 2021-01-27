@@ -2,7 +2,8 @@ import React, { useEffect } from 'react'
 import { PropTypes } from '@dhis2/prop-types'
 import i18n from '@dhis2/d2-i18n'
 import { Button, CircularLoader, Box, ReactFinalForm } from '@dhis2/ui'
-import { DiscardFormButton } from '../Buttons'
+import history from '../../services/history'
+import { DiscardFormButton, DeleteJobButton } from '../Buttons'
 import { FormErrorBox } from '../FormErrorBox'
 import {
     ScheduleField,
@@ -11,11 +12,12 @@ import {
     ParameterFields,
     fieldNames,
 } from '../FormFields'
-import styles from './JobForm.module.css'
+import styles from './JobEditForm.module.css'
 
 const { useForm } = ReactFinalForm
 
-const JobForm = ({
+const JobEditForm = ({
+    id,
     handleSubmit,
     pristine,
     submitting,
@@ -76,20 +78,27 @@ const JobForm = ({
                 <DiscardFormButton shouldConfirm={!pristine}>
                     {i18n.t('Cancel')}
                 </DiscardFormButton>
+                <span className={styles.deleteButton}>
+                    <DeleteJobButton
+                        id={id}
+                        onSuccess={() => history.push('/')}
+                    />
+                </span>
             </div>
         </form>
     )
 }
 
-const { func, bool, object, array } = PropTypes
+const { func, bool, object, array, string } = PropTypes
 
-JobForm.defaultProps = {
+JobEditForm.defaultProps = {
     submitError: [],
 }
 
-JobForm.propTypes = {
+JobEditForm.propTypes = {
     handleSubmit: func.isRequired,
     hasSubmitErrors: bool.isRequired,
+    id: string.isRequired,
     pristine: bool.isRequired,
     setIsPristine: func.isRequired,
     submitting: bool.isRequired,
@@ -97,4 +106,4 @@ JobForm.propTypes = {
     submitError: array,
 }
 
-export default JobForm
+export default JobEditForm

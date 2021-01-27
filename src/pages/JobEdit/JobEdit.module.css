@@ -19,7 +19,7 @@
 
 .cardHeader {
     align-items: center;
-    display: flex;
+    display: inline-flex;
     margin-bottom: var(--spacers-dp16);
 }
 
@@ -39,4 +39,8 @@
     font-size: 12px;
     color: var(--colors-grey600);
     fill: var(--colors-grey600);
+}
+
+.jobDetails {
+    float: right;
 }

@@ -2,7 +2,7 @@ import React from 'react'
 import { mount } from 'enzyme'
 import { ReactFinalForm } from '@dhis2/ui'
 import { fieldNames } from '../FormFields'
-import JobForm from './JobForm'
+import JobAddForm from './JobAddForm'
 
 const { Form } = ReactFinalForm
 
@@ -21,7 +21,7 @@ afterEach(() => {
     jest.resetAllMocks()
 })
 
-describe('<JobForm>', () => {
+describe('<JobAddForm>', () => {
     it('shows submit errors if there are any', () => {
         const message = 'Generic submit error'
         const props = {
@@ -35,7 +35,7 @@ describe('<JobForm>', () => {
         }
 
         const wrapper = mount(
-            <Form onSubmit={() => {}}>{() => <JobForm {...props} />}</Form>
+            <Form onSubmit={() => {}}>{() => <JobAddForm {...props} />}</Form>
         )
         const actual = wrapper.find({
             'data-test': 'dhis2-uicore-noticebox-message',
@@ -48,7 +48,11 @@ describe('<JobForm>', () => {
     it('calls setIsPristine on form changes', () => {
         const spy = jest.fn()
         const wrapper = mount(
-            <Form onSubmit={() => {}} setIsPristine={spy} component={JobForm} />
+            <Form
+                onSubmit={() => {}}
+                setIsPristine={spy}
+                component={JobAddForm}
+            />
         )
 
         wrapper
@@ -70,7 +74,7 @@ describe('<JobForm>', () => {
         }
 
         const wrapper = mount(
-            <Form onSubmit={() => {}}>{() => <JobForm {...props} />}</Form>
+            <Form onSubmit={() => {}}>{() => <JobAddForm {...props} />}</Form>
         )
 
         const submitButton = wrapper.find({
@@ -92,7 +96,7 @@ describe('<JobForm>', () => {
             <Form
                 onSubmit={() => {}}
                 setIsPristine={() => {}}
-                component={JobForm}
+                component={JobAddForm}
                 initialValues={{
                     [fieldNames.JOB_TYPE]: 'jobType',
                 }}
@@ -109,7 +113,7 @@ describe('<JobForm>', () => {
             <Form
                 onSubmit={() => {}}
                 setIsPristine={() => {}}
-                component={JobForm}
+                component={JobAddForm}
                 initialValues={{
                     [fieldNames.JOB_TYPE]: 'jobType',
                 }}
@@ -133,7 +137,7 @@ describe('<JobForm>', () => {
         }
 
         const wrapper = mount(
-            <Form onSubmit={() => {}}>{() => <JobForm {...props} />}</Form>
+            <Form onSubmit={() => {}}>{() => <JobAddForm {...props} />}</Form>
         )
 
         const actual = wrapper.find('button').find({
@@ -157,7 +161,7 @@ describe('<JobForm>', () => {
         }
 
         const wrapper = mount(
-            <Form onSubmit={() => {}}>{() => <JobForm {...props} />}</Form>
+            <Form onSubmit={() => {}}>{() => <JobAddForm {...props} />}</Form>
         )
 
         const actual = wrapper.find('button').find({

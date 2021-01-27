@@ -1,0 +1,22 @@
+.wrapper {
+    border-radius: 5px;
+    padding: var(--spacers-dp12);
+    background: var(--colors-grey200);
+    min-width: 300px;
+}
+
+.title {
+    color: var(--colors-grey600);
+    font-weight: 600;
+    font-size: 14px;
+    margin: 0 0 var(--spacers-dp16) 0;
+}
+
+.details {
+    color: var(--colors-grey600);
+    font-size: 14px;
+}
+
+.details > * {
+    margin-bottom: var(--spacers-dp8);
+}
