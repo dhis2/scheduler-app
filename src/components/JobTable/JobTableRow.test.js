@@ -1,8 +1,8 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import JobListTableItem from './JobListTableItem'
+import JobTableRow from './JobTableRow'
 
-describe('<JobListTableItem>', () => {
+describe('<JobTableRow>', () => {
     it('renders cron jobs without errors', () => {
         const job = {
             id: '1',
@@ -16,7 +16,7 @@ describe('<JobListTableItem>', () => {
             configurable: true,
         }
 
-        shallow(<JobListTableItem job={job} />)
+        shallow(<JobTableRow job={job} />)
     })
 
     it('renders fixed delay jobs without errors', () => {
@@ -32,6 +32,6 @@ describe('<JobListTableItem>', () => {
             configurable: true,
         }
 
-        shallow(<JobListTableItem job={job} />)
+        shallow(<JobTableRow job={job} />)
     })
 })

@@ -4,7 +4,7 @@ import { MenuItem } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
 import history from '../../services/history'
 
-const EditJobMenuItem = ({ id }) => (
+const EditJobAction = ({ id }) => (
     <MenuItem
         dense
         onClick={() => history.push(`/edit/${id}`)}
@@ -14,8 +14,8 @@ const EditJobMenuItem = ({ id }) => (
 
 const { string } = PropTypes
 
-EditJobMenuItem.propTypes = {
+EditJobAction.propTypes = {
     id: string.isRequired,
 }
 
-export default EditJobMenuItem
+export default EditJobAction

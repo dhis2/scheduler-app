@@ -2,10 +2,10 @@ import React, { useState, useContext } from 'react'
 import { PropTypes } from '@dhis2/prop-types'
 import { MenuItem } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
-import { DeleteJobModal } from '../../components/Modal'
-import { RefetchJobsContext } from '../../components/Context'
+import { DeleteJobModal } from '../Modal'
+import { RefetchJobsContext } from '../Context'
 
-const DeleteJobMenuItem = ({ id }) => {
+const DeleteJobAction = ({ id }) => {
     const [showModal, setShowModal] = useState(false)
     const refetch = useContext(RefetchJobsContext)
 
@@ -35,8 +35,8 @@ const DeleteJobMenuItem = ({ id }) => {
 
 const { string } = PropTypes
 
-DeleteJobMenuItem.propTypes = {
+DeleteJobAction.propTypes = {
     id: string.isRequired,
 }
 
-export default DeleteJobMenuItem
+export default DeleteJobAction

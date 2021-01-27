@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-01-26T16:54:51.475Z\n"
-"PO-Revision-Date: 2021-01-26T16:54:51.475Z\n"
+"POT-Creation-Date: 2021-01-27T14:53:43.626Z\n"
+"PO-Revision-Date: 2021-01-27T14:53:43.626Z\n"
 
 msgid "Not authorized"
 msgstr ""
@@ -67,6 +67,45 @@ msgstr ""
 msgid "Last run status: {{ translatedStatus }}."
 msgstr ""
 
+msgid "Actions"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "Edit"
+msgstr ""
+
+msgid "Job name"
+msgstr ""
+
+msgid "Type"
+msgstr ""
+
+msgid "Schedule"
+msgstr ""
+
+msgid "Next run"
+msgstr ""
+
+msgid "Status"
+msgstr ""
+
+msgid "On/off"
+msgstr ""
+
+msgid "No jobs to display"
+msgstr ""
+
+msgid "Not scheduled"
+msgstr ""
+
+msgid "Run manually"
+msgstr ""
+
+msgid "{{ delay }} seconds after last run"
+msgstr ""
+
 msgid "Every hour"
 msgstr ""
 
@@ -89,9 +128,6 @@ msgid "Insert preset"
 msgstr ""
 
 msgid "Are you sure you want to delete this job?"
-msgstr ""
-
-msgid "Delete"
 msgstr ""
 
 msgid "Are you sure you want to discard this form?"
@@ -121,9 +157,6 @@ msgstr ""
 msgid "Job: {{ name }}"
 msgstr ""
 
-msgid "Edit"
-msgstr ""
-
 msgid "Scheduled jobs"
 msgstr ""
 
@@ -134,39 +167,6 @@ msgid "Show system jobs"
 msgstr ""
 
 msgid "New job"
-msgstr ""
-
-msgid "Actions"
-msgstr ""
-
-msgid "Job name"
-msgstr ""
-
-msgid "Type"
-msgstr ""
-
-msgid "Schedule"
-msgstr ""
-
-msgid "Next run"
-msgstr ""
-
-msgid "Status"
-msgstr ""
-
-msgid "On/off"
-msgstr ""
-
-msgid "No jobs to display"
-msgstr ""
-
-msgid "Not scheduled"
-msgstr ""
-
-msgid "{{ delay }} seconds after last run"
-msgstr ""
-
-msgid "Run manually"
 msgstr ""
 
 msgid "Data value"

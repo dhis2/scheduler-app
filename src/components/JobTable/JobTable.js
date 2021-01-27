@@ -10,9 +10,9 @@ import {
     TableBody,
 } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
-import JobListTableItem from './JobListTableItem'
+import JobTableRow from './JobTableRow'
 
-const JobListTable = ({ jobIds, jobEntities }) => (
+const JobTable = ({ jobIds, jobEntities }) => (
     <Table>
         <TableHead>
             <TableRowHead>
@@ -31,9 +31,7 @@ const JobListTable = ({ jobIds, jobEntities }) => (
                     <TableCell>{i18n.t('No jobs to display')}</TableCell>
                 </TableRow>
             ) : (
-                jobIds.map(id => (
-                    <JobListTableItem key={id} job={jobEntities[id]} />
-                ))
+                jobIds.map(id => <JobTableRow key={id} job={jobEntities[id]} />)
             )}
         </TableBody>
     </Table>
@@ -41,9 +39,9 @@ const JobListTable = ({ jobIds, jobEntities }) => (
 
 const { object, arrayOf, string } = PropTypes
 
-JobListTable.propTypes = {
+JobTable.propTypes = {
     jobEntities: object.isRequired,
     jobIds: arrayOf(string).isRequired,
 }
 
-export default JobListTable
+export default JobTable

@@ -1,11 +1,11 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import JobSchedule from './JobSchedule'
+import Schedule from './Schedule'
 
-describe('<JobSchedule>', () => {
+describe('<Schedule>', () => {
     it('renders a human readable cron for the CRON scheduling type', () => {
         const wrapper = shallow(
-            <JobSchedule schedulingType="CRON" cronExpression="0 0 1 ? * *" />
+            <Schedule schedulingType="CRON" cronExpression="0 0 1 ? * *" />
         )
 
         expect(wrapper.text()).toEqual(expect.stringContaining('At 01:00 AM'))
@@ -13,7 +13,7 @@ describe('<JobSchedule>', () => {
 
     it('renders a delay for the FIXED_DELAY scheduling type', () => {
         const wrapper = shallow(
-            <JobSchedule schedulingType="FIXED_DELAY" delay={1000} />
+            <Schedule schedulingType="FIXED_DELAY" delay={1000} />
         )
 
         expect(wrapper.text()).toEqual(
@@ -22,7 +22,7 @@ describe('<JobSchedule>', () => {
     })
 
     it('renders a dash for an unrecognised scheduling type', () => {
-        const wrapper = shallow(<JobSchedule schedulingType="NONEXISTENT" />)
+        const wrapper = shallow(<Schedule schedulingType="NONEXISTENT" />)
 
         expect(wrapper.text()).toEqual(expect.stringContaining('-'))
     })
