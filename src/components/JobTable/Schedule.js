@@ -2,7 +2,7 @@ import { PropTypes } from '@dhis2/prop-types'
 import i18n from '@dhis2/d2-i18n'
 import translateCron from '../../services/translate-cron'
 
-const JobSchedule = ({ cronExpression, schedulingType, delay }) => {
+const Schedule = ({ cronExpression, schedulingType, delay }) => {
     switch (schedulingType) {
         case 'CRON':
             return translateCron(cronExpression)
@@ -16,10 +16,10 @@ const JobSchedule = ({ cronExpression, schedulingType, delay }) => {
 
 const { string, number } = PropTypes
 
-JobSchedule.propTypes = {
+Schedule.propTypes = {
     schedulingType: string.isRequired,
     cronExpression: string,
     delay: number,
 }
 
-export default JobSchedule
+export default Schedule

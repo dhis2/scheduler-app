@@ -1,14 +1,14 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
-import DeleteJobMenuItem from './DeleteJobMenuItem'
+import DeleteJobAction from './DeleteJobAction'
 
-describe('<DeleteJobMenuItem>', () => {
+describe('<DeleteJobAction>', () => {
     it('renders without errors', () => {
-        shallow(<DeleteJobMenuItem id="id" />)
+        shallow(<DeleteJobAction id="id" />)
     })
 
     it('shows the modal when MenuItem is clicked', () => {
-        const wrapper = mount(<DeleteJobMenuItem id="id" />)
+        const wrapper = mount(<DeleteJobAction id="id" />)
 
         expect(wrapper.find('DeleteJobModal')).toHaveLength(0)
 

@@ -2,13 +2,13 @@ import React from 'react'
 import { PropTypes } from '@dhis2/prop-types'
 import { TableRow, TableCell } from '@dhis2/ui'
 import { jobTypesMap } from '../../services/server-translations'
-import { ToggleJobSwitch } from '../../components/Switches'
-import JobListActions from './JobListActions'
-import JobStatus from './JobStatus'
-import JobNextRun from './JobNextRun'
-import JobSchedule from './JobSchedule'
+import { ToggleJobSwitch } from '../Switches'
+import Actions from './Actions'
+import Status from './Status'
+import NextRun from './NextRun'
+import Schedule from './Schedule'
 
-const JobListTableItem = ({
+const JobTableRow = ({
     job: {
         id,
         displayName,
@@ -26,33 +26,30 @@ const JobListTableItem = ({
         <TableCell>{displayName}</TableCell>
         <TableCell>{jobTypesMap[jobType]}</TableCell>
         <TableCell>
-            <JobSchedule
+            <Schedule
                 cronExpression={cronExpression}
                 delay={delay}
                 schedulingType={schedulingType}
             />
         </TableCell>
         <TableCell>
-            <JobNextRun
-                nextExecutionTime={nextExecutionTime}
-                enabled={enabled}
-            />
+            <NextRun nextExecutionTime={nextExecutionTime} enabled={enabled} />
         </TableCell>
         <TableCell>
-            <JobStatus status={jobStatus} />
+            <Status status={jobStatus} />
         </TableCell>
         <TableCell>
             <ToggleJobSwitch id={id} checked={enabled} />
         </TableCell>
         <TableCell>
-            <JobListActions id={id} configurable={configurable} />
+            <Actions id={id} configurable={configurable} />
         </TableCell>
     </TableRow>
 )
 
 const { shape, string, bool, number } = PropTypes
 
-JobListTableItem.propTypes = {
+JobTableRow.propTypes = {
     job: shape({
         displayName: string.isRequired,
         enabled: bool.isRequired,
@@ -66,4 +63,4 @@ JobListTableItem.propTypes = {
     }).isRequired,
 }
 
-export default JobListTableItem
+export default JobTableRow
