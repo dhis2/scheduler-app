@@ -8,6 +8,9 @@ describe('<JobEdit>', () => {
             isPristine: false,
             setIsPristine: () => {},
             name: 'name',
+            created: 'now',
+            lastExecutedStatus: 'COMPLETED',
+            lastExecuted: 'now',
         }
         shallow(<JobEdit {...props} />)
     })
