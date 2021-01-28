@@ -25,6 +25,7 @@ describe('<JobEditForm>', () => {
     it('shows submit errors if there are any', () => {
         const message = 'Generic submit error'
         const props = {
+            id: 'id',
             handleSubmit: () => {},
             pristine: false,
             submitting: false,
@@ -50,6 +51,7 @@ describe('<JobEditForm>', () => {
         const wrapper = mount(
             <Form
                 onSubmit={() => {}}
+                id="id"
                 setIsPristine={spy}
                 component={JobEditForm}
             />
@@ -64,6 +66,7 @@ describe('<JobEditForm>', () => {
 
     it('shows a spinner when submitting', () => {
         const props = {
+            id: 'id',
             handleSubmit: () => {},
             pristine: false,
             submitting: true,
@@ -94,6 +97,7 @@ describe('<JobEditForm>', () => {
     it('shows the schedule field when a jobtype is selected', () => {
         const wrapper = mount(
             <Form
+                id="id"
                 onSubmit={() => {}}
                 setIsPristine={() => {}}
                 component={JobEditForm}
@@ -111,6 +115,7 @@ describe('<JobEditForm>', () => {
     it('shows the parameter fields when a jobtype is selected', () => {
         const wrapper = mount(
             <Form
+                id="id"
                 onSubmit={() => {}}
                 setIsPristine={() => {}}
                 component={JobEditForm}
@@ -127,6 +132,7 @@ describe('<JobEditForm>', () => {
 
     it('disables the submit button when pristine', () => {
         const props = {
+            id: 'id',
             handleSubmit: () => {},
             pristine: true,
             submitting: false,
@@ -151,6 +157,7 @@ describe('<JobEditForm>', () => {
 
     it('disables the submit button when submitting', () => {
         const props = {
+            id: 'id',
             handleSubmit: () => {},
             pristine: false,
             submitting: true,

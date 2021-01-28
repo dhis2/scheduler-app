@@ -12,7 +12,6 @@ const infoLink =
 const JobList = ({
     jobIds,
     jobEntities,
-    isLoading,
     showSystemJobs,
     setShowSystemJobs,
     jobFilter,
@@ -50,7 +49,6 @@ const JobList = ({
                         <Switch
                             dataTest="job-toggle-switch"
                             checked={showSystemJobs}
-                            disabled={isLoading}
                             label={i18n.t('Show system jobs')}
                             onChange={({ checked }) => {
                                 setShowSystemJobs(checked)
@@ -75,7 +73,6 @@ const JobList = ({
 const { bool, object, string, arrayOf, func } = PropTypes
 
 JobList.propTypes = {
-    isLoading: bool.isRequired,
     jobEntities: object.isRequired,
     jobFilter: string.isRequired,
     jobIds: arrayOf(string).isRequired,

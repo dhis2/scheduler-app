@@ -9,7 +9,7 @@ import {
     ButtonStrip,
 } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
-import { RefetchJobsContext } from '../Context'
+import { JobContext } from '../JobStore'
 
 const RunJobModal = ({ id, hideModal }) => {
     const engine = useDataEngine()
@@ -19,7 +19,7 @@ const RunJobModal = ({ id, hideModal }) => {
         },
     }
     const runJob = () => engine.query(query)
-    const refetch = useContext(RefetchJobsContext)
+    const { refetch } = useContext(JobContext)
 
     return (
         <Modal open small onClose={hideModal}>

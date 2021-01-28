@@ -3,11 +3,11 @@ import { PropTypes } from '@dhis2/prop-types'
 import { MenuItem } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
 import { DeleteJobModal } from '../Modal'
-import { RefetchJobsContext } from '../Context'
+import { JobContext } from '../JobStore'
 
 const DeleteJobAction = ({ id }) => {
     const [showModal, setShowModal] = useState(false)
-    const refetch = useContext(RefetchJobsContext)
+    const { refetch } = useContext(JobContext)
 
     return (
         <React.Fragment>

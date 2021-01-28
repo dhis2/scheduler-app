@@ -49,6 +49,9 @@ describe('<JobEditContainer>', () => {
             data: {
                 job: {
                     name: 'name',
+                    created: 'now',
+                    lastExecutedStatus: 'COMPLETED',
+                    lastExecuted: 'now',
                 },
             },
         }))
