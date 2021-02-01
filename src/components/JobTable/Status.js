@@ -3,7 +3,7 @@ import { PropTypes } from '@dhis2/prop-types'
 import { Tag } from '@dhis2/ui'
 import { jobStatusMap } from '../../services/server-translations'
 
-const JobStatus = ({ status }) => {
+const Status = ({ status }) => {
     switch (status) {
         case 'STOPPED':
         case 'DISABLED':
@@ -24,8 +24,8 @@ const JobStatus = ({ status }) => {
 
 const { string } = PropTypes
 
-JobStatus.propTypes = {
+Status.propTypes = {
     status: string.isRequired,
 }
 
-export default JobStatus
+export default Status

@@ -3,7 +3,7 @@ import { PropTypes } from '@dhis2/prop-types'
 import { Card, Switch, Input, Button, IconInfo16 } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
 import history from '../../services/history'
-import JobListTable from './JobListTable'
+import { JobTable } from '../../components/JobTable'
 import styles from './JobList.module.css'
 
 const infoLink =
@@ -66,7 +66,7 @@ const JobList = ({
                         </Button>
                     </div>
                 </div>
-                <JobListTable jobIds={jobIds} jobEntities={jobEntities} />
+                <JobTable jobIds={jobIds} jobEntities={jobEntities} />
             </Card>
         </React.Fragment>
     )

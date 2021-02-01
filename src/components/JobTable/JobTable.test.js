@@ -1,8 +1,8 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import JobListTable from './JobListTable'
+import JobTable from './JobTable'
 
-describe('<JobListTable>', () => {
+describe('<JobTable>', () => {
     it('renders without errors when there are jobs', () => {
         const jobIds = ['1', '2']
         const jobEntities = {
@@ -28,13 +28,13 @@ describe('<JobListTable>', () => {
             },
         }
 
-        shallow(<JobListTable jobIds={jobIds} jobEntities={jobEntities} />)
+        shallow(<JobTable jobIds={jobIds} jobEntities={jobEntities} />)
     })
 
     it('renders without errors when there are no jobs', () => {
         const jobIds = []
         const jobEntities = {}
 
-        shallow(<JobListTable jobIds={jobIds} jobEntities={jobEntities} />)
+        shallow(<JobTable jobIds={jobIds} jobEntities={jobEntities} />)
     })
 })

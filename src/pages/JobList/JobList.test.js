@@ -3,7 +3,7 @@ import { mount } from 'enzyme'
 import history from '../../services/history'
 import JobList from './JobList'
 
-jest.mock('./JobListTable', () => () => null)
+jest.mock('../../components/JobTable', () => ({ JobTable: () => null }))
 
 jest.mock('../../services/history', () => ({
     push: jest.fn(),

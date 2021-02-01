@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import JobNextRun from './JobNextRun'
+import NextRun from './NextRun'
 
 // Z is the zone designator for the zero UTC offset
 const now = new Date('2010-10-10T10:10:10.000Z').valueOf()
@@ -9,13 +9,13 @@ const now = new Date('2010-10-10T10:10:10.000Z').valueOf()
 const past = '2009-10-10T10:10:10.000'
 const future = '2011-10-10T10:10:10.000'
 
-describe('<JobNextRun>', () => {
+describe('<NextRun>', () => {
     it('returns the next run time for an enabled job and a future execution time', () => {
         const expected = 'in a year'
         jest.spyOn(global.Date, 'now').mockImplementation(() => now)
 
         const wrapper = shallow(
-            <JobNextRun nextExecutionTime={future} enabled={true} />
+            <NextRun nextExecutionTime={future} enabled={true} />
         )
 
         expect(wrapper.text()).toEqual(expect.stringMatching(expected))
@@ -26,7 +26,7 @@ describe('<JobNextRun>', () => {
         jest.spyOn(global.Date, 'now').mockImplementation(() => now)
 
         const wrapper = shallow(
-            <JobNextRun nextExecutionTime={past} enabled={true} />
+            <NextRun nextExecutionTime={past} enabled={true} />
         )
 
         expect(wrapper.text()).toEqual(expect.stringMatching(expected))
@@ -37,7 +37,7 @@ describe('<JobNextRun>', () => {
         jest.spyOn(global.Date, 'now').mockImplementation(() => now)
 
         const wrapper = shallow(
-            <JobNextRun nextExecutionTime={''} enabled={false} />
+            <NextRun nextExecutionTime={''} enabled={false} />
         )
 
         expect(wrapper.text()).toEqual(expect.stringMatching(expected))

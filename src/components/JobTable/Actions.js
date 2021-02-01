@@ -2,18 +2,18 @@ import React from 'react'
 import { PropTypes } from '@dhis2/prop-types'
 import { FlyoutMenu, DropdownButton } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
-import EditJobMenuItem from './EditJobMenuItem'
-import RunJobMenuItem from './RunJobMenuItem'
-import DeleteJobMenuItem from './DeleteJobMenuItem'
+import EditJobAction from './EditJobAction'
+import RunJobAction from './RunJobAction'
+import DeleteJobAction from './DeleteJobAction'
 
-const JobListActions = ({ id, configurable }) => (
+const Actions = ({ id, configurable }) => (
     <DropdownButton
         small
         component={
             <FlyoutMenu>
-                {configurable && <EditJobMenuItem id={id} />}
-                <RunJobMenuItem id={id} />
-                <DeleteJobMenuItem id={id} />
+                {configurable && <EditJobAction id={id} />}
+                <RunJobAction id={id} />
+                <DeleteJobAction id={id} />
             </FlyoutMenu>
         }
     >
@@ -21,15 +21,15 @@ const JobListActions = ({ id, configurable }) => (
     </DropdownButton>
 )
 
-JobListActions.defaultProps = {
+Actions.defaultProps = {
     configurable: false,
 }
 
 const { string, bool } = PropTypes
 
-JobListActions.propTypes = {
+Actions.propTypes = {
     id: string.isRequired,
     configurable: bool,
 }
 
-export default JobListActions
+export default Actions
