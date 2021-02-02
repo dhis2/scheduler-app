@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
-import { JobContext } from '../../components/JobStore'
+import { StoreContext } from '../../components/Store'
 import JobList from './JobList'
 import JobListContainer from './JobListContainer'
 
@@ -12,38 +12,41 @@ afterEach(() => {
 
 describe('<JobListContainer>', () => {
     it('renders without errors when there is data', () => {
-        const jobs = [
-            { id: 'one', name: 'one' },
-            { id: 'two', name: 'two' },
-        ]
+        const store = {
+            jobs: [
+                { id: 'one', name: 'one' },
+                { id: 'two', name: 'two' },
+            ],
+        }
 
         shallow(
-            <JobContext.Provider value={{ jobs }}>
+            <StoreContext.Provider value={store}>
                 <JobListContainer />
-            </JobContext.Provider>
+            </StoreContext.Provider>
         )
     })
 
-    it('omits system job ids by default', () => {
+    it('omits system jobs by default', () => {
         JobList.mockImplementation(() => null)
 
-        const jobs = [
-            { id: 'user', name: 'user', configurable: true },
-            { id: 'system', name: 'system' },
-        ]
+        const userJob = { id: 'user', name: 'user', configurable: true }
+        const systemJob = { id: 'system', name: 'system' }
+        const store = {
+            jobs: [userJob, systemJob],
+        }
 
         const wrapper = mount(
-            <JobContext.Provider value={{ jobs }}>
+            <StoreContext.Provider value={store}>
                 <JobListContainer />
-            </JobContext.Provider>
+            </StoreContext.Provider>
         )
         const childProps = wrapper.children().props()
 
-        expect(childProps.jobIds).toHaveLength(1)
-        expect(childProps.jobIds).toEqual(expect.arrayContaining(['user']))
+        expect(childProps.jobs).toHaveLength(1)
+        expect(childProps.jobs).toEqual(expect.arrayContaining([userJob]))
     })
 
-    it('passes system and user job ids after toggling', () => {
+    it('passes system and user jobs after toggling', () => {
         JobList.mockImplementation(({ showSystemJobs, setShowSystemJobs }) => (
             <button
                 data-test="mock-toggle"
@@ -51,26 +54,29 @@ describe('<JobListContainer>', () => {
             />
         ))
 
-        const jobs = [
-            { id: 'user', name: 'user', configurable: true },
-            { id: 'system', name: 'system' },
-        ]
+        const userJob = { id: 'user', name: 'user', configurable: true }
+        const systemJob = { id: 'system', name: 'system' }
+        const store = {
+            jobs: [userJob, systemJob],
+        }
 
         const wrapper = mount(
-            <JobContext.Provider value={{ jobs }}>
+            <StoreContext.Provider value={store}>
                 <JobListContainer />
-            </JobContext.Provider>
+            </StoreContext.Provider>
         )
 
         wrapper.find({ 'data-test': 'mock-toggle' }).simulate('click')
 
         const childProps = wrapper.children().props()
 
-        expect(childProps.jobIds).toHaveLength(2)
-        expect(childProps.jobIds).toEqual(expect.arrayContaining(['system']))
+        expect(childProps.jobs).toHaveLength(2)
+        expect(childProps.jobs).toEqual(
+            expect.arrayContaining([userJob, systemJob])
+        )
     })
 
-    it('filters jobs ids after updating the filter', () => {
+    it('filters jobs after updating the filter', () => {
         JobList.mockImplementation(({ setJobFilter }) => (
             <input
                 data-test="mock-input"
@@ -78,25 +84,25 @@ describe('<JobListContainer>', () => {
             />
         ))
 
-        const jobs = [
-            { id: 'one', name: 'one', configurable: true },
-            { id: 'two', name: 'two', configurable: true },
-            { id: 'three', name: 'three', configurable: true },
-        ]
+        const one = { id: 'one', name: 'one', configurable: true }
+        const two = { id: 'two', name: 'two', configurable: true }
+        const store = {
+            jobs: [one, two],
+        }
 
         const wrapper = mount(
-            <JobContext.Provider value={{ jobs }}>
+            <StoreContext.Provider value={store}>
                 <JobListContainer />
-            </JobContext.Provider>
+            </StoreContext.Provider>
         )
 
         wrapper
             .find({ 'data-test': 'mock-input' })
-            .simulate('change', { target: { value: 'three' } })
+            .simulate('change', { target: { value: 'two' } })
 
         const childProps = wrapper.children().props()
 
-        expect(childProps.jobIds).toHaveLength(1)
-        expect(childProps.jobIds).toEqual(expect.arrayContaining(['three']))
+        expect(childProps.jobs).toHaveLength(1)
+        expect(childProps.jobs).toEqual(expect.arrayContaining([two]))
     })
 })

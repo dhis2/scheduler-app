@@ -1,24 +1,23 @@
 import React, { useState, useContext } from 'react'
-import { JobContext, selectors } from '../../components/JobStore'
+import { StoreContext, selectors } from '../../components/Store'
 import JobList from './JobList'
+import { getJobsMatchingFilter, getUserJobs } from './selectors'
 
 const JobListContainer = () => {
     const [showSystemJobs, setShowSystemJobs] = useState(false)
     const [jobFilter, setJobFilter] = useState('')
-    const { jobs } = useContext(JobContext)
+    const store = useContext(StoreContext)
+    const allJobs = selectors.getJobsStore(store)
 
     // Filter jobs by the jobFilter string
-    const filteredJobs = selectors.getJobsMatchingFilter(jobs, jobFilter)
+    const filteredJobs = getJobsMatchingFilter(allJobs, jobFilter)
 
     // Show or hide system jobs
-    const jobIds = showSystemJobs
-        ? selectors.getIds(filteredJobs)
-        : selectors.getIds(selectors.getUserJobs(filteredJobs))
+    const jobs = showSystemJobs ? filteredJobs : getUserJobs(filteredJobs)
 
     return (
         <JobList
-            jobIds={jobIds}
-            jobEntities={selectors.getEntities(jobs)}
+            jobs={jobs}
             showSystemJobs={showSystemJobs}
             setShowSystemJobs={setShowSystemJobs}
             jobFilter={jobFilter}

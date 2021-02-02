@@ -4,9 +4,8 @@ import JobTable from './JobTable'
 
 describe('<JobTable>', () => {
     it('renders without errors when there are jobs', () => {
-        const jobIds = ['1', '2']
-        const jobEntities = {
-            1: {
+        const jobs = [
+            {
                 cronExpression: '0 0 * ? * *',
                 displayName: 'Name',
                 enabled: true,
@@ -16,7 +15,7 @@ describe('<JobTable>', () => {
                 nextExecutionTime: '2100-10-10T14:48:00',
                 schedulingType: 'CRON',
             },
-            2: {
+            {
                 delay: 6000,
                 displayName: 'Name',
                 enabled: true,
@@ -26,15 +25,14 @@ describe('<JobTable>', () => {
                 nextExecutionTime: '',
                 schedulingType: 'FIXED_DELAY',
             },
-        }
+        ]
 
-        shallow(<JobTable jobIds={jobIds} jobEntities={jobEntities} />)
+        shallow(<JobTable jobs={jobs} />)
     })
 
     it('renders without errors when there are no jobs', () => {
-        const jobIds = []
-        const jobEntities = {}
+        const jobs = []
 
-        shallow(<JobTable jobIds={jobIds} jobEntities={jobEntities} />)
+        shallow(<JobTable jobs={jobs} />)
     })
 })

@@ -1,32 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { PropTypes } from '@dhis2/prop-types'
-import { useDataQuery } from '@dhis2/app-runtime'
-import { getJobTypeObject } from './selectors'
+import { StoreContext, selectors } from '../Store'
 import CronField from './CronField'
 import DelayField from './DelayField'
 
-const query = {
-    jobTypes: {
-        resource: 'jobConfigurations/jobTypes',
-    },
-}
-
 const ScheduleField = ({ jobType }) => {
-    const { loading, error, data } = useDataQuery(query)
-
-    if (loading) {
-        return null
-    }
-
-    if (error) {
-        /**
-         * We need the jobtypes, so throw the error if these
-         * can't be loaded.
-         */
-        throw error
-    }
-
-    const currentJob = getJobTypeObject(data.jobTypes.jobTypes, jobType)
+    const store = useContext(StoreContext)
+    const currentJob = selectors.getJobType(store, jobType)
     const schedulingType = currentJob.schedulingType
 
     switch (schedulingType) {

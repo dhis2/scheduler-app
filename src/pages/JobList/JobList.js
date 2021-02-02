@@ -10,8 +10,7 @@ const infoLink =
     'https://docs.dhis2.org/master/en/user/html/dataAdmin_scheduling.html#dataAdmin_scheduling_config'
 
 const JobList = ({
-    jobIds,
-    jobEntities,
+    jobs,
     showSystemJobs,
     setShowSystemJobs,
     jobFilter,
@@ -64,7 +63,7 @@ const JobList = ({
                         </Button>
                     </div>
                 </div>
-                <JobTable jobIds={jobIds} jobEntities={jobEntities} />
+                <JobTable jobs={jobs} />
             </Card>
         </React.Fragment>
     )
@@ -73,9 +72,8 @@ const JobList = ({
 const { bool, object, string, arrayOf, func } = PropTypes
 
 JobList.propTypes = {
-    jobEntities: object.isRequired,
     jobFilter: string.isRequired,
-    jobIds: arrayOf(string).isRequired,
+    jobs: arrayOf(object).isRequired,
     setJobFilter: func.isRequired,
     setShowSystemJobs: func.isRequired,
     showSystemJobs: bool.isRequired,

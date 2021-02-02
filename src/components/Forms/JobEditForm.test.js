@@ -33,6 +33,7 @@ describe('<JobEditForm>', () => {
             hasSubmitErrors: true,
             values: {},
             setIsPristine: () => {},
+            refetchJobs: () => {},
         }
 
         const wrapper = mount(
@@ -52,6 +53,7 @@ describe('<JobEditForm>', () => {
             <Form
                 onSubmit={() => {}}
                 id="id"
+                refetchJobs={() => {}}
                 setIsPristine={spy}
                 component={JobEditForm}
             />
@@ -74,6 +76,7 @@ describe('<JobEditForm>', () => {
             hasSubmitErrors: false,
             values: {},
             setIsPristine: () => {},
+            refetchJobs: () => {},
         }
 
         const wrapper = mount(
@@ -98,6 +101,7 @@ describe('<JobEditForm>', () => {
         const wrapper = mount(
             <Form
                 id="id"
+                refetchJobs={() => {}}
                 onSubmit={() => {}}
                 setIsPristine={() => {}}
                 component={JobEditForm}
@@ -116,6 +120,7 @@ describe('<JobEditForm>', () => {
         const wrapper = mount(
             <Form
                 id="id"
+                refetchJobs={() => {}}
                 onSubmit={() => {}}
                 setIsPristine={() => {}}
                 component={JobEditForm}
@@ -140,6 +145,7 @@ describe('<JobEditForm>', () => {
             hasSubmitErrors: false,
             values: {},
             setIsPristine: () => {},
+            refetchJobs: () => {},
         }
 
         const wrapper = mount(
@@ -165,6 +171,7 @@ describe('<JobEditForm>', () => {
             hasSubmitErrors: false,
             values: {},
             setIsPristine: () => {},
+            refetchJobs: () => {},
         }
 
         const wrapper = mount(

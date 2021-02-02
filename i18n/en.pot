@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-01-27T14:53:43.626Z\n"
-"PO-Revision-Date: 2021-01-27T14:53:43.626Z\n"
+"POT-Creation-Date: 2021-02-04T11:31:03.665Z\n"
+"PO-Revision-Date: 2021-02-04T11:31:03.665Z\n"
 
 msgid "Not authorized"
 msgstr ""
@@ -31,13 +31,10 @@ msgstr ""
 msgid "Delay"
 msgstr ""
 
-msgid "Delay in seconds ({{ LOWERBOUND }} - {{ UPPERBOUND }})"
+msgid "Delay in seconds ({{ lowerbound }} - {{ upperbound }})"
 msgstr ""
 
 msgid "Name"
-msgstr ""
-
-msgid "Loading"
 msgstr ""
 
 msgid "Job type"
