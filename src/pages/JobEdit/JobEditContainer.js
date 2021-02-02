@@ -1,50 +1,22 @@
-import React, { useState } from 'react'
-import { CircularLoader, Layer, CenteredContent } from '@dhis2/ui'
+import React, { useState, useContext } from 'react'
 import { useParams } from 'react-router-dom'
-import { useDataQuery } from '@dhis2/app-runtime'
+import { StoreContext, selectors } from '../../components/Store'
 import JobEdit from './JobEdit'
 
-const query = {
-    job: {
-        resource: 'jobConfigurations',
-        id: /* istanbul ignore next */ ({ id }) => id,
-        params: {
-            paging: false,
-        },
-    },
-}
-
 const JobEditContainer = () => {
+    const store = useContext(StoreContext)
     const [isPristine, setIsPristine] = useState(true)
     const { id } = useParams()
-    const { loading, error, data } = useDataQuery(query, { variables: { id } })
-
-    if (loading) {
-        return (
-            <Layer>
-                <CenteredContent>
-                    <CircularLoader />
-                </CenteredContent>
-            </Layer>
-        )
-    }
-
-    if (error) {
-        /**
-         * The app can't continue if this fails, because it doesn't
-         * have the job data, so throw the error.
-         */
-        throw error
-    }
+    const job = selectors.getJobById(store, id)
 
     return (
         <JobEdit
             isPristine={isPristine}
             setIsPristine={setIsPristine}
-            name={data.job.name}
-            created={data.job.created}
-            lastExecutedStatus={data.job.lastExecutedStatus}
-            lastExecuted={data.job.lastExecuted}
+            name={job.name}
+            created={job.created}
+            lastExecutedStatus={job.lastExecutedStatus}
+            lastExecuted={job.lastExecuted}
         />
     )
 }

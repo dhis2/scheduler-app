@@ -18,6 +18,7 @@ const { useForm } = ReactFinalForm
 
 const JobEditForm = ({
     id,
+    refetchJobs,
     handleSubmit,
     pristine,
     submitting,
@@ -81,7 +82,10 @@ const JobEditForm = ({
                 <span className={styles.deleteButton}>
                     <DeleteJobButton
                         id={id}
-                        onSuccess={() => history.push('/')}
+                        onSuccess={() => {
+                            history.push('/')
+                            refetchJobs()
+                        }}
                     />
                 </span>
             </div>
@@ -100,6 +104,7 @@ JobEditForm.propTypes = {
     hasSubmitErrors: bool.isRequired,
     id: string.isRequired,
     pristine: bool.isRequired,
+    refetchJobs: func.isRequired,
     setIsPristine: func.isRequired,
     submitting: bool.isRequired,
     values: object.isRequired,

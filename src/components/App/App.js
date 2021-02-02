@@ -2,7 +2,7 @@ import React from 'react'
 import { CssVariables } from '@dhis2/ui'
 import { Routes } from '../Routes'
 import { AuthWall } from '../AuthWall'
-import { JobStore } from '../JobStore'
+import { Store } from '../Store'
 import { PageWrapper } from '../PageWrapper'
 import './App.css'
 
@@ -11,9 +11,9 @@ const App = () => (
         <CssVariables spacers colors />
         <PageWrapper>
             <AuthWall>
-                <JobStore>
+                <Store>
                     <Routes />
-                </JobStore>
+                </Store>
             </AuthWall>
         </PageWrapper>
     </React.Fragment>

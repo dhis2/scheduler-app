@@ -3,11 +3,12 @@ import { PropTypes } from '@dhis2/prop-types'
 import { MenuItem } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
 import { DeleteJobModal } from '../Modal'
-import { JobContext } from '../JobStore'
+import { StoreContext, selectors } from '../Store'
 
 const DeleteJobAction = ({ id }) => {
     const [showModal, setShowModal] = useState(false)
-    const { refetch } = useContext(JobContext)
+    const store = useContext(StoreContext)
+    const refetchJobs = selectors.getRefetchJobs(store)
 
     return (
         <React.Fragment>
@@ -26,7 +27,7 @@ const DeleteJobAction = ({ id }) => {
                         /* istanbul ignore next */
                         () => setShowModal(false)
                     }
-                    onSuccess={refetch}
+                    onSuccess={refetchJobs}
                 />
             )}
         </React.Fragment>

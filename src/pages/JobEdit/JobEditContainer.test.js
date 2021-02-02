@@ -1,15 +1,11 @@
 import React from 'react'
-import { shallow, mount } from 'enzyme'
-import { useDataQuery } from '@dhis2/app-runtime'
-import expectRenderError from '../../../test/expect-render-error'
+import { shallow } from 'enzyme'
+import { useParams } from 'react-router-dom'
+import { StoreContext } from '../../components/Store'
 import JobEditContainer from './JobEditContainer'
 
-jest.mock('@dhis2/app-runtime', () => ({
-    useDataQuery: jest.fn(),
-}))
-
 jest.mock('react-router-dom', () => ({
-    useParams: () => ({ id: 'id' }),
+    useParams: jest.fn(),
 }))
 
 afterEach(() => {
@@ -17,45 +13,26 @@ afterEach(() => {
 })
 
 describe('<JobEditContainer>', () => {
-    it('renders a spinner when loading', () => {
-        useDataQuery.mockImplementation(() => ({
-            loading: true,
-            error: undefined,
-            data: null,
-        }))
-
-        const wrapper = mount(<JobEditContainer />)
-        const loader = wrapper.find('CircularLoader')
-
-        expect(loader).toHaveLength(1)
-    })
-
-    it('throws errors it encounters during fetching', () => {
-        const message = 'Something went wrong'
-
-        useDataQuery.mockImplementation(() => ({
-            loading: false,
-            error: new Error(message),
-            data: null,
-        }))
-
-        expectRenderError(<JobEditContainer />, message)
-    })
-
     it('renders without errors when there is data', () => {
-        useDataQuery.mockImplementation(() => ({
-            loading: false,
-            error: undefined,
-            data: {
-                job: {
+        const id = 'one'
+        const store = {
+            jobs: [
+                {
+                    id,
                     name: 'name',
                     created: 'now',
                     lastExecutedStatus: 'COMPLETED',
                     lastExecuted: 'now',
                 },
-            },
-        }))
+            ],
+        }
 
-        shallow(<JobEditContainer />)
+        useParams.mockImplementation(() => id)
+
+        shallow(
+            <StoreContext.Provider value={store}>
+                <JobEditContainer />
+            </StoreContext.Provider>
+        )
     })
 })

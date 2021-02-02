@@ -10,7 +10,7 @@ jest.mock('@dhis2/app-runtime', () => ({
 
 jest.mock('react', () => ({
     ...jest.requireActual('react'),
-    useContext: jest.fn(() => ({ refetch: () => {} })),
+    useContext: jest.fn(() => ({ refetchJobs: () => {} })),
 }))
 
 jest.mock('../../services/history', () => ({
@@ -25,7 +25,7 @@ describe('useUpdateJob', () => {
         const engine = {
             mutate: () => Promise.resolve(),
         }
-        useContext.mockImplementation(() => ({ refetch: refetchspy }))
+        useContext.mockImplementation(() => ({ refetchJobs: refetchspy }))
         useDataEngine.mockImplementation(() => engine)
         const [updateJob] = useUpdateJob({ id: 'id' })
 

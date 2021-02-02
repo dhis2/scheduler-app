@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { PropTypes } from '@dhis2/prop-types'
 import { Switch } from '@dhis2/ui'
 import { useDataMutation } from '@dhis2/app-runtime'
-import { JobContext } from '../JobStore'
+import { StoreContext, selectors } from '../Store'
 
 /* istanbul ignore next */
 const mutation = {
@@ -15,7 +15,8 @@ const mutation = {
 
 const ToggleJobSwitch = ({ id, checked }) => {
     const [toggleJob, { loading }] = useDataMutation(mutation)
-    const { refetch } = useContext(JobContext)
+    const store = useContext(StoreContext)
+    const refetchJobs = selectors.getRefetchJobs(store)
     const enabled = !checked
 
     return (
@@ -24,7 +25,7 @@ const ToggleJobSwitch = ({ id, checked }) => {
             disabled={loading}
             checked={checked}
             onChange={() => {
-                toggleJob({ id, enabled }).then(() => refetch())
+                toggleJob({ id, enabled }).then(() => refetchJobs())
             }}
         />
     )

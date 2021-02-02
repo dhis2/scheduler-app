@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { PropTypes } from '@dhis2/prop-types'
 import { ReactFinalForm } from '@dhis2/ui'
 import { useParams } from 'react-router-dom'
 import { useDataQuery } from '@dhis2/app-runtime'
 import { useUpdateJob } from '../../hooks/jobs'
+import { StoreContext, selectors } from '../Store'
 import JobEditForm from './JobEditForm'
 
 const { Form } = ReactFinalForm
@@ -38,6 +39,8 @@ const JobEditFormContainer = ({ setIsPristine }) => {
     const { id } = useParams()
     const { loading, error, data } = useDataQuery(query, { variables: { id } })
     const [updateJob] = useUpdateJob({ id })
+    const store = useContext(StoreContext)
+    const refetchJobs = selectors.getRefetchJobs(store)
 
     if (loading) {
         return null
@@ -64,6 +67,7 @@ const JobEditFormContainer = ({ setIsPristine }) => {
             setIsPristine={setIsPristine}
             initialValues={data.job}
             id={id}
+            refetchJobs={refetchJobs}
             destroyOnUnregister
         />
     )
