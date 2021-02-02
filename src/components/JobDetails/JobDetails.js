@@ -45,8 +45,8 @@ const { string } = PropTypes
 
 JobDetails.propTypes = {
     created: string.isRequired,
-    lastExecuted: string.isRequired,
     lastExecutedStatus: string.isRequired,
+    lastExecuted: string,
 }
 
 export default JobDetails
