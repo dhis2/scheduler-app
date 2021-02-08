@@ -33,9 +33,14 @@ const JobEditForm = ({
      * Lift pristine state up on changes, wrapped in useEffect because calls to setState
      * outside of the component that owns the setState should not happen synchronously.
      */
-    useEffect(() => {
+    useEffect(() =>
+        /**
+         * The subscriber will only be called when pristine changes. It returns a
+         * cleanup function.
+         * https://final-form.org/docs/final-form/types/FormApi#subscribe
+         */
         subscribe(({ pristine }) => setIsPristine(pristine), { pristine: true })
-    })
+    )
 
     // Check if there's currently a selected job type
     const jobType = values[fieldNames.JOB_TYPE]
