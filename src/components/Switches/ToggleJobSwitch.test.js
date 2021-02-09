@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
 import { useDataMutation } from '@dhis2/app-runtime'
-import { RefetchJobsContext } from '../Context'
+import { StoreContext } from '../Store'
 import ToggleJobSwitch from './ToggleJobSwitch'
 
 jest.mock('@dhis2/app-runtime', () => ({
@@ -32,9 +32,9 @@ describe('<ToggleJobSwitch>', () => {
         useDataMutation.mockImplementation(() => [toggleJobSpy, {}])
 
         const wrapper = mount(
-            <RefetchJobsContext.Provider value={refetchSpy}>
+            <StoreContext.Provider value={{ refetchJobs: refetchSpy }}>
                 <ToggleJobSwitch {...props} />
-            </RefetchJobsContext.Provider>
+            </StoreContext.Provider>
         )
 
         wrapper

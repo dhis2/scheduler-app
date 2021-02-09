@@ -12,7 +12,7 @@ import {
 import i18n from '@dhis2/d2-i18n'
 import JobTableRow from './JobTableRow'
 
-const JobTable = ({ jobIds, jobEntities }) => (
+const JobTable = ({ jobs }) => (
     <Table>
         <TableHead>
             <TableRowHead>
@@ -26,22 +26,21 @@ const JobTable = ({ jobIds, jobEntities }) => (
             </TableRowHead>
         </TableHead>
         <TableBody>
-            {jobIds.length === 0 ? (
+            {jobs.length === 0 ? (
                 <TableRow>
                     <TableCell>{i18n.t('No jobs to display')}</TableCell>
                 </TableRow>
             ) : (
-                jobIds.map(id => <JobTableRow key={id} job={jobEntities[id]} />)
+                jobs.map(job => <JobTableRow key={job.id} job={job} />)
             )}
         </TableBody>
     </Table>
 )
 
-const { object, arrayOf, string } = PropTypes
+const { object, arrayOf } = PropTypes
 
 JobTable.propTypes = {
-    jobEntities: object.isRequired,
-    jobIds: arrayOf(string).isRequired,
+    jobs: arrayOf(object).isRequired,
 }
 
 export default JobTable

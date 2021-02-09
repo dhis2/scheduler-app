@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
 import { useDataEngine } from '@dhis2/app-runtime'
-import { RefetchJobsContext } from '../Context'
+import { StoreContext } from '../Store'
 import RunJobModal from './RunJobModal'
 
 jest.mock('@dhis2/app-runtime', () => ({
@@ -76,9 +76,9 @@ describe('<RunJobModal>', () => {
             hideModal: hideModalSpy,
         }
         const wrapper = mount(
-            <RefetchJobsContext.Provider value={refetchSpy}>
+            <StoreContext.Provider value={{ refetchJobs: refetchSpy }}>
                 <RunJobModal {...props} />
-            </RefetchJobsContext.Provider>
+            </StoreContext.Provider>
         )
 
         wrapper

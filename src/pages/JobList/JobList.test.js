@@ -17,10 +17,7 @@ describe('<JobList>', () => {
     it('calls setJobFilter with changes to the job filter input', () => {
         const spy = jest.fn()
         const props = {
-            jobIds: ['one'],
-            jobEntities: {
-                one: {},
-            },
+            jobs: [{ id: 'one' }],
             isLoading: false,
             showSystemJobs: false,
             setShowSystemJobs: () => {},
@@ -40,10 +37,7 @@ describe('<JobList>', () => {
     it('calls setShowSystemJobs when the show system jobs toggle is clicked', () => {
         const spy = jest.fn()
         const props = {
-            jobIds: ['one'],
-            jobEntities: {
-                one: {},
-            },
+            jobs: [{ id: 'one' }],
             isLoading: false,
             showSystemJobs: false,
             setShowSystemJobs: spy,
@@ -65,10 +59,7 @@ describe('<JobList>', () => {
         history.push.mockImplementation(spy)
 
         const props = {
-            jobIds: ['one'],
-            jobEntities: {
-                one: {},
-            },
+            jobs: [{ id: 'one' }],
             isLoading: false,
             showSystemJobs: false,
             setShowSystemJobs: spy,

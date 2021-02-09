@@ -10,9 +10,7 @@ const infoLink =
     'https://docs.dhis2.org/master/en/user/html/dataAdmin_scheduling.html#dataAdmin_scheduling_config'
 
 const JobList = ({
-    jobIds,
-    jobEntities,
-    isLoading,
+    jobs,
     showSystemJobs,
     setShowSystemJobs,
     jobFilter,
@@ -50,7 +48,6 @@ const JobList = ({
                         <Switch
                             dataTest="job-toggle-switch"
                             checked={showSystemJobs}
-                            disabled={isLoading}
                             label={i18n.t('Show system jobs')}
                             onChange={({ checked }) => {
                                 setShowSystemJobs(checked)
@@ -66,7 +63,7 @@ const JobList = ({
                         </Button>
                     </div>
                 </div>
-                <JobTable jobIds={jobIds} jobEntities={jobEntities} />
+                <JobTable jobs={jobs} />
             </Card>
         </React.Fragment>
     )
@@ -75,10 +72,8 @@ const JobList = ({
 const { bool, object, string, arrayOf, func } = PropTypes
 
 JobList.propTypes = {
-    isLoading: bool.isRequired,
-    jobEntities: object.isRequired,
     jobFilter: string.isRequired,
-    jobIds: arrayOf(string).isRequired,
+    jobs: arrayOf(object).isRequired,
     setJobFilter: func.isRequired,
     setShowSystemJobs: func.isRequired,
     showSystemJobs: bool.isRequired,

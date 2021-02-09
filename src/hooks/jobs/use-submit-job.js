@@ -1,4 +1,6 @@
+import { useContext } from 'react'
 import { useDataEngine } from '@dhis2/app-runtime'
+import { StoreContext } from '../../components/Store'
 import history from '../../services/history'
 import formatError from '../../services/format-error'
 
@@ -9,12 +11,14 @@ const mutation = {
 }
 
 const useSubmitJob = () => {
+    const { refetchJobs } = useContext(StoreContext)
     const engine = useDataEngine()
     const submitJob = job =>
         engine
             .mutate(mutation, { variables: { job } })
             .then(() => {
                 history.push('/')
+                refetchJobs()
             })
             .catch(error => {
                 const isValidationError = error.type === 'access'

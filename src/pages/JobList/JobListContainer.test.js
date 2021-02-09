@@ -1,13 +1,8 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
-import { useDataQuery } from '@dhis2/app-runtime'
-import expectRenderError from '../../../test/expect-render-error'
+import { StoreContext } from '../../components/Store'
 import JobList from './JobList'
 import JobListContainer from './JobListContainer'
-
-jest.mock('@dhis2/app-runtime', () => ({
-    useDataQuery: jest.fn(),
-}))
 
 jest.mock('./JobList', () => jest.fn())
 
@@ -16,137 +11,98 @@ afterEach(() => {
 })
 
 describe('<JobListContainer>', () => {
-    it('renders a spinner when loading', () => {
-        useDataQuery.mockImplementation(() => ({
-            loading: true,
-            error: undefined,
-            data: null,
-        }))
-
-        const wrapper = mount(<JobListContainer />)
-
-        expect(wrapper.find('CircularLoader')).toHaveLength(1)
-    })
-
-    it('throws errors it encounters during fetching', () => {
-        const message = 'Something went wrong'
-
-        useDataQuery.mockImplementation(() => ({
-            loading: false,
-            error: new Error(message),
-            data: null,
-        }))
-
-        expectRenderError(<JobListContainer />, message)
-    })
-
     it('renders without errors when there is data', () => {
-        useDataQuery.mockImplementation(() => ({
-            loading: false,
-            error: undefined,
-            data: {
-                jobs: {
-                    jobConfigurations: [
-                        { id: 'one', name: 'one' },
-                        { id: 'two', name: 'two' },
-                    ],
-                },
-            },
-        }))
+        const store = {
+            jobs: [
+                { id: 'one', name: 'one' },
+                { id: 'two', name: 'two' },
+            ],
+        }
 
-        shallow(<JobListContainer />)
+        shallow(
+            <StoreContext.Provider value={store}>
+                <JobListContainer />
+            </StoreContext.Provider>
+        )
     })
 
-    it('omits system job ids by default', () => {
-        const JobListMock = () => null
+    it('omits system jobs by default', () => {
+        JobList.mockImplementation(() => null)
 
-        JobList.mockImplementation(JobListMock)
-        useDataQuery.mockImplementation(() => ({
-            loading: false,
-            error: undefined,
-            data: {
-                jobs: {
-                    jobConfigurations: [
-                        { id: 'user', name: 'user', configurable: true },
-                        { id: 'system', name: 'system' },
-                    ],
-                },
-            },
-        }))
+        const userJob = { id: 'user', name: 'user', configurable: true }
+        const systemJob = { id: 'system', name: 'system' }
+        const store = {
+            jobs: [userJob, systemJob],
+        }
 
-        const wrapper = mount(<JobListContainer />)
+        const wrapper = mount(
+            <StoreContext.Provider value={store}>
+                <JobListContainer />
+            </StoreContext.Provider>
+        )
         const childProps = wrapper.children().props()
 
-        expect(childProps.jobIds).toHaveLength(1)
-        expect(childProps.jobIds).toEqual(expect.arrayContaining(['user']))
+        expect(childProps.jobs).toHaveLength(1)
+        expect(childProps.jobs).toEqual(expect.arrayContaining([userJob]))
     })
 
-    it('passes system and user job ids after toggling', () => {
-        // eslint-disable-next-line react/prop-types
-        const JobListMock = ({ showSystemJobs, setShowSystemJobs }) => (
+    it('passes system and user jobs after toggling', () => {
+        JobList.mockImplementation(({ showSystemJobs, setShowSystemJobs }) => (
             <button
                 data-test="mock-toggle"
                 onClick={() => setShowSystemJobs(!showSystemJobs)}
             />
+        ))
+
+        const userJob = { id: 'user', name: 'user', configurable: true }
+        const systemJob = { id: 'system', name: 'system' }
+        const store = {
+            jobs: [userJob, systemJob],
+        }
+
+        const wrapper = mount(
+            <StoreContext.Provider value={store}>
+                <JobListContainer />
+            </StoreContext.Provider>
         )
-
-        JobList.mockImplementation(JobListMock)
-        useDataQuery.mockImplementation(() => ({
-            loading: false,
-            error: undefined,
-            data: {
-                jobs: {
-                    jobConfigurations: [
-                        { id: 'user', name: 'user', configurable: true },
-                        { id: 'system', name: 'system' },
-                    ],
-                },
-            },
-        }))
-
-        const wrapper = mount(<JobListContainer />)
 
         wrapper.find({ 'data-test': 'mock-toggle' }).simulate('click')
 
         const childProps = wrapper.children().props()
 
-        expect(childProps.jobIds).toHaveLength(2)
-        expect(childProps.jobIds).toEqual(expect.arrayContaining(['system']))
+        expect(childProps.jobs).toHaveLength(2)
+        expect(childProps.jobs).toEqual(
+            expect.arrayContaining([userJob, systemJob])
+        )
     })
 
-    it('filters jobs ids after updating the filter', () => {
-        // eslint-disable-next-line react/prop-types
-        const JobListMock = ({ setJobFilter }) => (
+    it('filters jobs after updating the filter', () => {
+        JobList.mockImplementation(({ setJobFilter }) => (
             <input
                 data-test="mock-input"
                 onChange={e => setJobFilter(e.target.value)}
             />
+        ))
+
+        const one = { id: 'one', name: 'one', configurable: true }
+        const two = { id: 'two', name: 'two', configurable: true }
+        const store = {
+            jobs: [one, two],
+        }
+
+        const wrapper = mount(
+            <StoreContext.Provider value={store}>
+                <JobListContainer />
+            </StoreContext.Provider>
         )
-
-        JobList.mockImplementation(JobListMock)
-        useDataQuery.mockImplementation(() => ({
-            loading: false,
-            error: undefined,
-            data: {
-                jobs: {
-                    jobConfigurations: [
-                        { id: 'one', name: 'one', configurable: true },
-                        { id: 'two', name: 'two', configurable: true },
-                        { id: 'three', name: 'three', configurable: true },
-                    ],
-                },
-            },
-        }))
-
-        const wrapper = mount(<JobListContainer />)
 
         wrapper
             .find({ 'data-test': 'mock-input' })
-            .simulate('change', { target: { value: 'three' } })
+            .simulate('change', { target: { value: 'two' } })
 
         const childProps = wrapper.children().props()
 
-        expect(childProps.jobIds).toHaveLength(1)
-        expect(childProps.jobIds).toEqual(expect.arrayContaining(['three']))
+        expect(childProps.jobs).toHaveLength(1)
+        expect(childProps.jobs).toEqual(expect.arrayContaining([two]))
     })
 })
