@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-02-04T11:31:03.665Z\n"
-"PO-Revision-Date: 2021-02-04T11:31:03.665Z\n"
+"POT-Creation-Date: 2021-02-08T14:28:01.414Z\n"
+"PO-Revision-Date: 2021-02-08T14:28:01.414Z\n"
 
 msgid "Not authorized"
 msgstr ""
@@ -229,7 +229,7 @@ msgstr ""
 msgid "Data statistics"
 msgstr ""
 
-msgid "Data sync"
+msgid "Data synchronization"
 msgstr ""
 
 msgid "Event programs data sync"
@@ -238,7 +238,7 @@ msgstr ""
 msgid "File resource clean up"
 msgstr ""
 
-msgid "Meta data sync"
+msgid "Metadata synchronization"
 msgstr ""
 
 msgid "Monitoring"
