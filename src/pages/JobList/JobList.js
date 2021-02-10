@@ -48,7 +48,7 @@ const JobList = ({
                         <Switch
                             dataTest="job-toggle-switch"
                             checked={showSystemJobs}
-                            label={i18n.t('Show system jobs')}
+                            label={i18n.t('Include system jobs')}
                             onChange={({ checked }) => {
                                 setShowSystemJobs(checked)
                             }}
