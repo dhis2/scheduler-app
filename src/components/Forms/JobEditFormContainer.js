@@ -2,7 +2,6 @@ import React, { useContext } from 'react'
 import { PropTypes } from '@dhis2/prop-types'
 import { ReactFinalForm } from '@dhis2/ui'
 import { useParams } from 'react-router-dom'
-import { useDataQuery } from '@dhis2/app-runtime'
 import { useUpdateJob } from '../../hooks/jobs'
 import { StoreContext, selectors } from '../Store'
 import JobEditForm from './JobEditForm'
@@ -15,7 +14,7 @@ const { Form } = ReactFinalForm
  * them we'd end up submitting way more data than we intend to.
  */
 
-const whitelistedFields = [
+const initialFields = [
     'cronExpression',
     'delay',
     'jobParameters',
@@ -24,36 +23,18 @@ const whitelistedFields = [
     'schedulingType',
 ]
 
-const query = {
-    job: {
-        resource: 'jobConfigurations',
-        id: /* istanbul ignore next */ ({ id }) => id,
-        params: {
-            paging: false,
-            fields: whitelistedFields.join(','),
-        },
-    },
-}
-
 const JobEditFormContainer = ({ setIsPristine }) => {
     const { id } = useParams()
-    const { loading, error, data } = useDataQuery(query, { variables: { id } })
     const [updateJob] = useUpdateJob({ id })
     const store = useContext(StoreContext)
     const refetchJobs = selectors.getRefetchJobs(store)
+    const job = selectors.getJobById(store, id)
 
-    if (loading) {
-        return null
-    }
-
-    /* istanbul ignore next: we're testing this section, but coverage reporting seems to disagree */
-    if (error) {
-        /**
-         * We need the data, so throw the error if it
-         * can't be loaded.
-         */
-        throw error
-    }
+    // Creating an object with just the values we want to use as initial values
+    const initialValues = initialFields.reduce((filtered, key) => {
+        filtered[key] = job[key]
+        return filtered
+    }, {})
 
     /**
      * destroyOnUnregister is enabled so that dynamic fields will be unregistered
@@ -65,7 +46,7 @@ const JobEditFormContainer = ({ setIsPristine }) => {
             onSubmit={updateJob}
             component={JobEditForm}
             setIsPristine={setIsPristine}
-            initialValues={data.job}
+            initialValues={initialValues}
             id={id}
             refetchJobs={refetchJobs}
             destroyOnUnregister
