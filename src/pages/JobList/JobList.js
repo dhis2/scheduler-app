@@ -1,6 +1,6 @@
 import React from 'react'
 import { PropTypes } from '@dhis2/prop-types'
-import { Card, Switch, Input, Button, IconInfo16 } from '@dhis2/ui'
+import { Card, Checkbox, Input, Button, IconInfo16 } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
 import history from '../../services/history'
 import { JobTable } from '../../components/JobTable'
@@ -45,8 +45,8 @@ const JobList = ({
                         value={jobFilter}
                     />
                     <div className={styles.controlRight}>
-                        <Switch
-                            dataTest="job-toggle-switch"
+                        <Checkbox
+                            dataTest="job-toggle-checkbox"
                             checked={showSystemJobs}
                             label={i18n.t('Include system jobs')}
                             onChange={({ checked }) => {
