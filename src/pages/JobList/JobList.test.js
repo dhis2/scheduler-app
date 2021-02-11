@@ -47,7 +47,7 @@ describe('<JobList>', () => {
         const wrapper = mount(<JobList {...props} />)
 
         wrapper
-            .find({ 'data-test': 'job-toggle-switch' })
+            .find({ 'data-test': 'job-toggle-checkbox' })
             .find('input')
             .simulate('change', { target: { value: !props.showSystemJobs } })
 
