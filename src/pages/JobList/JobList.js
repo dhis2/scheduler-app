@@ -48,7 +48,7 @@ const JobList = ({
                         <Checkbox
                             dataTest="job-toggle-checkbox"
                             checked={showSystemJobs}
-                            label={i18n.t('Include system jobs')}
+                            label={i18n.t('Include system jobs in list')}
                             onChange={({ checked }) => {
                                 setShowSystemJobs(checked)
                             }}
