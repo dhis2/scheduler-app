@@ -61,6 +61,7 @@ module.exports = {
             files: ['*.test.js'],
             rules: {
                 'i18next/no-literal-string': 'off',
+                'react/prop-types': 'off',
             },
         },
     ],
