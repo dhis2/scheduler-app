@@ -39,7 +39,11 @@ const JobTableRow = ({
             <Status status={jobStatus} />
         </TableCell>
         <TableCell>
-            <ToggleJobSwitch id={id} checked={enabled} />
+            <ToggleJobSwitch
+                id={id}
+                checked={enabled}
+                disabled={!configurable}
+            />
         </TableCell>
         <TableCell>
             <Actions id={id} configurable={configurable} />

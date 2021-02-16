@@ -16,7 +16,7 @@ describe('<ToggleJobSwitch>', () => {
     it('renders without errors', () => {
         useDataMutation.mockImplementation(() => [() => {}, {}])
 
-        shallow(<ToggleJobSwitch id="1" checked={true} />)
+        shallow(<ToggleJobSwitch id="1" checked={true} disabled={false} />)
     })
 
     it('calls toggleJob and refetches when toggle is clicked', async () => {
@@ -27,6 +27,7 @@ describe('<ToggleJobSwitch>', () => {
         const props = {
             id: 'id',
             checked,
+            disabled: false,
         }
 
         useDataMutation.mockImplementation(() => [toggleJobSpy, {}])

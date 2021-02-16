@@ -13,7 +13,7 @@ const mutation = {
     data: ({ enabled }) => ({ enabled }),
 }
 
-const ToggleJobSwitch = ({ id, checked }) => {
+const ToggleJobSwitch = ({ id, checked, disabled }) => {
     const [toggleJob, { loading }] = useDataMutation(mutation)
     const store = useContext(StoreContext)
     const refetchJobs = selectors.getRefetchJobs(store)
@@ -22,7 +22,7 @@ const ToggleJobSwitch = ({ id, checked }) => {
     return (
         <Switch
             name={`toggle-job-${id}`}
-            disabled={loading}
+            disabled={disabled || loading}
             checked={checked}
             onChange={() => {
                 toggleJob({ id, enabled }).then(() => refetchJobs())
@@ -35,6 +35,7 @@ const { bool, string } = PropTypes
 
 ToggleJobSwitch.propTypes = {
     checked: bool.isRequired,
+    disabled: bool.isRequired,
     id: string.isRequired,
 }
 
