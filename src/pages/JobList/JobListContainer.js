@@ -5,7 +5,7 @@ import JobList from './JobList'
 const JobListContainer = () => {
     const [jobFilter, setJobFilter] = hooks.useJobFilter()
     const [showSystemJobs, setShowSystemJobs] = hooks.useShowSystemJobs()
-    const jobs = hooks.useListJobs()
+    const jobs = hooks.useJobListJobs()
 
     return (
         <JobList

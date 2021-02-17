@@ -1,8 +1,8 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import i18n from '@dhis2/d2-i18n'
 import { PropTypes } from '@dhis2/prop-types'
 import { ReactFinalForm, InputFieldFF, SwitchFieldFF, Box } from '@dhis2/ui'
-import { selectors, StoreContext } from '../Store'
+import { hooks } from '../Store'
 import { formatToString } from './formatters'
 import SkipTableTypesField from './SkipTableTypesField'
 import LabeledOptionsField from './LabeledOptionsField'
@@ -15,8 +15,7 @@ const FIELD_NAME = 'jobParameters'
 
 // Renders all parameters for a given jobtype
 const ParameterFields = ({ jobType }) => {
-    const store = useContext(StoreContext)
-    const parameters = selectors.getJobTypeParameters(store, jobType)
+    const parameters = hooks.useJobTypeParameters(jobType)
 
     if (parameters.length === 0) {
         return null

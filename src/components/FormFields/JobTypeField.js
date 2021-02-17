@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import {
     ReactFinalForm,
     SingleSelectFieldFF,
@@ -7,7 +7,7 @@ import {
     string,
 } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
-import { StoreContext, selectors } from '../Store'
+import { hooks } from '../Store'
 import { jobTypesMap } from '../../services/server-translations'
 
 const { Field } = ReactFinalForm
@@ -17,9 +17,7 @@ export const FIELD_NAME = 'jobType'
 const VALIDATOR = composeValidators(string, hasValue)
 
 const JobTypeField = () => {
-    const store = useContext(StoreContext)
-    const jobTypes = selectors.getJobTypesStore(store)
-
+    const jobTypes = hooks.useAllJobTypes()
     const options = jobTypes.map(({ jobType }) => ({
         value: jobType,
         label: jobTypesMap[jobType],

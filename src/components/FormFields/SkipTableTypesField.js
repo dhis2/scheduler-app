@@ -1,15 +1,14 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { PropTypes } from '@dhis2/prop-types'
 import i18n from '@dhis2/d2-i18n'
 import { MultiSelectField, ReactFinalForm, MultiSelectFieldFF } from '@dhis2/ui'
-import { StoreContext, selectors } from '../Store'
+import { hooks } from '../Store'
 import { analyticsTableTypes } from '../../services/server-translations'
 
 const { Field } = ReactFinalForm
 
 const SkipTableTypesField = ({ label, name, parameterName }) => {
-    const store = useContext(StoreContext)
-    const options = selectors.getParameterOptions(store, parameterName)
+    const options = hooks.useParameterOptions(parameterName)
 
     if (options.length === 0) {
         return (

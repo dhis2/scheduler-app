@@ -1,13 +1,12 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { PropTypes } from '@dhis2/prop-types'
-import { StoreContext, selectors } from '../Store'
+import { hooks } from '../Store'
 import CronField from './CronField'
 import DelayField from './DelayField'
 
 const ScheduleField = ({ jobType }) => {
-    const store = useContext(StoreContext)
-    const currentJob = selectors.getJobType(store, jobType)
-    const schedulingType = currentJob.schedulingType
+    const currentJobType = hooks.useJobType(jobType)
+    const schedulingType = currentJobType.schedulingType
 
     switch (schedulingType) {
         case 'CRON':
