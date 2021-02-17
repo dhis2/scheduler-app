@@ -14,12 +14,9 @@ Feature: Jobs can be enabled and disabled
         |  user | disables |  enabled |     on |   off |
         |  user |  enables | disabled |    off |    on |
 
-    Background:
-        Given the user navigated to the job list page
-        And system jobs are visible
-
     Scenario Outline: The user <action> a <owner> job
-        Given a <initial> <owner> job exists
+        Given system jobs are visible
+        And a <initial> <owner> job exists
         And the on/off switch is <before>
         When the user clicks the on/off switch
         Then the on/off switch is <after>
