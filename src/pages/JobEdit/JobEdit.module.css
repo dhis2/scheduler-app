@@ -1,0 +1,46 @@
+.pageHeader {
+    margin-bottom: var(--spacers-dp32);
+}
+
+.pageHeaderButton {
+    margin-bottom: var(--spacers-dp16);
+}
+
+.pageHeaderTitle {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1;
+    margin: 0;
+}
+
+.card {
+    padding: var(--spacers-dp16);
+}
+
+.cardHeader {
+    align-items: center;
+    display: inline-flex;
+    margin-bottom: var(--spacers-dp16);
+}
+
+.cardHeaderTitle {
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0 var(--spacers-dp8) 0 0;
+}
+
+.cardHeaderInfo {
+    margin-right: var(--spacers-dp4);
+}
+
+.cardHeaderLink {
+    align-items: center;
+    display: flex;
+    font-size: 12px;
+    color: var(--colors-grey600);
+    fill: var(--colors-grey600);
+}
+
+.jobDetails {
+    float: right;
+}

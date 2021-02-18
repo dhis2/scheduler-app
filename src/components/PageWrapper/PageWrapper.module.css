@@ -1,0 +1,5 @@
+.wrapper {
+    margin: 0 auto;
+    padding: var(--spacers-dp32);
+    max-width: 1200px;
+}

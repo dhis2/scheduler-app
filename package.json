@@ -1,100 +1,71 @@
 {
     "name": "scheduler-app",
-    "version": "31.0.0",
-    "description": "Create, modify and delete server jobs",
-    "main": "index.js",
-    "license": "BSD-3-Clause",
+    "private": true,
     "scripts": {
-        "start": "webpack-dev-server --config webpack.dev.js",
-        "test": "jest",
-        "build": "npm run localize && webpack -p --config webpack.prod.js",
-        "postbuild": "npm run manifest",
-        "manifest": "d2-manifest package.json build/manifest.webapp",
-        "format": "prettier --write \"src/**/*.j{s,sx}\"",
-        "localize": "npm run extract-pot && d2-i18n-generate -n Scheduler -p ./i18n/ -o ./src/locales/",
-        "extract-pot": "d2-i18n-extract -p src/ -o i18n/",
-        "prestart": "npm run localize && d2-manifest package.json ./public/manifest.webapp"
-    },
-    "devDependencies": {
-        "@babel/core": "^7.2.2",
-        "@babel/preset-env": "^7.3.1",
-        "@dhis2/d2-i18n-extract": "^1.0.8",
-        "@dhis2/d2-i18n-generate": "^1.1.1",
-        "babel-eslint": "^8.2.1",
-        "babel-jest": "^24.1.0",
-        "babel-loader": "^8.0.5",
-        "babel-plugin-transform-imports": "^1.4.1",
-        "babel-preset-react-app": "^7.0.1",
-        "clean-webpack-plugin": "^0.1.18",
-        "copy-webpack-plugin": "^4.3.1",
-        "css-loader": "^2.1.0",
-        "d2-manifest": "^1.0.0",
-        "eslint-config-dhis2": "^3.0.7",
-        "file-loader": "^3.0.1",
-        "html-webpack-plugin": "^3.2.0",
-        "jest": "^22.1.4",
-        "redux-logger": "3.0.6",
-        "regenerator-runtime": "^0.11.1",
-        "webpack": "4",
-        "webpack-cli": "^3.2.3",
-        "webpack-dev-middleware": "^2.0.4",
-        "webpack-dev-server": "^3.1.14",
-        "webpack-merge": "^4.1.1",
-        "zip-webpack-plugin": "^2.1.0"
+        "build": "d2-app-scripts build",
+        "start": "d2-app-scripts start",
+        "test": "d2-app-scripts test --coverage",
+        "test:watch": "d2-app-scripts test --watch",
+        "lint": "yarn lint:js && yarn lint:text && yarn lint:css",
+        "lint:js": "d2-style js check",
+        "lint:text": "d2-style text check",
+        "lint:css": "stylelint './src/**/*.css' && prettier './src/**/*.css' --check",
+        "format": "yarn format:js && yarn format:text && yarn format:css",
+        "format:js": "d2-style js apply",
+        "format:text": "d2-style text apply",
+        "format:css": "prettier './src/**/*.css' --write"
     },
     "dependencies": {
-        "@babel/polyfill": "^7.2.5",
-        "@dhis2/app-runtime": "^2.0.4",
+        "@dhis2/app-runtime": "^2.2.2",
         "@dhis2/d2-i18n": "^1.0.6",
-        "@dhis2/ui-core": "^4.1.3",
-        "@dhis2/ui-widgets": "^2.0.6",
-        "d2": "^28.3.0",
-        "history": "^4.7.2",
-        "i18next": "^10.3.0",
-        "material-design-icons-iconfont": "^4.0.5",
-        "material-ui": "^0.20.0",
+        "@dhis2/prop-types": "2.0.0",
+        "@dhis2/ui": "^6.1.2",
+        "cronstrue": "^1.82.0",
+        "history": "^4.9.0",
         "moment": "^2.24.0",
-        "prop-types": "^15.7.1",
-        "react": "^16.8.1",
-        "react-dom": "^16.8.1",
-        "react-flip-move": "^3.0.0",
-        "react-redux": "^7.1.3",
-        "react-router-dom": "^4.2.2",
-        "recompose": "^0.26.0",
-        "redux": "4",
-        "redux-observable": "^1.0.0",
-        "rxjs": "^6.4.0",
-        "style-loader": "^0.20.1",
-        "styled-jsx": "^3.2.4",
-        "typeface-roboto": "^0.0.75",
-        "whatwg-fetch": "^2.0.3"
+        "react-router": "^5.0.1",
+        "react-router-dom": "^5.0.1"
     },
-    "jest": {
-        "moduleNameMapper": {
-            "^actions[/](.+)": "<rootDir>/src/actions/$1",
-            "^api[/](.+)": "<rootDir>/src/api/$1",
-            "^constants[/](.+)": "<rootDir>/src/constants/$1",
-            "^components[/](.+)": "<rootDir>/src/components/$1",
-            "^reducers[/](.+)": "<rootDir>/src/reducers/$1",
-            "^utils[/](.+)": "<rootDir>/src/utils/$1"
+    "devDependencies": {
+        "@dhis2/cli-app-scripts": "^4.0.9",
+        "@dhis2/cli-style": "^7.1.0-alpha.9",
+        "enzyme": "^3.10.0",
+        "enzyme-adapter-react-16": "^1.14.0",
+        "eslint-plugin-compat": "^3.1.2",
+        "eslint-plugin-i18next": "^5.0.0",
+        "eslint-plugin-import": "^2.18.0",
+        "eslint-plugin-jsx-a11y": "^6.2.1",
+        "eslint-plugin-react-hooks": "^2.5.0",
+        "identity-obj-proxy": "^3.0.0",
+        "stylelint": "^10.1.0",
+        "stylelint-config-prettier": "^5.2.0",
+        "stylelint-config-standard": "^18.3.0",
+        "stylelint-no-unsupported-browser-features": "^3.0.2"
+    },
+    "resolutions": {
+        "@dhis2/app-runtime": "^2.2.2",
+        "@dhis2/d2-i18n": "^1.0.6"
+    },
+    "husky": {
+        "hooks": {
+            "commit-msg": "d2-style commit check",
+            "pre-commit": "d2-style js apply && npm run lint:css && npm run lint:js"
         }
     },
-    "manifest.webapp": {
-        "name": "Scheduler",
-        "launch_path": "index.html",
-        "appType": "APP",
-        "icons": {
-            "48": "icon.png"
-        },
-        "developer": {
-            "name": "Kjetil Svalestuen",
-            "company": "DHIS2"
-        },
-        "default_locale": "en",
-        "activities": {
-            "dhis": {
-                "href": ".."
-            }
+    "jest": {
+        "setupFilesAfterEnv": [
+            "<rootDir>/src/setupTests.js"
+        ],
+        "collectCoverageFrom": [
+            "src/**/*.{js,jsx}",
+            "!src/{index.js,serviceWorker.js,setupTests.js}"
+        ],
+        "coveragePathIgnorePatterns": [
+            "/node_modules/",
+            "/src/locales/"
+        ],
+        "moduleNameMapper": {
+            "\\.css$": "identity-obj-proxy"
         }
     }
 }
