@@ -18,7 +18,7 @@
     "dependencies": {
         "@dhis2/app-runtime": "^2.2.2",
         "@dhis2/d2-i18n": "^1.0.6",
-        "@dhis2/prop-types": "2.0.0",
+        "@dhis2/prop-types": "2.0.3",
         "@dhis2/ui": "^6.1.2",
         "cronstrue": "^1.82.0",
         "history": "^4.9.0",
