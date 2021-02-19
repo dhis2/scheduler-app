@@ -27,7 +27,7 @@
         "react-router-dom": "^5.2.0"
     },
     "devDependencies": {
-        "@dhis2/cli-app-scripts": "^4.0.9",
+        "@dhis2/cli-app-scripts": "^5.5.2",
         "@dhis2/cli-style": "^7.1.0-alpha.9",
         "enzyme": "^3.10.0",
         "enzyme-adapter-react-16": "^1.15.6",
