@@ -1,13 +1,15 @@
 Feature: User jobs can be enabled and disabled
 
-    Scenario Outline: The user <action> a <owner> job
-        Given the user navigated to the job list page
-        And a <initial> <owner> job exists
-        And the on/off switch is <before>
-        When the user clicks the on/off switch
-        Then the on/off switch is <after>
+    Scenario: The user enables a user job
+        Given a disabled user job exists
+        And the user navigated to the job list page
+        And the job toggle switch is off
+        When the user clicks the job toggle switch
+        Then the job toggle switch is on
 
-    Scenarios:
-        | owner |   action |  initial | before | after |
-        |  user | disables |  enabled |     on |   off |
-        |  user |  enables | disabled |    off |    on |
+    Scenario: The user disables a user job
+        Given an enabled user job exists
+        And the user navigated to the job list page
+        And the job toggle switch is on
+        When the user clicks the job toggle switch
+        Then the job toggle switch is off

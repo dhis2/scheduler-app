@@ -48,6 +48,7 @@ module.exports = {
                 'react/prop-types': 'off',
                 'react/display-name': 'off',
                 'import/no-unused-modules': 'off',
+                'jsx-a11y/anchor-has-content': 'off',
             },
         },
     ],

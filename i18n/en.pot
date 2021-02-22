@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-02-23T11:39:51.301Z\n"
-"PO-Revision-Date: 2021-02-23T11:39:51.301Z\n"
+"POT-Creation-Date: 2021-03-04T11:18:04.801Z\n"
+"PO-Revision-Date: 2021-03-04T11:18:04.803Z\n"
 
 msgid "Not authorized"
 msgstr ""
@@ -140,6 +140,9 @@ msgid "Are you sure you want to run this job?"
 msgstr ""
 
 msgid "Run"
+msgstr ""
+
+msgid "Toggle job"
 msgstr ""
 
 msgid "Back to all jobs"

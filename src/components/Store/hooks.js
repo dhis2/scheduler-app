@@ -49,7 +49,7 @@ export const useJobListJobs = () => {
 
     // Filter jobs by the current jobFilter
     const applyJobFilter = job =>
-        job.name.toLowerCase().includes(jobFilter.toLowerCase())
+        job.displayName.toLowerCase().includes(jobFilter.toLowerCase())
 
     // Filter jobs depending on the current showSystemJobs
     const applyShowSystemJobs = job =>
