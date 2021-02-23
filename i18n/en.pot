@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-02-11T14:30:21.883Z\n"
-"PO-Revision-Date: 2021-02-11T14:30:21.883Z\n"
+"POT-Creation-Date: 2021-02-16T11:45:54.474Z\n"
+"PO-Revision-Date: 2021-02-16T11:45:54.474Z\n"
 
 msgid "Not authorized"
 msgstr ""
@@ -103,6 +103,9 @@ msgstr ""
 msgid "{{ delay }} seconds after last run"
 msgstr ""
 
+msgid "View"
+msgstr ""
+
 msgid "Every hour"
 msgstr ""
 
@@ -164,6 +167,9 @@ msgid "Include system jobs in list"
 msgstr ""
 
 msgid "New job"
+msgstr ""
+
+msgid "System job: {{ name }}"
 msgstr ""
 
 msgid "Data value"

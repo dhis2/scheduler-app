@@ -3,6 +3,7 @@ import { PropTypes } from '@dhis2/prop-types'
 import { FlyoutMenu, DropdownButton } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
 import EditJobAction from './EditJobAction'
+import ViewJobAction from './ViewJobAction'
 import RunJobAction from './RunJobAction'
 import DeleteJobAction from './DeleteJobAction'
 
@@ -11,9 +12,13 @@ const Actions = ({ id, configurable }) => (
         small
         component={
             <FlyoutMenu>
-                {configurable && <EditJobAction id={id} />}
-                <RunJobAction id={id} />
-                <DeleteJobAction id={id} />
+                {configurable ? (
+                    <EditJobAction id={id} />
+                ) : (
+                    <ViewJobAction id={id} />
+                )}
+                {configurable && <RunJobAction id={id} />}
+                {configurable && <DeleteJobAction id={id} />}
             </FlyoutMenu>
         }
     >
