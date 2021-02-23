@@ -1,3 +1,10 @@
+## [1.1.3](https://github.com/dhis2/scheduler-app/compare/v1.1.2...v1.1.3) (2021-02-23)
+
+
+### Bug Fixes
+
+* **jobtype:** add new disable inactive users job type ([5f1f5e0](https://github.com/dhis2/scheduler-app/commit/5f1f5e07d59e1e65cf6a0efa087a66a77b00be47))
+
 ## [1.1.2](https://github.com/dhis2/scheduler-app/compare/v1.1.1...v1.1.2) (2021-02-23)
 
 
