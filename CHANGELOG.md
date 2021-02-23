@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/dhis2/scheduler-app/compare/v1.1.0...v1.1.1) (2021-02-23)
+
+
+### Bug Fixes
+
+* **system-jobs:** enforce system job permissions ([1bae8c7](https://github.com/dhis2/scheduler-app/commit/1bae8c7696df8a527e7ac3860fc95a15c6c92275))
+
 # [1.1.0](https://github.com/dhis2/scheduler-app/compare/v1.0.0...v1.1.0) (2021-02-18)
 
 
