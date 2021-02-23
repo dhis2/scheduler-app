@@ -1,13 +1,12 @@
-import React, { useState, useContext } from 'react'
+import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { StoreContext, selectors } from '../../components/Store'
+import { hooks } from '../../components/Store'
 import JobEdit from './JobEdit'
 
 const JobEditContainer = () => {
-    const store = useContext(StoreContext)
     const [isPristine, setIsPristine] = useState(true)
     const { id } = useParams()
-    const job = selectors.getJobById(store, id)
+    const job = hooks.useJob(id)
 
     return (
         <JobEdit

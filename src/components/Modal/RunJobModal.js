@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { PropTypes } from '@dhis2/prop-types'
 import { useDataEngine } from '@dhis2/app-runtime'
 import {
@@ -9,7 +9,7 @@ import {
     ButtonStrip,
 } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
-import { StoreContext, selectors } from '../Store'
+import { hooks } from '../Store'
 
 const RunJobModal = ({ id, hideModal }) => {
     const engine = useDataEngine()
@@ -19,8 +19,7 @@ const RunJobModal = ({ id, hideModal }) => {
         },
     }
     const runJob = () => engine.query(query)
-    const store = useContext(StoreContext)
-    const refetchJobs = selectors.getRefetchJobs(store)
+    const refetchJobs = hooks.useRefetchJobs()
 
     return (
         <Modal open small onClose={hideModal}>

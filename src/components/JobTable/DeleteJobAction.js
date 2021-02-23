@@ -1,14 +1,13 @@
-import React, { useState, useContext } from 'react'
+import React, { useState } from 'react'
 import { PropTypes } from '@dhis2/prop-types'
 import { MenuItem } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
 import { DeleteJobModal } from '../Modal'
-import { StoreContext, selectors } from '../Store'
+import { hooks } from '../Store'
 
 const DeleteJobAction = ({ id }) => {
     const [showModal, setShowModal] = useState(false)
-    const store = useContext(StoreContext)
-    const refetchJobs = selectors.getRefetchJobs(store)
+    const refetchJobs = hooks.useRefetchJobs()
 
     return (
         <React.Fragment>
