@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { useParams } from 'react-router-dom'
 import {
     Card,
@@ -9,7 +9,7 @@ import {
     InputField,
 } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
-import { StoreContext, selectors } from '../../components/Store'
+import { hooks } from '../../components/Store'
 import { DiscardFormButton } from '../../components/Buttons'
 import { JobDetails } from '../../components/JobDetails'
 import translateCron from '../../services/translate-cron'
@@ -20,7 +20,6 @@ const infoLink =
     'https://docs.dhis2.org/master/en/user/html/dataAdmin_scheduling.html#dataAdmin_scheduling_config'
 
 const JobView = () => {
-    const store = useContext(StoreContext)
     const { id } = useParams()
     const {
         name,
@@ -29,7 +28,7 @@ const JobView = () => {
         lastExecuted,
         jobType,
         cronExpression,
-    } = selectors.getJobById(store, id)
+    } = hooks.useJob(id)
 
     return (
         <React.Fragment>
