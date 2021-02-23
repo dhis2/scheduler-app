@@ -1,3 +1,11 @@
+## [1.1.2](https://github.com/dhis2/scheduler-app/compare/v1.1.1...v1.1.2) (2021-02-23)
+
+
+### Bug Fixes
+
+* **list:** move list state to store ([539ea77](https://github.com/dhis2/scheduler-app/commit/539ea7704ab07cb2e2c6c8fdb6bfcdb277e4bec9))
+* **view-route:** use hooks instead of selectors ([89c8862](https://github.com/dhis2/scheduler-app/commit/89c8862a8a17ad1f600b735022992b0a57a1c172))
+
 ## [1.1.1](https://github.com/dhis2/scheduler-app/compare/v1.1.0...v1.1.1) (2021-02-23)
 
 
