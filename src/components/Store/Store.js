@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { PropTypes } from '@dhis2/prop-types'
 import { CircularLoader, Layer, CenteredContent } from '@dhis2/ui'
 import { useDataQuery } from '@dhis2/app-runtime'
@@ -62,6 +62,10 @@ const optionsQuery = {
 }
 
 const Store = ({ children }) => {
+    // State that should persist after a refetch
+    const jobFilterState = useState('')
+    const showSystemJobsState = useState(false)
+
     const jobsFetch = useDataQuery(jobsQuery)
     const jobTypesFetch = useDataQuery(jobTypesQuery)
     const optionsFetch = useDataQuery(optionsQuery)
@@ -98,7 +102,6 @@ const Store = ({ children }) => {
         predictors: { predictors },
         predictorGroups: { predictorGroups },
     } = optionsFetch.data
-
     const parameterOptions = {
         skipTableTypes,
         validationRuleGroups,
@@ -114,6 +117,8 @@ const Store = ({ children }) => {
                 jobTypes,
                 parameterOptions,
                 refetchJobs: jobsFetch.refetch,
+                jobFilter: jobFilterState,
+                showSystemJobs: showSystemJobsState,
             }}
         >
             {children}
