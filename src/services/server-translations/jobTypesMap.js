@@ -20,6 +20,7 @@ const jobTypesMap = {
     SEND_SCHEDULED_MESSAGE: i18n.t('Send scheduled message'),
     TRACKER_PROGRAMS_DATA_SYNC: i18n.t('Tracker programs data sync'),
     VALIDATION_RESULTS_NOTIFICATION: i18n.t('Validation results notification'),
+    DISABLE_INACTIVE_USERS: i18n.t('Disable inactive users'),
 }
 
 export default jobTypesMap
