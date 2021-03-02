@@ -1,3 +1,10 @@
+## [1.1.4](https://github.com/dhis2/scheduler-app/compare/v1.1.3...v1.1.4) (2021-03-02)
+
+
+### Bug Fixes
+
+* **jobtable:** disable manual job run if job itself is disabled ([3646d7b](https://github.com/dhis2/scheduler-app/commit/3646d7b50f6c72dc82b5e5fc14a981b77a5aa2d6))
+
 ## [1.1.3](https://github.com/dhis2/scheduler-app/compare/v1.1.2...v1.1.3) (2021-02-23)
 
 
