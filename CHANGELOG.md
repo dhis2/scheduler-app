@@ -1,3 +1,10 @@
+## [1.1.5](https://github.com/dhis2/scheduler-app/compare/v1.1.4...v1.1.5) (2021-03-02)
+
+
+### Bug Fixes
+
+* **docs-link:** fix documentation link ([ec26b0f](https://github.com/dhis2/scheduler-app/commit/ec26b0f71e850061f8323f599e33245605ccd82e))
+
 ## [1.1.4](https://github.com/dhis2/scheduler-app/compare/v1.1.3...v1.1.4) (2021-03-02)
 
 
