@@ -7,7 +7,7 @@ import { JobAddFormContainer } from '../../components/Forms'
 import styles from './JobAdd.module.css'
 
 const infoLink =
-    'https://docs.dhis2.org/master/en/user/html/dataAdmin_scheduling.html#dataAdmin_scheduling_config'
+    'https://docs.dhis2.org/en/use/user-guides/dhis-core-version-236/maintaining-the-system/scheduling.html'
 
 const JobAdd = ({ isPristine, setIsPristine }) => (
     <React.Fragment>
