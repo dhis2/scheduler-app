@@ -1,0 +1,166 @@
+# 
+# Translators:
+# Ibatov <ibatovk@who.int>, 2020
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2020-04-28T12:20:25.090Z\n"
+"PO-Revision-Date: 2020-05-11 11:31+0000\n"
+"Last-Translator: Ibatov <ibatovk@who.int>, 2020\n"
+"Language-Team: Uzbek (Cyrillic) (https://www.transifex.com/hisp-uio/teams/100509/uz@Cyrl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: uz@Cyrl\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Scheduler"
+msgstr "Режалаштирувчи"
+
+msgid "Cancel"
+msgstr "Бекор қилиш"
+
+msgid "Confirm"
+msgstr "Тасдиқланг"
+
+msgid "Open user guide"
+msgstr "Фойдаланувчи қўлланмасини очиш"
+
+msgid "Delete"
+msgstr "Ўчириб ташлаш"
+
+msgid "Are you sure you want to delete this job?"
+msgstr "Ушбу вазифани ўчириб ташламоқчимисиз?"
+
+msgid "Add new job"
+msgstr "Янги вазифа қўшиш"
+
+msgid "Add job"
+msgstr "Вазифа қўшиш"
+
+msgid "Required"
+msgstr "Мажбурий"
+
+msgid "Must be of two or more characters"
+msgstr "2 ёки ундан ортиқ белгидан иборат бўлиши лозим"
+
+msgid "Invalid cron expression"
+msgstr "Крон ифодаси яроқсиз"
+
+msgid "Delay needs to be an integer"
+msgstr "Кечикрилган кунлар бутун сонда белгиланади"
+
+msgid "Delay must be greater than 0"
+msgstr "Кечикрилган кунлар 0 дан катта белгиланиши лозим"
+
+msgid "Delay can't exceed 86400 seconds"
+msgstr "Кечиктирилган кунлан 86400 сониядан ошмаслиги керак"
+
+msgid "Are you sure you want to discard your changes?"
+msgstr "Ўзгартиришни бекор қилмоқчимисиз?"
+
+msgid "Attributes"
+msgstr "Хусусиятлар"
+
+msgid "Name"
+msgstr "Исми"
+
+msgid "Could not find job"
+msgstr "Вазифа топилмади"
+
+msgid "Details"
+msgstr "Тафсилотлари"
+
+msgid "Created"
+msgstr "Яратилди"
+
+msgid "Last executed"
+msgstr "Охирги бажарилган"
+
+msgid "Last execution status"
+msgstr "Охирги бажариш статуси"
+
+msgid "Save changes"
+msgstr "Ўзгартиришни сақлаш"
+
+msgid "Delete job"
+msgstr "Вазифани бекор қилиш"
+
+msgid "Job type"
+msgstr "Вазифа тури"
+
+msgid "Select frequency"
+msgstr "Даврийликни танлаш"
+
+msgid "Cron expression"
+msgstr "Крон ифодаси"
+
+msgid "Delay in seconds"
+msgstr "Сонияларга кечикиш"
+
+msgid "Are you sure you want to execute this job?"
+msgstr "Ҳақиқатдан ҳам ушбу вазифани бажаришни хохлайсизми?"
+
+msgid "Execute"
+msgstr "Ижро этиш"
+
+msgid "Run now"
+msgstr "Ҳозироқ бошлаш"
+
+msgid "Runs {{seconds}} second(s) after previous run"
+msgstr "Олдинги ҳаракат бошлангач {{ сония }} ичида бошланади"
+
+msgid "Scheduled jobs"
+msgstr "Вазифалар режалаштирилган"
+
+msgid "Show system jobs"
+msgstr "Тизим вазифаларини кўрсатиш"
+
+msgid "Type"
+msgstr "Тури"
+
+msgid "Status"
+msgstr "Статус"
+
+msgid "Next execution"
+msgstr "Кейинги ижро"
+
+msgid "Enabled"
+msgstr "Ёқилган"
+
+msgid "No jobs to show"
+msgstr "Кўрсатиш учун вазифалар йўқ"
+
+msgid "Click to select"
+msgstr "Танлаш учун босинг"
+
+msgid "Start time"
+msgstr "Бошланиш вақти"
+
+msgid "End time"
+msgstr "Тугаш вақти"
+
+msgid "Parameters"
+msgstr "Параметрлар"
+
+msgid "Successfully deleted job"
+msgstr "Вазифа муваффақиятли ўчирилди"
+
+msgid "Successfully created job"
+msgstr "Вазифа муваффақиятли яратилди"
+
+msgid "Successfully updated job"
+msgstr "Вазифа муваффақиятли янгиланди"
+
+msgid "Could not create job"
+msgstr "Вазифани яратиб бўлмади"
+
+msgid "Could not update job"
+msgstr "Вазифани янгилаб бўлмади"
+
+msgid "Could not run job"
+msgstr "Вазифа бажарилмади"
+
+msgid "You are not authorized to use this app"
+msgstr "Ушбу иловадан фойдаланиш хуқуқига эга эмассиз"
