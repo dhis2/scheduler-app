@@ -6,6 +6,10 @@ import { Store } from '../Store'
 import { PageWrapper } from '../PageWrapper'
 import './App.css'
 
+// eslint-disable-next-line import/no-unassigned-import, import/no-unresolved
+import '../../locales'
+// The above is necessary for translations to work
+
 const App = () => (
     <React.Fragment>
         <CssVariables spacers colors />
