@@ -1,3 +1,10 @@
+## [1.1.6](https://github.com/dhis2/scheduler-app/compare/v1.1.5...v1.1.6) (2021-03-08)
+
+
+### Bug Fixes
+
+* **translations:** import locales to enable translations ([7dccfb2](https://github.com/dhis2/scheduler-app/commit/7dccfb2d964e523f2030ffb5f9ca8727ce050f21))
+
 ## [1.1.5](https://github.com/dhis2/scheduler-app/compare/v1.1.4...v1.1.5) (2021-03-02)
 
 
