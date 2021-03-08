@@ -1,0 +1,168 @@
+# 
+# Translators:
+# phil_dhis2, 2020
+# Viktor Varland <viktor@dhis2.org>, 2020
+# Hamza Assada <7amza.it@gmail.com>, 2020
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2020-04-28T12:20:25.090Z\n"
+"PO-Revision-Date: 2020-12-22 22:18+0000\n"
+"Last-Translator: Hamza Assada <7amza.it@gmail.com>, 2020\n"
+"Language-Team: Arabic (https://www.transifex.com/hisp-uio/teams/100509/ar/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ar\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+msgid "Scheduler"
+msgstr "المجدول"
+
+msgid "Cancel"
+msgstr "إلغاء"
+
+msgid "Confirm"
+msgstr "تأكيد"
+
+msgid "Open user guide"
+msgstr "فتح دليل المستخدم"
+
+msgid "Delete"
+msgstr "حذف"
+
+msgid "Are you sure you want to delete this job?"
+msgstr "هل أنت متأكد أنك تريد حذف هذه المهمة؟"
+
+msgid "Add new job"
+msgstr "أضف مهمة جديدة"
+
+msgid "Add job"
+msgstr "إضافة مهمة"
+
+msgid "Required"
+msgstr "مطلوب"
+
+msgid "Must be of two or more characters"
+msgstr "يجب أن يكون من حرفين أو أكثر"
+
+msgid "Invalid cron expression"
+msgstr ""
+
+msgid "Delay needs to be an integer"
+msgstr "يجب أن يكون مقدار التأخير عددًا صحيحًا"
+
+msgid "Delay must be greater than 0"
+msgstr "يجب أن يكون مقدار التأخير أكبر من 0"
+
+msgid "Delay can't exceed 86400 seconds"
+msgstr "لا يمكن أن يتجاوز مقدار التأخير 86400 ثانية"
+
+msgid "Are you sure you want to discard your changes?"
+msgstr "هل أنت متأكد أنك تريد تجاهل التغييرات الخاصة بك؟"
+
+msgid "Attributes"
+msgstr "السمات"
+
+msgid "Name"
+msgstr "الإسم"
+
+msgid "Could not find job"
+msgstr "تعذر إيجاد المهمة"
+
+msgid "Details"
+msgstr "التفاصيل"
+
+msgid "Created"
+msgstr "تم الإنشاء"
+
+msgid "Last executed"
+msgstr "آخر عملية تنفيذ"
+
+msgid "Last execution status"
+msgstr "حالة آخر عملية تنفيذ"
+
+msgid "Save changes"
+msgstr "حفظ التغيرات"
+
+msgid "Delete job"
+msgstr "حذف المهمة"
+
+msgid "Job type"
+msgstr "نوع المهمة"
+
+msgid "Select frequency"
+msgstr "اختر التكرار"
+
+msgid "Cron expression"
+msgstr ""
+
+msgid "Delay in seconds"
+msgstr "مقدار التأخير بالثواني"
+
+msgid "Are you sure you want to execute this job?"
+msgstr "هل أنت متأكد أنك تريد تنفيذ هذه المهمة؟"
+
+msgid "Execute"
+msgstr "تنفيذ"
+
+msgid "Run now"
+msgstr "تشغيل الآن"
+
+msgid "Runs {{seconds}} second(s) after previous run"
+msgstr "يعمل {{seconds}} ثانية بعد التشغيل السابق"
+
+msgid "Scheduled jobs"
+msgstr "المهام المجدولة"
+
+msgid "Show system jobs"
+msgstr "عرض مهام النظام"
+
+msgid "Type"
+msgstr "النوع"
+
+msgid "Status"
+msgstr "الحالة"
+
+msgid "Next execution"
+msgstr "وقت التنفيذ القادم"
+
+msgid "Enabled"
+msgstr "مفعل"
+
+msgid "No jobs to show"
+msgstr "لاتوجد مهام لعرضها"
+
+msgid "Click to select"
+msgstr "إنقر للتحديد"
+
+msgid "Start time"
+msgstr "وقت البدء"
+
+msgid "End time"
+msgstr "وقت الإنتهاء"
+
+msgid "Parameters"
+msgstr "المعاملات"
+
+msgid "Successfully deleted job"
+msgstr "تم بنجاح حذف المهمة"
+
+msgid "Successfully created job"
+msgstr "تم بنجاح إنشاء المهمة"
+
+msgid "Successfully updated job"
+msgstr "تم بنجاح تحديث المهمة"
+
+msgid "Could not create job"
+msgstr "تعذر إنشاء المهمة"
+
+msgid "Could not update job"
+msgstr "تعذر تحديث المهمة"
+
+msgid "Could not run job"
+msgstr "تعذر تشغيل المهمة"
+
+msgid "You are not authorized to use this app"
+msgstr "غير مصرح لك باستخدام هذا التطبيق"
