@@ -1,32 +1,31 @@
 # 
 # Translators:
 # phil_dhis2, 2020
-# Viktor Varland <viktor@dhis2.org>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2019-06-06T10:38:48.729Z\n"
 "PO-Revision-Date: 2020-05-11 11:32+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
-"Language-Team: Urdu (https://www.transifex.com/hisp-uio/teams/100509/ur/)\n"
+"Last-Translator: phil_dhis2, 2020\n"
+"Language-Team: Persian (Afghanistan) (https://www.transifex.com/hisp-uio/teams/100509/fa_AF/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ur\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: fa_AF\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 msgid "Scheduler"
-msgstr "شیڈولر"
+msgstr ""
 
 msgid "Cancel"
-msgstr "منسوخ"
+msgstr "انصراف"
 
 msgid "Confirm"
-msgstr "تصدیق کریں"
+msgstr "تائید"
 
 msgid "Open user guide"
-msgstr "کھولیں صارف گائیڈ"
+msgstr "باز کردن رهنما استفاده کننده"
 
 msgid "Delete"
 msgstr "حذف"
@@ -38,7 +37,7 @@ msgid "Add new job"
 msgstr ""
 
 msgid "Required"
-msgstr "لازمی"
+msgstr "ضروری"
 
 msgid "Must be of two or more characters"
 msgstr ""
@@ -50,10 +49,10 @@ msgid "Are you sure you want to discard your changes?"
 msgstr ""
 
 msgid "Attributes"
-msgstr "خصوصیات"
+msgstr "مشخصات"
 
 msgid "Name"
-msgstr "ÙØ§Ù"
+msgstr "نام"
 
 msgid "Job type"
 msgstr ""
@@ -62,10 +61,10 @@ msgid "Could not find job"
 msgstr ""
 
 msgid "Details"
-msgstr "تفصیلات"
+msgstr "جزئیات"
 
 msgid "Created"
-msgstr "تخلیق"
+msgstr "ایجاد شده"
 
 msgid "Last executed"
 msgstr ""
@@ -74,7 +73,7 @@ msgid "Last execution status"
 msgstr ""
 
 msgid "Save changes"
-msgstr "تبدیلیاں محفوظ کریں"
+msgstr ""
 
 msgid "Delete job"
 msgstr ""
@@ -92,10 +91,10 @@ msgid "Are you sure you want to execute this job?"
 msgstr ""
 
 msgid "Execute"
-msgstr "چلائیں"
+msgstr "اجرا"
 
 msgid "Run now"
-msgstr "اب چلائیں"
+msgstr "حالا اجرا کنید"
 
 msgid "Scheduled jobs"
 msgstr ""
@@ -104,16 +103,16 @@ msgid "Show system jobs"
 msgstr ""
 
 msgid "Type"
-msgstr "ٹائپ"
+msgstr "نمونه/ډول"
 
 msgid "Status"
-msgstr "حالت"
+msgstr "وضعیت"
 
 msgid "Next execution"
 msgstr ""
 
 msgid "Enabled"
-msgstr "فعال"
+msgstr "فعال سازی"
 
 msgid "No jobs to show"
 msgstr ""
@@ -128,7 +127,7 @@ msgid "End time"
 msgstr ""
 
 msgid "Parameters"
-msgstr "پیرامیٹرز"
+msgstr "پارامتر ها"
 
 msgid "Successfully deleted job"
 msgstr ""
