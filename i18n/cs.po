@@ -39,7 +39,7 @@ msgid "Delay"
 msgstr "Zpoždění"
 
 msgid "Delay in seconds ({{ lowerbound }} - {{ upperbound }})"
-msgstr ""
+msgstr "Zpoždění v sekundách ({{ lowerbound }} - {{ upperbound }})"
 
 msgid "Name"
 msgstr "Název"
@@ -63,7 +63,7 @@ msgid "Job details"
 msgstr "Podrobnosti o práci"
 
 msgid "Created {{ createdFromNow }}."
-msgstr ""
+msgstr "Vytvořeno {{ createdFromNow }}."
 
 msgid "Last run {{ lastRunFromNow }}."
 msgstr ""
