@@ -16,27 +16,27 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
 
 msgid "Not authorized"
-msgstr ""
+msgstr "Neautorizováno"
 
 msgid ""
 "You don't have access to the Job Scheduler. Contact a system administrator "
 "to request access."
-msgstr ""
+msgstr "K Plánovači úloh nemáte přístup. Požádejte o přístup správce systému."
 
 msgid "Choose from preset times"
-msgstr ""
+msgstr "Vyberte si z přednastavených časů"
 
 msgid "Delete job"
 msgstr "Smazat úlohu"
 
 msgid "Something went wrong whilst creating your job"
-msgstr ""
+msgstr "Při vytváření vašeho jobu se něco pokazilo"
 
 msgid "CRON Expression"
-msgstr ""
+msgstr "CRON výraz"
 
 msgid "Delay"
-msgstr ""
+msgstr "Zpoždění"
 
 msgid "Delay in seconds ({{ lowerbound }} - {{ upperbound }})"
 msgstr ""
@@ -81,7 +81,7 @@ msgid "Edit"
 msgstr "Upravit"
 
 msgid "Job name"
-msgstr ""
+msgstr "Název Jobu"
 
 msgid "Type"
 msgstr "Typ"
@@ -90,22 +90,22 @@ msgid "Schedule"
 msgstr "Plán"
 
 msgid "Next run"
-msgstr ""
+msgstr "Další běh"
 
 msgid "Status"
 msgstr "Stav"
 
 msgid "On/off"
-msgstr ""
+msgstr "Zapnuto / vypnuto"
 
 msgid "No jobs to display"
 msgstr ""
 
 msgid "Not scheduled"
-msgstr ""
+msgstr "Není naplánováno"
 
 msgid "Run manually"
-msgstr ""
+msgstr "Spustit ručně"
 
 msgid "{{ delay }} seconds after last run"
 msgstr ""
@@ -117,43 +117,43 @@ msgid "Every hour"
 msgstr "Každou hodinu"
 
 msgid "Every day at midnight"
-msgstr ""
+msgstr "Každý den o půlnoci"
 
 msgid "Every day at 3 am"
-msgstr ""
+msgstr "Každý den ve 3 hodiny ráno"
 
 msgid "Every day at noon"
-msgstr ""
+msgstr "Každý den v poledne"
 
 msgid "Every week"
-msgstr ""
+msgstr "Každý týden"
 
 msgid "Choose a preset time/interval"
-msgstr ""
+msgstr "Vyberte přednastavený čas / interval"
 
 msgid "Insert preset"
-msgstr ""
+msgstr "Vložit předvolbu"
 
 msgid "Are you sure you want to delete this job?"
 msgstr "Opravdu chcete tuto úlohu smazat?"
 
 msgid "Are you sure you want to discard this form?"
-msgstr ""
+msgstr "Opravdu chcete tento formulář zahodit?"
 
 msgid "Discard"
 msgstr "Vyřadit"
 
 msgid "Are you sure you want to run this job?"
-msgstr ""
+msgstr "Opravdu chcete tento job spustit?"
 
 msgid "Run"
-msgstr ""
+msgstr "Běh"
 
 msgid "Back to all jobs"
-msgstr ""
+msgstr "Zpět ke všem jobům"
 
 msgid "New Job"
-msgstr ""
+msgstr "Nový job"
 
 msgid "Configuration"
 msgstr "Konfigurace"
@@ -213,28 +213,28 @@ msgid "Failed"
 msgstr "Selhalo"
 
 msgid "Not started"
-msgstr ""
+msgstr "Nespuštěno"
 
 msgid "Running"
-msgstr ""
+msgstr "Běžící"
 
 msgid "Scheduled"
 msgstr "Naplánováno"
 
 msgid "Stopped"
-msgstr ""
+msgstr "Zastaveno"
 
 msgid "Analytics table"
-msgstr ""
+msgstr "Tabulka Analýzy"
 
 msgid "Continuous analytics table"
-msgstr ""
+msgstr "Kontinuální analytická tabulka"
 
 msgid "Credentials expiry alert"
-msgstr ""
+msgstr "Upozornění na vypršení platnosti pověření"
 
 msgid "Data integrity"
-msgstr ""
+msgstr "Integrita dat"
 
 msgid "Dataset notification"
 msgstr ""
@@ -252,7 +252,7 @@ msgid "File resource clean up"
 msgstr ""
 
 msgid "Metadata synchronization"
-msgstr ""
+msgstr "Synchronizace metadat"
 
 msgid "Monitoring"
 msgstr ""
@@ -279,7 +279,7 @@ msgid "Tracker programs data sync"
 msgstr ""
 
 msgid "Validation results notification"
-msgstr ""
+msgstr "Oznámení o výsledku ověření"
 
 msgid "Disable inactive users"
 msgstr ""
