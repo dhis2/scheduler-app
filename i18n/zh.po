@@ -1,167 +1,167 @@
 # 
 # Translators:
 # phil_dhis2, 2020
-# Viktor Varland <viktor@dhis2.org>, 2020
+# 晓东 林 <13981924470@126.com>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-04-28T12:20:25.090Z\n"
 "PO-Revision-Date: 2020-12-22 22:18+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
-"Language-Team: Urdu (https://www.transifex.com/hisp-uio/teams/100509/ur/)\n"
+"Last-Translator: 晓东 林 <13981924470@126.com>, 2020\n"
+"Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ur\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: zh\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Scheduler"
-msgstr "شیڈولر"
+msgstr "调度器"
 
 msgid "Cancel"
-msgstr "منسوخ"
+msgstr "取消"
 
 msgid "Confirm"
-msgstr "تصدیق کریں"
+msgstr "确认"
 
 msgid "Open user guide"
-msgstr "کھولیں صارف گائیڈ"
+msgstr "打开用户指南"
 
 msgid "Delete"
-msgstr "حذف"
+msgstr "删除"
 
 msgid "Are you sure you want to delete this job?"
-msgstr ""
+msgstr "你确信要删除该作业"
 
 msgid "Add new job"
-msgstr ""
+msgstr "添加新作业"
 
 msgid "Add job"
-msgstr ""
+msgstr "添加作业"
 
 msgid "Required"
-msgstr "لازمی"
+msgstr "必须的"
 
 msgid "Must be of two or more characters"
-msgstr ""
+msgstr "需2或3个字符"
 
 msgid "Invalid cron expression"
-msgstr ""
+msgstr "无效的cron表达式"
 
 msgid "Delay needs to be an integer"
-msgstr ""
+msgstr "延迟需整数"
 
 msgid "Delay must be greater than 0"
-msgstr ""
+msgstr "延迟需大于0"
 
 msgid "Delay can't exceed 86400 seconds"
-msgstr ""
+msgstr "延迟不能大于86400秒"
 
 msgid "Are you sure you want to discard your changes?"
-msgstr ""
+msgstr "你确信要忽略改变？"
 
 msgid "Attributes"
-msgstr "خصوصیات"
+msgstr "属性"
 
 msgid "Name"
-msgstr "ÙØ§Ù"
+msgstr "名称"
 
 msgid "Could not find job"
-msgstr ""
+msgstr "不能发现作业"
 
 msgid "Details"
-msgstr "تفصیلات"
+msgstr "详情"
 
 msgid "Created"
-msgstr "تخلیق"
+msgstr "已创建"
 
 msgid "Last executed"
-msgstr ""
+msgstr "最近执行"
 
 msgid "Last execution status"
-msgstr ""
+msgstr "上次执行状态"
 
 msgid "Save changes"
-msgstr "تبدیلیاں محفوظ کریں"
+msgstr "保存修改"
 
 msgid "Delete job"
-msgstr ""
+msgstr "删除作业"
 
 msgid "Job type"
-msgstr ""
+msgstr "作业类型"
 
 msgid "Select frequency"
-msgstr ""
+msgstr "选择周期"
 
 msgid "Cron expression"
-msgstr ""
+msgstr "Cron表达式"
 
 msgid "Delay in seconds"
-msgstr ""
+msgstr "延迟秒数"
 
 msgid "Are you sure you want to execute this job?"
-msgstr ""
+msgstr "你确信执行该作业？"
 
 msgid "Execute"
-msgstr "چلائیں"
+msgstr "执行"
 
 msgid "Run now"
-msgstr "اب چلائیں"
+msgstr "现在运行"
 
 msgid "Runs {{seconds}} second(s) after previous run"
-msgstr ""
+msgstr "上次运行 {{seconds}}（秒）后运行"
 
 msgid "Scheduled jobs"
-msgstr ""
+msgstr "调度的作业"
 
 msgid "Show system jobs"
-msgstr ""
+msgstr "显示系统作业"
 
 msgid "Type"
-msgstr "ٹائپ"
+msgstr "类型"
 
 msgid "Status"
-msgstr "حالت"
+msgstr "状态"
 
 msgid "Next execution"
-msgstr ""
+msgstr "下次执行"
 
 msgid "Enabled"
-msgstr "فعال"
+msgstr "使能"
 
 msgid "No jobs to show"
-msgstr ""
+msgstr "没有作业可显示"
 
 msgid "Click to select"
-msgstr ""
+msgstr "点击选择"
 
 msgid "Start time"
-msgstr ""
+msgstr "开始时间"
 
 msgid "End time"
-msgstr ""
+msgstr "结束时间"
 
 msgid "Parameters"
-msgstr "پیرامیٹرز"
+msgstr "参数"
 
 msgid "Successfully deleted job"
-msgstr ""
+msgstr "成功删除作业"
 
 msgid "Successfully created job"
-msgstr ""
+msgstr "成功创建作业"
 
 msgid "Successfully updated job"
-msgstr ""
+msgstr "成功更新作业"
 
 msgid "Could not create job"
-msgstr ""
+msgstr "不能创建作业"
 
 msgid "Could not update job"
-msgstr ""
+msgstr "不能更新作业"
 
 msgid "Could not run job"
-msgstr ""
+msgstr "不能运行作业"
 
 msgid "You are not authorized to use this app"
-msgstr ""
+msgstr "你没有授权使用该地图"
