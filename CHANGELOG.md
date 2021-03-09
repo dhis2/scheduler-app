@@ -1,3 +1,10 @@
+## [1.1.7](https://github.com/dhis2/scheduler-app/compare/v1.1.6...v1.1.7) (2021-03-09)
+
+
+### Bug Fixes
+
+* **translations:** fix transifex mapping ([65d465b](https://github.com/dhis2/scheduler-app/commit/65d465b0409dc38bcebc8d600ee066362208a6c9))
+
 ## [1.1.6](https://github.com/dhis2/scheduler-app/compare/v1.1.5...v1.1.6) (2021-03-08)
 
 
