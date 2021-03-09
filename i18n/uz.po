@@ -1,0 +1,291 @@
+# 
+# Translators:
+# Ibatov <ibatovk@who.int>, 2021
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2021-02-23T11:39:51.301Z\n"
+"PO-Revision-Date: 2020-05-08 14:30+0000\n"
+"Last-Translator: Ibatov <ibatovk@who.int>, 2021\n"
+"Language-Team: Uzbek (Cyrillic) (https://www.transifex.com/hisp-uio/teams/100509/uz@Cyrl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: uz@Cyrl\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Not authorized"
+msgstr ""
+
+msgid ""
+"You don't have access to the Job Scheduler. Contact a system administrator "
+"to request access."
+msgstr ""
+
+msgid "Choose from preset times"
+msgstr ""
+
+msgid "Delete job"
+msgstr "Вазифани бекор қилиш"
+
+msgid "Something went wrong whilst creating your job"
+msgstr ""
+
+msgid "CRON Expression"
+msgstr ""
+
+msgid "Delay"
+msgstr ""
+
+msgid "Delay in seconds ({{ lowerbound }} - {{ upperbound }})"
+msgstr ""
+
+msgid "Name"
+msgstr "Исми"
+
+msgid "Job type"
+msgstr "Вазифа тури"
+
+msgid "No options available"
+msgstr "Вариантлар мавжуд эмас"
+
+msgid "Parameters"
+msgstr "Параметрлар"
+
+msgid "Save"
+msgstr "Сақлаш"
+
+msgid "Cancel"
+msgstr "Бекор қилиш"
+
+msgid "Job details"
+msgstr "Фаолият тафсилотлари"
+
+msgid "Created {{ createdFromNow }}."
+msgstr ""
+
+msgid "Last run {{ lastRunFromNow }}."
+msgstr ""
+
+msgid "Last run status: {{ translatedStatus }}."
+msgstr ""
+
+msgid "Actions"
+msgstr "Амаллар"
+
+msgid "Delete"
+msgstr "Ўчириб ташлаш"
+
+msgid "Edit"
+msgstr "Таҳрирлаш"
+
+msgid "Job name"
+msgstr ""
+
+msgid "Type"
+msgstr "Тури"
+
+msgid "Schedule"
+msgstr "Режа"
+
+msgid "Next run"
+msgstr ""
+
+msgid "Status"
+msgstr "Статус"
+
+msgid "On/off"
+msgstr ""
+
+msgid "No jobs to display"
+msgstr ""
+
+msgid "Not scheduled"
+msgstr ""
+
+msgid "Run manually"
+msgstr ""
+
+msgid "{{ delay }} seconds after last run"
+msgstr ""
+
+msgid "View"
+msgstr "Кўрик"
+
+msgid "Every hour"
+msgstr "Ҳар соатда"
+
+msgid "Every day at midnight"
+msgstr ""
+
+msgid "Every day at 3 am"
+msgstr ""
+
+msgid "Every day at noon"
+msgstr ""
+
+msgid "Every week"
+msgstr ""
+
+msgid "Choose a preset time/interval"
+msgstr ""
+
+msgid "Insert preset"
+msgstr ""
+
+msgid "Are you sure you want to delete this job?"
+msgstr "Ҳақиқатдан ҳам ушбу вазифани ўчириб ташламоқчимисиз?"
+
+msgid "Are you sure you want to discard this form?"
+msgstr ""
+
+msgid "Discard"
+msgstr "Бекор қилиш"
+
+msgid "Are you sure you want to run this job?"
+msgstr ""
+
+msgid "Run"
+msgstr ""
+
+msgid "Back to all jobs"
+msgstr ""
+
+msgid "New Job"
+msgstr ""
+
+msgid "Configuration"
+msgstr "Конфигурация"
+
+msgid "About job configuration"
+msgstr ""
+
+msgid "Job: {{ name }}"
+msgstr ""
+
+msgid "Scheduled jobs"
+msgstr "Вазифалар режалаштирилган"
+
+msgid "Filter jobs"
+msgstr ""
+
+msgid "Include system jobs in list"
+msgstr ""
+
+msgid "New job"
+msgstr ""
+
+msgid "System job: {{ name }}"
+msgstr ""
+
+msgid "Data value"
+msgstr ""
+
+msgid "Completeness"
+msgstr "Тўлиқлик"
+
+msgid "Completeness target"
+msgstr ""
+
+msgid "Org unit target"
+msgstr ""
+
+msgid "Event"
+msgstr "Ҳодиса/Тадбир"
+
+msgid "Enrollment"
+msgstr "Рўйхатга олиш"
+
+msgid "Validation result"
+msgstr "Тасдиқлаш натижаси"
+
+msgid "Completed"
+msgstr "Тўлдирилди"
+
+msgid "Disabled"
+msgstr "Ўчириб қўйилган"
+
+msgid "Done"
+msgstr "Бажарилди"
+
+msgid "Failed"
+msgstr "Амалга ошмади"
+
+msgid "Not started"
+msgstr ""
+
+msgid "Running"
+msgstr ""
+
+msgid "Scheduled"
+msgstr "Режа бўйича"
+
+msgid "Stopped"
+msgstr ""
+
+msgid "Analytics table"
+msgstr ""
+
+msgid "Continuous analytics table"
+msgstr ""
+
+msgid "Credentials expiry alert"
+msgstr ""
+
+msgid "Data integrity"
+msgstr ""
+
+msgid "Dataset notification"
+msgstr ""
+
+msgid "Data statistics"
+msgstr ""
+
+msgid "Data synchronization"
+msgstr "Маълумотлар синхронизацияси"
+
+msgid "Event programs data sync"
+msgstr ""
+
+msgid "File resource clean up"
+msgstr ""
+
+msgid "Metadata synchronization"
+msgstr ""
+
+msgid "Monitoring"
+msgstr ""
+
+msgid "Predictor"
+msgstr "Башоратчи"
+
+msgid "Program notifications"
+msgstr "Дастур билдиришномалари"
+
+msgid "Push analysis"
+msgstr "Push-таҳлил"
+
+msgid "Remove expired reserved values"
+msgstr ""
+
+msgid "Resource table"
+msgstr ""
+
+msgid "Send scheduled message"
+msgstr ""
+
+msgid "Tracker programs data sync"
+msgstr ""
+
+msgid "Validation results notification"
+msgstr ""
+
+msgid "Disable inactive users"
+msgstr ""
+
+msgid "A CRON expression is required"
+msgstr ""
+
+msgid "Please enter a valid CRON expression"
+msgstr ""
