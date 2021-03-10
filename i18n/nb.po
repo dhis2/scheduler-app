@@ -1,152 +1,151 @@
 # 
 # Translators:
-# phil_dhis2, 2020
-# Viktor Varland <viktor@dhis2.org>, 2020
+# Caroline Hesthagen Holen <caroline@devotta.no>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2019-06-06T10:38:48.729Z\n"
 "PO-Revision-Date: 2020-05-11 11:32+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
-"Language-Team: Urdu (https://www.transifex.com/hisp-uio/teams/100509/ur/)\n"
+"Last-Translator: Caroline Hesthagen Holen <caroline@devotta.no>, 2020\n"
+"Language-Team: Norwegian Bokmål (https://www.transifex.com/hisp-uio/teams/100509/nb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ur\n"
+"Language: nb\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Scheduler"
-msgstr "شیڈولر"
+msgstr "Planlegger"
 
 msgid "Cancel"
-msgstr "منسوخ"
+msgstr "Avbryt"
 
 msgid "Confirm"
-msgstr "تصدیق کریں"
+msgstr "Bekreft"
 
 msgid "Open user guide"
-msgstr "کھولیں صارف گائیڈ"
+msgstr "Åpne brukerveiledning"
 
 msgid "Delete"
-msgstr "حذف"
+msgstr "Slett"
 
 msgid "Are you sure you want to delete this job?"
-msgstr ""
+msgstr "Er du sikker på at du vil slette denne jobben?"
 
 msgid "Add new job"
-msgstr ""
+msgstr "Legg til ny jobb"
 
 msgid "Required"
-msgstr "لازمی"
+msgstr "Påkrevd"
 
 msgid "Must be of two or more characters"
-msgstr ""
+msgstr "Må være to eller flere tegn"
 
 msgid "Invalid cron expression"
-msgstr ""
+msgstr "Ugyldig cron uttrykk"
 
 msgid "Are you sure you want to discard your changes?"
-msgstr ""
+msgstr "Er du sikker på at du vil forkaste endringene du har gjort?"
 
 msgid "Attributes"
-msgstr "خصوصیات"
+msgstr "Attributter"
 
 msgid "Name"
-msgstr "ÙØ§Ù"
+msgstr "Navn"
 
 msgid "Job type"
-msgstr ""
+msgstr "Jobbtype"
 
 msgid "Could not find job"
-msgstr ""
+msgstr "Kunne ikke finne jobben"
 
 msgid "Details"
-msgstr "تفصیلات"
+msgstr "Detaljer"
 
 msgid "Created"
-msgstr "تخلیق"
+msgstr "Opprettet"
 
 msgid "Last executed"
-msgstr ""
+msgstr "Sist kjørt"
 
 msgid "Last execution status"
-msgstr ""
+msgstr "Siste utført status"
 
 msgid "Save changes"
-msgstr "تبدیلیاں محفوظ کریں"
+msgstr "Lagre endringer"
 
 msgid "Delete job"
-msgstr ""
+msgstr "Slett jobb"
 
 msgid "Select frequency"
-msgstr ""
+msgstr "Velg frekvens"
 
 msgid "Cron expression"
-msgstr ""
+msgstr "Cron uttrykk"
 
 msgid "Continuous execution"
-msgstr ""
+msgstr "Kontinuerlig utførelse"
 
 msgid "Are you sure you want to execute this job?"
-msgstr ""
+msgstr "Er du sikker på at du vil utføre denne jobben?"
 
 msgid "Execute"
-msgstr "چلائیں"
+msgstr "Utfør"
 
 msgid "Run now"
-msgstr "اب چلائیں"
+msgstr "Kjør nå"
 
 msgid "Scheduled jobs"
-msgstr ""
+msgstr "Planlagte jobber"
 
 msgid "Show system jobs"
-msgstr ""
+msgstr "Vis systemjobber"
 
 msgid "Type"
-msgstr "ٹائپ"
+msgstr "Type"
 
 msgid "Status"
-msgstr "حالت"
+msgstr "Status"
 
 msgid "Next execution"
-msgstr ""
+msgstr "Neste utførelse"
 
 msgid "Enabled"
-msgstr "فعال"
+msgstr "Aktivert"
 
 msgid "No jobs to show"
-msgstr ""
+msgstr "Ingen jobber å vise"
 
 msgid "Click to select"
-msgstr ""
+msgstr "Klikk for å velge"
 
 msgid "Start time"
-msgstr ""
+msgstr "Starttid"
 
 msgid "End time"
-msgstr ""
+msgstr "Sluttid"
 
 msgid "Parameters"
-msgstr "پیرامیٹرز"
+msgstr "Parametre"
 
 msgid "Successfully deleted job"
-msgstr ""
+msgstr "Jobben ble slettet"
 
 msgid "Successfully created job"
-msgstr ""
+msgstr "Jobben ble opprettet"
 
 msgid "Successfully updated job"
-msgstr ""
+msgstr "Jobben ble oppdatert"
 
 msgid "Could not create job"
-msgstr ""
+msgstr "Kunne ikke opprette jobb"
 
 msgid "Could not update job"
-msgstr ""
+msgstr "Kunne ikke oppdatere jobben"
 
 msgid "Could not run job"
-msgstr ""
+msgstr "Kunne ikke kjøre jobben"
 
 msgid "You are not authorized to use this app"
-msgstr ""
+msgstr "Du er ikke autorisert til å bruke denne appen"

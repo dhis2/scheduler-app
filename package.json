@@ -50,7 +50,7 @@
         "history": "^4.7.2",
         "material-design-icons-iconfont": "^4.0.5",
         "material-ui": "^0.20.0",
-        "moment": "^2.20.1",
+        "moment": "^2.29.1",
         "prop-types": "^15.7.1",
         "react": "^16.8.1",
         "react-dom": "^16.8.1",
