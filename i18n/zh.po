@@ -1,16 +1,16 @@
 # 
 # Translators:
-# easylin <lin_xd@126.com>, 2021
 # phil_dhis2, 2021
 # Viktor Varland <viktor@dhis2.org>, 2021
 # 晓东 林 <13981924470@126.com>, 2021
+# easylin <lin_xd@126.com>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-02-23T11:39:51.301Z\n"
 "PO-Revision-Date: 2020-05-08 14:30+0000\n"
-"Last-Translator: 晓东 林 <13981924470@126.com>, 2021\n"
+"Last-Translator: easylin <lin_xd@126.com>, 2021\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,30 +19,30 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Not authorized"
-msgstr ""
+msgstr "未经授权"
 
 msgid ""
 "You don't have access to the Job Scheduler. Contact a system administrator "
 "to request access."
-msgstr ""
+msgstr "您无权访问Job Scheduler。请与系统管理员联系以请求访问权限。"
 
 msgid "Choose from preset times"
-msgstr ""
+msgstr "从预设时间中选择"
 
 msgid "Delete job"
 msgstr "删除作业"
 
 msgid "Something went wrong whilst creating your job"
-msgstr ""
+msgstr "在创建工作时出了点问题"
 
 msgid "CRON Expression"
-msgstr ""
+msgstr "CRON表达式"
 
 msgid "Delay"
-msgstr ""
+msgstr "延迟"
 
 msgid "Delay in seconds ({{ lowerbound }} - {{ upperbound }})"
-msgstr ""
+msgstr "延迟秒数（{{lowerbound}}-{{upperbound}}）"
 
 msgid "Name"
 msgstr "名称"
@@ -66,13 +66,13 @@ msgid "Job details"
 msgstr "作业详情"
 
 msgid "Created {{ createdFromNow }}."
-msgstr ""
+msgstr "已创建{{createdFromNow}}。"
 
 msgid "Last run {{ lastRunFromNow }}."
-msgstr ""
+msgstr "上次运行{{lastRunFromNow}}。"
 
 msgid "Last run status: {{ translatedStatus }}."
-msgstr ""
+msgstr "上次运行状态：{{translationStatus}}。"
 
 msgid "Actions"
 msgstr "行动"
@@ -84,7 +84,7 @@ msgid "Edit"
 msgstr "编辑<br>"
 
 msgid "Job name"
-msgstr ""
+msgstr "作业名称"
 
 msgid "Type"
 msgstr "类型"
@@ -93,25 +93,25 @@ msgid "Schedule"
 msgstr "调度"
 
 msgid "Next run"
-msgstr ""
+msgstr "下一轮"
 
 msgid "Status"
 msgstr "状态"
 
 msgid "On/off"
-msgstr ""
+msgstr "开关"
 
 msgid "No jobs to display"
-msgstr ""
+msgstr "没有要显示的工作"
 
 msgid "Not scheduled"
-msgstr ""
+msgstr "未安排"
 
 msgid "Run manually"
-msgstr ""
+msgstr "手动运行"
 
 msgid "{{ delay }} seconds after last run"
-msgstr ""
+msgstr "上次运行后{{delay}}秒"
 
 msgid "View"
 msgstr "查看"
@@ -120,79 +120,79 @@ msgid "Every hour"
 msgstr "每小时"
 
 msgid "Every day at midnight"
-msgstr ""
+msgstr "每天午夜"
 
 msgid "Every day at 3 am"
-msgstr ""
+msgstr "每天凌晨3点"
 
 msgid "Every day at noon"
-msgstr ""
+msgstr "每天中午"
 
 msgid "Every week"
-msgstr ""
+msgstr "每周"
 
 msgid "Choose a preset time/interval"
-msgstr ""
+msgstr "选择预设时间/间隔"
 
 msgid "Insert preset"
-msgstr ""
+msgstr "插入预设"
 
 msgid "Are you sure you want to delete this job?"
 msgstr "你确信要删除该作业"
 
 msgid "Are you sure you want to discard this form?"
-msgstr ""
+msgstr "您确定要舍弃此表格吗？"
 
 msgid "Discard"
 msgstr "放弃"
 
 msgid "Are you sure you want to run this job?"
-msgstr ""
+msgstr "您确定要执行这项工作吗？"
 
 msgid "Run"
-msgstr ""
+msgstr "运行"
 
 msgid "Back to all jobs"
-msgstr ""
+msgstr "返回所有作业"
 
 msgid "New Job"
-msgstr ""
+msgstr "新作业任务"
 
 msgid "Configuration"
 msgstr "配置"
 
 msgid "About job configuration"
-msgstr ""
+msgstr "关于作业配置"
 
 msgid "Job: {{ name }}"
-msgstr ""
+msgstr "职位：{{name}}"
 
 msgid "Scheduled jobs"
 msgstr "调度的作业"
 
 msgid "Filter jobs"
-msgstr ""
+msgstr "筛选工作"
 
 msgid "Include system jobs in list"
-msgstr ""
+msgstr "在列表中包括系统作业"
 
 msgid "New job"
-msgstr ""
+msgstr "新作业任务"
 
 msgid "System job: {{ name }}"
-msgstr ""
+msgstr "系统作业：{{name}}"
 
 msgid "Data value"
-msgstr ""
+msgstr "资料值"
 
 msgid "Completeness"
 msgstr "完整性"
 
 msgid "Completeness target"
-msgstr ""
+msgstr "完成目标"
 
 msgid "Org unit target"
-msgstr ""
+msgstr "组织机构目标"
 
 msgid "Event"
 msgstr "事件"
@@ -216,49 +216,49 @@ msgid "Failed"
 msgstr "Failed"
 
 msgid "Not started"
-msgstr ""
+msgstr "没有开始"
 
 msgid "Running"
-msgstr ""
+msgstr "在运行"
 
 msgid "Scheduled"
 msgstr "已经调度"
 
 msgid "Stopped"
-msgstr ""
+msgstr "已停止"
 
 msgid "Analytics table"
-msgstr ""
+msgstr "分析表"
 
 msgid "Continuous analytics table"
-msgstr ""
+msgstr "连续分析表"
 
 msgid "Credentials expiry alert"
-msgstr ""
+msgstr "凭证到期警报"
 
 msgid "Data integrity"
-msgstr ""
+msgstr "数据的完整性"
 
 msgid "Dataset notification"
-msgstr ""
+msgstr "数据集通知"
 
 msgid "Data statistics"
-msgstr ""
+msgstr "数据统计"
 
 msgid "Data synchronization"
 msgstr "数据同步"
 
 msgid "Event programs data sync"
-msgstr ""
+msgstr "活动节目数据同步"
 
 msgid "File resource clean up"
-msgstr ""
+msgstr "文件资源清理"
 
 msgid "Metadata synchronization"
-msgstr ""
+msgstr "元数据同步"
 
 msgid "Monitoring"
-msgstr ""
+msgstr "监控"
 
 msgid "Predictor"
 msgstr "预报"
@@ -270,25 +270,25 @@ msgid "Push analysis"
 msgstr "推送分析"
 
 msgid "Remove expired reserved values"
-msgstr ""
+msgstr "删除过期的保留值"
 
 msgid "Resource table"
-msgstr ""
+msgstr "资源表"
 
 msgid "Send scheduled message"
-msgstr ""
+msgstr "发送预定的消息"
 
 msgid "Tracker programs data sync"
-msgstr ""
+msgstr "跟踪器程序数据同步"
 
 msgid "Validation results notification"
-msgstr ""
+msgstr "验证结果通知"
 
 msgid "Disable inactive users"
-msgstr ""
+msgstr "禁用不活动的用户"
 
 msgid "A CRON expression is required"
-msgstr ""
+msgstr "需要CRON表达式"
 
 msgid "Please enter a valid CRON expression"
-msgstr ""
+msgstr "请输入有效的CRON表达式"
