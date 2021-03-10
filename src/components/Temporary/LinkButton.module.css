@@ -1,4 +1,4 @@
-.link {
+.linkButton {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -16,9 +16,16 @@
     background-color: #f9fafb;
 }
 
-.link:hover,
-.link:active,
-.link:focus {
+.linkButton:hover,
+.linkButton:active,
+.linkButton:focus {
     border-color: var(--colors-grey500);
     background-color: var(--colors-grey200);
+}
+
+.small {
+    height: 28px;
+    padding: 0 var(--spacers-dp8);
+    font-size: 14px;
+    line-height: var(--spacers-dp16);
 }

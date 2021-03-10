@@ -3,7 +3,7 @@ import { PropTypes } from '@dhis2/prop-types'
 import { Card, Checkbox, InputField, IconInfo16 } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
 import { JobTable } from '../../components/JobTable'
-import { Link } from '../../components/Temporary'
+import { LinkButton } from '../../components/Temporary'
 import styles from './JobList.module.css'
 
 const infoLink =
@@ -53,7 +53,7 @@ const JobList = ({
                             setShowSystemJobs(checked)
                         }}
                     />
-                    <Link to="/add">{i18n.t('New job')}</Link>
+                    <LinkButton to="/add">{i18n.t('New job')}</LinkButton>
                 </div>
             </div>
             <JobTable jobs={jobs} />
