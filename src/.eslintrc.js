@@ -2,18 +2,18 @@ const { config } = require('@dhis2/cli-style')
 
 module.exports = {
     root: true,
-    plugins: ['react-hooks', 'i18next'],
+    plugins: ['react-hooks', 'i18next', 'jsx-a11y'],
     extends: [
         config.eslintReact,
         'plugin:jsx-a11y/recommended',
         'plugin:compat/recommended',
     ],
     rules: {
+        'compat/compat': 'warn',
         'i18next/no-literal-string': [
             'error',
-            { markupOnly: true, onlyAttribute: [""] },
+            { markupOnly: true, onlyAttribute: ["label"] },
         ],
-        'compat/compat': 'warn',
         'import/export': 'error',
         'import/extensions': ['error', 'never'],
         'import/first': 'error',
@@ -54,11 +54,11 @@ module.exports = {
         'import/order': ['error', { 'newlines-between': 'never' }],
         'react/require-default-props': 'warn',
         'react-hooks/rules-of-hooks': 'error',
-        'react-hooks/exhaustive-deps': 'warn',
+        'react-hooks/exhaustive-deps': 'error',
     },
     overrides: [
         {
-            files: ['*.test.js'],
+            files: ['*.test.js', '**/__tests__/*.js'],
             rules: {
                 'i18next/no-literal-string': 'off',
                 'react/prop-types': 'off',
