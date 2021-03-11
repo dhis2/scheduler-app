@@ -13,7 +13,7 @@ const config = {
     type: 'app',
     coreApp: true,
     entryPoints: {
-        app: './src/components/App',
+        app: './src/components/App/index.js',
     },
 }
 
