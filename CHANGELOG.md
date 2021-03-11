@@ -1,3 +1,10 @@
+## [1.1.11](https://github.com/dhis2/scheduler-app/compare/v1.1.10...v1.1.11) (2021-03-11)
+
+
+### Bug Fixes
+
+* **linting:** import linting fixes from cli-style ([b14feca](https://github.com/dhis2/scheduler-app/commit/b14feca1895144b0a093b6e0af8879ac5a007f02))
+
 ## [1.1.10](https://github.com/dhis2/scheduler-app/compare/v1.1.9...v1.1.10) (2021-03-11)
 
 
