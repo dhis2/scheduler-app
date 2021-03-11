@@ -36,7 +36,6 @@
         "eslint-plugin-i18next": "^5.0.0",
         "eslint-plugin-import": "^2.22.1",
         "eslint-plugin-jsx-a11y": "^6.4.1",
-        "eslint-plugin-react-hooks": "^4.2.0",
         "identity-obj-proxy": "^3.0.0",
         "stylelint": "^13.11.0",
         "stylelint-config-prettier": "^8.0.2",

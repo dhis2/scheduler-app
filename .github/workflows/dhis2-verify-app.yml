@@ -75,6 +75,10 @@ jobs:
                   path: '**/node_modules'
                   key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
 
+            # Can be removed if translations aren't required for linting to pass, or if not using the App Platform
+            - name: Generate translations
+              run: yarn d2-app-scripts i18n generate
+
             - name: Lint
               run: yarn lint
 
