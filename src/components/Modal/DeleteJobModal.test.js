@@ -34,10 +34,7 @@ describe('<DeleteJobModal>', () => {
         }
         const wrapper = mount(<DeleteJobModal {...props} />)
 
-        wrapper
-            .find('button')
-            .find({ name: 'hide-modal' })
-            .simulate('click')
+        wrapper.find('button').find({ name: 'hide-modal' }).simulate('click')
 
         expect(props.hideModal).toHaveBeenCalled()
     })
@@ -57,10 +54,7 @@ describe('<DeleteJobModal>', () => {
 
         const wrapper = mount(<DeleteJobModal {...props} />)
 
-        wrapper
-            .find('button')
-            .find({ name: 'delete-job-id' })
-            .simulate('click')
+        wrapper.find('button').find({ name: 'delete-job-id' }).simulate('click')
 
         await deletion
 

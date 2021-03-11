@@ -16,10 +16,10 @@
         "format:css": "prettier './src/**/*.css' --write"
     },
     "dependencies": {
-        "@dhis2/app-runtime": "^2.7.0",
-        "@dhis2/d2-i18n": "^1.0.6",
+        "@dhis2/app-runtime": "^2.8.0",
+        "@dhis2/d2-i18n": "^1.1.0",
         "@dhis2/prop-types": "2.0.3",
-        "@dhis2/ui": "^6.5.0",
+        "@dhis2/ui": "^6.5.4",
         "cronstrue": "^1.109.0",
         "history": "^4.9.0",
         "moment": "^2.29.1",
@@ -27,8 +27,8 @@
         "react-router-dom": "^5.2.0"
     },
     "devDependencies": {
-        "@dhis2/cli-app-scripts": "^4.0.9",
-        "@dhis2/cli-style": "^7.1.0-alpha.9",
+        "@dhis2/cli-app-scripts": "^6.0.0",
+        "@dhis2/cli-style": "^7.3.0",
         "@testing-library/react-hooks": "^5.0.3",
         "enzyme": "^3.10.0",
         "enzyme-adapter-react-16": "^1.15.6",
@@ -41,10 +41,6 @@
         "stylelint-config-prettier": "^8.0.2",
         "stylelint-config-standard": "^20.0.0",
         "stylelint-no-unsupported-browser-features": "^4.1.4"
-    },
-    "resolutions": {
-        "@dhis2/app-runtime": "^2.2.2",
-        "@dhis2/d2-i18n": "^1.0.6"
     },
     "husky": {
         "hooks": {

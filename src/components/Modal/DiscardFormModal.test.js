@@ -32,10 +32,7 @@ describe('<DiscardFormModal>', () => {
         const spy = jest.fn()
         const wrapper = mount(<DiscardFormModal hideModal={spy} />)
 
-        wrapper
-            .find('button')
-            .find({ name: 'discard-form' })
-            .simulate('click')
+        wrapper.find('button').find({ name: 'discard-form' }).simulate('click')
 
         expect(history.push).toHaveBeenCalledWith('/')
         expect(spy).toHaveBeenCalled()

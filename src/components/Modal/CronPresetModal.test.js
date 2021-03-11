@@ -19,10 +19,7 @@ describe('<CronPresetModal>', () => {
         }
         const wrapper = mount(<CronPresetModal {...props} />)
 
-        wrapper
-            .find('button')
-            .find({ name: 'hide-modal' })
-            .simulate('click')
+        wrapper.find('button').find({ name: 'hide-modal' }).simulate('click')
 
         expect(props.hideModal).toHaveBeenCalled()
     })
@@ -41,10 +38,7 @@ describe('<CronPresetModal>', () => {
             .find({ value })
             .simulate('change', { target: { value } })
 
-        wrapper
-            .find('button')
-            .find({ name: 'insert-preset' })
-            .simulate('click')
+        wrapper.find('button').find({ name: 'insert-preset' }).simulate('click')
 
         expect(props.setCron).toHaveBeenCalledWith(value)
         expect(props.hideModal).toHaveBeenCalled()
