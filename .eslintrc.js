@@ -1,3 +1,5 @@
+/* eslint-disable import/no-unused-modules */
+
 const { config } = require('@dhis2/cli-style')
 
 module.exports = {
@@ -20,20 +22,6 @@ module.exports = {
         'import/newline-after-import': 'error',
         'import/no-cycle': 'error',
         'import/no-duplicates': 'error',
-        'import/no-internal-modules': [
-            'error',
-            {
-                allow: [
-                    '**/components/*',
-                    '**/hooks/*',
-                    '**/pages/*',
-                    '**/services/*',
-                    'cronstrue/*',
-                    'test/*',
-                    'src/.eslintrc',
-                ],
-            },
-        ],
         'import/no-named-as-default': 'error',
         'import/no-named-as-default-member': 'error',
         'import/no-named-default': 'error',
@@ -44,11 +32,6 @@ module.exports = {
             {
                 unusedExports: true,
                 missingExports: true,
-                ignoreExports: [
-                    '**/*.test.js',
-                    'src/setupTests.js',
-                    'src/components/App/index.js',
-                ],
             },
         ],
         'import/no-useless-path-segments': 'error',
@@ -64,11 +47,6 @@ module.exports = {
                 'i18next/no-literal-string': 'off',
                 'react/prop-types': 'off',
                 'react/display-name': 'off',
-            },
-        },
-        {
-            files: ['.eslintrc.js'],
-            rules: {
                 'import/no-unused-modules': 'off',
             },
         },
