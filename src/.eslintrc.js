@@ -12,7 +12,7 @@ module.exports = {
         'compat/compat': 'warn',
         'i18next/no-literal-string': [
             'error',
-            { markupOnly: true, onlyAttribute: ["label"] },
+            { markupOnly: true, onlyAttribute: ['label'] },
         ],
         'import/export': 'error',
         'import/extensions': ['error', 'never'],
@@ -30,6 +30,7 @@ module.exports = {
                     '**/services/*',
                     'cronstrue/*',
                     'test/*',
+                    'src/.eslintrc',
                 ],
             },
         ],
@@ -62,6 +63,13 @@ module.exports = {
             rules: {
                 'i18next/no-literal-string': 'off',
                 'react/prop-types': 'off',
+                'react/display-name': 'off',
+            },
+        },
+        {
+            files: ['.eslintrc.js'],
+            rules: {
+                'import/no-unused-modules': 'off',
             },
         },
     ],
