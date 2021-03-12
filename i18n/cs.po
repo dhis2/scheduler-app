@@ -66,10 +66,10 @@ msgid "Created {{ createdFromNow }}."
 msgstr "Vytvořeno {{ createdFromNow }}."
 
 msgid "Last run {{ lastRunFromNow }}."
-msgstr ""
+msgstr "Poslední spuštění {{ lastRunFromNow }}."
 
 msgid "Last run status: {{ translatedStatus }}."
-msgstr ""
+msgstr "Stav posledního spuštění: {{ translatedStatus }}."
 
 msgid "Actions"
 msgstr "Akce"
@@ -99,7 +99,7 @@ msgid "On/off"
 msgstr "Zapnuto / vypnuto"
 
 msgid "No jobs to display"
-msgstr ""
+msgstr "Žádné úlohy k zobrazení"
 
 msgid "Not scheduled"
 msgstr "Není naplánováno"
@@ -108,7 +108,7 @@ msgid "Run manually"
 msgstr "Spustit ručně"
 
 msgid "{{ delay }} seconds after last run"
-msgstr ""
+msgstr "{{ delay }} s po posledním spuštění"
 
 msgid "View"
 msgstr "Zobrazit"
@@ -159,37 +159,37 @@ msgid "Configuration"
 msgstr "Konfigurace"
 
 msgid "About job configuration"
-msgstr ""
+msgstr "O konfiguraci úlohy"
 
 msgid "Job: {{ name }}"
-msgstr ""
+msgstr "Úloha: {{ name }}"
 
 msgid "Scheduled jobs"
 msgstr "Plánované úlohy"
 
 msgid "Filter jobs"
-msgstr ""
+msgstr "Filtrovat úlohy"
 
 msgid "Include system jobs in list"
-msgstr ""
+msgstr "Zahrnout systémové úlohy do seznamu"
 
 msgid "New job"
-msgstr ""
+msgstr "Nová úloha"
 
 msgid "System job: {{ name }}"
-msgstr ""
+msgstr "Úloha systému: {{ name }}"
 
 msgid "Data value"
-msgstr ""
+msgstr "Hodnota dat"
 
 msgid "Completeness"
 msgstr "Úplnost"
 
 msgid "Completeness target"
-msgstr ""
+msgstr "Cíl úplnosti"
 
 msgid "Org unit target"
-msgstr ""
+msgstr "Cíl organizační jednotky"
 
 msgid "Event"
 msgstr "Událost"
@@ -237,25 +237,25 @@ msgid "Data integrity"
 msgstr "Integrita dat"
 
 msgid "Dataset notification"
-msgstr ""
+msgstr "Oznámení o datové sadě"
 
 msgid "Data statistics"
-msgstr ""
+msgstr "Statistika dat"
 
 msgid "Data synchronization"
 msgstr "Synchronizace dat"
 
 msgid "Event programs data sync"
-msgstr ""
+msgstr "Synchronizace dat programů událostí"
 
 msgid "File resource clean up"
-msgstr ""
+msgstr "Vyčištění souboru"
 
 msgid "Metadata synchronization"
 msgstr "Synchronizace metadat"
 
 msgid "Monitoring"
-msgstr ""
+msgstr "Monitorování"
 
 msgid "Predictor"
 msgstr "Prediktor"
@@ -267,25 +267,25 @@ msgid "Push analysis"
 msgstr "Analýza push"
 
 msgid "Remove expired reserved values"
-msgstr ""
+msgstr "Odebrat prošlé rezervované hodnoty"
 
 msgid "Resource table"
-msgstr ""
+msgstr "Tabulka zdrojů"
 
 msgid "Send scheduled message"
-msgstr ""
+msgstr "Odeslat naplánovanou zprávu"
 
 msgid "Tracker programs data sync"
-msgstr ""
+msgstr "Synchronizace dat trasovacích programů"
 
 msgid "Validation results notification"
 msgstr "Oznámení o výsledku ověření"
 
 msgid "Disable inactive users"
-msgstr ""
+msgstr "Zakázat neaktivní uživatele"
 
 msgid "A CRON expression is required"
-msgstr ""
+msgstr "Je vyžadován výraz CRON"
 
 msgid "Please enter a valid CRON expression"
-msgstr ""
+msgstr "Zadejte platný výraz CRON"
