@@ -28,7 +28,7 @@
     },
     "devDependencies": {
         "@dhis2/cli-app-scripts": "^6.0.0",
-        "@dhis2/cli-style": "^7.3.0",
+        "@dhis2/cli-style": "^8.0.0-alpha.4",
         "@testing-library/react-hooks": "^5.0.3",
         "enzyme": "^3.10.0",
         "enzyme-adapter-react-16": "^1.15.6",
@@ -36,6 +36,7 @@
         "eslint-plugin-i18next": "^5.0.0",
         "eslint-plugin-import": "^2.22.1",
         "eslint-plugin-jsx-a11y": "^6.4.1",
+        "eslint-plugin-prettier": "^3.3.1",
         "identity-obj-proxy": "^3.0.0",
         "stylelint": "^13.11.0",
         "stylelint-config-prettier": "^8.0.2",
