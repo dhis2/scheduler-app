@@ -1,0 +1,38 @@
+/* stylelint-disable */
+
+.svg {
+    display: block;
+}
+
+.svg {
+    fill: var(--theme-default);
+}
+
+.svg:global(.checked) {
+    fill: var(--colors-teal400);
+}
+
+.svg:global(.disabled) {
+    fill: var(--colors-grey400);
+}
+
+.svg:global(.error) {
+    fill: var(--theme-error);
+}
+
+.svg:global(.valid) {
+    fill: var(--theme-valid);
+}
+
+.svg:global(.warning) {
+    fill: var(--theme-warning);
+}
+
+.svg:not(:global(.checked)) :global(.inner),
+.svg:not(:global(.checked)) :global(.outer.checked) {
+    fill: none;
+}
+
+.circle {
+    fill: var(--colors-white);
+}

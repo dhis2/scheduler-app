@@ -6,8 +6,8 @@ Feature: Users should be able to create jobs that take parameters
         And the user selects the <job-type> job type
         And the user enters a <schedule-type> schedule
         And the user enters the parameters for <job-type>
-        When the user clicks the save button
-        Then the <job-type> job data is sent to the backend
+        Then the expected job is created when the user saves the <job-type> job
+        And the job list is loaded
 
     Scenarios:
         |                   job-type | schedule-type |

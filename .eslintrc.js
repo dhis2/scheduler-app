@@ -51,5 +51,13 @@ module.exports = {
                 'jsx-a11y/anchor-has-content': 'off',
             },
         },
+        {
+            files: ['**/Temporary/**'],
+            rules: {
+                'import/extensions': 'off',
+                'import/no-internal-modules': 'off',
+                'import/no-unused-modules': 'off',
+            },
+        },
     ],
 }
