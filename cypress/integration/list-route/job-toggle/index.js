@@ -1,14 +1,14 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
-Given('a disabled user job exists', () => {
-    /**
-     * Currently cypress can't override earlier defined intercepts. This
-     * is a known bug. The code below is a temporary fix that can be
-     * removed once cypress has resolved the issue.
-     *
-     * https://github.com/cypress-io/cypress/issues/9302
-     */
+/**
+ * Currently cypress can't override earlier defined intercepts. This
+ * is a known bug. The code below is a temporary fix that can be
+ * removed once cypress has resolved the issue.
+ *
+ * https://github.com/cypress-io/cypress/issues/9302
+ */
 
+Given('a disabled user job exists', () => {
     const responses = []
 
     cy.fixture('list-route/disabled-user-job').then(fixture => {
@@ -26,14 +26,6 @@ Given('a disabled user job exists', () => {
 })
 
 Given('an enabled user job exists', () => {
-    /**
-     * Currently cypress can't override earlier defined intercepts. This
-     * is a known bug. The code below is a temporary fix that can be
-     * removed once cypress has resolved the issue.
-     *
-     * https://github.com/cypress-io/cypress/issues/9302
-     */
-
     const responses = []
 
     cy.fixture('list-route/enabled-user-job').then(fixture => {

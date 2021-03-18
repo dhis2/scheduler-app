@@ -25,11 +25,6 @@ Given('the user clicks the actions button', () => {
 })
 
 When('the user clicks the view button', () => {
-    /**
-     * This should be a role link selector, but that
-     * doesn't work with the menu item. We'll need to
-     * fix that in ui
-     */
     cy.findByText('View').click()
 })
 

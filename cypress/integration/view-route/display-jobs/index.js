@@ -23,12 +23,6 @@ Then('the system job data should be displayed in the form', () => {
         .should('exist')
         .and('have.value', 'System Job 1')
 
-    /**
-     * TODO: the select isn't accessible, as we don't use a standard select
-     * nor decorate it with the appropriate aria roles. We should do one of
-     * those.
-     */
-
     cy.findByText('Job type').should('exist')
     cy.findByText('Credentials expiry alert').should('exist')
 

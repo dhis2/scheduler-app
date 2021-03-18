@@ -15,12 +15,6 @@ Given('the user navigated to the edit job page', () => {
     cy.findByRole('heading', { name: 'Job: Job 1' }).should('exist')
 })
 
-/**
- * We're not asserting what happens when you click the link. Just that the
- * expected link exists. This follows Cypress recommendations:
- * https://docs.cypress.io/guides/references/trade-offs.html#Multiple-tabs
- */
-
 Then('there is a link to the documentation', () => {
     cy.findByRole('link', { name: 'About job configuration' })
         .should('exist')

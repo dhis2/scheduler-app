@@ -14,12 +14,6 @@ Given('the user navigated to the view job page', () => {
     )
 })
 
-/**
- * We're not asserting what happens when you click the link. Just that the
- * expected link exists. This follows Cypress recommendations:
- * https://docs.cypress.io/guides/references/trade-offs.html#Multiple-tabs
- */
-
 Then('there are two links to the job list page', () => {
     cy.findAllByRole('link', { name: 'Back to all jobs' })
         .should('have.length', 2)
