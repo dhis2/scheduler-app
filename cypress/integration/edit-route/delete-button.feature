@@ -1,13 +1,12 @@
 Feature: Users should be able to delete a job
 
     Background:
-        Given the user navigated to an edit job page
+        Given a single user job exists
+        And the user navigated to the edit job page
         And the user clicks the delete job button
 
     Scenario: User deletes a job
-        When the user clicks delete in the delete confirmation modal
-        Then the job will be deleted
+        Then the job will be deleted upon confirmation
 
-    Scenario: User cancels inserting a cron preset
-        When the user clicks cancel in the delete confirmation modal
-        Then the job will not be deleted
+    Scenario: User cancels deleting a job
+        Then the job will not be deleted upon cancelling

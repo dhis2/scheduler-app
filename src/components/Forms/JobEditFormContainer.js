@@ -20,7 +20,6 @@ const initialFields = [
     'jobParameters',
     'jobType',
     'name',
-    'schedulingType',
 ]
 
 const JobEditFormContainer = ({ setIsPristine }) => {

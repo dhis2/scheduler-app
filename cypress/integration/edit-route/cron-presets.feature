@@ -1,7 +1,8 @@
 Feature: Users should be able to insert cron presets
 
     Background:
-        Given the user navigated to an edit job page for a cron scheduled job
+        Given a single cron scheduled user job exists
+        And the user navigated to the edit job page
 
     Scenario: User inserts a cron preset
         When the user clicks the choose from preset times button
