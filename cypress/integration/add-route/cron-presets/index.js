@@ -35,7 +35,5 @@ Then('the selected cron schedule will be inserted in the form', () => {
 })
 
 Then('the selected cron schedule will not be inserted in the form', () => {
-    cy.findByLabelText('CRON Expression*')
-        .should('exist')
-        .and('have.value', '')
+    cy.findByLabelText('CRON Expression*').should('exist').and('have.value', '')
 })

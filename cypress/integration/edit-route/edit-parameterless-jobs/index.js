@@ -38,9 +38,7 @@ Given('the user navigated to the edit job page', () => {
 })
 
 Given('the user enters a job name', () => {
-    cy.findByLabelText('Name*')
-        .clear()
-        .type('Name')
+    cy.findByLabelText('Name*').clear().type('Name')
 })
 
 Given('the user selects the data integrity job type', () => {
@@ -60,9 +58,7 @@ Given('the user selects the program notifications job type', () => {
 })
 
 Given('the user enters a cron schedule', () => {
-    cy.findByLabelText('CRON Expression*')
-        .clear()
-        .type('0 0 * ? * *')
+    cy.findByLabelText('CRON Expression*').clear().type('0 0 * ? * *')
 })
 
 Then('the job is updated when the user saves the data integrity job', () =>

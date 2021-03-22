@@ -38,9 +38,7 @@ Given('the user navigated to the edit job page', () => {
 })
 
 Given('the user enters a job name', () => {
-    cy.findByLabelText('Name*')
-        .clear()
-        .type('Name')
+    cy.findByLabelText('Name*').clear().type('Name')
 })
 
 Given('the user selects the analytics table job type', () => {
@@ -80,21 +78,15 @@ Given('the user selects the predictor job type', () => {
 })
 
 Given('the user enters a cron schedule', () => {
-    cy.findByLabelText('CRON Expression*')
-        .clear()
-        .type('0 0 * ? * *')
+    cy.findByLabelText('CRON Expression*').clear().type('0 0 * ? * *')
 })
 
 Given('the user enters a delay schedule', () => {
-    cy.findByLabelText('Delay*')
-        .clear()
-        .type('100')
+    cy.findByLabelText('Delay*').clear().type('100')
 })
 
 Given('the user enters the parameters for analytics table', () => {
-    cy.findByLabelText('Last years')
-        .clear()
-        .type('1')
+    cy.findByLabelText('Last years').clear().type('1')
 
     cy.findByText('Skip table types')
         .parents('[data-test="dhis2-uiwidgets-multiselectfield"]')
@@ -111,13 +103,9 @@ Given('the user enters the parameters for analytics table', () => {
 })
 
 Given('the user enters the parameters for continuous analytics table', () => {
-    cy.findByLabelText('Full update hour of day')
-        .clear()
-        .type('1')
+    cy.findByLabelText('Full update hour of day').clear().type('1')
 
-    cy.findByLabelText('Last years')
-        .clear()
-        .type('2')
+    cy.findByLabelText('Last years').clear().type('2')
 
     cy.findByText('Skip table types')
         .parents('[data-test="dhis2-uiwidgets-multiselectfield"]')
@@ -132,42 +120,26 @@ Given('the user enters the parameters for continuous analytics table', () => {
 })
 
 Given('the user enters the parameters for data synchronization', () => {
-    cy.findByLabelText('Page size')
-        .clear()
-        .type('1')
+    cy.findByLabelText('Page size').clear().type('1')
 })
 
 Given('the user enters the parameters for tracker programs data sync', () => {
-    cy.findByLabelText('Page size')
-        .clear()
-        .type('1')
+    cy.findByLabelText('Page size').clear().type('1')
 })
 
 Given('the user enters the parameters for event programs data sync', () => {
-    cy.findByLabelText('Page size')
-        .clear()
-        .type('1')
+    cy.findByLabelText('Page size').clear().type('1')
 })
 
 Given('the user enters the parameters for metadata sync', () => {
-    cy.findByLabelText('Tracker program page size')
-        .clear()
-        .type('1')
-    cy.findByLabelText('Event program page size')
-        .clear()
-        .type('2')
-    cy.findByLabelText('Data values page size')
-        .clear()
-        .type('3')
+    cy.findByLabelText('Tracker program page size').clear().type('1')
+    cy.findByLabelText('Event program page size').clear().type('2')
+    cy.findByLabelText('Data values page size').clear().type('3')
 })
 
 Given('the user enters the parameters for monitoring', () => {
-    cy.findByLabelText('Relative start')
-        .clear()
-        .type('1')
-    cy.findByLabelText('Relative end')
-        .clear()
-        .type('2')
+    cy.findByLabelText('Relative start').clear().type('1')
+    cy.findByLabelText('Relative end').clear().type('2')
 
     cy.findByText('Validation rule groups')
         .parents('[data-test="dhis2-uiwidgets-multiselectfield"]')
@@ -198,12 +170,8 @@ Given('the user enters the parameters for push analysis', () => {
 })
 
 Given('the user enters the parameters for predictor', () => {
-    cy.findByLabelText('Relative start')
-        .clear()
-        .type('1')
-    cy.findByLabelText('Relative end')
-        .clear()
-        .type('2')
+    cy.findByLabelText('Relative start').clear().type('1')
+    cy.findByLabelText('Relative end').clear().type('2')
 
     cy.findByText('Predictors')
         .parents('[data-test="dhis2-uiwidgets-multiselectfield"]')

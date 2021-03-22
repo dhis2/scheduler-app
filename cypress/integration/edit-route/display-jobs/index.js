@@ -17,9 +17,7 @@ Given('the user navigated to the edit job page', () => {
 })
 
 Then('the user job data should be displayed in the form', () => {
-    cy.findByLabelText('Name*')
-        .should('exist')
-        .and('have.value', 'Job 1')
+    cy.findByLabelText('Name*').should('exist').and('have.value', 'Job 1')
 
     cy.findByText('Job type').should('exist')
     cy.findByText('Data integrity').should('exist')

@@ -19,9 +19,7 @@ Given('the user navigated to the view job page', () => {
 })
 
 Then('the system job data should be displayed in the form', () => {
-    cy.findByLabelText('Name')
-        .should('exist')
-        .and('have.value', 'System Job 1')
+    cy.findByLabelText('Name').should('exist').and('have.value', 'System Job 1')
 
     cy.findByText('Job type').should('exist')
     cy.findByText('Credentials expiry alert').should('exist')
