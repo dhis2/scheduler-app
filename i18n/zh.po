@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-02-23T11:39:51.301Z\n"
+"POT-Creation-Date: 2021-03-04T11:18:04.801Z\n"
 "PO-Revision-Date: 2020-05-08 14:30+0000\n"
 "Last-Translator: easylin <lin_xd@126.com>, 2021\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
@@ -151,6 +151,9 @@ msgstr "您确定要执行这项工作吗？"
 
 msgid "Run"
 msgstr "运行"
+
+msgid "Toggle job"
+msgstr ""
 
 msgid "Back to all jobs"
 msgstr "返回所有作业"
