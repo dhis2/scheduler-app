@@ -13,13 +13,17 @@
         "format": "yarn format:js && yarn format:text && yarn format:css",
         "format:js": "d2-style js apply",
         "format:text": "d2-style text apply",
-        "format:css": "prettier './src/**/*.css' --write"
+        "format:css": "prettier './src/**/*.css' --write",
+        "cypress:open": "d2-utils-cypress open --appStart 'yarn start'",
+        "cypress:run": "d2-utils-cypress run --appStart 'yarn start'",
+        "cypress:capture": "d2-utils-cypress run --capture --appStart 'yarn start' --serverMinorVersion 36",
+        "cypress:stub": "d2-utils-cypress run --stub --appStart 'yarn start' --serverMinorVersion 36"
     },
     "dependencies": {
         "@dhis2/app-runtime": "^2.8.0",
         "@dhis2/d2-i18n": "^1.1.0",
         "@dhis2/prop-types": "2.0.3",
-        "@dhis2/ui": "^6.5.4",
+        "@dhis2/ui": "^6.5.0-alpha.2",
         "cronstrue": "^1.109.0",
         "history": "^4.9.0",
         "moment": "^2.29.1",
@@ -29,6 +33,10 @@
     "devDependencies": {
         "@dhis2/cli-app-scripts": "^6.0.0",
         "@dhis2/cli-style": "^7.3.0",
+        "@dhis2/cli-utils-cypress": "^7.0.0",
+        "@dhis2/cypress-commands": "^7.0.0",
+        "@dhis2/cypress-plugins": "^7.0.0",
+        "@testing-library/cypress": "^7.0.4",
         "@testing-library/react-hooks": "^5.0.3",
         "enzyme": "^3.10.0",
         "enzyme-adapter-react-16": "^1.15.6",

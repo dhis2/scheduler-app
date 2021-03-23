@@ -12,7 +12,7 @@ import '../../locales'
 
 const App = () => (
     <React.Fragment>
-        <CssVariables spacers colors />
+        <CssVariables spacers colors theme />
         <PageWrapper>
             <AuthWall>
                 <Store>

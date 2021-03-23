@@ -1,0 +1,31 @@
+.linkButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    transition: all 0.15s cubic-bezier(0.4, 0, 0.6, 1);
+    color: var(--colors-grey900);
+    height: 36px;
+    padding: 0 var(--spacers-dp12);
+    font-size: 14px;
+    line-height: 16px;
+    border: 1px solid var(--colors-grey500);
+    background-color: #f9fafb;
+}
+
+.linkButton:hover,
+.linkButton:active,
+.linkButton:focus {
+    border-color: var(--colors-grey500);
+    background-color: var(--colors-grey200);
+}
+
+.small {
+    height: 28px;
+    padding: 0 var(--spacers-dp8);
+    font-size: 14px;
+    line-height: var(--spacers-dp16);
+}

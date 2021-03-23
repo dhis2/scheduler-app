@@ -23,7 +23,7 @@ const JobTableRow = ({
     },
 }) => (
     <TableRow>
-        <TableCell>{displayName}</TableCell>
+        <TableCell role="rowheader">{displayName}</TableCell>
         <TableCell>{jobTypesMap[jobType]}</TableCell>
         <TableCell>
             <Schedule

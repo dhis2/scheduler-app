@@ -1,7 +1,7 @@
 Feature: User job actions
 
     Background:
-        Given some user jobs exist
+        Given a single user job exists
         And the user navigated to the job list page
         And the user clicks the actions button
 
@@ -11,20 +11,16 @@ Feature: User job actions
 
     Scenario: User manually runs a user job
         When the user clicks the run manually button
-        And the user confirms the run manually modal
-        Then the job will be executed
+        Then the job will be executed upon confirmation
 
     Scenario: User cancels a manual user job run modal
         When the user clicks the run manually button
-        And the user cancels the run manually modal
-        Then the job will not be executed
+        Then the job will not be executed upon cancelling
 
     Scenario: User deletes a user job
         When the user clicks the delete button
-        And the user confirms the delete modal
-        Then the job will be deleted
+        Then the job will be deleted upon confirmation
 
     Scenario: User cancels a delete user job modal
         When the user clicks the delete button
-        And the user cancels the delete modal
-        Then the job will not be deleted
+        Then the job will not be deleted upon cancelling

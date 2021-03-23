@@ -10,7 +10,7 @@ import {
 } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
 import { hooks } from '../../components/Store'
-import { DiscardFormButton } from '../../components/Buttons'
+import { LinkButton } from '../../components/Temporary'
 import { JobDetails } from '../../components/JobDetails'
 import translateCron from '../../services/translate-cron'
 import { jobTypesMap } from '../../services/server-translations'
@@ -33,9 +33,9 @@ const JobView = () => {
     return (
         <React.Fragment>
             <header className={styles.pageHeader}>
-                <DiscardFormButton className={styles.pageHeaderButton} small>
+                <LinkButton className={styles.pageHeaderButton} to="/" small>
                     {i18n.t('Back to all jobs')}
-                </DiscardFormButton>
+                </LinkButton>
                 <h2 className={styles.pageHeaderTitle}>
                     {i18n.t('System job: {{ name }}', {
                         name,
@@ -68,10 +68,16 @@ const JobView = () => {
                     />
                 </div>
                 <Box maxWidth="600px">
-                    <InputField label={i18n.t('Name')} disabled value={name} />
+                    <InputField
+                        label={i18n.t('Name')}
+                        disabled
+                        value={name}
+                        name="name"
+                    />
                 </Box>
                 <Box marginTop="16px" maxWidth="400px">
                     <SingleSelectField
+                        name="jobType"
                         label={i18n.t('Job type')}
                         disabled
                         selected={jobType}
@@ -85,15 +91,16 @@ const JobView = () => {
                 <Box marginTop="16px" maxWidth="400px">
                     <InputField
                         label={i18n.t('CRON Expression')}
+                        name="cronExpression"
                         disabled
                         value={cronExpression}
                         helpText={translateCron(cronExpression)}
                     />
                 </Box>
                 <Box marginTop="24px">
-                    <DiscardFormButton>
+                    <LinkButton className={styles.pageHeaderButton} to="/">
                         {i18n.t('Back to all jobs')}
-                    </DiscardFormButton>
+                    </LinkButton>
                 </Box>
             </Card>
         </React.Fragment>

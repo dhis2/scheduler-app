@@ -1,7 +1,8 @@
 import React from 'react'
 import { mount } from 'enzyme'
-import history from '../../services/history'
 import JobList from './JobList'
+
+jest.mock('react-router-dom', () => ({ Link: props => <a {...props} /> }))
 
 jest.mock('../../components/JobTable', () => ({ JobTable: () => null }))
 
@@ -52,27 +53,5 @@ describe('<JobList>', () => {
             .simulate('change', { target: { value: !props.showSystemJobs } })
 
         expect(spy).toHaveBeenCalledWith(true)
-    })
-
-    it('redirects to /add when the new job button is clicked', () => {
-        const spy = jest.fn()
-        history.push.mockImplementation(spy)
-
-        const props = {
-            jobs: [{ id: 'one' }],
-            isLoading: false,
-            showSystemJobs: false,
-            setShowSystemJobs: spy,
-            jobFilter: '',
-            setJobFilter: () => {},
-        }
-        const wrapper = mount(<JobList {...props} />)
-
-        wrapper
-            .find('button')
-            .find({ 'data-test': 'new-job-button' })
-            .simulate('click')
-
-        expect(spy).toHaveBeenCalledWith('/add')
     })
 })

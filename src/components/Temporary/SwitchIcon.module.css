@@ -1,0 +1,82 @@
+/* stylelint-disable */
+
+.svg {
+    display: block;
+    pointer-events: none;
+    height: 18px;
+    width: 35px;
+}
+
+.svg:global(.dense) {
+    height: 14px;
+    width: 27px;
+}
+
+.svg :global(.background),
+.svg :global(.border) {
+    fill: var(--colors-grey600);
+}
+
+.svg :global(.checkmark),
+.svg :global(.cross),
+.svg :global(.handle) {
+    fill: var(--colors-white);
+}
+
+.svg:global(.checked) :global(.handle-unchecked),
+.svg:not(:global(.checked)) :global(.handle-checked) {
+    fill: none;
+}
+
+.svg:global(.checked) :global(.background) {
+    fill: var(--colors-teal400);
+}
+
+.svg:global(.valid) :global(.background) {
+    fill: var(--colors-blue600);
+}
+
+.svg:global(.warning) :global(.background) {
+    fill: var(--colors-yellow700);
+}
+
+.svg:global(.error) :global(.background) {
+    fill: var(--colors-red500);
+}
+
+.svg:global(.checked) :global(.border) {
+    fill: var(--colors-teal700);
+}
+
+.svg:global(.disabled) :global(.background) {
+    fill: var(--colors-grey300);
+}
+
+.svg:global(.disabled) :global(.border) {
+    fill: var(--colors-grey400);
+}
+
+.svg:global(.valid) :global(.border) {
+    fill: var(--colors-blue600);
+}
+
+.svg:global(.warning) :global(.border) {
+    fill: var(--colors-yellow700);
+}
+
+.svg:global(.error) :global(.border) {
+    fill: var(--colors-red500);
+}
+
+.svg:global(.valid.checked) :global(.border),
+.svg:global(.valid.indeterminate) :global(.border) {
+    fill: var(--colors-blue700);
+}
+
+.svg:global(.warning.checked) :global(.border) {
+    fill: var(--colors-yellow800);
+}
+
+.svg:global(.error.checked) :global(.border) {
+    fill: var(--colors-red700);
+}

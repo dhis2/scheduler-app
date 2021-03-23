@@ -1,7 +1,8 @@
 Feature: Users should be able to navigate back to the job list
 
     Background:
-        Given the user navigated to an edit job page
+        Given a single user job exists
+        And the user navigated to the edit job page
 
     Scenario: User clicks the back to all jobs link
         When the user clicks the back to all jobs link

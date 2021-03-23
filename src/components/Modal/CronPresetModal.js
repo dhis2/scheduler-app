@@ -7,9 +7,9 @@ import {
     ModalContent,
     ModalActions,
     ButtonStrip,
-    Radio,
 } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
+import { Radio } from '../Temporary'
 
 const cronPresets = [
     {

@@ -1,7 +1,8 @@
 import React from 'react'
 import { PropTypes } from '@dhis2/prop-types'
-import { Switch } from '@dhis2/ui'
 import { useDataMutation } from '@dhis2/app-runtime'
+import i18n from '@dhis2/d2-i18n'
+import { Switch } from '../Temporary'
 import { hooks } from '../Store'
 
 /* istanbul ignore next */
@@ -26,6 +27,7 @@ const ToggleJobSwitch = ({ id, checked, disabled }) => {
             onChange={() => {
                 toggleJob({ id, enabled }).then(() => refetchJobs())
             }}
+            ariaLabel={i18n.t('Toggle job')}
         />
     )
 }
