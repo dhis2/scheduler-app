@@ -3182,10 +3182,28 @@
   dependencies:
     "@dhis2/prop-types" "^1.6.4"
 
+"@dhis2/ui-constants@6.5.7":
+  version "6.5.7"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui-constants/-/ui-constants-6.5.7.tgz#486e4f9d5c3523fdd40f93f12f508996d7531ca9"
+  integrity sha512-Hv98IH4DxaXmjQtbuXchKBeKA1rqRsL6CgWzaQDGmfa2hiYep58azHvtDQGE+Rlkh7k04ubz/QcEKzKDEi6TEA==
+  dependencies:
+    "@dhis2/prop-types" "^1.6.4"
+
 "@dhis2/ui-core@6.5.0-alpha.2":
   version "6.5.0-alpha.2"
   resolved "https://registry.yarnpkg.com/@dhis2/ui-core/-/ui-core-6.5.0-alpha.2.tgz#0c1741d1c36d6ab3e280b649ed40658fed59ff8c"
   integrity sha512-mUA1+qADbHdij/P2fxmuh2J0YVB8Jmo18p2DnSy2I9vy5RsEZrHCbrlpK+FOuFeeZTrv/J4/niEfzpmRmEs8Cg==
+  dependencies:
+    "@dhis2/prop-types" "^1.6.4"
+    "@popperjs/core" "^2.6.0"
+    classnames "^2.2.6"
+    react-popper "^2.2.3"
+    resize-observer-polyfill "^1.5.1"
+
+"@dhis2/ui-core@6.5.7":
+  version "6.5.7"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui-core/-/ui-core-6.5.7.tgz#c7260b770bf895caadf45545d0dc6fbd547e221a"
+  integrity sha512-XCgKM2KUprkB8uitX9uPwIyq1YJvkT/muxHHZMvKkFY8E6VorzmdliQR9HE4thMReRFM+QT9EXj77ZmCqOIctw==
   dependencies:
     "@dhis2/prop-types" "^1.6.4"
     "@popperjs/core" "^2.6.0"
@@ -3203,10 +3221,27 @@
     final-form "^4.20.1"
     react-final-form "^6.5.1"
 
+"@dhis2/ui-forms@6.5.7":
+  version "6.5.7"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui-forms/-/ui-forms-6.5.7.tgz#4404bba8c18846f38c7aa468abe8ea49a701232b"
+  integrity sha512-/Dli0zUGN536WE6Pxyu45q8FnAecpgRJNYM0CSxIYwzDJt/00/0REurIKnVGyugdoIymzKfAr2+UABU2wm0/dg==
+  dependencies:
+    "@dhis2/prop-types" "^1.6.4"
+    classnames "^2.2.6"
+    final-form "^4.20.1"
+    react-final-form "^6.5.1"
+
 "@dhis2/ui-icons@6.5.0-alpha.2":
   version "6.5.0-alpha.2"
   resolved "https://registry.yarnpkg.com/@dhis2/ui-icons/-/ui-icons-6.5.0-alpha.2.tgz#f2c9ae11bc8bcaf5593cd07bd3137bdd773970be"
   integrity sha512-lOUcd125r8o0nCTk008sorOPTVhwazSDACpsOwnypi87+nC+ExHTsiroGR52h6xCp5DKlH7gXkCy+eaODSV56A==
+  dependencies:
+    "@dhis2/prop-types" "^1.6.4"
+
+"@dhis2/ui-icons@6.5.7":
+  version "6.5.7"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui-icons/-/ui-icons-6.5.7.tgz#891a00aacee3ef2618a35c6c780aa426a64bbe3f"
+  integrity sha512-WyDnlqZm+j6tkPnI7jfGqP5Xgi7nkwzLvzaY6o/FNx423ABik1WJslJPvOWMTRADY1nbUDekgE6vZiIjqxkGzQ==
   dependencies:
     "@dhis2/prop-types" "^1.6.4"
 
@@ -3218,7 +3253,15 @@
     "@dhis2/prop-types" "^1.6.4"
     classnames "^2.2.6"
 
-"@dhis2/ui@6.5.0-alpha.2", "@dhis2/ui@^6.5.0-alpha.2", "@dhis2/ui@^6.5.3":
+"@dhis2/ui-widgets@6.5.7":
+  version "6.5.7"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui-widgets/-/ui-widgets-6.5.7.tgz#e1841073f2c997f719a6f27b8fe21b462b0230ca"
+  integrity sha512-daNa64yNLJQybfT4zkqXdma7p6l5Es8PQnLKf/88v9JTU974DcpppA8ME+yz3fGmlQy2ayMCTmzfHpY8iPi+yQ==
+  dependencies:
+    "@dhis2/prop-types" "^1.6.4"
+    classnames "^2.2.6"
+
+"@dhis2/ui@^6.5.0-alpha.2":
   version "6.5.0-alpha.2"
   resolved "https://registry.yarnpkg.com/@dhis2/ui/-/ui-6.5.0-alpha.2.tgz#631d0c484e2edbef76a0236b533acf97cd9be3dd"
   integrity sha512-FzQ7YvPpMfSyCTIVCEfT7sS+FJzAeKGtNlK3dPkNIV8MvlULuPJZZDRG3syXxH9QZJhPLP2V2RZR3MSwyID4og==
@@ -3228,6 +3271,17 @@
     "@dhis2/ui-forms" "6.5.0-alpha.2"
     "@dhis2/ui-icons" "6.5.0-alpha.2"
     "@dhis2/ui-widgets" "6.5.0-alpha.2"
+
+"@dhis2/ui@^6.5.3":
+  version "6.5.7"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui/-/ui-6.5.7.tgz#8c9b3d5523aa89922e5f27d7d952c98c1a9061bf"
+  integrity sha512-7wNPDCd2zmT6gQFXbMNFSitRCFoL5jHZIzAirj/ix6LSebgIsm5cU6Hc+Q9qu5daVZvlGGNei4SmCQMgGAa9KQ==
+  dependencies:
+    "@dhis2/ui-constants" "6.5.7"
+    "@dhis2/ui-core" "6.5.7"
+    "@dhis2/ui-forms" "6.5.7"
+    "@dhis2/ui-icons" "6.5.7"
+    "@dhis2/ui-widgets" "6.5.7"
 
 "@eslint/eslintrc@^0.4.0":
   version "0.4.0"
@@ -5569,10 +5623,10 @@ bluebird@^3.4.1, bluebird@^3.5.3, bluebird@^3.5.5, bluebird@^3.7.2:
   resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.7.2.tgz#9f229c15be272454ffa973ace0dbee79a1b0c36f"
   integrity sha512-XpNj6GDQzdfW+r2Wnn7xiSAd7TM3jzkxGXBGTtWKuSXv1xUV+azxAm8jdWZN06QTQk+2N2XB9jRDkvbmQmcRtg==
 
-bn.js@^4.0.0, bn.js@^4.1.0, bn.js@^4.1.1, bn.js@^4.4.0:
-  version "4.11.8"
-  resolved "https://registry.yarnpkg.com/bn.js/-/bn.js-4.11.8.tgz#2cde09eb5ee341f484746bb0309b3253b1b1442f"
-  integrity sha512-ItfYfPLkWHUjckQCk8xC+LwxgK8NYcXywGigJgSwOP8Y2iyWT4f2vsZnoOXTTbo+o5yXmIUJ4gn5538SO5S3gA==
+bn.js@^4.0.0, bn.js@^4.1.0, bn.js@^4.1.1, bn.js@^4.11.9:
+  version "4.12.0"
+  resolved "https://registry.yarnpkg.com/bn.js/-/bn.js-4.12.0.tgz#775b3f278efbb9718eec7361f483fb36fbbfea88"
+  integrity sha512-c98Bf3tPniI+scsdk237ku1Dc3ujXQTSgyiPUDEOe7tRkhrqridvh8klBv0HCEso1OLOYcHuCv/cS6DNxKH+ZA==
 
 body-parser@1.19.0:
   version "1.19.0"
@@ -5652,7 +5706,7 @@ braces@^3.0.1, braces@~3.0.2:
   dependencies:
     fill-range "^7.0.1"
 
-brorand@^1.0.1:
+brorand@^1.0.1, brorand@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/brorand/-/brorand-1.1.0.tgz#12c25efe40a45e3c323eb8675a0a0ce57b22371f"
   integrity sha1-EsJe/kCkXjwyPrhnWgoM5XsiNx8=
@@ -8068,17 +8122,17 @@ elegant-spinner@^1.0.1:
   integrity sha1-2wQ1IcldfjA/2PNFvtwzSc+wcp4=
 
 elliptic@^6.0.0:
-  version "6.5.2"
-  resolved "https://registry.yarnpkg.com/elliptic/-/elliptic-6.5.2.tgz#05c5678d7173c049d8ca433552224a495d0e3762"
-  integrity sha512-f4x70okzZbIQl/NSRLkI/+tteV/9WqL98zx+SQ69KbXxmVrmjwsNUPn/gYJJ0sHvEak24cZgHIPegRePAtA/xw==
+  version "6.5.4"
+  resolved "https://registry.yarnpkg.com/elliptic/-/elliptic-6.5.4.tgz#da37cebd31e79a1367e941b592ed1fbebd58abbb"
+  integrity sha512-iLhC6ULemrljPZb+QutR5TQGB+pdW6KGD5RSegS+8sorOZT+rdQFbsQFJgvN3eRqNALqJer4oQ16YvJHlU8hzQ==
   dependencies:
-    bn.js "^4.4.0"
-    brorand "^1.0.1"
+    bn.js "^4.11.9"
+    brorand "^1.1.0"
     hash.js "^1.0.0"
-    hmac-drbg "^1.0.0"
-    inherits "^2.0.1"
-    minimalistic-assert "^1.0.0"
-    minimalistic-crypto-utils "^1.0.0"
+    hmac-drbg "^1.0.1"
+    inherits "^2.0.4"
+    minimalistic-assert "^1.0.1"
+    minimalistic-crypto-utils "^1.0.1"
 
 emittery@^0.7.1:
   version "0.7.2"
@@ -9870,7 +9924,7 @@ history@^4.9.0:
     tiny-warning "^1.0.0"
     value-equal "^1.0.1"
 
-hmac-drbg@^1.0.0:
+hmac-drbg@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/hmac-drbg/-/hmac-drbg-1.0.1.tgz#d2745701025a6c775a6c545793ed502fc0c649a1"
   integrity sha1-0nRXAQJabHdabFRXk+1QL8DGSaE=
@@ -12869,7 +12923,7 @@ minimalistic-assert@^1.0.0, minimalistic-assert@^1.0.1:
   resolved "https://registry.yarnpkg.com/minimalistic-assert/-/minimalistic-assert-1.0.1.tgz#2e194de044626d4a10e7f7fbc00ce73e83e4d5c7"
   integrity sha512-UtJcAD4yEaGtjPezWuO9wC4nwUnVH/8/Im3yEHQP4b67cXlD/Qr9hdITCU1xDbSEXg2XKNaP8jsReV7vQd00/A==
 
-minimalistic-crypto-utils@^1.0.0, minimalistic-crypto-utils@^1.0.1:
+minimalistic-crypto-utils@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/minimalistic-crypto-utils/-/minimalistic-crypto-utils-1.0.1.tgz#f6c00c1c0b082246e5c4d99dfb8c7c083b2b582a"
   integrity sha1-9sAMHAsIIkblxNmd+4x8CDsrWCo=
