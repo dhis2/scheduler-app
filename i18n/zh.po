@@ -153,7 +153,7 @@ msgid "Run"
 msgstr "运行"
 
 msgid "Toggle job"
-msgstr ""
+msgstr "切换作业"
 
 msgid "Back to all jobs"
 msgstr "返回所有作业"
