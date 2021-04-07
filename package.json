@@ -11,7 +11,7 @@
         "postbuild": "npm run manifest",
         "manifest": "d2-manifest package.json build/manifest.webapp",
         "format": "prettier --write \"src/**/*.j{s,sx}\"",
-        "localize": "npm run extract-pot && d2-i18n-generate -n Scheduler -p ./i18n/ -o ./src/locales/",
+        "localize": "npm run extract-pot && d2-i18n-generate -n default -p ./i18n/ -o ./src/locales/",
         "extract-pot": "d2-i18n-extract -p src/ -o i18n/",
         "prestart": "npm run localize && d2-manifest package.json ./public/manifest.webapp"
     },
