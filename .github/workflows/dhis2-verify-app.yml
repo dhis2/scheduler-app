@@ -12,10 +12,22 @@ env:
     D2_VERBOSE: true
 
 jobs:
+    tokens:
+        runs-on: ubuntu-latest
+        outputs:
+            has_gh_token: ${{ steps.check_gh_token.outputs.has_token }}
+        steps:
+            - id: check_gh_token
+              run: |
+                  if ! [[ -z "${{ env.FAKE_TOKEN }}" ]]; then
+                    echo "::set-output name=has_token::true"
+                  else
+                    echo "::set-output name=has_token::false"
+                  fi
+
     install:
         runs-on: ubuntu-latest
         if: "!contains(github.event.head_commit.message, '[skip ci]')"
-
         steps:
             - uses: actions/checkout@v2
             - uses: actions/setup-node@v1
@@ -152,8 +164,8 @@ jobs:
 
     publish:
         runs-on: ubuntu-latest
-        needs: [build, lint, test] # add e2e if you use it
-        if: "!contains(github.event.head_commit.message, '[skip ci]')"
+        needs: [tokens, build, lint, test] # add e2e if you use it
+        if: "${{ needs.tokens.outputs.has_gh_token }} == 'true' && !contains(github.event.head_commit.message, '[skip ci]')"
         steps:
             - uses: actions/checkout@v2
               with:
@@ -176,8 +188,8 @@ jobs:
 
     release:
         runs-on: ubuntu-latest
-        needs: [publish]
-        if: "github.event_name == 'push' && !contains(github.event.head_commit.message, '[skip ci]')"
+        needs: [tokens, publish]
+        if: "${{ needs.tokens.outputs.has_gh_token }} == 'true' && github.event_name == 'push' && !contains(github.event.head_commit.message, '[skip ci]')"
         steps:
             - uses: actions/checkout@v2
               with:
