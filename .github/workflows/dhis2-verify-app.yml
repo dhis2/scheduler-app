@@ -155,19 +155,30 @@ jobs:
         needs: [build, lint, test] # add e2e if you use it
         if: "!contains(github.event.head_commit.message, '[skip ci]')"
         steps:
+            - id: setup
+              run: |
+                  if ! [[ -z "${{ secrets.GH_TOKEN }}" ]]; then
+                      echo ::set-output has_token=true
+                  else
+                      echo ::set-output has_token=false
+                  fi
             - uses: actions/checkout@v2
+              if: steps.setup.outputs.has_token == 'true'
               with:
                   token: ${{env.GH_TOKEN}}
 
             - uses: actions/setup-node@v1
+              if: steps.setup.outputs.has_token == 'true'
               with:
                   node-version: 12.x
 
             - uses: actions/download-artifact@v2
+              if: steps.setup.outputs.has_token == 'true'
               with:
                   name: app-build
 
             - uses: dhis2/deploy-build@master
+              if: steps.setup.outputs.has_token == 'true'
               with:
                   # uncomment following line for monorepo apps:
                   #cwd: ./packages/app
@@ -179,13 +190,23 @@ jobs:
         needs: [publish]
         if: "github.event_name == 'push' && !contains(github.event.head_commit.message, '[skip ci]')"
         steps:
+            - id: setup
+              run: |
+                  if ! [[ -z "${{ secrets.GH_TOKEN }}" ]]; then
+                      echo ::set-output has_token=true
+                  else
+                      echo ::set-output has_token=false
+                  fi
             - uses: actions/checkout@v2
+              if: steps.setup.outputs.has_token == 'true'
               with:
                   token: ${{env.GH_TOKEN}}
 
             - uses: actions/setup-node@v1
+              if: steps.setup.outputs.has_token == 'true'
               with:
                   node-version: 12.x
 
             - name: Publish release to GitHub
+              if: steps.setup.outputs.has_token == 'true'
               run: npx @dhis2/cli-utils release
