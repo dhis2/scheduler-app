@@ -1,4 +1,4 @@
-name: 'dhis2: verify push (app)'
+name: 'dhis2: verify trusted push (app)'
 
 on: push
 
