@@ -1,5 +1,3 @@
-/* eslint-disable import/no-unused-modules */
-
 const { config } = require('@dhis2/cli-style')
 
 module.exports = {
@@ -56,6 +54,12 @@ module.exports = {
             rules: {
                 'import/extensions': 'off',
                 'import/no-internal-modules': 'off',
+                'import/no-unused-modules': 'off',
+            },
+        },
+        {
+            files: ['.*.js', 'd2.config.js'],
+            rules: {
                 'import/no-unused-modules': 'off',
             },
         },
