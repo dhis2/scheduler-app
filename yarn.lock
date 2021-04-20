@@ -3095,10 +3095,9 @@
     update-notifier "^3.0.0"
     yargs "^13.1.0"
 
-"@dhis2/cli-style@^8.0.0-alpha.8":
+"@dhis2/cli-style@git+https://github.com/dhis2/cli-style#alpha":
   version "8.0.0-alpha.8"
-  resolved "https://registry.yarnpkg.com/@dhis2/cli-style/-/cli-style-8.0.0-alpha.8.tgz#bf5bceaf314c3c302a6c61731690ecc5267dcea2"
-  integrity sha512-/dXptDESb0WrRLNK/qh4uRp1FBp0DTdpHQcFWnvQPbXHaYtrOGNF9sDBhCN39c+Js+mB4+j7sKdCYgbQZS5DBw==
+  resolved "git+https://github.com/dhis2/cli-style#ddcffe0d7ac832f9dba9a75acd7975b0e03c4bd8"
   dependencies:
     "@commitlint/cli" "^11.0.0"
     "@commitlint/config-conventional" "^11.0.0"
