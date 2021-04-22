@@ -32,7 +32,7 @@
     },
     "devDependencies": {
         "@dhis2/cli-app-scripts": "^6.0.0",
-        "@dhis2/cli-style": "git+https://github.com/dhis2/cli-style#alpha",
+        "@dhis2/cli-style": "git+https://github.com/dhis2/cli-style#wrong-hooks-installed",
         "@dhis2/cli-utils-cypress": "^7.0.0",
         "@dhis2/cypress-commands": "^7.0.0",
         "@dhis2/cypress-plugins": "^7.0.0",

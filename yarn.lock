@@ -3095,9 +3095,9 @@
     update-notifier "^3.0.0"
     yargs "^13.1.0"
 
-"@dhis2/cli-style@git+https://github.com/dhis2/cli-style#alpha":
+"@dhis2/cli-style@git+https://github.com/dhis2/cli-style#wrong-hooks-installed":
   version "8.0.0-alpha.8"
-  resolved "git+https://github.com/dhis2/cli-style#ddcffe0d7ac832f9dba9a75acd7975b0e03c4bd8"
+  resolved "git+https://github.com/dhis2/cli-style#1fc1c0420d6102e4f4e2d7ea9eb28e34cfdaa5ed"
   dependencies:
     "@commitlint/cli" "^11.0.0"
     "@commitlint/config-conventional" "^11.0.0"
