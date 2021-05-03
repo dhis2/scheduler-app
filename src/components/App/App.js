@@ -1,3 +1,5 @@
+import { useDataEngine } from '@dhis2/app-runtime'
+import { QueryClient, QueryClientProvider } from 'react-query'
 import React from 'react'
 import { CssVariables } from '@dhis2/ui'
 import { Routes } from '../Routes'
@@ -10,17 +12,32 @@ import './App.css'
 import '../../locales'
 // The above is necessary for translations to work
 
-const App = () => (
-    <React.Fragment>
-        <CssVariables spacers colors theme />
-        <PageWrapper>
-            <AuthWall>
-                <Store>
-                    <Routes />
-                </Store>
-            </AuthWall>
-        </PageWrapper>
-    </React.Fragment>
-)
+const App = () => {
+    const engine = useDataEngine()
+    const queryFn = ({ queryKey }) => {
+        const [query] = queryKey
+        return engine.query(query)
+    }
+    const queryClient = new QueryClient({
+        defaultOptions: {
+            queries: {
+                queryFn,
+            },
+        },
+    })
+
+    return (
+        <QueryClientProvider client={queryClient}>
+            <CssVariables spacers colors theme />
+            <PageWrapper>
+                <AuthWall>
+                    <Store>
+                        <Routes />
+                    </Store>
+                </AuthWall>
+            </PageWrapper>
+        </QueryClientProvider>
+    )
+}
 
 export default App

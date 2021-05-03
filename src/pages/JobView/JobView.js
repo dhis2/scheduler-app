@@ -9,7 +9,7 @@ import {
     InputField,
 } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
-import { hooks } from '../../components/Store'
+import useJob from '../../cached-hooks/use-job'
 import { LinkButton } from '../../components/Temporary'
 import { JobDetails } from '../../components/JobDetails'
 import translateCron from '../../services/translate-cron'
@@ -21,6 +21,16 @@ const infoLink =
 
 const JobView = () => {
     const { id } = useParams()
+    const { isLoading, isError, data } = useJob(id)
+
+    if (isLoading) {
+        return 'Loading'
+    }
+
+    if (isError) {
+        return 'Error'
+    }
+
     const {
         name,
         created,
@@ -28,7 +38,7 @@ const JobView = () => {
         lastExecuted,
         jobType,
         cronExpression,
-    } = hooks.useJob(id)
+    } = data.job
 
     return (
         <React.Fragment>

@@ -1,12 +1,22 @@
 import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { hooks } from '../../components/Store'
+import useJob from '../../cached-hooks/use-job'
 import JobEdit from './JobEdit'
 
 const JobEditContainer = () => {
     const [isPristine, setIsPristine] = useState(true)
     const { id } = useParams()
-    const job = hooks.useJob(id)
+    const { isLoading, isError, data } = useJob(id)
+
+    if (isLoading) {
+        return 'Loading'
+    }
+
+    if (isError) {
+        return 'Error'
+    }
+
+    const { job } = data
 
     return (
         <JobEdit
