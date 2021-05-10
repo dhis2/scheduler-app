@@ -2178,10 +2178,10 @@
     semver "^7.3.2"
     yargs "^16.1.0"
 
-"@dhis2/cli-utils-cypress@^7.0.0":
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/cli-utils-cypress/-/cli-utils-cypress-7.0.0.tgz#8af41c901421fc107853806f82e5d0cc6573fab2"
-  integrity sha512-toln+FW0zhC8g9/BnGqdSP0qUfWHHu2JSy7Sm2zvYFzsqXjfRGnX7oBxwIFzVUsok/iu3JIN4ALqaq3bUn0eRA==
+"@dhis2/cli-utils-cypress@^7.0.1":
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/cli-utils-cypress/-/cli-utils-cypress-7.0.1.tgz#7c67dcd4238c79332a2c174cbb894f6101a2370c"
+  integrity sha512-S3w3BmcXKWnGbrdI2wRYzfdkrS022+Rg0iIts5P4BvFmexTEFSpn3GRgNYGEzBi3lA+p1JF15fvl6vB9AHfC3A==
   dependencies:
     "@dhis2/cli-helpers-engine" "^1.5.0"
     concurrently "^5.2.0"
@@ -6098,7 +6098,7 @@ cronstrue@^1.113.0:
   resolved "https://registry.yarnpkg.com/cronstrue/-/cronstrue-1.113.0.tgz#43d437f75604f70c5badfcca26ac7619f50cd849"
   integrity sha512-j0+CQsQx0g0Iv6nQs0bHkLcpeCzYShWUdQ3QwSHV+dUyTLqI/3NPrHceeDfTXmC3Re4osMli5+wAYpffNO+e9w==
 
-cross-spawn@7.0.3, cross-spawn@^7.0.0, cross-spawn@^7.0.1, cross-spawn@^7.0.3:
+cross-spawn@7.0.3, cross-spawn@^7.0.0, cross-spawn@^7.0.1, cross-spawn@^7.0.2, cross-spawn@^7.0.3:
   version "7.0.3"
   resolved "https://registry.yarnpkg.com/cross-spawn/-/cross-spawn-7.0.3.tgz#f73a85b9d5d41d045551c177e2882d4ac85728a6"
   integrity sha512-iRDPJKUPVEND7dHPO8rkbOnPpyDygcDFtWjpeWNCgy8WP2rXcxXL8TskReQl6OrB2G7+UJrags1q15Fudc7G6w==
@@ -6126,15 +6126,6 @@ cross-spawn@^6.0.0:
     semver "^5.5.0"
     shebang-command "^1.2.0"
     which "^1.2.9"
-
-cross-spawn@^7.0.2:
-  version "7.0.2"
-  resolved "https://registry.yarnpkg.com/cross-spawn/-/cross-spawn-7.0.2.tgz#d0d7dcfa74e89115c7619f4f721a94e1fdb716d6"
-  integrity sha512-PD6G8QG3S4FK/XCGFbEQrDqO2AnMMsy0meR7lerlIOHAAbkuavGU/pOqprrlvfTNjvowivTeBsjebAL0NSoMxw==
-  dependencies:
-    path-key "^3.1.0"
-    shebang-command "^2.0.0"
-    which "^2.0.1"
 
 crypto-browserify@^3.0.0, crypto-browserify@^3.11.0:
   version "3.12.0"
