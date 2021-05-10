@@ -24,7 +24,7 @@
         "@dhis2/d2-i18n": "^1.1.0",
         "@dhis2/prop-types": "2.0.3",
         "@dhis2/ui": "^6.5.0-alpha.2",
-        "cronstrue": "^1.110.0",
+        "cronstrue": "^1.113.0",
         "history": "^4.9.0",
         "moment": "^2.29.1",
         "react-router": "^5.0.1",
