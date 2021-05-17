@@ -2,7 +2,7 @@ import React from 'react'
 import { PropTypes } from '@dhis2/prop-types'
 import { useDataMutation } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
-import { Switch } from '../Temporary'
+import { Switch } from '@dhis2/ui'
 import { hooks } from '../Store'
 
 /* istanbul ignore next */

@@ -10,7 +10,7 @@ import {
 } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
 import { hooks } from '../../components/Store'
-import { LinkButton } from '../../components/Temporary'
+import { LinkButton } from '../../components/LinkButton'
 import { JobDetails } from '../../components/JobDetails'
 import translateCron from '../../services/translate-cron'
 import { jobTypesMap } from '../../services/server-translations'

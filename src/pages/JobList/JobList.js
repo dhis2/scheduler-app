@@ -3,7 +3,7 @@ import { PropTypes } from '@dhis2/prop-types'
 import { Card, Checkbox, InputField, IconInfo16 } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
 import { JobTable } from '../../components/JobTable'
-import { LinkButton } from '../../components/Temporary'
+import { LinkButton } from '../../components/LinkButton'
 import styles from './JobList.module.css'
 
 const infoLink =
