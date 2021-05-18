@@ -4,12 +4,15 @@ const { config } = require('@dhis2/cli-style')
 
 module.exports = {
     root: true,
-    plugins: ['react-hooks', 'i18next', 'jsx-a11y'],
+    plugins: ['react-hooks', 'i18next'],
     extends: [
         config.eslintReact,
         'plugin:jsx-a11y/recommended',
         'plugin:compat/recommended',
     ],
+    globals: {
+        cy: 'readonly',
+    },
     rules: {
         'compat/compat': 'warn',
         'i18next/no-literal-string': [
@@ -36,7 +39,6 @@ module.exports = {
         ],
         'import/no-useless-path-segments': 'error',
         'import/order': ['error', { 'newlines-between': 'never' }],
-        'react/require-default-props': 'warn',
         'react-hooks/rules-of-hooks': 'error',
         'react-hooks/exhaustive-deps': 'error',
     },
@@ -56,6 +58,13 @@ module.exports = {
             rules: {
                 'import/extensions': 'off',
                 'import/no-internal-modules': 'off',
+                'import/no-unused-modules': 'off',
+            },
+        },
+        {
+            files: ['cypress/**/*.js'],
+            rules: {
+                'import/no-unassigned-import': 'off',
                 'import/no-unused-modules': 'off',
             },
         },
