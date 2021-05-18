@@ -1,3 +1,5 @@
+/* eslint-disable import/no-unused-modules */
+
 module.exports = {
     extends: ['stylelint-config-standard', 'stylelint-config-prettier'],
     plugins: ['stylelint-no-unsupported-browser-features'],
