@@ -6,13 +6,9 @@
         "start": "d2-app-scripts start",
         "test": "d2-app-scripts test --coverage",
         "test:watch": "d2-app-scripts test --watch",
-        "lint": "yarn lint:js && yarn lint:text && yarn lint:css",
-        "lint:js": "d2-style js check",
-        "lint:text": "d2-style text check",
+        "lint": "d2-style check && yarn lint:css",
         "lint:css": "stylelint './src/**/*.css' && prettier './src/**/*.css' --check",
-        "format": "yarn format:js && yarn format:text && yarn format:css",
-        "format:js": "d2-style js apply",
-        "format:text": "d2-style text apply",
+        "format": "d2-style apply && yarn format:css",
         "format:css": "prettier './src/**/*.css' --write",
         "cypress:open": "d2-utils-cypress open --appStart 'yarn start'",
         "cypress:run": "d2-utils-cypress run --appStart 'yarn start'",
@@ -32,7 +28,7 @@
     },
     "devDependencies": {
         "@dhis2/cli-app-scripts": "^6.1.2",
-        "@dhis2/cli-style": "^7.3.0",
+        "@dhis2/cli-style": "^8.2.0",
         "@dhis2/cli-utils-cypress": "^7.0.1",
         "@dhis2/cypress-commands": "^7.0.1",
         "@dhis2/cypress-plugins": "^7.0.1",
@@ -49,12 +45,6 @@
         "stylelint-config-prettier": "^8.0.2",
         "stylelint-config-standard": "^22.0.0",
         "stylelint-no-unsupported-browser-features": "^4.1.4"
-    },
-    "husky": {
-        "hooks": {
-            "commit-msg": "d2-style commit check",
-            "pre-commit": "d2-style js apply && npm run lint:css && npm run lint:js"
-        }
     },
     "jest": {
         "setupFilesAfterEnv": [
