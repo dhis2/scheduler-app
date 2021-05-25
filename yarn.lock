@@ -2129,19 +2129,6 @@
     parse-gitignore "^1.0.1"
     styled-jsx "<3.3.3"
 
-"@dhis2/cli-helpers-engine@2.1.1", "@dhis2/cli-helpers-engine@^2.1.1":
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/cli-helpers-engine/-/cli-helpers-engine-2.1.1.tgz#34a15866b1bc16ae5c4997d79256ee787b40c11a"
-  integrity sha512-7HrpYwenDzPFUMRsIuStQRu7SzwVRq6NCy4k8CbZ4/VTFaWnpkncTAz+C8ztkEQQSYTW7mDLLenJ9qpkhXgoTA==
-  dependencies:
-    chalk "^3.0.0"
-    fs-extra "^8.0.1"
-    inquirer "^7.3.3"
-    request "^2.88.0"
-    tar "^4.4.8"
-    update-notifier "^3.0.0"
-    yargs "^13.1.0"
-
 "@dhis2/cli-helpers-engine@^1.5.0":
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/@dhis2/cli-helpers-engine/-/cli-helpers-engine-1.5.0.tgz#5bce097bcb226842d67cffae716b44f9b037390e"
@@ -2154,17 +2141,31 @@
     update-notifier "^3.0.0"
     yargs "^13.1.0"
 
-"@dhis2/cli-style@^8.2.0":
-  version "8.2.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/cli-style/-/cli-style-8.2.0.tgz#a5921e3c96e6c234d1ce92617483f768c483bdf1"
-  integrity sha512-ypYoV/XXbRU2qDke0Ux2GQMnWNbYDVD4nNsooTVzXWKnCuUSfwUSey7MsMVz8hXz2w5yr33zdnQ1UBXUX6Xt1Q==
+"@dhis2/cli-helpers-engine@^2.1.1", "@dhis2/cli-helpers-engine@^2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/cli-helpers-engine/-/cli-helpers-engine-2.2.0.tgz#7202150890a46a04e3bfced02e40031fdd574542"
+  integrity sha512-MbvqEbiBBqagO7sSxfGQ/YsIsHB/mh7ns8haXO7eh/WtzERbDEz2uPNcR/prBg6+StenGizgZdKJXKgVVaoVVg==
+  dependencies:
+    chalk "^3.0.0"
+    cross-spawn "^7.0.3"
+    find-up "^5.0.0"
+    fs-extra "^8.0.1"
+    inquirer "^7.3.3"
+    request "^2.88.0"
+    tar "^4.4.8"
+    update-notifier "^3.0.0"
+    yargs "^13.1.0"
+
+"@dhis2/cli-style@^8.3.0":
+  version "8.3.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/cli-style/-/cli-style-8.3.0.tgz#b54c9716935023478fede65537dd86061c4c3637"
+  integrity sha512-h404QBbFPe5L/BgGgSFAGZAo9B1Q5zilcBWwyhkkGrDYxOyEV6JnxpnUDKQzVEuvO2FAe1wxwZvWgjTbB0xuBw==
   dependencies:
     "@commitlint/cli" "^11.0.0"
     "@commitlint/config-conventional" "^11.0.0"
-    "@dhis2/cli-helpers-engine" "2.1.1"
+    "@dhis2/cli-helpers-engine" "^2.2.0"
     "@ls-lint/ls-lint" "^1.9.2"
     babel-eslint "^10.1.0"
-    cross-spawn "^7.0.3"
     eslint "^7.18.0"
     eslint-config-prettier "^7.2.0"
     eslint-plugin-import "^2.22.1"
