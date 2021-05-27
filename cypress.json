@@ -1,7 +1,7 @@
 {
     "baseUrl": "http://localhost:3000",
     "projectId": "sc56ms",
-    "testFiles": "**/*.feature",
+    "testFiles": "**/*.feature",   
     "experimentalInteractiveRunEvents": true,
     "video": false
 }
