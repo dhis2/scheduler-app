@@ -13,8 +13,8 @@
         "cypress:start": "BROWSER=none REACT_APP_DHIS2_BASE_URL=https://debug.dhis2.org/dev REACT_APP_DHIS2_API_VERSION=37 yarn start",
         "cypress:open": "d2-utils-cypress open --appStart 'yarn cypress:start'",
         "cypress:run": "d2-utils-cypress run --appStart 'yarn cypress:start'",
-        "cypress:capture": "d2-utils-cypress run --capture --appStart  'yarn cypress:start' --serverMinorVersion 37",
-        "cypress:stub": "d2-utils-cypress run --stub --appStart  'yarn cypress:start' --serverMinorVersion 37"
+        "cypress:capture": "d2-utils-cypress run --capture --appStart 'yarn cypress:start' --serverMinorVersion 37",
+        "cypress:stub": "d2-utils-cypress run --stub --appStart 'yarn cypress:start' --serverMinorVersion 37"
     },
     "dependencies": {
         "@dhis2/app-runtime": "^2.8.0",
