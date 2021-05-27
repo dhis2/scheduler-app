@@ -10,7 +10,7 @@
         "lint:css": "stylelint './src/**/*.css' && prettier './src/**/*.css' --check",
         "format": "d2-style apply && yarn format:css",
         "format:css": "prettier './src/**/*.css' --write",
-        "cypress:start": "BROWSER=none REACT_APP_DHIS2_BASE_URL=https://debug.dhis2.org REACT_APP_DHIS2_API_VERSION=37 yarn start",
+        "cypress:start": "BROWSER=none REACT_APP_DHIS2_BASE_URL=https://debug.dhis2.org/dev REACT_APP_DHIS2_API_VERSION=37 yarn start",
         "cypress:open": "d2-utils-cypress open --appStart 'yarn cypress:start'",
         "cypress:run": "d2-utils-cypress run --appStart 'yarn cypress:start'",
         "cypress:capture": "d2-utils-cypress run --capture --appStart  'yarn cypress:start' --serverMinorVersion 36",
