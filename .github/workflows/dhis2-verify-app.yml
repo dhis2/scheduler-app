@@ -124,7 +124,7 @@ jobs:
               uses: cypress-io/github-action@v2
               with:
                   start: yarn start
-                  command: yarn d2-utils-cypress run --stub --serverMinorVersion 37 --appStart '' --record
+                  command: yarn d2-utils-cypress run --stub --serverMinorVersion 37 --appStart ''
                   wait-on: 'http://localhost:3000'
                   wait-on-timeout: 300
               env:
@@ -132,11 +132,8 @@ jobs:
                   REACT_APP_DHIS2_BASE_URL: https://debug.dhis2.org/dev
                   REACT_APP_DHIS2_API_VERSION: 37
                   CYPRESS_DHIS2_BASE_URL: https://debug.dhis2.org/dev
-                  CYPRESS_DHIS2_USERNAME: ${{ secrets.DHIS2_USERNAME }}
-                  CYPRESS_DHIS2_PASSWORD: ${{ secrets.DHIS2_PASSWORD }}
                   CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                  SERVER_URL: 'http://localhost:3000'
 
     publish:
         runs-on: ubuntu-latest
