@@ -3,5 +3,6 @@
     "video": true,
     "projectId": "no-project-id-yet",
     "testFiles": "**/*.feature",
-    "experimentalInteractiveRunEvents": true
+    "experimentalInteractiveRunEvents": true,
+    "video": false
 }
