@@ -131,8 +131,8 @@ jobs:
                   wait-on: 'http://localhost:3000'
                   wait-on-timeout: 300
               env:
-                  CYPRESS_DHIS2_BASE_URL: https://debug.dhis2.org/dev
-                  CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+                  cypress_dhis2_base_url: https://debug.dhis2.org/dev
+                  cypress_record_key: ${{ secrets.CYPRESS_RECORD_KEY }}
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     publish:
