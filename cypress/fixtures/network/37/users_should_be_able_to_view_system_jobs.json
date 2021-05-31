@@ -67,7 +67,7 @@
         }
     },
     {
-        "path": "/api/37/pushAnalysis?paging=false",
+        "path": "/api/37/validationRuleGroups?paging=false",
         "testName": "Users should be able to view system jobs -- User views a system job",
         "static": false,
         "count": 1,
@@ -83,8 +83,8 @@
             "sec-fetch-mode": "cors"
         },
         "statusCode": 200,
-        "responseBody": "{\"pushAnalysis\":[{\"id\":\"jtcMAKhWwnc\",\"displayName\":\"Immunization Key Indicators Monthly Report\"}]}",
-        "responseSize": 98,
+        "responseBody": "{\"validationRuleGroups\":[{\"id\":\"UP1lctvalPn\",\"displayName\":\"ANC\"},{\"id\":\"xcpl667ccfF\",\"displayName\":\"Commodities\"},{\"id\":\"xWtt9c443Lt\",\"displayName\":\"Critical event\"},{\"id\":\"mEtdbIDDhix\",\"displayName\":\"District stock\"},{\"id\":\"y2yQIm79VTW\",\"displayName\":\"Epidemic disease outbreak\"},{\"id\":\"SqyI8HKqI4g\",\"displayName\":\"Facility Stock\"},{\"id\":\"UiOSY1iIdub\",\"displayName\":\"Immunisation\"},{\"id\":\"WUZXEFdn1PX\",\"displayName\":\"Infectious disease outbreak\"},{\"id\":\"zlaSof6qLqF\",\"displayName\":\"Malaria\"},{\"id\":\"D3bItmtBpsW\",\"displayName\":\"Population\"},{\"id\":\"IMF6p1MqoHl\",\"displayName\":\"TB\"},{\"id\":\"nMDkAJXsmlR\",\"displayName\":\"Testing\"}]}",
+        "responseSize": 628,
         "responseHeaders": {
             "server": "nginx/1.17.10",
             "content-type": "application/json;charset=UTF-8",
@@ -134,40 +134,6 @@
         }
     },
     {
-        "path": "/api/37/validationRuleGroups?paging=false",
-        "testName": "Users should be able to view system jobs -- User views a system job",
-        "static": false,
-        "count": 1,
-        "nonDeterministic": false,
-        "method": "GET",
-        "requestBody": "",
-        "requestHeaders": {
-            "host": "debug.dhis2.org",
-            "connection": "keep-alive",
-            "accept": "application/json",
-            "origin": "http://localhost:3000",
-            "sec-fetch-site": "cross-site",
-            "sec-fetch-mode": "cors"
-        },
-        "statusCode": 200,
-        "responseBody": "{\"validationRuleGroups\":[{\"id\":\"UP1lctvalPn\",\"displayName\":\"ANC\"},{\"id\":\"xcpl667ccfF\",\"displayName\":\"Commodities\"},{\"id\":\"xWtt9c443Lt\",\"displayName\":\"Critical event\"},{\"id\":\"mEtdbIDDhix\",\"displayName\":\"District stock\"},{\"id\":\"y2yQIm79VTW\",\"displayName\":\"Epidemic disease outbreak\"},{\"id\":\"SqyI8HKqI4g\",\"displayName\":\"Facility Stock\"},{\"id\":\"UiOSY1iIdub\",\"displayName\":\"Immunisation\"},{\"id\":\"WUZXEFdn1PX\",\"displayName\":\"Infectious disease outbreak\"},{\"id\":\"zlaSof6qLqF\",\"displayName\":\"Malaria\"},{\"id\":\"D3bItmtBpsW\",\"displayName\":\"Population\"},{\"id\":\"IMF6p1MqoHl\",\"displayName\":\"TB\"},{\"id\":\"nMDkAJXsmlR\",\"displayName\":\"Testing\"}]}",
-        "responseSize": 628,
-        "responseHeaders": {
-            "server": "nginx/1.17.10",
-            "content-type": "application/json;charset=UTF-8",
-            "transfer-encoding": "chunked",
-            "connection": "keep-alive",
-            "access-control-allow-credentials": "true",
-            "access-control-allow-origin": "http://localhost:3000",
-            "vary": "Origin",
-            "access-control-expose-headers": "ETag, Location",
-            "cache-control": "no-cache, private",
-            "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
-        }
-    },
-    {
         "path": "/api/37/predictorGroups?paging=false",
         "testName": "Users should be able to view system jobs -- User views a system job",
         "static": false,
@@ -186,6 +152,40 @@
         "statusCode": 200,
         "responseBody": "{\"predictorGroups\":[]}",
         "responseSize": 22,
+        "responseHeaders": {
+            "server": "nginx/1.17.10",
+            "content-type": "application/json;charset=UTF-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "access-control-allow-credentials": "true",
+            "access-control-allow-origin": "http://localhost:3000",
+            "vary": "Origin",
+            "access-control-expose-headers": "ETag, Location",
+            "cache-control": "no-cache, private",
+            "x-content-type-options": "nosniff",
+            "x-xss-protection": "1; mode=block",
+            "x-frame-options": "SAMEORIGIN"
+        }
+    },
+    {
+        "path": "/api/37/pushAnalysis?paging=false",
+        "testName": "Users should be able to view system jobs -- User views a system job",
+        "static": false,
+        "count": 1,
+        "nonDeterministic": false,
+        "method": "GET",
+        "requestBody": "",
+        "requestHeaders": {
+            "host": "debug.dhis2.org",
+            "connection": "keep-alive",
+            "accept": "application/json",
+            "origin": "http://localhost:3000",
+            "sec-fetch-site": "cross-site",
+            "sec-fetch-mode": "cors"
+        },
+        "statusCode": 200,
+        "responseBody": "{\"pushAnalysis\":[{\"id\":\"jtcMAKhWwnc\",\"displayName\":\"Immunization Key Indicators Monthly Report\"}]}",
+        "responseSize": 98,
         "responseHeaders": {
             "server": "nginx/1.17.10",
             "content-type": "application/json;charset=UTF-8",

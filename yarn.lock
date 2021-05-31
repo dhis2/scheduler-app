@@ -2180,10 +2180,10 @@
     semver "^7.3.4"
     yargs "^16.2.0"
 
-"@dhis2/cli-utils-cypress@^8.0.0-alpha.4":
-  version "8.0.0-alpha.4"
-  resolved "https://registry.yarnpkg.com/@dhis2/cli-utils-cypress/-/cli-utils-cypress-8.0.0-alpha.4.tgz#79575be5ca9667bea2f64405460cdcde6dbc9ca4"
-  integrity sha512-sCqHfVlyguR4oYX/pNSLPw+k5mqZih0jL5Yoo8pnQ6Iby3UmLLtIAIPfsKVnChhKEHzFJogkHIfS6t2qQ6ihGA==
+"@dhis2/cli-utils-cypress@^8.0.0-alpha.6":
+  version "8.0.0-alpha.6"
+  resolved "https://registry.yarnpkg.com/@dhis2/cli-utils-cypress/-/cli-utils-cypress-8.0.0-alpha.6.tgz#98de9412190946f08fceba4a3f32abb3d8a57ebc"
+  integrity sha512-fRyjVsvsTDmiTULTb3bJffcxERKhswMlbQMJMOsDLW8p4ulxti1xtc3yRGh8MXKN2NdG4g5C5wJfnfnzupO8hw==
   dependencies:
     "@dhis2/cli-helpers-engine" "^1.5.0"
     concurrently "^5.2.0"
@@ -2195,17 +2195,17 @@
     jscodeshift "^0.11.0"
     wait-on "^4.0.2"
 
-"@dhis2/cypress-commands@^8.0.0-alpha.4":
-  version "8.0.0-alpha.4"
-  resolved "https://registry.yarnpkg.com/@dhis2/cypress-commands/-/cypress-commands-8.0.0-alpha.4.tgz#649d8310e6ee662e8e61e0ba1a1aa7d771c72dc5"
-  integrity sha512-YDFxW8UwOEZ7pPbIbBXPWJA9zBIddxZr15mMM67QZdvC/Jk5UbuiXu18NbXVziOOfl6cq8UzvJOCWrNuw/zuOw==
+"@dhis2/cypress-commands@^8.0.0-alpha.6":
+  version "8.0.0-alpha.6"
+  resolved "https://registry.yarnpkg.com/@dhis2/cypress-commands/-/cypress-commands-8.0.0-alpha.6.tgz#f3e61acb8d8894cf149de3fd9d14625b135529ff"
+  integrity sha512-RR6dqDVv2GiWQjGixcbbISgaT5jHgAHMeYpFSZso7uP03RJmgBSEa0kyUjl3xgTFevEg1W0GrfQ4ZRn0tyObow==
   dependencies:
     jscodeshift "^0.11.0"
 
-"@dhis2/cypress-plugins@^8.0.0-alpha.4":
-  version "8.0.0-alpha.4"
-  resolved "https://registry.yarnpkg.com/@dhis2/cypress-plugins/-/cypress-plugins-8.0.0-alpha.4.tgz#27a38586e0c96f9215c3436833ca46a666a3208f"
-  integrity sha512-m0grQlUPD1Fm/EWA6O/QmktYs9235tYBfzyBR6I/zOCnf/mIJKS5m+dkcl1mh7tT3Kpm5QEvFrSyYToR3uYXRg==
+"@dhis2/cypress-plugins@^8.0.0-alpha.6":
+  version "8.0.0-alpha.6"
+  resolved "https://registry.yarnpkg.com/@dhis2/cypress-plugins/-/cypress-plugins-8.0.0-alpha.6.tgz#1d07d5dca22859eeb4e35578ba4974347a273ebc"
+  integrity sha512-a+TfJQ6T3emQauUxij8TpUaS722EWcVrrCCf9GIeR6FGWgsqeggRJ4GgPgeOaSZZcR64mKba92trRo25OiFg+Q==
 
 "@dhis2/d2-i18n@^1.1.0":
   version "1.1.0"

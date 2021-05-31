@@ -34,40 +34,6 @@
         }
     },
     {
-        "path": "/api/37/jobConfigurations?fields=*&paging=false",
-        "testName": "Users should be able to insert cron presets -- User inserts a cron preset",
-        "static": false,
-        "count": 1,
-        "nonDeterministic": false,
-        "method": "GET",
-        "requestBody": "",
-        "requestHeaders": {
-            "host": "debug.dhis2.org",
-            "connection": "keep-alive",
-            "accept": "application/json",
-            "origin": "http://localhost:3000",
-            "sec-fetch-site": "cross-site",
-            "sec-fetch-mode": "cors"
-        },
-        "statusCode": 200,
-        "responseBody": "{\"jobConfigurations\":[{\"lastUpdated\":\"2021-05-27T02:00:00.391\",\"id\":\"sHMedQF7VYa\",\"href\":\"/37/jobConfigurations/sHMedQF7VYa\",\"created\":\"2017-12-08T12:45:18.351\",\"name\":\"Credentials expiry alert\",\"jobStatus\":\"SCHEDULED\",\"displayName\":\"Credentials expiry alert\",\"enabled\":true,\"leaderOnlyJob\":true,\"externalAccess\":false,\"jobType\":\"CREDENTIALS_EXPIRY_ALERT\",\"nextExecutionTime\":\"2021-05-28T02:00:00.000\",\"sharing\":{\"external\":false,\"users\":{},\"userGroups\":{}},\"cronExpression\":\"0 0 2 * * ?\",\"schedulingType\":\"CRON\",\"lastRuntimeExecution\":\"00:00:00.380\",\"lastExecutedStatus\":\"COMPLETED\",\"lastExecuted\":\"2021-05-27T02:00:00.381\",\"favorite\":false,\"configurable\":false,\"access\":{\"read\":true,\"update\":true,\"externalize\":false,\"delete\":true,\"write\":true,\"manage\":true},\"favorites\":[],\"translations\":[],\"userGroupAccesses\":[],\"attributeValues\":[],\"userAccesses\":[]},{\"lastUpdated\":\"2021-05-27T02:00:00.427\",\"id\":\"YvAwAmrqAtN\",\"href\":\"/37/jobConfigurations/YvAwAmrqAtN\",\"created\":\"2017-12-08T12:45:18.355\",\"name\":\"Dataset notification\",\"jobStatus\":\"SCHEDULED\",\"displayName\":\"Dataset notification\",\"enabled\":true,\"leaderOnlyJob\":true,\"externalAccess\":false,\"jobType\":\"DATA_SET_NOTIFICATION\",\"nextExecutionTime\":\"2021-05-28T02:00:00.000\",\"sharing\":{\"external\":false,\"users\":{},\"userGroups\":{}},\"cronExpression\":\"0 0 2 * * ?\",\"schedulingType\":\"CRON\",\"lastRuntimeExecution\":\"00:00:00.400\",\"lastExecutedStatus\":\"COMPLETED\",\"lastExecuted\":\"2021-05-27T02:00:00.419\",\"favorite\":false,\"configurable\":false,\"access\":{\"read\":true,\"update\":true,\"externalize\":false,\"delete\":true,\"write\":true,\"manage\":true},\"favorites\":[],\"translations\":[],\"userGroupAccesses\":[],\"attributeValues\":[],\"userAccesses\":[]},{\"lastUpdated\":\"2021-05-27T02:00:01.070\",\"id\":\"BFa3jDsbtdO\",\"href\":\"/37/jobConfigurations/BFa3jDsbtdO\",\"created\":\"2017-12-08T12:45:18.337\",\"name\":\"Data statistics\",\"jobStatus\":\"SCHEDULED\",\"displayName\":\"Data statistics\",\"enabled\":true,\"leaderOnlyJob\":true,\"externalAccess\":false,\"jobType\":\"DATA_STATISTICS\",\"nextExecutionTime\":\"2021-05-28T02:00:00.000\",\"sharing\":{\"external\":false,\"users\":{},\"userGroups\":{}},\"cronExpression\":\"0 0 2 * * ?\",\"schedulingType\":\"CRON\",\"lastRuntimeExecution\":\"00:00:01.048\",\"lastExecutedStatus\":\"COMPLETED\",\"lastExecuted\":\"2021-05-27T02:00:01.064\",\"favorite\":false,\"configurable\":false,\"access\":{\"read\":true,\"update\":true,\"externalize\":false,\"delete\":true,\"write\":true,\"manage\":true},\"favorites\":[],\"translations\":[],\"userGroupAccesses\":[],\"attributeValues\":[],\"userAccesses\":[]},{\"lastUpdated\":\"2021-05-27T02:00:00.466\",\"id\":\"pd6O228pqr0\",\"href\":\"/37/jobConfigurations/pd6O228pqr0\",\"created\":\"2017-12-08T12:45:18.317\",\"name\":\"File resource clean up\",\"jobStatus\":\"SCHEDULED\",\"displayName\":\"File resource clean up\",\"enabled\":true,\"leaderOnlyJob\":true,\"externalAccess\":false,\"jobType\":\"FILE_RESOURCE_CLEANUP\",\"nextExecutionTime\":\"2021-05-28T02:00:00.000\",\"sharing\":{\"external\":false,\"users\":{},\"userGroups\":{}},\"cronExpression\":\"0 0 2 * * ?\",\"schedulingType\":\"CRON\",\"lastRuntimeExecution\":\"00:00:00.452\",\"lastExecutedStatus\":\"COMPLETED\",\"lastExecuted\":\"2021-05-27T02:00:00.453\",\"favorite\":false,\"configurable\":false,\"access\":{\"read\":true,\"update\":true,\"externalize\":false,\"delete\":true,\"write\":true,\"manage\":true},\"favorites\":[],\"translations\":[],\"userGroupAccesses\":[],\"attributeValues\":[],\"userAccesses\":[]},{\"lastUpdated\":\"2021-05-27T15:00:00.113\",\"id\":\"uwWCT2BMmlq\",\"href\":\"/37/jobConfigurations/uwWCT2BMmlq\",\"created\":\"2018-03-06T13:31:39.065\",\"name\":\"Remove expired reserved values\",\"jobStatus\":\"SCHEDULED\",\"displayName\":\"Remove expired reserved values\",\"enabled\":true,\"leaderOnlyJob\":true,\"externalAccess\":false,\"jobType\":\"REMOVE_EXPIRED_RESERVED_VALUES\",\"nextExecutionTime\":\"2021-05-27T16:00:00.000\",\"sharing\":{\"external\":false,\"users\":{},\"userGroups\":{}},\"cronExpression\":\"0 0 * ? * *\",\"schedulingType\":\"CRON\",\"lastRuntimeExecution\":\"00:00:00.104\",\"lastExecutedStatus\":\"COMPLETED\",\"lastExecuted\":\"2021-05-27T15:00:00.105\",\"favorite\":false,\"configurable\":false,\"access\":{\"read\":true,\"update\":true,\"externalize\":false,\"delete\":true,\"write\":true,\"manage\":true},\"favorites\":[],\"translations\":[],\"userGroupAccesses\":[],\"attributeValues\":[],\"userAccesses\":[]},{\"lastUpdated\":\"2021-05-24T03:00:23.424\",\"id\":\"CAdI4rm5U9I\",\"href\":\"/37/jobConfigurations/CAdI4rm5U9I\",\"created\":\"2021-05-17T14:19:16.530\",\"name\":\"Test\",\"jobStatus\":\"SCHEDULED\",\"displayName\":\"Test\",\"enabled\":true,\"leaderOnlyJob\":false,\"externalAccess\":false,\"jobType\":\"DATA_INTEGRITY\",\"nextExecutionTime\":\"2021-05-31T03:00:00.000\",\"sharing\":{\"external\":false,\"users\":{},\"userGroups\":{}},\"cronExpression\":\"0 0 3 ? * MON\",\"schedulingType\":\"CRON\",\"lastRuntimeExecution\":\"00:00:23.421\",\"lastExecutedStatus\":\"COMPLETED\",\"lastExecuted\":\"2021-05-24T03:00:23.422\",\"favorite\":false,\"configurable\":true,\"access\":{\"read\":true,\"update\":true,\"externalize\":false,\"delete\":true,\"write\":true,\"manage\":true},\"favorites\":[],\"translations\":[],\"userGroupAccesses\":[],\"attributeValues\":[],\"userAccesses\":[]},{\"lastUpdated\":\"2021-05-27T07:00:00.268\",\"id\":\"Js3vHn2AVuG\",\"href\":\"/37/jobConfigurations/Js3vHn2AVuG\",\"created\":\"2017-12-08T12:45:18.346\",\"name\":\"Validation result notification\",\"jobStatus\":\"SCHEDULED\",\"displayName\":\"Validation result notification\",\"enabled\":true,\"leaderOnlyJob\":true,\"externalAccess\":false,\"jobType\":\"VALIDATION_RESULTS_NOTIFICATION\",\"nextExecutionTime\":\"2021-05-28T07:00:00.000\",\"sharing\":{\"external\":false,\"users\":{},\"userGroups\":{}},\"cronExpression\":\"0 0 7 * * ?\",\"schedulingType\":\"CRON\",\"lastRuntimeExecution\":\"00:00:00.224\",\"lastExecutedStatus\":\"COMPLETED\",\"lastExecuted\":\"2021-05-27T07:00:00.231\",\"favorite\":false,\"configurable\":false,\"access\":{\"read\":true,\"update\":true,\"externalize\":false,\"delete\":true,\"write\":true,\"manage\":true},\"favorites\":[],\"translations\":[],\"userGroupAccesses\":[],\"attributeValues\":[],\"userAccesses\":[]}]}",
-        "responseSize": 6029,
-        "responseHeaders": {
-            "server": "nginx/1.17.10",
-            "content-type": "application/json;charset=UTF-8",
-            "transfer-encoding": "chunked",
-            "connection": "keep-alive",
-            "access-control-allow-credentials": "true",
-            "access-control-allow-origin": "http://localhost:3000",
-            "vary": "Origin",
-            "access-control-expose-headers": "ETag, Location",
-            "cache-control": "no-cache, private",
-            "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
-        }
-    },
-    {
         "path": "/api/37/analytics/tableTypes",
         "testName": "Users should be able to insert cron presets -- User inserts a cron preset",
         "static": false,
@@ -95,6 +61,40 @@
             "access-control-allow-origin": "http://localhost:3000",
             "vary": "Origin",
             "access-control-expose-headers": "ETag, Location",
+            "x-content-type-options": "nosniff",
+            "x-xss-protection": "1; mode=block",
+            "x-frame-options": "SAMEORIGIN"
+        }
+    },
+    {
+        "path": "/api/37/jobConfigurations?fields=*&paging=false",
+        "testName": "Users should be able to insert cron presets -- User inserts a cron preset",
+        "static": false,
+        "count": 1,
+        "nonDeterministic": false,
+        "method": "GET",
+        "requestBody": "",
+        "requestHeaders": {
+            "host": "debug.dhis2.org",
+            "connection": "keep-alive",
+            "accept": "application/json",
+            "origin": "http://localhost:3000",
+            "sec-fetch-site": "cross-site",
+            "sec-fetch-mode": "cors"
+        },
+        "statusCode": 200,
+        "responseBody": "{\"jobConfigurations\":[{\"lastUpdated\":\"2021-05-31T02:00:00.274\",\"id\":\"sHMedQF7VYa\",\"href\":\"/37/jobConfigurations/sHMedQF7VYa\",\"created\":\"2017-12-08T12:45:18.351\",\"name\":\"Credentials expiry alert\",\"jobStatus\":\"SCHEDULED\",\"displayName\":\"Credentials expiry alert\",\"enabled\":true,\"leaderOnlyJob\":true,\"externalAccess\":false,\"jobType\":\"CREDENTIALS_EXPIRY_ALERT\",\"nextExecutionTime\":\"2021-06-01T02:00:00.000\",\"sharing\":{\"external\":false,\"users\":{},\"userGroups\":{}},\"cronExpression\":\"0 0 2 * * ?\",\"schedulingType\":\"CRON\",\"lastRuntimeExecution\":\"00:00:00.244\",\"lastExecutedStatus\":\"COMPLETED\",\"lastExecuted\":\"2021-05-31T02:00:00.255\",\"favorite\":false,\"configurable\":false,\"access\":{\"read\":true,\"update\":true,\"externalize\":false,\"delete\":true,\"write\":true,\"manage\":true},\"favorites\":[],\"translations\":[],\"userGroupAccesses\":[],\"attributeValues\":[],\"userAccesses\":[]},{\"lastUpdated\":\"2021-05-31T02:00:00.486\",\"id\":\"YvAwAmrqAtN\",\"href\":\"/37/jobConfigurations/YvAwAmrqAtN\",\"created\":\"2017-12-08T12:45:18.355\",\"name\":\"Dataset notification\",\"jobStatus\":\"SCHEDULED\",\"displayName\":\"Dataset notification\",\"enabled\":true,\"leaderOnlyJob\":true,\"externalAccess\":false,\"jobType\":\"DATA_SET_NOTIFICATION\",\"nextExecutionTime\":\"2021-06-01T02:00:00.000\",\"sharing\":{\"external\":false,\"users\":{},\"userGroups\":{}},\"cronExpression\":\"0 0 2 * * ?\",\"schedulingType\":\"CRON\",\"lastRuntimeExecution\":\"00:00:00.442\",\"lastExecutedStatus\":\"COMPLETED\",\"lastExecuted\":\"2021-05-31T02:00:00.477\",\"favorite\":false,\"configurable\":false,\"access\":{\"read\":true,\"update\":true,\"externalize\":false,\"delete\":true,\"write\":true,\"manage\":true},\"favorites\":[],\"translations\":[],\"userGroupAccesses\":[],\"attributeValues\":[],\"userAccesses\":[]},{\"lastUpdated\":\"2021-05-31T02:00:01.654\",\"id\":\"BFa3jDsbtdO\",\"href\":\"/37/jobConfigurations/BFa3jDsbtdO\",\"created\":\"2017-12-08T12:45:18.337\",\"name\":\"Data statistics\",\"jobStatus\":\"SCHEDULED\",\"displayName\":\"Data statistics\",\"enabled\":true,\"leaderOnlyJob\":true,\"externalAccess\":false,\"jobType\":\"DATA_STATISTICS\",\"nextExecutionTime\":\"2021-06-01T02:00:00.000\",\"sharing\":{\"external\":false,\"users\":{},\"userGroups\":{}},\"cronExpression\":\"0 0 2 * * ?\",\"schedulingType\":\"CRON\",\"lastRuntimeExecution\":\"00:00:01.645\",\"lastExecutedStatus\":\"COMPLETED\",\"lastExecuted\":\"2021-05-31T02:00:01.653\",\"favorite\":false,\"configurable\":false,\"access\":{\"read\":true,\"update\":true,\"externalize\":false,\"delete\":true,\"write\":true,\"manage\":true},\"favorites\":[],\"translations\":[],\"userGroupAccesses\":[],\"attributeValues\":[],\"userAccesses\":[]},{\"lastUpdated\":\"2021-05-31T02:00:01.049\",\"id\":\"pd6O228pqr0\",\"href\":\"/37/jobConfigurations/pd6O228pqr0\",\"created\":\"2017-12-08T12:45:18.317\",\"name\":\"File resource clean up\",\"jobStatus\":\"SCHEDULED\",\"displayName\":\"File resource clean up\",\"enabled\":true,\"leaderOnlyJob\":true,\"externalAccess\":false,\"jobType\":\"FILE_RESOURCE_CLEANUP\",\"nextExecutionTime\":\"2021-06-01T02:00:00.000\",\"sharing\":{\"external\":false,\"users\":{},\"userGroups\":{}},\"cronExpression\":\"0 0 2 * * ?\",\"schedulingType\":\"CRON\",\"lastRuntimeExecution\":\"00:00:01.040\",\"lastExecutedStatus\":\"COMPLETED\",\"lastExecuted\":\"2021-05-31T02:00:01.048\",\"favorite\":false,\"configurable\":false,\"access\":{\"read\":true,\"update\":true,\"externalize\":false,\"delete\":true,\"write\":true,\"manage\":true},\"favorites\":[],\"translations\":[],\"userGroupAccesses\":[],\"attributeValues\":[],\"userAccesses\":[]},{\"lastUpdated\":\"2021-05-31T12:00:00.112\",\"id\":\"uwWCT2BMmlq\",\"href\":\"/37/jobConfigurations/uwWCT2BMmlq\",\"created\":\"2018-03-06T13:31:39.065\",\"name\":\"Remove expired reserved values\",\"jobStatus\":\"SCHEDULED\",\"displayName\":\"Remove expired reserved values\",\"enabled\":true,\"leaderOnlyJob\":true,\"externalAccess\":false,\"jobType\":\"REMOVE_EXPIRED_RESERVED_VALUES\",\"nextExecutionTime\":\"2021-05-31T13:00:00.000\",\"sharing\":{\"external\":false,\"users\":{},\"userGroups\":{}},\"cronExpression\":\"0 0 * ? * *\",\"schedulingType\":\"CRON\",\"lastRuntimeExecution\":\"00:00:00.106\",\"lastExecutedStatus\":\"COMPLETED\",\"lastExecuted\":\"2021-05-31T12:00:00.107\",\"favorite\":false,\"configurable\":false,\"access\":{\"read\":true,\"update\":true,\"externalize\":false,\"delete\":true,\"write\":true,\"manage\":true},\"favorites\":[],\"translations\":[],\"userGroupAccesses\":[],\"attributeValues\":[],\"userAccesses\":[]},{\"lastUpdated\":\"2021-05-31T03:00:23.171\",\"id\":\"CAdI4rm5U9I\",\"href\":\"/37/jobConfigurations/CAdI4rm5U9I\",\"created\":\"2021-05-17T14:19:16.530\",\"name\":\"Test\",\"jobStatus\":\"SCHEDULED\",\"displayName\":\"Test\",\"enabled\":true,\"leaderOnlyJob\":false,\"externalAccess\":false,\"jobType\":\"DATA_INTEGRITY\",\"nextExecutionTime\":\"2021-06-07T03:00:00.000\",\"sharing\":{\"external\":false,\"users\":{},\"userGroups\":{}},\"cronExpression\":\"0 0 3 ? * MON\",\"schedulingType\":\"CRON\",\"lastRuntimeExecution\":\"00:00:23.167\",\"lastExecutedStatus\":\"COMPLETED\",\"lastExecuted\":\"2021-05-31T03:00:23.169\",\"favorite\":false,\"configurable\":true,\"access\":{\"read\":true,\"update\":true,\"externalize\":false,\"delete\":true,\"write\":true,\"manage\":true},\"favorites\":[],\"translations\":[],\"userGroupAccesses\":[],\"attributeValues\":[],\"userAccesses\":[]},{\"lastUpdated\":\"2021-05-31T07:00:00.311\",\"id\":\"Js3vHn2AVuG\",\"href\":\"/37/jobConfigurations/Js3vHn2AVuG\",\"created\":\"2017-12-08T12:45:18.346\",\"name\":\"Validation result notification\",\"jobStatus\":\"SCHEDULED\",\"displayName\":\"Validation result notification\",\"enabled\":true,\"leaderOnlyJob\":true,\"externalAccess\":false,\"jobType\":\"VALIDATION_RESULTS_NOTIFICATION\",\"nextExecutionTime\":\"2021-06-01T07:00:00.000\",\"sharing\":{\"external\":false,\"users\":{},\"userGroups\":{}},\"cronExpression\":\"0 0 7 * * ?\",\"schedulingType\":\"CRON\",\"lastRuntimeExecution\":\"00:00:00.247\",\"lastExecutedStatus\":\"COMPLETED\",\"lastExecuted\":\"2021-05-31T07:00:00.249\",\"favorite\":false,\"configurable\":false,\"access\":{\"read\":true,\"update\":true,\"externalize\":false,\"delete\":true,\"write\":true,\"manage\":true},\"favorites\":[],\"translations\":[],\"userGroupAccesses\":[],\"attributeValues\":[],\"userAccesses\":[]}]}",
+        "responseSize": 6029,
+        "responseHeaders": {
+            "server": "nginx/1.17.10",
+            "content-type": "application/json;charset=UTF-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "access-control-allow-credentials": "true",
+            "access-control-allow-origin": "http://localhost:3000",
+            "vary": "Origin",
+            "access-control-expose-headers": "ETag, Location",
+            "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
             "x-xss-protection": "1; mode=block",
             "x-frame-options": "SAMEORIGIN"
@@ -337,40 +337,6 @@
         }
     },
     {
-        "path": "/api/37/jobConfigurations?fields=*&paging=false",
-        "testName": "Users should be able to insert cron presets -- User cancels inserting a cron preset",
-        "static": false,
-        "count": 1,
-        "nonDeterministic": false,
-        "method": "GET",
-        "requestBody": "",
-        "requestHeaders": {
-            "host": "debug.dhis2.org",
-            "connection": "keep-alive",
-            "accept": "application/json",
-            "origin": "http://localhost:3000",
-            "sec-fetch-site": "cross-site",
-            "sec-fetch-mode": "cors"
-        },
-        "statusCode": 200,
-        "responseBody": "{\"jobConfigurations\":[{\"lastUpdated\":\"2021-05-27T02:00:00.391\",\"id\":\"sHMedQF7VYa\",\"href\":\"/37/jobConfigurations/sHMedQF7VYa\",\"created\":\"2017-12-08T12:45:18.351\",\"name\":\"Credentials expiry alert\",\"jobStatus\":\"SCHEDULED\",\"displayName\":\"Credentials expiry alert\",\"enabled\":true,\"leaderOnlyJob\":true,\"externalAccess\":false,\"jobType\":\"CREDENTIALS_EXPIRY_ALERT\",\"nextExecutionTime\":\"2021-05-28T02:00:00.000\",\"sharing\":{\"external\":false,\"users\":{},\"userGroups\":{}},\"cronExpression\":\"0 0 2 * * ?\",\"schedulingType\":\"CRON\",\"lastRuntimeExecution\":\"00:00:00.380\",\"lastExecutedStatus\":\"COMPLETED\",\"lastExecuted\":\"2021-05-27T02:00:00.381\",\"favorite\":false,\"configurable\":false,\"access\":{\"read\":true,\"update\":true,\"externalize\":false,\"delete\":true,\"write\":true,\"manage\":true},\"favorites\":[],\"translations\":[],\"userGroupAccesses\":[],\"attributeValues\":[],\"userAccesses\":[]},{\"lastUpdated\":\"2021-05-27T02:00:00.427\",\"id\":\"YvAwAmrqAtN\",\"href\":\"/37/jobConfigurations/YvAwAmrqAtN\",\"created\":\"2017-12-08T12:45:18.355\",\"name\":\"Dataset notification\",\"jobStatus\":\"SCHEDULED\",\"displayName\":\"Dataset notification\",\"enabled\":true,\"leaderOnlyJob\":true,\"externalAccess\":false,\"jobType\":\"DATA_SET_NOTIFICATION\",\"nextExecutionTime\":\"2021-05-28T02:00:00.000\",\"sharing\":{\"external\":false,\"users\":{},\"userGroups\":{}},\"cronExpression\":\"0 0 2 * * ?\",\"schedulingType\":\"CRON\",\"lastRuntimeExecution\":\"00:00:00.400\",\"lastExecutedStatus\":\"COMPLETED\",\"lastExecuted\":\"2021-05-27T02:00:00.419\",\"favorite\":false,\"configurable\":false,\"access\":{\"read\":true,\"update\":true,\"externalize\":false,\"delete\":true,\"write\":true,\"manage\":true},\"favorites\":[],\"translations\":[],\"userGroupAccesses\":[],\"attributeValues\":[],\"userAccesses\":[]},{\"lastUpdated\":\"2021-05-27T02:00:01.070\",\"id\":\"BFa3jDsbtdO\",\"href\":\"/37/jobConfigurations/BFa3jDsbtdO\",\"created\":\"2017-12-08T12:45:18.337\",\"name\":\"Data statistics\",\"jobStatus\":\"SCHEDULED\",\"displayName\":\"Data statistics\",\"enabled\":true,\"leaderOnlyJob\":true,\"externalAccess\":false,\"jobType\":\"DATA_STATISTICS\",\"nextExecutionTime\":\"2021-05-28T02:00:00.000\",\"sharing\":{\"external\":false,\"users\":{},\"userGroups\":{}},\"cronExpression\":\"0 0 2 * * ?\",\"schedulingType\":\"CRON\",\"lastRuntimeExecution\":\"00:00:01.048\",\"lastExecutedStatus\":\"COMPLETED\",\"lastExecuted\":\"2021-05-27T02:00:01.064\",\"favorite\":false,\"configurable\":false,\"access\":{\"read\":true,\"update\":true,\"externalize\":false,\"delete\":true,\"write\":true,\"manage\":true},\"favorites\":[],\"translations\":[],\"userGroupAccesses\":[],\"attributeValues\":[],\"userAccesses\":[]},{\"lastUpdated\":\"2021-05-27T02:00:00.466\",\"id\":\"pd6O228pqr0\",\"href\":\"/37/jobConfigurations/pd6O228pqr0\",\"created\":\"2017-12-08T12:45:18.317\",\"name\":\"File resource clean up\",\"jobStatus\":\"SCHEDULED\",\"displayName\":\"File resource clean up\",\"enabled\":true,\"leaderOnlyJob\":true,\"externalAccess\":false,\"jobType\":\"FILE_RESOURCE_CLEANUP\",\"nextExecutionTime\":\"2021-05-28T02:00:00.000\",\"sharing\":{\"external\":false,\"users\":{},\"userGroups\":{}},\"cronExpression\":\"0 0 2 * * ?\",\"schedulingType\":\"CRON\",\"lastRuntimeExecution\":\"00:00:00.452\",\"lastExecutedStatus\":\"COMPLETED\",\"lastExecuted\":\"2021-05-27T02:00:00.453\",\"favorite\":false,\"configurable\":false,\"access\":{\"read\":true,\"update\":true,\"externalize\":false,\"delete\":true,\"write\":true,\"manage\":true},\"favorites\":[],\"translations\":[],\"userGroupAccesses\":[],\"attributeValues\":[],\"userAccesses\":[]},{\"lastUpdated\":\"2021-05-27T15:00:00.113\",\"id\":\"uwWCT2BMmlq\",\"href\":\"/37/jobConfigurations/uwWCT2BMmlq\",\"created\":\"2018-03-06T13:31:39.065\",\"name\":\"Remove expired reserved values\",\"jobStatus\":\"SCHEDULED\",\"displayName\":\"Remove expired reserved values\",\"enabled\":true,\"leaderOnlyJob\":true,\"externalAccess\":false,\"jobType\":\"REMOVE_EXPIRED_RESERVED_VALUES\",\"nextExecutionTime\":\"2021-05-27T16:00:00.000\",\"sharing\":{\"external\":false,\"users\":{},\"userGroups\":{}},\"cronExpression\":\"0 0 * ? * *\",\"schedulingType\":\"CRON\",\"lastRuntimeExecution\":\"00:00:00.104\",\"lastExecutedStatus\":\"COMPLETED\",\"lastExecuted\":\"2021-05-27T15:00:00.105\",\"favorite\":false,\"configurable\":false,\"access\":{\"read\":true,\"update\":true,\"externalize\":false,\"delete\":true,\"write\":true,\"manage\":true},\"favorites\":[],\"translations\":[],\"userGroupAccesses\":[],\"attributeValues\":[],\"userAccesses\":[]},{\"lastUpdated\":\"2021-05-24T03:00:23.424\",\"id\":\"CAdI4rm5U9I\",\"href\":\"/37/jobConfigurations/CAdI4rm5U9I\",\"created\":\"2021-05-17T14:19:16.530\",\"name\":\"Test\",\"jobStatus\":\"SCHEDULED\",\"displayName\":\"Test\",\"enabled\":true,\"leaderOnlyJob\":false,\"externalAccess\":false,\"jobType\":\"DATA_INTEGRITY\",\"nextExecutionTime\":\"2021-05-31T03:00:00.000\",\"sharing\":{\"external\":false,\"users\":{},\"userGroups\":{}},\"cronExpression\":\"0 0 3 ? * MON\",\"schedulingType\":\"CRON\",\"lastRuntimeExecution\":\"00:00:23.421\",\"lastExecutedStatus\":\"COMPLETED\",\"lastExecuted\":\"2021-05-24T03:00:23.422\",\"favorite\":false,\"configurable\":true,\"access\":{\"read\":true,\"update\":true,\"externalize\":false,\"delete\":true,\"write\":true,\"manage\":true},\"favorites\":[],\"translations\":[],\"userGroupAccesses\":[],\"attributeValues\":[],\"userAccesses\":[]},{\"lastUpdated\":\"2021-05-27T07:00:00.268\",\"id\":\"Js3vHn2AVuG\",\"href\":\"/37/jobConfigurations/Js3vHn2AVuG\",\"created\":\"2017-12-08T12:45:18.346\",\"name\":\"Validation result notification\",\"jobStatus\":\"SCHEDULED\",\"displayName\":\"Validation result notification\",\"enabled\":true,\"leaderOnlyJob\":true,\"externalAccess\":false,\"jobType\":\"VALIDATION_RESULTS_NOTIFICATION\",\"nextExecutionTime\":\"2021-05-28T07:00:00.000\",\"sharing\":{\"external\":false,\"users\":{},\"userGroups\":{}},\"cronExpression\":\"0 0 7 * * ?\",\"schedulingType\":\"CRON\",\"lastRuntimeExecution\":\"00:00:00.224\",\"lastExecutedStatus\":\"COMPLETED\",\"lastExecuted\":\"2021-05-27T07:00:00.231\",\"favorite\":false,\"configurable\":false,\"access\":{\"read\":true,\"update\":true,\"externalize\":false,\"delete\":true,\"write\":true,\"manage\":true},\"favorites\":[],\"translations\":[],\"userGroupAccesses\":[],\"attributeValues\":[],\"userAccesses\":[]}]}",
-        "responseSize": 6029,
-        "responseHeaders": {
-            "server": "nginx/1.17.10",
-            "content-type": "application/json;charset=UTF-8",
-            "transfer-encoding": "chunked",
-            "connection": "keep-alive",
-            "access-control-allow-credentials": "true",
-            "access-control-allow-origin": "http://localhost:3000",
-            "vary": "Origin",
-            "access-control-expose-headers": "ETag, Location",
-            "cache-control": "no-cache, private",
-            "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
-        }
-    },
-    {
         "path": "/api/37/jobConfigurations/jobTypes?fields=*&paging=false",
         "testName": "Users should be able to insert cron presets -- User cancels inserting a cron preset",
         "static": false,
@@ -404,10 +370,10 @@
         }
     },
     {
-        "path": "/api/37/pushAnalysis?paging=false",
+        "path": "/api/37/jobConfigurations?fields=*&paging=false",
         "testName": "Users should be able to insert cron presets -- User cancels inserting a cron preset",
         "static": false,
-        "count": 2,
+        "count": 1,
         "nonDeterministic": false,
         "method": "GET",
         "requestBody": "",
@@ -420,8 +386,8 @@
             "sec-fetch-mode": "cors"
         },
         "statusCode": 200,
-        "responseBody": "{\"pushAnalysis\":[{\"id\":\"jtcMAKhWwnc\",\"displayName\":\"Immunization Key Indicators Monthly Report\"}]}",
-        "responseSize": 98,
+        "responseBody": "{\"jobConfigurations\":[{\"lastUpdated\":\"2021-05-31T02:00:00.274\",\"id\":\"sHMedQF7VYa\",\"href\":\"/37/jobConfigurations/sHMedQF7VYa\",\"created\":\"2017-12-08T12:45:18.351\",\"name\":\"Credentials expiry alert\",\"jobStatus\":\"SCHEDULED\",\"displayName\":\"Credentials expiry alert\",\"enabled\":true,\"leaderOnlyJob\":true,\"externalAccess\":false,\"jobType\":\"CREDENTIALS_EXPIRY_ALERT\",\"nextExecutionTime\":\"2021-06-01T02:00:00.000\",\"sharing\":{\"external\":false,\"users\":{},\"userGroups\":{}},\"cronExpression\":\"0 0 2 * * ?\",\"schedulingType\":\"CRON\",\"lastRuntimeExecution\":\"00:00:00.244\",\"lastExecutedStatus\":\"COMPLETED\",\"lastExecuted\":\"2021-05-31T02:00:00.255\",\"favorite\":false,\"configurable\":false,\"access\":{\"read\":true,\"update\":true,\"externalize\":false,\"delete\":true,\"write\":true,\"manage\":true},\"favorites\":[],\"translations\":[],\"userGroupAccesses\":[],\"attributeValues\":[],\"userAccesses\":[]},{\"lastUpdated\":\"2021-05-31T02:00:00.486\",\"id\":\"YvAwAmrqAtN\",\"href\":\"/37/jobConfigurations/YvAwAmrqAtN\",\"created\":\"2017-12-08T12:45:18.355\",\"name\":\"Dataset notification\",\"jobStatus\":\"SCHEDULED\",\"displayName\":\"Dataset notification\",\"enabled\":true,\"leaderOnlyJob\":true,\"externalAccess\":false,\"jobType\":\"DATA_SET_NOTIFICATION\",\"nextExecutionTime\":\"2021-06-01T02:00:00.000\",\"sharing\":{\"external\":false,\"users\":{},\"userGroups\":{}},\"cronExpression\":\"0 0 2 * * ?\",\"schedulingType\":\"CRON\",\"lastRuntimeExecution\":\"00:00:00.442\",\"lastExecutedStatus\":\"COMPLETED\",\"lastExecuted\":\"2021-05-31T02:00:00.477\",\"favorite\":false,\"configurable\":false,\"access\":{\"read\":true,\"update\":true,\"externalize\":false,\"delete\":true,\"write\":true,\"manage\":true},\"favorites\":[],\"translations\":[],\"userGroupAccesses\":[],\"attributeValues\":[],\"userAccesses\":[]},{\"lastUpdated\":\"2021-05-31T02:00:01.654\",\"id\":\"BFa3jDsbtdO\",\"href\":\"/37/jobConfigurations/BFa3jDsbtdO\",\"created\":\"2017-12-08T12:45:18.337\",\"name\":\"Data statistics\",\"jobStatus\":\"SCHEDULED\",\"displayName\":\"Data statistics\",\"enabled\":true,\"leaderOnlyJob\":true,\"externalAccess\":false,\"jobType\":\"DATA_STATISTICS\",\"nextExecutionTime\":\"2021-06-01T02:00:00.000\",\"sharing\":{\"external\":false,\"users\":{},\"userGroups\":{}},\"cronExpression\":\"0 0 2 * * ?\",\"schedulingType\":\"CRON\",\"lastRuntimeExecution\":\"00:00:01.645\",\"lastExecutedStatus\":\"COMPLETED\",\"lastExecuted\":\"2021-05-31T02:00:01.653\",\"favorite\":false,\"configurable\":false,\"access\":{\"read\":true,\"update\":true,\"externalize\":false,\"delete\":true,\"write\":true,\"manage\":true},\"favorites\":[],\"translations\":[],\"userGroupAccesses\":[],\"attributeValues\":[],\"userAccesses\":[]},{\"lastUpdated\":\"2021-05-31T02:00:01.049\",\"id\":\"pd6O228pqr0\",\"href\":\"/37/jobConfigurations/pd6O228pqr0\",\"created\":\"2017-12-08T12:45:18.317\",\"name\":\"File resource clean up\",\"jobStatus\":\"SCHEDULED\",\"displayName\":\"File resource clean up\",\"enabled\":true,\"leaderOnlyJob\":true,\"externalAccess\":false,\"jobType\":\"FILE_RESOURCE_CLEANUP\",\"nextExecutionTime\":\"2021-06-01T02:00:00.000\",\"sharing\":{\"external\":false,\"users\":{},\"userGroups\":{}},\"cronExpression\":\"0 0 2 * * ?\",\"schedulingType\":\"CRON\",\"lastRuntimeExecution\":\"00:00:01.040\",\"lastExecutedStatus\":\"COMPLETED\",\"lastExecuted\":\"2021-05-31T02:00:01.048\",\"favorite\":false,\"configurable\":false,\"access\":{\"read\":true,\"update\":true,\"externalize\":false,\"delete\":true,\"write\":true,\"manage\":true},\"favorites\":[],\"translations\":[],\"userGroupAccesses\":[],\"attributeValues\":[],\"userAccesses\":[]},{\"lastUpdated\":\"2021-05-31T12:00:00.112\",\"id\":\"uwWCT2BMmlq\",\"href\":\"/37/jobConfigurations/uwWCT2BMmlq\",\"created\":\"2018-03-06T13:31:39.065\",\"name\":\"Remove expired reserved values\",\"jobStatus\":\"SCHEDULED\",\"displayName\":\"Remove expired reserved values\",\"enabled\":true,\"leaderOnlyJob\":true,\"externalAccess\":false,\"jobType\":\"REMOVE_EXPIRED_RESERVED_VALUES\",\"nextExecutionTime\":\"2021-05-31T13:00:00.000\",\"sharing\":{\"external\":false,\"users\":{},\"userGroups\":{}},\"cronExpression\":\"0 0 * ? * *\",\"schedulingType\":\"CRON\",\"lastRuntimeExecution\":\"00:00:00.106\",\"lastExecutedStatus\":\"COMPLETED\",\"lastExecuted\":\"2021-05-31T12:00:00.107\",\"favorite\":false,\"configurable\":false,\"access\":{\"read\":true,\"update\":true,\"externalize\":false,\"delete\":true,\"write\":true,\"manage\":true},\"favorites\":[],\"translations\":[],\"userGroupAccesses\":[],\"attributeValues\":[],\"userAccesses\":[]},{\"lastUpdated\":\"2021-05-31T03:00:23.171\",\"id\":\"CAdI4rm5U9I\",\"href\":\"/37/jobConfigurations/CAdI4rm5U9I\",\"created\":\"2021-05-17T14:19:16.530\",\"name\":\"Test\",\"jobStatus\":\"SCHEDULED\",\"displayName\":\"Test\",\"enabled\":true,\"leaderOnlyJob\":false,\"externalAccess\":false,\"jobType\":\"DATA_INTEGRITY\",\"nextExecutionTime\":\"2021-06-07T03:00:00.000\",\"sharing\":{\"external\":false,\"users\":{},\"userGroups\":{}},\"cronExpression\":\"0 0 3 ? * MON\",\"schedulingType\":\"CRON\",\"lastRuntimeExecution\":\"00:00:23.167\",\"lastExecutedStatus\":\"COMPLETED\",\"lastExecuted\":\"2021-05-31T03:00:23.169\",\"favorite\":false,\"configurable\":true,\"access\":{\"read\":true,\"update\":true,\"externalize\":false,\"delete\":true,\"write\":true,\"manage\":true},\"favorites\":[],\"translations\":[],\"userGroupAccesses\":[],\"attributeValues\":[],\"userAccesses\":[]},{\"lastUpdated\":\"2021-05-31T07:00:00.311\",\"id\":\"Js3vHn2AVuG\",\"href\":\"/37/jobConfigurations/Js3vHn2AVuG\",\"created\":\"2017-12-08T12:45:18.346\",\"name\":\"Validation result notification\",\"jobStatus\":\"SCHEDULED\",\"displayName\":\"Validation result notification\",\"enabled\":true,\"leaderOnlyJob\":true,\"externalAccess\":false,\"jobType\":\"VALIDATION_RESULTS_NOTIFICATION\",\"nextExecutionTime\":\"2021-06-01T07:00:00.000\",\"sharing\":{\"external\":false,\"users\":{},\"userGroups\":{}},\"cronExpression\":\"0 0 7 * * ?\",\"schedulingType\":\"CRON\",\"lastRuntimeExecution\":\"00:00:00.247\",\"lastExecutedStatus\":\"COMPLETED\",\"lastExecuted\":\"2021-05-31T07:00:00.249\",\"favorite\":false,\"configurable\":false,\"access\":{\"read\":true,\"update\":true,\"externalize\":false,\"delete\":true,\"write\":true,\"manage\":true},\"favorites\":[],\"translations\":[],\"userGroupAccesses\":[],\"attributeValues\":[],\"userAccesses\":[]}]}",
+        "responseSize": 6029,
         "responseHeaders": {
             "server": "nginx/1.17.10",
             "content-type": "application/json;charset=UTF-8",
@@ -490,6 +456,40 @@
         "statusCode": 200,
         "responseBody": "{\"validationRuleGroups\":[{\"id\":\"UP1lctvalPn\",\"displayName\":\"ANC\"},{\"id\":\"xcpl667ccfF\",\"displayName\":\"Commodities\"},{\"id\":\"xWtt9c443Lt\",\"displayName\":\"Critical event\"},{\"id\":\"mEtdbIDDhix\",\"displayName\":\"District stock\"},{\"id\":\"y2yQIm79VTW\",\"displayName\":\"Epidemic disease outbreak\"},{\"id\":\"SqyI8HKqI4g\",\"displayName\":\"Facility Stock\"},{\"id\":\"UiOSY1iIdub\",\"displayName\":\"Immunisation\"},{\"id\":\"WUZXEFdn1PX\",\"displayName\":\"Infectious disease outbreak\"},{\"id\":\"zlaSof6qLqF\",\"displayName\":\"Malaria\"},{\"id\":\"D3bItmtBpsW\",\"displayName\":\"Population\"},{\"id\":\"IMF6p1MqoHl\",\"displayName\":\"TB\"},{\"id\":\"nMDkAJXsmlR\",\"displayName\":\"Testing\"}]}",
         "responseSize": 628,
+        "responseHeaders": {
+            "server": "nginx/1.17.10",
+            "content-type": "application/json;charset=UTF-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "access-control-allow-credentials": "true",
+            "access-control-allow-origin": "http://localhost:3000",
+            "vary": "Origin",
+            "access-control-expose-headers": "ETag, Location",
+            "cache-control": "no-cache, private",
+            "x-content-type-options": "nosniff",
+            "x-xss-protection": "1; mode=block",
+            "x-frame-options": "SAMEORIGIN"
+        }
+    },
+    {
+        "path": "/api/37/pushAnalysis?paging=false",
+        "testName": "Users should be able to insert cron presets -- User cancels inserting a cron preset",
+        "static": false,
+        "count": 2,
+        "nonDeterministic": false,
+        "method": "GET",
+        "requestBody": "",
+        "requestHeaders": {
+            "host": "debug.dhis2.org",
+            "connection": "keep-alive",
+            "accept": "application/json",
+            "origin": "http://localhost:3000",
+            "sec-fetch-site": "cross-site",
+            "sec-fetch-mode": "cors"
+        },
+        "statusCode": 200,
+        "responseBody": "{\"pushAnalysis\":[{\"id\":\"jtcMAKhWwnc\",\"displayName\":\"Immunization Key Indicators Monthly Report\"}]}",
+        "responseSize": 98,
         "responseHeaders": {
             "server": "nginx/1.17.10",
             "content-type": "application/json;charset=UTF-8",
