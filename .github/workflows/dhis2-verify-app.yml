@@ -131,9 +131,12 @@ jobs:
                   wait-on: 'http://localhost:3000'
                   wait-on-timeout: 300
               env:
-                  cypress_dhis2_base_url: https://debug.dhis2.org/dev
-                  cypress_record_key: ${{ secrets.CYPRESS_RECORD_KEY }}
+                  # Used for authenticating when uploading recordings to the cypress dashboard
+                  CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+                  # Used to generate a unique cypress id for restarting a workflow
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  # Used in @dhis2/cli-utils-cypress' network shim and autologin plugin
+                  cypress_dhis2_base_url: https://debug.dhis2.org/dev
 
     publish:
         runs-on: ubuntu-latest
