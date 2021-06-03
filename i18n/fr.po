@@ -6,15 +6,15 @@
 # Yao Selom Saka <ysaka@hispwca.org>, 2021
 # Djibril Dione <dione.djibril@gmail.com>, 2021
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021
-# Yayra Gomado <ygomado@hispwca.org>, 2021
 # Edem Kossi <ekossi@hispwca.org>, 2021
+# Yayra Gomado <ygomado@hispwca.org>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-03-04T11:18:04.801Z\n"
 "PO-Revision-Date: 2020-05-08 14:30+0000\n"
-"Last-Translator: Edem Kossi <ekossi@hispwca.org>, 2021\n"
+"Last-Translator: Yayra Gomado <ygomado@hispwca.org>, 2021\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,30 +23,32 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 msgid "Not authorized"
-msgstr ""
+msgstr "Pas autorisé"
 
 msgid ""
 "You don't have access to the Job Scheduler. Contact a system administrator "
 "to request access."
 msgstr ""
+"Vous n'avez pas accès au planificateur de tâches. Contactez un "
+"administrateur système pour demander l'accès."
 
 msgid "Choose from preset times"
-msgstr ""
+msgstr "Choisissez parmi des heures prédéfinies"
 
 msgid "Delete job"
 msgstr "Supprimer le travail"
 
 msgid "Something went wrong whilst creating your job"
-msgstr ""
+msgstr "Une erreur s'est produite lors de la création de votre tâche"
 
 msgid "CRON Expression"
-msgstr ""
+msgstr "Expression CRON"
 
 msgid "Delay"
-msgstr ""
+msgstr "Retard"
 
 msgid "Delay in seconds ({{ lowerbound }} - {{ upperbound }})"
-msgstr ""
+msgstr "Retard en secondes ({{ lowerbound }} - {{ upperbound }})"
 
 msgid "Name"
 msgstr "Nom"
@@ -55,7 +57,7 @@ msgid "Job type"
 msgstr "Type d'emploi"
 
 msgid "No options available"
-msgstr ""
+msgstr "Aucune option disponible"
 
 msgid "Parameters"
 msgstr "Paramètres"
@@ -70,13 +72,13 @@ msgid "Job details"
 msgstr "Détails du poste"
 
 msgid "Created {{ createdFromNow }}."
-msgstr ""
+msgstr "Créé {{ createdFromNow }}."
 
 msgid "Last run {{ lastRunFromNow }}."
-msgstr ""
+msgstr "Dernière exécution {{ lastRunFromNow }}."
 
 msgid "Last run status: {{ translatedStatus }}."
-msgstr ""
+msgstr "Statu de la dernière exécution : {{ translateStatus }}."
 
 msgid "Actions"
 msgstr "Actions"
@@ -88,7 +90,7 @@ msgid "Edit"
 msgstr "Modifier"
 
 msgid "Job name"
-msgstr ""
+msgstr "Nom de la tâche"
 
 msgid "Type"
 msgstr "Type"
@@ -97,25 +99,25 @@ msgid "Schedule"
 msgstr "Planning"
 
 msgid "Next run"
-msgstr ""
+msgstr "Prochaine exécution"
 
 msgid "Status"
 msgstr "Statut"
 
 msgid "On/off"
-msgstr ""
+msgstr "Allumé/éteint"
 
 msgid "No jobs to display"
-msgstr ""
+msgstr "Aucune tâche à afficher"
 
 msgid "Not scheduled"
-msgstr ""
+msgstr "Non planifié"
 
 msgid "Run manually"
-msgstr ""
+msgstr "Exécuter manuellement"
 
 msgid "{{ delay }} seconds after last run"
-msgstr ""
+msgstr "{{ delay }} secondes après la dernière exécution"
 
 msgid "View"
 msgstr "Voir"
@@ -124,82 +126,82 @@ msgid "Every hour"
 msgstr "Toutes les heures"
 
 msgid "Every day at midnight"
-msgstr ""
+msgstr "Tous les jours à minuit"
 
 msgid "Every day at 3 am"
-msgstr ""
+msgstr "Tous les jours à 3h du matin"
 
 msgid "Every day at noon"
-msgstr ""
+msgstr "Tous les jours à midi"
 
 msgid "Every week"
-msgstr ""
+msgstr "Toutes les semaines"
 
 msgid "Choose a preset time/interval"
-msgstr ""
+msgstr "Choisissez une heure/un intervalle prédéfini"
 
 msgid "Insert preset"
-msgstr ""
+msgstr "Insérer un prédéfini"
 
 msgid "Are you sure you want to delete this job?"
 msgstr "Voulez-vous vraiment supprimer ce travail?"
 
 msgid "Are you sure you want to discard this form?"
-msgstr ""
+msgstr "Etes vous sûr de vouloir supprimer ce formulaire ?"
 
 msgid "Discard"
 msgstr "Abandonner"
 
 msgid "Are you sure you want to run this job?"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir exécuter cette tâche ?"
 
 msgid "Run"
-msgstr ""
+msgstr "Exécuter"
 
 msgid "Toggle job"
-msgstr ""
+msgstr "Basculer la tâche"
 
 msgid "Back to all jobs"
-msgstr ""
+msgstr "Retour à toutes les tâches"
 
 msgid "New Job"
-msgstr ""
+msgstr "Nouvelle tâche"
 
 msgid "Configuration"
 msgstr "Configuration"
 
 msgid "About job configuration"
-msgstr ""
+msgstr "À propos de la configuration de tâches"
 
 msgid "Job: {{ name }}"
-msgstr ""
+msgstr "Tâche: {{ name }}"
 
 msgid "Scheduled jobs"
 msgstr "Travaux planifiés"
 
 msgid "Filter jobs"
-msgstr ""
+msgstr "Filtrer les tâches"
 
 msgid "Include system jobs in list"
-msgstr ""
+msgstr "Inclure les tâches système dans la liste"
 
 msgid "New job"
-msgstr ""
+msgstr "Nouvelle tâche"
 
 msgid "System job: {{ name }}"
-msgstr ""
+msgstr "Tâche système : {{ nom }}"
 
 msgid "Data value"
-msgstr ""
+msgstr "Valeur des données"
 
 msgid "Completeness"
-msgstr ""
+msgstr "Etat terminé"
 
 msgid "Completeness target"
-msgstr ""
+msgstr "Etat terminé de la cible"
 
 msgid "Org unit target"
-msgstr ""
+msgstr "Unité d'organisation cible"
 
 msgid "Event"
 msgstr "Evènement"
@@ -223,49 +225,49 @@ msgid "Failed"
 msgstr "Echoué"
 
 msgid "Not started"
-msgstr ""
+msgstr "Pas commencé"
 
 msgid "Running"
-msgstr ""
+msgstr "En cours"
 
 msgid "Scheduled"
 msgstr "Programmé"
 
 msgid "Stopped"
-msgstr ""
+msgstr "Arrêté"
 
 msgid "Analytics table"
-msgstr ""
+msgstr "Tables d'analytique"
 
 msgid "Continuous analytics table"
-msgstr ""
+msgstr "Table d'analytique continue"
 
 msgid "Credentials expiry alert"
-msgstr ""
+msgstr "Alerte d'expiration des identifiants"
 
 msgid "Data integrity"
-msgstr ""
+msgstr "Intégrité des données"
 
 msgid "Dataset notification"
-msgstr ""
+msgstr "Notification d'ensemble de données"
 
 msgid "Data statistics"
-msgstr ""
+msgstr "Statistiques de données"
 
 msgid "Data synchronization"
 msgstr "Synchronisation de données"
 
 msgid "Event programs data sync"
-msgstr ""
+msgstr "Synchronisation des données des programmes d'événements"
 
 msgid "File resource clean up"
-msgstr ""
+msgstr "Nettoyage des ressources de fichiers"
 
 msgid "Metadata synchronization"
-msgstr ""
+msgstr "Synchronisation des métadonnées"
 
 msgid "Monitoring"
-msgstr ""
+msgstr "Surveillance"
 
 msgid "Predictor"
 msgstr "Prédicteur"
@@ -277,25 +279,25 @@ msgid "Push analysis"
 msgstr "Analyse push"
 
 msgid "Remove expired reserved values"
-msgstr ""
+msgstr "Supprimer les valeurs réservées expirées"
 
 msgid "Resource table"
-msgstr ""
+msgstr "Table des ressources"
 
 msgid "Send scheduled message"
-msgstr ""
+msgstr "Envoyer un message programmé"
 
 msgid "Tracker programs data sync"
-msgstr ""
+msgstr "Synchronisation des données des programmes de suivi"
 
 msgid "Validation results notification"
-msgstr ""
+msgstr "Notification des résultats de la validation"
 
 msgid "Disable inactive users"
-msgstr ""
+msgstr "Désactiver les utilisateurs inactifs"
 
 msgid "A CRON expression is required"
-msgstr ""
+msgstr "Une expression CRON est requise"
 
 msgid "Please enter a valid CRON expression"
-msgstr ""
+msgstr "Veuillez saisir une expression CRON valide"
