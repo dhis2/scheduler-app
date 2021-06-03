@@ -132,7 +132,12 @@ jobs:
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                   CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+                  # Used by the app platform
+                  DHIS2_BASE_URL: https://debug.dhis2.org/dev
+                  # Used by the network shim
                   CYPRESS_dhis2BaseUrl: https://debug.dhis2.org/dev
+                  CYPRESS_dhis2ApiVersion: 37
+                  CYPRESS_networkMode: stub
 
     publish:
         runs-on: ubuntu-latest
