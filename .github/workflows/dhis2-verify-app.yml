@@ -104,6 +104,10 @@ jobs:
     e2e:
         runs-on: ubuntu-latest
         if: "!github.event.push.repository.fork && github.actor != 'dependabot[bot]'"
+        strategy:
+            fail-fast: false
+            matrix:
+                containers: [1, 2, 3]
 
         steps:
             - name: Checkout
@@ -120,6 +124,7 @@ jobs:
                   wait-on: 'http://localhost:3000'
                   wait-on-timeout: 300
                   record: true
+                  parallel: true
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                   CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
