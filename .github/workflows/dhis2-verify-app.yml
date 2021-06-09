@@ -11,6 +11,10 @@ env:
     CI: true
     D2_VERBOSE: true
 
+concurrency:
+    group: ${{ github.workflow}}-${{ github.ref }}
+    cancel-in-progress: true
+
 jobs:
     build:
         runs-on: ubuntu-latest
