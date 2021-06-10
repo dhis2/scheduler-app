@@ -32,6 +32,8 @@
         "@dhis2/cli-utils-cypress": "^8.0.0-alpha.9",
         "@dhis2/cypress-commands": "^8.0.0-alpha.8",
         "@dhis2/cypress-plugins": "^8.0.0-alpha.8",
+        "@percy/cli": "^1.0.0-beta.52",
+        "@percy/cypress": "^3.1.0",
         "@testing-library/cypress": "^7.0.6",
         "@testing-library/react-hooks": "^7.0.0",
         "enzyme": "^3.10.0",
@@ -61,6 +63,14 @@
         ],
         "moduleNameMapper": {
             "\\.css$": "identity-obj-proxy"
+        }
+    },
+    "percy": {
+        "version": 2,
+        "snapshot": {
+            "widths": [
+                1280
+            ]
         }
     }
 }

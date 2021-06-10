@@ -9,3 +9,4 @@ Feature: All user defined jobs should be listed
         Given some user jobs exist
         And the user navigated to the job list page
         Then the user jobs are rendered as tabular data
+        And it looks as expected

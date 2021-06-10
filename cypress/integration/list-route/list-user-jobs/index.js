@@ -31,3 +31,7 @@ Then('the user jobs are rendered as tabular data', () => {
     cy.findByRole('rowheader', { name: 'Job 2' }).should('exist')
     cy.findByRole('rowheader', { name: 'Job 3' }).should('exist')
 })
+
+Then('it looks as expected', () => {
+    cy.percySnapshot('user job list renders as expected')
+})

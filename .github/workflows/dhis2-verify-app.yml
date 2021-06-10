@@ -63,7 +63,16 @@ jobs:
             - name: Test
               run: yarn test
 
+    uuid:
+        runs-on: ubuntu-latest
+        outputs:
+            uuid: ${{ steps.generate.outputs.uuid }}
+        steps:
+            - uses: filipstefansson/uuid-action@v1
+              id: generate
+
     e2e:
+        needs: [uuid]
         runs-on: ubuntu-latest
         if: "!github.event.push.repository.fork && github.actor != 'dependabot[bot]'"
         strategy:
@@ -84,7 +93,11 @@ jobs:
                   wait-on-timeout: 300
                   record: true
                   parallel: true
+                  command-prefix: 'percy exec -- yarn'
               env:
+                  PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+                  PERCY_PARALLEL_NONCE: ${{ needs.uuid.outputs.uuid }}
+                  PERCY_PARALLEL_TOTAL: 4
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                   CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
                   CYPRESS_dhis2BaseUrl: https://debug.dhis2.org/dev

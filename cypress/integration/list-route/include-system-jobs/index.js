@@ -54,3 +54,7 @@ Then('user jobs are shown', () => {
         cy.findByRole('rowheader', { name }).should('be.visible')
     })
 })
+
+Then('it looks as expected', () => {
+    cy.percySnapshot('system and user job list renders as expected')
+})
