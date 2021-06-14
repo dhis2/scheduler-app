@@ -12,3 +12,4 @@ Feature: System job visibility can be toggled
         When the user checks the include-system-jobs-in-list checkbox
         Then system jobs are shown
         And user jobs are shown
+        And it looks as expected
