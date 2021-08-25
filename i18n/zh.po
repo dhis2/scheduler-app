@@ -81,7 +81,7 @@ msgid "Delete"
 msgstr "删除"
 
 msgid "Edit"
-msgstr "编辑<br>"
+msgstr "编辑"
 
 msgid "Job name"
 msgstr "作业名称"
@@ -216,7 +216,7 @@ msgid "Done"
 msgstr "完成"
 
 msgid "Failed"
-msgstr "Failed"
+msgstr "失败"
 
 msgid "Not started"
 msgstr "没有开始"
