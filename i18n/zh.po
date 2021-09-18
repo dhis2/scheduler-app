@@ -117,7 +117,7 @@ msgid "View"
 msgstr "查看"
 
 msgid "Every hour"
-msgstr "每小时"
+msgstr "每隔一小时"
 
 msgid "Every day at midnight"
 msgstr "每天午夜"
