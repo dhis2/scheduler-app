@@ -29,7 +29,7 @@
         "react-dom": "^16.13.1",
         "react-router": "^5.0.1",
         "react-router-dom": "^5.2.0",
-        "styled-jsx": "^3.4.4"
+        "styled-jsx": "^4.0.1"
     },
     "devDependencies": {
         "@dhis2/cli-app-scripts": "^8.0.1",
