@@ -33,7 +33,7 @@
     },
     "devDependencies": {
         "@dhis2/cli-app-scripts": "^8.0.1",
-        "@dhis2/cli-style": "^9.0.1",
+        "@dhis2/cli-style": "^10.1.1",
         "@dhis2/cli-utils-cypress": "^8.0.1",
         "@dhis2/cypress-commands": "^8.0.0-alpha.8",
         "@dhis2/cypress-plugins": "^8.0.0-alpha.8",
