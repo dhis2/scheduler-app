@@ -1,11 +1,11 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
-import { useDataEngine } from '@dhis2/app-runtime'
+import { useDataMutation } from '@dhis2/app-runtime'
 import { StoreContext } from '../Store'
 import RunJobModal from './RunJobModal'
 
 jest.mock('@dhis2/app-runtime', () => ({
-    useDataEngine: jest.fn(),
+    useDataMutation: jest.fn(),
 }))
 
 afterEach(() => {
@@ -14,9 +14,10 @@ afterEach(() => {
 
 describe('<RunJobModal>', () => {
     it('renders without errors', () => {
-        useDataEngine.mockImplementation(() => ({
-            query: () => () => Promise.resolve(),
-        }))
+        useDataMutation.mockImplementation(() => [
+            jest.fn(),
+            { loading: false, error: null },
+        ])
 
         const props = {
             id: 'id',
@@ -27,9 +28,10 @@ describe('<RunJobModal>', () => {
     })
 
     it('calls hideModal when cancel button is clicked', () => {
-        useDataEngine.mockImplementation(() => ({
-            query: () => () => Promise.resolve(),
-        }))
+        useDataMutation.mockImplementation(() => [
+            jest.fn(),
+            { loading: false, error: null },
+        ])
 
         const props = {
             id: 'id',
@@ -43,9 +45,10 @@ describe('<RunJobModal>', () => {
     })
 
     it('calls hideModal when cover is clicked', () => {
-        useDataEngine.mockImplementation(() => ({
-            query: () => () => Promise.resolve(),
-        }))
+        useDataMutation.mockImplementation(() => [
+            jest.fn(),
+            { loading: false, error: null },
+        ])
 
         const props = {
             id: 'id',
@@ -60,13 +63,14 @@ describe('<RunJobModal>', () => {
 
     it('runs the expected tasks after a click on run job', async () => {
         const resolvedPromise = Promise.resolve()
-        const querySpy = jest.fn(() => resolvedPromise)
         const refetchSpy = jest.fn()
         const hideModalSpy = jest.fn()
-        const engineMock = {
-            query: querySpy,
-        }
-        useDataEngine.mockImplementation(() => engineMock)
+        const mutateSpy = jest.fn(() => resolvedPromise)
+        let onComplete
+        useDataMutation.mockImplementation((mutation, options) => {
+            onComplete = options.onComplete
+            return [mutateSpy, { loading: false, error: null }]
+        })
 
         const props = {
             id: 'id',
@@ -84,8 +88,9 @@ describe('<RunJobModal>', () => {
             .simulate('click')
 
         await resolvedPromise
+        expect(mutateSpy).toHaveBeenCalled()
 
-        expect(querySpy).toHaveBeenCalled()
+        onComplete()
         expect(hideModalSpy).toHaveBeenCalled()
         expect(refetchSpy).toHaveBeenCalled()
     })
