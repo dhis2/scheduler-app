@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { PropTypes } from '@dhis2/prop-types'
 import { useDataEngine } from '@dhis2/app-runtime'
 import {
@@ -7,24 +7,46 @@ import {
     ModalContent,
     ModalActions,
     ButtonStrip,
+    NoticeBox,
 } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
 import { hooks } from '../Store'
 
 const RunJobModal = ({ id, hideModal }) => {
-    const engine = useDataEngine()
-    const query = {
-        jobs: {
-            resource: `jobConfigurations/${id}/execute`,
-        },
+    const mutation = {
+        resource: `jobConfigurations/${id}/execute`,
+        type: 'create',
     }
-    const runJob = () => engine.query(query)
     const refetchJobs = hooks.useRefetchJobs()
+    const [mutating, setMutating] = useState(false)
+    const [error, setError] = useState('')
+    const engine = useDataEngine(mutation)
+
+    const runJob = () => {
+        setMutating(true)
+        setError('')
+        engine
+            .mutate(mutation)
+            .then(() => {
+                setMutating(false)
+                hideModal()
+                refetchJobs()
+            })
+            .catch(e => {
+                setMutating(false)
+                setError(e.message || i18n.t('Something went wrong'))
+            })
+    }
 
     return (
         <Modal open small onClose={hideModal}>
             <ModalContent>
-                {i18n.t('Are you sure you want to run this job?')}
+                {error && (
+                    <NoticeBox error title={i18n.t('Error running job')}>
+                        {error}
+                    </NoticeBox>
+                )}
+                <p>{i18n.t('Are you sure you want to run this job?')}</p>
             </ModalContent>
             <ModalActions>
                 <ButtonStrip end>
@@ -34,12 +56,8 @@ const RunJobModal = ({ id, hideModal }) => {
                     <Button
                         name={`run-job-${id}`}
                         primary
-                        onClick={() => {
-                            runJob().then(() => {
-                                hideModal()
-                                refetchJobs()
-                            })
-                        }}
+                        onClick={runJob}
+                        loading={mutating}
                     >
                         {i18n.t('Run')}
                     </Button>

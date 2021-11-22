@@ -5,283 +5,288 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-03-04T11:18:04.801Z\n"
-"PO-Revision-Date: 2021-03-04T11:18:04.803Z\n"
+"POT-Creation-Date: 2021-11-18T16:21:37.799Z\n"
+"PO-Revision-Date: 2021-11-18T16:21:37.799Z\n"
 
 msgid "Not authorized"
-msgstr ""
+msgstr "Not authorized"
 
 msgid ""
 "You don't have access to the Job Scheduler. Contact a system administrator "
 "to request access."
 msgstr ""
+"You don't have access to the Job Scheduler. Contact a system administrator "
+"to request access."
 
 msgid "Choose from preset times"
-msgstr ""
+msgstr "Choose from preset times"
 
 msgid "Delete job"
-msgstr ""
+msgstr "Delete job"
 
 msgid "Something went wrong whilst creating your job"
-msgstr ""
+msgstr "Something went wrong whilst creating your job"
 
 msgid "CRON Expression"
-msgstr ""
+msgstr "CRON Expression"
 
 msgid "Delay"
-msgstr ""
+msgstr "Delay"
 
 msgid "Delay in seconds ({{ lowerbound }} - {{ upperbound }})"
-msgstr ""
+msgstr "Delay in seconds ({{ lowerbound }} - {{ upperbound }})"
 
 msgid "Name"
-msgstr ""
+msgstr "Name"
 
 msgid "Job type"
-msgstr ""
+msgstr "Job type"
 
 msgid "No options available"
-msgstr ""
+msgstr "No options available"
 
 msgid "Parameters"
-msgstr ""
+msgstr "Parameters"
 
 msgid "Save"
-msgstr ""
+msgstr "Save"
 
 msgid "Cancel"
-msgstr ""
+msgstr "Cancel"
 
 msgid "Job details"
-msgstr ""
+msgstr "Job details"
 
 msgid "Created {{ createdFromNow }}."
-msgstr ""
+msgstr "Created {{ createdFromNow }}."
 
 msgid "Last run {{ lastRunFromNow }}."
-msgstr ""
+msgstr "Last run {{ lastRunFromNow }}."
 
 msgid "Last run status: {{ translatedStatus }}."
-msgstr ""
+msgstr "Last run status: {{ translatedStatus }}."
 
 msgid "Actions"
-msgstr ""
+msgstr "Actions"
 
 msgid "Delete"
-msgstr ""
+msgstr "Delete"
 
 msgid "Edit"
-msgstr ""
+msgstr "Edit"
 
 msgid "Job name"
-msgstr ""
+msgstr "Job name"
 
 msgid "Type"
-msgstr ""
+msgstr "Type"
 
 msgid "Schedule"
-msgstr ""
+msgstr "Schedule"
 
 msgid "Next run"
-msgstr ""
+msgstr "Next run"
 
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 msgid "On/off"
-msgstr ""
+msgstr "On/off"
 
 msgid "No jobs to display"
-msgstr ""
+msgstr "No jobs to display"
 
 msgid "Not scheduled"
-msgstr ""
+msgstr "Not scheduled"
 
 msgid "Run manually"
-msgstr ""
+msgstr "Run manually"
 
 msgid "{{ delay }} seconds after last run"
-msgstr ""
+msgstr "{{ delay }} seconds after last run"
 
 msgid "View"
-msgstr ""
+msgstr "View"
 
 msgid "Every hour"
-msgstr ""
+msgstr "Every hour"
 
 msgid "Every day at midnight"
-msgstr ""
+msgstr "Every day at midnight"
 
 msgid "Every day at 3 am"
-msgstr ""
+msgstr "Every day at 3 am"
 
 msgid "Every day at noon"
-msgstr ""
+msgstr "Every day at noon"
 
 msgid "Every week"
-msgstr ""
+msgstr "Every week"
 
 msgid "Choose a preset time/interval"
-msgstr ""
+msgstr "Choose a preset time/interval"
 
 msgid "Insert preset"
-msgstr ""
+msgstr "Insert preset"
 
 msgid "Are you sure you want to delete this job?"
-msgstr ""
+msgstr "Are you sure you want to delete this job?"
 
 msgid "Are you sure you want to discard this form?"
-msgstr ""
+msgstr "Are you sure you want to discard this form?"
 
 msgid "Discard"
-msgstr ""
+msgstr "Discard"
+
+msgid "Error running job"
+msgstr "Error running job"
 
 msgid "Are you sure you want to run this job?"
-msgstr ""
+msgstr "Are you sure you want to run this job?"
 
 msgid "Run"
-msgstr ""
+msgstr "Run"
 
 msgid "Toggle job"
-msgstr ""
+msgstr "Toggle job"
 
 msgid "Back to all jobs"
-msgstr ""
+msgstr "Back to all jobs"
 
 msgid "New Job"
-msgstr ""
+msgstr "New Job"
 
 msgid "Configuration"
-msgstr ""
+msgstr "Configuration"
 
 msgid "About job configuration"
-msgstr ""
+msgstr "About job configuration"
 
 msgid "Job: {{ name }}"
-msgstr ""
+msgstr "Job: {{ name }}"
 
 msgid "Scheduled jobs"
-msgstr ""
+msgstr "Scheduled jobs"
 
 msgid "Filter jobs"
-msgstr ""
+msgstr "Filter jobs"
 
 msgid "Include system jobs in list"
-msgstr ""
+msgstr "Include system jobs in list"
 
 msgid "New job"
-msgstr ""
+msgstr "New job"
 
 msgid "System job: {{ name }}"
-msgstr ""
+msgstr "System job: {{ name }}"
 
 msgid "Data value"
-msgstr ""
+msgstr "Data value"
 
 msgid "Completeness"
-msgstr ""
+msgstr "Completeness"
 
 msgid "Completeness target"
-msgstr ""
+msgstr "Completeness target"
 
 msgid "Org unit target"
-msgstr ""
+msgstr "Org unit target"
 
 msgid "Event"
-msgstr ""
+msgstr "Event"
 
 msgid "Enrollment"
-msgstr ""
+msgstr "Enrollment"
 
 msgid "Validation result"
-msgstr ""
+msgstr "Validation result"
 
 msgid "Completed"
-msgstr ""
+msgstr "Completed"
 
 msgid "Disabled"
-msgstr ""
+msgstr "Disabled"
 
 msgid "Done"
-msgstr ""
+msgstr "Done"
 
 msgid "Failed"
-msgstr ""
+msgstr "Failed"
 
 msgid "Not started"
-msgstr ""
+msgstr "Not started"
 
 msgid "Running"
-msgstr ""
+msgstr "Running"
 
 msgid "Scheduled"
-msgstr ""
+msgstr "Scheduled"
 
 msgid "Stopped"
-msgstr ""
+msgstr "Stopped"
 
 msgid "Analytics table"
-msgstr ""
+msgstr "Analytics table"
 
 msgid "Continuous analytics table"
-msgstr ""
+msgstr "Continuous analytics table"
 
 msgid "Credentials expiry alert"
-msgstr ""
+msgstr "Credentials expiry alert"
 
 msgid "Data integrity"
-msgstr ""
+msgstr "Data integrity"
 
 msgid "Dataset notification"
-msgstr ""
+msgstr "Dataset notification"
 
 msgid "Data statistics"
-msgstr ""
+msgstr "Data statistics"
 
 msgid "Data synchronization"
-msgstr ""
+msgstr "Data synchronization"
 
 msgid "Event programs data sync"
-msgstr ""
+msgstr "Event programs data sync"
 
 msgid "File resource clean up"
-msgstr ""
+msgstr "File resource clean up"
 
 msgid "Metadata synchronization"
-msgstr ""
+msgstr "Metadata synchronization"
 
 msgid "Monitoring"
-msgstr ""
+msgstr "Monitoring"
 
 msgid "Predictor"
-msgstr ""
+msgstr "Predictor"
 
 msgid "Program notifications"
-msgstr ""
+msgstr "Program notifications"
 
 msgid "Push analysis"
-msgstr ""
+msgstr "Push analysis"
 
 msgid "Remove expired reserved values"
-msgstr ""
+msgstr "Remove expired reserved values"
 
 msgid "Resource table"
-msgstr ""
+msgstr "Resource table"
 
 msgid "Send scheduled message"
-msgstr ""
+msgstr "Send scheduled message"
 
 msgid "Tracker programs data sync"
-msgstr ""
+msgstr "Tracker programs data sync"
 
 msgid "Validation results notification"
-msgstr ""
+msgstr "Validation results notification"
 
 msgid "Disable inactive users"
-msgstr ""
+msgstr "Disable inactive users"
 
 msgid "A CRON expression is required"
-msgstr ""
+msgstr "A CRON expression is required"
 
 msgid "Please enter a valid CRON expression"
-msgstr ""
+msgstr "Please enter a valid CRON expression"

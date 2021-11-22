@@ -1,4 +1,5 @@
 import React from 'react'
+import { act } from 'react-dom/test-utils'
 import { shallow, mount } from 'enzyme'
 import { useDataEngine } from '@dhis2/app-runtime'
 import { StoreContext } from '../Store'
@@ -14,10 +15,6 @@ afterEach(() => {
 
 describe('<RunJobModal>', () => {
     it('renders without errors', () => {
-        useDataEngine.mockImplementation(() => ({
-            query: () => () => Promise.resolve(),
-        }))
-
         const props = {
             id: 'id',
             hideModal: () => {},
@@ -27,10 +24,6 @@ describe('<RunJobModal>', () => {
     })
 
     it('calls hideModal when cancel button is clicked', () => {
-        useDataEngine.mockImplementation(() => ({
-            query: () => () => Promise.resolve(),
-        }))
-
         const props = {
             id: 'id',
             hideModal: jest.fn(),
@@ -43,10 +36,6 @@ describe('<RunJobModal>', () => {
     })
 
     it('calls hideModal when cover is clicked', () => {
-        useDataEngine.mockImplementation(() => ({
-            query: () => () => Promise.resolve(),
-        }))
-
         const props = {
             id: 'id',
             hideModal: jest.fn(),
@@ -60,13 +49,12 @@ describe('<RunJobModal>', () => {
 
     it('runs the expected tasks after a click on run job', async () => {
         const resolvedPromise = Promise.resolve()
-        const querySpy = jest.fn(() => resolvedPromise)
         const refetchSpy = jest.fn()
         const hideModalSpy = jest.fn()
-        const engineMock = {
-            query: querySpy,
-        }
-        useDataEngine.mockImplementation(() => engineMock)
+        const mutateSpy = jest.fn(() => resolvedPromise)
+        useDataEngine.mockImplementation(() => ({
+            mutate: mutateSpy,
+        }))
 
         const props = {
             id: 'id',
@@ -83,9 +71,13 @@ describe('<RunJobModal>', () => {
             .find({ name: 'run-job-id', type: 'button' })
             .simulate('click')
 
-        await resolvedPromise
+        await act(async () => {
+            // Using the fix from: https://github.com/enzymejs/enzyme/issues/2073
+            await resolvedPromise
+            wrapper.update()
+        })
 
-        expect(querySpy).toHaveBeenCalled()
+        expect(mutateSpy).toHaveBeenCalled()
         expect(hideModalSpy).toHaveBeenCalled()
         expect(refetchSpy).toHaveBeenCalled()
     })
