@@ -13,10 +13,10 @@ import i18n from '@dhis2/d2-i18n'
 import { hooks } from '../Store'
 
 const RunJobModal = ({ id, hideModal }) => {
-    const [mutation] = useState(() => ({
+    const [mutation] = useState({
         resource: `jobConfigurations/${id}/execute`,
         type: 'create',
-    }))
+    })
     const [runJob, { loading, error }] = useDataMutation(mutation, {
         onComplete: () => {
             hideModal()
