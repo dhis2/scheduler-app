@@ -37,7 +37,12 @@ const RunJobModal = ({ id, hideModal }) => {
             </ModalContent>
             <ModalActions>
                 <ButtonStrip end>
-                    <Button name="hide-modal" secondary onClick={hideModal}>
+                    <Button
+                        name="hide-modal"
+                        secondary
+                        onClick={hideModal}
+                        disabled={loading}
+                    >
                         {i18n.t('Cancel')}
                     </Button>
                     <Button
