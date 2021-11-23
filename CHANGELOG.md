@@ -1,3 +1,10 @@
+## [99.9.10](https://github.com/dhis2/scheduler-app/compare/v99.9.9...v99.9.10) (2021-11-23)
+
+
+### Bug Fixes
+
+* switch to POST for executing jobs ([#324](https://github.com/dhis2/scheduler-app/issues/324)) ([c062ffa](https://github.com/dhis2/scheduler-app/commit/c062ffa2219f78e4ccea371017ec922e5a3a008a))
+
 ## [1.1.24](https://github.com/dhis2/scheduler-app/compare/v1.1.23...v1.1.24) (2021-09-18)
 
 
