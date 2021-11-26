@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-03-04T11:18:04.801Z\n"
+"POT-Creation-Date: 2021-11-18T16:21:37.799Z\n"
 "PO-Revision-Date: 2020-05-08 14:30+0000\n"
 "Last-Translator: Ge Joao <gsimango@saudigitus.org>, 2021\n"
 "Language-Team: Portuguese (https://www.transifex.com/hisp-uio/teams/100509/pt/)\n"
@@ -145,6 +145,9 @@ msgstr ""
 
 msgid "Discard"
 msgstr "Descartar"
+
+msgid "Error running job"
+msgstr ""
 
 msgid "Are you sure you want to run this job?"
 msgstr ""
