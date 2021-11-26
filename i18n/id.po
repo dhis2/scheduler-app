@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-03-04T11:18:04.801Z\n"
+"POT-Creation-Date: 2021-11-18T16:21:37.799Z\n"
 "PO-Revision-Date: 2020-05-08 14:30+0000\n"
 "Last-Translator: Carwoto Sa'an <carwoto@gmail.com>, 2021\n"
 "Language-Team: Indonesian (https://www.transifex.com/hisp-uio/teams/100509/id/)\n"
@@ -145,6 +145,9 @@ msgstr ""
 
 msgid "Discard"
 msgstr "Buang"
+
+msgid "Error running job"
+msgstr ""
 
 msgid "Are you sure you want to run this job?"
 msgstr ""
