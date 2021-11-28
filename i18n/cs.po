@@ -144,7 +144,7 @@ msgid "Discard"
 msgstr "Vyřadit"
 
 msgid "Error running job"
-msgstr ""
+msgstr "Chyba při spuštění úlohy"
 
 msgid "Are you sure you want to run this job?"
 msgstr "Opravdu chcete tento job spustit?"
