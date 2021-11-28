@@ -147,7 +147,7 @@ msgid "Discard"
 msgstr "放弃"
 
 msgid "Error running job"
-msgstr ""
+msgstr "运行作业时出错"
 
 msgid "Are you sure you want to run this job?"
 msgstr "您确定要执行这项工作吗？"
