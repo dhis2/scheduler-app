@@ -1,3 +1,16 @@
+# [100.0.0](https://github.com/dhis2/scheduler-app/compare/v99.9.12...v100.0.0) (2021-12-07)
+
+
+### chore
+
+* **release:** migrate to new app version scheme ([9fd0dd7](https://github.com/dhis2/scheduler-app/commit/9fd0dd78a397cff9a01f9a6324324b67aef5771f)), closes [dhis2/notes#293](https://github.com/dhis2/notes/issues/293)
+
+
+### BREAKING CHANGES
+
+* **release:** App version becomes decoupled from DHIS2 versions, see
+the d2.config.js or App Hub for DHIS2 version compatibility.
+
 ## [99.9.12](https://github.com/dhis2/scheduler-app/compare/v99.9.11...v99.9.12) (2021-11-28)
 
 
