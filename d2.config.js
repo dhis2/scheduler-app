@@ -11,6 +11,8 @@ const config = {
     name: 'scheduler',
     description,
     type: 'app',
+    id: '2eacfda3-e887-4121-80bc-63ee82fba5e9',
+    minDHIS2Version: '2.36',
     coreApp: true,
     entryPoints: {
         app: './src/components/App/index.js',
