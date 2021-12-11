@@ -1,3 +1,10 @@
+## [100.0.1](https://github.com/dhis2/scheduler-app/compare/v100.0.0...v100.0.1) (2021-12-11)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([d1e152b](https://github.com/dhis2/scheduler-app/commit/d1e152b1379e466daecc6d6bb532c11573a5ebd9))
+
 # [100.0.0](https://github.com/dhis2/scheduler-app/compare/v99.9.12...v100.0.0) (2021-12-07)
 
 
