@@ -1,3 +1,10 @@
+## [100.0.2](https://github.com/dhis2/scheduler-app/compare/v100.0.1...v100.0.2) (2022-02-10)
+
+
+### Bug Fixes
+
+* **job-type-field:** filter non-implemented jobTypes ([627ac39](https://github.com/dhis2/scheduler-app/commit/627ac39cee0833905f52e5ea92ef56813e2ee37a))
+
 ## [100.0.1](https://github.com/dhis2/scheduler-app/compare/v100.0.0...v100.0.1) (2021-12-11)
 
 
