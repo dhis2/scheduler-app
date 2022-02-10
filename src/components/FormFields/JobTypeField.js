@@ -18,10 +18,13 @@ const VALIDATOR = composeValidators(string, hasValue)
 
 const JobTypeField = () => {
     const jobTypes = hooks.useAllJobTypes()
-    const options = jobTypes.map(({ jobType }) => ({
-        value: jobType,
-        label: jobTypesMap[jobType],
-    }))
+    const options = jobTypes
+        .map(({ jobType }) => ({
+            value: jobType,
+            label: jobTypesMap[jobType],
+        }))
+        .filter(job => !!job.label)
+        .sort((job1, job2) => job1.label.localeCompare(job2.label))
 
     return (
         <Field
