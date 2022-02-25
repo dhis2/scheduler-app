@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2022-02-16T11:35:29.342Z\n"
-"PO-Revision-Date: 2022-02-16T11:35:29.342Z\n"
+"POT-Creation-Date: 2022-02-25T17:25:37.537Z\n"
+"PO-Revision-Date: 2022-02-25T17:25:37.537Z\n"
 
 msgid "Not authorized"
 msgstr "Not authorized"
@@ -30,14 +30,23 @@ msgstr "Something went wrong whilst creating your job"
 msgid "CRON Expression"
 msgstr "CRON Expression"
 
-msgid "Severity"
-msgstr "Severity"
+msgid "Please select checks to run."
+msgstr "Please select checks to run."
 
 msgid "Checks to run"
 msgstr "Checks to run"
 
-msgid "All checks will be run if none are selected."
-msgstr "All checks will be run if none are selected."
+msgid "Run all available checks"
+msgstr "Run all available checks"
+
+msgid "Only run selected checks"
+msgstr "Only run selected checks"
+
+msgid "Severity"
+msgstr "Severity"
+
+msgid "Select checks to run."
+msgstr "Select checks to run."
 
 msgid "Delay"
 msgstr "Delay"
@@ -209,6 +218,133 @@ msgstr "Enrollment"
 
 msgid "Validation result"
 msgstr "Validation result"
+
+msgid "Program indicators with invalid expressions"
+msgstr "Program indicators with invalid expressions"
+
+msgid "Data elements without groups"
+msgstr "Data elements without groups"
+
+msgid "Indicators with invalid numerator"
+msgstr "Indicators with invalid numerator"
+
+msgid "Program rule actions without notification"
+msgstr "Program rule actions without notification"
+
+msgid "Only one \"default\" category combo should exist"
+msgstr "Only one \"default\" category combo should exist"
+
+msgid "Data elements without data sets"
+msgstr "Data elements without data sets"
+
+msgid "Category combos being invalid"
+msgstr "Category combos being invalid"
+
+msgid "Indicators with identical formulas"
+msgstr "Indicators with identical formulas"
+
+msgid "Indicators without groups"
+msgstr "Indicators without groups"
+
+msgid "Data elements in data set not in form"
+msgstr "Data elements in data set not in form"
+
+msgid "Program rules without priority"
+msgstr "Program rules without priority"
+
+msgid "Validation rules without groups"
+msgstr "Validation rules without groups"
+
+msgid "Program indicators with invalid filters"
+msgstr "Program indicators with invalid filters"
+
+msgid "Categories with no category options"
+msgstr "Categories with no category options"
+
+msgid "Program rules without condition"
+msgstr "Program rules without condition"
+
+msgid "Program rule actions without stage"
+msgstr "Program rule actions without stage"
+
+msgid "Only one \"default\" category should exist"
+msgstr "Only one \"default\" category should exist"
+
+msgid ""
+"Lists category combos that share a combination of categories with at least "
+"one other category combo"
+msgstr ""
+"Lists category combos that share a combination of categories with at least "
+"one other category combo"
+
+msgid "Org units with cyclic references"
+msgstr "Org units with cyclic references"
+
+msgid "Program rule variables without data element"
+msgstr "Program rule variables without data element"
+
+msgid "Validation rules with invalid right side expression"
+msgstr "Validation rules with invalid right side expression"
+
+msgid "Data sets not assigned to org units"
+msgstr "Data sets not assigned to org units"
+
+msgid "Data elements violating exclusive group sets"
+msgstr "Data elements violating exclusive group sets"
+
+msgid "Org unit groups without group sets"
+msgstr "Org unit groups without group sets"
+
+msgid "Program rule variables without attribute"
+msgstr "Program rule variables without attribute"
+
+msgid "Org units violating exclusive group sets"
+msgstr "Org units violating exclusive group sets"
+
+msgid "Program rule actions without data object"
+msgstr "Program rule actions without data object"
+
+msgid "Only one \"default\" category option should exist"
+msgstr "Only one \"default\" category option should exist"
+
+msgid "Only one \"default\" category option combo should exist"
+msgstr "Only one \"default\" category option combo should exist"
+
+msgid "Org units without groups"
+msgstr "Org units without groups"
+
+msgid "Program indicators without expression"
+msgstr "Program indicators without expression"
+
+msgid "Indicators violating exclusive group sets"
+msgstr "Indicators violating exclusive group sets"
+
+msgid "Periods duplicates"
+msgstr "Periods duplicates"
+
+msgid "Data elements assigned to data sets with different period types"
+msgstr "Data elements assigned to data sets with different period types"
+
+msgid "Program rules without action"
+msgstr "Program rules without action"
+
+msgid "Org units being orphaned"
+msgstr "Org units being orphaned"
+
+msgid "Validation rules with invalid left side expression"
+msgstr "Validation rules with invalid left side expression"
+
+msgid "Indicators with invalid denominator"
+msgstr "Indicators with invalid denominator"
+
+msgid "Program rule actions without section"
+msgstr "Program rule actions without section"
+
+msgid "Warning"
+msgstr "Warning"
+
+msgid "Severe"
+msgstr "Severe"
 
 msgid "Completed"
 msgstr "Completed"
