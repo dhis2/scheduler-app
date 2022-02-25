@@ -1,0 +1,43 @@
+.transfer {
+    margin-top: 8px;
+}
+
+.transferOption {
+        font-size: 14px;
+        line-height: 16px;
+        padding: 4px 8px;
+        color: var(--colors-grey900);
+        user-select: none;
+}
+
+.transferOption:hover {
+    background: var(--colors-grey200);
+}
+.transferOption.highlighted {
+    background: var(--colors-teal700);
+    color: var(--colors-white);
+}
+.transferOption.disabled {
+    color: var(--colors-grey600);
+    cursor: not-allowed;
+}
+
+
+.optionName {
+    font-weight: 500;
+    line-height: 20px;
+}
+
+.optionSeverity {
+    font-weight: 400;
+    font-size: 13px;
+    color: var(--colors-grey600);
+}
+
+.transferOption.highlighted .optionSeverity {
+    color: var(--colors-grey300);
+}
+
+.selectedEmptyComponent {
+    text-align: center;
+}

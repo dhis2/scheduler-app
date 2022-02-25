@@ -62,7 +62,7 @@ const JobEditForm = ({
                 </Box>
             )}
             {jobType && (
-                <Box marginTop="32px" maxWidth="400px">
+                <Box marginTop="32px" maxWidth="600px">
                     <ParameterFields jobType={jobType} />
                 </Box>
             )}

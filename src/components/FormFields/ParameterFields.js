@@ -6,12 +6,21 @@ import { hooks } from '../Store'
 import { formatToString } from './formatters'
 import SkipTableTypesField from './SkipTableTypesField'
 import LabeledOptionsField from './LabeledOptionsField'
+import DataIntegrityChecksField from './DataIntegrityChecksField'
 import styles from './ParameterFields.module.css'
 
 const { Field } = ReactFinalForm
 
 // The key under which the parameters will be sent to the backend
 const FIELD_NAME = 'jobParameters'
+
+const getCustomComponent = (jobType, parameterName) => {
+    if (jobType === 'DATA_INTEGRITY' && parameterName === 'checks') {
+        return DataIntegrityChecksField
+    } else if (parameterName === 'skipTableTypes') {
+        return SkipTableTypesField
+    }
+}
 
 // Renders all parameters for a given jobtype
 const ParameterFields = ({ jobType }) => {
@@ -29,11 +38,12 @@ const ParameterFields = ({ jobType }) => {
         }
         let parameterComponent = null
 
-        // Specific case, as the options here need specific translations
-        if (name === 'skipTableTypes') {
+        const CustomParameterComponent = getCustomComponent(jobType, name)
+
+        if (CustomParameterComponent) {
             return (
                 <Box marginTop="16px" key={name}>
-                    <SkipTableTypesField
+                    <CustomParameterComponent
                         {...defaultProps}
                         parameterName={name}
                     />

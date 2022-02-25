@@ -13,8 +13,9 @@ const mutation = {
 const useSubmitJob = () => {
     const { refetchJobs } = useContext(StoreContext)
     const engine = useDataEngine()
-    const submitJob = job =>
-        engine
+    const submitJob = job => {
+        console.log('saving job', job)
+        return engine
             .mutate(mutation, { variables: { job } })
             .then(() => {
                 history.push('/')
@@ -30,7 +31,7 @@ const useSubmitJob = () => {
 
                 // Throw any unexpected errors
                 throw error
-            })
+            })}
 
     return [submitJob]
 }
