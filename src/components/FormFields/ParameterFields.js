@@ -20,6 +20,7 @@ const getCustomComponent = (jobType, parameterName) => {
     } else if (parameterName === 'skipTableTypes') {
         return SkipTableTypesField
     }
+    return null
 }
 
 // Renders all parameters for a given jobtype
