@@ -91,7 +91,9 @@ const LabelComponent = ({ label, severity, highlighted, disabled }) => (
         })}
     >
         <div className={styles.optionName}>{label}</div>
-        <div className={styles.optionSeverity}>{`${i18n.t(
+        <div className={cx(styles.optionSeverity, {
+            [styles.highlighted]: highlighted
+        })}>{`${i18n.t(
             'Severity'
         )}: ${severity}`}</div>
     </div>

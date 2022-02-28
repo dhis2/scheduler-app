@@ -4,27 +4,12 @@
 
 .transferOption {
         font-size: 14px;
-        line-height: 16px;
-        padding: 4px 8px;
-        color: var(--colors-grey900);
-        user-select: none;
-}
-
-.transferOption:hover {
-    background: var(--colors-grey200);
-}
-.transferOption.highlighted {
-    background: var(--colors-teal700);
-    color: var(--colors-white);
-}
-.transferOption.disabled {
-    color: var(--colors-grey600);
-    cursor: not-allowed;
+        padding: 4px 0px;
 }
 
 .optionName {
     font-weight: 500;
-    line-height: 20px;
+    margin-bottom: 4px;
 }
 
 .optionSeverity {
