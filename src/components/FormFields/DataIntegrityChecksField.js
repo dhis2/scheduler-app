@@ -31,7 +31,7 @@ const DataIntegrityChecksField = ({ label, name }) => {
         input: { value, onChange },
     } = useField(name)
 
-    const hasValue = value && value.length > 0
+    const hasValue = !!value && value.length > 0
     const [runSelected, setRunSelected] = useState(hasValue)
 
     const translatedOptions = options
@@ -43,49 +43,47 @@ const DataIntegrityChecksField = ({ label, name }) => {
         }))
         .sort((a, b) => a.label.localeCompare(b.label))
 
-    const toggle = () => {
-        if (!runSelected) {
+    const toggle = ({value}) => {
+        const checked = value === 'true'
+
+        if (!checked) {
             // clear checks when "Run all" is selected
             onChange([])
         }
-        setRunSelected(!runSelected)
+        setRunSelected(checked)
     }
 
     return (
         <FieldGroup label={i18n.t('Checks to run')}>
             <Radio
                 name={'checksToRun'}
-                value={runSelected}
+                value={String(false)}
                 label={i18n.t('Run all available checks')}
                 checked={!runSelected}
                 onChange={toggle}
             />
             <Radio
                 name={'checksToRun'}
-                value={runSelected}
+                value={String(true)}
                 label={i18n.t('Only run selected checks')}
                 checked={runSelected}
                 onChange={toggle}
             />
-            {runSelected && (
-                <Field
-                    name={name}
-                    component={ChecksTransfer}
-                    options={translatedOptions}
-                    label={label}
-                    validate={VALIDATOR}
-                />
-            )}
+            <Field
+                name={name}
+                component={ChecksTransfer}
+                options={translatedOptions}
+                label={label}
+                validate={VALIDATOR}
+                // conditional rendering of FinalForm-fields cause some issues,
+                // see https://github.com/final-form/react-final-form/issues/809
+                hidden={!runSelected}
+            />
         </FieldGroup>
     )
 }
 
-const LabelComponent = ({
-    label,
-    severity,
-    highlighted,
-    disabled,
-}) => (
+const LabelComponent = ({ label, severity, highlighted, disabled }) => (
     <div
         className={cx(styles.transferOption, {
             [styles.highlighted]: highlighted,
@@ -105,7 +103,7 @@ const renderOption = option => (
     <TransferOption {...option} label={<LabelComponent {...option} />} />
 )
 
-const ChecksTransfer = ({ input, meta, options = [] }) => {
+const ChecksTransfer = ({ input, meta, options = [], hidden }) => {
     const { onChange } = input
 
     const handleChange = useCallback(
@@ -114,6 +112,10 @@ const ChecksTransfer = ({ input, meta, options = [] }) => {
         },
         [onChange]
     )
+
+    if (hidden) {
+        return null
+    }
 
     const isErr = meta.touched && meta.invalid
 
