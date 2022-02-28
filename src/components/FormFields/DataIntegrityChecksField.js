@@ -80,59 +80,30 @@ const DataIntegrityChecksField = ({ label, name }) => {
     )
 }
 
-// Mostly taken from https://github.com/dhis2/ui/blob/master/components/transfer/src/transfer-option.js
-// TODO: Change PropType of label in ui to accept "node" so this won't be necessary
-const Option = ({
-    disabled,
-    dataTest,
-    highlighted,
-    onClick,
-    onDoubleClick,
+const LabelComponent = ({
     label,
-    value,
     severity,
-}) => {
-    const doubleClickTimeout = useRef(null)
+    highlighted,
+    disabled,
+}) => (
+    <div
+        className={cx(styles.transferOption, {
+            [styles.highlighted]: highlighted,
+            [styles.disabled]: disabled,
+        })}
+    >
+        <div className={styles.optionName}>{label}</div>
+        <div className={styles.optionSeverity}>{`${i18n.t(
+            'Severity'
+        )}: ${severity}`}</div>
+    </div>
+)
 
-    const handleClick = useCallback(() => {
-        if (disabled) {
-            return
-        }
-        if (doubleClickTimeout.current) {
-            clearTimeout(doubleClickTimeout.current)
-            doubleClickTimeout.current = null
+LabelComponent.propTypes = TransferOption.propTypes
 
-            onDoubleClick({ value }, event)
-        } else {
-            doubleClickTimeout.current = setTimeout(() => {
-                clearTimeout(doubleClickTimeout.current)
-                doubleClickTimeout.current = null
-            }, 500)
-
-            onClick({ value }, event)
-        }
-    }, [onClick, disabled, onDoubleClick, value])
-
-    return (
-        <div
-            onClick={handleClick}
-            className={cx(styles.transferOption, {
-                [styles.highlighted]: highlighted,
-                [styles.disabled]: disabled,
-            })}
-            data-test={dataTest}
-        >
-            <div className={styles.optionName}>{label}</div>
-            <div className={styles.optionSeverity}>{`${i18n.t(
-                'Severity'
-            )}: ${severity}`}</div>
-        </div>
-    )
-}
-
-Option.propTypes = TransferOption.propTypes
-
-const renderOption = option => <Option {...option} />
+const renderOption = option => (
+    <TransferOption {...option} label={<LabelComponent {...option} />} />
+)
 
 const ChecksTransfer = ({ input, meta, options = [] }) => {
     const { onChange } = input
@@ -144,7 +115,7 @@ const ChecksTransfer = ({ input, meta, options = [] }) => {
         [onChange]
     )
 
-    const isErr =  (meta.touched && meta.invalid)
+    const isErr = meta.touched && meta.invalid
 
     return (
         <>

@@ -101,7 +101,7 @@ export const severityMap = {
     SEVERE: i18n.t('Severe'),
 }
 
-export const snakeCaseToHumanReadable = string => {
+const snakeCaseToHumanReadable = string => {
     const split = string.split('_')
     const [first, ...rest] = split
     return first[0]
