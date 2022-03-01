@@ -43,7 +43,7 @@ const DataIntegrityChecksField = ({ label, name }) => {
         }))
         .sort((a, b) => a.label.localeCompare(b.label))
 
-    const toggle = ({value}) => {
+    const toggle = ({ value }) => {
         const checked = value === 'true'
 
         if (!checked) {
@@ -91,11 +91,11 @@ const LabelComponent = ({ label, severity, highlighted, disabled }) => (
         })}
     >
         <div className={styles.optionName}>{label}</div>
-        <div className={cx(styles.optionSeverity, {
-            [styles.highlighted]: highlighted
-        })}>{`${i18n.t(
-            'Severity'
-        )}: ${severity}`}</div>
+        <div
+            className={cx(styles.optionSeverity, {
+                [styles.highlighted]: highlighted,
+            })}
+        >{`${i18n.t('Severity')}: ${severity}`}</div>
     </div>
 )
 
