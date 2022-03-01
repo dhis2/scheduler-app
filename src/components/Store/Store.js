@@ -61,7 +61,7 @@ const optionsQuery = {
     },
     dataIntegrityChecks: {
         resource: 'dataIntegrity',
-    }
+    },
 }
 
 const Store = ({ children }) => {
@@ -103,7 +103,7 @@ const Store = ({ children }) => {
         pushAnalysis: { pushAnalysis },
         predictors: { predictors },
         predictorGroups: { predictorGroups },
-        dataIntegrityChecks
+        dataIntegrityChecks,
     } = optionsFetch.data
     const parameterOptions = {
         skipTableTypes,
@@ -111,7 +111,7 @@ const Store = ({ children }) => {
         pushAnalysis,
         predictors,
         predictorGroups,
-        dataIntegrityChecks
+        dataIntegrityChecks,
     }
 
     return (
