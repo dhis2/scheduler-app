@@ -34,7 +34,7 @@
         }
     },
     {
-        "path": "/api/38/pushAnalysis?paging=false",
+        "path": "/api/38/analytics/tableTypes",
         "testName": "Users should be able to edit jobs that take parameters -- User edits a analytics table job (example #1)",
         "static": false,
         "count": 1,
@@ -50,8 +50,8 @@
             "sec-fetch-mode": "cors"
         },
         "statusCode": 200,
-        "responseBody": "{\"pushAnalysis\":[{\"id\":\"jtcMAKhWwnc\",\"displayName\":\"Immunization Key Indicators Monthly Report\"}]}",
-        "responseSize": 98,
+        "responseBody": "[\"DATA_VALUE\",\"COMPLETENESS\",\"COMPLETENESS_TARGET\",\"ORG_UNIT_TARGET\",\"EVENT\",\"ENROLLMENT\",\"VALIDATION_RESULT\"]",
+        "responseSize": 110,
         "responseHeaders": {
             "access-control-allow-origin": "http://localhost:3000",
             "server": "nginx/1.17.10",
@@ -61,7 +61,6 @@
             "access-control-allow-credentials": "true",
             "vary": "Origin",
             "access-control-expose-headers": "ETag, Location",
-            "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
             "x-xss-protection": "1; mode=block",
             "x-frame-options": "SAMEORIGIN"
@@ -102,39 +101,6 @@
         }
     },
     {
-        "path": "/api/38/analytics/tableTypes",
-        "testName": "Users should be able to edit jobs that take parameters -- User edits a analytics table job (example #1)",
-        "static": false,
-        "count": 1,
-        "nonDeterministic": false,
-        "method": "GET",
-        "requestBody": "",
-        "requestHeaders": {
-            "host": "localhost:8082",
-            "proxy-connection": "keep-alive",
-            "accept": "application/json",
-            "origin": "http://localhost:3000",
-            "sec-fetch-site": "same-site",
-            "sec-fetch-mode": "cors"
-        },
-        "statusCode": 200,
-        "responseBody": "[\"DATA_VALUE\",\"COMPLETENESS\",\"COMPLETENESS_TARGET\",\"ORG_UNIT_TARGET\",\"EVENT\",\"ENROLLMENT\",\"VALIDATION_RESULT\"]",
-        "responseSize": 110,
-        "responseHeaders": {
-            "access-control-allow-origin": "http://localhost:3000",
-            "server": "nginx/1.17.10",
-            "content-type": "application/json;charset=UTF-8",
-            "transfer-encoding": "chunked",
-            "connection": "close",
-            "access-control-allow-credentials": "true",
-            "vary": "Origin",
-            "access-control-expose-headers": "ETag, Location",
-            "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
-        }
-    },
-    {
         "path": "/api/38/validationRuleGroups?paging=false",
         "testName": "Users should be able to edit jobs that take parameters -- User edits a analytics table job (example #1)",
         "static": false,
@@ -153,6 +119,40 @@
         "statusCode": 200,
         "responseBody": "{\"validationRuleGroups\":[{\"id\":\"UP1lctvalPn\",\"displayName\":\"ANC\"},{\"id\":\"xcpl667ccfF\",\"displayName\":\"Commodities\"},{\"id\":\"xWtt9c443Lt\",\"displayName\":\"Critical event\"},{\"id\":\"mEtdbIDDhix\",\"displayName\":\"District stock\"},{\"id\":\"y2yQIm79VTW\",\"displayName\":\"Epidemic disease outbreak\"},{\"id\":\"SqyI8HKqI4g\",\"displayName\":\"Facility Stock\"},{\"id\":\"UiOSY1iIdub\",\"displayName\":\"Immunisation\"},{\"id\":\"WUZXEFdn1PX\",\"displayName\":\"Infectious disease outbreak\"},{\"id\":\"zlaSof6qLqF\",\"displayName\":\"Malaria\"},{\"id\":\"D3bItmtBpsW\",\"displayName\":\"Population\"},{\"id\":\"IMF6p1MqoHl\",\"displayName\":\"TB\"},{\"id\":\"nMDkAJXsmlR\",\"displayName\":\"Testing\"}]}",
         "responseSize": 628,
+        "responseHeaders": {
+            "access-control-allow-origin": "http://localhost:3000",
+            "server": "nginx/1.17.10",
+            "content-type": "application/json;charset=UTF-8",
+            "transfer-encoding": "chunked",
+            "connection": "close",
+            "access-control-allow-credentials": "true",
+            "vary": "Origin",
+            "access-control-expose-headers": "ETag, Location",
+            "cache-control": "no-cache, private",
+            "x-content-type-options": "nosniff",
+            "x-xss-protection": "1; mode=block",
+            "x-frame-options": "SAMEORIGIN"
+        }
+    },
+    {
+        "path": "/api/38/pushAnalysis?paging=false",
+        "testName": "Users should be able to edit jobs that take parameters -- User edits a analytics table job (example #1)",
+        "static": false,
+        "count": 1,
+        "nonDeterministic": false,
+        "method": "GET",
+        "requestBody": "",
+        "requestHeaders": {
+            "host": "localhost:8082",
+            "proxy-connection": "keep-alive",
+            "accept": "application/json",
+            "origin": "http://localhost:3000",
+            "sec-fetch-site": "same-site",
+            "sec-fetch-mode": "cors"
+        },
+        "statusCode": 200,
+        "responseBody": "{\"pushAnalysis\":[{\"id\":\"jtcMAKhWwnc\",\"displayName\":\"Immunization Key Indicators Monthly Report\"}]}",
+        "responseSize": 98,
         "responseHeaders": {
             "access-control-allow-origin": "http://localhost:3000",
             "server": "nginx/1.17.10",
@@ -363,71 +363,39 @@
         }
     },
     {
-        "path": "/api/38/pushAnalysis?paging=false",
-        "testName": "Users should be able to edit jobs that take parameters -- User edits a continuous analytics table job (example #2)",
-        "static": false,
-        "count": 1,
-        "nonDeterministic": false,
-        "method": "GET",
-        "requestBody": "",
-        "requestHeaders": {
-            "host": "localhost:8082",
-            "proxy-connection": "keep-alive",
-            "accept": "application/json",
-            "origin": "http://localhost:3000",
-            "sec-fetch-site": "same-site",
-            "sec-fetch-mode": "cors"
-        },
-        "statusCode": 304,
-        "responseBody": "\"\"",
-        "responseSize": 2,
-        "responseHeaders": {
-            "access-control-allow-origin": "http://localhost:3000",
-            "server": "nginx/1.17.10",
-            "connection": "close",
-            "access-control-allow-credentials": "true",
-            "vary": "Origin",
-            "access-control-expose-headers": "ETag, Location",
-            "cache-control": "no-cache, private",
-            "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
-        }
-    },
-    {
-        "path": "/api/38/predictors?paging=false",
-        "testName": "Users should be able to edit jobs that take parameters -- User edits a continuous analytics table job (example #2)",
-        "static": false,
-        "count": 1,
-        "nonDeterministic": false,
-        "method": "GET",
-        "requestBody": "",
-        "requestHeaders": {
-            "host": "localhost:8082",
-            "proxy-connection": "keep-alive",
-            "accept": "application/json",
-            "origin": "http://localhost:3000",
-            "sec-fetch-site": "same-site",
-            "sec-fetch-mode": "cors"
-        },
-        "statusCode": 304,
-        "responseBody": "\"\"",
-        "responseSize": 2,
-        "responseHeaders": {
-            "access-control-allow-origin": "http://localhost:3000",
-            "server": "nginx/1.17.10",
-            "connection": "close",
-            "access-control-allow-credentials": "true",
-            "vary": "Origin",
-            "access-control-expose-headers": "ETag, Location",
-            "cache-control": "no-cache, private",
-            "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
-        }
-    },
-    {
         "path": "/api/38/validationRuleGroups?paging=false",
+        "testName": "Users should be able to edit jobs that take parameters -- User edits a continuous analytics table job (example #2)",
+        "static": false,
+        "count": 1,
+        "nonDeterministic": false,
+        "method": "GET",
+        "requestBody": "",
+        "requestHeaders": {
+            "host": "localhost:8082",
+            "proxy-connection": "keep-alive",
+            "accept": "application/json",
+            "origin": "http://localhost:3000",
+            "sec-fetch-site": "same-site",
+            "sec-fetch-mode": "cors"
+        },
+        "statusCode": 304,
+        "responseBody": "\"\"",
+        "responseSize": 2,
+        "responseHeaders": {
+            "access-control-allow-origin": "http://localhost:3000",
+            "server": "nginx/1.17.10",
+            "connection": "close",
+            "access-control-allow-credentials": "true",
+            "vary": "Origin",
+            "access-control-expose-headers": "ETag, Location",
+            "cache-control": "no-cache, private",
+            "x-content-type-options": "nosniff",
+            "x-xss-protection": "1; mode=block",
+            "x-frame-options": "SAMEORIGIN"
+        }
+    },
+    {
+        "path": "/api/38/pushAnalysis?paging=false",
         "testName": "Users should be able to edit jobs that take parameters -- User edits a continuous analytics table job (example #2)",
         "static": false,
         "count": 1,
@@ -522,7 +490,71 @@
         }
     },
     {
+        "path": "/api/38/predictors?paging=false",
+        "testName": "Users should be able to edit jobs that take parameters -- User edits a continuous analytics table job (example #2)",
+        "static": false,
+        "count": 1,
+        "nonDeterministic": false,
+        "method": "GET",
+        "requestBody": "",
+        "requestHeaders": {
+            "host": "localhost:8082",
+            "proxy-connection": "keep-alive",
+            "accept": "application/json",
+            "origin": "http://localhost:3000",
+            "sec-fetch-site": "same-site",
+            "sec-fetch-mode": "cors"
+        },
+        "statusCode": 304,
+        "responseBody": "\"\"",
+        "responseSize": 2,
+        "responseHeaders": {
+            "access-control-allow-origin": "http://localhost:3000",
+            "server": "nginx/1.17.10",
+            "connection": "close",
+            "access-control-allow-credentials": "true",
+            "vary": "Origin",
+            "access-control-expose-headers": "ETag, Location",
+            "cache-control": "no-cache, private",
+            "x-content-type-options": "nosniff",
+            "x-xss-protection": "1; mode=block",
+            "x-frame-options": "SAMEORIGIN"
+        }
+    },
+    {
         "path": "/api/38/systemSettings/helpPageLink",
+        "testName": "Users should be able to edit jobs that take parameters -- User edits a data synchronization job (example #3)",
+        "static": false,
+        "count": 1,
+        "nonDeterministic": false,
+        "method": "GET",
+        "requestBody": "",
+        "requestHeaders": {
+            "host": "localhost:8082",
+            "proxy-connection": "keep-alive",
+            "accept": "application/json",
+            "origin": "http://localhost:3000",
+            "sec-fetch-site": "same-site",
+            "sec-fetch-mode": "cors"
+        },
+        "statusCode": 304,
+        "responseBody": "\"\"",
+        "responseSize": 2,
+        "responseHeaders": {
+            "access-control-allow-origin": "http://localhost:3000",
+            "server": "nginx/1.17.10",
+            "connection": "close",
+            "access-control-allow-credentials": "true",
+            "vary": "Origin",
+            "access-control-expose-headers": "ETag, Location",
+            "cache-control": "no-cache, private",
+            "x-content-type-options": "nosniff",
+            "x-xss-protection": "1; mode=block",
+            "x-frame-options": "SAMEORIGIN"
+        }
+    },
+    {
+        "path": "/api/38/validationRuleGroups?paging=false",
         "testName": "Users should be able to edit jobs that take parameters -- User edits a data synchronization job (example #3)",
         "static": false,
         "count": 1,
@@ -616,7 +648,7 @@
         }
     },
     {
-        "path": "/api/38/predictorGroups?paging=false",
+        "path": "/api/38/pushAnalysis?paging=false",
         "testName": "Users should be able to edit jobs that take parameters -- User edits a data synchronization job (example #3)",
         "static": false,
         "count": 1,
@@ -680,39 +712,7 @@
         }
     },
     {
-        "path": "/api/38/validationRuleGroups?paging=false",
-        "testName": "Users should be able to edit jobs that take parameters -- User edits a data synchronization job (example #3)",
-        "static": false,
-        "count": 1,
-        "nonDeterministic": false,
-        "method": "GET",
-        "requestBody": "",
-        "requestHeaders": {
-            "host": "localhost:8082",
-            "proxy-connection": "keep-alive",
-            "accept": "application/json",
-            "origin": "http://localhost:3000",
-            "sec-fetch-site": "same-site",
-            "sec-fetch-mode": "cors"
-        },
-        "statusCode": 304,
-        "responseBody": "\"\"",
-        "responseSize": 2,
-        "responseHeaders": {
-            "access-control-allow-origin": "http://localhost:3000",
-            "server": "nginx/1.17.10",
-            "connection": "close",
-            "access-control-allow-credentials": "true",
-            "vary": "Origin",
-            "access-control-expose-headers": "ETag, Location",
-            "cache-control": "no-cache, private",
-            "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
-        }
-    },
-    {
-        "path": "/api/38/pushAnalysis?paging=false",
+        "path": "/api/38/predictorGroups?paging=false",
         "testName": "Users should be able to edit jobs that take parameters -- User edits a data synchronization job (example #3)",
         "static": false,
         "count": 1,
@@ -807,7 +807,7 @@
         }
     },
     {
-        "path": "/api/38/jobConfigurations/jobTypes?fields=*&paging=false",
+        "path": "/api/38/validationRuleGroups?paging=false",
         "testName": "Users should be able to edit jobs that take parameters -- User edits a tracker programs data sync job (example #4)",
         "static": false,
         "count": 1,
@@ -832,6 +832,7 @@
             "access-control-allow-credentials": "true",
             "vary": "Origin",
             "access-control-expose-headers": "ETag, Location",
+            "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
             "x-xss-protection": "1; mode=block",
             "x-frame-options": "SAMEORIGIN"
@@ -869,7 +870,7 @@
         }
     },
     {
-        "path": "/api/38/pushAnalysis?paging=false",
+        "path": "/api/38/jobConfigurations/jobTypes?fields=*&paging=false",
         "testName": "Users should be able to edit jobs that take parameters -- User edits a tracker programs data sync job (example #4)",
         "static": false,
         "count": 1,
@@ -894,39 +895,6 @@
             "access-control-allow-credentials": "true",
             "vary": "Origin",
             "access-control-expose-headers": "ETag, Location",
-            "cache-control": "no-cache, private",
-            "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
-        }
-    },
-    {
-        "path": "/api/38/validationRuleGroups?paging=false",
-        "testName": "Users should be able to edit jobs that take parameters -- User edits a tracker programs data sync job (example #4)",
-        "static": false,
-        "count": 1,
-        "nonDeterministic": false,
-        "method": "GET",
-        "requestBody": "",
-        "requestHeaders": {
-            "host": "localhost:8082",
-            "proxy-connection": "keep-alive",
-            "accept": "application/json",
-            "origin": "http://localhost:3000",
-            "sec-fetch-site": "same-site",
-            "sec-fetch-mode": "cors"
-        },
-        "statusCode": 304,
-        "responseBody": "\"\"",
-        "responseSize": 2,
-        "responseHeaders": {
-            "access-control-allow-origin": "http://localhost:3000",
-            "server": "nginx/1.17.10",
-            "connection": "close",
-            "access-control-allow-credentials": "true",
-            "vary": "Origin",
-            "access-control-expose-headers": "ETag, Location",
-            "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
             "x-xss-protection": "1; mode=block",
             "x-frame-options": "SAMEORIGIN"
@@ -934,6 +902,38 @@
     },
     {
         "path": "/api/38/predictors?paging=false",
+        "testName": "Users should be able to edit jobs that take parameters -- User edits a tracker programs data sync job (example #4)",
+        "static": false,
+        "count": 1,
+        "nonDeterministic": false,
+        "method": "GET",
+        "requestBody": "",
+        "requestHeaders": {
+            "host": "localhost:8082",
+            "proxy-connection": "keep-alive",
+            "accept": "application/json",
+            "origin": "http://localhost:3000",
+            "sec-fetch-site": "same-site",
+            "sec-fetch-mode": "cors"
+        },
+        "statusCode": 304,
+        "responseBody": "\"\"",
+        "responseSize": 2,
+        "responseHeaders": {
+            "access-control-allow-origin": "http://localhost:3000",
+            "server": "nginx/1.17.10",
+            "connection": "close",
+            "access-control-allow-credentials": "true",
+            "vary": "Origin",
+            "access-control-expose-headers": "ETag, Location",
+            "cache-control": "no-cache, private",
+            "x-content-type-options": "nosniff",
+            "x-xss-protection": "1; mode=block",
+            "x-frame-options": "SAMEORIGIN"
+        }
+    },
+    {
+        "path": "/api/38/pushAnalysis?paging=false",
         "testName": "Users should be able to edit jobs that take parameters -- User edits a tracker programs data sync job (example #4)",
         "static": false,
         "count": 1,
@@ -1091,6 +1091,38 @@
         }
     },
     {
+        "path": "/api/38/pushAnalysis?paging=false",
+        "testName": "Users should be able to edit jobs that take parameters -- User edits a event programs data sync job (example #5)",
+        "static": false,
+        "count": 1,
+        "nonDeterministic": false,
+        "method": "GET",
+        "requestBody": "",
+        "requestHeaders": {
+            "host": "localhost:8082",
+            "proxy-connection": "keep-alive",
+            "accept": "application/json",
+            "origin": "http://localhost:3000",
+            "sec-fetch-site": "same-site",
+            "sec-fetch-mode": "cors"
+        },
+        "statusCode": 304,
+        "responseBody": "\"\"",
+        "responseSize": 2,
+        "responseHeaders": {
+            "access-control-allow-origin": "http://localhost:3000",
+            "server": "nginx/1.17.10",
+            "connection": "close",
+            "access-control-allow-credentials": "true",
+            "vary": "Origin",
+            "access-control-expose-headers": "ETag, Location",
+            "cache-control": "no-cache, private",
+            "x-content-type-options": "nosniff",
+            "x-xss-protection": "1; mode=block",
+            "x-frame-options": "SAMEORIGIN"
+        }
+    },
+    {
         "path": "/api/38/analytics/tableTypes",
         "testName": "Users should be able to edit jobs that take parameters -- User edits a event programs data sync job (example #5)",
         "static": false,
@@ -1154,71 +1186,7 @@
         }
     },
     {
-        "path": "/api/38/pushAnalysis?paging=false",
-        "testName": "Users should be able to edit jobs that take parameters -- User edits a event programs data sync job (example #5)",
-        "static": false,
-        "count": 1,
-        "nonDeterministic": false,
-        "method": "GET",
-        "requestBody": "",
-        "requestHeaders": {
-            "host": "localhost:8082",
-            "proxy-connection": "keep-alive",
-            "accept": "application/json",
-            "origin": "http://localhost:3000",
-            "sec-fetch-site": "same-site",
-            "sec-fetch-mode": "cors"
-        },
-        "statusCode": 304,
-        "responseBody": "\"\"",
-        "responseSize": 2,
-        "responseHeaders": {
-            "access-control-allow-origin": "http://localhost:3000",
-            "server": "nginx/1.17.10",
-            "connection": "close",
-            "access-control-allow-credentials": "true",
-            "vary": "Origin",
-            "access-control-expose-headers": "ETag, Location",
-            "cache-control": "no-cache, private",
-            "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
-        }
-    },
-    {
         "path": "/api/38/predictors?paging=false",
-        "testName": "Users should be able to edit jobs that take parameters -- User edits a event programs data sync job (example #5)",
-        "static": false,
-        "count": 1,
-        "nonDeterministic": false,
-        "method": "GET",
-        "requestBody": "",
-        "requestHeaders": {
-            "host": "localhost:8082",
-            "proxy-connection": "keep-alive",
-            "accept": "application/json",
-            "origin": "http://localhost:3000",
-            "sec-fetch-site": "same-site",
-            "sec-fetch-mode": "cors"
-        },
-        "statusCode": 304,
-        "responseBody": "\"\"",
-        "responseSize": 2,
-        "responseHeaders": {
-            "access-control-allow-origin": "http://localhost:3000",
-            "server": "nginx/1.17.10",
-            "connection": "close",
-            "access-control-allow-credentials": "true",
-            "vary": "Origin",
-            "access-control-expose-headers": "ETag, Location",
-            "cache-control": "no-cache, private",
-            "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
-        }
-    },
-    {
-        "path": "/api/38/predictorGroups?paging=false",
         "testName": "Users should be able to edit jobs that take parameters -- User edits a event programs data sync job (example #5)",
         "static": false,
         "count": 1,
@@ -1275,6 +1243,38 @@
             "access-control-allow-credentials": "true",
             "vary": "Origin",
             "access-control-expose-headers": "ETag, Location",
+            "x-content-type-options": "nosniff",
+            "x-xss-protection": "1; mode=block",
+            "x-frame-options": "SAMEORIGIN"
+        }
+    },
+    {
+        "path": "/api/38/predictorGroups?paging=false",
+        "testName": "Users should be able to edit jobs that take parameters -- User edits a event programs data sync job (example #5)",
+        "static": false,
+        "count": 1,
+        "nonDeterministic": false,
+        "method": "GET",
+        "requestBody": "",
+        "requestHeaders": {
+            "host": "localhost:8082",
+            "proxy-connection": "keep-alive",
+            "accept": "application/json",
+            "origin": "http://localhost:3000",
+            "sec-fetch-site": "same-site",
+            "sec-fetch-mode": "cors"
+        },
+        "statusCode": 304,
+        "responseBody": "\"\"",
+        "responseSize": 2,
+        "responseHeaders": {
+            "access-control-allow-origin": "http://localhost:3000",
+            "server": "nginx/1.17.10",
+            "connection": "close",
+            "access-control-allow-credentials": "true",
+            "vary": "Origin",
+            "access-control-expose-headers": "ETag, Location",
+            "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
             "x-xss-protection": "1; mode=block",
             "x-frame-options": "SAMEORIGIN"
@@ -1344,6 +1344,37 @@
         }
     },
     {
+        "path": "/api/38/analytics/tableTypes",
+        "testName": "Users should be able to edit jobs that take parameters -- User edits a metadata sync job (example #6)",
+        "static": false,
+        "count": 1,
+        "nonDeterministic": false,
+        "method": "GET",
+        "requestBody": "",
+        "requestHeaders": {
+            "host": "localhost:8082",
+            "proxy-connection": "keep-alive",
+            "accept": "application/json",
+            "origin": "http://localhost:3000",
+            "sec-fetch-site": "same-site",
+            "sec-fetch-mode": "cors"
+        },
+        "statusCode": 304,
+        "responseBody": "\"\"",
+        "responseSize": 2,
+        "responseHeaders": {
+            "access-control-allow-origin": "http://localhost:3000",
+            "server": "nginx/1.17.10",
+            "connection": "close",
+            "access-control-allow-credentials": "true",
+            "vary": "Origin",
+            "access-control-expose-headers": "ETag, Location",
+            "x-content-type-options": "nosniff",
+            "x-xss-protection": "1; mode=block",
+            "x-frame-options": "SAMEORIGIN"
+        }
+    },
+    {
         "path": "/api/38/validationRuleGroups?paging=false",
         "testName": "Users should be able to edit jobs that take parameters -- User edits a metadata sync job (example #6)",
         "static": false,
@@ -1370,37 +1401,6 @@
             "vary": "Origin",
             "access-control-expose-headers": "ETag, Location",
             "cache-control": "no-cache, private",
-            "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
-        }
-    },
-    {
-        "path": "/api/38/analytics/tableTypes",
-        "testName": "Users should be able to edit jobs that take parameters -- User edits a metadata sync job (example #6)",
-        "static": false,
-        "count": 1,
-        "nonDeterministic": false,
-        "method": "GET",
-        "requestBody": "",
-        "requestHeaders": {
-            "host": "localhost:8082",
-            "proxy-connection": "keep-alive",
-            "accept": "application/json",
-            "origin": "http://localhost:3000",
-            "sec-fetch-site": "same-site",
-            "sec-fetch-mode": "cors"
-        },
-        "statusCode": 304,
-        "responseBody": "\"\"",
-        "responseSize": 2,
-        "responseHeaders": {
-            "access-control-allow-origin": "http://localhost:3000",
-            "server": "nginx/1.17.10",
-            "connection": "close",
-            "access-control-allow-credentials": "true",
-            "vary": "Origin",
-            "access-control-expose-headers": "ETag, Location",
             "x-content-type-options": "nosniff",
             "x-xss-protection": "1; mode=block",
             "x-frame-options": "SAMEORIGIN"
@@ -1439,7 +1439,7 @@
         }
     },
     {
-        "path": "/api/38/pushAnalysis?paging=false",
+        "path": "/api/38/predictorGroups?paging=false",
         "testName": "Users should be able to edit jobs that take parameters -- User edits a metadata sync job (example #6)",
         "static": false,
         "count": 1,
@@ -1471,7 +1471,7 @@
         }
     },
     {
-        "path": "/api/38/predictorGroups?paging=false",
+        "path": "/api/38/pushAnalysis?paging=false",
         "testName": "Users should be able to edit jobs that take parameters -- User edits a metadata sync job (example #6)",
         "static": false,
         "count": 1,
@@ -1597,6 +1597,69 @@
         }
     },
     {
+        "path": "/api/38/jobConfigurations/jobTypes?fields=*&paging=false",
+        "testName": "Users should be able to edit jobs that take parameters -- User edits a monitoring job (example #7)",
+        "static": false,
+        "count": 1,
+        "nonDeterministic": false,
+        "method": "GET",
+        "requestBody": "",
+        "requestHeaders": {
+            "host": "localhost:8082",
+            "proxy-connection": "keep-alive",
+            "accept": "application/json",
+            "origin": "http://localhost:3000",
+            "sec-fetch-site": "same-site",
+            "sec-fetch-mode": "cors"
+        },
+        "statusCode": 304,
+        "responseBody": "\"\"",
+        "responseSize": 2,
+        "responseHeaders": {
+            "access-control-allow-origin": "http://localhost:3000",
+            "server": "nginx/1.17.10",
+            "connection": "close",
+            "access-control-allow-credentials": "true",
+            "vary": "Origin",
+            "access-control-expose-headers": "ETag, Location",
+            "x-content-type-options": "nosniff",
+            "x-xss-protection": "1; mode=block",
+            "x-frame-options": "SAMEORIGIN"
+        }
+    },
+    {
+        "path": "/api/38/validationRuleGroups?paging=false",
+        "testName": "Users should be able to edit jobs that take parameters -- User edits a monitoring job (example #7)",
+        "static": false,
+        "count": 1,
+        "nonDeterministic": false,
+        "method": "GET",
+        "requestBody": "",
+        "requestHeaders": {
+            "host": "localhost:8082",
+            "proxy-connection": "keep-alive",
+            "accept": "application/json",
+            "origin": "http://localhost:3000",
+            "sec-fetch-site": "same-site",
+            "sec-fetch-mode": "cors"
+        },
+        "statusCode": 304,
+        "responseBody": "\"\"",
+        "responseSize": 2,
+        "responseHeaders": {
+            "access-control-allow-origin": "http://localhost:3000",
+            "server": "nginx/1.17.10",
+            "connection": "close",
+            "access-control-allow-credentials": "true",
+            "vary": "Origin",
+            "access-control-expose-headers": "ETag, Location",
+            "cache-control": "no-cache, private",
+            "x-content-type-options": "nosniff",
+            "x-xss-protection": "1; mode=block",
+            "x-frame-options": "SAMEORIGIN"
+        }
+    },
+    {
         "path": "/api/38/pushAnalysis?paging=false",
         "testName": "Users should be able to edit jobs that take parameters -- User edits a monitoring job (example #7)",
         "static": false,
@@ -1630,69 +1693,6 @@
     },
     {
         "path": "/api/38/predictors?paging=false",
-        "testName": "Users should be able to edit jobs that take parameters -- User edits a monitoring job (example #7)",
-        "static": false,
-        "count": 1,
-        "nonDeterministic": false,
-        "method": "GET",
-        "requestBody": "",
-        "requestHeaders": {
-            "host": "localhost:8082",
-            "proxy-connection": "keep-alive",
-            "accept": "application/json",
-            "origin": "http://localhost:3000",
-            "sec-fetch-site": "same-site",
-            "sec-fetch-mode": "cors"
-        },
-        "statusCode": 304,
-        "responseBody": "\"\"",
-        "responseSize": 2,
-        "responseHeaders": {
-            "access-control-allow-origin": "http://localhost:3000",
-            "server": "nginx/1.17.10",
-            "connection": "close",
-            "access-control-allow-credentials": "true",
-            "vary": "Origin",
-            "access-control-expose-headers": "ETag, Location",
-            "cache-control": "no-cache, private",
-            "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
-        }
-    },
-    {
-        "path": "/api/38/jobConfigurations/jobTypes?fields=*&paging=false",
-        "testName": "Users should be able to edit jobs that take parameters -- User edits a monitoring job (example #7)",
-        "static": false,
-        "count": 1,
-        "nonDeterministic": false,
-        "method": "GET",
-        "requestBody": "",
-        "requestHeaders": {
-            "host": "localhost:8082",
-            "proxy-connection": "keep-alive",
-            "accept": "application/json",
-            "origin": "http://localhost:3000",
-            "sec-fetch-site": "same-site",
-            "sec-fetch-mode": "cors"
-        },
-        "statusCode": 304,
-        "responseBody": "\"\"",
-        "responseSize": 2,
-        "responseHeaders": {
-            "access-control-allow-origin": "http://localhost:3000",
-            "server": "nginx/1.17.10",
-            "connection": "close",
-            "access-control-allow-credentials": "true",
-            "vary": "Origin",
-            "access-control-expose-headers": "ETag, Location",
-            "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block",
-            "x-frame-options": "SAMEORIGIN"
-        }
-    },
-    {
-        "path": "/api/38/validationRuleGroups?paging=false",
         "testName": "Users should be able to edit jobs that take parameters -- User edits a monitoring job (example #7)",
         "static": false,
         "count": 1,
@@ -1881,7 +1881,7 @@
         }
     },
     {
-        "path": "/api/38/validationRuleGroups?paging=false",
+        "path": "/api/38/dataIntegrity",
         "testName": "Users should be able to edit jobs that take parameters -- User edits a push analysis job (example #8)",
         "static": false,
         "count": 1,
@@ -1906,14 +1906,13 @@
             "access-control-allow-credentials": "true",
             "vary": "Origin",
             "access-control-expose-headers": "ETag, Location",
-            "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
             "x-xss-protection": "1; mode=block",
             "x-frame-options": "SAMEORIGIN"
         }
     },
     {
-        "path": "/api/38/pushAnalysis?paging=false",
+        "path": "/api/38/validationRuleGroups?paging=false",
         "testName": "Users should be able to edit jobs that take parameters -- User edits a push analysis job (example #8)",
         "static": false,
         "count": 1,
@@ -1977,7 +1976,7 @@
         }
     },
     {
-        "path": "/api/38/predictorGroups?paging=false",
+        "path": "/api/38/pushAnalysis?paging=false",
         "testName": "Users should be able to edit jobs that take parameters -- User edits a push analysis job (example #8)",
         "static": false,
         "count": 1,
@@ -2009,7 +2008,7 @@
         }
     },
     {
-        "path": "/api/38/dataIntegrity",
+        "path": "/api/38/predictorGroups?paging=false",
         "testName": "Users should be able to edit jobs that take parameters -- User edits a push analysis job (example #8)",
         "static": false,
         "count": 1,
@@ -2034,6 +2033,7 @@
             "access-control-allow-credentials": "true",
             "vary": "Origin",
             "access-control-expose-headers": "ETag, Location",
+            "cache-control": "no-cache, private",
             "x-content-type-options": "nosniff",
             "x-xss-protection": "1; mode=block",
             "x-frame-options": "SAMEORIGIN"
@@ -2072,7 +2072,7 @@
         }
     },
     {
-        "path": "/api/38/pushAnalysis?paging=false",
+        "path": "/api/38/validationRuleGroups?paging=false",
         "testName": "Users should be able to edit jobs that take parameters -- User edits a predictor job (example #9)",
         "static": false,
         "count": 1,
@@ -2104,7 +2104,7 @@
         }
     },
     {
-        "path": "/api/38/validationRuleGroups?paging=false",
+        "path": "/api/38/predictorGroups?paging=false",
         "testName": "Users should be able to edit jobs that take parameters -- User edits a predictor job (example #9)",
         "static": false,
         "count": 1,
@@ -2198,7 +2198,7 @@
         }
     },
     {
-        "path": "/api/38/predictors?paging=false",
+        "path": "/api/38/pushAnalysis?paging=false",
         "testName": "Users should be able to edit jobs that take parameters -- User edits a predictor job (example #9)",
         "static": false,
         "count": 1,
@@ -2230,7 +2230,7 @@
         }
     },
     {
-        "path": "/api/38/predictorGroups?paging=false",
+        "path": "/api/38/predictors?paging=false",
         "testName": "Users should be able to edit jobs that take parameters -- User edits a predictor job (example #9)",
         "static": false,
         "count": 1,
