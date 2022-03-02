@@ -31,6 +31,7 @@ const LabeledOptionsField = ({ label, name, parameterName }) => {
             component={MultiSelectFieldFF}
             options={labeledOptions}
             label={label}
+            filterable={true}
         />
     )
 }

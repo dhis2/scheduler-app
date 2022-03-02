@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2022-02-25T17:25:37.537Z\n"
-"PO-Revision-Date: 2022-02-25T17:25:37.537Z\n"
+"POT-Creation-Date: 2022-03-02T12:35:26.521Z\n"
+"PO-Revision-Date: 2022-03-02T12:35:26.521Z\n"
 
 msgid "Not authorized"
 msgstr "Not authorized"
@@ -429,6 +429,9 @@ msgstr "Validation results notification"
 
 msgid "Disable inactive users"
 msgstr "Disable inactive users"
+
+msgid "Tracker search optimization"
+msgstr "Tracker search optimization"
 
 msgid "A CRON expression is required"
 msgstr "A CRON expression is required"

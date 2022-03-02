@@ -7,6 +7,7 @@ import { formatToString } from './formatters'
 import SkipTableTypesField from './SkipTableTypesField'
 import LabeledOptionsField from './LabeledOptionsField'
 import DataIntegrityChecksField from './DataIntegrityChecksField'
+import TransferField from './Transfer/TransferField'
 import styles from './ParameterFields.module.css'
 
 const { Field } = ReactFinalForm
@@ -32,13 +33,15 @@ const ParameterFields = ({ jobType }) => {
     }
 
     // Map all parameters to the appropriate field types
-    const parameterComponents = parameters.map(({ fieldName, name, klass }) => {
+    const parameterComponents = parameters.map(({ fieldName, name, klass, ...rest }) => {
+        const parameterProps = { name, klass, ...rest }
         const defaultProps = {
             label: fieldName,
             name: `${FIELD_NAME}.${name}`,
         }
         let parameterComponent = null
-
+        console.log('parameter', defaultProps, parameterProps)
+        console.log({parameterProps})
         const CustomParameterComponent = getCustomComponent(jobType, name)
 
         if (CustomParameterComponent) {
@@ -87,6 +90,15 @@ const ParameterFields = ({ jobType }) => {
                     <LabeledOptionsField
                         {...defaultProps}
                         parameterName={name}
+                    />
+                )
+                break
+            case 'java.util.Set':
+                parameterComponent = (
+                    <TransferField
+                        {...defaultProps}
+                        parameterName={name}
+                        parameterProps={parameterProps}
                     />
                 )
                 break
