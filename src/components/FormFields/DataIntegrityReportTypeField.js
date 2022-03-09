@@ -1,14 +1,13 @@
 import React from 'react'
 import { PropTypes } from '@dhis2/prop-types'
-import {
-    SingleSelectFieldFF,
-    ReactFinalForm,
-} from '@dhis2/ui'
+import { SingleSelectFieldFF, ReactFinalForm } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
 import { getReportTypeLabel } from '../../services/server-translations/dataIntegrityChecks'
+
 const { Field } = ReactFinalForm
 
-// A labeled options field has options that have both an id and a label.
+const DEFAULT_VALUE = 'REPORT'
+
 const DataIntegrityReportTypeField = ({
     name,
     parameterProps: { constants },
@@ -27,7 +26,7 @@ const DataIntegrityReportTypeField = ({
         <Field
             name={name}
             component={SingleSelectFieldFF}
-            initialValue={'REPORT'}
+            initialValue={DEFAULT_VALUE}
             options={labeledOptions}
             label={i18n.t('Report type')}
         />
