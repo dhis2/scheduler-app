@@ -7,6 +7,7 @@ import { formatToString } from './formatters'
 import SkipTableTypesField from './SkipTableTypesField'
 import LabeledOptionsField from './LabeledOptionsField'
 import DataIntegrityChecksField from './DataIntegrityChecksField'
+import DataIntegrityReportTypeField from './DataIntegrityReportTypeField'
 import styles from './ParameterFields.module.css'
 
 const { Field } = ReactFinalForm
@@ -14,9 +15,15 @@ const { Field } = ReactFinalForm
 // The key under which the parameters will be sent to the backend
 const FIELD_NAME = 'jobParameters'
 
+const JOB_TYPES = {
+    DATA_INTEGRITY: 'DATA_INTEGRITY',
+}
+
 const getCustomComponent = (jobType, parameterName) => {
-    if (jobType === 'DATA_INTEGRITY' && parameterName === 'checks') {
+    if (jobType === JOB_TYPES.DATA_INTEGRITY && parameterName === 'checks') {
         return DataIntegrityChecksField
+    } else if(jobType === JOB_TYPES.DATA_INTEGRITY && parameterName === 'type') {
+        return DataIntegrityReportTypeField
     } else if (parameterName === 'skipTableTypes') {
         return SkipTableTypesField
     }
@@ -32,10 +39,16 @@ const ParameterFields = ({ jobType }) => {
     }
 
     // Map all parameters to the appropriate field types
-    const parameterComponents = parameters.map(({ fieldName, name, klass }) => {
+    const parameterComponents = parameters.map(({ fieldName, name, klass, ...rest }) => {
         const defaultProps = {
             label: fieldName,
             name: `${FIELD_NAME}.${name}`,
+        }
+        const parameterProps = {
+            fieldName,
+            name,
+            klass,
+            ...rest
         }
         let parameterComponent = null
 
@@ -46,7 +59,7 @@ const ParameterFields = ({ jobType }) => {
                 <Box marginTop="16px" key={name}>
                     <CustomParameterComponent
                         {...defaultProps}
-                        parameterName={name}
+                        parameterProps={parameterProps}
                     />
                 </Box>
             )

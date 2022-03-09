@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2022-02-25T17:25:37.537Z\n"
-"PO-Revision-Date: 2022-02-25T17:25:37.537Z\n"
+"POT-Creation-Date: 2022-03-09T14:09:44.809Z\n"
+"PO-Revision-Date: 2022-03-09T14:09:44.809Z\n"
 
 msgid "Not authorized"
 msgstr "Not authorized"
@@ -48,6 +48,9 @@ msgstr "Severity"
 msgid "Select checks to run."
 msgstr "Select checks to run."
 
+msgid "No options available"
+msgstr "No options available"
+
 msgid "Delay"
 msgstr "Delay"
 
@@ -59,9 +62,6 @@ msgstr "Name"
 
 msgid "Job type"
 msgstr "Job type"
-
-msgid "No options available"
-msgstr "No options available"
 
 msgid "Parameters"
 msgstr "Parameters"
@@ -345,6 +345,15 @@ msgstr "Warning"
 
 msgid "Severe"
 msgstr "Severe"
+
+msgid "Report"
+msgstr "Report"
+
+msgid "Summary"
+msgstr "Summary"
+
+msgid "Details"
+msgstr "Details"
 
 msgid "Completed"
 msgstr "Completed"
