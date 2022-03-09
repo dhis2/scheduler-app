@@ -22,7 +22,10 @@ const JOB_TYPES = {
 const getCustomComponent = (jobType, parameterName) => {
     if (jobType === JOB_TYPES.DATA_INTEGRITY && parameterName === 'checks') {
         return DataIntegrityChecksField
-    } else if(jobType === JOB_TYPES.DATA_INTEGRITY && parameterName === 'type') {
+    } else if (
+        jobType === JOB_TYPES.DATA_INTEGRITY &&
+        parameterName === 'type'
+    ) {
         return DataIntegrityReportTypeField
     } else if (parameterName === 'skipTableTypes') {
         return SkipTableTypesField
@@ -39,79 +42,82 @@ const ParameterFields = ({ jobType }) => {
     }
 
     // Map all parameters to the appropriate field types
-    const parameterComponents = parameters.map(({ fieldName, name, klass, ...rest }) => {
-        const defaultProps = {
-            label: fieldName,
-            name: `${FIELD_NAME}.${name}`,
-        }
-        const parameterProps = {
-            fieldName,
-            name,
-            klass,
-            ...rest
-        }
-        let parameterComponent = null
+    const parameterComponents = parameters.map(
+        ({ fieldName, name, klass, ...rest }) => {
+            const defaultProps = {
+                label: fieldName,
+                name: `${FIELD_NAME}.${name}`,
+            }
+            const parameterProps = {
+                fieldName,
+                name,
+                klass,
+                ...rest,
+            }
+            let parameterComponent = null
 
-        const CustomParameterComponent = getCustomComponent(jobType, name)
+            const CustomParameterComponent = getCustomComponent(jobType, name)
 
-        if (CustomParameterComponent) {
+            if (CustomParameterComponent) {
+                return (
+                    <Box marginTop="16px" key={name}>
+                        <CustomParameterComponent
+                            {...defaultProps}
+                            parameterProps={parameterProps}
+                            parameterName={name}
+                        />
+                    </Box>
+                )
+            }
+
+            // Generic field rendering
+            switch (klass) {
+                case 'java.lang.String':
+                    parameterComponent = (
+                        <Field
+                            {...defaultProps}
+                            component={InputFieldFF}
+                            type="text"
+                        />
+                    )
+                    break
+                case 'java.lang.Boolean':
+                    parameterComponent = (
+                        <Field
+                            {...defaultProps}
+                            component={SwitchFieldFF}
+                            type="checkbox"
+                        />
+                    )
+                    break
+                case 'java.lang.Integer':
+                    parameterComponent = (
+                        <Field
+                            {...defaultProps}
+                            component={InputFieldFF}
+                            format={formatToString}
+                            type="number"
+                        />
+                    )
+                    break
+                case 'java.util.List':
+                    parameterComponent = (
+                        <LabeledOptionsField
+                            {...defaultProps}
+                            parameterName={name}
+                        />
+                    )
+                    break
+            }
+
+            // Wrap all components in a Box for spacing
             return (
                 <Box marginTop="16px" key={name}>
-                    <CustomParameterComponent
-                        {...defaultProps}
-                        parameterProps={parameterProps}
-                    />
+                    {parameterComponent}
                 </Box>
             )
         }
-
-        // Generic field rendering
-        switch (klass) {
-            case 'java.lang.String':
-                parameterComponent = (
-                    <Field
-                        {...defaultProps}
-                        component={InputFieldFF}
-                        type="text"
-                    />
-                )
-                break
-            case 'java.lang.Boolean':
-                parameterComponent = (
-                    <Field
-                        {...defaultProps}
-                        component={SwitchFieldFF}
-                        type="checkbox"
-                    />
-                )
-                break
-            case 'java.lang.Integer':
-                parameterComponent = (
-                    <Field
-                        {...defaultProps}
-                        component={InputFieldFF}
-                        format={formatToString}
-                        type="number"
-                    />
-                )
-                break
-            case 'java.util.List':
-                parameterComponent = (
-                    <LabeledOptionsField
-                        {...defaultProps}
-                        parameterName={name}
-                    />
-                )
-                break
-        }
-
-        // Wrap all components in a Box for spacing
-        return (
-            <Box marginTop="16px" key={name}>
-                {parameterComponent}
-            </Box>
-        )
-    })
+    )
 
     return (
         <React.Fragment>
