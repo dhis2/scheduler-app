@@ -57,14 +57,14 @@ const DataIntegrityChecksField = ({ label, name }) => {
         <FieldGroup label={i18n.t('Checks to run')}>
             <Radio
                 name={'checksToRun'}
-                value={String(false)}
+                value={"false"}
                 label={i18n.t('Run all available checks')}
                 checked={!runSelected}
                 onChange={toggle}
             />
             <Radio
                 name={'checksToRun'}
-                value={String(true)}
+                value={"true"}
                 label={i18n.t('Only run selected checks')}
                 checked={runSelected}
                 onChange={toggle}
