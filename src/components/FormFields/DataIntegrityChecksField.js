@@ -20,10 +20,17 @@ import styles from './DataIntegrityChecksField.module.css'
 
 const { Field, useField } = ReactFinalForm
 
-const VALIDATOR = value =>
-    value && value.length < 1
-        ? i18n.t('Please select checks to run.')
-        : undefined
+const VALIDATOR = value => {
+    // should not validate when null or undefined
+    // means "Run all" is selected
+    if (!value == null) {
+        return undefined
+    }
+
+    if (value && value.length < 1) {
+        return i18n.t('Please select checks to run.')
+    }
+}
 
 const DataIntegrityChecksField = ({ label, name }) => {
     const options = hooks.useParameterOptions('dataIntegrityChecks')
@@ -44,13 +51,19 @@ const DataIntegrityChecksField = ({ label, name }) => {
         .sort((a, b) => a.label.localeCompare(b.label))
 
     const toggle = ({ value }) => {
-        const checked = value === 'true'
+        const runSelectedChecked = value === 'true'
 
-        if (!checked) {
+        if (!runSelectedChecked) {
             // clear checks when "Run all" is selected
+            // null means all checks will be run
+            onChange(null)
+        } else {
+            // set to empty array explicitly,
+            // this is to allow to differentiate between "selected checks" but empty
+            // and "run all"-empty for validation
             onChange([])
         }
-        setRunSelected(checked)
+        setRunSelected(runSelectedChecked)
     }
 
     return (
