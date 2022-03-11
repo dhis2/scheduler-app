@@ -62,8 +62,8 @@ const ParameterFields = ({ jobType }) => {
                 return (
                     <Box marginTop="16px" key={name}>
                         <CustomParameterComponent
+                            {...parameterProps}
                             {...defaultProps}
-                            parameterProps={parameterProps}
                             parameterName={name}
                         />
                     </Box>

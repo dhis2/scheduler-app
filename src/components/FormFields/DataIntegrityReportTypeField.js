@@ -8,10 +8,7 @@ const { Field } = ReactFinalForm
 
 const DEFAULT_VALUE = 'REPORT'
 
-const DataIntegrityReportTypeField = ({
-    name,
-    parameterProps: { constants },
-}) => {
+const DataIntegrityReportTypeField = ({ name, constants }) => {
     if (!constants) {
         // shouldn't really happen, but backend defaults to "report" if no value
         return null
@@ -37,9 +34,7 @@ const { string, arrayOf } = PropTypes
 
 DataIntegrityReportTypeField.propTypes = {
     name: string.isRequired,
-    parameterProps: PropTypes.shape({
-        constants: arrayOf(string),
-    }),
+    constants: arrayOf(string),
 }
 
 export default DataIntegrityReportTypeField
