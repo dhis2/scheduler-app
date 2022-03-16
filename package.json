@@ -11,8 +11,8 @@
         "lint:css": "stylelint './src/**/*.css' && prettier './src/**/*.css' --check",
         "format": "d2-style apply && yarn format:css",
         "format:css": "prettier './src/**/*.css' --write",
-        "cypress:capture": "start-server-and-test 'yarn start:nobrowser' http://localhost:3000 'yarn cypress run --env dhis2ApiVersion=37,networkMode=capture'",
-        "cypress:stub": "start-server-and-test 'yarn start:nobrowser' http://localhost:3000 'yarn cypress run --env dhis2ApiVersion=37,networkMode=stub'",
+        "cypress:capture": "start-server-and-test 'yarn start:nobrowser' http://localhost:3000 'yarn cypress run --env dhis2ApiVersion=38,networkMode=capture'",
+        "cypress:stub": "start-server-and-test 'yarn start:nobrowser' http://localhost:3000 'yarn cypress run --env dhis2ApiVersion=38,networkMode=stub'",
         "cypress:live": "start-server-and-test 'yarn start:nobrowser' http://localhost:3000 'yarn cypress open --env networkMode=live'"
     },
     "dependencies": {
@@ -34,11 +34,13 @@
     "devDependencies": {
         "@dhis2/cli-app-scripts": "^8.0.1",
         "@dhis2/cli-style": "^9.0.1",
-        "@dhis2/cli-utils-cypress": "^8.0.1",
-        "@dhis2/cypress-commands": "^8.0.0-alpha.8",
-        "@dhis2/cypress-plugins": "^8.0.0-alpha.8",
+        "@dhis2/cli-utils-cypress": "^9.0.2",
+        "@dhis2/cypress-commands": "^9.0.2",
+        "@dhis2/cypress-plugins": "^9.0.2",
         "@testing-library/cypress": "^7.0.6",
         "@testing-library/react-hooks": "^7.0.0",
+        "cypress": "^9.5.1",
+        "cypress-cucumber-preprocessor": "^4.3.1",
         "enzyme": "^3.10.0",
         "enzyme-adapter-react-16": "^1.15.6",
         "eslint-plugin-compat": "^3.9.0",

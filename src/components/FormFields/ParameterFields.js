@@ -6,12 +6,32 @@ import { hooks } from '../Store'
 import { formatToString } from './formatters'
 import SkipTableTypesField from './SkipTableTypesField'
 import LabeledOptionsField from './LabeledOptionsField'
+import DataIntegrityChecksField from './DataIntegrityChecksField'
+import DataIntegrityReportTypeField from './DataIntegrityReportTypeField'
 import styles from './ParameterFields.module.css'
 
 const { Field } = ReactFinalForm
 
 // The key under which the parameters will be sent to the backend
 const FIELD_NAME = 'jobParameters'
+
+const JOB_TYPES = {
+    DATA_INTEGRITY: 'DATA_INTEGRITY',
+}
+
+const getCustomComponent = (jobType, parameterName) => {
+    if (jobType === JOB_TYPES.DATA_INTEGRITY && parameterName === 'checks') {
+        return DataIntegrityChecksField
+    } else if (
+        jobType === JOB_TYPES.DATA_INTEGRITY &&
+        parameterName === 'type'
+    ) {
+        return DataIntegrityReportTypeField
+    } else if (parameterName === 'skipTableTypes') {
+        return SkipTableTypesField
+    }
+    return null
+}
 
 // Renders all parameters for a given jobtype
 const ParameterFields = ({ jobType }) => {
@@ -22,72 +42,82 @@ const ParameterFields = ({ jobType }) => {
     }
 
     // Map all parameters to the appropriate field types
-    const parameterComponents = parameters.map(({ fieldName, name, klass }) => {
-        const defaultProps = {
-            label: fieldName,
-            name: `${FIELD_NAME}.${name}`,
-        }
-        let parameterComponent = null
+    const parameterComponents = parameters.map(
+        ({ fieldName, name, klass, ...rest }) => {
+            const defaultProps = {
+                label: fieldName,
+                name: `${FIELD_NAME}.${name}`,
+            }
+            const parameterProps = {
+                fieldName,
+                name,
+                klass,
+                ...rest,
+            }
+            let parameterComponent = null
 
-        // Specific case, as the options here need specific translations
-        if (name === 'skipTableTypes') {
+            const CustomParameterComponent = getCustomComponent(jobType, name)
+
+            if (CustomParameterComponent) {
+                return (
+                    <Box marginTop="16px" key={name}>
+                        <CustomParameterComponent
+                            {...parameterProps}
+                            {...defaultProps}
+                            parameterName={name}
+                        />
+                    </Box>
+                )
+            }
+
+            // Generic field rendering
+            switch (klass) {
+                case 'java.lang.String':
+                    parameterComponent = (
+                        <Field
+                            {...defaultProps}
+                            component={InputFieldFF}
+                            type="text"
+                        />
+                    )
+                    break
+                case 'java.lang.Boolean':
+                    parameterComponent = (
+                        <Field
+                            {...defaultProps}
+                            component={SwitchFieldFF}
+                            type="checkbox"
+                        />
+                    )
+                    break
+                case 'java.lang.Integer':
+                    parameterComponent = (
+                        <Field
+                            {...defaultProps}
+                            component={InputFieldFF}
+                            format={formatToString}
+                            type="number"
+                        />
+                    )
+                    break
+                case 'java.util.List':
+                    parameterComponent = (
+                        <LabeledOptionsField
+                            {...defaultProps}
+                            parameterName={name}
+                        />
+                    )
+                    break
+            }
+
+            // Wrap all components in a Box for spacing
             return (
                 <Box marginTop="16px" key={name}>
-                    <SkipTableTypesField
-                        {...defaultProps}
-                        parameterName={name}
-                    />
+                    {parameterComponent}
                 </Box>
             )
         }
-
-        // Generic field rendering
-        switch (klass) {
-            case 'java.lang.String':
-                parameterComponent = (
-                    <Field
-                        {...defaultProps}
-                        component={InputFieldFF}
-                        type="text"
-                    />
-                )
-                break
-            case 'java.lang.Boolean':
-                parameterComponent = (
-                    <Field
-                        {...defaultProps}
-                        component={SwitchFieldFF}
-                        type="checkbox"
-                    />
-                )
-                break
-            case 'java.lang.Integer':
-                parameterComponent = (
-                    <Field
-                        {...defaultProps}
-                        component={InputFieldFF}
-                        format={formatToString}
-                        type="number"
-                    />
-                )
-                break
-            case 'java.util.List':
-                parameterComponent = (
-                    <LabeledOptionsField
-                        {...defaultProps}
-                        parameterName={name}
-                    />
-                )
-                break
-        }
-
-        // Wrap all components in a Box for spacing
-        return (
-            <Box marginTop="16px" key={name}>
-                {parameterComponent}
-            </Box>
-        )
-    })
+    )
 
     return (
         <React.Fragment>

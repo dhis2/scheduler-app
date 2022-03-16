@@ -1,9 +1,9 @@
 {
-    "count": 957,
-    "totalResponseSize": 1034177,
-    "duplicates": 555,
+    "count": 1020,
+    "totalResponseSize": 475706,
+    "duplicates": 866,
     "nonDeterministicResponses": 83,
-    "serverMinorVersion": 37,
+    "apiVersion": 38,
     "fixtureFiles": [
         "static_resources.json",
         "users_should_be_able_to_navigate_back_to_the_job_list.json",

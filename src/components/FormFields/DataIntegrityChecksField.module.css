@@ -1,0 +1,27 @@
+.transfer {
+    margin-top: 8px;
+}
+
+.transferOption {
+    font-size: 14px;
+    padding: 4px 0;
+}
+
+.optionName {
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.optionSeverity {
+    font-weight: 400;
+    font-size: 13px;
+    color: var(--colors-grey600);
+}
+
+.transferOption.highlighted .optionSeverity {
+    color: var(--colors-grey300);
+}
+
+.selectedEmptyComponent {
+    text-align: center;
+}

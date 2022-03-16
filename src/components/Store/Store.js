@@ -59,6 +59,9 @@ const optionsQuery = {
             paging: false,
         },
     },
+    dataIntegrityChecks: {
+        resource: 'dataIntegrity',
+    },
 }
 
 const Store = ({ children }) => {
@@ -92,7 +95,6 @@ const Store = ({ children }) => {
          */
         throw error
     }
-
     const { jobConfigurations: jobs } = jobsFetch.data.jobs
     const { jobTypes } = jobTypesFetch.data.jobTypes
     const {
@@ -101,6 +103,7 @@ const Store = ({ children }) => {
         pushAnalysis: { pushAnalysis },
         predictors: { predictors },
         predictorGroups: { predictorGroups },
+        dataIntegrityChecks,
     } = optionsFetch.data
     const parameterOptions = {
         skipTableTypes,
@@ -108,6 +111,7 @@ const Store = ({ children }) => {
         pushAnalysis,
         predictors,
         predictorGroups,
+        dataIntegrityChecks,
     }
 
     return (
