@@ -1,3 +1,10 @@
+# [100.1.0](https://github.com/dhis2/scheduler-app/compare/v100.0.4...v100.1.0) (2022-03-16)
+
+
+### Features
+
+* **data-integrity:** add checks-selector ([#348](https://github.com/dhis2/scheduler-app/issues/348)) ([aa7baf4](https://github.com/dhis2/scheduler-app/commit/aa7baf4e695fc13c8b4c848f75ef8c30a4478737))
+
 ## [100.0.4](https://github.com/dhis2/scheduler-app/compare/v100.0.3...v100.0.4) (2022-03-07)
 
 
