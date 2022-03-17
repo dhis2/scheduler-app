@@ -1,14 +1,14 @@
 # 
 # Translators:
-# easylin <lin_xd@126.com>, 2021
-# 晓东 林 <13981924470@126.com>, 2021
+# 晓东 林 <13981924470@126.com>, 2022
+# easylin <lin_xd@126.com>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-11-18T16:21:37.799Z\n"
+"POT-Creation-Date: 2022-03-10T13:28:50.698Z\n"
 "PO-Revision-Date: 2020-05-08 14:30+0000\n"
-"Last-Translator: 晓东 林 <13981924470@126.com>, 2021\n"
+"Last-Translator: easylin <lin_xd@126.com>, 2022\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/hisp-uio/teams/100509/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -34,6 +34,27 @@ msgid "Something went wrong whilst creating your job"
 msgstr ""
 
 msgid "CRON Expression"
+msgstr ""
+
+msgid "Please select checks to run."
+msgstr ""
+
+msgid "Checks to run"
+msgstr ""
+
+msgid "Run all available checks"
+msgstr ""
+
+msgid "Only run selected checks"
+msgstr ""
+
+msgid "Severity"
+msgstr ""
+
+msgid "Select checks to run."
+msgstr ""
+
+msgid "Report type"
 msgstr ""
 
 msgid "Delay"
@@ -206,6 +227,140 @@ msgstr "注册"
 
 msgid "Validation result"
 msgstr "验证结果"
+
+msgid "Program indicators with invalid expressions"
+msgstr ""
+
+msgid "Data elements without groups"
+msgstr "没有组的数据元"
+
+msgid "Indicators with invalid numerator"
+msgstr ""
+
+msgid "Program rule actions without notification"
+msgstr ""
+
+msgid "Only one \"default\" category combo should exist"
+msgstr ""
+
+msgid "Data elements without data sets"
+msgstr ""
+
+msgid "Category combos being invalid"
+msgstr ""
+
+msgid "Indicators with identical formulas"
+msgstr "指标以相同的公式"
+
+msgid "Indicators without groups"
+msgstr "无组的指标"
+
+msgid "Data elements in data set not in form"
+msgstr ""
+
+msgid "Program rules without priority"
+msgstr ""
+
+msgid "Validation rules without groups"
+msgstr "无分组的验证规则"
+
+msgid "Program indicators with invalid filters"
+msgstr ""
+
+msgid "Categories with no category options"
+msgstr ""
+
+msgid "Program rules without condition"
+msgstr ""
+
+msgid "Program rule actions without stage"
+msgstr ""
+
+msgid "Only one \"default\" category should exist"
+msgstr ""
+
+msgid ""
+"Lists category combos that share a combination of categories with at least "
+"one other category combo"
+msgstr ""
+
+msgid "Org units with cyclic references"
+msgstr ""
+
+msgid "Program rule variables without data element"
+msgstr ""
+
+msgid "Validation rules with invalid right side expression"
+msgstr ""
+
+msgid "Data sets not assigned to org units"
+msgstr ""
+
+msgid "Data elements violating exclusive group sets"
+msgstr "数据元违反互斥的组集规则"
+
+msgid "Org unit groups without group sets"
+msgstr ""
+
+msgid "Program rule variables without attribute"
+msgstr ""
+
+msgid "Org units violating exclusive group sets"
+msgstr ""
+
+msgid "Program rule actions without data object"
+msgstr ""
+
+msgid "Only one \"default\" category option should exist"
+msgstr ""
+
+msgid "Only one \"default\" category option combo should exist"
+msgstr ""
+
+msgid "Org units without groups"
+msgstr ""
+
+msgid "Program indicators without expression"
+msgstr ""
+
+msgid "Indicators violating exclusive group sets"
+msgstr "指标违反互斥性的组集"
+
+msgid "Periods duplicates"
+msgstr ""
+
+msgid "Data elements assigned to data sets with different period types"
+msgstr "数据元以不同周期的类型分配到数据集"
+
+msgid "Program rules without action"
+msgstr ""
+
+msgid "Org units being orphaned"
+msgstr ""
+
+msgid "Validation rules with invalid left side expression"
+msgstr ""
+
+msgid "Indicators with invalid denominator"
+msgstr ""
+
+msgid "Program rule actions without section"
+msgstr ""
+
+msgid "Warning"
+msgstr "警告"
+
+msgid "Severe"
+msgstr ""
+
+msgid "Report"
+msgstr "报表"
+
+msgid "Summary"
+msgstr "摘要"
+
+msgid "Details"
+msgstr "详情"
 
 msgid "Completed"
 msgstr "完成"

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-11-18T16:21:37.799Z\n"
+"POT-Creation-Date: 2022-03-10T13:28:50.698Z\n"
 "PO-Revision-Date: 2020-05-08 14:30+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2021\n"
 "Language-Team: Swedish (https://www.transifex.com/hisp-uio/teams/100509/sv/)\n"
@@ -34,6 +34,27 @@ msgid "Something went wrong whilst creating your job"
 msgstr ""
 
 msgid "CRON Expression"
+msgstr ""
+
+msgid "Please select checks to run."
+msgstr ""
+
+msgid "Checks to run"
+msgstr ""
+
+msgid "Run all available checks"
+msgstr ""
+
+msgid "Only run selected checks"
+msgstr ""
+
+msgid "Severity"
+msgstr ""
+
+msgid "Select checks to run."
+msgstr ""
+
+msgid "Report type"
 msgstr ""
 
 msgid "Delay"
@@ -205,6 +226,140 @@ msgid "Enrollment"
 msgstr ""
 
 msgid "Validation result"
+msgstr ""
+
+msgid "Program indicators with invalid expressions"
+msgstr ""
+
+msgid "Data elements without groups"
+msgstr ""
+
+msgid "Indicators with invalid numerator"
+msgstr ""
+
+msgid "Program rule actions without notification"
+msgstr ""
+
+msgid "Only one \"default\" category combo should exist"
+msgstr ""
+
+msgid "Data elements without data sets"
+msgstr ""
+
+msgid "Category combos being invalid"
+msgstr ""
+
+msgid "Indicators with identical formulas"
+msgstr ""
+
+msgid "Indicators without groups"
+msgstr ""
+
+msgid "Data elements in data set not in form"
+msgstr ""
+
+msgid "Program rules without priority"
+msgstr ""
+
+msgid "Validation rules without groups"
+msgstr ""
+
+msgid "Program indicators with invalid filters"
+msgstr ""
+
+msgid "Categories with no category options"
+msgstr ""
+
+msgid "Program rules without condition"
+msgstr ""
+
+msgid "Program rule actions without stage"
+msgstr ""
+
+msgid "Only one \"default\" category should exist"
+msgstr ""
+
+msgid ""
+"Lists category combos that share a combination of categories with at least "
+"one other category combo"
+msgstr ""
+
+msgid "Org units with cyclic references"
+msgstr ""
+
+msgid "Program rule variables without data element"
+msgstr ""
+
+msgid "Validation rules with invalid right side expression"
+msgstr ""
+
+msgid "Data sets not assigned to org units"
+msgstr ""
+
+msgid "Data elements violating exclusive group sets"
+msgstr ""
+
+msgid "Org unit groups without group sets"
+msgstr ""
+
+msgid "Program rule variables without attribute"
+msgstr ""
+
+msgid "Org units violating exclusive group sets"
+msgstr ""
+
+msgid "Program rule actions without data object"
+msgstr ""
+
+msgid "Only one \"default\" category option should exist"
+msgstr ""
+
+msgid "Only one \"default\" category option combo should exist"
+msgstr ""
+
+msgid "Org units without groups"
+msgstr ""
+
+msgid "Program indicators without expression"
+msgstr ""
+
+msgid "Indicators violating exclusive group sets"
+msgstr ""
+
+msgid "Periods duplicates"
+msgstr ""
+
+msgid "Data elements assigned to data sets with different period types"
+msgstr ""
+
+msgid "Program rules without action"
+msgstr ""
+
+msgid "Org units being orphaned"
+msgstr ""
+
+msgid "Validation rules with invalid left side expression"
+msgstr ""
+
+msgid "Indicators with invalid denominator"
+msgstr ""
+
+msgid "Program rule actions without section"
+msgstr ""
+
+msgid "Warning"
+msgstr ""
+
+msgid "Severe"
+msgstr ""
+
+msgid "Report"
+msgstr ""
+
+msgid "Summary"
+msgstr ""
+
+msgid "Details"
 msgstr ""
 
 msgid "Completed"
