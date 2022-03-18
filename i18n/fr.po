@@ -5,8 +5,8 @@
 # Djibril Dione <dione.djibril@gmail.com>, 2021
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021
 # Edem Kossi <ekossi@hispwca.org>, 2021
-# phil_dhis2, 2022
 # Yayra Gomado <ygomado@hispwca.org>, 2022
+# phil_dhis2, 2022
 # Viktor Varland <viktor@dhis2.org>, 2022
 # 
 msgid ""
@@ -270,7 +270,7 @@ msgid "Program rules without priority"
 msgstr ""
 
 msgid "Validation rules without groups"
-msgstr ""
+msgstr "Règles de validation sans groupes"
 
 msgid "Program indicators with invalid filters"
 msgstr ""
@@ -371,7 +371,7 @@ msgid "Summary"
 msgstr "Résumé"
 
 msgid "Details"
-msgstr ""
+msgstr "Details"
 
 msgid "Completed"
 msgstr "Terminé"

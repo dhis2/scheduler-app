@@ -251,7 +251,7 @@ msgid "Category combos being invalid"
 msgstr ""
 
 msgid "Indicators with identical formulas"
-msgstr ""
+msgstr "Indicators with identical formulas"
 
 msgid "Indicators without groups"
 msgstr "Indicators without groups"
@@ -263,7 +263,7 @@ msgid "Program rules without priority"
 msgstr ""
 
 msgid "Validation rules without groups"
-msgstr ""
+msgstr "Validation rules without groups"
 
 msgid "Program indicators with invalid filters"
 msgstr ""
@@ -355,13 +355,13 @@ msgid "Severe"
 msgstr ""
 
 msgid "Report"
-msgstr ""
+msgstr "ລາຍງານ"
 
 msgid "Summary"
 msgstr ""
 
 msgid "Details"
-msgstr ""
+msgstr "ລາຍລະອຽດ"
 
 msgid "Completed"
 msgstr "ສໍາເລັດແລ້ວ"

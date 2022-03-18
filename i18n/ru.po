@@ -250,7 +250,7 @@ msgid "Category combos being invalid"
 msgstr ""
 
 msgid "Indicators with identical formulas"
-msgstr ""
+msgstr "Индикаторы с идентичной формулой"
 
 msgid "Indicators without groups"
 msgstr "Индикаторы без групп"
@@ -262,7 +262,7 @@ msgid "Program rules without priority"
 msgstr ""
 
 msgid "Validation rules without groups"
-msgstr ""
+msgstr "Правила проверки без учета групп"
 
 msgid "Program indicators with invalid filters"
 msgstr ""
@@ -331,6 +331,7 @@ msgstr ""
 
 msgid "Data elements assigned to data sets with different period types"
 msgstr ""
+"Элементы данных назначенных для наборов данных с различными видами периодов"
 
 msgid "Program rules without action"
 msgstr ""
@@ -354,13 +355,13 @@ msgid "Severe"
 msgstr ""
 
 msgid "Report"
-msgstr ""
+msgstr "Отчет"
 
 msgid "Summary"
-msgstr ""
+msgstr "Сводная информация"
 
 msgid "Details"
-msgstr ""
+msgstr "Детали"
 
 msgid "Completed"
 msgstr "Завершенный"

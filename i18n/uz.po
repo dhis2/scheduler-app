@@ -249,7 +249,7 @@ msgid "Category combos being invalid"
 msgstr ""
 
 msgid "Indicators with identical formulas"
-msgstr ""
+msgstr "Бир хил формулаларга эга индикаторлар"
 
 msgid "Indicators without groups"
 msgstr "Гуруҳсиз индикаторлар"
@@ -261,7 +261,7 @@ msgid "Program rules without priority"
 msgstr ""
 
 msgid "Validation rules without groups"
-msgstr ""
+msgstr "Гуруҳларсиз тасдиқлаш қоидалари"
 
 msgid "Program indicators with invalid filters"
 msgstr ""
@@ -355,13 +355,13 @@ msgid "Severe"
 msgstr ""
 
 msgid "Report"
-msgstr ""
+msgstr "Ҳисобот"
 
 msgid "Summary"
-msgstr ""
+msgstr "Хулоса"
 
 msgid "Details"
-msgstr ""
+msgstr "Тафсилотлари"
 
 msgid "Completed"
 msgstr "Тўлдирилди"

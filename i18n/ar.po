@@ -263,7 +263,7 @@ msgid "Program rules without priority"
 msgstr ""
 
 msgid "Validation rules without groups"
-msgstr ""
+msgstr "قواعد التحقق بدون مجموعات"
 
 msgid "Program indicators with invalid filters"
 msgstr ""
@@ -361,7 +361,7 @@ msgid "Summary"
 msgstr "الخلاصة"
 
 msgid "Details"
-msgstr ""
+msgstr "التفاصيل"
 
 msgid "Completed"
 msgstr "المكتملة"
