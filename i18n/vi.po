@@ -250,7 +250,7 @@ msgid "Category combos being invalid"
 msgstr ""
 
 msgid "Indicators with identical formulas"
-msgstr ""
+msgstr "Chỉ Số có biểu thức giống nhau"
 
 msgid "Indicators without groups"
 msgstr "Chỉ Số không thuộc Nhóm Chỉ Số nào"
@@ -262,7 +262,7 @@ msgid "Program rules without priority"
 msgstr ""
 
 msgid "Validation rules without groups"
-msgstr ""
+msgstr "Luật Hợp Lệ không thuộc Nhóm Luật Hợp Lệ nào"
 
 msgid "Program indicators with invalid filters"
 msgstr ""
@@ -355,13 +355,13 @@ msgid "Severe"
 msgstr ""
 
 msgid "Report"
-msgstr ""
+msgstr "Báo cáo"
 
 msgid "Summary"
 msgstr ""
 
 msgid "Details"
-msgstr ""
+msgstr "Chi tiết"
 
 msgid "Completed"
 msgstr "Hoàn tất"

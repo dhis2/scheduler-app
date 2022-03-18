@@ -1,14 +1,14 @@
 # 
 # Translators:
-# Viktor Varland <viktor@dhis2.org>, 2022
 # phil_dhis2, 2022
+# Viktor Varland <viktor@dhis2.org>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2022-03-10T13:28:50.698Z\n"
 "PO-Revision-Date: 2020-05-08 14:30+0000\n"
-"Last-Translator: phil_dhis2, 2022\n"
+"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2022\n"
 "Language-Team: Tajik (https://www.transifex.com/hisp-uio/teams/100509/tg/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -232,7 +232,7 @@ msgid "Program indicators with invalid expressions"
 msgstr ""
 
 msgid "Data elements without groups"
-msgstr ""
+msgstr "Унсурҳои иттилооти бе гурӯҳҳо"
 
 msgid "Indicators with invalid numerator"
 msgstr ""
@@ -250,7 +250,7 @@ msgid "Category combos being invalid"
 msgstr ""
 
 msgid "Indicators with identical formulas"
-msgstr ""
+msgstr "Индикаторҳо бо формулаҳои якхела"
 
 msgid "Indicators without groups"
 msgstr "Индикаторҳои бе гурӯҳ"
@@ -262,7 +262,7 @@ msgid "Program rules without priority"
 msgstr ""
 
 msgid "Validation rules without groups"
-msgstr ""
+msgstr "Қоидаҳои санҷиши эътибор бе гурӯҳҳо"
 
 msgid "Program indicators with invalid filters"
 msgstr ""
@@ -331,6 +331,8 @@ msgstr ""
 
 msgid "Data elements assigned to data sets with different period types"
 msgstr ""
+"Унсурҳои иттилооте, ки бо давраҳои гуногун ба маҷмӯъҳои иттилоот таъин карда"
+" шудаанд"
 
 msgid "Program rules without action"
 msgstr ""
@@ -354,13 +356,13 @@ msgid "Severe"
 msgstr ""
 
 msgid "Report"
-msgstr ""
+msgstr "Ҳисобот"
 
 msgid "Summary"
 msgstr ""
 
 msgid "Details"
-msgstr ""
+msgstr "Маълумоти муфассал"
 
 msgid "Completed"
 msgstr "Анҷомёфта"

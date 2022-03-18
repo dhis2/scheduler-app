@@ -36,25 +36,25 @@ msgid "CRON Expression"
 msgstr "CRON výraz"
 
 msgid "Please select checks to run."
-msgstr ""
+msgstr "Vyberte prosím kontroly, které chcete spustit."
 
 msgid "Checks to run"
-msgstr ""
+msgstr "Kontroly ke spuštění"
 
 msgid "Run all available checks"
-msgstr ""
+msgstr "Spustit všechny dostupné kontroly"
 
 msgid "Only run selected checks"
-msgstr ""
+msgstr "Spouštět pouze vybrané kontroly"
 
 msgid "Severity"
-msgstr ""
+msgstr "Vážnost"
 
 msgid "Select checks to run."
-msgstr ""
+msgstr "Vyberte kontroly, které chcete spustit."
 
 msgid "Report type"
-msgstr ""
+msgstr "Typ zprávy"
 
 msgid "Delay"
 msgstr "Zpoždění"
@@ -228,25 +228,25 @@ msgid "Validation result"
 msgstr "Výsledek ověření"
 
 msgid "Program indicators with invalid expressions"
-msgstr ""
+msgstr "Indikátory programu s neplatnými výrazy"
 
 msgid "Data elements without groups"
 msgstr "Datové prvky bez skupin"
 
 msgid "Indicators with invalid numerator"
-msgstr ""
+msgstr "Ukazatele s neplatným čitatelem"
 
 msgid "Program rule actions without notification"
-msgstr ""
+msgstr "Akce programových pravidel bez upozornění"
 
 msgid "Only one \"default\" category combo should exist"
-msgstr ""
+msgstr "Měla by existovat pouze jedna \"výchozí\" kombinace kategorií"
 
 msgid "Data elements without data sets"
-msgstr ""
+msgstr "Datové prvky bez datových sad"
 
 msgid "Category combos being invalid"
-msgstr ""
+msgstr "Kombinace kategorií jsou neplatná"
 
 msgid "Indicators with identical formulas"
 msgstr "Indikátory se stejnými vzorci"
@@ -255,102 +255,104 @@ msgid "Indicators without groups"
 msgstr "Ukazatele bez skupin"
 
 msgid "Data elements in data set not in form"
-msgstr ""
+msgstr "Datové prvky v datové sadě nejsou ve formuláři"
 
 msgid "Program rules without priority"
-msgstr ""
+msgstr "Pravidla programu bez priority"
 
 msgid "Validation rules without groups"
 msgstr "Pravidla ověření bez skupin"
 
 msgid "Program indicators with invalid filters"
-msgstr ""
+msgstr "Indikátory programu s neplatnými filtry"
 
 msgid "Categories with no category options"
-msgstr ""
+msgstr "Kategorie bez možností kategorií"
 
 msgid "Program rules without condition"
-msgstr ""
+msgstr "Pravidla programu bez podmínek"
 
 msgid "Program rule actions without stage"
-msgstr ""
+msgstr "Akce Pravidla Priogramu bez fáze"
 
 msgid "Only one \"default\" category should exist"
-msgstr ""
+msgstr "Měla by existovat pouze jedna „výchozí“ kategorie"
 
 msgid ""
 "Lists category combos that share a combination of categories with at least "
 "one other category combo"
 msgstr ""
+"Uvádí seznamy kategorií, které sdílejí kombinaci kategorií s alespoň jednou "
+"další kombinací kategorií"
 
 msgid "Org units with cyclic references"
-msgstr ""
+msgstr "Organizační jednotky s cyklickými referencemi"
 
 msgid "Program rule variables without data element"
-msgstr ""
+msgstr "Proměnné programového pravidla bez datového prvku"
 
 msgid "Validation rules with invalid right side expression"
-msgstr ""
+msgstr "Ověřovací pravidla s neplatným výrazem na pravé straně"
 
 msgid "Data sets not assigned to org units"
-msgstr ""
+msgstr "Datové sady nejsou přiřazeny k organizačním jednotkám"
 
 msgid "Data elements violating exclusive group sets"
 msgstr "Datové prvky porušující exkluzivní sady skupin"
 
 msgid "Org unit groups without group sets"
-msgstr ""
+msgstr "Skupiny organizačních jednotek bez sady skupin"
 
 msgid "Program rule variables without attribute"
-msgstr ""
+msgstr "Proměnné programového pravidla bez atributu"
 
 msgid "Org units violating exclusive group sets"
-msgstr ""
+msgstr "Organizační jednotky porušující exkluzivní sady skupin"
 
 msgid "Program rule actions without data object"
-msgstr ""
+msgstr "Akce Pravidla Programu bez datového objektu"
 
 msgid "Only one \"default\" category option should exist"
-msgstr ""
+msgstr "Měla by existovat pouze jedna možnost „výchozí“ kategorie"
 
 msgid "Only one \"default\" category option combo should exist"
-msgstr ""
+msgstr "Měla by existovat pouze jedna \"výchozí\" kombinace možností kategorie"
 
 msgid "Org units without groups"
-msgstr ""
+msgstr "Organizační jednotky bez skupin"
 
 msgid "Program indicators without expression"
-msgstr ""
+msgstr "Indikátory programu bez výrazu"
 
 msgid "Indicators violating exclusive group sets"
 msgstr "Indikátory porušující exkluzivní sady skupin"
 
 msgid "Periods duplicates"
-msgstr ""
+msgstr "Duplikáty období"
 
 msgid "Data elements assigned to data sets with different period types"
 msgstr "Datové prvky přiřazené souborům dat s různými typy období"
 
 msgid "Program rules without action"
-msgstr ""
+msgstr "Pravidla programu bez akce"
 
 msgid "Org units being orphaned"
-msgstr ""
+msgstr "Organizační jednotky které se staly sirotky"
 
 msgid "Validation rules with invalid left side expression"
-msgstr ""
+msgstr "Ověřovací pravidla s neplatným výrazem na levé straně"
 
 msgid "Indicators with invalid denominator"
-msgstr ""
+msgstr "Indikátory s neplatným jmenovatelem"
 
 msgid "Program rule actions without section"
-msgstr ""
+msgstr "Akce pravidel Programu bez sekce"
 
 msgid "Warning"
 msgstr "Varování"
 
 msgid "Severe"
-msgstr ""
+msgstr "Závažné"
 
 msgid "Report"
 msgstr "Zpráva"

@@ -250,7 +250,7 @@ msgid "Category combos being invalid"
 msgstr ""
 
 msgid "Indicators with identical formulas"
-msgstr ""
+msgstr "ایک ہی فارمولا کے ساتھ اشارے"
 
 msgid "Indicators without groups"
 msgstr "گروہوں کے بغیر اشارے"
@@ -262,7 +262,7 @@ msgid "Program rules without priority"
 msgstr ""
 
 msgid "Validation rules without groups"
-msgstr ""
+msgstr "گروہوں کے بغیر توثیق کے قوانین"
 
 msgid "Program indicators with invalid filters"
 msgstr ""
@@ -331,6 +331,8 @@ msgstr ""
 
 msgid "Data elements assigned to data sets with different period types"
 msgstr ""
+"اعداد و شمار کے مختلف عناصر کے ساتھ اعداد و شمار کے مقرر کردہ اعداد و شمار "
+"عناصر"
 
 msgid "Program rules without action"
 msgstr ""
@@ -354,13 +356,13 @@ msgid "Severe"
 msgstr ""
 
 msgid "Report"
-msgstr ""
+msgstr "رپورٹ"
 
 msgid "Summary"
 msgstr ""
 
 msgid "Details"
-msgstr ""
+msgstr "تفصیلات"
 
 msgid "Completed"
 msgstr "مکمل"
