@@ -1,13 +1,14 @@
 # 
 # Translators:
 # Cherise Beek <cherise.beek@gmail.com>, 2021
+# Rica Zamora Duchateau, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-04-28T12:20:25.090Z\n"
 "PO-Revision-Date: 2020-05-11 11:31+0000\n"
-"Last-Translator: Cherise Beek <cherise.beek@gmail.com>, 2021\n"
+"Last-Translator: Rica Zamora Duchateau, 2022\n"
 "Language-Team: Dutch (https://www.transifex.com/hisp-uio/teams/100509/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,7 +20,7 @@ msgid "Scheduler"
 msgstr ""
 
 msgid "Cancel"
-msgstr ""
+msgstr "Annuleer"
 
 msgid "Confirm"
 msgstr ""
@@ -64,13 +65,13 @@ msgid "Attributes"
 msgstr ""
 
 msgid "Name"
-msgstr ""
+msgstr "Naam"
 
 msgid "Could not find job"
 msgstr ""
 
 msgid "Details"
-msgstr ""
+msgstr "Details"
 
 msgid "Created"
 msgstr ""
@@ -118,7 +119,7 @@ msgid "Show system jobs"
 msgstr ""
 
 msgid "Type"
-msgstr ""
+msgstr "Soort"
 
 msgid "Status"
 msgstr ""
