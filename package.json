@@ -33,7 +33,7 @@
     },
     "devDependencies": {
         "@dhis2/cli-app-scripts": "^8.0.1",
-        "@dhis2/cli-style": "^9.0.1",
+        "@dhis2/cli-style": "^10.3.0",
         "@dhis2/cli-utils-cypress": "^9.0.2",
         "@dhis2/cypress-commands": "^9.0.2",
         "@dhis2/cypress-plugins": "^9.0.2",
@@ -70,5 +70,5 @@
             "\\.css$": "identity-obj-proxy"
         }
     },
-    "version": "100.1.4"
+    "version": "100.1.5"
 }
