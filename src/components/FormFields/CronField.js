@@ -32,7 +32,7 @@ const CronField = () => {
                 <CronPresetButton
                     setCron={
                         /* istanbul ignore next */
-                        cron => form.change(FIELD_NAME, cron)
+                        (cron) => form.change(FIELD_NAME, cron)
                     }
                     small
                 />

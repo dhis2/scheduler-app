@@ -4,7 +4,7 @@ import { validateCron } from '../validators'
 
 const fallback = 'en'
 
-const translateCron = cron => {
+const translateCron = (cron) => {
     const locale = i18n.language || fallback
     const isValid = cron && validateCron(cron)
 

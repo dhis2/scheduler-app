@@ -48,11 +48,11 @@ export const useJobListJobs = () => {
     const jobs = useAllJobs()
 
     // Filter jobs by the current jobFilter
-    const applyJobFilter = job =>
+    const applyJobFilter = (job) =>
         job.displayName.toLowerCase().includes(jobFilter.toLowerCase())
 
     // Filter jobs depending on the current showSystemJobs
-    const applyShowSystemJobs = job =>
+    const applyShowSystemJobs = (job) =>
         // Jobs that are configurable are user jobs
         showSystemJobs ? true : job.configurable
 
@@ -60,19 +60,19 @@ export const useJobListJobs = () => {
 }
 
 // Finds a job by id
-export const useJob = id => {
+export const useJob = (id) => {
     const jobs = useAllJobs()
-    return jobs.find(job => job.id === id)
+    return jobs.find((job) => job.id === id)
 }
 
 // Finds a jobType by the jobType string
-export const useJobType = jobType => {
+export const useJobType = (jobType) => {
     const jobTypes = useAllJobTypes()
-    return jobTypes.find(job => job.jobType === jobType)
+    return jobTypes.find((job) => job.jobType === jobType)
 }
 
 // Returns an array with all parameters for a certain jobType
-export const useJobTypeParameters = jobType => {
+export const useJobTypeParameters = (jobType) => {
     const selectedJobType = useJobType(jobType)
     const hasParameters = 'jobParameters' in selectedJobType
 
@@ -84,7 +84,7 @@ export const useJobTypeParameters = jobType => {
 }
 
 // Returns the parameter options for a given parameter
-export const useParameterOptions = parameter => {
+export const useParameterOptions = (parameter) => {
     const parameterOptions = useAllParameterOptions()
     return parameterOptions[parameter]
 }

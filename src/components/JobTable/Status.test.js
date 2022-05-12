@@ -13,7 +13,7 @@ const statuses = [
 ]
 
 describe('<Status>', () => {
-    it.each(statuses)('renders without errors for %s status', status => {
+    it.each(statuses)('renders without errors for %s status', (status) => {
         shallow(<Status status={status} />)
     })
 

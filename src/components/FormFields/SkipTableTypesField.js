@@ -20,7 +20,7 @@ const SkipTableTypesField = ({ label, name, parameterName }) => {
         )
     }
 
-    const translatedOptions = options.map(option => ({
+    const translatedOptions = options.map((option) => ({
         value: option,
         label: analyticsTableTypes[option] || option,
     }))

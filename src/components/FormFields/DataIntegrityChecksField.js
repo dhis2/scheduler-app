@@ -20,7 +20,7 @@ import styles from './DataIntegrityChecksField.module.css'
 
 const { Field, useField } = ReactFinalForm
 
-const VALIDATOR = value => {
+const VALIDATOR = (value) => {
     // should not validate when null or undefined
     // means "Run all" is selected
     if (!value == null) {
@@ -42,7 +42,7 @@ const DataIntegrityChecksField = ({ label, name }) => {
     const [runSelected, setRunSelected] = useState(hasValue)
 
     const translatedOptions = options
-        .map(option => ({
+        .map((option) => ({
             ...option,
             value: option.name,
             label: getCheckName(option.name),
@@ -114,7 +114,7 @@ const LabelComponent = ({ label, severity, highlighted, disabled }) => (
 
 LabelComponent.propTypes = TransferOption.propTypes
 
-const renderOption = option => (
+const renderOption = (option) => (
     <TransferOption {...option} label={<LabelComponent {...option} />} />
 )
 

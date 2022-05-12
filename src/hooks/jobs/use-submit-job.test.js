@@ -46,7 +46,7 @@ describe('useSubmitJob', () => {
             mutate: () => Promise.reject(error),
         }
         useDataEngine.mockImplementation(() => engine)
-        formatError.mockImplementation(error => error)
+        formatError.mockImplementation((error) => error)
 
         const [submitJob] = useSubmitJob()
 

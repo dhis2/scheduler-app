@@ -8,7 +8,7 @@ import reactDOM from 'react-dom'
 
 const attachments = []
 
-export const makeAdapter = Adapter => {
+export const makeAdapter = (Adapter) => {
     class ReactAdapterWithMountTracking extends Adapter {
         constructor(...args) {
             super(...args)
@@ -30,7 +30,7 @@ export const makeAdapter = Adapter => {
 }
 
 export const cleanup = () => {
-    attachments.forEach(node => {
+    attachments.forEach((node) => {
         // Unmount react component after each test
         reactDOM.unmountComponentAtNode(node)
     })

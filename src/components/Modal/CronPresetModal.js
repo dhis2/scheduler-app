@@ -41,7 +41,7 @@ const CronPresetModal = ({ setCron, hideModal }) => {
         <Modal open small onClose={hideModal}>
             <ModalTitle>{i18n.t('Choose a preset time/interval')}</ModalTitle>
             <ModalContent>
-                {cronPresets.map(preset => (
+                {cronPresets.map((preset) => (
                     <Radio
                         {...preset}
                         checked={currentPreset === preset.value}

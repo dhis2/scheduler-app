@@ -29,7 +29,7 @@ When('the user clicks the run manually button', () => {
 })
 
 Then('the job will be executed upon confirmation', () => {
-    cy.intercept({ pathname: /execute$/, method: 'GET' }, req => {
+    cy.intercept({ pathname: /execute$/, method: 'GET' }, (req) => {
         expect(req.url.endsWith('jobConfigurations/lnWRZN67iDU/execute')).to.be
             .true
         req.reply({ statusCode: 200 })
@@ -54,10 +54,13 @@ When('the user clicks the delete button', () => {
 })
 
 Then('the job will be deleted upon confirmation', () => {
-    cy.intercept({ pathname: /jobConfigurations$/, method: 'DELETE' }, req => {
-        expect(req.url.endsWith('jobConfigurations/lnWRZN67iDU')).to.be.true
-        req.reply({ statusCode: 200 })
-    })
+    cy.intercept(
+        { pathname: /jobConfigurations$/, method: 'DELETE' },
+        (req) => {
+            expect(req.url.endsWith('jobConfigurations/lnWRZN67iDU')).to.be.true
+            req.reply({ statusCode: 200 })
+        }
+    )
 
     cy.findByText('Are you sure you want to delete this job?').should('exist')
     cy.findByRole('button', { name: 'Delete' }).click()

@@ -13,14 +13,14 @@ const mutation = {
 const useSubmitJob = () => {
     const { refetchJobs } = useContext(StoreContext)
     const engine = useDataEngine()
-    const submitJob = job =>
+    const submitJob = (job) =>
         engine
             .mutate(mutation, { variables: { job } })
             .then(() => {
                 history.push('/')
                 refetchJobs()
             })
-            .catch(error => {
+            .catch((error) => {
                 const isValidationError = error.type === 'access'
 
                 // Potential validation error, return it in a format final-form can handle

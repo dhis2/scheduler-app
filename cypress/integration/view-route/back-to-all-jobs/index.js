@@ -17,7 +17,7 @@ Given('the user navigated to the view job page', () => {
 Then('there are two links to the job list page', () => {
     cy.findAllByRole('link', { name: 'Back to all jobs' })
         .should('have.length', 2)
-        .each(link => {
+        .each((link) => {
             expect(link).to.have.attr('href', '#/')
         })
 })

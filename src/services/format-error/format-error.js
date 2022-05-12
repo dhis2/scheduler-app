@@ -6,7 +6,7 @@ const { FORM_ERROR } = FinalForm
  * Formats the errors returned by our backend to a format that final-form can parse
  */
 
-const formatError = error => {
+const formatError = (error) => {
     const {
         details: { response },
     } = error
@@ -19,7 +19,7 @@ const formatError = error => {
     const genericErrors = []
 
     if (response.errorReports && response.errorReports.length) {
-        response.errorReports.forEach(report => {
+        response.errorReports.forEach((report) => {
             /**
              * errorProperty is how the backend indicates the field that the error
              * is related to. If we know this, return it as a field specific error

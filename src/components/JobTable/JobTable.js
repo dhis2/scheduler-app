@@ -31,7 +31,7 @@ const JobTable = ({ jobs }) => (
                     <TableCell>{i18n.t('No jobs to display')}</TableCell>
                 </TableRow>
             ) : (
-                jobs.map(job => <JobTableRow key={job.id} job={job} />)
+                jobs.map((job) => <JobTableRow key={job.id} job={job} />)
             )}
         </TableBody>
     </Table>
