@@ -363,7 +363,7 @@ msgid "Details"
 msgstr "Details"
 
 msgid "Completed"
-msgstr ""
+msgstr "Voltooid"
 
 msgid "Disabled"
 msgstr ""
