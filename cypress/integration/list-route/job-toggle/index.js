@@ -11,15 +11,15 @@ import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 Given('a disabled user job exists', () => {
     const responses = []
 
-    cy.fixture('list-route/disabled-user-job').then(fixture => {
+    cy.fixture('list-route/disabled-user-job').then((fixture) => {
         responses.push(fixture)
     })
 
-    cy.fixture('list-route/enabled-user-job').then(fixture => {
+    cy.fixture('list-route/enabled-user-job').then((fixture) => {
         responses.push(fixture)
     })
 
-    cy.intercept({ pathname: /jobConfigurations$/ }, req => {
+    cy.intercept({ pathname: /jobConfigurations$/ }, (req) => {
         const fixture = responses.shift()
         req.reply(200, fixture)
     })
@@ -28,15 +28,15 @@ Given('a disabled user job exists', () => {
 Given('an enabled user job exists', () => {
     const responses = []
 
-    cy.fixture('list-route/enabled-user-job').then(fixture => {
+    cy.fixture('list-route/enabled-user-job').then((fixture) => {
         responses.push(fixture)
     })
 
-    cy.fixture('list-route/disabled-user-job').then(fixture => {
+    cy.fixture('list-route/disabled-user-job').then((fixture) => {
         responses.push(fixture)
     })
 
-    cy.intercept({ pathname: /jobConfigurations$/ }, req => {
+    cy.intercept({ pathname: /jobConfigurations$/ }, (req) => {
         const fixture = responses.shift()
         req.reply(200, fixture)
     })

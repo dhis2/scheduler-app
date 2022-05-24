@@ -107,7 +107,7 @@ const reportTypeMap = {
     DETAILS: i18n.t('Details'),
 }
 
-const snakeCaseToHumanReadable = string => {
+const snakeCaseToHumanReadable = (string) => {
     const split = string.split('_')
     const [first, ...rest] = split
     return first[0]
@@ -116,8 +116,8 @@ const snakeCaseToHumanReadable = string => {
         .concat(` ${rest.join(' ')}`)
 }
 
-export const getCheckName = name =>
+export const getCheckName = (name) =>
     dataIntegrityChecksMap[name] || snakeCaseToHumanReadable(name)
 
-export const getReportTypeLabel = type =>
+export const getReportTypeLabel = (type) =>
     reportTypeMap[type] || snakeCaseToHumanReadable(type)

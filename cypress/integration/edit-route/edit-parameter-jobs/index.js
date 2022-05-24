@@ -4,15 +4,15 @@ import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
  * Local helpers
  */
 
-const selectJob = jobName => {
+const selectJob = (jobName) => {
     cy.get('[data-test="dhis2-uicore-singleselect"]').click()
     cy.findByText(jobName).click()
 }
 
-const saveAndExpect = expected => {
+const saveAndExpect = (expected) => {
     cy.intercept(
         { pathname: /jobConfigurations\/lnWRZN67iDU$/, method: 'PUT' },
-        req => {
+        (req) => {
             expect(req.body).to.deep.equal(expected)
             req.reply({ statusCode: 201 })
         }

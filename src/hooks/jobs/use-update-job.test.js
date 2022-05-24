@@ -46,7 +46,7 @@ describe('useUpdateJob', () => {
             mutate: () => Promise.reject(error),
         }
         useDataEngine.mockImplementation(() => engine)
-        formatError.mockImplementation(error => error)
+        formatError.mockImplementation((error) => error)
 
         const [updateJob] = useUpdateJob({ id: 'id' })
 

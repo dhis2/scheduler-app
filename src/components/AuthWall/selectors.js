@@ -1,4 +1,4 @@
-export const getAuthorized = me => {
+export const getAuthorized = (me) => {
     const { authorities } = me
 
     if (!authorities) {

@@ -14,7 +14,7 @@ const DataIntegrityReportTypeField = ({ name, constants }) => {
         return null
     }
 
-    const labeledOptions = constants.map(type => ({
+    const labeledOptions = constants.map((type) => ({
         value: type,
         label: getReportTypeLabel(type),
     }))

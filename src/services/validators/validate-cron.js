@@ -14,14 +14,16 @@ const MONTHS = [
     'DEC',
 ]
 
-const isValidFields = fields => fields && fields.length === 6
+const isValidFields = (fields) => fields && fields.length === 6
 const isValidNumber = (number, x, y) => number >= x && number <= y
-const isWildcard = field => field === '*'
-const isUndefined = field => field === '?'
+const isWildcard = (field) => field === '*'
+const isUndefined = (field) => field === '?'
 
 const isValidNumberRange = (range, x, y) => {
     const boundaries = range.split('-')
-    if (!boundaries || boundaries.length !== 2) return false
+    if (!boundaries || boundaries.length !== 2) {
+        return false
+    }
 
     return (
         isValidNumber(boundaries[0], x, y) &&
@@ -32,7 +34,9 @@ const isValidNumberRange = (range, x, y) => {
 
 const isValidFraction = (fraction, x, y) => {
     const components = fraction.split('/')
-    if (!components || components.length !== 2) return false
+    if (!components || components.length !== 2) {
+        return false
+    }
 
     /* istanbul ignore next */
     return (
@@ -41,18 +45,18 @@ const isValidFraction = (fraction, x, y) => {
     )
 }
 
-const isAlphabeticWeekday = field => {
+const isAlphabeticWeekday = (field) => {
     const weekdays = field.split('-')
-    const [firstDay, secondDay] = weekdays.map(c => WEEKDAYS.indexOf(c))
+    const [firstDay, secondDay] = weekdays.map((c) => WEEKDAYS.indexOf(c))
     return (
         (firstDay !== -1 && secondDay === undefined) ||
         (firstDay !== -1 && secondDay !== -1 && firstDay <= secondDay)
     )
 }
 
-const isAlphabeticMonth = field => {
+const isAlphabeticMonth = (field) => {
     const months = field.split('-')
-    const [firstMonth, secondMonth] = months.map(m => MONTHS.indexOf(m))
+    const [firstMonth, secondMonth] = months.map((m) => MONTHS.indexOf(m))
 
     /* istanbul ignore next */
     return (
@@ -67,14 +71,14 @@ const isValidWithinRange = (field, x, y) =>
     isValidNumberRange(field, x, y) ||
     isValidFraction(field, x, y)
 
-const isValidSecondField = field => isValidWithinRange(field, 0, 59)
-const isValidMinuteField = field => isValidWithinRange(field, 0, 59)
-const isValidHourField = field => isValidWithinRange(field, 0, 23)
-const isValidDayField = field =>
+const isValidSecondField = (field) => isValidWithinRange(field, 0, 59)
+const isValidMinuteField = (field) => isValidWithinRange(field, 0, 59)
+const isValidHourField = (field) => isValidWithinRange(field, 0, 23)
+const isValidDayField = (field) =>
     isValidWithinRange(field, 0, 31) || isUndefined(field)
-const isValidMonthField = field =>
+const isValidMonthField = (field) =>
     isValidWithinRange(field, 1, 12) || isAlphabeticMonth(field)
-const isValidWeekdayField = field =>
+const isValidWeekdayField = (field) =>
     isValidWithinRange(field, 1, 7) ||
     isAlphabeticWeekday(field) ||
     isUndefined(field)
@@ -86,7 +90,7 @@ const isValidWeekdayField = field =>
  * Documentation: https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/scheduling/support/CronSequenceGenerator.html
  */
 
-const validateCron = exp => {
+const validateCron = (exp) => {
     if (!exp) {
         return false
     }

@@ -17,7 +17,7 @@ const FormErrorBox = ({ submitError }) => {
             title={i18n.t('Something went wrong whilst creating your job')}
         >
             <ul className={styles.list}>
-                {submitError.map(error => (
+                {submitError.map((error) => (
                     <li key={error}>{error}</li>
                 ))}
             </ul>

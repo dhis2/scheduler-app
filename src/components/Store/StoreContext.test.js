@@ -15,7 +15,7 @@ describe('StoreContext.Consumer', () => {
 
         expectRenderError(
             <StoreContext.Consumer>
-                {store => store.refetchJobs()}
+                {(store) => store.refetchJobs()}
             </StoreContext.Consumer>,
             message
         )

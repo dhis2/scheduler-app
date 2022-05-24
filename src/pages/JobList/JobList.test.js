@@ -2,7 +2,7 @@ import React from 'react'
 import { mount } from 'enzyme'
 import JobList from './JobList'
 
-jest.mock('react-router-dom', () => ({ Link: props => <a {...props} /> }))
+jest.mock('react-router-dom', () => ({ Link: (props) => <a {...props} /> }))
 
 jest.mock('../../components/JobTable', () => ({ JobTable: () => null }))
 

@@ -30,7 +30,7 @@ Given('the user enables the include-system-jobs-in-list toggle', () => {
     ]
 
     cy.findByRole('checkbox', { name: 'Include system jobs in list' }).click()
-    expected.forEach(name => {
+    expected.forEach((name) => {
         cy.findByRole('rowheader', { name }).should('exist')
     })
 })
@@ -46,7 +46,7 @@ Then('only user jobs that match the filter will be shown', () => {
 Then('only jobs that match the filter will be shown', () => {
     const expected = ['Job 1', 'System Job 1']
 
-    expected.forEach(name => {
+    expected.forEach((name) => {
         cy.findByRole('rowheader', { name }).should('exist')
     })
 })

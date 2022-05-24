@@ -23,7 +23,7 @@ const JobTypeField = () => {
             value: jobType,
             label: jobTypesMap[jobType],
         }))
-        .filter(job => !!job.label)
+        .filter((job) => !!job.label)
         .sort((job1, job2) => job1.label.localeCompare(job2.label))
 
     return (

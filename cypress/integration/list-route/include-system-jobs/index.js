@@ -34,7 +34,7 @@ When('the user checks the include-system-jobs-in-list checkbox', () => {
 Then('system jobs are not shown', () => {
     const systemJobs = ['System Job 1', 'System Job 2', 'System Job 3']
 
-    systemJobs.forEach(name => {
+    systemJobs.forEach((name) => {
         cy.findByRole('rowheader', { name }).should('not.exist')
     })
 })
@@ -42,7 +42,7 @@ Then('system jobs are not shown', () => {
 Then('system jobs are shown', () => {
     const systemJobs = ['System Job 1', 'System Job 2', 'System Job 3']
 
-    systemJobs.forEach(name => {
+    systemJobs.forEach((name) => {
         cy.findByRole('rowheader', { name }).should('be.visible')
     })
 })
@@ -50,7 +50,7 @@ Then('system jobs are shown', () => {
 Then('user jobs are shown', () => {
     const userJobs = ['Job 1', 'Job 2', 'Job 3']
 
-    userJobs.forEach(name => {
+    userJobs.forEach((name) => {
         cy.findByRole('rowheader', { name }).should('be.visible')
     })
 })
