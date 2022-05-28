@@ -1,0 +1,166 @@
+# 
+# Translators:
+# Valeriu Plesca <vplesca@gmail.com>, 2022
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2020-04-28T12:20:25.090Z\n"
+"PO-Revision-Date: 2020-12-22 22:18+0000\n"
+"Last-Translator: Valeriu Plesca <vplesca@gmail.com>, 2022\n"
+"Language-Team: Romanian (https://www.transifex.com/hisp-uio/teams/100509/ro/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ro\n"
+"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));\n"
+
+msgid "Scheduler"
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
+msgid "Confirm"
+msgstr ""
+
+msgid "Open user guide"
+msgstr ""
+
+msgid "Delete"
+msgstr "Lichidare"
+
+msgid "Are you sure you want to delete this job?"
+msgstr ""
+
+msgid "Add new job"
+msgstr ""
+
+msgid "Add job"
+msgstr ""
+
+msgid "Required"
+msgstr ""
+
+msgid "Must be of two or more characters"
+msgstr ""
+
+msgid "Invalid cron expression"
+msgstr ""
+
+msgid "Delay needs to be an integer"
+msgstr ""
+
+msgid "Delay must be greater than 0"
+msgstr ""
+
+msgid "Delay can't exceed 86400 seconds"
+msgstr ""
+
+msgid "Are you sure you want to discard your changes?"
+msgstr ""
+
+msgid "Attributes"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Could not find job"
+msgstr ""
+
+msgid "Details"
+msgstr ""
+
+msgid "Created"
+msgstr ""
+
+msgid "Last executed"
+msgstr ""
+
+msgid "Last execution status"
+msgstr ""
+
+msgid "Save changes"
+msgstr "Salvarea modificărilor"
+
+msgid "Delete job"
+msgstr ""
+
+msgid "Job type"
+msgstr ""
+
+msgid "Select frequency"
+msgstr ""
+
+msgid "Cron expression"
+msgstr ""
+
+msgid "Delay in seconds"
+msgstr ""
+
+msgid "Are you sure you want to execute this job?"
+msgstr ""
+
+msgid "Execute"
+msgstr ""
+
+msgid "Run now"
+msgstr ""
+
+msgid "Runs {{seconds}} second(s) after previous run"
+msgstr ""
+
+msgid "Scheduled jobs"
+msgstr ""
+
+msgid "Show system jobs"
+msgstr ""
+
+msgid "Type"
+msgstr ""
+
+msgid "Status"
+msgstr "Stare"
+
+msgid "Next execution"
+msgstr ""
+
+msgid "Enabled"
+msgstr ""
+
+msgid "No jobs to show"
+msgstr ""
+
+msgid "Click to select"
+msgstr ""
+
+msgid "Start time"
+msgstr ""
+
+msgid "End time"
+msgstr ""
+
+msgid "Parameters"
+msgstr ""
+
+msgid "Successfully deleted job"
+msgstr ""
+
+msgid "Successfully created job"
+msgstr ""
+
+msgid "Successfully updated job"
+msgstr ""
+
+msgid "Could not create job"
+msgstr ""
+
+msgid "Could not update job"
+msgstr ""
+
+msgid "Could not run job"
+msgstr ""
+
+msgid "You are not authorized to use this app"
+msgstr ""
