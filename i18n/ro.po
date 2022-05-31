@@ -132,7 +132,7 @@ msgid "{{ delay }} seconds after last run"
 msgstr ""
 
 msgid "View"
-msgstr ""
+msgstr "Vizionare"
 
 msgid "Every hour"
 msgstr ""
