@@ -78,7 +78,7 @@ msgid "Save"
 msgstr "salva"
 
 msgid "Cancel"
-msgstr ""
+msgstr "Anulare"
 
 msgid "Job details"
 msgstr ""
@@ -368,7 +368,7 @@ msgid "Disabled"
 msgstr ""
 
 msgid "Done"
-msgstr ""
+msgstr "Terminat"
 
 msgid "Failed"
 msgstr ""
