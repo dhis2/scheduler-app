@@ -19,10 +19,10 @@ msgid "Scheduler"
 msgstr ""
 
 msgid "Cancel"
-msgstr ""
+msgstr "Anulare"
 
 msgid "Confirm"
-msgstr ""
+msgstr "Confirmare"
 
 msgid "Open user guide"
 msgstr ""
