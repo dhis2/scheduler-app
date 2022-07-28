@@ -70,5 +70,5 @@
             "\\.css$": "identity-obj-proxy"
         }
     },
-    "version": "100.1.12"
+    "version": "100.1.13"
 }
