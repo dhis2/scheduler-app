@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2022-03-10T13:28:50.698Z\n"
-"PO-Revision-Date: 2022-03-10T13:28:50.698Z\n"
+"POT-Creation-Date: 2022-08-16T10:46:40.323Z\n"
+"PO-Revision-Date: 2022-08-16T10:46:40.323Z\n"
 
 msgid "Not authorized"
 msgstr "Not authorized"
@@ -26,6 +26,24 @@ msgstr "Delete job"
 
 msgid "Something went wrong whilst creating your job"
 msgstr "Something went wrong whilst creating your job"
+
+msgid "Data exchange ids are needed. Try again later"
+msgstr "Data exchange ids are needed. Try again later"
+
+msgid "Please select data exchange ids."
+msgstr "Please select data exchange ids."
+
+msgid "Data exchange ids"
+msgstr "Data exchange ids"
+
+msgid "There was a problem fetching data exchange ids"
+msgstr "There was a problem fetching data exchange ids"
+
+msgid "error type"
+msgstr "error type"
+
+msgid "Select data exchange ids"
+msgstr "Select data exchange ids"
 
 msgid "CRON Expression"
 msgstr "CRON Expression"
@@ -441,6 +459,9 @@ msgstr "Validation results notification"
 
 msgid "Disable inactive users"
 msgstr "Disable inactive users"
+
+msgid "Exchange aggregate data"
+msgstr "Exchange aggregate data"
 
 msgid "A CRON expression is required"
 msgstr "A CRON expression is required"
