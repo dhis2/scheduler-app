@@ -1,8 +1,8 @@
-import AggregatedDataExchangeField from './AggregatedDataExchangeField'
 import { mount } from 'enzyme'
 import React from 'react'
-import { CircularLoader, ReactFinalForm, CssVariables } from '@dhis2/ui'
+import { CircularLoader, ReactFinalForm } from '@dhis2/ui'
 import { useDataQuery } from '@dhis2/app-runtime'
+import AggregatedDataExchangeField from './AggregatedDataExchangeField'
 
 const { Form } = ReactFinalForm
 
@@ -10,15 +10,17 @@ jest.mock('@dhis2/app-runtime', () => ({
     useDataQuery: jest.fn(),
 }))
 
-const renderComponent = ({ useDataQueryReturnValues }) => {
+const renderComponent = ({
+    useDataQueryReturnValues,
+    submitHandler = () => {},
+}) => {
     useDataQuery.mockReturnValue(useDataQueryReturnValues)
 
-    const wrapper = mount(
+    return mount(
         <>
-            <CssVariables spacers colors theme />
-            <Form onSubmit={() => {}}>
-                {() => (
-                    <form>
+            <Form onSubmit={submitHandler}>
+                {({ handleSubmit }) => (
+                    <form onSubmit={handleSubmit}>
                         <AggregatedDataExchangeField
                             label="Data exchange"
                             name="ADF"
@@ -28,8 +30,6 @@ const renderComponent = ({ useDataQueryReturnValues }) => {
             </Form>
         </>
     )
-
-    return wrapper
 }
 
 describe('<AggregatedDataExchangeField>', () => {
@@ -45,17 +45,34 @@ describe('<AggregatedDataExchangeField>', () => {
 
             expect(wrapper.find(CircularLoader).exists()).toBe(true)
         })
+
+        it('should prevent form submission', () => {
+            const submitHandler = jest.fn()
+
+            const wrapper = renderComponent({
+                useDataQueryReturnValues: {
+                    loading: true,
+                    error: undefined,
+                    data: undefined,
+                },
+                submitHandler,
+            })
+
+            wrapper.find('form').simulate('submit')
+
+            expect(submitHandler).not.toHaveBeenCalled()
+        })
     })
 
     describe('When response is error', () => {
-        it('should display the Error message', () => {
-            const error = {
-                type: 'network',
-                details: {
-                    message: 'Here is the error message',
-                },
-            }
+        const error = {
+            type: 'network',
+            details: {
+                message: 'Here is the error message',
+            },
+        }
 
+        it('should display the Error message', () => {
             const wrapper = renderComponent({
                 useDataQueryReturnValues: {
                     loading: false,
@@ -71,6 +88,29 @@ describe('<AggregatedDataExchangeField>', () => {
             ).toBe(true)
             expect(wrapper.contains('error type - network')).toBe(true)
             expect(wrapper.contains('Here is the error message')).toBe(true)
+        })
+
+        it('should prevent form submission', () => {
+            const submitHandler = jest.fn()
+
+            const wrapper = renderComponent({
+                useDataQueryReturnValues: {
+                    loading: false,
+                    error,
+                    data: undefined,
+                },
+                submitHandler,
+            })
+
+            wrapper.find('form').simulate('submit')
+
+            expect(
+                wrapper.contains(
+                    'Data exchange ids are needed. Try again later'
+                )
+            ).toBe(true)
+
+            expect(submitHandler).not.toHaveBeenCalled()
         })
     })
 
@@ -90,7 +130,25 @@ describe('<AggregatedDataExchangeField>', () => {
             },
         }
 
-        it('should display', () => {
+        // At the time of writing these tests have a problem relating to the error
+        // ReferenceError: backgroundColor is not defined
+        // seems to be a problem in `node_modules/@dhis2-ui/transfer/build/cjs/right-side.js`
+        it.skip('should display Transfer and allow submission of ids', () => {
+            const wrapper = renderComponent({
+                useDataQueryReturnValues: {
+                    loading: false,
+                    error: undefined,
+                    data,
+                },
+            })
+
+            console.log(wrapper.debug())
+        })
+
+        // At the time of writing these tests have a problem relating to the error
+        // ReferenceError: backgroundColor is not defined
+        // seems to be a problem in `node_modules/@dhis2-ui/transfer/build/cjs/right-side.js`
+        it.skip('should prevent submission if no ids are selected', () => {
             const wrapper = renderComponent({
                 useDataQueryReturnValues: {
                     loading: false,
