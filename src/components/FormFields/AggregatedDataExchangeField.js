@@ -20,6 +20,7 @@ const query = {
         resource: 'aggregateDataExchanges',
         params: {
             fields: ['id', 'displayName'],
+            paging: true,
         },
     },
 }
