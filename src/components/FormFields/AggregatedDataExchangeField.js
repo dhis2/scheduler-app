@@ -1,19 +1,17 @@
 import i18n from '@dhis2/d2-i18n'
 import {
     CircularLoader,
-    FieldGroup,
-    Help,
-    InputFieldFF,
     NoticeBox,
     ReactFinalForm,
+    Transfer,
+    Field,
 } from '@dhis2/ui'
-import React from 'react'
+import React, { useCallback } from 'react'
 import { PropTypes } from '@dhis2/prop-types'
 import { useDataQuery } from '@dhis2/app-runtime'
-import styles from './DataIntegrityChecksField.module.css'
-import TransferFieldFF from './TransferFieldFF'
+import styles from './AggregatedDataExchangeField.module.css'
 
-const { Field } = ReactFinalForm
+const { useField } = ReactFinalForm
 
 const query = {
     dataExchangeIds: {
@@ -25,51 +23,37 @@ const query = {
     },
 }
 
-const AggregatedDataExchangeField = ({ label, name }) => {
-    const { loading, error, data } = useDataQuery(query)
-
-    const fieldContent = loading
-        ? CircularLoader
-        : error
-        ? (props) => <ErrorFieldDisplay {...props} error={error} />
-        : AggregatedDataExchangeTransferField
-
-    const options = data?.dataExchangeIds?.aggregateDataExchanges
-        ? data.dataExchangeIds.aggregateDataExchanges.map((exchangeIds) => ({
-              label: exchangeIds.displayName,
-              value: exchangeIds.id,
-          }))
-        : []
-
-    const validator = (value) => {
-        if (error) {
-            return i18n.t('Data exchange ids are needed. Try again later')
-        }
-
-        if (!value || (value && value.length < 1)) {
-            return i18n.t('Please select data exchange ids.')
-        }
+const validate = (value) => {
+    if (!value || (value && value.length < 1)) {
+        return i18n.t('Please select data exchange ids.')
     }
-
-    return (
-        <FieldGroup label={i18n.t('Data exchange ids')}>
-            <Field
-                name={name}
-                component={fieldContent}
-                options={options}
-                label={label}
-                validate={validator}
-                beforeSubmit={() => !loading}
-            />
-        </FieldGroup>
-    )
 }
 
-const ErrorFieldDisplay = ({ meta, error }) => {
-    const isErr = meta?.touched && meta?.invalid
+const SelectedEmptyComponent = () => (
+    <p className={styles.selectedEmptyComponent}>
+        {i18n.t('Select data exchange ids')}
+    </p>
+)
 
-    return (
-        <>
+const AggregatedDataExchangeField = ({ label, name }) => {
+    const { loading, error, data } = useDataQuery(query)
+    const { input, meta } = useField(name, {
+        beforeSubmit: () => !loading || !error,
+        validate,
+    })
+    const handleChange = useCallback(
+        ({ selected }) => {
+            input?.onChange(selected)
+        },
+        [input]
+    )
+
+    if (loading) {
+        return <CircularLoader />
+    }
+
+    if (error) {
+        return (
             <NoticeBox
                 error
                 title={i18n.t('There was a problem fetching data exchange ids')}
@@ -81,34 +65,38 @@ const ErrorFieldDisplay = ({ meta, error }) => {
                     {error.details?.message && <p>{error.details?.message}</p>}
                 </details>
             </NoticeBox>
-            {isErr && <Help error>{meta.error}</Help>}
-        </>
+        )
+    }
+
+    const options = data.dataExchangeIds.aggregateDataExchanges
+        ? data.dataExchangeIds.aggregateDataExchanges.map((exchangeIds) => ({
+              label: exchangeIds.displayName,
+              value: exchangeIds.id,
+          }))
+        : []
+
+    return (
+        <Field
+            label={label}
+            validationText={meta.error?.message}
+            error={!!meta.error}
+            name={name}
+            required
+            className={styles.field}
+        >
+            <Transfer
+                options={options}
+                onChange={handleChange}
+                selected={input?.value || []}
+                maxSelections={Infinity}
+                enableOrderChange={true}
+                filterable={true}
+                height={'450px'}
+                selectedEmptyComponent={SelectedEmptyComponent}
+            />
+        </Field>
     )
 }
-
-ErrorFieldDisplay.propTypes = {
-    error: PropTypes.shape({
-        details: PropTypes.shape({
-            message: PropTypes.string,
-        }),
-        type: PropTypes.string,
-    }),
-    meta: InputFieldFF.propTypes.meta,
-}
-
-const AggregatedDataExchangeTransferField = (props) => (
-    <TransferFieldFF
-        {...props}
-        selectedEmptyComponent={<SelectedEmptyComponent />}
-        className={styles.transfer}
-    />
-)
-
-const SelectedEmptyComponent = () => (
-    <p className={styles.selectedEmptyComponent}>
-        {i18n.t('Select data exchange ids')}
-    </p>
-)
 
 AggregatedDataExchangeField.propTypes = {
     label: PropTypes.string.isRequired,

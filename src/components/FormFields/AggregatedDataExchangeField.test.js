@@ -104,12 +104,6 @@ describe('<AggregatedDataExchangeField>', () => {
 
             wrapper.find('form').simulate('submit')
 
-            expect(
-                wrapper.contains(
-                    'Data exchange ids are needed. Try again later'
-                )
-            ).toBe(true)
-
             expect(submitHandler).not.toHaveBeenCalled()
         })
     })
