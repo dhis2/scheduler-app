@@ -68,12 +68,11 @@ const AggregatedDataExchangeField = ({ label, name }) => {
         )
     }
 
-    const options = data.dataExchangeIds.aggregateDataExchanges
-        ? data.dataExchangeIds.aggregateDataExchanges.map((exchangeIds) => ({
-              label: exchangeIds.displayName,
-              value: exchangeIds.id,
-          }))
-        : []
+    const options =
+        data.dataExchangeIds?.aggregateDataExchanges.map((exchangeIds) => ({
+            label: exchangeIds.displayName,
+            value: exchangeIds.id,
+        })) ?? []
 
     return (
         <Field
