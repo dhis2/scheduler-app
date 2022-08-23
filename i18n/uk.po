@@ -72,7 +72,7 @@ msgid "Job type"
 msgstr ""
 
 msgid "No options available"
-msgstr ""
+msgstr "Немає доступних опцій"
 
 msgid "Parameters"
 msgstr "Параметри"
@@ -96,7 +96,7 @@ msgid "Last run status: {{ translatedStatus }}."
 msgstr ""
 
 msgid "Actions"
-msgstr ""
+msgstr "Дії"
 
 msgid "Delete"
 msgstr "Видалити"
@@ -368,7 +368,7 @@ msgid "Completed"
 msgstr "Завершено"
 
 msgid "Disabled"
-msgstr ""
+msgstr "Вимкнено"
 
 msgid "Done"
 msgstr ""
