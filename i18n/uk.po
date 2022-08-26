@@ -52,7 +52,7 @@ msgid "Are you sure you want to discard your changes?"
 msgstr ""
 
 msgid "Attributes"
-msgstr ""
+msgstr "Атрибути"
 
 msgid "Name"
 msgstr "Ім'я"
