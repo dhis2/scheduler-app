@@ -1,3 +1,12 @@
+# [100.2.0](https://github.com/dhis2/scheduler-app/compare/v100.1.14...v100.2.0) (2022-08-29)
+
+
+### Features
+
+* add field component to allow aggregated data exchange jobs to be created ([bde9e6a](https://github.com/dhis2/scheduler-app/commit/bde9e6a67c0813e9d72b049d2deb7dbb34b45e32))
+* add paging set to false ([01bf4db](https://github.com/dhis2/scheduler-app/commit/01bf4db2bac85851622417949204b82ccc114e41))
+* i18n for aggregate data exchange job type [DHIS2-13552] ([61aa520](https://github.com/dhis2/scheduler-app/commit/61aa5206b9515f876da0041209a784862c769b27))
+
 ## [100.1.14](https://github.com/dhis2/scheduler-app/compare/v100.1.13...v100.1.14) (2022-08-23)
 
 
