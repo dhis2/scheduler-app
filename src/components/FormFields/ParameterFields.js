@@ -9,6 +9,7 @@ import LabeledOptionsField from './LabeledOptionsField'
 import DataIntegrityChecksField from './DataIntegrityChecksField'
 import DataIntegrityReportTypeField from './DataIntegrityReportTypeField'
 import styles from './ParameterFields.module.css'
+import AggregatedDataExchangeField from './AggregatedDataExchangeField'
 
 const { Field } = ReactFinalForm
 
@@ -17,6 +18,7 @@ const FIELD_NAME = 'jobParameters'
 
 const JOB_TYPES = {
     DATA_INTEGRITY: 'DATA_INTEGRITY',
+    AGGREGATE_DATA_EXCHANGE: 'AGGREGATE_DATA_EXCHANGE',
 }
 
 const getCustomComponent = (jobType, parameterName) => {
@@ -27,6 +29,8 @@ const getCustomComponent = (jobType, parameterName) => {
         parameterName === 'type'
     ) {
         return DataIntegrityReportTypeField
+    } else if (jobType === JOB_TYPES.AGGREGATE_DATA_EXCHANGE) {
+        return AggregatedDataExchangeField
     } else if (parameterName === 'skipTableTypes') {
         return SkipTableTypesField
     }

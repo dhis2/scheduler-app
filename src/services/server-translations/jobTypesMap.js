@@ -21,6 +21,7 @@ const jobTypesMap = {
     TRACKER_PROGRAMS_DATA_SYNC: i18n.t('Tracker programs data sync'),
     VALIDATION_RESULTS_NOTIFICATION: i18n.t('Validation results notification'),
     DISABLE_INACTIVE_USERS: i18n.t('Disable inactive users'),
+    AGGREGATE_DATA_EXCHANGE: i18n.t('Exchange aggregate data'),
 }
 
 export default jobTypesMap
