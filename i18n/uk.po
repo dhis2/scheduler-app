@@ -1,16 +1,16 @@
 # 
 # Translators:
-# Nadiia <semchuk@aph.org.ua>, 2021
 # Viktor Varland <viktor@dhis2.org>, 2022
 # phil_dhis2, 2022
 # Éva Tamási, 2022
+# Nadiia <semchuk@aph.org.ua>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-03-10T13:28:50.698Z\n"
+"POT-Creation-Date: 2022-08-18T15:35:50.363Z\n"
 "PO-Revision-Date: 2020-05-08 14:30+0000\n"
-"Last-Translator: Éva Tamási, 2022\n"
+"Last-Translator: Nadiia <semchuk@aph.org.ua>, 2022\n"
 "Language-Team: Ukrainian (https://www.transifex.com/hisp-uio/teams/100509/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -33,6 +33,18 @@ msgid "Delete job"
 msgstr ""
 
 msgid "Something went wrong whilst creating your job"
+msgstr ""
+
+msgid "Please select data exchange ids."
+msgstr ""
+
+msgid "Select data exchange ids"
+msgstr ""
+
+msgid "There was a problem fetching data exchange ids"
+msgstr ""
+
+msgid "error type"
 msgstr ""
 
 msgid "CRON Expression"
@@ -72,7 +84,7 @@ msgid "Job type"
 msgstr ""
 
 msgid "No options available"
-msgstr ""
+msgstr "Немає доступних опцій"
 
 msgid "Parameters"
 msgstr "Параметри"
@@ -96,7 +108,7 @@ msgid "Last run status: {{ translatedStatus }}."
 msgstr ""
 
 msgid "Actions"
-msgstr ""
+msgstr "Дії"
 
 msgid "Delete"
 msgstr "Видалити"
@@ -368,10 +380,10 @@ msgid "Completed"
 msgstr "Завершено"
 
 msgid "Disabled"
-msgstr ""
+msgstr "Вимкнено"
 
 msgid "Done"
-msgstr ""
+msgstr "Завершено"
 
 msgid "Failed"
 msgstr "Помилка"
@@ -446,6 +458,9 @@ msgid "Validation results notification"
 msgstr ""
 
 msgid "Disable inactive users"
+msgstr ""
+
+msgid "Exchange aggregate data"
 msgstr ""
 
 msgid "A CRON expression is required"
