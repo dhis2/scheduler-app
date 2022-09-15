@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-03-10T13:28:50.698Z\n"
+"POT-Creation-Date: 2022-08-18T15:35:50.363Z\n"
 "PO-Revision-Date: 2020-05-08 14:30+0000\n"
 "Last-Translator: easylin <lin_xd@126.com>, 2022\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
@@ -34,6 +34,18 @@ msgstr "删除作业"
 
 msgid "Something went wrong whilst creating your job"
 msgstr "在创建工作时出了点问题"
+
+msgid "Please select data exchange ids."
+msgstr "请选择数据交换 ID。"
+
+msgid "Select data exchange ids"
+msgstr "选择数据交换 ID"
+
+msgid "There was a problem fetching data exchange ids"
+msgstr "获取数据交换 ID 时出现问题"
+
+msgid "error type"
+msgstr "错误类型"
 
 msgid "CRON Expression"
 msgstr "CRON表达式"
@@ -447,6 +459,9 @@ msgstr "验证结果通知"
 
 msgid "Disable inactive users"
 msgstr "禁用不活动的用户"
+
+msgid "Exchange aggregate data"
+msgstr "交换统计汇总数据"
 
 msgid "A CRON expression is required"
 msgstr "需要CRON表达式"
