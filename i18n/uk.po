@@ -150,7 +150,7 @@ msgid "View"
 msgstr "Переглянути"
 
 msgid "Every hour"
-msgstr ""
+msgstr "Щогодини"
 
 msgid "Every day at midnight"
 msgstr ""
