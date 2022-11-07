@@ -94,7 +94,7 @@ const isValidWeekdayField = (field) =>
  * @TODO: evaluate if the following is possible
  * There's a npm library called `cron-validate`. It'd need to be configured to
  * accept the quartz job scheduler syntax, it can't be used as a drop-in
- * replacement!
+ * replacement! https://dhis2.atlassian.net/browse/TECH-1474
  */
 
 const validateCron = (exp) => {
