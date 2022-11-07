@@ -1,3 +1,10 @@
+## [100.2.6](https://github.com/dhis2/scheduler-app/compare/v100.2.5...v100.2.6) (2022-11-07)
+
+
+### Bug Fixes
+
+* **validate cron:** allow ranges in fraction numerators ([7f01c2f](https://github.com/dhis2/scheduler-app/commit/7f01c2feccb3638fabfd2e7b8be0bffabede4716))
+
 ## [100.2.5](https://github.com/dhis2/scheduler-app/compare/v100.2.4...v100.2.5) (2022-10-26)
 
 
