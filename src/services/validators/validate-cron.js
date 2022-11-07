@@ -40,7 +40,9 @@ const isValidFraction = (fraction, x, y) => {
 
     /* istanbul ignore next */
     return (
-        (isWildcard(components[0]) || isValidNumber(components[0], x, y)) &&
+        (isWildcard(components[0]) ||
+            isValidNumber(components[0], x, y) ||
+            isValidNumberRange(components[0], x, y)) &&
         isValidNumber(components[1], x, y)
     )
 }

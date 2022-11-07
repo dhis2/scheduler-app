@@ -35,4 +35,8 @@ describe('validateCron', () => {
     it('should allow for number ranges', () => {
         expect(validateCron('0 0 1-5 * * *')).toEqual(true)
     })
+
+    it('should allow ranges in fraction numerators', () => {
+        expect(validateCron('0 0 10-22/2 ? * *')).toBe(true)
+    })
 })
