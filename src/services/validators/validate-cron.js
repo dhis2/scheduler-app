@@ -90,6 +90,11 @@ const isValidWeekdayField = (field) =>
  * Format: <second> <minute> <hour> <day-of-month> <month> <day-of-week>
  * Source code: https://git.io/vpoqG
  * Documentation: https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/scheduling/support/CronSequenceGenerator.html
+ *
+ * @TODO: evaluate if the following is possible
+ * There's a npm library called `cron-validate`. It'd need to be configured to
+ * accept the quartz job scheduler syntax, it can't be used as a drop-in
+ * replacement!
  */
 
 const validateCron = (exp) => {
