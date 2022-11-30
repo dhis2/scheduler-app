@@ -1,20 +1,20 @@
 # 
 # Translators:
 # Bram Piot <bram.piot@gmail.com>, 2021
-# Yao Selom Saka <ysaka@hispwca.org>, 2021
 # Djibril Dione <dione.djibril@gmail.com>, 2021
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021
 # Edem Kossi <ekossi@hispwca.org>, 2021
 # Yayra Gomado <ygomado@hispwca.org>, 2022
 # phil_dhis2, 2022
 # Viktor Varland <viktor@dhis2.org>, 2022
+# Yao Selom SAKA (HISP WCA) <ysaka@hispwca.org>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-03-10T13:28:50.698Z\n"
+"POT-Creation-Date: 2022-08-18T15:35:50.363Z\n"
 "PO-Revision-Date: 2020-05-08 14:30+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2022\n"
+"Last-Translator: Yao Selom SAKA (HISP WCA) <ysaka@hispwca.org>, 2022\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -41,29 +41,43 @@ msgstr "Supprimer le travail"
 msgid "Something went wrong whilst creating your job"
 msgstr "Une erreur s'est produite lors de la création de votre tâche"
 
+msgid "Please select data exchange ids."
+msgstr "Veuillez sélectionner les identifiants d'échange de données."
+
+msgid "Select data exchange ids"
+msgstr "Sélectionner les identifiants d'échange de données"
+
+msgid "There was a problem fetching data exchange ids"
+msgstr ""
+"Un problème est survenu lors de la récupération des identifiants d'échange "
+"de données."
+
+msgid "error type"
+msgstr "type d'erreur"
+
 msgid "CRON Expression"
 msgstr "Expression CRON"
 
 msgid "Please select checks to run."
-msgstr ""
+msgstr "Veuillez sélectionner les contrôles à exécuter."
 
 msgid "Checks to run"
-msgstr ""
+msgstr "Contrôles à exécuter"
 
 msgid "Run all available checks"
-msgstr ""
+msgstr "Exécuter tous les contrôles disponibles"
 
 msgid "Only run selected checks"
-msgstr ""
+msgstr "Exécuter uniquement les contrôles sélectionnés"
 
 msgid "Severity"
-msgstr ""
+msgstr "Gravité"
 
 msgid "Select checks to run."
-msgstr ""
+msgstr "Sélectionner les contrôles à exécuter."
 
 msgid "Report type"
-msgstr ""
+msgstr "Type de rapport"
 
 msgid "Delay"
 msgstr "Retard"
@@ -174,7 +188,7 @@ msgid "Discard"
 msgstr "Abandonner"
 
 msgid "Error running job"
-msgstr ""
+msgstr "Erreur d'exécution de la tâche"
 
 msgid "Are you sure you want to run this job?"
 msgstr "Êtes-vous sûr de vouloir exécuter cette tâche ?"
@@ -237,25 +251,26 @@ msgid "Validation result"
 msgstr "Resultat de validation"
 
 msgid "Program indicators with invalid expressions"
-msgstr ""
+msgstr "Indicateurs de programme avec des expressions invalides"
 
 msgid "Data elements without groups"
 msgstr "Eléments de données n'appartenant à aucun groupe"
 
 msgid "Indicators with invalid numerator"
-msgstr ""
+msgstr "Indicateurs avec numérateur invalide"
 
 msgid "Program rule actions without notification"
-msgstr ""
+msgstr "Actions de règles de programme sans notification"
 
 msgid "Only one \"default\" category combo should exist"
 msgstr ""
+"Il ne devrait exister qu'une seule combinaison de catégories \"par défaut\""
 
 msgid "Data elements without data sets"
-msgstr ""
+msgstr "Éléments de données sans ensembles de données"
 
 msgid "Category combos being invalid"
-msgstr ""
+msgstr "Combinaisons de catégories non valides"
 
 msgid "Indicators with identical formulas"
 msgstr "Indicateurs avec formules identiques"
@@ -265,78 +280,84 @@ msgstr "Indicateurs n'appartenant à aucun groupe"
 
 msgid "Data elements in data set not in form"
 msgstr ""
+"Éléments de données dans un ensemble de données mais pas dans un formulaire"
 
 msgid "Program rules without priority"
-msgstr ""
+msgstr "Règles de programme sans priorité"
 
 msgid "Validation rules without groups"
 msgstr "Règles de validation sans groupes"
 
 msgid "Program indicators with invalid filters"
-msgstr ""
+msgstr "Indicateurs de programme avec filtres invalides"
 
 msgid "Categories with no category options"
-msgstr ""
+msgstr "Catégories sans options de catégorie"
 
 msgid "Program rules without condition"
-msgstr ""
+msgstr "Règles de programme sans conditions"
 
 msgid "Program rule actions without stage"
-msgstr ""
+msgstr "Action des règles de programme sans étape"
 
 msgid "Only one \"default\" category should exist"
-msgstr ""
+msgstr "Il ne devrait exister qu'une seule catégorie \"par défaut\""
 
 msgid ""
 "Lists category combos that share a combination of categories with at least "
 "one other category combo"
 msgstr ""
+"Liste les combos de catégories qui partagent une combinaison de catégories "
+"avec au moins une autre combinaison de catégories."
 
 msgid "Org units with cyclic references"
-msgstr ""
+msgstr "Unités d'organisation avec des références cycliques"
 
 msgid "Program rule variables without data element"
-msgstr ""
+msgstr "Variables de règle de programme sans élément de donnée"
 
 msgid "Validation rules with invalid right side expression"
-msgstr ""
+msgstr "Règles de validation avec une expression de droite invalide"
 
 msgid "Data sets not assigned to org units"
-msgstr ""
+msgstr "Ensembles de données non assignés à des unités d'organisation"
 
 msgid "Data elements violating exclusive group sets"
 msgstr ""
 "Eléments de donnée violant les ensembles de groupes mutuellement exclusifs"
 
 msgid "Org unit groups without group sets"
-msgstr ""
+msgstr "Groupes d'unités d'organisation sans ensembles de groupes"
 
 msgid "Program rule variables without attribute"
-msgstr ""
+msgstr "Variables de règle de programme sans attribut"
 
 msgid "Org units violating exclusive group sets"
 msgstr ""
+"Unités organisation enfreignant l'exclusivité des ensembles de groupes"
 
 msgid "Program rule actions without data object"
-msgstr ""
+msgstr "Actions de règles de programme sans objet de données"
 
 msgid "Only one \"default\" category option should exist"
-msgstr ""
+msgstr "Il ne devrait exister qu'une seule option de catégorie \"par défaut\""
 
 msgid "Only one \"default\" category option combo should exist"
 msgstr ""
+"Il ne devrait exister qu'une seule combinaison d'options de catégorie \"par "
+"défaut\""
 
 msgid "Org units without groups"
-msgstr ""
+msgstr "Unités d'organisation sans groupes"
 
 msgid "Program indicators without expression"
-msgstr ""
+msgstr "Indicateurs de programme sans expression"
 
 msgid "Indicators violating exclusive group sets"
 msgstr "Indicateurs violant les ensembles de groupes mutuellement exclusifs"
 
 msgid "Periods duplicates"
-msgstr ""
+msgstr "Périodes doublons"
 
 msgid "Data elements assigned to data sets with different period types"
 msgstr ""
@@ -344,25 +365,25 @@ msgstr ""
 "période différents"
 
 msgid "Program rules without action"
-msgstr ""
+msgstr "Règles de programme sans action"
 
 msgid "Org units being orphaned"
-msgstr ""
+msgstr "Unités d'organisation qui deviennent orphelines"
 
 msgid "Validation rules with invalid left side expression"
-msgstr ""
+msgstr "Règles de validation avec une expression de gauche invalide"
 
 msgid "Indicators with invalid denominator"
-msgstr ""
+msgstr "Indicateurs avec dénominateur invalide"
 
 msgid "Program rule actions without section"
-msgstr ""
+msgstr "Actions de règle de programme sans section"
 
 msgid "Warning"
 msgstr "Attention"
 
 msgid "Severe"
-msgstr ""
+msgstr "Grave"
 
 msgid "Report"
 msgstr "Rapport"
@@ -456,6 +477,9 @@ msgstr "Notification des résultats de la validation"
 
 msgid "Disable inactive users"
 msgstr "Désactiver les utilisateurs inactifs"
+
+msgid "Exchange aggregate data"
+msgstr "Échange de données agrégées"
 
 msgid "A CRON expression is required"
 msgstr "Une expression CRON est requise"
