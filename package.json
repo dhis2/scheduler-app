@@ -48,7 +48,7 @@
         "eslint-plugin-import": "^2.23.4",
         "eslint-plugin-jsx-a11y": "^6.4.1",
         "identity-obj-proxy": "^3.0.0",
-        "start-server-and-test": "^1.12.5",
+        "start-server-and-test": "^1.15.0",
         "stylelint": "^13.13.1",
         "stylelint-config-prettier": "^8.0.2",
         "stylelint-config-standard": "^22.0.0",
