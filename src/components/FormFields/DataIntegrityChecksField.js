@@ -12,10 +12,7 @@ import {
 } from '@dhis2/ui'
 import cx from 'classnames'
 import { hooks } from '../Store'
-import {
-    getCheckName,
-    severityMap,
-} from '../../services/server-translations/dataIntegrityChecks'
+import { severityMap } from '../../services/server-translations/dataIntegrityChecks'
 import styles from './DataIntegrityChecksField.module.css'
 
 const { Field, useField } = ReactFinalForm
@@ -45,7 +42,7 @@ const DataIntegrityChecksField = ({ label, name }) => {
         .map((option) => ({
             ...option,
             value: option.name,
-            label: getCheckName(option.name),
+            label: option.displayName,
             severity: severityMap[option.severity],
         }))
         .sort((a, b) => a.label.localeCompare(b.label))
