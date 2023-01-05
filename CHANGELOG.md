@@ -1,3 +1,10 @@
+## [100.2.9](https://github.com/dhis2/scheduler-app/compare/v100.2.8...v100.2.9) (2023-01-05)
+
+
+### Bug Fixes
+
+* **data-integrity:** use displayName instead of hard-coded translations ([a7dd832](https://github.com/dhis2/scheduler-app/commit/a7dd83256ed62608c52a2134f388699ab13d1365))
+
 ## [100.2.8](https://github.com/dhis2/scheduler-app/compare/v100.2.7...v100.2.8) (2022-11-30)
 
 
