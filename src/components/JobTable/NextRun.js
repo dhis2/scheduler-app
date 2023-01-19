@@ -1,13 +1,25 @@
 import moment from 'moment'
+import { useTimeZoneConversion } from '@dhis2/app-runtime'
 import { PropTypes } from '@dhis2/prop-types'
 import i18n from '@dhis2/d2-i18n'
+import { Tooltip } from '@dhis2/ui'
+import React from 'react'
+
+const formatDate = (dhis2Date) =>
+    `${dhis2Date
+        .getServerZonedISOString()
+        .substring(0, 19)
+        .split('T')
+        .join(' ')} (${dhis2Date.serverTimezone})`
 
 const NextRun = ({ nextExecutionTime, enabled }) => {
+    const { fromServerDate } = useTimeZoneConversion()
+
     if (!enabled || !nextExecutionTime) {
         return '-'
     }
 
-    const now = moment(Date.now())
+    const now = Date.now()
 
     /**
      * The recommendation is to run dhis2 on a server set to UTC time.
@@ -15,8 +27,8 @@ const NextRun = ({ nextExecutionTime, enabled }) => {
      * weren't followed the time could be off, but there's nothing
      * we can do to detect that.
      */
-    const nextRun = moment.utc(nextExecutionTime)
-    const nextRunIsInPast = nextRun.isSameOrBefore(now, 'minute')
+    const nextRun = fromServerDate(nextExecutionTime)
+    const nextRunIsInPast = nextRun.getTime() <= now
 
     /**
      * If the time is in the past, that could mean that the task is running,
@@ -27,7 +39,11 @@ const NextRun = ({ nextExecutionTime, enabled }) => {
         return i18n.t('Not scheduled')
     }
 
-    return now.to(nextRun)
+    return (
+        <Tooltip content={moment(nextRun).fromNow()}>
+            {formatDate(nextRun)}
+        </Tooltip>
+    )
 }
 
 const { bool, string } = PropTypes
