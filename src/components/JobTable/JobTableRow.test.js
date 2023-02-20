@@ -6,13 +6,12 @@ describe('<JobTableRow>', () => {
     it('renders cron jobs without errors', () => {
         const job = {
             id: '1',
-            displayName: 'Name',
-            jobType: 'SEND_SCHEDULED_MESSAGE',
+            name: 'Name',
+            type: 'SEND_SCHEDULED_MESSAGE',
             cronExpression: '0 0 * ? * *',
-            jobStatus: 'ENABLED',
+            status: 'ENABLED',
             nextExecutionTime: '2100-10-10T14:48:00',
             enabled: true,
-            schedulingType: 'CRON',
             configurable: true,
         }
 
@@ -22,12 +21,11 @@ describe('<JobTableRow>', () => {
     it('renders fixed delay jobs without errors', () => {
         const job = {
             id: '1',
-            displayName: 'Name',
-            jobType: 'CONTINUOUS_ANALYTICS_TABLE',
-            jobStatus: 'ENABLED',
+            name: 'Name',
+            type: 'CONTINUOUS_ANALYTICS_TABLE',
+            status: 'ENABLED',
             nextExecutionTime: '',
             enabled: true,
-            schedulingType: 'FIXED_DELAY',
             delay: 6000,
             configurable: true,
         }

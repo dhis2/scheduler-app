@@ -123,19 +123,19 @@ describe('useShowSystemJobs', () => {
 
 describe('useJobListJobs', () => {
     const user1 = {
-        displayName: 'User One',
+        name: 'User One',
         configurable: true,
     }
     const user2 = {
-        displayName: 'User Two',
+        name: 'User Two',
         configurable: true,
     }
     const system1 = {
-        displayName: 'System One',
+        name: 'System One',
         configurable: false,
     }
     const system2 = {
-        displayName: 'System Two',
+        name: 'System Two',
         configurable: false,
     }
 

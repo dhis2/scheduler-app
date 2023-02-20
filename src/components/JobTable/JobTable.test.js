@@ -7,23 +7,21 @@ describe('<JobTable>', () => {
         const jobs = [
             {
                 cronExpression: '0 0 * ? * *',
-                displayName: 'Name',
+                name: 'Name',
                 enabled: true,
                 id: '1',
-                jobStatus: 'ENABLED',
-                jobType: 'Type',
+                status: 'ENABLED',
+                type: 'Type',
                 nextExecutionTime: '2100-10-10T14:48:00',
-                schedulingType: 'CRON',
             },
             {
                 delay: 6000,
-                displayName: 'Name',
+                name: 'Name',
                 enabled: true,
                 id: '2',
-                jobStatus: 'ENABLED',
-                jobType: 'Type',
+                status: 'ENABLED',
+                type: 'Type',
                 nextExecutionTime: '',
-                schedulingType: 'FIXED_DELAY',
             },
         ]
 

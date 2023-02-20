@@ -6,7 +6,7 @@ import StoreContext from './StoreContext'
 
 const jobsQuery = {
     jobs: {
-        resource: 'jobConfigurations',
+        resource: 'scheduler',
         params: {
             fields: '*',
             paging: false,
@@ -95,7 +95,7 @@ const Store = ({ children }) => {
          */
         throw error
     }
-    const { jobConfigurations: jobs } = jobsFetch.data.jobs
+    const { jobs } = jobsFetch.data
     const { jobTypes } = jobTypesFetch.data.jobTypes
     const {
         skipTableTypes,

@@ -8,59 +8,58 @@ import Status from './Status'
 import NextRun from './NextRun'
 import Schedule from './Schedule'
 
-const JobTableRow = ({
-    job: {
+const JobTableRow = ({ job }) => {
+    const {
         id,
-        displayName,
-        jobType,
+        name,
+        type,
         cronExpression,
         delay,
-        jobStatus,
+        status,
         nextExecutionTime,
-        schedulingType,
         enabled,
         configurable,
-    },
-}) => (
-    <TableRow>
-        <TableCell role="rowheader">{displayName}</TableCell>
-        <TableCell>{jobTypesMap[jobType]}</TableCell>
-        <TableCell>
-            <Schedule
-                cronExpression={cronExpression}
-                delay={delay}
-                schedulingType={schedulingType}
-            />
-        </TableCell>
-        <TableCell>
-            <NextRun nextExecutionTime={nextExecutionTime} enabled={enabled} />
-        </TableCell>
-        <TableCell>
-            <Status status={jobStatus} />
-        </TableCell>
-        <TableCell>
-            <ToggleJobSwitch
-                id={id}
-                checked={enabled}
-                disabled={!configurable}
-            />
-        </TableCell>
-        <TableCell>
-            <Actions id={id} configurable={configurable} />
-        </TableCell>
-    </TableRow>
-)
+    } = job
+
+    return (
+        <TableRow>
+            <TableCell role="rowheader">{name}</TableCell>
+            <TableCell>{jobTypesMap[type]}</TableCell>
+            <TableCell>
+                <Schedule cronExpression={cronExpression} delay={delay} />
+            </TableCell>
+            <TableCell>
+                <NextRun
+                    nextExecutionTime={nextExecutionTime}
+                    enabled={enabled}
+                />
+            </TableCell>
+            <TableCell>
+                <Status status={status} />
+            </TableCell>
+            <TableCell>
+                <ToggleJobSwitch
+                    id={id}
+                    checked={enabled}
+                    disabled={!configurable}
+                />
+            </TableCell>
+            <TableCell>
+                <Actions id={id} configurable={configurable} />
+            </TableCell>
+        </TableRow>
+    )
+}
 
 const { shape, string, bool, number } = PropTypes
 
 JobTableRow.propTypes = {
     job: shape({
-        displayName: string.isRequired,
+        name: string.isRequired,
         enabled: bool.isRequired,
         id: string.isRequired,
-        jobStatus: string.isRequired,
-        jobType: string.isRequired,
-        schedulingType: string.isRequired,
+        status: string.isRequired,
+        type: string.isRequired,
         cronExpression: string,
         delay: number,
         nextExecutionTime: string,
