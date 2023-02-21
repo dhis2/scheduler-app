@@ -41,7 +41,8 @@ describe('<Store>', () => {
         useDataQuery.mockImplementationOnce(() => ({
             loading: false,
             error: undefined,
-            data: { jobs: { jobConfigurations: 'jobConfigurations' } },
+
+            data: { jobs: [{ sequence: [] }, { sequence: [] }] },
         }))
         useDataQuery.mockImplementationOnce(() => ({
             loading: false,

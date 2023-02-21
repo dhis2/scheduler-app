@@ -114,6 +114,12 @@ const Store = ({ children }) => {
         dataIntegrityChecks,
     }
 
+    // Move id of the first job up
+    jobs.map((job) => {
+        const id = job.sequence[0]?.id
+        job.id = id
+    })
+
     return (
         <StoreContext.Provider
             value={{
