@@ -3,10 +3,6 @@
     "projectId": "sc56ms",
     "testFiles": "**/*.feature",
     "experimentalInteractiveRunEvents": true,
-    "video": false,
-    "env": {
-        "dhis2DataTestPrefix": "dhis2-scheduler",
-        "networkMode": "live",
-        "dhis2ApiVersion": "38"
-    }
+    "experimentalSessionSupport": true,
+    "video": false
 }

@@ -11,9 +11,7 @@
         "lint:css": "stylelint './src/**/*.css' && prettier './src/**/*.css' --check",
         "format": "d2-style apply && yarn format:css",
         "format:css": "prettier './src/**/*.css' --write",
-        "cypress:capture": "start-server-and-test 'yarn start:nobrowser' http://localhost:3000 'yarn cypress run --env dhis2ApiVersion=38,networkMode=capture'",
-        "cypress:stub": "start-server-and-test 'yarn start:nobrowser' http://localhost:3000 'yarn cypress run --env dhis2ApiVersion=38,networkMode=stub'",
-        "cypress:live": "start-server-and-test 'yarn start:nobrowser' http://localhost:3000 'yarn cypress open --env networkMode=live'"
+        "cypress:live": "start-server-and-test 'yarn start:nobrowser' http://localhost:3000 'yarn cypress open'"
     },
     "dependencies": {
         "@dhis2/app-runtime": "^3.2.0",
@@ -35,7 +33,6 @@
         "@dhis2/cli-app-scripts": "^8.0.1",
         "@dhis2/cli-style": "^10.4.1",
         "@dhis2/cli-utils-cypress": "^9.0.2",
-        "@dhis2/cypress-commands": "^9.0.2",
         "@dhis2/cypress-plugins": "^9.0.2",
         "@testing-library/cypress": "^7.0.6",
         "@testing-library/react-hooks": "^7.0.0",
