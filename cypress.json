@@ -6,7 +6,7 @@
     "video": false,
     "env": {
         "dhis2DataTestPrefix": "dhis2-scheduler",
-        "networkMode": "live",
-        "dhis2ApiVersion": "38"
+        "dhis2BaseUrl": "https://debug.dhis2.org/dev",
+        "dhis2ApiVersion": "40"
     }
 }
