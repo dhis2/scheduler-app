@@ -8,6 +8,7 @@ Feature: System job visibility can be toggled
 
     Scenario: User toggles system job visibility
         Given some user and system jobs exist
+        And the user navigated to the job list page
         And the include-system-jobs-in-list checkbox is unchecked
         When the user checks the include-system-jobs-in-list checkbox
         Then system jobs are shown
