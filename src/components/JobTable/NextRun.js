@@ -22,10 +22,7 @@ const NextRun = ({ nextExecutionTime, enabled }) => {
     const now = Date.now()
 
     /**
-     * The recommendation is to run dhis2 on a server set to UTC time.
-     * In that case this timestamp is also UTC. If those recommendations
-     * weren't followed the time could be off, but there's nothing
-     * we can do to detect that.
+     * Adjust for client/sever time zone difference.
      */
     const nextRun = fromServerDate(nextExecutionTime)
     const nextRunIsInPast = nextRun.getTime() <= now
