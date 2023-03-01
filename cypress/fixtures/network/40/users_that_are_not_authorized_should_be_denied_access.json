@@ -1,6 +1,6 @@
 [
     {
-        "path": "/api/38/systemSettings/helpPageLink",
+        "path": "/api/40/systemSettings/helpPageLink",
         "featureName": "Users that are not authorized should be denied access",
         "static": false,
         "count": 1,
@@ -19,7 +19,7 @@
         "responseBody": "{\"helpPageLink\":\"https://dhis2.github.io/dhis2-docs/master/en/user/html/dhis2_user_manual_en.html\"}",
         "responseSize": 99,
         "responseHeaders": {
-            "server": "nginx/1.21.5",
+            "server": "nginx/1.23.3",
             "content-type": "application/json;charset=UTF-8",
             "transfer-encoding": "chunked",
             "connection": "keep-alive",
