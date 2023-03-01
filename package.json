@@ -38,7 +38,7 @@
         "@dhis2/cypress-commands": "^9.0.2",
         "@dhis2/cypress-plugins": "^9.0.2",
         "@testing-library/cypress": "^7.0.6",
-        "@testing-library/react-hooks": "^7.0.0",
+        "@testing-library/react-hooks": "^8.0.1",
         "cypress": "^9.5.1",
         "cypress-cucumber-preprocessor": "^4.3.1",
         "enzyme": "^3.10.0",
