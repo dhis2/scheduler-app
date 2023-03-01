@@ -1,3 +1,14 @@
+## [100.2.10](https://github.com/dhis2/scheduler-app/compare/v100.2.9...v100.2.10) (2023-03-01)
+
+
+### Bug Fixes
+
+* adjust for server timezone [DHIS2-14516] ([8ce5e40](https://github.com/dhis2/scheduler-app/commit/8ce5e407de1d41c78a2d59b719ff943115a5fa65))
+* clean up tests [DHIS2-14516] ([9b82265](https://github.com/dhis2/scheduler-app/commit/9b82265bc611ce56edce091e459dd3b69f51331a))
+* retrigger CI ([466c00e](https://github.com/dhis2/scheduler-app/commit/466c00e6975b8444f0480c716f73cf08750931f7))
+* update from PR comments ([6a04f3f](https://github.com/dhis2/scheduler-app/commit/6a04f3fd57ab45f06df491dcb3753ab8cf468f80))
+* update timestamps [DHIS2-14516] ([#452](https://github.com/dhis2/scheduler-app/issues/452)) ([b8564e1](https://github.com/dhis2/scheduler-app/commit/b8564e1cb9eee045a0a0a805be672dbc8491339a))
+
 ## [100.2.9](https://github.com/dhis2/scheduler-app/compare/v100.2.8...v100.2.9) (2023-01-05)
 
 
