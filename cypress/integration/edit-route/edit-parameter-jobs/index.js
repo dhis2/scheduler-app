@@ -5,7 +5,15 @@ import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
  */
 
 const selectJob = (jobName) => {
-    cy.get('[data-test="dhis2-uicore-singleselect"]').click()
+    const parentSelector = '[data-test="dhis2-uiwidgets-singleselectfield"]'
+    const childSelector = '[data-test="dhis2-uicore-singleselect"]'
+
+    cy.get(parentSelector)
+        .contains('Job type')
+        .parents(parentSelector)
+        .find(childSelector)
+        .click()
+
     cy.findByText(jobName).click()
 }
 
