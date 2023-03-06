@@ -1,139 +1,59 @@
-{
-    "jobConfigurations": [
-        {
-            "lastUpdated": "2021-02-23T11:28:02.492",
-            "id": "lnWRZN67iDU",
-            "href": "https://debug.dhis2.org/dev/api/32/jobConfigurations/lnWRZN67iDU",
-            "created": "2021-02-23T11:28:02.492",
-            "name": "Job 1",
-            "jobStatus": "SCHEDULED",
-            "displayName": "Job 1",
-            "enabled": true,
-            "leaderOnlyJob": false,
-            "externalAccess": false,
-            "jobType": "DATA_INTEGRITY",
-            "nextExecutionTime": "2021-03-01T03:00:00.000",
-            "sharing": {
-                "external": false,
-                "users": {},
-                "userGroups": {}
-            },
-            "cronExpression": "0 0 3 ? * MON",
-            "schedulingType": "CRON",
-            "lastRuntimeExecution": "00:00:21.780",
-            "lastExecutedStatus": "COMPLETED",
-            "lastExecuted": "2021-02-22T03:00:21.795",
-            "favorite": false,
-            "configurable": true,
-            "access": {
-                "read": true,
-                "update": true,
-                "externalize": false,
-                "delete": true,
-                "write": true,
-                "manage": true
-            },
-            "lastUpdatedBy": {
-                "displayName": "John Traore",
-                "id": "xE7jOejl9FI",
-                "username": "admin"
-            },
-            "favorites": [],
-            "translations": [],
-            "userGroupAccesses": [],
-            "attributeValues": [],
-            "userAccesses": []
-        },
-        {
-            "lastUpdated": "2021-02-22T03:00:01.033",
-            "id": "HEUQRVwkSaB",
-            "href": "https://debug.dhis2.org/dev/api/32/jobConfigurations/HEUQRVwkSaB",
-            "created": "2021-02-10T10:11:14.515",
-            "name": "Job 2",
-            "jobStatus": "SCHEDULED",
-            "displayName": "Job 2",
-            "enabled": true,
-            "leaderOnlyJob": false,
-            "externalAccess": false,
-            "jobType": "MONITORING",
-            "nextExecutionTime": "2021-03-01T03:00:00.000",
-            "sharing": {
-                "external": false,
-                "users": {},
-                "userGroups": {}
-            },
-            "cronExpression": "0 0 3 ? * MON",
-            "schedulingType": "CRON",
-            "lastRuntimeExecution": "00:00:01.016",
-            "lastExecutedStatus": "COMPLETED",
-            "lastExecuted": "2021-02-22T03:00:01.031",
-            "favorite": false,
-            "configurable": true,
-            "access": {
-                "read": true,
-                "update": true,
-                "externalize": false,
-                "delete": true,
-                "write": true,
-                "manage": true
-            },
-            "jobParameters": {
-                "relativeEnd": 2,
-                "persistResults": false,
-                "relativeStart": 1,
-                "sendNotifications": false,
-                "validationRuleGroups": ["WUZXEFdn1PX", "UiOSY1iIdub"]
-            },
-            "favorites": [],
-            "translations": [],
-            "userGroupAccesses": [],
-            "attributeValues": [],
-            "userAccesses": []
-        },
-        {
-            "lastUpdated": "2021-02-23T11:31:23.189",
-            "id": "thARpL8RTbe",
-            "href": "https://debug.dhis2.org/dev/api/32/jobConfigurations/thARpL8RTbe",
-            "created": "2021-02-23T11:31:23.189",
-            "name": "Job 3",
-            "jobStatus": "SCHEDULED",
-            "displayName": "Job 3",
-            "enabled": true,
-            "leaderOnlyJob": false,
-            "externalAccess": false,
-            "jobType": "DISABLE_INACTIVE_USERS",
-            "nextExecutionTime": "2021-03-01T03:00:00.000",
-            "sharing": {
-                "external": false,
-                "users": {},
-                "userGroups": {}
-            },
-            "cronExpression": "0 0 3 ? * MON",
-            "schedulingType": "CRON",
-            "lastExecutedStatus": "NOT_STARTED",
-            "favorite": false,
-            "configurable": true,
-            "access": {
-                "read": true,
-                "update": true,
-                "externalize": false,
-                "delete": true,
-                "write": true,
-                "manage": true
-            },
-            "lastUpdatedBy": {
-                "displayName": "John Traore",
-                "id": "xE7jOejl9FI",
-                "username": "admin"
-            },
-            "jobParameters": {
-                "inactiveMonths": 6
-            },
-            "favorites": [],
-            "translations": [],
-            "userGroupAccesses": [],
-            "attributeValues": [],
-            "userAccesses": []
-        }
-    ]
-}
+[
+    {
+        "name": "Job 1",
+        "type": "DATA_INTEGRITY",
+        "cronExpression": "0 0 3 ? * MON",
+        "nextExecutionTime": "2021-03-01T03:00:00.000",
+        "status": "SCHEDULED",
+        "enabled": true,
+        "configurable": true,
+        "sequence": [
+            {
+                "id": "IciNd2Amk04",
+                "name": "Job 1",
+                "type": "DATA_INTEGRITY",
+                "cronExpression": "0 0 3 ? * MON",
+                "nextExecutionTime": "2021-03-01T03:00:00.000",
+                "status": "SCHEDULED"
+            }
+        ]
+    },
+    {
+        "name": "Job 2",
+        "type": "MONITORING",
+        "cronExpression": "0 0 3 ? * MON",
+        "nextExecutionTime": "2021-03-01T03:00:00.000",
+        "status": "SCHEDULED",
+        "enabled": true,
+        "configurable": true,
+        "sequence": [
+            {
+                "id": "IciNd2Amk04",
+                "name": "Job 2",
+                "type": "MONITORING",
+                "cronExpression": "0 0 3 ? * MON",
+                "nextExecutionTime": "2021-03-01T03:00:00.000",
+                "status": "SCHEDULED"
+            }
+        ]
+    },
+    {
+        "name": "Job 3",
+        "type": "DISABLE_INACTIVE_USERS",
+        "cronExpression": "0 0 3 ? * MON",
+        "nextExecutionTime": "2021-03-01T03:00:00.000",
+        "status": "SCHEDULED",
+        "enabled": true,
+        "configurable": true,
+        "sequence": [
+            {
+                "id": "IciNd2Amk04",
+                "name": "Job 3",
+                "type": "DISABLE_INACTIVE_USERS",
+                "cronExpression": "0 0 3 ? * MON",
+                "nextExecutionTime": "2021-03-01T03:00:00.000",
+                "status": "SCHEDULED"
+            }
+        ]
+    }
+]

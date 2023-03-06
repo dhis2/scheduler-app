@@ -19,7 +19,7 @@ const selectJob = (jobName) => {
 
 const saveAndExpect = (expected) => {
     cy.intercept(
-        { pathname: /jobConfigurations\/lnWRZN67iDU$/, method: 'PUT' },
+        { pathname: /jobConfigurations\/IciNd2Amk04$/, method: 'PUT' },
         (req) => {
             expect(req.body).to.deep.equal(expected)
             req.reply({ statusCode: 201 })
@@ -35,13 +35,13 @@ const saveAndExpect = (expected) => {
 
 Given('a single user job exists', () => {
     cy.intercept(
-        { pathname: /jobConfigurations$/ },
+        { pathname: /scheduler$/ },
         { fixture: 'edit-route/single-user-job' }
     )
 })
 
 Given('the user navigated to the edit job page', () => {
-    cy.visit('/#/edit/lnWRZN67iDU')
+    cy.visit('/#/edit/IciNd2Amk04')
     cy.findByRole('heading', { name: 'Job: Job 1' }).should('exist')
 })
 

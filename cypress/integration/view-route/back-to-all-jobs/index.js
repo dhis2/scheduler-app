@@ -2,13 +2,13 @@ import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given('a single system job exists', () => {
     cy.intercept(
-        { pathname: /jobConfigurations$/ },
+        { pathname: /scheduler$/ },
         { fixture: 'view-route/single-system-job' }
     )
 })
 
 Given('the user navigated to the view job page', () => {
-    cy.visit('/#/view/sHMedQF7VYa')
+    cy.visit('/#/view/IciNd2Amk04')
     cy.findByRole('heading', { name: 'System job: System Job 1' }).should(
         'exist'
     )

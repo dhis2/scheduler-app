@@ -2,13 +2,13 @@ import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given('a single user job exists', () => {
     cy.intercept(
-        { pathname: /jobConfigurations$/ },
+        { pathname: /scheduler$/ },
         { fixture: 'edit-route/single-user-job' }
     )
 })
 
 Given('the user navigated to the edit job page', () => {
-    cy.visit('/#/edit/lnWRZN67iDU')
+    cy.visit('/#/edit/IciNd2Amk04')
     cy.findByRole('heading', { name: 'Job: Job 1' }).should('exist')
 })
 
@@ -20,7 +20,7 @@ Then('the job will be deleted upon confirmation', () => {
     cy.intercept(
         { pathname: /jobConfigurations$/, method: 'DELETE' },
         (req) => {
-            expect(req.url.endsWith('jobConfigurations/lnWRZN67iDU')).to.be.true
+            expect(req.url.endsWith('jobConfigurations/IciNd2Amk04')).to.be.true
             req.reply({ statusCode: 200 })
         }
     )

@@ -5,13 +5,13 @@ const infoHref =
 
 Given('a single user job exists', () => {
     cy.intercept(
-        { pathname: /jobConfigurations$/ },
+        { pathname: /scheduler$/ },
         { fixture: 'edit-route/single-user-job' }
     )
 })
 
 Given('the user navigated to the edit job page', () => {
-    cy.visit('/#/edit/lnWRZN67iDU')
+    cy.visit('/#/edit/IciNd2Amk04')
     cy.findByRole('heading', { name: 'Job: Job 1' }).should('exist')
 })
 

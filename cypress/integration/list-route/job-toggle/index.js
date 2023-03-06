@@ -19,7 +19,7 @@ Given('a disabled user job exists', () => {
         responses.push(fixture)
     })
 
-    cy.intercept({ pathname: /jobConfigurations$/ }, (req) => {
+    cy.intercept({ pathname: /scheduler$/ }, (req) => {
         const fixture = responses.shift()
         req.reply(200, fixture)
     })
@@ -36,7 +36,7 @@ Given('an enabled user job exists', () => {
         responses.push(fixture)
     })
 
-    cy.intercept({ pathname: /jobConfigurations$/ }, (req) => {
+    cy.intercept({ pathname: /scheduler$/ }, (req) => {
         const fixture = responses.shift()
         req.reply(200, fixture)
     })
