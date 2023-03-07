@@ -1,0 +1,12 @@
+import { Given, Then } from '@badeball/cypress-cucumber-preprocessor'
+
+Given('the user navigated to the job list page', () => {
+    cy.visit('/')
+    cy.findByRole('heading', { name: 'Scheduled jobs' }).should('exist')
+})
+
+Then('there is a link to the new job page', () => {
+    cy.findByRole('link', { name: 'New job' })
+        .should('exist')
+        .should('have.attr', 'href', '#/add')
+})
