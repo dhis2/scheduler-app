@@ -5326,7 +5326,7 @@ caniuse-api@^3.0.0:
     lodash.memoize "^4.1.2"
     lodash.uniq "^4.5.0"
 
-caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000981, caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001125, caniuse-lite@^1.0.30001166, caniuse-lite@^1.0.30001179, caniuse-lite@^1.0.30001181, caniuse-lite@^1.0.30001219, caniuse-lite@^1.0.30001254, caniuse-lite@^1.0.30001312:
+caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000981, caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001125, caniuse-lite@^1.0.30001166, caniuse-lite@^1.0.30001179, caniuse-lite@^1.0.30001312:
   version "1.0.30001452"
   resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001452.tgz"
   integrity sha512-Lkp0vFjMkBB3GTpLR8zk4NwW5EdRdnitwYJHDOOKIU85x4ckYCPQ+9WlVvSVClHxVReefkUMtWZH2l9KGlD51w==
@@ -7479,10 +7479,10 @@ eslint-plugin-flowtype@^5.2.0:
     lodash "^4.17.15"
     string-natural-compare "^3.0.1"
 
-eslint-plugin-i18next@^5.1.1:
-  version "5.1.1"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-i18next/-/eslint-plugin-i18next-5.1.1.tgz#afc06d9ad5c2b5e481282c31d3833e0fa9cef6cc"
-  integrity sha512-qhJoeuOrRMVve5SA2/mVbYLL2nJJ4MTi8Y6nefRcOimrs86P/GZr1XXjKHSCEwcV5JL905//H6EO1AXTyUzzrg==
+eslint-plugin-i18next@^5.2.1:
+  version "5.2.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-i18next/-/eslint-plugin-i18next-5.2.1.tgz#9ce619f4958e9c58c70e4900585ec3b1c8065614"
+  integrity sha512-yXlWOMiyWz9aCGVrLeFijt+LsCXZj9QoddYXmxUeFZrqst4Z2j6vAMBn2iSE2JTNbPDyrdGl3H03UCo+CbdKbQ==
   dependencies:
     requireindex "~1.1.0"
 
