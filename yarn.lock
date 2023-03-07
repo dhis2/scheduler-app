@@ -2202,17 +2202,10 @@
     i18next "^10.3"
     moment "^2.24.0"
 
-"@dhis2/prop-types@2.0.3":
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/@dhis2/prop-types/-/prop-types-2.0.3.tgz#7ed8235851c73d059edc1731c913090a626e7ec6"
-  integrity sha512-z9gzgHYRTcPay8+wcNVFgSB9LVw8mCYLz6ZEbP5Yyi8xmvExIx/Mzulbo71vFgREixyca5toiyBYgDzja5SFwg==
-  dependencies:
-    prop-types "^15"
-
-"@dhis2/prop-types@^3.0.0-beta.1":
-  version "3.0.0-beta.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/prop-types/-/prop-types-3.0.0-beta.1.tgz#31a724ebac900bed5218f3663b792b1b860e1b26"
-  integrity sha512-/1yZyXLwJXVkqvV9NJ9SQzU4/abdnoZ/nG1kGF/dPSCcPtGMGNF8ganV1JAxD/UFtLMU2g//7ohOUdrfLO2uow==
+"@dhis2/prop-types@3.1.2", "@dhis2/prop-types@^3.0.0-beta.1":
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/@dhis2/prop-types/-/prop-types-3.1.2.tgz#65b8ad2da8cd2f72bc8b951049a6c9d1b97af3e9"
+  integrity sha512-eM0jjLOWvtXWqSFp5YC4DHFpkP8Y1D2eUwGV7MBWjni+o27oesVan+oT7WHeOeLdlAd4acRJrnaaAyB4Ck1wGQ==
 
 "@dhis2/pwa@8.0.1":
   version "8.0.1"
@@ -5326,7 +5319,7 @@ caniuse-api@^3.0.0:
     lodash.memoize "^4.1.2"
     lodash.uniq "^4.5.0"
 
-caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000981, caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001125, caniuse-lite@^1.0.30001166, caniuse-lite@^1.0.30001179, caniuse-lite@^1.0.30001181, caniuse-lite@^1.0.30001219, caniuse-lite@^1.0.30001254, caniuse-lite@^1.0.30001312:
+caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000981, caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001125, caniuse-lite@^1.0.30001166, caniuse-lite@^1.0.30001179, caniuse-lite@^1.0.30001312:
   version "1.0.30001452"
   resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001452.tgz"
   integrity sha512-Lkp0vFjMkBB3GTpLR8zk4NwW5EdRdnitwYJHDOOKIU85x4ckYCPQ+9WlVvSVClHxVReefkUMtWZH2l9KGlD51w==
@@ -13904,7 +13897,7 @@ prop-types-exact@^1.2.0:
     object.assign "^4.1.0"
     reflect.ownkeys "^0.2.0"
 
-prop-types@^15, prop-types@^15.6.2, prop-types@^15.7.2, prop-types@^15.8.1:
+prop-types@^15.6.2, prop-types@^15.7.2, prop-types@^15.8.1:
   version "15.8.1"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.8.1.tgz#67d87bf1a694f48435cf332c24af10214a3140b5"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
