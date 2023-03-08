@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-unused-modules
 const { defineConfig } = require('cypress')
 const webpack = require('@cypress/webpack-preprocessor')
 const preprocessor = require('@badeball/cypress-cucumber-preprocessor')
