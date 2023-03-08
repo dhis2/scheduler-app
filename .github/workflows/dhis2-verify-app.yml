@@ -85,29 +85,22 @@ jobs:
 
     e2e:
         runs-on: ubuntu-latest
-        strategy:
-            fail-fast: false
-            matrix:
-                containers: [1, 2, 3, 4]
         steps:
             - uses: actions/checkout@v2
             - uses: actions/setup-node@v3
               with:
                   node-version: 16
             - name: End-to-End tests
-              uses: cypress-io/github-action@v2
+              uses: cypress-io/github-action@v5
               with:
                   start: yarn start:nobrowser
                   wait-on: 'http://localhost:3000'
                   wait-on-timeout: 300
-                  record: true
-                  parallel: true
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                  CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-                  CYPRESS_dhis2BaseUrl: http://localhost:8080
-                  CYPRESS_dhis2ApiVersion: 40
-                  CYPRESS_networkMode: stub
+                  CYPRESS_LOGIN_NAME: ${{ secrets.CYPRESS_LOGIN_NAME }}
+                  CYPRESS_LOGIN_PASSWORD: ${{ secrets.CYPRESS_LOGIN_PASSWORD }}
+                  CYPRESS_LOGIN_SERVER: https://debug.dhis2.org/dev
 
     release:
         runs-on: ubuntu-latest
