@@ -1,12 +1,6 @@
 /* global Cypress */
 import '@testing-library/cypress/add-commands'
 
-// https://docs.cypress.io/api/events/catalog-of-events#Uncaught-Exceptions
-Cypress.on('uncaught:exception', () => {
-    // Returning false here means uncaught exceptions won't fail the test
-    return false
-})
-
 /**
  * Custom login command, can be used to login or switch between sessions.
  * Will cache and restore cookies, localStorage, and sessionStorage. See:
