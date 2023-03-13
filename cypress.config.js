@@ -37,7 +37,6 @@ async function setupNodeEvents(on, config) {
 
 module.exports = defineConfig({
     projectId: 'sc56ms',
-    experimentalInteractiveRunEvents: true,
     video: false,
     e2e: {
         setupNodeEvents,
