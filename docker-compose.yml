@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+    web:
+        image: dhis2/core:2.39.1
+        ports:
+            - 127.0.0.1:8080:8080 # DHIS2
+        volumes:
+            - ./dhis.conf:/opt/dhis2/dhis.conf:ro
+        depends_on:
+            db:
+                condition: service_healthy
+
+    db:
+        image: radnov/dhis2-sl-db:2.39.1
+        ports:
+            - 127.0.0.1:5432:5432
+        healthcheck:
+            test:
+                [
+                    'CMD-SHELL',
+                    'PGPASSWORD=dhis psql --no-password --quiet --username dhis postgres://127.0.0.1/dhis2 -p 5432 --command "SELECT ''ok''" > /dev/null',
+                ]
+            start_period: 30s
+            interval: 1s
+            timeout: 3s
+            retries: 5

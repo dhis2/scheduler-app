@@ -97,7 +97,7 @@ jobs:
             - name: End-to-End tests
               uses: cypress-io/github-action@v5
               with:
-                  start: npx --yes @dhis2/cli-cluster up 2.40 --channel dev --db-version 2.40 --seed, yarn start:nobrowser
+                  start: docker compose up, yarn start:nobrowser
                   wait-on: 'http://localhost:8080/dhis-web-commons/security/login.action, http://localhost:3000'
                   wait-on-timeout: 600
                   record: true
