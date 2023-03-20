@@ -10,19 +10,21 @@ Cypress.Commands.add('login', (user) => {
     cy.session(
         user,
         () => {
-            cy.visit('/')
+            // Login via API
+            cy.request({
+                url: `${user.server}/dhis-web-commons-security/login.action`,
+                method: 'POST',
+                form: true,
+                followRedirect: true,
+                body: {
+                    j_username: user.name,
+                    j_password: user.password,
+                    '2fa_code': '',
+                },
+            })
 
-            // Ensure we're on the login page
-            cy.findByRole('heading', { name: 'Please sign in' }).should('exist')
-
-            // Enter credentials
-            cy.get('input#server').type(user.server)
-            cy.get('input#j_username').type(user.name)
-            cy.get('input#j_password').type(user.password)
-            cy.findByRole('button', { name: 'Sign in' }).click()
-
-            // Wait until main route has been loaded
-            cy.findByRole('heading', { name: 'Scheduled jobs' }).should('exist')
+            // Set base url for the app platform
+            window.localStorage.setItem('DHIS2_BASE_URL', user.server)
         },
         {
             validate: () => {
