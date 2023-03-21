@@ -108,6 +108,8 @@ jobs:
                   CYPRESS_LOGIN_NAME: ${{ secrets.CYPRESS_LOGIN_NAME }}
                   CYPRESS_LOGIN_PASSWORD: ${{ secrets.CYPRESS_LOGIN_PASSWORD }}
                   CYPRESS_LOGIN_SERVER: http://localhost:8080
+            - run: docker volume ls
+            - run: docker volume inspect d2-cluster-240_datadb
 
     release:
         runs-on: ubuntu-latest
