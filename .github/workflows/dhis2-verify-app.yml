@@ -94,8 +94,11 @@ jobs:
             - uses: actions/setup-node@v3
               with:
                   node-version: 16
-            - name: End-to-End tests
-              uses: cypress-io/github-action@v5
+            - uses: actions/cache/restore@v3
+              with:
+                  path: /var/lib/docker/volumes/d2-cluster-240_datadb/
+                  key: cache
+            - uses: cypress-io/github-action@v5
               with:
                   start: npx --yes @dhis2/cli-cluster up 2.40 --channel dev --db-version 2.40 --seed, yarn start:nobrowser
                   wait-on: 'http://localhost:8080/dhis-web-commons/security/login.action, http://localhost:3000'
@@ -108,8 +111,11 @@ jobs:
                   CYPRESS_LOGIN_NAME: ${{ secrets.CYPRESS_LOGIN_NAME }}
                   CYPRESS_LOGIN_PASSWORD: ${{ secrets.CYPRESS_LOGIN_PASSWORD }}
                   CYPRESS_LOGIN_SERVER: http://localhost:8080
-            - run: docker volume ls
-            - run: docker volume inspect d2-cluster-240_datadb
+            - run: npx --yes @dhis2/cli-cluster down 2.40
+            - uses: actions/cache/save@v3
+              with:
+                  path: /var/lib/docker/volumes/d2-cluster-240_datadb/
+                  key: cache
 
     release:
         runs-on: ubuntu-latest
