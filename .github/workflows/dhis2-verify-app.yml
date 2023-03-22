@@ -112,6 +112,9 @@ jobs:
                   CYPRESS_LOGIN_PASSWORD: ${{ secrets.CYPRESS_LOGIN_PASSWORD }}
                   CYPRESS_LOGIN_SERVER: http://localhost:8080
             - run: npx --yes @dhis2/cli-cluster down 2.40
+            - run: sudo ls -laR /var/lib/docker/volumes/d2-cluster-240_datadb/
+            - run: sudo chown -R $USER:$(id -g) /var/lib/docker/volumes/d2-cluster-240_datadb/ && sudo chmod -R 777 /var/lib/docker/volumes/d2-cluster-240_datadb/
+            - run: sudo ls -laR /var/lib/docker/volumes/d2-cluster-240_datadb/
             - uses: actions/cache/save@v3
               with:
                   path: /var/lib/docker/volumes/d2-cluster-240_datadb/
