@@ -5,7 +5,9 @@ const jobTypesMap = {
     AGGREGATE_DATA_EXCHANGE: i18n.t('Exchange aggregate data'),
     ANALYTICS_TABLE: i18n.t('Analytics table'),
     ANALYTICSTABLE_UPDATE: i18n.t('Analyticstable update'),
-    COMPLETE_DATA_SET_REGISTRATION_IMPORT: i18n.t('Complete data set registration import'),
+    COMPLETE_DATA_SET_REGISTRATION_IMPORT: i18n.t(
+        'Complete data set registration import'
+    ),
     CONTINUOUS_ANALYTICS_TABLE: i18n.t('Continuous analytics table'),
     CREDENTIALS_EXPIRY_ALERT: i18n.t('Credentials expiry alert'),
     DATA_INTEGRITY: i18n.t('Data integrity'),
@@ -33,7 +35,9 @@ const jobTypesMap = {
     PROGRAM_NOTIFICATIONS: i18n.t('Program notifications'),
     PUSH_ANALYSIS: i18n.t('Push analysis'),
     REMOVE_EXPIRED_RESERVED_VALUES: i18n.t('Remove expired reserved values'),
-    REMOVE_USED_OR_EXPIRED_RESERVED_VALUES: i18n.t('Remove used or expired reserved values'),
+    REMOVE_USED_OR_EXPIRED_RESERVED_VALUES: i18n.t(
+        'Remove used or expired reserved values'
+    ),
     RESOURCE_TABLE: i18n.t('Resource table'),
     SEND_SCHEDULED_MESSAGE: i18n.t('Send scheduled message'),
     SMS_SEND: i18n.t('SMS send'),
@@ -44,8 +48,7 @@ const jobTypesMap = {
     TRACKER_IMPORT_RULE_ENGINE_JOB: i18n.t('Tracker import rule engine job'),
     TRACKER_PROGRAMS_DATA_SYNC: i18n.t('Tracker programs data sync'),
     TRACKER_SEARCH_OPTIMIZATION: i18n.t('Tracker search optimization'),
-    VALIDATION_RESULTS_NOTIFICATION: i18n.t('Validation results notification')
+    VALIDATION_RESULTS_NOTIFICATION: i18n.t('Validation results notification'),
 }
-
 
 export default jobTypesMap

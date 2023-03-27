@@ -11,32 +11,27 @@ import Schedule from './Schedule'
 const JobTableRow = ({
     job: {
         id,
-        displayName,
-        jobType,
+        name,
+        type,
         cronExpression,
         delay,
-        jobStatus,
+        status,
         nextExecutionTime,
-        schedulingType,
         enabled,
         configurable,
     },
 }) => (
     <TableRow>
-        <TableCell role="rowheader">{displayName}</TableCell>
-        <TableCell>{jobTypesMap[jobType]}</TableCell>
+        <TableCell role="rowheader">{name}</TableCell>
+        <TableCell>{jobTypesMap[type]}</TableCell>
         <TableCell>
-            <Schedule
-                cronExpression={cronExpression}
-                delay={delay}
-                schedulingType={schedulingType}
-            />
+            <Schedule cronExpression={cronExpression} delay={delay} />
         </TableCell>
         <TableCell>
             <NextRun nextExecutionTime={nextExecutionTime} enabled={enabled} />
         </TableCell>
         <TableCell>
-            <Status status={jobStatus} />
+            <Status status={status} />
         </TableCell>
         <TableCell>
             <ToggleJobSwitch
@@ -55,12 +50,11 @@ const { shape, string, bool, number } = PropTypes
 
 JobTableRow.propTypes = {
     job: shape({
-        displayName: string.isRequired,
+        name: string.isRequired,
         enabled: bool.isRequired,
         id: string.isRequired,
-        jobStatus: string.isRequired,
-        jobType: string.isRequired,
-        schedulingType: string.isRequired,
+        status: string.isRequired,
+        type: string.isRequired,
         cronExpression: string,
         delay: number,
         nextExecutionTime: string,

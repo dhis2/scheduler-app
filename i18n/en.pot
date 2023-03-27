@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2023-02-20T11:19:50.904Z\n"
-"PO-Revision-Date: 2023-02-20T11:19:50.904Z\n"
+"POT-Creation-Date: 2023-03-27T09:30:49.194Z\n"
+"PO-Revision-Date: 2023-03-27T09:30:49.194Z\n"
 
 msgid "Not authorized"
 msgstr "Not authorized"
@@ -273,8 +273,20 @@ msgstr "Scheduled"
 msgid "Stopped"
 msgstr "Stopped"
 
+msgid "Account expiry alert"
+msgstr "Account expiry alert"
+
+msgid "Exchange aggregate data"
+msgstr "Exchange aggregate data"
+
 msgid "Analytics table"
 msgstr "Analytics table"
+
+msgid "Analyticstable update"
+msgstr "Analyticstable update"
+
+msgid "Complete data set registration import"
+msgstr "Complete data set registration import"
 
 msgid "Continuous analytics table"
 msgstr "Continuous analytics table"
@@ -294,20 +306,59 @@ msgstr "Data statistics"
 msgid "Data synchronization"
 msgstr "Data synchronization"
 
+msgid "Datavalue import"
+msgstr "Datavalue import"
+
+msgid "Datavalue import internal"
+msgstr "Datavalue import internal"
+
+msgid "Disable inactive users"
+msgstr "Disable inactive users"
+
+msgid "Enrollment import"
+msgstr "Enrollment import"
+
+msgid "Event import"
+msgstr "Event import"
+
 msgid "Event programs data sync"
 msgstr "Event programs data sync"
 
 msgid "File resource clean up"
 msgstr "File resource clean up"
 
+msgid "GEOJSON import"
+msgstr "GEOJSON import"
+
+msgid "GML import"
+msgstr "GML import"
+
+msgid "Image processing"
+msgstr "Image processing"
+
+msgid "Leader election"
+msgstr "Leader election"
+
+msgid "Leader renewal"
+msgstr "Leader renewal"
+
+msgid "Metadata import"
+msgstr "Metadata import"
+
 msgid "Metadata synchronization"
 msgstr "Metadata synchronization"
+
+msgid "Mock"
+msgstr "Mock"
 
 msgid "Monitoring"
 msgstr "Monitoring"
 
 msgid "Predictor"
 msgstr "Predictor"
+
+msgid "Program data sync"
+msgstr "Program data sync"
 
 msgid "Program notifications"
 msgstr "Program notifications"
@@ -318,23 +369,41 @@ msgstr "Push analysis"
 msgid "Remove expired reserved values"
 msgstr "Remove expired reserved values"
 
+msgid "Remove used or expired reserved values"
+msgstr "Remove used or expired reserved values"
+
 msgid "Resource table"
 msgstr "Resource table"
 
 msgid "Send scheduled message"
 msgstr "Send scheduled message"
 
+msgid "SMS send"
+msgstr "SMS send"
+
+msgid "System version update check"
+msgstr "System version update check"
+
+msgid "TEI import"
+msgstr "TEI import"
+
+msgid "Tracker import job"
+msgstr "Tracker import job"
+
+msgid "Tracker import notification job"
+msgstr "Tracker import notification job"
+
+msgid "Tracker import rule engine job"
+msgstr "Tracker import rule engine job"
+
 msgid "Tracker programs data sync"
 msgstr "Tracker programs data sync"
 
+msgid "Tracker search optimization"
+msgstr "Tracker search optimization"
+
 msgid "Validation results notification"
 msgstr "Validation results notification"
-
-msgid "Disable inactive users"
-msgstr "Disable inactive users"
-
-msgid "Exchange aggregate data"
-msgstr "Exchange aggregate data"
 
 msgid "A CRON expression is required"
 msgstr "A CRON expression is required"
