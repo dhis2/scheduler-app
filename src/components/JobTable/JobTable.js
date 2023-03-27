@@ -1,5 +1,4 @@
 import React from 'react'
-import { PropTypes } from '@dhis2/prop-types'
 import {
     Table,
     TableHead,
@@ -10,6 +9,7 @@ import {
     TableBody,
 } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
+import { PropTypes } from '@dhis2/prop-types'
 import JobTableRow from './JobTableRow'
 
 const JobTable = ({ jobs }) => (
@@ -37,7 +37,7 @@ const JobTable = ({ jobs }) => (
     </Table>
 )
 
-const { object, arrayOf } = PropTypes
+const { arrayOf, object } = PropTypes
 
 JobTable.propTypes = {
     jobs: arrayOf(object).isRequired,
