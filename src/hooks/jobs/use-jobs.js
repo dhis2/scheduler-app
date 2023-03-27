@@ -7,7 +7,9 @@ const query = {
         params: {
             fields: [
                 'created',
+                'cronExpression',
                 'id',
+                'jobType',
                 'lastExecuted',
                 'lastExecutedStatus',
                 'name',

@@ -1,6 +1,9 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import {
+    CircularLoader,
+    Layer,
+    CenteredContent,
     Card,
     IconInfo16,
     Box,
@@ -9,9 +12,9 @@ import {
     InputField,
 } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
-import { hooks } from '../../components/Store'
 import { LinkButton } from '../../components/LinkButton'
 import { JobDetails } from '../../components/JobDetails'
+import { useJobById } from '../../hooks/jobs'
 import translateCron from '../../services/translate-cron'
 import { jobTypesMap } from '../../services/server-translations'
 import styles from './JobView.module.css'
@@ -21,6 +24,22 @@ const infoLink =
 
 const JobView = () => {
     const { id } = useParams()
+    const { data, loading, error } = useJobById(id)
+
+    if (loading) {
+        return (
+            <Layer>
+                <CenteredContent>
+                    <CircularLoader />
+                </CenteredContent>
+            </Layer>
+        )
+    }
+
+    if (error) {
+        throw error
+    }
+
     const {
         name,
         created,
@@ -28,7 +47,7 @@ const JobView = () => {
         lastExecuted,
         jobType,
         cronExpression,
-    } = hooks.useJob(id)
+    } = data
 
     return (
         <React.Fragment>
