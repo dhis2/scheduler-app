@@ -4,7 +4,7 @@ import { CustomDataProvider } from '@dhis2/app-runtime'
 import useJobSchedules from './use-job-schedules'
 
 describe('useJobSchedules', () => {
-    it('should format the returned data', () => {
+    it('should return the expected data', () => {
         const job = { sequence: [{ id: 'id' }] }
         const data = { scheduler: [job] }
         const wrapper = ({ children }) => (
