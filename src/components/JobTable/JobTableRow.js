@@ -41,7 +41,7 @@ const JobTableRow = ({
             />
         </TableCell>
         <TableCell>
-            <Actions id={id} configurable={configurable} />
+            <Actions id={id} enabled={enabled} configurable={configurable} />
         </TableCell>
     </TableRow>
 )

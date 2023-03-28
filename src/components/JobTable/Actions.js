@@ -7,7 +7,7 @@ import ViewJobAction from './ViewJobAction'
 import RunJobAction from './RunJobAction'
 import DeleteJobAction from './DeleteJobAction'
 
-const Actions = ({ id, configurable }) => (
+const Actions = ({ id, configurable, enabled }) => (
     <DropdownButton
         small
         component={
@@ -17,7 +17,7 @@ const Actions = ({ id, configurable }) => (
                 ) : (
                     <ViewJobAction id={id} />
                 )}
-                {configurable && <RunJobAction id={id} />}
+                {configurable && <RunJobAction enabled={enabled} id={id} />}
                 {configurable && <DeleteJobAction id={id} />}
             </FlyoutMenu>
         }
@@ -35,6 +35,7 @@ const { string, bool } = PropTypes
 Actions.propTypes = {
     id: string.isRequired,
     configurable: bool,
+    enabled: bool,
 }
 
 export default Actions

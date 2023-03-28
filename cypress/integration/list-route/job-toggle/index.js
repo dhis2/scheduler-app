@@ -1,45 +1,17 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
-/**
- * Currently cypress can't override earlier defined intercepts. This
- * is a known bug. The code below is a temporary fix that can be
- * removed once cypress has resolved the issue.
- *
- * https://github.com/cypress-io/cypress/issues/9302
- */
-
 Given('a disabled user job exists', () => {
-    const responses = []
-
-    cy.fixture('list-route/disabled-user-job').then((fixture) => {
-        responses.push(fixture)
-    })
-
-    cy.fixture('list-route/enabled-user-job').then((fixture) => {
-        responses.push(fixture)
-    })
-
-    cy.intercept({ pathname: /jobConfigurations$/ }, (req) => {
-        const fixture = responses.shift()
-        req.reply(200, fixture)
-    })
+    cy.intercept(
+        { pathname: /scheduler$/ },
+        { fixture: 'list-route/disabled-user-job' }
+    )
 })
 
 Given('an enabled user job exists', () => {
-    const responses = []
-
-    cy.fixture('list-route/enabled-user-job').then((fixture) => {
-        responses.push(fixture)
-    })
-
-    cy.fixture('list-route/disabled-user-job').then((fixture) => {
-        responses.push(fixture)
-    })
-
-    cy.intercept({ pathname: /jobConfigurations$/ }, (req) => {
-        const fixture = responses.shift()
-        req.reply(200, fixture)
-    })
+    cy.intercept(
+        { pathname: /scheduler$/ },
+        { fixture: 'list-route/enabled-user-job' }
+    )
 })
 
 Given('the user navigated to the job list page', () => {
@@ -51,8 +23,22 @@ Given('the job toggle switch is off', () => {
     cy.findByRole('switch', { name: 'Toggle job' }).should('not.be.checked')
 })
 
-When('the user clicks the job toggle switch', () => {
+When('the user clicks the enabled job toggle switch', () => {
     cy.intercept({ pathname: /lnWRZN67iDU$/ }, { statusCode: 204 })
+    cy.intercept(
+        { pathname: /scheduler$/ },
+        { fixture: 'list-route/disabled-user-job' }
+    )
+
+    cy.findByRole('switch', { name: 'Toggle job' }).click()
+})
+
+When('the user clicks the disabled job toggle switch', () => {
+    cy.intercept({ pathname: /lnWRZN67iDU$/ }, { statusCode: 204 })
+    cy.intercept(
+        { pathname: /scheduler$/ },
+        { fixture: 'list-route/enabled-user-job' }
+    )
 
     cy.findByRole('switch', { name: 'Toggle job' }).click()
 })
