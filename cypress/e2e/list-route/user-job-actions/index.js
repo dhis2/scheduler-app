@@ -2,8 +2,13 @@ import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 Given('a single user job exists', () => {
     cy.intercept(
-        { pathname: /jobConfigurations$/ },
+        { pathname: /scheduler$/ },
         { fixture: 'list-route/single-user-job' }
+    )
+
+    cy.intercept(
+        { pathname: /jobConfigurations$/ },
+        { fixture: 'list-route/single-user-job-job-configurations' }
     )
 })
 

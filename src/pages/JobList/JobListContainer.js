@@ -23,9 +23,20 @@ const JobListContainer = () => {
         throw error
     }
 
+    // Filter jobs by the current jobFilter
+    const applyJobFilter = (job) =>
+        job.name.toLowerCase().includes(jobFilter.toLowerCase())
+
+    // Filter jobs depending on the current showSystemJobs
+    const applyShowSystemJobs = (job) =>
+        // Jobs that are configurable are user jobs
+        showSystemJobs ? true : job.configurable
+
+    const jobs = data.filter(applyJobFilter).filter(applyShowSystemJobs)
+
     return (
         <JobList
-            jobs={data}
+            jobs={jobs}
             showSystemJobs={showSystemJobs}
             setShowSystemJobs={setShowSystemJobs}
             jobFilter={jobFilter}

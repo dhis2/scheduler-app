@@ -3,7 +3,7 @@ import { PropTypes } from '@dhis2/prop-types'
 import { useDataMutation } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import { Switch } from '@dhis2/ui'
-import { hooks } from '../Store'
+import { useJobSchedules } from '../../hooks/job-schedule'
 
 /* istanbul ignore next */
 const mutation = {
@@ -16,7 +16,7 @@ const mutation = {
 
 const ToggleJobSwitch = ({ id, checked, disabled }) => {
     const [toggleJob, { loading }] = useDataMutation(mutation)
-    const refetchJobs = hooks.useRefetchJobs()
+    const { refetch } = useJobSchedules()
     const enabled = !checked
 
     return (
@@ -25,7 +25,7 @@ const ToggleJobSwitch = ({ id, checked, disabled }) => {
             disabled={disabled || loading}
             checked={checked}
             onChange={() => {
-                toggleJob({ id, enabled }).then(() => refetchJobs())
+                toggleJob({ id, enabled }).then(refetch)
             }}
             ariaLabel={i18n.t('Toggle job')}
         />
