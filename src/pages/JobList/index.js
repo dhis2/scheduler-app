@@ -1,3 +1,3 @@
-import JobListContainer from './JobListContainer'
+import JobList from './JobList'
 
-export { JobListContainer }
+export default JobList
