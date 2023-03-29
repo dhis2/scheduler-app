@@ -1,11 +1,15 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
 import { useDataMutation } from '@dhis2/app-runtime'
-import { StoreContext } from '../Store'
+import { useJobSchedules } from '../../hooks/job-schedule'
 import ToggleJobSwitch from './ToggleJobSwitch'
 
 jest.mock('@dhis2/app-runtime', () => ({
-    useDataMutation: jest.fn(),
+    useDataMutation: jest.fn(() => [() => {}, {}]),
+}))
+
+jest.mock('../../hooks/job-schedule', () => ({
+    useJobSchedules: jest.fn(() => ({ refetch: () => {} })),
 }))
 
 afterEach(() => {
@@ -14,8 +18,6 @@ afterEach(() => {
 
 describe('<ToggleJobSwitch>', () => {
     it('renders without errors', () => {
-        useDataMutation.mockImplementation(() => [() => {}, {}])
-
         shallow(<ToggleJobSwitch id="1" checked={true} disabled={false} />)
     })
 
@@ -31,12 +33,9 @@ describe('<ToggleJobSwitch>', () => {
         }
 
         useDataMutation.mockImplementation(() => [toggleJobSpy, {}])
+        useJobSchedules.mockImplementation(() => ({ refetch: refetchSpy }))
 
-        const wrapper = mount(
-            <StoreContext.Provider value={{ refetchJobs: refetchSpy }}>
-                <ToggleJobSwitch {...props} />
-            </StoreContext.Provider>
-        )
+        const wrapper = mount(<ToggleJobSwitch {...props} />)
 
         wrapper
             .find('input')
