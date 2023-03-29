@@ -1,3 +1,3 @@
 import JobView from './JobView'
 
-export { JobView }
+export default JobView
