@@ -9,6 +9,7 @@ const query = {
                 'created',
                 'cronExpression',
                 'id',
+                'jobParameters',
                 'jobType',
                 'lastExecuted',
                 'lastExecutedStatus',

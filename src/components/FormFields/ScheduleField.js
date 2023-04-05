@@ -7,8 +7,12 @@ import DelayField from './DelayField'
 const ScheduleField = ({ jobType }) => {
     const { loading, error, data } = useJobType(jobType)
 
-    if (loading || error) {
+    if (loading) {
         return null
+    }
+
+    if (error) {
+        throw error
     }
 
     const { schedulingType } = data

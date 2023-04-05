@@ -5,16 +5,16 @@ const useJobType = (jobType) => {
 
     // Select requested job type when there is data
     if (fetch.data) {
-        const hasJobType = jobType in fetch.data
+        const requestedJobType = fetch.data.find(
+            (currentJobType) => currentJobType.jobType === jobType
+        )
 
-        if (!hasJobType) {
+        if (!requestedJobType) {
             const error = new Error('Job type could not be found')
             return { ...fetch, error }
         }
 
-        const data = fetch.data[jobType]
-
-        return { ...fetch, data }
+        return { ...fetch, data: requestedJobType }
     }
 
     return fetch

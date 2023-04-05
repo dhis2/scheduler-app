@@ -39,14 +39,22 @@ const getCustomComponent = (jobType, parameterName) => {
 
 // Renders all parameters for a given jobtype
 const ParameterFields = ({ jobType }) => {
-    const parameters = useJobTypeParameters(jobType)
+    const { loading, error, data } = useJobTypeParameters(jobType)
 
-    if (parameters.length === 0) {
+    if (loading) {
+        return null
+    }
+
+    if (error) {
+        throw error
+    }
+
+    if (data.length === 0) {
         return null
     }
 
     // Map all parameters to the appropriate field types
-    const parameterComponents = parameters.map(
+    const parameterComponents = data.map(
         ({ fieldName, name, klass, ...rest }) => {
             const defaultProps = {
                 label: fieldName,
