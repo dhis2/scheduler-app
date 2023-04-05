@@ -21,9 +21,12 @@ describe('useParameterOption', () => {
             <CustomDataProvider data={data}>{children}</CustomDataProvider>
         )
 
-        const { result, waitFor } = renderHook(() => useParameterOption(parameter), {
-            wrapper,
-        })
+        const { result, waitFor } = renderHook(
+            () => useParameterOption(parameter),
+            {
+                wrapper,
+            }
+        )
 
         waitFor(() => {
             expect(result.current).toMatchObject({
