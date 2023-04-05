@@ -3,11 +3,11 @@ import { PropTypes } from '@dhis2/prop-types'
 import { MenuItem } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
 import { DeleteJobModal } from '../Modal'
-import { hooks } from '../Store'
+import { useJobSchedules } from '../../hooks/job-schedules'
 
 const DeleteJobAction = ({ id }) => {
     const [showModal, setShowModal] = useState(false)
-    const refetchJobs = hooks.useRefetchJobs()
+    const { refetch } = useJobSchedules()
 
     return (
         <React.Fragment>
@@ -26,7 +26,7 @@ const DeleteJobAction = ({ id }) => {
                         /* istanbul ignore next */
                         () => setShowModal(false)
                     }
-                    onSuccess={refetchJobs}
+                    onSuccess={refetch}
                 />
             )}
         </React.Fragment>

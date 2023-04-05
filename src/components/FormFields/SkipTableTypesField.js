@@ -2,15 +2,19 @@ import React from 'react'
 import { PropTypes } from '@dhis2/prop-types'
 import i18n from '@dhis2/d2-i18n'
 import { MultiSelectField, ReactFinalForm, MultiSelectFieldFF } from '@dhis2/ui'
-import { hooks } from '../Store'
 import { analyticsTableTypes } from '../../services/server-translations'
+import { useParameterOption } from '../../hooks/parameter-options'
 
 const { Field } = ReactFinalForm
 
 const SkipTableTypesField = ({ label, name, parameterName }) => {
-    const options = hooks.useParameterOptions(parameterName)
+    const { loading, error, data } = useParameterOption(parameterName)
 
-    if (options.length === 0) {
+    if (loading || error) {
+        return null
+    }
+
+    if (data.length === 0) {
         return (
             <MultiSelectField
                 disabled
@@ -20,7 +24,7 @@ const SkipTableTypesField = ({ label, name, parameterName }) => {
         )
     }
 
-    const translatedOptions = options.map((option) => ({
+    const translatedOptions = data.map((option) => ({
         value: option,
         label: analyticsTableTypes[option] || option,
     }))

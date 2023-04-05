@@ -7,8 +7,8 @@ import {
     string,
 } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
-import { hooks } from '../Store'
 import { jobTypesMap } from '../../services/server-translations'
+import { useJobTypes } from '../../hooks/job-types'
 
 const { Field } = ReactFinalForm
 
@@ -17,8 +17,13 @@ export const FIELD_NAME = 'jobType'
 const VALIDATOR = composeValidators(string, hasValue)
 
 const JobTypeField = () => {
-    const jobTypes = hooks.useAllJobTypes()
-    const options = jobTypes
+    const { loading, error, data } = useJobTypes()
+
+    if (loading || error) {
+        return null
+    }
+
+    const options = data
         .map(({ jobType }) => ({
             value: jobType,
             label: jobTypesMap[jobType],

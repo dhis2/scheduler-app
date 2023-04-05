@@ -11,7 +11,7 @@ import {
     Help,
 } from '@dhis2/ui'
 import cx from 'classnames'
-import { hooks } from '../Store'
+import { useParameterOption } from '../../hooks/parameter-options'
 import { severityMap } from '../../services/server-translations/dataIntegrityChecks'
 import styles from './DataIntegrityChecksField.module.css'
 
@@ -30,7 +30,7 @@ const VALIDATOR = (value) => {
 }
 
 const DataIntegrityChecksField = ({ label, name }) => {
-    const options = hooks.useParameterOptions('dataIntegrityChecks')
+    const { loading, error, data } = useParameterOption('dataIntegrityChecks')
     const {
         input: { value, onChange },
     } = useField(name)
@@ -38,7 +38,11 @@ const DataIntegrityChecksField = ({ label, name }) => {
     const hasValue = !!value && value.length > 0
     const [runSelected, setRunSelected] = useState(hasValue)
 
-    const translatedOptions = options
+    if (loading || error) {
+        return null
+    }
+
+    const translatedOptions = data
         .map((option) => ({
             ...option,
             value: option.name,

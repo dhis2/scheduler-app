@@ -9,8 +9,8 @@ import {
     IconInfo16,
 } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
-import { useJobSchedules } from '../../hooks/job-schedule'
-import { hooks } from '../../components/Store'
+import { useJobSchedules } from '../../hooks/job-schedules'
+import { useJobFilter, useShowSystemJobs } from '../../components/Store'
 import { JobTable } from '../../components/JobTable'
 import { LinkButton } from '../../components/LinkButton'
 import styles from './JobList.module.css'
@@ -19,8 +19,8 @@ const infoLink =
     'https://docs.dhis2.org/en/use/user-guides/dhis-core-version-236/maintaining-the-system/scheduling.html'
 
 const JobList = () => {
-    const [jobFilter, setJobFilter] = hooks.useJobFilter()
-    const [showSystemJobs, setShowSystemJobs] = hooks.useShowSystemJobs()
+    const [jobFilter, setJobFilter] = useJobFilter()
+    const [showSystemJobs, setShowSystemJobs] = useShowSystemJobs()
     const { data, loading, error } = useJobSchedules()
 
     if (loading) {
