@@ -2,7 +2,7 @@ import React from 'react'
 import i18n from '@dhis2/d2-i18n'
 import { PropTypes } from '@dhis2/prop-types'
 import { ReactFinalForm, InputFieldFF, Box, SwitchFieldFF } from '@dhis2/ui'
-import { hooks } from '../Store'
+import { useJobTypeParameters } from '../../hooks/job-types'
 import { formatToString } from './formatters'
 import SkipTableTypesField from './SkipTableTypesField'
 import LabeledOptionsField from './LabeledOptionsField'
@@ -39,7 +39,7 @@ const getCustomComponent = (jobType, parameterName) => {
 
 // Renders all parameters for a given jobtype
 const ParameterFields = ({ jobType }) => {
-    const parameters = hooks.useJobTypeParameters(jobType)
+    const parameters = useJobTypeParameters(jobType)
 
     if (parameters.length === 0) {
         return null

@@ -3,7 +3,7 @@ import { PropTypes } from '@dhis2/prop-types'
 import { useDataMutation } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import { Switch } from '@dhis2/ui'
-import { useJobSchedules } from '../../hooks/job-schedule'
+import { useJobSchedules } from '../../hooks/job-schedules'
 
 /* istanbul ignore next */
 const mutation = {

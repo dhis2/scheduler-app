@@ -79,7 +79,10 @@ const JobEdit = () => {
                         lastExecuted={lastExecuted}
                     />
                 </div>
-                <JobEditFormContainer setIsPristine={setIsPristine} />
+                <JobEditFormContainer
+                    job={data}
+                    setIsPristine={setIsPristine}
+                />
             </Card>
         </React.Fragment>
     )
