@@ -3,7 +3,7 @@ import useJobTypes from './use-job-types'
 const useJobType = (jobType) => {
     const fetch = useJobTypes()
 
-    // Select requested job type when there is data
+    // Return requested job type when there is data
     if (fetch.data) {
         const requestedJobType = fetch.data.find(
             (currentJobType) => currentJobType.jobType === jobType
