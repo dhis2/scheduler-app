@@ -13,9 +13,12 @@ describe('useJobTypeParameters', () => {
             <CustomDataProvider data={data}>{children}</CustomDataProvider>
         )
 
-        const { result, waitFor } = renderHook(() => useJobTypeParameters(jobType), {
-            wrapper,
-        })
+        const { result, waitFor } = renderHook(
+            () => useJobTypeParameters(jobType),
+            {
+                wrapper,
+            }
+        )
 
         waitFor(() => {
             expect(result.current).toMatchObject({
