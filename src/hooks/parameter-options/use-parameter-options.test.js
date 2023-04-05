@@ -1,17 +1,25 @@
 import React from 'react'
 import { renderHook } from '@testing-library/react-hooks'
 import { CustomDataProvider } from '@dhis2/app-runtime'
-import useJobSchedules from './use-job-schedules'
+import useParameterOptions from './use-parameter-options'
 
-describe('useJobSchedules', () => {
-    it('should return the expected data', () => {
-        const job = { sequence: [{ id: 'id' }] }
-        const data = { scheduler: [job] }
+describe('useParameterOptions', () => {
+    it('should return the expected data without nesting', () => {
+        const data = {
+            skipTableTypes: 'skipTableTypes',
+            validationRuleGroups: {
+                validationRuleGroups: 'validationRuleGroups',
+            },
+            pushAnalysis: { pushAnalysis: 'pushAnalysis' },
+            predictors: { predictors: 'predictors' },
+            predictorGroups: { predictorGroups: 'predictorGroups' },
+            dataIntegrityChecks: 'dataIntegrityChecks',
+        }
         const wrapper = ({ children }) => (
             <CustomDataProvider data={data}>{children}</CustomDataProvider>
         )
 
-        const { result, waitFor } = renderHook(() => useJobSchedules(), {
+        const { result, waitFor } = renderHook(() => useParameterOptions(), {
             wrapper,
         })
 
@@ -19,7 +27,14 @@ describe('useJobSchedules', () => {
             expect(result.current).toMatchObject({
                 loading: false,
                 error: undefined,
-                data: [{ id: 'id', sequence: [{ id: 'id' }] }],
+                data: {
+                    skipTableTypes: 'skipTableTypes',
+                    validationRuleGroups: 'validationRuleGroups',
+                    pushAnalysis: 'pushAnalysis',
+                    predictors: 'predictors',
+                    predictorGroups: 'predictorGroups',
+                    dataIntegrityChecks: 'dataIntegrityChecks',
+                },
             })
         })
     })
