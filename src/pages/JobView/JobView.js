@@ -1,9 +1,6 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import {
-    CircularLoader,
-    Layer,
-    CenteredContent,
     Card,
     IconInfo16,
     Box,
@@ -17,6 +14,7 @@ import { JobDetails } from '../../components/JobDetails'
 import { useJobById } from '../../hooks/jobs'
 import translateCron from '../../services/translate-cron'
 import { jobTypesMap } from '../../services/server-translations'
+import { Spinner } from '../../components/Spinner'
 import styles from './JobView.module.css'
 
 const infoLink =
@@ -27,13 +25,7 @@ const JobView = () => {
     const { data, loading, error } = useJobById(id)
 
     if (loading) {
-        return (
-            <Layer>
-                <CenteredContent>
-                    <CircularLoader />
-                </CenteredContent>
-            </Layer>
-        )
+        return <Spinner />
     }
 
     if (error) {

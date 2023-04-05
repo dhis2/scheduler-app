@@ -1,17 +1,12 @@
 import React, { useState } from 'react'
-import {
-    CircularLoader,
-    Layer,
-    CenteredContent,
-    Card,
-    IconInfo16,
-} from '@dhis2/ui'
+import { Card, IconInfo16 } from '@dhis2/ui'
 import { useParams } from 'react-router-dom'
 import i18n from '@dhis2/d2-i18n'
 import { useJobById } from '../../hooks/jobs'
 import { DiscardFormButton } from '../../components/Buttons'
 import { JobEditFormContainer } from '../../components/Forms'
 import { JobDetails } from '../../components/JobDetails'
+import { Spinner } from '../../components/Spinner'
 import styles from './JobEdit.module.css'
 
 const infoLink =
@@ -23,13 +18,7 @@ const JobEdit = () => {
     const { data, loading, error } = useJobById(id)
 
     if (loading) {
-        return (
-            <Layer>
-                <CenteredContent>
-                    <CircularLoader />
-                </CenteredContent>
-            </Layer>
-        )
+        return <Spinner />
     }
 
     if (error) {
