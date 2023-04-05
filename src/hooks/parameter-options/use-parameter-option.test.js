@@ -1,17 +1,27 @@
 import React from 'react'
 import { renderHook } from '@testing-library/react-hooks'
 import { CustomDataProvider } from '@dhis2/app-runtime'
-import useJobSchedules from './use-job-schedules'
+import useParameterOption from './use-parameter-option'
 
-describe('useJobSchedules', () => {
-    it('should return the expected data', () => {
-        const job = { sequence: [{ id: 'id' }] }
-        const data = { scheduler: [job] }
+describe('useParameterOption', () => {
+    it('should return the requested parameter option', () => {
+        const parameter = 'validationRuleGroups'
+        const expected = 'expected'
+        const data = {
+            skipTableTypes: 'skipTableTypes',
+            validationRuleGroups: {
+                validationRuleGroups: expected,
+            },
+            pushAnalysis: { pushAnalysis: 'pushAnalysis' },
+            predictors: { predictors: 'predictors' },
+            predictorGroups: { predictorGroups: 'predictorGroups' },
+            dataIntegrityChecks: 'dataIntegrityChecks',
+        }
         const wrapper = ({ children }) => (
             <CustomDataProvider data={data}>{children}</CustomDataProvider>
         )
 
-        const { result, waitFor } = renderHook(() => useJobSchedules(), {
+        const { result, waitFor } = renderHook(() => useParameterOption(parameter), {
             wrapper,
         })
 
@@ -19,7 +29,7 @@ describe('useJobSchedules', () => {
             expect(result.current).toMatchObject({
                 loading: false,
                 error: undefined,
-                data: [{ id: 'id', sequence: [{ id: 'id' }] }],
+                data: expected,
             })
         })
     })

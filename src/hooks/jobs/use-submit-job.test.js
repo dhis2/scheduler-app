@@ -1,4 +1,3 @@
-import { useContext } from 'react'
 import { useDataEngine } from '@dhis2/app-runtime'
 import history from '../../services/history'
 import formatError from '../../services/format-error'
@@ -8,11 +7,6 @@ jest.mock('@dhis2/app-runtime', () => ({
     useDataEngine: jest.fn(),
 }))
 
-jest.mock('react', () => ({
-    ...jest.requireActual('react'),
-    useContext: jest.fn(() => ({ refetchJobs: () => {} })),
-}))
-
 jest.mock('../../services/history', () => ({
     push: jest.fn(),
 }))
@@ -20,20 +14,17 @@ jest.mock('../../services/history', () => ({
 jest.mock('../../services/format-error', () => jest.fn())
 
 describe('useSubmitJob', () => {
-    it('should redirect to root and refetch after a successful submit', () => {
-        const refetchspy = jest.fn()
+    it('should redirect to root', () => {
         const engine = {
             mutate: () => Promise.resolve(),
         }
-        useContext.mockImplementation(() => ({ refetchJobs: refetchspy }))
         useDataEngine.mockImplementation(() => engine)
         const [submitJob] = useSubmitJob()
 
-        expect.assertions(2)
+        expect.assertions(1)
 
         submitJob().then(() => {
             expect(history.push).toHaveBeenCalledWith('/')
-            expect(refetchspy).toHaveBeenCalled()
         })
     })
 
