@@ -1,14 +1,14 @@
 import React from 'react'
 import { mount } from 'enzyme'
 import { ReactFinalForm } from '@dhis2/ui'
-import { StoreContext } from '../Store'
+import { useJobType } from '../../hooks/job-types'
 import ScheduleField from './ScheduleField'
 
 const { Form } = ReactFinalForm
 
-// Mock these components to simplify this test
-jest.mock('./CronField', () => () => <div>CronField</div>)
-jest.mock('./DelayField', () => () => <div>DelayField</div>)
+jest.mock('../../hooks/job-types', () => ({
+    useJobType: jest.fn(),
+}))
 
 afterEach(() => {
     jest.resetAllMocks()
@@ -19,84 +19,71 @@ describe('<ScheduleField>', () => {
         const props = {
             jobType: 'one',
         }
-        const store = {
-            jobTypes: [
-                {
-                    jobType: 'one',
-                    schedulingType: 'CRON',
-                },
-            ],
-        }
+        useJobType.mockImplementation(() => ({
+            loading: false,
+            error: undefined,
+            data: {
+                schedulingType: 'CRON',
+            },
+        }))
         const wrapper = mount(
-            <StoreContext.Provider value={store}>
-                <Form onSubmit={() => {}}>
-                    {() => (
-                        <form>
-                            <ScheduleField {...props} />
-                        </form>
-                    )}
-                </Form>
-            </StoreContext.Provider>
+            <Form onSubmit={() => {}}>
+                {() => (
+                    <form>
+                        <ScheduleField {...props} />
+                    </form>
+                )}
+            </Form>
         )
 
-        const actual = wrapper.text()
-
-        expect(actual).toEqual(expect.stringContaining('CronField'))
-        expect(actual).toEqual(expect.not.stringContaining('DelayField'))
+        const component = wrapper.find('CronField')
+        expect(component).toHaveLength(1)
     })
 
     it('renders the delay field if the scheduling type is FIXED_DELAY', () => {
         const props = {
             jobType: 'one',
         }
-        const store = {
-            jobTypes: [
-                {
-                    jobType: 'one',
-                    schedulingType: 'FIXED_DELAY',
-                },
-            ],
-        }
+        useJobType.mockImplementation(() => ({
+            loading: false,
+            error: undefined,
+            data: {
+                schedulingType: 'FIXED_DELAY',
+            },
+        }))
         const wrapper = mount(
-            <StoreContext.Provider value={store}>
-                <Form onSubmit={() => {}}>
-                    {() => (
-                        <form>
-                            <ScheduleField {...props} />
-                        </form>
-                    )}
-                </Form>
-            </StoreContext.Provider>
+            <Form onSubmit={() => {}}>
+                {() => (
+                    <form>
+                        <ScheduleField {...props} />
+                    </form>
+                )}
+            </Form>
         )
 
-        const actual = wrapper.text()
-
-        expect(actual).toEqual(expect.stringContaining('DelayField'))
-        expect(actual).toEqual(expect.not.stringContaining('CronField'))
+        const component = wrapper.find('DelayField')
+        expect(component).toHaveLength(1)
     })
 
     it('returns null for unrecognised scheduling types', () => {
         const props = {
             jobType: 'one',
         }
-        const store = {
-            jobTypes: [
-                {
-                    jobType: 'one',
-                    schedulingType: 'RANDOM',
-                },
-            ],
-        }
+        useJobType.mockImplementation(() => ({
+            loading: false,
+            error: undefined,
+            data: {
+                schedulingType: 'DOES_NOT_EXIST',
+            },
+        }))
         const wrapper = mount(
-            <StoreContext.Provider value={store}>
-                <Form onSubmit={() => {}}>
-                    {() => (
-                        <form>
-                            <ScheduleField {...props} />
-                        </form>
-                    )}
-                </Form>
-            </StoreContext.Provider>
+            <Form onSubmit={() => {}}>
+                {() => (
+                    <form>
+                        <ScheduleField {...props} />
+                    </form>
+                )}
+            </Form>
         )
 
         const children = wrapper.find('form').children()
