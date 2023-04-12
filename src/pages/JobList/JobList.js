@@ -14,7 +14,7 @@ const infoLink =
 const JobList = () => {
     const [jobFilter, setJobFilter] = useJobFilter()
     const [showSystemJobs, setShowSystemJobs] = useShowSystemJobs()
-    const { data, loading, error } = useJobSchedules()
+    const { data, loading, error, refetch } = useJobSchedules()
 
     if (loading) {
         return <Spinner />
@@ -78,7 +78,7 @@ const JobList = () => {
                         <LinkButton to="/add">{i18n.t('New job')}</LinkButton>
                     </div>
                 </div>
-                <JobTable jobs={jobs} />
+                <JobTable jobs={jobs} refetch={refetch} />
             </Card>
         </React.Fragment>
     )

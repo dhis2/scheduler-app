@@ -7,7 +7,7 @@ import ViewJobAction from './ViewJobAction'
 import RunJobAction from './RunJobAction'
 import DeleteJobAction from './DeleteJobAction'
 
-const Actions = ({ id, configurable, enabled }) => (
+const Actions = ({ id, configurable, enabled, refetch }) => (
     <DropdownButton
         small
         component={
@@ -17,7 +17,9 @@ const Actions = ({ id, configurable, enabled }) => (
                 ) : (
                     <ViewJobAction id={id} />
                 )}
-                {configurable && <RunJobAction enabled={enabled} id={id} />}
+                {configurable && (
+                    <RunJobAction enabled={enabled} id={id} refetch={refetch} />
+                )}
                 {configurable && <DeleteJobAction id={id} />}
             </FlyoutMenu>
         }
@@ -30,10 +32,11 @@ Actions.defaultProps = {
     configurable: false,
 }
 
-const { string, bool } = PropTypes
+const { string, bool, func } = PropTypes
 
 Actions.propTypes = {
     id: string.isRequired,
+    refetch: func.isRequired,
     configurable: bool,
     enabled: bool,
 }

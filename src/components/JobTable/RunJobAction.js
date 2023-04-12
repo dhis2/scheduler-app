@@ -4,7 +4,7 @@ import { MenuItem } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
 import { RunJobModal } from '../Modal'
 
-const RunJobAction = ({ id, enabled }) => {
+const RunJobAction = ({ id, enabled, refetch }) => {
     const [showModal, setShowModal] = useState(false)
 
     return (
@@ -24,16 +24,18 @@ const RunJobAction = ({ id, enabled }) => {
                         /* istanbul ignore next */
                         () => setShowModal(false)
                     }
+                    refetch={refetch}
                 />
             )}
         </React.Fragment>
     )
 }
 
-const { string, bool } = PropTypes
+const { string, bool, func } = PropTypes
 
 RunJobAction.propTypes = {
     id: string.isRequired,
+    refetch: func.isRequired,
     enabled: bool,
 }
 
