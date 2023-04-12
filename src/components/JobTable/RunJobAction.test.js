@@ -4,7 +4,9 @@ import RunJobAction from './RunJobAction'
 
 describe('<RunJobAction>', () => {
     it('shows the modal when MenuItem is clicked and the job is enabled', () => {
-        const wrapper = mount(<RunJobAction id="id" enabled />)
+        const wrapper = mount(
+            <RunJobAction id="id" enabled refetch={() => {}} />
+        )
 
         expect(wrapper.find('RunJobModal')).toHaveLength(0)
         wrapper.find('a').simulate('click')
@@ -12,7 +14,7 @@ describe('<RunJobAction>', () => {
     })
 
     it('does not show the modal when MenuItem is clicked and the job is disabled', () => {
-        const wrapper = mount(<RunJobAction id="id" />)
+        const wrapper = mount(<RunJobAction id="id" refetch={() => {}} />)
 
         expect(wrapper.find('RunJobModal')).toHaveLength(0)
         wrapper.find('a').simulate('click')
