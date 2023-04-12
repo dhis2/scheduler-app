@@ -25,7 +25,7 @@ describe('<JobTableRow>', () => {
             ],
         }
 
-        shallow(<JobTableRow job={job} />)
+        shallow(<JobTableRow job={job} refetch={() => {}} />)
     })
 
     it('renders fixed delay jobs without errors', () => {
@@ -50,6 +50,6 @@ describe('<JobTableRow>', () => {
             ],
         }
 
-        shallow(<JobTableRow job={job} />)
+        shallow(<JobTableRow job={job} refetch={() => {}} />)
     })
 })
