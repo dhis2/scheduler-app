@@ -1,7 +1,6 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
 import { useDataMutation } from '@dhis2/app-runtime'
-import { StoreContext } from '../Store'
 import RunJobModal from './RunJobModal'
 
 jest.mock('@dhis2/app-runtime', () => ({
@@ -22,6 +21,7 @@ describe('<RunJobModal>', () => {
         const props = {
             id: 'id',
             hideModal: () => {},
+            refetch: () => {},
         }
 
         shallow(<RunJobModal {...props} />)
@@ -36,6 +36,7 @@ describe('<RunJobModal>', () => {
         const props = {
             id: 'id',
             hideModal: jest.fn(),
+            refetch: () => {},
         }
         const wrapper = mount(<RunJobModal {...props} />)
 
@@ -53,6 +54,7 @@ describe('<RunJobModal>', () => {
         const props = {
             id: 'id',
             hideModal: jest.fn(),
+            refetch: () => {},
         }
         const wrapper = mount(<RunJobModal {...props} />)
 
@@ -75,12 +77,9 @@ describe('<RunJobModal>', () => {
         const props = {
             id: 'id',
             hideModal: hideModalSpy,
+            refetch: refetchSpy,
         }
-        const wrapper = mount(
-            <StoreContext.Provider value={{ refetchJobs: refetchSpy }}>
-                <RunJobModal {...props} />
-            </StoreContext.Provider>
-        )
+        const wrapper = mount(<RunJobModal {...props} />)
 
         wrapper
             .find('button')

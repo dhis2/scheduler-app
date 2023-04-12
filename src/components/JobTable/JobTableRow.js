@@ -20,6 +20,7 @@ const JobTableRow = ({
         enabled,
         configurable,
     },
+    refetch,
 }) => (
     <TableRow>
         <TableCell role="rowheader">{name}</TableCell>
@@ -41,12 +42,17 @@ const JobTableRow = ({
             />
         </TableCell>
         <TableCell>
-            <Actions id={id} enabled={enabled} configurable={configurable} />
+            <Actions
+                id={id}
+                enabled={enabled}
+                configurable={configurable}
+                refetch={refetch}
+            />
         </TableCell>
     </TableRow>
 )
 
-const { shape, string, bool, number } = PropTypes
+const { shape, string, bool, number, func } = PropTypes
 
 JobTableRow.propTypes = {
     job: shape({
@@ -59,6 +65,7 @@ JobTableRow.propTypes = {
         delay: number,
         nextExecutionTime: string,
     }).isRequired,
+    refetch: func.isRequired,
 }
 
 export default JobTableRow

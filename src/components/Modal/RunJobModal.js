@@ -10,14 +10,12 @@ import {
     NoticeBox,
 } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
-import { useJobSchedules } from '../../hooks/job-schedules'
 
-const RunJobModal = ({ id, hideModal }) => {
+const RunJobModal = ({ id, hideModal, refetch }) => {
     const [mutation] = useState({
         resource: `jobConfigurations/${id}/execute`,
         type: 'create',
     })
-    const { refetch } = useJobSchedules()
     const [runJob, { loading, error }] = useDataMutation(mutation, {
         onComplete: () => {
             hideModal()
@@ -64,6 +62,7 @@ const { func, string } = PropTypes
 RunJobModal.propTypes = {
     hideModal: func.isRequired,
     id: string.isRequired,
+    refetch: func.isRequired,
 }
 
 export default RunJobModal
