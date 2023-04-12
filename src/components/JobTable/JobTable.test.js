@@ -27,12 +27,12 @@ describe('<JobTable>', () => {
             },
         ]
 
-        shallow(<JobTable jobs={jobs} />)
+        shallow(<JobTable jobs={jobs} refetch={() => {}} />)
     })
 
     it('renders without errors when there are no jobs', () => {
         const jobs = []
 
-        shallow(<JobTable jobs={jobs} />)
+        shallow(<JobTable jobs={jobs} refetch={() => {}} />)
     })
 })
