@@ -3,11 +3,9 @@ import { PropTypes } from '@dhis2/prop-types'
 import { MenuItem } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
 import { DeleteJobModal } from '../Modal'
-import { useJobSchedules } from '../../hooks/job-schedules'
 
-const DeleteJobAction = ({ id }) => {
+const DeleteJobAction = ({ id, refetch }) => {
     const [showModal, setShowModal] = useState(false)
-    const { refetch } = useJobSchedules()
 
     return (
         <React.Fragment>
@@ -33,10 +31,11 @@ const DeleteJobAction = ({ id }) => {
     )
 }
 
-const { string } = PropTypes
+const { string, func } = PropTypes
 
 DeleteJobAction.propTypes = {
     id: string.isRequired,
+    refetch: func.isRequired,
 }
 
 export default DeleteJobAction

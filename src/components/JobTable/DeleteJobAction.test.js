@@ -4,11 +4,11 @@ import DeleteJobAction from './DeleteJobAction'
 
 describe('<DeleteJobAction>', () => {
     it('renders without errors', () => {
-        shallow(<DeleteJobAction id="id" />)
+        shallow(<DeleteJobAction id="id" refetch={() => {}} />)
     })
 
     it('shows the modal when MenuItem is clicked', () => {
-        const wrapper = mount(<DeleteJobAction id="id" />)
+        const wrapper = mount(<DeleteJobAction id="id" refetch={() => {}} />)
 
         expect(wrapper.find('DeleteJobModal')).toHaveLength(0)
 
