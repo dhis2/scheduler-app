@@ -1,6 +1,5 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { StoreContext } from '../Store'
 import JobEditFormContainer from './JobEditFormContainer'
 
 jest.mock('react-router-dom', () => ({
@@ -13,14 +12,8 @@ afterEach(() => {
 
 describe('<JobEditFormContainer>', () => {
     it('renders without errors', () => {
-        const store = {
-            jobs: { id: 'id' },
-        }
+        const job = { id: 'id' }
 
-        shallow(
-            <StoreContext.Provider value={store}>
-                <JobEditFormContainer setIsPristine={() => {}} />
-            </StoreContext.Provider>
-        )
+        shallow(<JobEditFormContainer job={job} setIsPristine={() => {}} />)
     })
 })
