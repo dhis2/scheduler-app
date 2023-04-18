@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2023-03-27T09:30:49.194Z\n"
-"PO-Revision-Date: 2023-03-27T09:30:49.194Z\n"
+"POT-Creation-Date: 2023-04-18T13:02:25.022Z\n"
+"PO-Revision-Date: 2023-04-18T13:02:25.022Z\n"
 
 msgid "Not authorized"
 msgstr "Not authorized"
@@ -45,6 +45,9 @@ msgstr "CRON Expression"
 msgid "Please select checks to run."
 msgstr "Please select checks to run."
 
+msgid "Something went wrong whilst fetching options"
+msgstr "Something went wrong whilst fetching options"
+
 msgid "Checks to run"
 msgstr "Checks to run"
 
@@ -75,8 +78,23 @@ msgstr "Name"
 msgid "Job type"
 msgstr "Job type"
 
+msgid "Loading job types"
+msgstr "Loading job types"
+
+msgid "Something went wrong whilst loading job types"
+msgstr "Something went wrong whilst loading job types"
+
+msgid "Loading options"
+msgstr "Loading options"
+
+msgid "Something went wrong whilst loading options"
+msgstr "Something went wrong whilst loading options"
+
 msgid "No options available"
 msgstr "No options available"
+
+msgid "There was a problem fetching parameters"
+msgstr "There was a problem fetching parameters"
 
 msgid "Parameters"
 msgstr "Parameters"

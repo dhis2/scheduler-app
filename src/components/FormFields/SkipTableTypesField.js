@@ -9,17 +9,31 @@ const { Field } = ReactFinalForm
 
 const SkipTableTypesField = ({ label, name, parameterName }) => {
     const { loading, error, data } = useParameterOption(parameterName)
+    const disabledProps = { disabled: true, label }
 
-    if (loading || error) {
-        return null
+    if (loading) {
+        return (
+            <MultiSelectField
+                {...disabledProps}
+                helpText={i18n.t('Loading options')}
+            />
+        )
+    }
+
+    if (error) {
+        return (
+            <MultiSelectField
+                {...disabledProps}
+                helpText={i18n.t('Something went wrong whilst loading options')}
+            />
+        )
     }
 
     if (data.length === 0) {
         return (
             <MultiSelectField
-                disabled
+                {...disabledProps}
                 helpText={i18n.t('No options available')}
-                label={label}
             />
         )
     }

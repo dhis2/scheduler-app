@@ -1,4 +1,6 @@
 import React from 'react'
+import i18n from '@dhis2/d2-i18n'
+import { NoticeBox } from '@dhis2/ui'
 import { PropTypes } from '@dhis2/prop-types'
 import { useJobType } from '../../hooks/job-types'
 import CronField from './CronField'
@@ -12,7 +14,12 @@ const ScheduleField = ({ jobType }) => {
     }
 
     if (error) {
-        throw error
+        return (
+            <NoticeBox
+                error
+                title={i18n.t('There was a problem fetching parameters')}
+            />
+        )
     }
 
     const { schedulingType } = data
