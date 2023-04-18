@@ -2,6 +2,7 @@ import React from 'react'
 import {
     ReactFinalForm,
     SingleSelectFieldFF,
+    SingleSelectField,
     composeValidators,
     hasValue,
     string,
@@ -18,9 +19,27 @@ const VALIDATOR = composeValidators(string, hasValue)
 
 const JobTypeField = () => {
     const { loading, error, data } = useJobTypes()
+    const label = i18n.t('Job type')
+    const disabledProps = { disabled: true, label }
 
-    if (loading || error) {
-        return null
+    if (loading) {
+        return (
+            <SingleSelectField
+                {...disabledProps}
+                helpText={i18n.t('Loading job types')}
+            />
+        )
+    }
+
+    if (error) {
+        return (
+            <SingleSelectField
+                {...disabledProps}
+                helpText={i18n.t(
+                    'Something went wrong whilst loading job types'
+                )}
+            />
+        )
     }
 
     const options = data
@@ -37,7 +56,7 @@ const JobTypeField = () => {
             validate={VALIDATOR}
             component={SingleSelectFieldFF}
             options={options}
-            label={i18n.t('Job type')}
+            label={label}
             required
         />
     )
