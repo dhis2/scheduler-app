@@ -1,7 +1,13 @@
 import React from 'react'
 import i18n from '@dhis2/d2-i18n'
 import { PropTypes } from '@dhis2/prop-types'
-import { ReactFinalForm, InputFieldFF, Box, SwitchFieldFF } from '@dhis2/ui'
+import {
+    NoticeBox,
+    ReactFinalForm,
+    InputFieldFF,
+    Box,
+    SwitchFieldFF,
+} from '@dhis2/ui'
 import { useJobTypeParameters } from '../../hooks/job-types'
 import { formatToString } from './formatters'
 import SkipTableTypesField from './SkipTableTypesField'
@@ -46,7 +52,12 @@ const ParameterFields = ({ jobType }) => {
     }
 
     if (error) {
-        throw error
+        return (
+            <NoticeBox
+                error
+                title={i18n.t('There was a problem fetching parameters')}
+            />
+        )
     }
 
     if (data.length === 0) {

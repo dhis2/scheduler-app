@@ -3,6 +3,8 @@ import { PropTypes } from '@dhis2/prop-types'
 import i18n from '@dhis2/d2-i18n'
 import {
     FieldGroup,
+    CircularLoader,
+    NoticeBox,
     Radio,
     Transfer,
     TransferOption,
@@ -38,8 +40,17 @@ const DataIntegrityChecksField = ({ label, name }) => {
     const hasValue = !!value && value.length > 0
     const [runSelected, setRunSelected] = useState(hasValue)
 
-    if (loading || error) {
-        return null
+    if (loading) {
+        return <CircularLoader />
+    }
+
+    if (error) {
+        return (
+            <NoticeBox
+                error
+                title={i18n.t('Something went wrong whilst fetching options')}
+            />
+        )
     }
 
     const translatedOptions = data
