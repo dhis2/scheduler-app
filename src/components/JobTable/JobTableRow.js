@@ -39,6 +39,7 @@ const JobTableRow = ({
                 id={id}
                 checked={enabled}
                 disabled={!configurable}
+                refetch={refetch}
             />
         </TableCell>
         <TableCell>
