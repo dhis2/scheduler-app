@@ -4,7 +4,7 @@ const jobTypesMap = {
     ACCOUNT_EXPIRY_ALERT: i18n.t('Account expiry alert'),
     AGGREGATE_DATA_EXCHANGE: i18n.t('Exchange aggregate data'),
     ANALYTICS_TABLE: i18n.t('Analytics table'),
-    ANALYTICSTABLE_UPDATE: i18n.t('Analyticstable update'),
+    ANALYTICSTABLE_UPDATE: i18n.t('Analytics table update'),
     COMPLETE_DATA_SET_REGISTRATION_IMPORT: i18n.t(
         'Complete data set registration import'
     ),
@@ -14,8 +14,8 @@ const jobTypesMap = {
     DATA_SET_NOTIFICATION: i18n.t('Dataset notification'),
     DATA_STATISTICS: i18n.t('Data statistics'),
     DATA_SYNC: i18n.t('Data synchronization'),
-    DATAVALUE_IMPORT: i18n.t('Datavalue import'),
-    DATAVALUE_IMPORT_INTERNAL: i18n.t('Datavalue import internal'),
+    DATAVALUE_IMPORT: i18n.t('Data value import'),
+    DATAVALUE_IMPORT_INTERNAL: i18n.t('Data value import internal'),
     DISABLE_INACTIVE_USERS: i18n.t('Disable inactive users'),
     ENROLLMENT_IMPORT: i18n.t('Enrollment import'),
     EVENT_IMPORT: i18n.t('Event import'),
