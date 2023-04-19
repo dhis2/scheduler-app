@@ -1,3 +1,10 @@
+## [100.2.11](https://github.com/dhis2/scheduler-app/compare/v100.2.10...v100.2.11) (2023-04-19)
+
+
+### Bug Fixes
+
+* **translations:** add missing job types ([#493](https://github.com/dhis2/scheduler-app/issues/493)) ([77d416a](https://github.com/dhis2/scheduler-app/commit/77d416aa7984842aedf00ee82c72bf8b42f30e7e))
+
 ## [100.2.10](https://github.com/dhis2/scheduler-app/compare/v100.2.9...v100.2.10) (2023-03-01)
 
 
