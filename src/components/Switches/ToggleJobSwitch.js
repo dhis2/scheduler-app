@@ -3,7 +3,6 @@ import { PropTypes } from '@dhis2/prop-types'
 import { useDataMutation } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import { Switch } from '@dhis2/ui'
-import { useJobSchedules } from '../../hooks/job-schedules'
 
 /* istanbul ignore next */
 const mutation = {
@@ -14,9 +13,8 @@ const mutation = {
     data: ({ enabled }) => ({ enabled }),
 }
 
-const ToggleJobSwitch = ({ id, checked, disabled }) => {
+const ToggleJobSwitch = ({ id, checked, disabled, refetch }) => {
     const [toggleJob, { loading }] = useDataMutation(mutation)
-    const { refetch } = useJobSchedules()
     const enabled = !checked
 
     return (
@@ -32,12 +30,13 @@ const ToggleJobSwitch = ({ id, checked, disabled }) => {
     )
 }
 
-const { bool, string } = PropTypes
+const { bool, string, func } = PropTypes
 
 ToggleJobSwitch.propTypes = {
     checked: bool.isRequired,
     disabled: bool.isRequired,
     id: string.isRequired,
+    refetch: func.isRequired,
 }
 
 export default ToggleJobSwitch
