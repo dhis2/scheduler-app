@@ -11,9 +11,9 @@ const useJobSchedules = () => {
     const fetch = useDataQuery(query)
 
     // Remove nesting from data and move the id up
-    if (fetch.data) {
+    if (fetch.data?.[key]?.map) {
         const data = fetch.data[key].map((job) => {
-            const id = job.sequence[0].id
+            const id = job.sequence?.[0]?.id
             return { ...job, id }
         })
 
