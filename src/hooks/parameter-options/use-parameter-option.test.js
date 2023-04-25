@@ -4,18 +4,18 @@ import { CustomDataProvider } from '@dhis2/app-runtime'
 import useParameterOption from './use-parameter-option'
 
 describe('useParameterOption', () => {
-    it('should return the requested parameter option', () => {
+    it('should return the requested parameter option', async () => {
         const parameter = 'validationRuleGroups'
         const expected = 'expected'
         const data = {
-            skipTableTypes: 'skipTableTypes',
+            'analytics/tableTypes': 'skipTableTypes',
             validationRuleGroups: {
                 validationRuleGroups: expected,
             },
             pushAnalysis: { pushAnalysis: 'pushAnalysis' },
             predictors: { predictors: 'predictors' },
             predictorGroups: { predictorGroups: 'predictorGroups' },
-            dataIntegrityChecks: 'dataIntegrityChecks',
+            dataIntegrity: 'dataIntegrityChecks',
         }
         const wrapper = ({ children }) => (
             <CustomDataProvider data={data}>{children}</CustomDataProvider>
@@ -28,7 +28,7 @@ describe('useParameterOption', () => {
             }
         )
 
-        waitFor(() => {
+        await waitFor(() => {
             expect(result.current).toMatchObject({
                 loading: false,
                 error: undefined,

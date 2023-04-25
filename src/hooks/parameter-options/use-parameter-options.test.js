@@ -4,16 +4,16 @@ import { CustomDataProvider } from '@dhis2/app-runtime'
 import useParameterOptions from './use-parameter-options'
 
 describe('useParameterOptions', () => {
-    it('should return the expected data without nesting', () => {
+    it('should return the expected data without nesting', async () => {
         const data = {
-            skipTableTypes: 'skipTableTypes',
+            'analytics/tableTypes': 'skipTableTypes',
             validationRuleGroups: {
                 validationRuleGroups: 'validationRuleGroups',
             },
             pushAnalysis: { pushAnalysis: 'pushAnalysis' },
             predictors: { predictors: 'predictors' },
             predictorGroups: { predictorGroups: 'predictorGroups' },
-            dataIntegrityChecks: 'dataIntegrityChecks',
+            dataIntegrity: 'dataIntegrityChecks',
         }
         const wrapper = ({ children }) => (
             <CustomDataProvider data={data}>{children}</CustomDataProvider>
@@ -23,7 +23,7 @@ describe('useParameterOptions', () => {
             wrapper,
         })
 
-        waitFor(() => {
+        await waitFor(() => {
             expect(result.current).toMatchObject({
                 loading: false,
                 error: undefined,
