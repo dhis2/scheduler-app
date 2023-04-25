@@ -4,26 +4,7 @@ import { CustomDataProvider } from '@dhis2/app-runtime'
 import useJobSchedules from './use-job-schedules'
 
 describe('useJobSchedules', () => {
-    it('should return the expected loading state', () => {
-        const data = { scheduler: [] }
-        const wrapper = ({ children }) => (
-            <CustomDataProvider data={data}>{children}</CustomDataProvider>
-        )
-
-        const { result, waitFor } = renderHook(() => useJobSchedules(), {
-            wrapper,
-        })
-
-        waitFor(() => {
-            expect(result.current).toMatchObject({
-                loading: true,
-                error: undefined,
-                data: [],
-            })
-        })
-    })
-
-    it('should return the expected data', () => {
+    it('should return the expected data', async () => {
         const job = { sequence: [{ id: 'id' }] }
         const data = { scheduler: [job] }
         const wrapper = ({ children }) => (
@@ -34,7 +15,16 @@ describe('useJobSchedules', () => {
             wrapper,
         })
 
-        waitFor(() => {
+        // Loading state
+        await waitFor(() => {
+            expect(result.current).toMatchObject({
+                loading: true,
+                error: undefined,
+                data: undefined,
+            })
+        })
+
+        await waitFor(() => {
             expect(result.current).toMatchObject({
                 loading: false,
                 error: undefined,
@@ -43,7 +33,7 @@ describe('useJobSchedules', () => {
         })
     })
 
-    it('should not fail if sequence is missing', () => {
+    it('should not fail if sequence is missing', async () => {
         const job = {}
         const data = { scheduler: [job] }
         const wrapper = ({ children }) => (
@@ -54,7 +44,7 @@ describe('useJobSchedules', () => {
             wrapper,
         })
 
-        waitFor(() => {
+        await waitFor(() => {
             expect(result.current).toMatchObject({
                 loading: false,
                 error: undefined,
@@ -63,7 +53,7 @@ describe('useJobSchedules', () => {
         })
     })
 
-    it('should not fail if sequence is empty', () => {
+    it('should not fail if sequence is empty', async () => {
         const job = { sequence: [] }
         const data = { scheduler: [job] }
         const wrapper = ({ children }) => (
@@ -74,7 +64,7 @@ describe('useJobSchedules', () => {
             wrapper,
         })
 
-        waitFor(() => {
+        await waitFor(() => {
             expect(result.current).toMatchObject({
                 loading: false,
                 error: undefined,
@@ -83,7 +73,7 @@ describe('useJobSchedules', () => {
         })
     })
 
-    it('should not fail if the first sequence has no id', () => {
+    it('should not fail if the first sequence has no id', async () => {
         const job = { sequence: [{}] }
         const data = { scheduler: [job] }
         const wrapper = ({ children }) => (
@@ -94,7 +84,7 @@ describe('useJobSchedules', () => {
             wrapper,
         })
 
-        waitFor(() => {
+        await waitFor(() => {
             expect(result.current).toMatchObject({
                 loading: false,
                 error: undefined,
