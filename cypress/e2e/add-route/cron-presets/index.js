@@ -5,6 +5,13 @@ Given('the user navigated to the add job page', () => {
     cy.findByRole('heading', { name: 'New Job' }).should('exist')
 })
 
+Given('the job types have loaded', () => {
+    cy.get('[data-test="dhis2-uicore-select-input"]').should(
+        'not.have.class',
+        'disabled'
+    )
+})
+
 Given('the user selects a cron scheduled job type', () => {
     cy.get('[data-test="dhis2-uicore-select-input"]').click()
     cy.findByText('Data integrity').click()
