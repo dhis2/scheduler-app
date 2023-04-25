@@ -4,9 +4,9 @@ import { CustomDataProvider } from '@dhis2/app-runtime'
 import useJobTypes from './use-job-types'
 
 describe('useJobTypes', () => {
-    it('should return the job types without nesting', () => {
-        const jobTypes = ['jobTypes']
-        const data = { jobTypes }
+    it('should return the job types without nesting', async () => {
+        const jobTypes = 'jobTypes'
+        const data = { 'jobConfigurations/jobTypes': { jobTypes } }
         const wrapper = ({ children }) => (
             <CustomDataProvider data={data}>{children}</CustomDataProvider>
         )
@@ -15,7 +15,7 @@ describe('useJobTypes', () => {
             wrapper,
         })
 
-        waitFor(() => {
+        await waitFor(() => {
             expect(result.current).toMatchObject({
                 loading: false,
                 error: undefined,

@@ -11,7 +11,7 @@ const useJobType = (jobType) => {
 
         if (!requestedJobType) {
             const error = new Error('Job type could not be found')
-            return { ...fetch, error }
+            return { ...fetch, data: undefined, error }
         }
 
         return { ...fetch, data: requestedJobType }

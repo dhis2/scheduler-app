@@ -4,13 +4,12 @@ import { CustomDataProvider } from '@dhis2/app-runtime'
 import useJobById from './use-job-by-id'
 
 describe('useJobById', () => {
-    it('should return a job by id', () => {
+    it('should return a job by id', async () => {
         const id = 'match'
-        const match = { id }
-        const nomatch = { id: 'nomatch' }
+        const job = { id }
         const data = {
             jobConfigurations: {
-                jobConfigurations: [nomatch, match],
+                jobConfigurations: [job],
             },
         }
 
@@ -22,11 +21,11 @@ describe('useJobById', () => {
             wrapper,
         })
 
-        waitFor(() => {
+        await waitFor(() => {
             expect(result.current).toMatchObject({
                 loading: false,
                 error: undefined,
-                data: match,
+                data: job,
             })
         })
     })
