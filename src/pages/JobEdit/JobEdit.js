@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Card, IconInfo16 } from '@dhis2/ui'
+import { Card, IconInfo16, NoticeBox } from '@dhis2/ui'
 import { useParams } from 'react-router-dom'
 import i18n from '@dhis2/d2-i18n'
 import { useJobById } from '../../hooks/jobs'
@@ -15,14 +15,20 @@ const infoLink =
 const JobEdit = () => {
     const [isPristine, setIsPristine] = useState(true)
     const { id } = useParams()
-    const { data, loading, error } = useJobById(id)
+    const { data, fetching, error } = useJobById(id)
 
-    if (loading) {
+    if (fetching) {
         return <Spinner />
     }
 
     if (error) {
-        throw error
+        return (
+            <NoticeBox error title={i18n.t('Could not load requested job')}>
+                {i18n.t(
+                    'Something went wrong whilst loading the requested job. Make sure it has not been deleted and try refreshing the page.'
+                )}
+            </NoticeBox>
+        )
     }
 
     const { name, created, lastExecutedStatus, lastExecuted } = data

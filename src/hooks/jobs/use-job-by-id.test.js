@@ -29,4 +29,30 @@ describe('useJobById', () => {
             })
         })
     })
+
+    it('should return an error if the job could not be found', async () => {
+        const data = {
+            jobConfigurations: {
+                jobConfigurations: [],
+            },
+        }
+
+        const wrapper = ({ children }) => (
+            <CustomDataProvider data={data}>{children}</CustomDataProvider>
+        )
+
+        const { result, waitFor } = renderHook(() => useJobById('id'), {
+            wrapper,
+        })
+
+        await waitFor(() => {
+            expect(result.current.error.message).toBe(
+                'Could not find job with id id'
+            )
+            expect(result.current).toMatchObject({
+                loading: false,
+                data: undefined,
+            })
+        })
+    })
 })
