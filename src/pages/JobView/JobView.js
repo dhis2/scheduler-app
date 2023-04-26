@@ -7,6 +7,7 @@ import {
     SingleSelectField,
     SingleSelectOption,
     InputField,
+    NoticeBox,
 } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
 import { LinkButton } from '../../components/LinkButton'
@@ -22,14 +23,20 @@ const infoLink =
 
 const JobView = () => {
     const { id } = useParams()
-    const { data, loading, error } = useJobById(id)
+    const { data, fetching, error } = useJobById(id)
 
-    if (loading) {
+    if (fetching) {
         return <Spinner />
     }
 
     if (error) {
-        throw error
+        return (
+            <NoticeBox error title={i18n.t('Could not load requested job')}>
+                {i18n.t(
+                    'Something went wrong whilst loading the requested job. Make sure it has not been deleted and try refreshing the page.'
+                )}
+            </NoticeBox>
+        )
     }
 
     const {
