@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2023-04-26T09:58:25.262Z\n"
-"PO-Revision-Date: 2023-04-26T09:58:25.262Z\n"
+"POT-Creation-Date: 2023-04-26T15:12:19.312Z\n"
+"PO-Revision-Date: 2023-04-26T15:12:19.312Z\n"
 
 msgid "Not authorized"
 msgstr "Not authorized"
@@ -212,6 +212,16 @@ msgstr "Configuration"
 
 msgid "About job configuration"
 msgstr "About job configuration"
+
+msgid "Could not load requested job"
+msgstr "Could not load requested job"
+
+msgid ""
+"Something went wrong whilst loading the requested job. Make sure it has not "
+"been deleted and try refreshing the page."
+msgstr ""
+"Something went wrong whilst loading the requested job. Make sure it has not "
+"been deleted and try refreshing the page."
 
 msgid "Job: {{ name }}"
 msgstr "Job: {{ name }}"
