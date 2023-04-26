@@ -9,6 +9,11 @@ const useJobById = (id) => {
             return job.id === id
         })
 
+        if (!data) {
+            const error = new Error(`Could not find job with id ${id}`)
+            return { ...fetch, data: undefined, error }
+        }
+
         return { ...fetch, data }
     }
 
