@@ -1,3 +1,10 @@
+## [100.2.12](https://github.com/dhis2/scheduler-app/compare/v100.2.11...v100.2.12) (2023-05-01)
+
+
+### Bug Fixes
+
+* **parameter-options:** return empty array if parameter options do not exist ([a134c8a](https://github.com/dhis2/scheduler-app/commit/a134c8a8c4c21ce8841344c1eac3ce76e3252eb4))
+
 ## [100.2.11](https://github.com/dhis2/scheduler-app/compare/v100.2.10...v100.2.11) (2023-04-19)
 
 
