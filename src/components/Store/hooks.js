@@ -86,5 +86,6 @@ export const useJobTypeParameters = (jobType) => {
 // Returns the parameter options for a given parameter
 export const useParameterOptions = (parameter) => {
     const parameterOptions = useAllParameterOptions()
-    return parameterOptions[parameter]
+
+    return parameterOptions[parameter] || []
 }
