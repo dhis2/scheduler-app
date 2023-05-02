@@ -1,4 +1,2 @@
-import requiredCron from './required-cron'
-import validateCron from './validate-cron'
-
-export { requiredCron, validateCron }
+export { default as requiredCron } from './required-cron'
+export { default as validateCron } from './validate-cron'

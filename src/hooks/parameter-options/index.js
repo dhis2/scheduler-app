@@ -1,3 +1,1 @@
-import useParameterOption from './use-parameter-option'
-
-export { useParameterOption }
+export { default as useParameterOption } from './use-parameter-option'

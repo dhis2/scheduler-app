@@ -1,4 +1,4 @@
-import Store from './Store'
 import { useJobFilter, useShowSystemJobs } from './hooks'
 
-export { Store, useJobFilter, useShowSystemJobs }
+export { default as Store } from './Store'
+export { useJobFilter, useShowSystemJobs }

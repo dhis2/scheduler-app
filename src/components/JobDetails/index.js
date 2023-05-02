@@ -1,3 +1,1 @@
-import JobDetails from './JobDetails'
-
-export { JobDetails }
+export { default as JobDetails } from './JobDetails'

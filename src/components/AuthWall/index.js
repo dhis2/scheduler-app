@@ -1,3 +1,1 @@
-import AuthWall from './AuthWall'
-
-export { AuthWall }
+export { default as AuthWall } from './AuthWall'

@@ -1,5 +1,3 @@
-import CronPresetButton from './CronPresetButton'
-import DeleteJobButton from './DeleteJobButton'
-import DiscardFormButton from './DiscardFormButton'
-
-export { DiscardFormButton, CronPresetButton, DeleteJobButton }
+export { default as CronPresetButton } from './CronPresetButton'
+export { default as DeleteJobButton } from './DeleteJobButton'
+export { default as DiscardFormButton } from './DiscardFormButton'
