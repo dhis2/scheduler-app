@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Checkbox, InputField, IconInfo16 } from '@dhis2/ui'
+import { NoticeBox, Card, Checkbox, InputField, IconInfo16 } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
 import { useJobSchedules } from '../../hooks/job-schedules'
 import { useJobFilter, useShowSystemJobs } from '../../components/Store'
@@ -21,7 +21,13 @@ const JobList = () => {
     }
 
     if (error) {
-        throw error
+        return (
+            <NoticeBox error title={i18n.t('Could not load jobs')}>
+                {i18n.t(
+                    'Something went wrong whilst loading the jobs. Try refreshing the page.'
+                )}
+            </NoticeBox>
+        )
     }
 
     // Filter jobs by the current jobFilter
