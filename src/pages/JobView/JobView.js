@@ -12,7 +12,7 @@ import {
 import i18n from '@dhis2/d2-i18n'
 import { LinkButton } from '../../components/LinkButton'
 import { JobDetails } from '../../components/JobDetails'
-import { useJobById } from '../../hooks'
+import { useJobById } from '../../hooks/jobs'
 import translateCron from '../../services/translate-cron'
 import { jobTypesMap } from '../../services/server-translations'
 import { Spinner } from '../../components/Spinner'

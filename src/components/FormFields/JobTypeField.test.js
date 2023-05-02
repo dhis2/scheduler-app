@@ -1,7 +1,7 @@
 import React from 'react'
 import { mount } from 'enzyme'
 import { ReactFinalForm } from '@dhis2/ui'
-import { useJobTypes } from '../../hooks'
+import { useJobTypes } from '../../hooks/job-types'
 import JobTypeField from './JobTypeField'
 
 const { Form } = ReactFinalForm
