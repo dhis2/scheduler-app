@@ -3,7 +3,7 @@ import { PropTypes } from '@dhis2/prop-types'
 import i18n from '@dhis2/d2-i18n'
 import { MultiSelectField, ReactFinalForm, MultiSelectFieldFF } from '@dhis2/ui'
 import { analyticsTableTypes } from '../../services/server-translations'
-import { useParameterOption } from '../../hooks/parameter-options'
+import { useParameterOption } from '../../hooks'
 
 const { Field } = ReactFinalForm
 
