@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card, Checkbox, InputField, IconInfo16 } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
-import { useJobSchedules } from '../../hooks'
+import { useJobSchedules } from '../../hooks/job-schedules'
 import { useJobFilter, useShowSystemJobs } from '../../components/Store'
 import { JobTable } from '../../components/JobTable'
 import { LinkButton } from '../../components/LinkButton'

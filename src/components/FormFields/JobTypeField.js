@@ -9,7 +9,7 @@ import {
 } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
 import { jobTypesMap } from '../../services/server-translations'
-import { useJobTypes } from '../../hooks'
+import { useJobTypes } from '../../hooks/job-types'
 
 const { Field } = ReactFinalForm
 

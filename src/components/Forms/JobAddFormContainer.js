@@ -1,7 +1,7 @@
 import React from 'react'
 import { PropTypes } from '@dhis2/prop-types'
 import { ReactFinalForm } from '@dhis2/ui'
-import { useSubmitJob } from '../../hooks'
+import { useSubmitJob } from '../../hooks/jobs'
 import JobAddForm from './JobAddForm'
 
 const { Form } = ReactFinalForm

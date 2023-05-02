@@ -2,7 +2,7 @@ import React from 'react'
 import { PropTypes } from '@dhis2/prop-types'
 import { MultiSelectFieldFF, ReactFinalForm, MultiSelectField } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
-import { useParameterOption } from '../../hooks'
+import { useParameterOption } from '../../hooks/parameter-options'
 
 const { Field } = ReactFinalForm
 

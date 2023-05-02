@@ -1,7 +1,7 @@
 import React from 'react'
 import { mount } from 'enzyme'
 import { ReactFinalForm } from '@dhis2/ui'
-import { useParameterOption } from '../../hooks'
+import { useParameterOption } from '../../hooks/parameter-options'
 import SkipTableTypesField from './SkipTableTypesField'
 
 const { Form } = ReactFinalForm
