@@ -18,9 +18,15 @@ const Actions = ({ id, configurable, enabled, refetch }) => (
                     <ViewJobAction id={id} />
                 )}
                 {configurable && (
-                    <RunJobAction enabled={enabled} id={id} refetch={refetch} />
+                    <RunJobAction
+                        enabled={enabled}
+                        id={id}
+                        onComplete={refetch}
+                    />
                 )}
-                {configurable && <DeleteJobAction id={id} refetch={refetch} />}
+                {configurable && (
+                    <DeleteJobAction id={id} onSuccess={refetch} />
+                )}
             </FlyoutMenu>
         }
     >

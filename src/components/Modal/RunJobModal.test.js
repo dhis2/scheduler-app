@@ -21,7 +21,7 @@ describe('<RunJobModal>', () => {
         const props = {
             id: 'id',
             hideModal: () => {},
-            refetch: () => {},
+            onComplete: () => {},
         }
 
         shallow(<RunJobModal {...props} />)
@@ -36,7 +36,7 @@ describe('<RunJobModal>', () => {
         const props = {
             id: 'id',
             hideModal: jest.fn(),
-            refetch: () => {},
+            onComplete: () => {},
         }
         const wrapper = mount(<RunJobModal {...props} />)
 
@@ -54,7 +54,7 @@ describe('<RunJobModal>', () => {
         const props = {
             id: 'id',
             hideModal: jest.fn(),
-            refetch: () => {},
+            onComplete: () => {},
         }
         const wrapper = mount(<RunJobModal {...props} />)
 
@@ -65,7 +65,7 @@ describe('<RunJobModal>', () => {
 
     it('runs the expected tasks after a click on run job', async () => {
         const resolvedPromise = Promise.resolve()
-        const refetchSpy = jest.fn()
+        const onCompleteSpy = jest.fn()
         const hideModalSpy = jest.fn()
         const mutateSpy = jest.fn(() => resolvedPromise)
         let onComplete
@@ -77,7 +77,7 @@ describe('<RunJobModal>', () => {
         const props = {
             id: 'id',
             hideModal: hideModalSpy,
-            refetch: refetchSpy,
+            onComplete: onCompleteSpy,
         }
         const wrapper = mount(<RunJobModal {...props} />)
 
@@ -91,6 +91,6 @@ describe('<RunJobModal>', () => {
 
         onComplete()
         expect(hideModalSpy).toHaveBeenCalled()
-        expect(refetchSpy).toHaveBeenCalled()
+        expect(onCompleteSpy).toHaveBeenCalled()
     })
 })

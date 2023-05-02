@@ -4,7 +4,7 @@ import { MenuItem } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
 import { DeleteJobModal } from '../Modal'
 
-const DeleteJobAction = ({ id, refetch }) => {
+const DeleteJobAction = ({ id, onSuccess }) => {
     const [showModal, setShowModal] = useState(false)
 
     return (
@@ -24,7 +24,7 @@ const DeleteJobAction = ({ id, refetch }) => {
                         /* istanbul ignore next */
                         () => setShowModal(false)
                     }
-                    onSuccess={refetch}
+                    onSuccess={onSuccess}
                 />
             )}
         </React.Fragment>
@@ -35,7 +35,7 @@ const { string, func } = PropTypes
 
 DeleteJobAction.propTypes = {
     id: string.isRequired,
-    refetch: func.isRequired,
+    onSuccess: func.isRequired,
 }
 
 export default DeleteJobAction
