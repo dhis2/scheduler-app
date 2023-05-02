@@ -1,16 +1,12 @@
-import JobNameField from './JobNameField'
-import JobTypeField, { FIELD_NAME as JOB_TYPE } from './JobTypeField'
-import ParameterFields from './ParameterFields'
-import ScheduleField from './ScheduleField'
+import { FIELD_NAME as JOB_TYPE } from './JobTypeField'
 
 const fieldNames = {
     JOB_TYPE,
 }
 
-export {
-    JobNameField,
-    ScheduleField,
-    JobTypeField,
-    ParameterFields,
-    fieldNames,
-}
+export { default as JobNameField } from './JobNameField'
+export { default as JobTypeField } from './JobTypeField'
+export { default as ParameterFields } from './ParameterFields'
+export { default as ScheduleField } from './ScheduleField'
+
+export { fieldNames }

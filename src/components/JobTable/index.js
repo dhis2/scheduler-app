@@ -1,3 +1,1 @@
-import JobTable from './JobTable'
-
-export { JobTable }
+export { default as JobTable } from './JobTable'

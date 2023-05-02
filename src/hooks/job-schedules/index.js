@@ -1,3 +1,1 @@
-import useJobSchedules from './use-job-schedules'
-
-export { useJobSchedules }
+export { default as useJobSchedules } from './use-job-schedules'
