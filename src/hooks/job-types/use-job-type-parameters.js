@@ -7,11 +7,7 @@ const useJobTypeParameters = (jobType) => {
     if (fetch.data) {
         const parameters = fetch.data?.jobParameters
 
-        if (!parameters) {
-            return { ...fetch, data: [] }
-        }
-
-        return { ...fetch, data: parameters }
+        return { ...fetch, data: parameters || [] }
     }
 
     return fetch
