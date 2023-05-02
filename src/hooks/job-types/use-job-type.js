@@ -5,6 +5,11 @@ const useJobType = (jobType) => {
 
     // Return requested job type when there is data
     if (fetch.data) {
+        if (!fetch.data?.find) {
+            const error = new Error('Did not receive the expected job types')
+            return { ...fetch, error, data: undefined }
+        }
+
         const requestedJobType = fetch.data.find(
             (currentJobType) => currentJobType.jobType === jobType
         )
