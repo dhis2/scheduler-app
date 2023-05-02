@@ -2025,37 +2025,37 @@
     "@dhis2/pwa" "8.0.1"
     moment "^2.24.0"
 
-"@dhis2/app-runtime@^3.2.0", "@dhis2/app-runtime@^3.8.0":
-  version "3.8.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-runtime/-/app-runtime-3.8.0.tgz#4ec7fc4ec6647dc8428e3c0d2e14b2d188a993b9"
-  integrity sha512-f5M1RfUJb4yZaPDywTfogVXjzWcuYGJ7JQzny6iWXrJu1+qrRKYbfFutYNhB+4bXD4bB59DelHWqVaHtrGvbVA==
+"@dhis2/app-runtime@^3.2.0", "@dhis2/app-runtime@^3.9.2":
+  version "3.9.2"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-runtime/-/app-runtime-3.9.2.tgz#8a5cd470fc3d81f45c6d38210c05a5e775caf75c"
+  integrity sha512-BloGI1tQ06uRBnFMaVBpZT4kVqKdZwSCEKqDe1pKXfnr5QLFDI+W4iNeUwql2J/xN+AA8NLfrBBDvVVcRsU3ig==
   dependencies:
-    "@dhis2/app-service-alerts" "3.8.0"
-    "@dhis2/app-service-config" "3.8.0"
-    "@dhis2/app-service-data" "3.8.0"
-    "@dhis2/app-service-offline" "3.8.0"
+    "@dhis2/app-service-alerts" "3.9.2"
+    "@dhis2/app-service-config" "3.9.2"
+    "@dhis2/app-service-data" "3.9.2"
+    "@dhis2/app-service-offline" "3.9.2"
 
-"@dhis2/app-service-alerts@3.8.0":
-  version "3.8.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-service-alerts/-/app-service-alerts-3.8.0.tgz#a899e3b392b6af49407be5251abe13eb0f2bdb60"
-  integrity sha512-Y2gDxSLS91YwOyvRQXpZMMOF4GZeoswPypDFy1U1OV8S1HdNa4J3dFtKqwRaiC8KP2o9bi+MsJjDA5fwl/jaOA==
+"@dhis2/app-service-alerts@3.9.2":
+  version "3.9.2"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-service-alerts/-/app-service-alerts-3.9.2.tgz#b58535437f20b0d51ae639900b49592f3d23c5fe"
+  integrity sha512-XalQO5xm1qLwjqzw9nTMlQyQOVuPeU+r7xMY15cwLIxtLsvm6PZaybL8v4yFPjAjX5nIglt97cV8AN04KvgOKQ==
 
-"@dhis2/app-service-config@3.8.0":
-  version "3.8.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-service-config/-/app-service-config-3.8.0.tgz#59a9a6c1edb1cc094544a6f90f8c9cbd7ec6d565"
-  integrity sha512-6xA065s85ry41OUuczKiqe4WD8wKqeDnuEBHApunJMWiLZ8o/3Y7KtmB2g5tcqIKnYSRBP3CY0naYPgdy25k6A==
+"@dhis2/app-service-config@3.9.2":
+  version "3.9.2"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-service-config/-/app-service-config-3.9.2.tgz#4c3bfed6ee4d43f58030f13926e683c962f9057c"
+  integrity sha512-zweC4l575jJdT9Wtr3amcvOqi2GNrmkYGqZO/9Q/X6+/ha8XBToThu+uue7wYp+PdXOvm5PrpOxlBaH7ni7wmg==
 
-"@dhis2/app-service-data@3.8.0":
-  version "3.8.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-service-data/-/app-service-data-3.8.0.tgz#e666e71c8ac7921243b25495780502f49dcbbb30"
-  integrity sha512-cDbzb2MRY4Gp2ohqD/ORQ2Jd3R79SjFJAscQdKX0YTf9avBNoepgHHTk2tB2gYLpaJEWjRMRVtzcphzgeaJrqA==
+"@dhis2/app-service-data@3.9.2":
+  version "3.9.2"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-service-data/-/app-service-data-3.9.2.tgz#88d78d584fdf3f83e336a47e24976fa8a7d4f00c"
+  integrity sha512-t9btM5SL6uPaEj31D2e3JGWZWljLf4Sw26NYPuPlMIHQ9xvc2T9cdNsA9FeloXDz7GfJduv3O0CGfO7VxooHag==
   dependencies:
     react-query "^3.13.11"
 
-"@dhis2/app-service-offline@3.8.0":
-  version "3.8.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-service-offline/-/app-service-offline-3.8.0.tgz#5854342169c3214fccbbac0abbf6a8408aab3475"
-  integrity sha512-cimWQkFRHcfihTwZkHbwZJHp+jC6ifJ8oPafRjF8R9x/+Zopem8FyByk9GkiyRwrfgrLsjwZliDAcp/gWTrx4g==
+"@dhis2/app-service-offline@3.9.2":
+  version "3.9.2"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-service-offline/-/app-service-offline-3.9.2.tgz#b40e127baa70fbbe10773a8d8d693362aa7c2453"
+  integrity sha512-O2VhZIpaKhxZBdAubJDoTwfDQDLx6a29U9xqYmAs+0EUNIe+dFshRT/h6cJCPzC5l5Ar4pqIeoABaslOLQCNZw==
   dependencies:
     lodash "^4.17.21"
 
@@ -5326,7 +5326,7 @@ caniuse-api@^3.0.0:
     lodash.memoize "^4.1.2"
     lodash.uniq "^4.5.0"
 
-caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000981, caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001125, caniuse-lite@^1.0.30001166, caniuse-lite@^1.0.30001179, caniuse-lite@^1.0.30001181, caniuse-lite@^1.0.30001219, caniuse-lite@^1.0.30001254, caniuse-lite@^1.0.30001312:
+caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000981, caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001125, caniuse-lite@^1.0.30001166, caniuse-lite@^1.0.30001179, caniuse-lite@^1.0.30001312:
   version "1.0.30001452"
   resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001452.tgz"
   integrity sha512-Lkp0vFjMkBB3GTpLR8zk4NwW5EdRdnitwYJHDOOKIU85x4ckYCPQ+9WlVvSVClHxVReefkUMtWZH2l9KGlD51w==
