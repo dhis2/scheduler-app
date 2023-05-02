@@ -1,8 +1,7 @@
 import React from 'react'
 import { mount } from 'enzyme'
 import { ReactFinalForm } from '@dhis2/ui'
-import { useJobTypeParameters } from '../../hooks/job-types'
-import { useParameterOption } from '../../hooks/parameter-options'
+import { useJobTypeParameters, useParameterOption } from '../../hooks'
 import ParameterFields from './ParameterFields'
 
 const { Form } = ReactFinalForm

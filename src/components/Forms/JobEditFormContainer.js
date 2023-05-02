@@ -2,7 +2,7 @@ import React from 'react'
 import { PropTypes } from '@dhis2/prop-types'
 import { ReactFinalForm } from '@dhis2/ui'
 import { useParams } from 'react-router-dom'
-import { useUpdateJob } from '../../hooks/jobs'
+import { useUpdateJob } from '../../hooks'
 import JobEditForm from './JobEditForm'
 
 const { Form } = ReactFinalForm

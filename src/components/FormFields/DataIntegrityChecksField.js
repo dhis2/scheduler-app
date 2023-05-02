@@ -13,7 +13,7 @@ import {
     Help,
 } from '@dhis2/ui'
 import cx from 'classnames'
-import { useParameterOption } from '../../hooks/parameter-options'
+import { useParameterOption } from '../../hooks'
 import { severityMap } from '../../services/server-translations/dataIntegrityChecks'
 import styles from './DataIntegrityChecksField.module.css'
 

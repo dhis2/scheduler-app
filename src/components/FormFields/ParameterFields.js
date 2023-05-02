@@ -8,7 +8,7 @@ import {
     Box,
     SwitchFieldFF,
 } from '@dhis2/ui'
-import { useJobTypeParameters } from '../../hooks/job-types'
+import { useJobTypeParameters } from '../../hooks'
 import { formatToString } from './formatters'
 import SkipTableTypesField from './SkipTableTypesField'
 import LabeledOptionsField from './LabeledOptionsField'
