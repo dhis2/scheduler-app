@@ -16,7 +16,12 @@ const useJobTypes = () => {
 
     // Remove nesting from data
     if (fetch.data) {
-        const data = fetch.data[key].jobTypes
+        const data = fetch.data?.[key]?.jobTypes
+
+        if (!data) {
+            const error = new Error('Did not receive the expected job types')
+            return { ...fetch, error, data: undefined }
+        }
 
         return { ...fetch, data }
     }

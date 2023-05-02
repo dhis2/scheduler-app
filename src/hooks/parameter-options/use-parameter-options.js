@@ -38,14 +38,28 @@ const useParameterOptions = () => {
 
     // Remove nesting from data
     if (fetch.data) {
-        const {
-            skipTableTypes,
-            validationRuleGroups: { validationRuleGroups },
-            pushAnalysis: { pushAnalysis },
-            predictors: { predictors },
-            predictorGroups: { predictorGroups },
-            dataIntegrityChecks,
-        } = fetch.data
+        const skipTableTypes = fetch.data?.skipTableTypes
+        const validationRuleGroups =
+            fetch.data?.validationRuleGroups?.validationRuleGroups
+        const pushAnalysis = fetch.data?.pushAnalysis?.pushAnalysis
+        const predictors = fetch.data?.predictors?.predictors
+        const predictorGroups = fetch.data?.predictorGroups?.predictorGroups
+        const dataIntegrityChecks = fetch.data?.dataIntegrityChecks
+
+        if (
+            !skipTableTypes ||
+            !validationRuleGroups ||
+            !pushAnalysis ||
+            !predictors ||
+            !predictorGroups ||
+            !dataIntegrityChecks
+        ) {
+            const error = new Error(
+                'Did not receive the expected parameter options'
+            )
+            return { ...fetch, error, data: undefined }
+        }
+
         const data = {
             skipTableTypes,
             validationRuleGroups,

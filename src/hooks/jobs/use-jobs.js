@@ -24,7 +24,14 @@ const useJobs = () => {
 
     // Remove nesting from data
     if (fetch.data) {
-        const data = fetch.data[key].jobConfigurations
+        const data = fetch.data?.[key]?.jobConfigurations
+
+        if (!data) {
+            const error = new Error(
+                'Did not receive the expected job configurations'
+            )
+            return { ...fetch, error, data: undefined }
+        }
 
         return { ...fetch, data }
     }

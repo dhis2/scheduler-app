@@ -11,10 +11,17 @@ const useJobSchedules = () => {
     const fetch = useDataQuery(query)
 
     // Remove nesting from data and move the id up
-    if (fetch.data?.[key]?.map) {
-        const data = fetch.data[key].map((job) => {
-            const id = job.sequence?.[0]?.id
-            return { ...job, id }
+    if (fetch.data) {
+        const schedules = fetch.data?.[key]
+
+        if (!schedules?.map) {
+            const error = new Error('Did not receive the expected schedules')
+            return { ...fetch, error, data: undefined }
+        }
+
+        const data = schedules.map((schedule) => {
+            const id = schedule.sequence?.[0]?.id
+            return { ...schedule, id }
         })
 
         return { ...fetch, data }

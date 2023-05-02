@@ -5,6 +5,11 @@ const useJobById = (id) => {
 
     // Find job by id
     if (fetch.data) {
+        if (!fetch.data?.find) {
+            const error = new Error('Did not receive the expected jobs')
+            return { ...fetch, error, data: undefined }
+        }
+
         const data = fetch.data.find((job) => {
             return job.id === id
         })
