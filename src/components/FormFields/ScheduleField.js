@@ -17,7 +17,9 @@ const ScheduleField = ({ jobType }) => {
         return (
             <NoticeBox
                 error
-                title={i18n.t('There was a problem fetching parameters')}
+                title={i18n.t(
+                    'There was a problem fetching the required job type'
+                )}
             />
         )
     }
