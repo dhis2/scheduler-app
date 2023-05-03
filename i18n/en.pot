@@ -5,8 +5,14 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2023-04-26T15:12:19.312Z\n"
-"PO-Revision-Date: 2023-04-26T15:12:19.312Z\n"
+"POT-Creation-Date: 2023-05-03T09:30:39.359Z\n"
+"PO-Revision-Date: 2023-05-03T09:30:39.359Z\n"
+
+msgid "Something went wrong"
+msgstr "Something went wrong"
+
+msgid "Something went wrong whilst retrieving user permissions."
+msgstr "Something went wrong whilst retrieving user permissions."
 
 msgid "Not authorized"
 msgstr "Not authorized"
@@ -225,6 +231,12 @@ msgstr ""
 
 msgid "Job: {{ name }}"
 msgstr "Job: {{ name }}"
+
+msgid "Could not load jobs"
+msgstr "Could not load jobs"
+
+msgid "Something went wrong whilst loading the jobs. Try refreshing the page."
+msgstr "Something went wrong whilst loading the jobs. Try refreshing the page."
 
 msgid "Scheduled jobs"
 msgstr "Scheduled jobs"
