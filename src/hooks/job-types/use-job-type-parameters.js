@@ -5,9 +5,9 @@ const useJobTypeParameters = (jobType) => {
 
     // Return parameters when there is data
     if (fetch.data) {
-        const parameters = fetch.data?.jobParameters
+        const data = fetch.data?.jobParameters || []
 
-        return { ...fetch, data: parameters || [] }
+        return { ...fetch, data }
     }
 
     return fetch

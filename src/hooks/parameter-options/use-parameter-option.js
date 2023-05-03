@@ -5,14 +5,7 @@ const useParameterOption = (parameter) => {
 
     // Select required parameter when there is data
     if (fetch.data) {
-        const data = fetch.data?.[parameter]
-
-        if (!data) {
-            const error = new Error(
-                'Did not receive the expected parameter option'
-            )
-            return { ...fetch, error, data: undefined }
-        }
+        const data = fetch.data?.[parameter] || []
 
         return { ...fetch, data }
     }
