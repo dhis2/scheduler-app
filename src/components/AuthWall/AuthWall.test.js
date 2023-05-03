@@ -1,7 +1,6 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
 import { useDataQuery } from '@dhis2/app-runtime'
-import expectRenderError from '../../../test/expect-render-error'
 import { getAuthorized } from './selectors'
 import AuthWall from './AuthWall'
 
@@ -29,8 +28,7 @@ describe('<AuthWall>', () => {
         expect(loadingIndicator).toHaveLength(1)
     })
 
-    it('throws fetching errors if they occur', () => {
-        const props = { children: 'Child' }
+    it('shows a noticebox for fetching errors', () => {
         const message = 'Something went wrong'
         const error = new Error(message)
 
@@ -39,7 +37,10 @@ describe('<AuthWall>', () => {
             error,
         }))
 
-        expectRenderError(<AuthWall {...props} />, message)
+        const wrapper = shallow(<AuthWall>Child</AuthWall>)
+        const noticebox = wrapper.find('NoticeBox')
+
+        expect(noticebox).toHaveLength(1)
     })
 
     it('shows a noticebox for unauthorized users', () => {

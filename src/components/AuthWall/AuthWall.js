@@ -21,11 +21,15 @@ const AuthWall = ({ children }) => {
     }
 
     if (error) {
-        /**
-         * The app can't continue if this fails, because it doesn't
-         * know if the user is authorized, so throw the error.
-         */
-        throw error
+        return (
+            <div className={styles.noticeBoxWrapper}>
+                <NoticeBox error title={i18n.t('Something went wrong')}>
+                    {i18n.t(
+                        'Something went wrong whilst retrieving user permissions.'
+                    )}
+                </NoticeBox>
+            </div>
+        )
     }
 
     const isAuthorized = getAuthorized(data.me)
