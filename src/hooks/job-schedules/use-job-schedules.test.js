@@ -92,4 +92,25 @@ describe('useJobSchedules', () => {
             })
         })
     })
+
+    it('should return an error if schedules are in an unexpected format', async () => {
+        const data = { scheduler: '' }
+        const wrapper = ({ children }) => (
+            <CustomDataProvider data={data}>{children}</CustomDataProvider>
+        )
+
+        const { result, waitFor } = renderHook(() => useJobSchedules(), {
+            wrapper,
+        })
+
+        await waitFor(() => {
+            expect(result.current).toMatchObject({
+                loading: false,
+                data: undefined,
+            })
+            expect(result.current.error.message).toBe(
+                'Did not receive the expected schedules'
+            )
+        })
+    })
 })
