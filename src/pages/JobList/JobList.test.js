@@ -1,22 +1,55 @@
 import React from 'react'
-import { mount } from 'enzyme'
-import { BrowserRouter } from 'react-router-dom'
-import { CustomDataProvider } from '@dhis2/app-runtime'
-import { Store } from '../../components/Store'
+import { shallow } from 'enzyme'
+import { useJobSchedules } from '../../hooks/job-schedules'
 import JobList from './JobList'
 
-describe('<JobList>', () => {
-    it('renders without errors', () => {
-        const data = { scheduler: [{ name: '', sequence: [{ id: 'id' }] }] }
+jest.mock('../../hooks/job-schedules', () => ({
+    useJobSchedules: jest.fn(),
+}))
 
-        mount(
-            <CustomDataProvider data={data}>
-                <BrowserRouter>
-                    <Store>
-                        <JobList />
-                    </Store>
-                </BrowserRouter>
-            </CustomDataProvider>
-        )
+jest.mock('../../components/Store', () => ({
+    useJobFilter: jest.fn(() => ['', () => {}]),
+    useShowSystemJobs: jest.fn(() => [false, () => {}]),
+}))
+
+describe('<JobList>', () => {
+    it('renders a spinner when loading the schedules', () => {
+        useJobSchedules.mockImplementation(() => ({ loading: true }))
+
+        const wrapper = shallow(<JobList />)
+        const spinner = wrapper.find('Spinner')
+
+        expect(spinner).toHaveLength(1)
+    })
+
+    it('renders errors encountered during fetching', () => {
+        useJobSchedules.mockImplementation(() => ({
+            loading: false,
+            error: new Error('Something went wrong'),
+        }))
+
+        const wrapper = shallow(<JobList />)
+        const noticebox = wrapper.find('NoticeBox')
+
+        expect(noticebox).toHaveLength(1)
+    })
+
+    it('renders without errors when loading has completed', () => {
+        useJobSchedules.mockImplementation(() => ({
+            loading: false,
+            error: undefined,
+            data: [
+                {
+                    name: '',
+                    configurable: true,
+                },
+            ],
+            refetch: () => {},
+        }))
+
+        const wrapper = shallow(<JobList />)
+        const jobtable = wrapper.find('JobTable')
+
+        expect(jobtable).toHaveLength(1)
     })
 })
