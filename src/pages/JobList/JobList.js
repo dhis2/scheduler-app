@@ -7,6 +7,7 @@ import { JobTable } from '../../components/JobTable'
 import { LinkButton } from '../../components/LinkButton'
 import { Spinner } from '../../components/Spinner'
 import styles from './JobList.module.css'
+import filterJobs from './filter-jobs'
 
 const infoLink =
     'https://docs.dhis2.org/en/use/user-guides/dhis-core-version-236/maintaining-the-system/scheduling.html'
@@ -30,16 +31,8 @@ const JobList = () => {
         )
     }
 
-    // Filter jobs by the current jobFilter
-    const applyJobFilter = (job) =>
-        job.name.toLowerCase().includes(jobFilter.toLowerCase())
-
-    // Filter jobs depending on the current showSystemJobs
-    const applyShowSystemJobs = (job) =>
-        // Jobs that are configurable are user jobs
-        showSystemJobs ? true : job.configurable
-
-    const jobs = data.filter(applyJobFilter).filter(applyShowSystemJobs)
+    // Apply the current filter settings
+    const jobs = filterJobs({ jobFilter, showSystemJobs, jobs: data })
 
     return (
         <React.Fragment>
