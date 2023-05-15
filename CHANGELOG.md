@@ -1,3 +1,10 @@
+# [100.4.0](https://github.com/dhis2/scheduler-app/compare/v100.3.0...v100.4.0) (2023-05-15)
+
+
+### Features
+
+* remove store ([#495](https://github.com/dhis2/scheduler-app/issues/495)) ([fa777b6](https://github.com/dhis2/scheduler-app/commit/fa777b60cee70f11043ac3e5fbd6bda9cd1d16aa))
+
 # [100.3.0](https://github.com/dhis2/scheduler-app/compare/v100.2.12...v100.3.0) (2023-05-15)
 
 
