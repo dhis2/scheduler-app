@@ -2,13 +2,14 @@ import React from 'react'
 import {
     ReactFinalForm,
     SingleSelectFieldFF,
+    SingleSelectField,
     composeValidators,
     hasValue,
     string,
 } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
-import { hooks } from '../Store'
 import { jobTypesMap } from '../../services/server-translations'
+import { useJobTypes } from '../../hooks/job-types'
 
 const { Field } = ReactFinalForm
 
@@ -17,8 +18,31 @@ export const FIELD_NAME = 'jobType'
 const VALIDATOR = composeValidators(string, hasValue)
 
 const JobTypeField = () => {
-    const jobTypes = hooks.useAllJobTypes()
-    const options = jobTypes
+    const { loading, error, data } = useJobTypes()
+    const label = i18n.t('Job type')
+    const disabledProps = { disabled: true, label }
+
+    if (loading) {
+        return (
+            <SingleSelectField
+                {...disabledProps}
+                helpText={i18n.t('Loading job types')}
+            />
+        )
+    }
+
+    if (error) {
+        return (
+            <SingleSelectField
+                {...disabledProps}
+                helpText={i18n.t(
+                    'Something went wrong whilst loading job types'
+                )}
+            />
+        )
+    }
+
+    const options = data
         .map(({ jobType }) => ({
             value: jobType,
             label: jobTypesMap[jobType],
@@ -32,7 +56,7 @@ const JobTypeField = () => {
             validate={VALIDATOR}
             component={SingleSelectFieldFF}
             options={options}
-            label={i18n.t('Job type')}
+            label={label}
             required
         />
     )

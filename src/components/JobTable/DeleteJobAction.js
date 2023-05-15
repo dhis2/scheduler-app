@@ -3,11 +3,9 @@ import { PropTypes } from '@dhis2/prop-types'
 import { MenuItem } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
 import { DeleteJobModal } from '../Modal'
-import { hooks } from '../Store'
 
-const DeleteJobAction = ({ id }) => {
+const DeleteJobAction = ({ id, onSuccess }) => {
     const [showModal, setShowModal] = useState(false)
-    const refetchJobs = hooks.useRefetchJobs()
 
     return (
         <React.Fragment>
@@ -26,17 +24,18 @@ const DeleteJobAction = ({ id }) => {
                         /* istanbul ignore next */
                         () => setShowModal(false)
                     }
-                    onSuccess={refetchJobs}
+                    onSuccess={onSuccess}
                 />
             )}
         </React.Fragment>
     )
 }
 
-const { string } = PropTypes
+const { string, func } = PropTypes
 
 DeleteJobAction.propTypes = {
     id: string.isRequired,
+    onSuccess: func.isRequired,
 }
 
 export default DeleteJobAction

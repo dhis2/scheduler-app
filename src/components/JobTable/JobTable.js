@@ -1,5 +1,4 @@
 import React from 'react'
-import { PropTypes } from '@dhis2/prop-types'
 import {
     Table,
     TableHead,
@@ -10,9 +9,10 @@ import {
     TableBody,
 } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
+import { PropTypes } from '@dhis2/prop-types'
 import JobTableRow from './JobTableRow'
 
-const JobTable = ({ jobs }) => (
+const JobTable = ({ jobs, refetch }) => (
     <Table>
         <TableHead>
             <TableRowHead>
@@ -31,16 +31,19 @@ const JobTable = ({ jobs }) => (
                     <TableCell>{i18n.t('No jobs to display')}</TableCell>
                 </TableRow>
             ) : (
-                jobs.map((job) => <JobTableRow key={job.id} job={job} />)
+                jobs.map((job) => (
+                    <JobTableRow key={job.id} job={job} refetch={refetch} />
+                ))
             )}
         </TableBody>
     </Table>
 )
 
-const { object, arrayOf } = PropTypes
+const { arrayOf, object, func } = PropTypes
 
 JobTable.propTypes = {
     jobs: arrayOf(object).isRequired,
+    refetch: func.isRequired,
 }
 
 export default JobTable

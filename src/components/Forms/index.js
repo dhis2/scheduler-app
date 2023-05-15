@@ -1,4 +1,2 @@
-import JobAddFormContainer from './JobAddFormContainer'
-import JobEditFormContainer from './JobEditFormContainer'
-
-export { JobAddFormContainer, JobEditFormContainer }
+export { default as JobAddFormContainer } from './JobAddFormContainer'
+export { default as JobEditFormContainer } from './JobEditFormContainer'

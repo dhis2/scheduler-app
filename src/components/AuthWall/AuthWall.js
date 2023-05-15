@@ -1,8 +1,9 @@
 import React from 'react'
 import { PropTypes } from '@dhis2/prop-types'
-import { CircularLoader, Layer, CenteredContent, NoticeBox } from '@dhis2/ui'
+import { NoticeBox } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
 import { useDataQuery } from '@dhis2/app-runtime'
+import { Spinner } from '../Spinner'
 import { getAuthorized } from './selectors'
 import styles from './AuthWall.module.css'
 
@@ -16,21 +17,19 @@ const AuthWall = ({ children }) => {
     const { loading, error, data } = useDataQuery(query)
 
     if (loading) {
-        return (
-            <Layer>
-                <CenteredContent>
-                    <CircularLoader />
-                </CenteredContent>
-            </Layer>
-        )
+        return <Spinner />
     }
 
     if (error) {
-        /**
-         * The app can't continue if this fails, because it doesn't
-         * know if the user is authorized, so throw the error.
-         */
-        throw error
+        return (
+            <div className={styles.noticeBoxWrapper}>
+                <NoticeBox error title={i18n.t('Something went wrong')}>
+                    {i18n.t(
+                        'Something went wrong whilst retrieving user permissions.'
+                    )}
+                </NoticeBox>
+            </div>
+        )
     }
 
     const isAuthorized = getAuthorized(data.me)

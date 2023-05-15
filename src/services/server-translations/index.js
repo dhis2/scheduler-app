@@ -1,5 +1,3 @@
-import analyticsTableTypes from './analyticsTableTypes'
-import jobTypesMap from './jobTypesMap'
-import jobStatusMap from './jobStatusMap'
-
-export { analyticsTableTypes, jobTypesMap, jobStatusMap }
+export { default as analyticsTableTypes } from './analyticsTableTypes'
+export { default as jobTypesMap } from './jobTypesMap'
+export { default as jobStatusMap } from './jobStatusMap'

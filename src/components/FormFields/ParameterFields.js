@@ -1,8 +1,14 @@
 import React from 'react'
 import i18n from '@dhis2/d2-i18n'
 import { PropTypes } from '@dhis2/prop-types'
-import { ReactFinalForm, InputFieldFF, Box, SwitchFieldFF } from '@dhis2/ui'
-import { hooks } from '../Store'
+import {
+    NoticeBox,
+    ReactFinalForm,
+    InputFieldFF,
+    Box,
+    SwitchFieldFF,
+} from '@dhis2/ui'
+import { useJobTypeParameters } from '../../hooks/job-types'
 import { formatToString } from './formatters'
 import SkipTableTypesField from './SkipTableTypesField'
 import LabeledOptionsField from './LabeledOptionsField'
@@ -39,14 +45,27 @@ const getCustomComponent = (jobType, parameterName) => {
 
 // Renders all parameters for a given jobtype
 const ParameterFields = ({ jobType }) => {
-    const parameters = hooks.useJobTypeParameters(jobType)
+    const { loading, error, data } = useJobTypeParameters(jobType)
 
-    if (parameters.length === 0) {
+    if (loading) {
+        return null
+    }
+
+    if (error) {
+        return (
+            <NoticeBox
+                error
+                title={i18n.t('There was a problem fetching parameters')}
+            />
+        )
+    }
+
+    if (data.length === 0) {
         return null
     }
 
     // Map all parameters to the appropriate field types
-    const parameterComponents = parameters.map(
+    const parameterComponents = data.map(
         ({ fieldName, name, klass, ...rest }) => {
             const defaultProps = {
                 label: fieldName,

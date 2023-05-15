@@ -7,13 +7,15 @@ import {
     SingleSelectField,
     SingleSelectOption,
     InputField,
+    NoticeBox,
 } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
-import { hooks } from '../../components/Store'
 import { LinkButton } from '../../components/LinkButton'
 import { JobDetails } from '../../components/JobDetails'
+import { useJobById } from '../../hooks/jobs'
 import translateCron from '../../services/translate-cron'
 import { jobTypesMap } from '../../services/server-translations'
+import { Spinner } from '../../components/Spinner'
 import styles from './JobView.module.css'
 
 const infoLink =
@@ -21,6 +23,22 @@ const infoLink =
 
 const JobView = () => {
     const { id } = useParams()
+    const { data, fetching, error } = useJobById(id)
+
+    if (fetching) {
+        return <Spinner />
+    }
+
+    if (error) {
+        return (
+            <NoticeBox error title={i18n.t('Could not load requested job')}>
+                {i18n.t(
+                    'Something went wrong whilst loading the requested job. Make sure it has not been deleted and try refreshing the page.'
+                )}
+            </NoticeBox>
+        )
+    }
+
     const {
         name,
         created,
@@ -28,7 +46,7 @@ const JobView = () => {
         lastExecuted,
         jobType,
         cronExpression,
-    } = hooks.useJob(id)
+    } = data
 
     return (
         <React.Fragment>

@@ -1,57 +1,55 @@
 import React from 'react'
-import { mount } from 'enzyme'
+import { shallow } from 'enzyme'
+import { useJobSchedules } from '../../hooks/job-schedules'
 import JobList from './JobList'
 
-jest.mock('react-router-dom', () => ({ Link: (props) => <a {...props} /> }))
-
-jest.mock('../../components/JobTable', () => ({ JobTable: () => null }))
-
-jest.mock('../../services/history', () => ({
-    push: jest.fn(),
+jest.mock('../../hooks/job-schedules', () => ({
+    useJobSchedules: jest.fn(),
 }))
 
-afterEach(() => {
-    jest.resetAllMocks()
-})
+jest.mock('../../components/Store', () => ({
+    useJobFilter: jest.fn(() => ['', () => {}]),
+    useShowSystemJobs: jest.fn(() => [false, () => {}]),
+}))
 
 describe('<JobList>', () => {
-    it('calls setJobFilter with changes to the job filter input', () => {
-        const spy = jest.fn()
-        const props = {
-            jobs: [{ id: 'one' }],
-            isLoading: false,
-            showSystemJobs: false,
-            setShowSystemJobs: () => {},
-            jobFilter: '',
-            setJobFilter: spy,
-        }
-        const wrapper = mount(<JobList {...props} />)
+    it('renders a spinner when loading the schedules', () => {
+        useJobSchedules.mockImplementation(() => ({ loading: true }))
 
-        wrapper
-            .find({ 'data-test': 'job-filter-input' })
-            .find('input')
-            .simulate('change', { target: { value: 'Change' } })
+        const wrapper = shallow(<JobList />)
+        const spinner = wrapper.find('Spinner')
 
-        expect(spy).toHaveBeenCalledWith('Change')
+        expect(spinner).toHaveLength(1)
     })
 
-    it('calls setShowSystemJobs when the show system jobs toggle is clicked', () => {
-        const spy = jest.fn()
-        const props = {
-            jobs: [{ id: 'one' }],
-            isLoading: false,
-            showSystemJobs: false,
-            setShowSystemJobs: spy,
-            jobFilter: '',
-            setJobFilter: () => {},
-        }
-        const wrapper = mount(<JobList {...props} />)
+    it('renders errors encountered during fetching', () => {
+        useJobSchedules.mockImplementation(() => ({
+            loading: false,
+            error: new Error('Something went wrong'),
+        }))
 
-        wrapper
-            .find({ 'data-test': 'job-toggle-checkbox' })
-            .find('input')
-            .simulate('change', { target: { value: !props.showSystemJobs } })
+        const wrapper = shallow(<JobList />)
+        const noticebox = wrapper.find('NoticeBox')
 
-        expect(spy).toHaveBeenCalledWith(true)
+        expect(noticebox).toHaveLength(1)
+    })
+
+    it('renders without errors when loading has completed', () => {
+        useJobSchedules.mockImplementation(() => ({
+            loading: false,
+            error: undefined,
+            data: [
+                {
+                    name: '',
+                    configurable: true,
+                },
+            ],
+            refetch: () => {},
+        }))
+
+        const wrapper = shallow(<JobList />)
+        const jobtable = wrapper.find('JobTable')
+
+        expect(jobtable).toHaveLength(1)
     })
 })

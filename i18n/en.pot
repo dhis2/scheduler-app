@@ -5,8 +5,14 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2023-04-19T09:56:40.816Z\n"
-"PO-Revision-Date: 2023-04-19T09:56:40.816Z\n"
+"POT-Creation-Date: 2023-05-03T11:14:51.605Z\n"
+"PO-Revision-Date: 2023-05-03T11:14:51.605Z\n"
+
+msgid "Something went wrong"
+msgstr "Something went wrong"
+
+msgid "Something went wrong whilst retrieving user permissions."
+msgstr "Something went wrong whilst retrieving user permissions."
 
 msgid "Not authorized"
 msgstr "Not authorized"
@@ -45,6 +51,9 @@ msgstr "CRON Expression"
 msgid "Please select checks to run."
 msgstr "Please select checks to run."
 
+msgid "Something went wrong whilst fetching options"
+msgstr "Something went wrong whilst fetching options"
+
 msgid "Checks to run"
 msgstr "Checks to run"
 
@@ -75,11 +84,29 @@ msgstr "Name"
 msgid "Job type"
 msgstr "Job type"
 
+msgid "Loading job types"
+msgstr "Loading job types"
+
+msgid "Something went wrong whilst loading job types"
+msgstr "Something went wrong whilst loading job types"
+
+msgid "Loading options"
+msgstr "Loading options"
+
+msgid "Something went wrong whilst loading options"
+msgstr "Something went wrong whilst loading options"
+
 msgid "No options available"
 msgstr "No options available"
 
+msgid "There was a problem fetching parameters"
+msgstr "There was a problem fetching parameters"
+
 msgid "Parameters"
 msgstr "Parameters"
+
+msgid "There was a problem fetching the required job type"
+msgstr "There was a problem fetching the required job type"
 
 msgid "Save"
 msgstr "Save"
@@ -195,8 +222,24 @@ msgstr "Configuration"
 msgid "About job configuration"
 msgstr "About job configuration"
 
+msgid "Could not load requested job"
+msgstr "Could not load requested job"
+
+msgid ""
+"Something went wrong whilst loading the requested job. Make sure it has not "
+"been deleted and try refreshing the page."
+msgstr ""
+"Something went wrong whilst loading the requested job. Make sure it has not "
+"been deleted and try refreshing the page."
+
 msgid "Job: {{ name }}"
 msgstr "Job: {{ name }}"
+
+msgid "Could not load jobs"
+msgstr "Could not load jobs"
+
+msgid "Something went wrong whilst loading the jobs. Try refreshing the page."
+msgstr "Something went wrong whilst loading the jobs. Try refreshing the page."
 
 msgid "Scheduled jobs"
 msgstr "Scheduled jobs"

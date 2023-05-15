@@ -2,25 +2,43 @@ import React from 'react'
 import { PropTypes } from '@dhis2/prop-types'
 import i18n from '@dhis2/d2-i18n'
 import { MultiSelectField, ReactFinalForm, MultiSelectFieldFF } from '@dhis2/ui'
-import { hooks } from '../Store'
 import { analyticsTableTypes } from '../../services/server-translations'
+import { useParameterOption } from '../../hooks/parameter-options'
 
 const { Field } = ReactFinalForm
 
 const SkipTableTypesField = ({ label, name, parameterName }) => {
-    const options = hooks.useParameterOptions(parameterName)
+    const { loading, error, data } = useParameterOption(parameterName)
+    const disabledProps = { disabled: true, label }
 
-    if (options.length === 0) {
+    if (loading) {
         return (
             <MultiSelectField
-                disabled
-                helpText={i18n.t('No options available')}
-                label={label}
+                {...disabledProps}
+                helpText={i18n.t('Loading options')}
             />
         )
     }
 
-    const translatedOptions = options.map((option) => ({
+    if (error) {
+        return (
+            <MultiSelectField
+                {...disabledProps}
+                helpText={i18n.t('Something went wrong whilst loading options')}
+            />
+        )
+    }
+
+    if (data.length === 0) {
+        return (
+            <MultiSelectField
+                {...disabledProps}
+                helpText={i18n.t('No options available')}
+            />
+        )
+    }
+
+    const translatedOptions = data.map((option) => ({
         value: option,
         label: analyticsTableTypes[option] || option,
     }))

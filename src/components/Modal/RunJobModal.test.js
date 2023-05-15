@@ -1,7 +1,6 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
 import { useDataMutation } from '@dhis2/app-runtime'
-import { StoreContext } from '../Store'
 import RunJobModal from './RunJobModal'
 
 jest.mock('@dhis2/app-runtime', () => ({
@@ -22,6 +21,7 @@ describe('<RunJobModal>', () => {
         const props = {
             id: 'id',
             hideModal: () => {},
+            onComplete: () => {},
         }
 
         shallow(<RunJobModal {...props} />)
@@ -36,6 +36,7 @@ describe('<RunJobModal>', () => {
         const props = {
             id: 'id',
             hideModal: jest.fn(),
+            onComplete: () => {},
         }
         const wrapper = mount(<RunJobModal {...props} />)
 
@@ -53,6 +54,7 @@ describe('<RunJobModal>', () => {
         const props = {
             id: 'id',
             hideModal: jest.fn(),
+            onComplete: () => {},
         }
         const wrapper = mount(<RunJobModal {...props} />)
 
@@ -63,7 +65,7 @@ describe('<RunJobModal>', () => {
 
     it('runs the expected tasks after a click on run job', async () => {
         const resolvedPromise = Promise.resolve()
-        const refetchSpy = jest.fn()
+        const onCompleteSpy = jest.fn()
         const hideModalSpy = jest.fn()
         const mutateSpy = jest.fn(() => resolvedPromise)
         let onComplete
@@ -75,12 +77,9 @@ describe('<RunJobModal>', () => {
         const props = {
             id: 'id',
             hideModal: hideModalSpy,
+            onComplete: onCompleteSpy,
         }
-        const wrapper = mount(
-            <StoreContext.Provider value={{ refetchJobs: refetchSpy }}>
-                <RunJobModal {...props} />
-            </StoreContext.Provider>
-        )
+        const wrapper = mount(<RunJobModal {...props} />)
 
         wrapper
             .find('button')
@@ -92,6 +91,6 @@ describe('<RunJobModal>', () => {
 
         onComplete()
         expect(hideModalSpy).toHaveBeenCalled()
-        expect(refetchSpy).toHaveBeenCalled()
+        expect(onCompleteSpy).toHaveBeenCalled()
     })
 })

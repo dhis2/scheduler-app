@@ -3,7 +3,6 @@ import { PropTypes } from '@dhis2/prop-types'
 import { ReactFinalForm } from '@dhis2/ui'
 import { useParams } from 'react-router-dom'
 import { useUpdateJob } from '../../hooks/jobs'
-import { hooks } from '../Store'
 import JobEditForm from './JobEditForm'
 
 const { Form } = ReactFinalForm
@@ -22,11 +21,9 @@ const initialFields = [
     'name',
 ]
 
-const JobEditFormContainer = ({ setIsPristine }) => {
+const JobEditFormContainer = ({ job, setIsPristine }) => {
     const { id } = useParams()
     const [updateJob] = useUpdateJob({ id })
-    const refetchJobs = hooks.useRefetchJobs()
-    const job = hooks.useJob(id)
 
     // Creating an object with just the values we want to use as initial values
     const initialValues = initialFields.reduce((filtered, key) => {
@@ -46,15 +43,15 @@ const JobEditFormContainer = ({ setIsPristine }) => {
             setIsPristine={setIsPristine}
             initialValues={initialValues}
             id={id}
-            refetchJobs={refetchJobs}
             destroyOnUnregister
         />
     )
 }
 
-const { func } = PropTypes
+const { func, object } = PropTypes
 
 JobEditFormContainer.propTypes = {
+    job: object.isRequired,
     setIsPristine: func.isRequired,
 }
 

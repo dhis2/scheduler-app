@@ -1,3 +1,1 @@
-import FormErrorBox from './FormErrorBox'
-
-export { FormErrorBox }
+export { default as FormErrorBox } from './FormErrorBox'

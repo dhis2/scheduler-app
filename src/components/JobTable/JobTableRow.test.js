@@ -5,33 +5,51 @@ import JobTableRow from './JobTableRow'
 describe('<JobTableRow>', () => {
     it('renders cron jobs without errors', () => {
         const job = {
-            id: '1',
-            displayName: 'Name',
-            jobType: 'SEND_SCHEDULED_MESSAGE',
-            cronExpression: '0 0 * ? * *',
-            jobStatus: 'ENABLED',
-            nextExecutionTime: '2100-10-10T14:48:00',
+            id: 'lnWRZN67iDU',
+            name: 'Job 1',
+            type: 'DATA_INTEGRITY',
+            cronExpression: '0 0 3 ? * MON',
+            nextExecutionTime: '2021-03-01T03:00:00.000',
+            status: 'SCHEDULED',
             enabled: true,
-            schedulingType: 'CRON',
             configurable: true,
+            sequence: [
+                {
+                    id: 'lnWRZN67iDU',
+                    name: 'Job 1',
+                    type: 'DATA_INTEGRITY',
+                    cronExpression: '0 0 3 ? * MON',
+                    nextExecutionTime: '2021-03-01T03:00:00.000',
+                    status: 'SCHEDULED',
+                },
+            ],
         }
 
-        shallow(<JobTableRow job={job} />)
+        shallow(<JobTableRow job={job} refetch={() => {}} />)
     })
 
     it('renders fixed delay jobs without errors', () => {
         const job = {
-            id: '1',
-            displayName: 'Name',
-            jobType: 'CONTINUOUS_ANALYTICS_TABLE',
-            jobStatus: 'ENABLED',
-            nextExecutionTime: '',
-            enabled: true,
-            schedulingType: 'FIXED_DELAY',
+            id: 'lnWRZN67iDU',
+            name: 'Job 1',
+            type: 'CONTINUOUS_ANALYTICS_TABLE',
             delay: 6000,
+            nextExecutionTime: '2021-03-01T03:00:00.000',
+            status: 'SCHEDULED',
+            enabled: true,
             configurable: true,
+            sequence: [
+                {
+                    id: 'lnWRZN67iDU',
+                    name: 'Job 1',
+                    type: 'CONTINUOUS_ANALYTICS_TABLE',
+                    delay: 6000,
+                    nextExecutionTime: '2021-03-01T03:00:00.000',
+                    status: 'SCHEDULED',
+                },
+            ],
         }
 
-        shallow(<JobTableRow job={job} />)
+        shallow(<JobTableRow job={job} refetch={() => {}} />)
     })
 })

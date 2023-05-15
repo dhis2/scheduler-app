@@ -1,15 +1,12 @@
 import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given('there are no user jobs', () => {
-    cy.intercept(
-        { pathname: /jobConfigurations$/ },
-        { fixture: 'list-route/no-jobs' }
-    )
+    cy.intercept({ pathname: /scheduler$/ }, { fixture: 'list-route/no-jobs' })
 })
 
 Given('some user jobs exist', () => {
     cy.intercept(
-        { pathname: /jobConfigurations$/ },
+        { pathname: /scheduler$/ },
         { fixture: 'list-route/some-user-jobs' }
     )
 })

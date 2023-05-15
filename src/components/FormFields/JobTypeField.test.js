@@ -1,27 +1,35 @@
 import React from 'react'
 import { mount } from 'enzyme'
 import { ReactFinalForm } from '@dhis2/ui'
-import { StoreContext } from '../Store'
+import { useJobTypes } from '../../hooks/job-types'
 import JobTypeField from './JobTypeField'
 
 const { Form } = ReactFinalForm
 
+jest.mock('../../hooks/job-types', () => ({
+    useJobTypes: jest.fn(),
+}))
+
+afterEach(() => {
+    jest.resetAllMocks()
+})
+
 describe('<JobTypeField>', () => {
     it('shows an error that the field is required on empty values', () => {
-        const store = {
-            jobTypes: [{ jobType: 'ANALYTICS_TABLE' }],
-        }
+        useJobTypes.mockImplementation(() => ({
+            loading: false,
+            error: undefined,
+            data: [{ jobType: 'ANALYTICS_TABLE' }],
+        }))
 
         const wrapper = mount(
-            <StoreContext.Provider value={store}>
-                <Form onSubmit={() => {}}>
-                    {({ handleSubmit }) => (
-                        <form onSubmit={handleSubmit}>
-                            <JobTypeField />
-                        </form>
-                    )}
-                </Form>
-            </StoreContext.Provider>
+            <Form onSubmit={() => {}}>
+                {({ handleSubmit }) => (
+                    <form onSubmit={handleSubmit}>
+                        <JobTypeField />
+                    </form>
+                )}
+            </Form>
         )
 
         // Trigger validation
