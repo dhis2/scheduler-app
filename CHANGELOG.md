@@ -1,3 +1,10 @@
+# [100.3.0](https://github.com/dhis2/scheduler-app/compare/v100.2.12...v100.3.0) (2023-05-15)
+
+
+### Features
+
+* trigger new release ([fa863d1](https://github.com/dhis2/scheduler-app/commit/fa863d1510079afc03a7733681d2a93d27790636))
+
 ## [100.2.12](https://github.com/dhis2/scheduler-app/compare/v100.2.11...v100.2.12) (2023-05-01)
 
 
