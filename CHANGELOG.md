@@ -1,3 +1,15 @@
+# [101.0.0](https://github.com/dhis2/scheduler-app/compare/v100.4.0...v101.0.0) (2023-05-16)
+
+
+### Features
+
+* trigger new release ([d28783c](https://github.com/dhis2/scheduler-app/commit/d28783cc46246d0f851e64177955a685c012fd91))
+
+
+### BREAKING CHANGES
+
+* this version only support DHIS2 2.40 and up
+
 # [100.4.0](https://github.com/dhis2/scheduler-app/compare/v100.3.0...v100.4.0) (2023-05-15)
 
 
