@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { PropTypes } from '@dhis2/prop-types'
+import PropTypes from 'prop-types'
 import { Button } from '@dhis2/ui'
 import history from '../../services/history'
 import { DiscardFormModal } from '../Modal'

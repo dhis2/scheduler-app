@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { PropTypes } from '@dhis2/prop-types'
+import PropTypes from 'prop-types'
 import { Button } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
 import { CronPresetModal } from '../Modal'

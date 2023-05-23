@@ -1,5 +1,5 @@
 import React from 'react'
-import { PropTypes } from '@dhis2/prop-types'
+import PropTypes from 'prop-types'
 import { ReactFinalForm } from '@dhis2/ui'
 import { useSubmitJob } from '../../hooks/jobs'
 import JobAddForm from './JobAddForm'

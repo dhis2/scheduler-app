@@ -1,6 +1,6 @@
 import moment from 'moment'
 import { useTimeZoneConversion } from '@dhis2/app-runtime'
-import { PropTypes } from '@dhis2/prop-types'
+import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 import { Tooltip } from '@dhis2/ui'
 import React from 'react'
