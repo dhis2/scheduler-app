@@ -2,25 +2,32 @@
 # Translators:
 # Bram Piot <bram.piot@gmail.com>, 2021
 # Djibril Dione <dione.djibril@gmail.com>, 2021
-# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021
 # Edem Kossi <ekossi@hispwca.org>, 2021
-# Yayra Gomado <ygomado@hispwca.org>, 2022
-# phil_dhis2, 2022
 # Viktor Varland <viktor@dhis2.org>, 2022
+# phil_dhis2, 2022
 # Yao Selom SAKA (HISP WCA) <ysaka@hispwca.org>, 2022
+# Sakibou ALASSANI <sakibou.alass@gmail.com>, 2023
+# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2023
+# Yayra Gomado <ygomado@hispwca.org>, 2023
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-08-18T15:35:50.363Z\n"
+"POT-Creation-Date: 2023-05-03T11:14:51.605Z\n"
 "PO-Revision-Date: 2020-05-08 14:30+0000\n"
-"Last-Translator: Yao Selom SAKA (HISP WCA) <ysaka@hispwca.org>, 2022\n"
-"Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
+"Last-Translator: Yayra Gomado <ygomado@hispwca.org>, 2023\n"
+"Language-Team: French (https://app.transifex.com/hisp-uio/teams/100509/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+
+msgid "Something went wrong"
+msgstr "Quelque chose a mal tourné"
+
+msgid "Something went wrong whilst retrieving user permissions."
+msgstr ""
 
 msgid "Not authorized"
 msgstr "Pas autorisé"
@@ -36,7 +43,7 @@ msgid "Choose from preset times"
 msgstr "Choisissez parmi des heures prédéfinies"
 
 msgid "Delete job"
-msgstr "Supprimer le travail"
+msgstr "Supprimer la tâche"
 
 msgid "Something went wrong whilst creating your job"
 msgstr "Une erreur s'est produite lors de la création de votre tâche"
@@ -60,6 +67,9 @@ msgstr "Expression CRON"
 
 msgid "Please select checks to run."
 msgstr "Veuillez sélectionner les contrôles à exécuter."
+
+msgid "Something went wrong whilst fetching options"
+msgstr ""
 
 msgid "Checks to run"
 msgstr "Contrôles à exécuter"
@@ -89,13 +99,31 @@ msgid "Name"
 msgstr "Nom"
 
 msgid "Job type"
-msgstr "Type d'emploi"
+msgstr "Type de tâche"
+
+msgid "Loading job types"
+msgstr ""
+
+msgid "Something went wrong whilst loading job types"
+msgstr ""
+
+msgid "Loading options"
+msgstr ""
+
+msgid "Something went wrong whilst loading options"
+msgstr ""
 
 msgid "No options available"
 msgstr "Aucune option disponible"
 
+msgid "There was a problem fetching parameters"
+msgstr ""
+
 msgid "Parameters"
 msgstr "Paramètres"
+
+msgid "There was a problem fetching the required job type"
+msgstr ""
 
 msgid "Save"
 msgstr "Enregistrer"
@@ -179,7 +207,7 @@ msgid "Insert preset"
 msgstr "Insérer un prédéfini"
 
 msgid "Are you sure you want to delete this job?"
-msgstr "Voulez-vous vraiment supprimer ce travail?"
+msgstr "Voulez-vous vraiment supprimer cette tâche?"
 
 msgid "Are you sure you want to discard this form?"
 msgstr "Etes vous sûr de vouloir supprimer ce formulaire ?"
@@ -191,7 +219,7 @@ msgid "Error running job"
 msgstr "Erreur d'exécution de la tâche"
 
 msgid "Are you sure you want to run this job?"
-msgstr "Êtes-vous sûr de vouloir exécuter cette tâche ?"
+msgstr "Êtes-vous sûr de vouloir exécuter cette tâche ?"
 
 msgid "Run"
 msgstr "Exécuter"
@@ -211,11 +239,25 @@ msgstr "Configuration"
 msgid "About job configuration"
 msgstr "À propos de la configuration de tâches"
 
+msgid "Could not load requested job"
+msgstr ""
+
+msgid ""
+"Something went wrong whilst loading the requested job. Make sure it has not "
+"been deleted and try refreshing the page."
+msgstr ""
+
 msgid "Job: {{ name }}"
 msgstr "Tâche: {{ name }}"
 
+msgid "Could not load jobs"
+msgstr ""
+
+msgid "Something went wrong whilst loading the jobs. Try refreshing the page."
+msgstr ""
+
 msgid "Scheduled jobs"
-msgstr "Travaux planifiés"
+msgstr "Tâches planifiées"
 
 msgid "Filter jobs"
 msgstr "Filtrer les tâches"
@@ -249,135 +291,6 @@ msgstr "Enrôlement"
 
 msgid "Validation result"
 msgstr "Resultat de validation"
-
-msgid "Program indicators with invalid expressions"
-msgstr "Indicateurs de programme avec des expressions invalides"
-
-msgid "Data elements without groups"
-msgstr "Eléments de données n'appartenant à aucun groupe"
-
-msgid "Indicators with invalid numerator"
-msgstr "Indicateurs avec numérateur invalide"
-
-msgid "Program rule actions without notification"
-msgstr "Actions de règles de programme sans notification"
-
-msgid "Only one \"default\" category combo should exist"
-msgstr ""
-"Il ne devrait exister qu'une seule combinaison de catégories \"par défaut\""
-
-msgid "Data elements without data sets"
-msgstr "Éléments de données sans ensembles de données"
-
-msgid "Category combos being invalid"
-msgstr "Combinaisons de catégories non valides"
-
-msgid "Indicators with identical formulas"
-msgstr "Indicateurs avec formules identiques"
-
-msgid "Indicators without groups"
-msgstr "Indicateurs n'appartenant à aucun groupe"
-
-msgid "Data elements in data set not in form"
-msgstr ""
-"Éléments de données dans un ensemble de données mais pas dans un formulaire"
-
-msgid "Program rules without priority"
-msgstr "Règles de programme sans priorité"
-
-msgid "Validation rules without groups"
-msgstr "Règles de validation sans groupes"
-
-msgid "Program indicators with invalid filters"
-msgstr "Indicateurs de programme avec filtres invalides"
-
-msgid "Categories with no category options"
-msgstr "Catégories sans options de catégorie"
-
-msgid "Program rules without condition"
-msgstr "Règles de programme sans conditions"
-
-msgid "Program rule actions without stage"
-msgstr "Action des règles de programme sans étape"
-
-msgid "Only one \"default\" category should exist"
-msgstr "Il ne devrait exister qu'une seule catégorie \"par défaut\""
-
-msgid ""
-"Lists category combos that share a combination of categories with at least "
-"one other category combo"
-msgstr ""
-"Liste les combos de catégories qui partagent une combinaison de catégories "
-"avec au moins une autre combinaison de catégories."
-
-msgid "Org units with cyclic references"
-msgstr "Unités d'organisation avec des références cycliques"
-
-msgid "Program rule variables without data element"
-msgstr "Variables de règle de programme sans élément de donnée"
-
-msgid "Validation rules with invalid right side expression"
-msgstr "Règles de validation avec une expression de droite invalide"
-
-msgid "Data sets not assigned to org units"
-msgstr "Ensembles de données non assignés à des unités d'organisation"
-
-msgid "Data elements violating exclusive group sets"
-msgstr ""
-"Eléments de donnée violant les ensembles de groupes mutuellement exclusifs"
-
-msgid "Org unit groups without group sets"
-msgstr "Groupes d'unités d'organisation sans ensembles de groupes"
-
-msgid "Program rule variables without attribute"
-msgstr "Variables de règle de programme sans attribut"
-
-msgid "Org units violating exclusive group sets"
-msgstr ""
-"Unités organisation enfreignant l'exclusivité des ensembles de groupes"
-
-msgid "Program rule actions without data object"
-msgstr "Actions de règles de programme sans objet de données"
-
-msgid "Only one \"default\" category option should exist"
-msgstr "Il ne devrait exister qu'une seule option de catégorie \"par défaut\""
-
-msgid "Only one \"default\" category option combo should exist"
-msgstr ""
-"Il ne devrait exister qu'une seule combinaison d'options de catégorie \"par "
-"défaut\""
-
-msgid "Org units without groups"
-msgstr "Unités d'organisation sans groupes"
-
-msgid "Program indicators without expression"
-msgstr "Indicateurs de programme sans expression"
-
-msgid "Indicators violating exclusive group sets"
-msgstr "Indicateurs violant les ensembles de groupes mutuellement exclusifs"
-
-msgid "Periods duplicates"
-msgstr "Périodes doublons"
-
-msgid "Data elements assigned to data sets with different period types"
-msgstr ""
-"Eléments de donnée assignés aux ensembles de données ayant des types de "
-"période différents"
-
-msgid "Program rules without action"
-msgstr "Règles de programme sans action"
-
-msgid "Org units being orphaned"
-msgstr "Unités d'organisation qui deviennent orphelines"
-
-msgid "Validation rules with invalid left side expression"
-msgstr "Règles de validation avec une expression de gauche invalide"
-
-msgid "Indicators with invalid denominator"
-msgstr "Indicateurs avec dénominateur invalide"
-
-msgid "Program rule actions without section"
-msgstr "Actions de règle de programme sans section"
 
 msgid "Warning"
 msgstr "Attention"
@@ -418,8 +331,20 @@ msgstr "Programmé"
 msgid "Stopped"
 msgstr "Arrêté"
 
+msgid "Account expiry alert"
+msgstr ""
+
+msgid "Exchange aggregate data"
+msgstr "Échange de données agrégées"
+
 msgid "Analytics table"
 msgstr "Tables d'analytique"
+
+msgid "Analytics table update"
+msgstr ""
+
+msgid "Complete data set registration import"
+msgstr ""
 
 msgid "Continuous analytics table"
 msgstr "Table d'analytique continue"
@@ -439,20 +364,65 @@ msgstr "Statistiques de données"
 msgid "Data synchronization"
 msgstr "Synchronisation de données"
 
+msgid "Data value import"
+msgstr ""
+
+msgid "Data value import internal"
+msgstr ""
+
+msgid "Disable inactive users"
+msgstr "Désactiver les utilisateurs inactifs"
+
+msgid "Enrollment import"
+msgstr ""
+
+msgid "Event import"
+msgstr "Importation d'événements"
+
 msgid "Event programs data sync"
 msgstr "Synchronisation des données des programmes d'événements"
 
 msgid "File resource clean up"
 msgstr "Nettoyage des ressources de fichiers"
 
+msgid "GEOJSON import"
+msgstr ""
+
+msgid "GML import"
+msgstr "Importation au format GML"
+
+msgid "Image processing"
+msgstr ""
+
+msgid "Leader election"
+msgstr ""
+
+msgid "Leader renewal"
+msgstr ""
+
+msgid "Lock exception cleanup"
+msgstr ""
+
+msgid "Materialized sql view update"
+msgstr ""
+
+msgid "Metadata import"
+msgstr "Importation de métadonnées"
+
 msgid "Metadata synchronization"
 msgstr "Synchronisation des métadonnées"
+
+msgid "Mock"
+msgstr ""
 
 msgid "Monitoring"
 msgstr "Surveillance"
 
 msgid "Predictor"
 msgstr "Prédicteur"
+
+msgid "Program data sync"
+msgstr ""
 
 msgid "Program notifications"
 msgstr "Notifications de programme"
@@ -463,23 +433,44 @@ msgstr "Analyse push"
 msgid "Remove expired reserved values"
 msgstr "Supprimer les valeurs réservées expirées"
 
+msgid "Remove used or expired reserved values"
+msgstr ""
+
 msgid "Resource table"
 msgstr "Table des ressources"
 
 msgid "Send scheduled message"
 msgstr "Envoyer un message programmé"
 
+msgid "SMS send"
+msgstr ""
+
+msgid "System version update check"
+msgstr ""
+
+msgid "TEI import"
+msgstr "Importation TEI"
+
+msgid "Test"
+msgstr ""
+
+msgid "Tracker import job"
+msgstr ""
+
+msgid "Tracker import notification job"
+msgstr ""
+
+msgid "Tracker import rule engine job"
+msgstr ""
+
 msgid "Tracker programs data sync"
 msgstr "Synchronisation des données des programmes de suivi"
 
+msgid "Tracker search optimization"
+msgstr ""
+
 msgid "Validation results notification"
 msgstr "Notification des résultats de la validation"
-
-msgid "Disable inactive users"
-msgstr "Désactiver les utilisateurs inactifs"
-
-msgid "Exchange aggregate data"
-msgstr "Échange de données agrégées"
 
 msgid "A CRON expression is required"
 msgstr "Une expression CRON est requise"

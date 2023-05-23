@@ -5,15 +5,21 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-03-10T13:28:50.698Z\n"
+"POT-Creation-Date: 2023-05-03T11:14:51.605Z\n"
 "PO-Revision-Date: 2020-05-08 14:30+0000\n"
 "Last-Translator: phil_dhis2, 2022\n"
-"Language-Team: Persian (Afghanistan) (https://www.transifex.com/hisp-uio/teams/100509/fa_AF/)\n"
+"Language-Team: Persian (Afghanistan) (https://app.transifex.com/hisp-uio/teams/100509/fa_AF/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fa_AF\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "Something went wrong"
+msgstr ""
+
+msgid "Something went wrong whilst retrieving user permissions."
+msgstr ""
 
 msgid "Not authorized"
 msgstr ""
@@ -32,10 +38,25 @@ msgstr ""
 msgid "Something went wrong whilst creating your job"
 msgstr ""
 
+msgid "Please select data exchange ids."
+msgstr ""
+
+msgid "Select data exchange ids"
+msgstr ""
+
+msgid "There was a problem fetching data exchange ids"
+msgstr ""
+
+msgid "error type"
+msgstr ""
+
 msgid "CRON Expression"
 msgstr ""
 
 msgid "Please select checks to run."
+msgstr ""
+
+msgid "Something went wrong whilst fetching options"
 msgstr ""
 
 msgid "Checks to run"
@@ -68,11 +89,29 @@ msgstr "نام"
 msgid "Job type"
 msgstr ""
 
+msgid "Loading job types"
+msgstr ""
+
+msgid "Something went wrong whilst loading job types"
+msgstr ""
+
+msgid "Loading options"
+msgstr ""
+
+msgid "Something went wrong whilst loading options"
+msgstr ""
+
 msgid "No options available"
 msgstr "هیچ گزینه موجود نیست"
 
+msgid "There was a problem fetching parameters"
+msgstr ""
+
 msgid "Parameters"
 msgstr "پارامتر ها"
+
+msgid "There was a problem fetching the required job type"
+msgstr ""
 
 msgid "Save"
 msgstr "ذخیره"
@@ -188,7 +227,21 @@ msgstr "ترتیب"
 msgid "About job configuration"
 msgstr ""
 
+msgid "Could not load requested job"
+msgstr ""
+
+msgid ""
+"Something went wrong whilst loading the requested job. Make sure it has not "
+"been deleted and try refreshing the page."
+msgstr ""
+
 msgid "Job: {{ name }}"
+msgstr ""
+
+msgid "Could not load jobs"
+msgstr ""
+
+msgid "Something went wrong whilst loading the jobs. Try refreshing the page."
 msgstr ""
 
 msgid "Scheduled jobs"
@@ -226,125 +279,6 @@ msgstr "ثبت نام"
 
 msgid "Validation result"
 msgstr "نتیجه اعتبار سنجی"
-
-msgid "Program indicators with invalid expressions"
-msgstr ""
-
-msgid "Data elements without groups"
-msgstr "عنصر اطلاعات بیدون گروپ ها"
-
-msgid "Indicators with invalid numerator"
-msgstr ""
-
-msgid "Program rule actions without notification"
-msgstr ""
-
-msgid "Only one \"default\" category combo should exist"
-msgstr ""
-
-msgid "Data elements without data sets"
-msgstr ""
-
-msgid "Category combos being invalid"
-msgstr ""
-
-msgid "Indicators with identical formulas"
-msgstr "شاخص ها با شناسایی فارمولا"
-
-msgid "Indicators without groups"
-msgstr "شاخص بیدون گروپ ها"
-
-msgid "Data elements in data set not in form"
-msgstr ""
-
-msgid "Program rules without priority"
-msgstr ""
-
-msgid "Validation rules without groups"
-msgstr "دستور سنجی بیدون گروپ ها"
-
-msgid "Program indicators with invalid filters"
-msgstr ""
-
-msgid "Categories with no category options"
-msgstr ""
-
-msgid "Program rules without condition"
-msgstr ""
-
-msgid "Program rule actions without stage"
-msgstr ""
-
-msgid "Only one \"default\" category should exist"
-msgstr ""
-
-msgid ""
-"Lists category combos that share a combination of categories with at least "
-"one other category combo"
-msgstr ""
-
-msgid "Org units with cyclic references"
-msgstr ""
-
-msgid "Program rule variables without data element"
-msgstr ""
-
-msgid "Validation rules with invalid right side expression"
-msgstr ""
-
-msgid "Data sets not assigned to org units"
-msgstr ""
-
-msgid "Data elements violating exclusive group sets"
-msgstr "عنصر اطلاعات وجود ندار"
-
-msgid "Org unit groups without group sets"
-msgstr ""
-
-msgid "Program rule variables without attribute"
-msgstr ""
-
-msgid "Org units violating exclusive group sets"
-msgstr ""
-
-msgid "Program rule actions without data object"
-msgstr ""
-
-msgid "Only one \"default\" category option should exist"
-msgstr ""
-
-msgid "Only one \"default\" category option combo should exist"
-msgstr ""
-
-msgid "Org units without groups"
-msgstr ""
-
-msgid "Program indicators without expression"
-msgstr ""
-
-msgid "Indicators violating exclusive group sets"
-msgstr "تصحیح مجموعه گروپ واحد سازمان"
-
-msgid "Periods duplicates"
-msgstr ""
-
-msgid "Data elements assigned to data sets with different period types"
-msgstr "دیتا ایلمنت ها در دیتا سیت اضافه شده اند در دوره های متفاوت"
-
-msgid "Program rules without action"
-msgstr ""
-
-msgid "Org units being orphaned"
-msgstr ""
-
-msgid "Validation rules with invalid left side expression"
-msgstr ""
-
-msgid "Indicators with invalid denominator"
-msgstr ""
-
-msgid "Program rule actions without section"
-msgstr ""
 
 msgid "Warning"
 msgstr "هشدار\\:"
@@ -385,7 +319,19 @@ msgstr "زمان بندی شده"
 msgid "Stopped"
 msgstr ""
 
+msgid "Account expiry alert"
+msgstr ""
+
+msgid "Exchange aggregate data"
+msgstr ""
+
 msgid "Analytics table"
+msgstr ""
+
+msgid "Analytics table update"
+msgstr ""
+
+msgid "Complete data set registration import"
 msgstr ""
 
 msgid "Continuous analytics table"
@@ -406,13 +352,55 @@ msgstr ""
 msgid "Data synchronization"
 msgstr "یکجا سازی اطلاعات"
 
+msgid "Data value import"
+msgstr ""
+
+msgid "Data value import internal"
+msgstr ""
+
+msgid "Disable inactive users"
+msgstr ""
+
+msgid "Enrollment import"
+msgstr ""
+
+msgid "Event import"
+msgstr ""
+
 msgid "Event programs data sync"
 msgstr ""
 
 msgid "File resource clean up"
 msgstr ""
 
+msgid "GEOJSON import"
+msgstr ""
+
+msgid "GML import"
+msgstr ""
+
+msgid "Image processing"
+msgstr ""
+
+msgid "Leader election"
+msgstr ""
+
+msgid "Leader renewal"
+msgstr ""
+
+msgid "Lock exception cleanup"
+msgstr ""
+
+msgid "Materialized sql view update"
+msgstr ""
+
+msgid "Metadata import"
+msgstr ""
+
 msgid "Metadata synchronization"
+msgstr ""
+
+msgid "Mock"
 msgstr ""
 
 msgid "Monitoring"
@@ -420,6 +408,9 @@ msgstr ""
 
 msgid "Predictor"
 msgstr "پیشگو"
+
+msgid "Program data sync"
+msgstr ""
 
 msgid "Program notifications"
 msgstr ""
@@ -430,19 +421,43 @@ msgstr "فشار تحلیل و تجزیه"
 msgid "Remove expired reserved values"
 msgstr ""
 
+msgid "Remove used or expired reserved values"
+msgstr ""
+
 msgid "Resource table"
 msgstr ""
 
 msgid "Send scheduled message"
 msgstr ""
 
+msgid "SMS send"
+msgstr ""
+
+msgid "System version update check"
+msgstr ""
+
+msgid "TEI import"
+msgstr ""
+
+msgid "Test"
+msgstr ""
+
+msgid "Tracker import job"
+msgstr ""
+
+msgid "Tracker import notification job"
+msgstr ""
+
+msgid "Tracker import rule engine job"
+msgstr ""
+
 msgid "Tracker programs data sync"
 msgstr ""
 
-msgid "Validation results notification"
+msgid "Tracker search optimization"
 msgstr ""
 
-msgid "Disable inactive users"
+msgid "Validation results notification"
 msgstr ""
 
 msgid "A CRON expression is required"
