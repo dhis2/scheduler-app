@@ -1,5 +1,5 @@
 import React from 'react'
-import { PropTypes } from '@dhis2/prop-types'
+import PropTypes from 'prop-types'
 import { TableRow, TableCell } from '@dhis2/ui'
 import { jobTypesMap } from '../../services/server-translations'
 import { ToggleJobSwitch } from '../Switches'

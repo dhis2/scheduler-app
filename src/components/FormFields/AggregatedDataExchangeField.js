@@ -7,7 +7,7 @@ import {
     Field,
 } from '@dhis2/ui'
 import React, { useCallback } from 'react'
-import { PropTypes } from '@dhis2/prop-types'
+import PropTypes from 'prop-types'
 import { useDataQuery } from '@dhis2/app-runtime'
 import styles from './AggregatedDataExchangeField.module.css'
 

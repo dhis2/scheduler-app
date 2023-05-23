@@ -1,5 +1,5 @@
 import React from 'react'
-import { PropTypes } from '@dhis2/prop-types'
+import PropTypes from 'prop-types'
 import { useDataMutation } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import { Switch } from '@dhis2/ui'
