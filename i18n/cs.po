@@ -1,19 +1,25 @@
 # 
 # Translators:
-# trendspotter <jirka.p@volny.cz>, 2022
+# Jiří Podhorecký, 2023
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-08-18T15:35:50.363Z\n"
+"POT-Creation-Date: 2023-05-03T11:14:51.605Z\n"
 "PO-Revision-Date: 2020-05-08 14:30+0000\n"
-"Last-Translator: trendspotter <jirka.p@volny.cz>, 2022\n"
-"Language-Team: Czech (https://www.transifex.com/hisp-uio/teams/100509/cs/)\n"
+"Last-Translator: Jiří Podhorecký, 2023\n"
+"Language-Team: Czech (https://app.transifex.com/hisp-uio/teams/100509/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: cs\n"
 "Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
+
+msgid "Something went wrong"
+msgstr "Něco se pokazilo"
+
+msgid "Something went wrong whilst retrieving user permissions."
+msgstr ""
 
 msgid "Not authorized"
 msgstr "Neautorizováno"
@@ -50,6 +56,9 @@ msgstr "CRON výraz"
 msgid "Please select checks to run."
 msgstr "Vyberte prosím kontroly, které chcete spustit."
 
+msgid "Something went wrong whilst fetching options"
+msgstr ""
+
 msgid "Checks to run"
 msgstr "Kontroly ke spuštění"
 
@@ -80,11 +89,29 @@ msgstr "Název"
 msgid "Job type"
 msgstr "Typ úlohy"
 
+msgid "Loading job types"
+msgstr ""
+
+msgid "Something went wrong whilst loading job types"
+msgstr ""
+
+msgid "Loading options"
+msgstr "Možnosti načítání"
+
+msgid "Something went wrong whilst loading options"
+msgstr ""
+
 msgid "No options available"
 msgstr "K dispozici nejsou žádné možnosti"
 
+msgid "There was a problem fetching parameters"
+msgstr ""
+
 msgid "Parameters"
 msgstr "Parametry"
+
+msgid "There was a problem fetching the required job type"
+msgstr ""
 
 msgid "Save"
 msgstr "Uložit"
@@ -200,8 +227,22 @@ msgstr "Konfigurace"
 msgid "About job configuration"
 msgstr "O konfiguraci úlohy"
 
+msgid "Could not load requested job"
+msgstr ""
+
+msgid ""
+"Something went wrong whilst loading the requested job. Make sure it has not "
+"been deleted and try refreshing the page."
+msgstr ""
+
 msgid "Job: {{ name }}"
 msgstr "Úloha: {{ name }}"
+
+msgid "Could not load jobs"
+msgstr ""
+
+msgid "Something went wrong whilst loading the jobs. Try refreshing the page."
+msgstr ""
 
 msgid "Scheduled jobs"
 msgstr "Plánované úlohy"
@@ -238,127 +279,6 @@ msgstr "Zápis"
 
 msgid "Validation result"
 msgstr "Výsledek ověření"
-
-msgid "Program indicators with invalid expressions"
-msgstr "Indikátory programu s neplatnými výrazy"
-
-msgid "Data elements without groups"
-msgstr "Datové prvky bez skupin"
-
-msgid "Indicators with invalid numerator"
-msgstr "Ukazatele s neplatným čitatelem"
-
-msgid "Program rule actions without notification"
-msgstr "Akce programových pravidel bez upozornění"
-
-msgid "Only one \"default\" category combo should exist"
-msgstr "Měla by existovat pouze jedna \"výchozí\" kombinace kategorií"
-
-msgid "Data elements without data sets"
-msgstr "Datové prvky bez datových sad"
-
-msgid "Category combos being invalid"
-msgstr "Kombinace kategorií jsou neplatná"
-
-msgid "Indicators with identical formulas"
-msgstr "Indikátory se stejnými vzorci"
-
-msgid "Indicators without groups"
-msgstr "Ukazatele bez skupin"
-
-msgid "Data elements in data set not in form"
-msgstr "Datové prvky v datové sadě nejsou ve formuláři"
-
-msgid "Program rules without priority"
-msgstr "Pravidla programu bez priority"
-
-msgid "Validation rules without groups"
-msgstr "Pravidla ověření bez skupin"
-
-msgid "Program indicators with invalid filters"
-msgstr "Indikátory programu s neplatnými filtry"
-
-msgid "Categories with no category options"
-msgstr "Kategorie bez možností kategorií"
-
-msgid "Program rules without condition"
-msgstr "Pravidla programu bez podmínek"
-
-msgid "Program rule actions without stage"
-msgstr "Akce Pravidla Priogramu bez fáze"
-
-msgid "Only one \"default\" category should exist"
-msgstr "Měla by existovat pouze jedna „výchozí“ kategorie"
-
-msgid ""
-"Lists category combos that share a combination of categories with at least "
-"one other category combo"
-msgstr ""
-"Uvádí seznamy kategorií, které sdílejí kombinaci kategorií s alespoň jednou "
-"další kombinací kategorií"
-
-msgid "Org units with cyclic references"
-msgstr "Organizační jednotky s cyklickými referencemi"
-
-msgid "Program rule variables without data element"
-msgstr "Proměnné programového pravidla bez datového prvku"
-
-msgid "Validation rules with invalid right side expression"
-msgstr "Ověřovací pravidla s neplatným výrazem na pravé straně"
-
-msgid "Data sets not assigned to org units"
-msgstr "Datové sady nejsou přiřazeny k organizačním jednotkám"
-
-msgid "Data elements violating exclusive group sets"
-msgstr "Datové prvky porušující exkluzivní sady skupin"
-
-msgid "Org unit groups without group sets"
-msgstr "Skupiny organizačních jednotek bez sady skupin"
-
-msgid "Program rule variables without attribute"
-msgstr "Proměnné programového pravidla bez atributu"
-
-msgid "Org units violating exclusive group sets"
-msgstr "Organizační jednotky porušující exkluzivní sady skupin"
-
-msgid "Program rule actions without data object"
-msgstr "Akce Pravidla Programu bez datového objektu"
-
-msgid "Only one \"default\" category option should exist"
-msgstr "Měla by existovat pouze jedna možnost „výchozí“ kategorie"
-
-msgid "Only one \"default\" category option combo should exist"
-msgstr "Měla by existovat pouze jedna \"výchozí\" kombinace možností kategorie"
-
-msgid "Org units without groups"
-msgstr "Organizační jednotky bez skupin"
-
-msgid "Program indicators without expression"
-msgstr "Indikátory programu bez výrazu"
-
-msgid "Indicators violating exclusive group sets"
-msgstr "Indikátory porušující exkluzivní sady skupin"
-
-msgid "Periods duplicates"
-msgstr "Duplikáty období"
-
-msgid "Data elements assigned to data sets with different period types"
-msgstr "Datové prvky přiřazené souborům dat s různými typy období"
-
-msgid "Program rules without action"
-msgstr "Pravidla programu bez akce"
-
-msgid "Org units being orphaned"
-msgstr "Organizační jednotky které se staly sirotky"
-
-msgid "Validation rules with invalid left side expression"
-msgstr "Ověřovací pravidla s neplatným výrazem na levé straně"
-
-msgid "Indicators with invalid denominator"
-msgstr "Indikátory s neplatným jmenovatelem"
-
-msgid "Program rule actions without section"
-msgstr "Akce pravidel Programu bez sekce"
 
 msgid "Warning"
 msgstr "Varování"
@@ -399,8 +319,20 @@ msgstr "Naplánováno"
 msgid "Stopped"
 msgstr "Zastaveno"
 
+msgid "Account expiry alert"
+msgstr ""
+
+msgid "Exchange aggregate data"
+msgstr "Výměna agregovaných dat"
+
 msgid "Analytics table"
 msgstr "Tabulka Analýzy"
+
+msgid "Analytics table update"
+msgstr ""
+
+msgid "Complete data set registration import"
+msgstr ""
 
 msgid "Continuous analytics table"
 msgstr "Kontinuální analytická tabulka"
@@ -420,20 +352,65 @@ msgstr "Statistika dat"
 msgid "Data synchronization"
 msgstr "Synchronizace dat"
 
+msgid "Data value import"
+msgstr ""
+
+msgid "Data value import internal"
+msgstr ""
+
+msgid "Disable inactive users"
+msgstr "Zakázat neaktivní uživatele"
+
+msgid "Enrollment import"
+msgstr ""
+
+msgid "Event import"
+msgstr "Import událostí"
+
 msgid "Event programs data sync"
 msgstr "Synchronizace dat programů událostí"
 
 msgid "File resource clean up"
 msgstr "Vyčištění souboru"
 
+msgid "GEOJSON import"
+msgstr ""
+
+msgid "GML import"
+msgstr "GML import"
+
+msgid "Image processing"
+msgstr ""
+
+msgid "Leader election"
+msgstr ""
+
+msgid "Leader renewal"
+msgstr ""
+
+msgid "Lock exception cleanup"
+msgstr ""
+
+msgid "Materialized sql view update"
+msgstr ""
+
+msgid "Metadata import"
+msgstr "Import metadat"
+
 msgid "Metadata synchronization"
 msgstr "Synchronizace metadat"
+
+msgid "Mock"
+msgstr ""
 
 msgid "Monitoring"
 msgstr "Monitorování"
 
 msgid "Predictor"
 msgstr "Prediktor"
+
+msgid "Program data sync"
+msgstr ""
 
 msgid "Program notifications"
 msgstr "Oznámení o programu"
@@ -444,23 +421,44 @@ msgstr "Analýza push"
 msgid "Remove expired reserved values"
 msgstr "Odebrat prošlé rezervované hodnoty"
 
+msgid "Remove used or expired reserved values"
+msgstr ""
+
 msgid "Resource table"
 msgstr "Tabulka zdrojů"
 
 msgid "Send scheduled message"
 msgstr "Odeslat naplánovanou zprávu"
 
+msgid "SMS send"
+msgstr ""
+
+msgid "System version update check"
+msgstr ""
+
+msgid "TEI import"
+msgstr "TEI import"
+
+msgid "Test"
+msgstr ""
+
+msgid "Tracker import job"
+msgstr ""
+
+msgid "Tracker import notification job"
+msgstr ""
+
+msgid "Tracker import rule engine job"
+msgstr ""
+
 msgid "Tracker programs data sync"
 msgstr "Synchronizace dat trasovacích programů"
 
+msgid "Tracker search optimization"
+msgstr ""
+
 msgid "Validation results notification"
 msgstr "Oznámení o výsledku ověření"
-
-msgid "Disable inactive users"
-msgstr "Zakázat neaktivní uživatele"
-
-msgid "Exchange aggregate data"
-msgstr "Výměna agregovaných dat"
 
 msgid "A CRON expression is required"
 msgstr "Je vyžadován výraz CRON"
