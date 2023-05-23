@@ -8,6 +8,7 @@ const query = {
             fields: [
                 'created',
                 'cronExpression',
+                'delay',
                 'id',
                 'jobParameters',
                 'jobType',
