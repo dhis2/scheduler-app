@@ -91,7 +91,7 @@ const AggregatedDataExchangeField = ({ label, name }) => {
                 enableOrderChange={true}
                 filterable={true}
                 height={'450px'}
-                selectedEmptyComponent={SelectedEmptyComponent}
+                selectedEmptyComponent={<SelectedEmptyComponent />}
             />
         </Field>
     )
