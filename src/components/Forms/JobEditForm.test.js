@@ -40,7 +40,7 @@ describe('<JobEditForm>', () => {
             <Form onSubmit={() => {}}>{() => <JobEditForm {...props} />}</Form>
         )
         const actual = wrapper.find({
-            'data-test': 'dhis2-uicore-noticebox-message',
+            'data-test': 'dhis2-uicore-noticebox-content-message',
         })
 
         expect(actual).toHaveLength(1)

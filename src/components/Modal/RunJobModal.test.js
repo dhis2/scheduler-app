@@ -45,7 +45,7 @@ describe('<RunJobModal>', () => {
         expect(props.hideModal).toHaveBeenCalled()
     })
 
-    it('calls hideModal when cover is clicked', () => {
+    it('calls hideModal when backdrop is clicked', () => {
         useDataMutation.mockImplementation(() => [
             jest.fn(),
             { loading: false, error: null },
@@ -58,7 +58,8 @@ describe('<RunJobModal>', () => {
         }
         const wrapper = mount(<RunJobModal {...props} />)
 
-        wrapper.find({ 'data-test': 'dhis2-uicore-layer' }).simulate('click')
+        // Not a stable selector, but the backdrop does not have a data-test attribute
+        wrapper.find('.backdrop').simulate('click')
 
         expect(props.hideModal).toHaveBeenCalled()
     })
