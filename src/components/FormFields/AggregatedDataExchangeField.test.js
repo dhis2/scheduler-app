@@ -10,53 +10,51 @@ jest.mock('@dhis2/app-runtime', () => ({
     useDataQuery: jest.fn(),
 }))
 
-const renderComponent = ({
-    useDataQueryReturnValues,
-    submitHandler = () => {},
-}) => {
-    useDataQuery.mockReturnValue(useDataQueryReturnValues)
-
-    return mount(
-        <>
-            <Form onSubmit={submitHandler}>
-                {({ handleSubmit }) => (
-                    <form onSubmit={handleSubmit}>
-                        <AggregatedDataExchangeField
-                            label="Data exchange"
-                            name="ADF"
-                        />
-                    </form>
-                )}
-            </Form>
-        </>
-    )
-}
-
 describe('<AggregatedDataExchangeField>', () => {
     describe('When loading', () => {
         it('should display the <CircularLoader />', () => {
-            const wrapper = renderComponent({
-                useDataQueryReturnValues: {
-                    loading: true,
-                    error: undefined,
-                    data: undefined,
-                },
+            useDataQuery.mockReturnValue({
+                loading: true,
+                error: undefined,
+                data: undefined,
             })
+
+            const wrapper = mount(
+                <Form onSubmit={() => {}}>
+                    {({ handleSubmit }) => (
+                        <form onSubmit={handleSubmit}>
+                            <AggregatedDataExchangeField
+                                label="Data exchange"
+                                name="ADF"
+                            />
+                        </form>
+                    )}
+                </Form>
+            )
 
             expect(wrapper.find(CircularLoader).exists()).toBe(true)
         })
 
         it('should prevent form submission', () => {
             const submitHandler = jest.fn()
-
-            const wrapper = renderComponent({
-                useDataQueryReturnValues: {
-                    loading: true,
-                    error: undefined,
-                    data: undefined,
-                },
-                submitHandler,
+            useDataQuery.mockReturnValue({
+                loading: true,
+                error: undefined,
+                data: undefined,
             })
+
+            const wrapper = mount(
+                <Form onSubmit={submitHandler}>
+                    {({ handleSubmit }) => (
+                        <form onSubmit={handleSubmit}>
+                            <AggregatedDataExchangeField
+                                label="Data exchange"
+                                name="ADF"
+                            />
+                        </form>
+                    )}
+                </Form>
+            )
 
             wrapper.find('form').simulate('submit')
 
@@ -73,13 +71,24 @@ describe('<AggregatedDataExchangeField>', () => {
         }
 
         it('should display the Error message', () => {
-            const wrapper = renderComponent({
-                useDataQueryReturnValues: {
-                    loading: false,
-                    error,
-                    data: undefined,
-                },
+            useDataQuery.mockReturnValue({
+                loading: false,
+                error,
+                data: undefined,
             })
+
+            const wrapper = mount(
+                <Form onSubmit={() => {}}>
+                    {({ handleSubmit }) => (
+                        <form onSubmit={handleSubmit}>
+                            <AggregatedDataExchangeField
+                                label="Data exchange"
+                                name="ADF"
+                            />
+                        </form>
+                    )}
+                </Form>
+            )
 
             expect(
                 wrapper.contains(
@@ -92,15 +101,24 @@ describe('<AggregatedDataExchangeField>', () => {
 
         it('should prevent form submission', () => {
             const submitHandler = jest.fn()
-
-            const wrapper = renderComponent({
-                useDataQueryReturnValues: {
-                    loading: false,
-                    error,
-                    data: undefined,
-                },
-                submitHandler,
+            useDataQuery.mockReturnValue({
+                loading: false,
+                error,
+                data: undefined,
             })
+
+            const wrapper = mount(
+                <Form onSubmit={submitHandler}>
+                    {({ handleSubmit }) => (
+                        <form onSubmit={handleSubmit}>
+                            <AggregatedDataExchangeField
+                                label="Data exchange"
+                                name="ADF"
+                            />
+                        </form>
+                    )}
+                </Form>
+            )
 
             wrapper.find('form').simulate('submit')
 
