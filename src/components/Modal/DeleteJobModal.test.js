@@ -63,7 +63,7 @@ describe('<DeleteJobModal>', () => {
         expect(onSuccessSpy).toHaveBeenCalled()
     })
 
-    it('calls hideModal when cover is clicked', () => {
+    it('calls hideModal when backdrop is clicked', () => {
         useDataMutation.mockImplementation(() => [() => {}])
 
         const props = {
@@ -73,10 +73,8 @@ describe('<DeleteJobModal>', () => {
         }
         const wrapper = mount(<DeleteJobModal {...props} />)
 
-        wrapper
-            .find('div')
-            .find({ 'data-test': 'dhis2-uicore-layer' })
-            .simulate('click')
+        // Not a stable selector, but the backdrop does not have a data-test attribute
+        wrapper.find('.backdrop').simulate('click')
 
         expect(props.hideModal).toHaveBeenCalled()
     })

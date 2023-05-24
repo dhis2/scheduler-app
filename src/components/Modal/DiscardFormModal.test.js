@@ -38,14 +38,12 @@ describe('<DiscardFormModal>', () => {
         expect(spy).toHaveBeenCalled()
     })
 
-    it('calls hideModal when cover is clicked', () => {
+    it('calls hideModal when backdrop is clicked', () => {
         const spy = jest.fn()
         const wrapper = mount(<DiscardFormModal hideModal={spy} />)
 
-        wrapper
-            .find('div')
-            .find({ 'data-test': 'dhis2-uicore-layer' })
-            .simulate('click')
+        // Not a stable selector, but the backdrop does not have a data-test attribute
+        wrapper.find('.backdrop').simulate('click')
 
         expect(spy).toHaveBeenCalled()
     })
