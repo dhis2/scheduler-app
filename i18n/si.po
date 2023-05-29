@@ -64,7 +64,7 @@ msgid "Attributes"
 msgstr ""
 
 msgid "Name"
-msgstr ""
+msgstr "නම"
 
 msgid "Could not find job"
 msgstr ""
