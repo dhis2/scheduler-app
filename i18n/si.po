@@ -84,7 +84,7 @@ msgid "Delay in seconds ({{ lowerbound }} - {{ upperbound }})"
 msgstr ""
 
 msgid "Name"
-msgstr ""
+msgstr "නම"
 
 msgid "Job type"
 msgstr ""
@@ -114,7 +114,7 @@ msgid "There was a problem fetching the required job type"
 msgstr ""
 
 msgid "Save"
-msgstr ""
+msgstr "සුරකින්න"
 
 msgid "Cancel"
 msgstr ""
@@ -186,7 +186,7 @@ msgid "Every day at noon"
 msgstr ""
 
 msgid "Every week"
-msgstr ""
+msgstr "සෑම සතියකම"
 
 msgid "Choose a preset time/interval"
 msgstr ""
@@ -201,7 +201,7 @@ msgid "Are you sure you want to discard this form?"
 msgstr ""
 
 msgid "Discard"
-msgstr ""
+msgstr "ඉවත ලන්න"
 
 msgid "Error running job"
 msgstr ""
@@ -287,7 +287,7 @@ msgid "Severe"
 msgstr ""
 
 msgid "Report"
-msgstr ""
+msgstr "වාර්තාව"
 
 msgid "Summary"
 msgstr ""
@@ -302,10 +302,10 @@ msgid "Disabled"
 msgstr ""
 
 msgid "Done"
-msgstr ""
+msgstr "නිම කළා"
 
 msgid "Failed"
-msgstr ""
+msgstr "අසාර්ථකයි"
 
 msgid "Not started"
 msgstr ""
