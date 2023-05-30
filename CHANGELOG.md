@@ -1,3 +1,10 @@
+## [101.0.4](https://github.com/dhis2/scheduler-app/compare/v101.0.3...v101.0.4) (2023-05-30)
+
+
+### Bug Fixes
+
+* add missing delay field to query ([14dd503](https://github.com/dhis2/scheduler-app/commit/14dd503d37e76e91675dc9c7c1a9f380c4247032))
+
 ## [101.0.3](https://github.com/dhis2/scheduler-app/compare/v101.0.2...v101.0.3) (2023-05-29)
 
 
