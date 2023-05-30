@@ -1,3 +1,10 @@
+## [101.0.5](https://github.com/dhis2/scheduler-app/compare/v101.0.4...v101.0.5) (2023-05-30)
+
+
+### Bug Fixes
+
+* pass react component correctly ([d265242](https://github.com/dhis2/scheduler-app/commit/d265242c83f8de473704853cb8ad11b70fa6be2b))
+
 ## [101.0.4](https://github.com/dhis2/scheduler-app/compare/v101.0.3...v101.0.4) (2023-05-30)
 
 
