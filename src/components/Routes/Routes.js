@@ -5,6 +5,7 @@ import JobList from '../../pages/JobList'
 import JobEdit from '../../pages/JobEdit'
 import JobView from '../../pages/JobView'
 import JobAdd from '../../pages/JobAdd'
+import SequenceAdd from '../../pages/SequenceAdd'
 import history from '../../services/history'
 
 const Routes = () => (
@@ -13,6 +14,7 @@ const Routes = () => (
         <Route path="/edit/:id" component={JobEdit} />
         <Route path="/view/:id" component={JobView} />
         <Route path="/add" component={JobAdd} />
+        <Route path="/add-sequence" component={SequenceAdd} />
     </Router>
 )
 

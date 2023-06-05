@@ -8,5 +8,6 @@ export { default as JobNameField } from './JobNameField'
 export { default as JobTypeField } from './JobTypeField'
 export { default as ParameterFields } from './ParameterFields'
 export { default as ScheduleField } from './ScheduleField'
+export { default as SequenceNameField } from './SequenceNameField'
 
 export { fieldNames }
