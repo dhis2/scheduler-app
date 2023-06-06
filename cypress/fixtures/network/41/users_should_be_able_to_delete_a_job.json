@@ -97,7 +97,7 @@
         }
     },
     {
-        "path": "/api/41/pushAnalysis?paging=false",
+        "path": "/api/41/predictorGroups?paging=false",
         "featureName": "Users should be able to delete a job",
         "static": false,
         "count": 2,
@@ -113,8 +113,8 @@
             "sec-fetch-mode": "cors"
         },
         "statusCode": 200,
-        "responseBody": "{\"pushAnalysis\":[{\"displayName\":\"Immunization Key Indicators Monthly Report\",\"id\":\"jtcMAKhWwnc\"}]}",
-        "responseSize": 98,
+        "responseBody": "{\"predictorGroups\":[]}",
+        "responseSize": 22,
         "responseHeaders": {
             "server": "nginx/1.23.0",
             "content-type": "application/json;charset=UTF-8",
@@ -163,7 +163,7 @@
         }
     },
     {
-        "path": "/api/41/predictorGroups?paging=false",
+        "path": "/api/41/pushAnalysis?paging=false",
         "featureName": "Users should be able to delete a job",
         "static": false,
         "count": 2,
@@ -179,8 +179,8 @@
             "sec-fetch-mode": "cors"
         },
         "statusCode": 200,
-        "responseBody": "{\"predictorGroups\":[]}",
-        "responseSize": 22,
+        "responseBody": "{\"pushAnalysis\":[{\"displayName\":\"Immunization Key Indicators Monthly Report\",\"id\":\"jtcMAKhWwnc\"}]}",
+        "responseSize": 98,
         "responseHeaders": {
             "server": "nginx/1.23.0",
             "content-type": "application/json;charset=UTF-8",
