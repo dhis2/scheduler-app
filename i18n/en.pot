@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2023-05-31T14:07:48.796Z\n"
-"PO-Revision-Date: 2023-05-31T14:07:48.796Z\n"
+"POT-Creation-Date: 2023-06-07T09:23:06.481Z\n"
+"PO-Revision-Date: 2023-06-07T09:23:06.481Z\n"
 
 msgid "Something went wrong"
 msgstr "Something went wrong"
@@ -108,11 +108,17 @@ msgstr "Parameters"
 msgid "There was a problem fetching the required job type"
 msgstr "There was a problem fetching the required job type"
 
+msgid "Job sequence"
+msgstr "Job sequence"
+
 msgid "Save"
 msgstr "Save"
 
 msgid "Cancel"
 msgstr "Cancel"
+
+msgid "Configure jobs in sequence"
+msgstr "Configure jobs in sequence"
 
 msgid "Job details"
 msgstr "Job details"
@@ -258,9 +264,6 @@ msgstr "System job: {{ name }}"
 
 msgid "New Sequence"
 msgstr "New Sequence"
-
-msgid "About sequence configuration"
-msgstr "About sequence configuration"
 
 msgid "Completeness"
 msgstr "Completeness"
