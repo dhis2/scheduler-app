@@ -7,6 +7,7 @@ import {
     hasValue,
 } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
+import { useQueueables } from '../../hooks/queueables'
 
 const { Field } = ReactFinalForm
 const { arrayOf, object } = PropTypes
@@ -39,18 +40,25 @@ const FIELD_NAME = 'sequence'
 const VALIDATOR = composeValidators(hasValue)
 
 // Form field for ordering jobs in a queue
-const SequenceOrderField = () => (
-    <Field
-        name={FIELD_NAME}
-        component={SequenceTransfer}
-        options={[
-            { label: 'one', value: 1 },
-            { label: 'two', value: 2 },
-        ]}
-        label={i18n.t('Job sequence')}
-        validate={VALIDATOR}
-        required
-    />
-)
+const SequenceOrderField = () => {
+    const { loading, error, data } = useQueueables()
+
+    if (loading || error) {
+        return 'loading or error'
+    }
+
+    const options = data.map(({ name, id }) => ({ label: name, value: id }))
+
+    return (
+        <Field
+            name={FIELD_NAME}
+            component={SequenceTransfer}
+            options={options}
+            label={i18n.t('Job sequence')}
+            validate={VALIDATOR}
+            required
+        />
+    )
+}
 
 export default SequenceOrderField
