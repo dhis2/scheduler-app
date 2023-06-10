@@ -19,7 +19,7 @@ msgid "Something went wrong"
 msgstr "Něco se pokazilo"
 
 msgid "Something went wrong whilst retrieving user permissions."
-msgstr ""
+msgstr "Při načítání uživatelských oprávnění se něco pokazilo."
 
 msgid "Not authorized"
 msgstr "Neautorizováno"
@@ -57,7 +57,7 @@ msgid "Please select checks to run."
 msgstr "Vyberte prosím kontroly, které chcete spustit."
 
 msgid "Something went wrong whilst fetching options"
-msgstr ""
+msgstr "Při načítání možností se něco pokazilo"
 
 msgid "Checks to run"
 msgstr "Kontroly ke spuštění"
@@ -90,28 +90,28 @@ msgid "Job type"
 msgstr "Typ úlohy"
 
 msgid "Loading job types"
-msgstr ""
+msgstr "Načítání typů úloh"
 
 msgid "Something went wrong whilst loading job types"
-msgstr ""
+msgstr "Při načítání typů úloh se něco pokazilo"
 
 msgid "Loading options"
 msgstr "Možnosti načítání"
 
 msgid "Something went wrong whilst loading options"
-msgstr ""
+msgstr "Při načítání možností se něco pokazilo"
 
 msgid "No options available"
 msgstr "K dispozici nejsou žádné možnosti"
 
 msgid "There was a problem fetching parameters"
-msgstr ""
+msgstr "Při načítání parametrů došlo k problému"
 
 msgid "Parameters"
 msgstr "Parametry"
 
 msgid "There was a problem fetching the required job type"
-msgstr ""
+msgstr "Při načítání požadovaného typu úlohy došlo k problému"
 
 msgid "Save"
 msgstr "Uložit"
@@ -228,21 +228,23 @@ msgid "About job configuration"
 msgstr "O konfiguraci úlohy"
 
 msgid "Could not load requested job"
-msgstr ""
+msgstr "Požadovanou úlohu nelze načíst"
 
 msgid ""
 "Something went wrong whilst loading the requested job. Make sure it has not "
 "been deleted and try refreshing the page."
 msgstr ""
+"Při načítání požadované úlohy se něco pokazilo. Ujistěte se, že nebyla "
+"smazána, a zkuste stránku obnovit."
 
 msgid "Job: {{ name }}"
 msgstr "Úloha: {{ name }}"
 
 msgid "Could not load jobs"
-msgstr ""
+msgstr "Úlohy nelze načíst"
 
 msgid "Something went wrong whilst loading the jobs. Try refreshing the page."
-msgstr ""
+msgstr "Při načítání úloh se něco pokazilo. Zkuste stránku obnovit."
 
 msgid "Scheduled jobs"
 msgstr "Plánované úlohy"
@@ -320,7 +322,7 @@ msgid "Stopped"
 msgstr "Zastaveno"
 
 msgid "Account expiry alert"
-msgstr ""
+msgstr "Upozornění na vypršení platnosti účtu"
 
 msgid "Exchange aggregate data"
 msgstr "Výměna agregovaných dat"
@@ -329,10 +331,10 @@ msgid "Analytics table"
 msgstr "Tabulka Analýzy"
 
 msgid "Analytics table update"
-msgstr ""
+msgstr "Aktualizace analytické tabulky"
 
 msgid "Complete data set registration import"
-msgstr ""
+msgstr "Dokončete import registrace sady dat"
 
 msgid "Continuous analytics table"
 msgstr "Kontinuální analytická tabulka"
@@ -353,16 +355,16 @@ msgid "Data synchronization"
 msgstr "Synchronizace dat"
 
 msgid "Data value import"
-msgstr ""
+msgstr "Import datových hodnot"
 
 msgid "Data value import internal"
-msgstr ""
+msgstr "Interní import hodnoty dat"
 
 msgid "Disable inactive users"
 msgstr "Zakázat neaktivní uživatele"
 
 msgid "Enrollment import"
-msgstr ""
+msgstr "Import zápisu"
 
 msgid "Event import"
 msgstr "Import událostí"
@@ -374,25 +376,25 @@ msgid "File resource clean up"
 msgstr "Vyčištění souboru"
 
 msgid "GEOJSON import"
-msgstr ""
+msgstr "Import GEOJSON"
 
 msgid "GML import"
 msgstr "GML import"
 
 msgid "Image processing"
-msgstr ""
+msgstr "Zpracování obrazu"
 
 msgid "Leader election"
-msgstr ""
+msgstr "Volba předáka"
 
 msgid "Leader renewal"
-msgstr ""
+msgstr "Obnova předáka"
 
 msgid "Lock exception cleanup"
-msgstr ""
+msgstr "Vyčištění výjimky zámku"
 
 msgid "Materialized sql view update"
-msgstr ""
+msgstr "Aktualizace materializovaného zobrazení SQL"
 
 msgid "Metadata import"
 msgstr "Import metadat"
@@ -401,7 +403,7 @@ msgid "Metadata synchronization"
 msgstr "Synchronizace metadat"
 
 msgid "Mock"
-msgstr ""
+msgstr "Mock"
 
 msgid "Monitoring"
 msgstr "Monitorování"
@@ -410,7 +412,7 @@ msgid "Predictor"
 msgstr "Prediktor"
 
 msgid "Program data sync"
-msgstr ""
+msgstr "Synchronizace dat programu"
 
 msgid "Program notifications"
 msgstr "Oznámení o programu"
@@ -422,7 +424,7 @@ msgid "Remove expired reserved values"
 msgstr "Odebrat prošlé rezervované hodnoty"
 
 msgid "Remove used or expired reserved values"
-msgstr ""
+msgstr "Odstranit použité nebo prošlé rezervované hodnoty"
 
 msgid "Resource table"
 msgstr "Tabulka zdrojů"
@@ -431,31 +433,31 @@ msgid "Send scheduled message"
 msgstr "Odeslat naplánovanou zprávu"
 
 msgid "SMS send"
-msgstr ""
+msgstr "SMS odeslat"
 
 msgid "System version update check"
-msgstr ""
+msgstr "Kontrola aktualizace verze systému"
 
 msgid "TEI import"
 msgstr "TEI import"
 
 msgid "Test"
-msgstr ""
+msgstr "Test"
 
 msgid "Tracker import job"
-msgstr ""
+msgstr "Úloha importu trackeru"
 
 msgid "Tracker import notification job"
-msgstr ""
+msgstr "Úloha oznámení o importu trackeru"
 
 msgid "Tracker import rule engine job"
-msgstr ""
+msgstr "Úloha modulu pravidel importu sledování"
 
 msgid "Tracker programs data sync"
 msgstr "Synchronizace dat trasovacích programů"
 
 msgid "Tracker search optimization"
-msgstr ""
+msgstr "Optimalizace vyhledávání pomocí trackeru"
 
 msgid "Validation results notification"
 msgstr "Oznámení o výsledku ověření"
