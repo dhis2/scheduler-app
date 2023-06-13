@@ -2,6 +2,8 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import {
     ReactFinalForm,
+    CircularLoader,
+    NoticeBox,
     Transfer,
     composeValidators,
     hasValue,
@@ -51,8 +53,17 @@ const initialValue = []
 const SequenceOrderField = () => {
     const { loading, error, data } = useQueueables()
 
-    if (loading || error) {
-        return 'loading or error'
+    if (loading) {
+        return <CircularLoader />
+    }
+
+    if (error) {
+        return (
+            <NoticeBox
+                error
+                title={i18n.t('Something went wrong whilst fetching the queueable jobs')}
+            />
+        )
     }
 
     const options = data.map(({ name, id }) => ({ label: name, value: id }))
