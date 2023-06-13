@@ -28,10 +28,13 @@ const SequenceTransfer = ({ options, input }) => {
             options={options}
             selected={value}
             filterable
+            filterPlaceholder={i18n.t('Filter jobs')}
             enableOrderChange
             onChange={({ selected }) => onChange(selected)}
-            leftHeader={<h4 style={headerStyle}>Available jobs</h4>}
-            rightHeader={<h4 style={headerStyle}>Jobs in this sequence</h4>}
+            leftHeader={<h4 style={headerStyle}>{i18n.t('Available jobs')}</h4>}
+            rightHeader={
+                <h4 style={headerStyle}>{i18n.t('Jobs in this sequence')}</h4>
+            }
         />
     )
 }
@@ -61,7 +64,9 @@ const SequenceOrderField = () => {
         return (
             <NoticeBox
                 error
-                title={i18n.t('Something went wrong whilst fetching the queueable jobs')}
+                title={i18n.t(
+                    'Something went wrong whilst fetching the queueable jobs'
+                )}
             />
         )
     }
