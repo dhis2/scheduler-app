@@ -43,11 +43,6 @@ const SequenceAddForm = ({
             <Box marginTop="16px" maxWidth="400px">
                 <CronField />
             </Box>
-            <Box marginTop="16px" maxWidth="400px">
-                <h3 className={styles.title}>
-                    {i18n.t('Configure jobs in sequence')}
-                </h3>
-            </Box>
             <Box marginTop="16px">
                 <SequenceOrderField />
             </Box>
