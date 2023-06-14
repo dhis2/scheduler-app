@@ -283,7 +283,7 @@ msgid "Validation result"
 msgstr ""
 
 msgid "Warning"
-msgstr ""
+msgstr "Waarschuwing"
 
 msgid "Severe"
 msgstr ""
