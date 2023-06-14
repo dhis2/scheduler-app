@@ -1,13 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { ReactFinalForm } from '@dhis2/ui'
-// import { useSubmitSequence } from '../../hooks/sequences'
+import { useSubmitJobQueue } from '../../hooks/job-queues'
 import SequenceAddForm from './SequenceAddForm'
 
 const { Form } = ReactFinalForm
 
 const SequenceAddFormContainer = ({ setIsPristine }) => {
-    // const [submitSequence] = useSubmitSequence()
+    const [submitJobQueue] = useSubmitJobQueue()
 
     /**
      * destroyOnUnregister is enabled so that dynamic fields will be unregistered
@@ -15,7 +15,7 @@ const SequenceAddFormContainer = ({ setIsPristine }) => {
      */
     return (
         <Form
-            onSubmit={() => {}}
+            onSubmit={submitJobQueue}
             component={SequenceAddForm}
             setIsPristine={setIsPristine}
             destroyOnUnregister
