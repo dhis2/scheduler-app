@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2023-06-07T09:23:06.481Z\n"
-"PO-Revision-Date: 2023-06-07T09:23:06.481Z\n"
+"POT-Creation-Date: 2023-06-14T09:12:03.915Z\n"
+"PO-Revision-Date: 2023-06-14T09:12:03.915Z\n"
 
 msgid "Something went wrong"
 msgstr "Something went wrong"
@@ -108,17 +108,29 @@ msgstr "Parameters"
 msgid "There was a problem fetching the required job type"
 msgstr "There was a problem fetching the required job type"
 
+msgid "Please select at least two jobs"
+msgstr "Please select at least two jobs"
+
+msgid "Something went wrong whilst fetching the queueable jobs"
+msgstr "Something went wrong whilst fetching the queueable jobs"
+
 msgid "Job sequence"
 msgstr "Job sequence"
+
+msgid "Filter jobs"
+msgstr "Filter jobs"
+
+msgid "Available jobs"
+msgstr "Available jobs"
+
+msgid "Jobs in this sequence"
+msgstr "Jobs in this sequence"
 
 msgid "Save"
 msgstr "Save"
 
 msgid "Cancel"
 msgstr "Cancel"
-
-msgid "Configure jobs in sequence"
-msgstr "Configure jobs in sequence"
 
 msgid "Job details"
 msgstr "Job details"
@@ -249,9 +261,6 @@ msgstr "Something went wrong whilst loading the jobs. Try refreshing the page."
 
 msgid "Scheduled jobs"
 msgstr "Scheduled jobs"
-
-msgid "Filter jobs"
-msgstr "Filter jobs"
 
 msgid "Include system jobs in list"
 msgstr "Include system jobs in list"
