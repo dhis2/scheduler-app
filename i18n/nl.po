@@ -42,7 +42,7 @@ msgid "Add job"
 msgstr ""
 
 msgid "Required"
-msgstr ""
+msgstr "Vereist"
 
 msgid "Must be of two or more characters"
 msgstr ""
@@ -75,7 +75,7 @@ msgid "Details"
 msgstr "Details"
 
 msgid "Created"
-msgstr ""
+msgstr "Gemaakt"
 
 msgid "Last executed"
 msgstr ""
