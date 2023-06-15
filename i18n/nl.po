@@ -24,7 +24,7 @@ msgid "Cancel"
 msgstr "Annuleer"
 
 msgid "Confirm"
-msgstr ""
+msgstr "Bevestigen"
 
 msgid "Open user guide"
 msgstr ""
