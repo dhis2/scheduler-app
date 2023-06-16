@@ -98,7 +98,7 @@ msgid "Something went wrong whilst loading job types"
 msgstr ""
 
 msgid "Loading options"
-msgstr ""
+msgstr "Laad opties"
 
 msgid "Something went wrong whilst loading options"
 msgstr ""
