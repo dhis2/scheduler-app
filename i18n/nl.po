@@ -280,7 +280,7 @@ msgid "Enrollment"
 msgstr "Inschrijving"
 
 msgid "Validation result"
-msgstr ""
+msgstr "Validatie resultaat"
 
 msgid "Warning"
 msgstr "Waarschuwing"
@@ -316,7 +316,7 @@ msgid "Running"
 msgstr ""
 
 msgid "Scheduled"
-msgstr ""
+msgstr "Gepland"
 
 msgid "Stopped"
 msgstr ""
