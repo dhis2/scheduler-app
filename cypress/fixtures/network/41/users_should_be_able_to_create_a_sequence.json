@@ -1,7 +1,7 @@
 [
     {
         "path": "/api/41/systemSettings/helpPageLink",
-        "featureName": "Users should be able to navigate to the new job route",
+        "featureName": "Users should be able to create a sequence",
         "static": false,
         "count": 1,
         "nonDeterministic": false,
@@ -34,7 +34,7 @@
     },
     {
         "path": "/api/41/scheduler",
-        "featureName": "Users should be able to navigate to the new job route",
+        "featureName": "Users should be able to create a sequence",
         "static": false,
         "count": 1,
         "nonDeterministic": false,

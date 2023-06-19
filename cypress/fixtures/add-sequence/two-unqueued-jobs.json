@@ -1,0 +1,40 @@
+[
+    {
+        "name": "1",
+        "type": "PROGRAM_NOTIFICATIONS",
+        "cronExpression": "0 0 3 ? * MON",
+        "nextExecutionTime": "2023-06-26T03:00:00.000",
+        "status": "SCHEDULED",
+        "enabled": true,
+        "configurable": true,
+        "sequence": [
+            {
+                "id": "TMddx5FxNgF",
+                "name": "1",
+                "type": "PROGRAM_NOTIFICATIONS",
+                "cronExpression": "0 0 3 ? * MON",
+                "nextExecutionTime": "2023-06-26T03:00:00.000",
+                "status": "SCHEDULED"
+            }
+        ]
+    },
+    {
+        "name": "2",
+        "type": "RESOURCE_TABLE",
+        "cronExpression": "0 0 3 ? * MON",
+        "nextExecutionTime": "2023-06-26T03:00:00.000",
+        "status": "SCHEDULED",
+        "enabled": true,
+        "configurable": true,
+        "sequence": [
+            {
+                "id": "vFpCA8dV8cT",
+                "name": "2",
+                "type": "RESOURCE_TABLE",
+                "cronExpression": "0 0 3 ? * MON",
+                "nextExecutionTime": "2023-06-26T03:00:00.000",
+                "status": "SCHEDULED"
+            }
+        ]
+    }
+]
