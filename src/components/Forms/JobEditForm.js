@@ -7,7 +7,7 @@ import { DiscardFormButton, DeleteJobButton } from '../Buttons'
 import { FormErrorBox } from '../FormErrorBox'
 import {
     ScheduleField,
-    JobNameField,
+    NameField,
     JobTypeField,
     ParameterFields,
     fieldNames,
@@ -50,7 +50,7 @@ const JobEditForm = ({
     return (
         <form onSubmit={handleSubmit}>
             <Box maxWidth="600px">
-                <JobNameField />
+                <NameField />
             </Box>
             <Box marginTop="16px" maxWidth="400px">
                 <JobTypeField />

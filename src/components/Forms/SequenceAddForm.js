@@ -4,7 +4,7 @@ import i18n from '@dhis2/d2-i18n'
 import { Button, CircularLoader, Box, ReactFinalForm } from '@dhis2/ui'
 import { DiscardFormButton } from '../Buttons'
 import { FormErrorBox } from '../FormErrorBox'
-import { SequenceNameField, CronField, SequenceOrderField } from '../FormFields'
+import { NameField, CronField, SequenceOrderField } from '../FormFields'
 import styles from './SequenceAddForm.module.css'
 
 const { useForm } = ReactFinalForm
@@ -38,7 +38,7 @@ const SequenceAddForm = ({
     return (
         <form onSubmit={handleSubmit}>
             <Box maxWidth="600px">
-                <SequenceNameField />
+                <NameField />
             </Box>
             <Box marginTop="16px" maxWidth="400px">
                 <CronField />
