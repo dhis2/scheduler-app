@@ -2,15 +2,15 @@
 # Translators:
 # Viktor Varland <viktor@dhis2.org>, 2022
 # phil_dhis2, 2022
-# easylin <lin_xd@126.com>, 2023
 # 晓东 林 <13981924470@126.com>, 2023
+# easylin <lin_xd@126.com>, 2023
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2023-05-03T11:14:51.605Z\n"
 "PO-Revision-Date: 2020-05-08 14:30+0000\n"
-"Last-Translator: 晓东 林 <13981924470@126.com>, 2023\n"
+"Last-Translator: easylin <lin_xd@126.com>, 2023\n"
 "Language-Team: Chinese (https://app.transifex.com/hisp-uio/teams/100509/zh/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,7 +22,7 @@ msgid "Something went wrong"
 msgstr "出问题了"
 
 msgid "Something went wrong whilst retrieving user permissions."
-msgstr ""
+msgstr "检索用户权限时出错。"
 
 msgid "Not authorized"
 msgstr "未经授权"
@@ -60,7 +60,7 @@ msgid "Please select checks to run."
 msgstr "请选择要运行的检查。"
 
 msgid "Something went wrong whilst fetching options"
-msgstr ""
+msgstr "获取选项时出错"
 
 msgid "Checks to run"
 msgstr "检查运行"
@@ -93,28 +93,28 @@ msgid "Job type"
 msgstr "作业类型"
 
 msgid "Loading job types"
-msgstr ""
+msgstr "加载作业类型"
 
 msgid "Something went wrong whilst loading job types"
-msgstr ""
+msgstr "加载作业类型时出了点问题"
 
 msgid "Loading options"
 msgstr "加载选项"
 
 msgid "Something went wrong whilst loading options"
-msgstr ""
+msgstr "加载选项时出了点问题"
 
 msgid "No options available"
 msgstr "无可用选项"
 
 msgid "There was a problem fetching parameters"
-msgstr ""
+msgstr "获取参数时出现问题"
 
 msgid "Parameters"
 msgstr "参数"
 
 msgid "There was a problem fetching the required job type"
-msgstr ""
+msgstr "获取所需的作业类型时出现问题"
 
 msgid "Save"
 msgstr "保存"
@@ -231,21 +231,21 @@ msgid "About job configuration"
 msgstr "关于作业配置"
 
 msgid "Could not load requested job"
-msgstr ""
+msgstr "无法加载请求的作业"
 
 msgid ""
 "Something went wrong whilst loading the requested job. Make sure it has not "
 "been deleted and try refreshing the page."
-msgstr ""
+msgstr "加载请求的作业时出了点问题。确保它没有被删除并尝试刷新页面。"
 
 msgid "Job: {{ name }}"
 msgstr "职位：{{name}}"
 
 msgid "Could not load jobs"
-msgstr ""
+msgstr "无法加载作业"
 
 msgid "Something went wrong whilst loading the jobs. Try refreshing the page."
-msgstr ""
+msgstr "加载作业时出了点问题。尝试刷新页面。"
 
 msgid "Scheduled jobs"
 msgstr "调度的作业"
@@ -323,7 +323,7 @@ msgid "Stopped"
 msgstr "已停止"
 
 msgid "Account expiry alert"
-msgstr ""
+msgstr "账户到期提醒"
 
 msgid "Exchange aggregate data"
 msgstr "交换统计汇总数据"
@@ -332,10 +332,10 @@ msgid "Analytics table"
 msgstr "分析表"
 
 msgid "Analytics table update"
-msgstr ""
+msgstr "分析表更新"
 
 msgid "Complete data set registration import"
-msgstr ""
+msgstr "完成数据集注册导入"
 
 msgid "Continuous analytics table"
 msgstr "连续分析表"
@@ -356,16 +356,16 @@ msgid "Data synchronization"
 msgstr "数据同步"
 
 msgid "Data value import"
-msgstr ""
+msgstr "数据值导入"
 
 msgid "Data value import internal"
-msgstr ""
+msgstr "数据值导入内部"
 
 msgid "Disable inactive users"
 msgstr "禁用不活动的用户"
 
 msgid "Enrollment import"
-msgstr ""
+msgstr "招生导入"
 
 msgid "Event import"
 msgstr "事件导入"
@@ -377,25 +377,25 @@ msgid "File resource clean up"
 msgstr "文件资源清理"
 
 msgid "GEOJSON import"
-msgstr ""
+msgstr "GEOJSON 导入"
 
 msgid "GML import"
 msgstr "GML导入"
 
 msgid "Image processing"
-msgstr ""
+msgstr "图像处理"
 
 msgid "Leader election"
-msgstr ""
+msgstr "领导人选举"
 
 msgid "Leader renewal"
-msgstr ""
+msgstr "领导更新"
 
 msgid "Lock exception cleanup"
-msgstr ""
+msgstr "锁异常清理"
 
 msgid "Materialized sql view update"
-msgstr ""
+msgstr "物化sql视图更新"
 
 msgid "Metadata import"
 msgstr "元数据导入"
@@ -404,7 +404,7 @@ msgid "Metadata synchronization"
 msgstr "元数据同步"
 
 msgid "Mock"
-msgstr ""
+msgstr "嘲笑"
 
 msgid "Monitoring"
 msgstr "监控"
@@ -413,7 +413,7 @@ msgid "Predictor"
 msgstr "预报"
 
 msgid "Program data sync"
-msgstr ""
+msgstr "程序数据同步"
 
 msgid "Program notifications"
 msgstr "项目通知"
@@ -425,7 +425,7 @@ msgid "Remove expired reserved values"
 msgstr "删除过期的保留值"
 
 msgid "Remove used or expired reserved values"
-msgstr ""
+msgstr "删除已用或过期的保留值"
 
 msgid "Resource table"
 msgstr "资源表"
@@ -434,31 +434,31 @@ msgid "Send scheduled message"
 msgstr "发送预定的消息"
 
 msgid "SMS send"
-msgstr ""
+msgstr "短信发送"
 
 msgid "System version update check"
-msgstr ""
+msgstr "系统版本更新检查"
 
 msgid "TEI import"
 msgstr "实体导入"
 
 msgid "Test"
-msgstr ""
+msgstr "测试"
 
 msgid "Tracker import job"
-msgstr ""
+msgstr "跟踪器导入作业"
 
 msgid "Tracker import notification job"
-msgstr ""
+msgstr "跟踪器导入通知作业"
 
 msgid "Tracker import rule engine job"
-msgstr ""
+msgstr "Tracker导入规则引擎作业"
 
 msgid "Tracker programs data sync"
 msgstr "跟踪器程序数据同步"
 
 msgid "Tracker search optimization"
-msgstr ""
+msgstr "跟踪器搜索优化"
 
 msgid "Validation results notification"
 msgstr "验证结果通知"
