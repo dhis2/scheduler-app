@@ -24,7 +24,7 @@ msgid "Something went wrong whilst retrieving user permissions."
 msgstr ""
 
 msgid "Not authorized"
-msgstr ""
+msgstr "Niet geautoriseerd"
 
 msgid ""
 "You don't have access to the Job Scheduler. Contact a system administrator "
