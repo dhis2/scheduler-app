@@ -3,8 +3,9 @@ import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 import { Field, Transfer } from '@dhis2/ui'
 import SequenceTransferTitle from './SequenceTransferTitle'
+import CustomOption from './CustomOption'
 
-const { bool, arrayOf, object, shape, func, array, string } = PropTypes
+const { bool, arrayOf, shape, func, array, string } = PropTypes
 
 const SequenceTransfer = ({ options, input, meta }) => {
     const { onChange, value } = input
@@ -21,6 +22,7 @@ const SequenceTransfer = ({ options, input, meta }) => {
             <Transfer
                 options={options}
                 selected={value}
+                renderOption={CustomOption}
                 filterable
                 filterPlaceholder={i18n.t('Filter jobs')}
                 enableOrderChange
@@ -47,7 +49,13 @@ SequenceTransfer.propTypes = {
         error: string,
         touched: bool,
     }).isRequired,
-    options: arrayOf(object).isRequired,
+    options: arrayOf(
+        shape({
+            name: string,
+            id: string,
+            type: string,
+        })
+    ).isRequired,
 }
 
 export default SequenceTransfer

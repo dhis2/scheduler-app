@@ -1,6 +1,7 @@
 import React from 'react'
 import { ReactFinalForm, CircularLoader, NoticeBox } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
+import { jobTypesMap } from '../../../services/server-translations'
 import { useQueueables } from '../../../hooks/queueables'
 import SequenceTransfer from './SequenceTransfer'
 
@@ -30,7 +31,11 @@ const SequenceOrderField = () => {
         )
     }
 
-    const options = data.map(({ name, id }) => ({ label: name, value: id }))
+    const options = data.map(({ name, id, type }) => ({
+        label: name,
+        value: id,
+        type: jobTypesMap[type],
+    }))
 
     return (
         <Field
