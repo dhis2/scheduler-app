@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Card } from '@dhis2/ui'
+import { Card, IconInfo16 } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
 import { DiscardFormButton } from '../../components/Buttons'
 import { SequenceAddFormContainer } from '../../components/Forms'
@@ -27,6 +27,14 @@ const SequenceAdd = () => {
                     <h3 className={styles.cardHeaderTitle}>
                         {i18n.t('Configuration')}
                     </h3>
+                    <span className={styles.cardHeaderInfo}>
+                        <span className={styles.cardHeaderIcon}>
+                            <IconInfo16 />
+                        </span>
+                        {i18n.t(
+                            'A sequence is a collection of jobs that are executed in order, one after another as they finish.'
+                        )}
+                    </span>
                 </header>
                 <SequenceAddFormContainer setIsPristine={setIsPristine} />
             </Card>

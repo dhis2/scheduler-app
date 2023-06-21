@@ -29,11 +29,11 @@
     margin: 0 var(--spacers-dp8) 0 0;
 }
 
-.cardHeaderInfo {
+.cardHeaderIcon {
     margin-right: var(--spacers-dp4);
 }
 
-.cardHeaderLink {
+.cardHeaderInfo {
     align-items: center;
     display: flex;
     font-size: 12px;
