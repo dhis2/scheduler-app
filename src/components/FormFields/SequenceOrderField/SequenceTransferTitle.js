@@ -2,8 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const headerStyle = {
-    margin: '0.5em 0',
+    margin: '0.75em 0',
     fontWeight: 500,
+    fontSize: '14px',
 }
 
 const SequenceTransferTitle = ({ title }) => (
