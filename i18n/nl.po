@@ -63,7 +63,7 @@ msgid "Are you sure you want to discard your changes?"
 msgstr ""
 
 msgid "Attributes"
-msgstr ""
+msgstr "attributen"
 
 msgid "Name"
 msgstr "Naam"
