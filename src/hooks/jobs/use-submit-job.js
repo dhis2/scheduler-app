@@ -1,5 +1,4 @@
 import { useDataEngine } from '@dhis2/app-runtime'
-import history from '../../services/history'
 import formatError from '../../services/format-error'
 
 const mutation = {
@@ -8,13 +7,15 @@ const mutation = {
     data: /* istanbul ignore next */ ({ job }) => job,
 }
 
-const useSubmitJob = () => {
+const useSubmitJob = ({ onSuccess } = {}) => {
     const engine = useDataEngine()
     const submitJob = (job) =>
         engine
             .mutate(mutation, { variables: { job } })
             .then(() => {
-                history.push('/')
+                if (onSuccess) {
+                    onSuccess()
+                }
             })
             .catch((error) => {
                 const isValidationError = error.type === 'access'

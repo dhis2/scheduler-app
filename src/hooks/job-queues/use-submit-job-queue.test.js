@@ -1,5 +1,4 @@
 import { useDataEngine } from '@dhis2/app-runtime'
-import history from '../../services/history'
 import formatError from '../../services/format-error'
 import useSubmitJobQueue from './use-submit-job-queue'
 
@@ -7,24 +6,21 @@ jest.mock('@dhis2/app-runtime', () => ({
     useDataEngine: jest.fn(),
 }))
 
-jest.mock('../../services/history', () => ({
-    push: jest.fn(),
-}))
-
 jest.mock('../../services/format-error', () => jest.fn())
 
 describe('useSubmitJobQueue', () => {
-    it('should redirect to root', () => {
+    it('should call onSuccess on success', () => {
+        const spy = jest.fn()
         const engine = {
             mutate: () => Promise.resolve(),
         }
         useDataEngine.mockImplementation(() => engine)
-        const [submitJobQueue] = useSubmitJobQueue()
+        const [submitJobQueue] = useSubmitJobQueue({ onSuccess: spy })
 
         expect.assertions(1)
 
         submitJobQueue({ name: 'name' }).then(() => {
-            expect(history.push).toHaveBeenCalledWith('/')
+            expect(spy).toHaveBeenCalled()
         })
     })
 
