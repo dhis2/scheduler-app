@@ -1,5 +1,4 @@
 import { useDataEngine } from '@dhis2/app-runtime'
-import history from '../../services/history'
 import formatError from '../../services/format-error'
 
 const createMutation = (name) => ({
@@ -8,14 +7,16 @@ const createMutation = (name) => ({
     data: ({ queue }) => queue,
 })
 
-const useSubmitJobQueue = () => {
+const useSubmitJobQueue = ({ onSuccess } = {}) => {
     const engine = useDataEngine()
     const submitJobQueue = (queue) => {
         const mutation = createMutation(queue.name)
         return engine
             .mutate(mutation, { variables: { queue } })
             .then(() => {
-                history.push('/')
+                if (onSuccess) {
+                    onSuccess()
+                }
             })
             .catch((error) => formatError(error))
     }

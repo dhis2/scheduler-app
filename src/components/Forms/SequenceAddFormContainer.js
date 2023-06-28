@@ -1,13 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { ReactFinalForm } from '@dhis2/ui'
+import history from '../../services/history'
 import { useSubmitJobQueue } from '../../hooks/job-queues'
 import SequenceAddForm from './SequenceAddForm'
 
 const { Form } = ReactFinalForm
 
 const SequenceAddFormContainer = ({ setIsPristine }) => {
-    const [submitJobQueue] = useSubmitJobQueue()
+    const redirect = () => {
+        history.push('/')
+    }
+    const [submitJobQueue] = useSubmitJobQueue({ onSuccess: redirect })
 
     /**
      * destroyOnUnregister is enabled so that dynamic fields will be unregistered

@@ -1,13 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { ReactFinalForm } from '@dhis2/ui'
+import history from '../../services/history'
 import { useSubmitJob } from '../../hooks/jobs'
 import JobAddForm from './JobAddForm'
 
 const { Form } = ReactFinalForm
 
 const JobAddFormContainer = ({ setIsPristine }) => {
-    const [submitJob] = useSubmitJob()
+    const redirect = () => {
+        history.push('/')
+    }
+    const [submitJob] = useSubmitJob({ onSuccess: redirect })
 
     /**
      * destroyOnUnregister is enabled so that dynamic fields will be unregistered
