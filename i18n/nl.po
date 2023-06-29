@@ -176,7 +176,7 @@ msgid "View"
 msgstr "Weergave"
 
 msgid "Every hour"
-msgstr ""
+msgstr "Elk uur"
 
 msgid "Every day at midnight"
 msgstr ""
