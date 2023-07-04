@@ -1,14 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
-const headerStyle = {
-    margin: '0.75em 0',
-    fontWeight: 500,
-    fontSize: '14px',
-}
+import s from './SequenceTransferTitle.module.css'
 
 const SequenceTransferTitle = ({ title }) => (
-    <h4 style={headerStyle}>{title}</h4>
+    <h4 className={s.header}>{title}</h4>
 )
 
 SequenceTransferTitle.propTypes = {
