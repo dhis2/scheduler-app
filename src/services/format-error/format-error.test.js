@@ -4,28 +4,24 @@ import formatError from './format-error'
 const { FORM_ERROR } = FinalForm
 
 describe('formatError', () => {
-    it('should ignore a response without errorReports property', () => {
-        const unformatted = {
-            details: {
-                response: {},
-            },
+    it('should return a generic error message for a response without a message or errorReports', () => {
+        const actual = formatError({})
+        const expected = {
+            [FORM_ERROR]: [
+                'Something went wrong but no error message was provided',
+            ],
         }
-        const actual = formatError(unformatted)
-        const expected = {}
 
         expect(actual).toEqual(expected)
     })
 
-    it('should ignore a response without errorReports', () => {
-        const unformatted = {
-            details: {
-                response: {
-                    errorReports: [],
-                },
-            },
-        }
+    it('should return the error message for a response without errorReports', () => {
+        const message = 'Oops'
+        const unformatted = { message }
         const actual = formatError(unformatted)
-        const expected = {}
+        const expected = {
+            [FORM_ERROR]: [message],
+        }
 
         expect(actual).toEqual(expected)
     })
