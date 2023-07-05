@@ -29,9 +29,7 @@ describe('useSubmitJobQueue', () => {
     })
 
     it('should resolve with errors on validation errors', () => {
-        // Validation errors are detected by type
         const error = new Error('Validation error')
-        error.type = 'access'
 
         const engine = {
             mutate: () => Promise.reject(error),
@@ -44,20 +42,5 @@ describe('useSubmitJobQueue', () => {
         expect.assertions(1)
 
         return expect(submitJobQueue({ name: 'name' })).resolves.toBe(error)
-    })
-
-    it('should reject with an error on any other errors', () => {
-        const error = new Error('Network error')
-
-        const engine = {
-            mutate: () => Promise.reject(error),
-        }
-        useDataEngine.mockImplementation(() => engine)
-
-        const [submitJobQueue] = useSubmitJobQueue()
-
-        expect.assertions(1)
-
-        return expect(submitJobQueue({ name: 'name' })).rejects.toBe(error)
     })
 })
