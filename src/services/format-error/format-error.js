@@ -14,7 +14,7 @@ const formatError = (error) => {
     /**
      * Return a generic validation error if there are no errorReports
      */
-    if (!errorReports || !errorReports.length) {
+    if (!errorReports?.length) {
         validationErrors[FORM_ERROR] = error.message
             ? [error.message]
             : [i18n.t('Something went wrong but no error message was provided')]
