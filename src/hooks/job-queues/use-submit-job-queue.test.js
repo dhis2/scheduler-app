@@ -28,7 +28,7 @@ describe('useSubmitJobQueue', () => {
         })
     })
 
-    it('should resolve with errors on validation errors', () => {
+    it('should resolve with formatted errors on errors', () => {
         const error = new Error('Validation error')
 
         const engine = {

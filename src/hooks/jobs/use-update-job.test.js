@@ -28,10 +28,8 @@ describe('useUpdateJob', () => {
         })
     })
 
-    it('should resolve with errors on validation errors', () => {
-        // Validation errors are detected by type
+    it('should resolve with formatted errors on errors', () => {
         const error = new Error('Validation error')
-        error.type = 'access'
 
         const engine = {
             mutate: () => Promise.reject(error),
@@ -44,20 +42,5 @@ describe('useUpdateJob', () => {
         expect.assertions(1)
 
         return expect(updateJob()).resolves.toBe(error)
-    })
-
-    it('should reject with an error on any other errors', () => {
-        const error = new Error('Network error')
-
-        const engine = {
-            mutate: () => Promise.reject(error),
-        }
-        useDataEngine.mockImplementation(() => engine)
-
-        const [updateJob] = useUpdateJob({ id: 'id' })
-
-        expect.assertions(1)
-
-        return expect(updateJob()).rejects.toBe(error)
     })
 })

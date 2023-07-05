@@ -17,17 +17,7 @@ const useUpdateJob = ({ id }) => {
             .then(() => {
                 history.push('/')
             })
-            .catch((error) => {
-                const isValidationError = error.type === 'access'
-
-                // Potential validation error, return it in a format final-form can handle
-                if (isValidationError) {
-                    return formatError(error)
-                }
-
-                // Throw any unexpected errors
-                throw error
-            })
+            .catch((error) => formatError(error))
 
     return [updateJob]
 }
