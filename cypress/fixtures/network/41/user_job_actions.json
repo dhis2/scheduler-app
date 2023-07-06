@@ -130,39 +130,6 @@
         }
     },
     {
-        "path": "/api/41/predictorGroups?paging=false",
-        "featureName": "User job actions",
-        "static": false,
-        "count": 1,
-        "nonDeterministic": false,
-        "method": "GET",
-        "requestBody": "",
-        "requestHeaders": {
-            "host": "debug.dhis2.org",
-            "connection": "keep-alive",
-            "accept": "application/json",
-            "origin": "http://localhost:3000",
-            "sec-fetch-site": "cross-site",
-            "sec-fetch-mode": "cors"
-        },
-        "statusCode": 200,
-        "responseBody": "{\"predictorGroups\":[]}",
-        "responseSize": 22,
-        "responseHeaders": {
-            "server": "nginx/1.23.0",
-            "content-type": "application/json;charset=UTF-8",
-            "transfer-encoding": "chunked",
-            "connection": "keep-alive",
-            "access-control-allow-credentials": "true",
-            "access-control-allow-origin": "http://localhost:3000",
-            "vary": "Origin",
-            "access-control-expose-headers": "ETag, Location",
-            "cache-control": "no-cache, private",
-            "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block"
-        }
-    },
-    {
         "path": "/api/41/pushAnalysis?paging=false",
         "featureName": "User job actions",
         "static": false,
@@ -214,6 +181,39 @@
         "statusCode": 200,
         "responseBody": "{\"predictors\":[{\"displayName\":\"Malaria Outbreak Threshold\",\"id\":\"tEK1OEqS4O1\"}]}",
         "responseSize": 80,
+        "responseHeaders": {
+            "server": "nginx/1.23.0",
+            "content-type": "application/json;charset=UTF-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "access-control-allow-credentials": "true",
+            "access-control-allow-origin": "http://localhost:3000",
+            "vary": "Origin",
+            "access-control-expose-headers": "ETag, Location",
+            "cache-control": "no-cache, private",
+            "x-content-type-options": "nosniff",
+            "x-xss-protection": "1; mode=block"
+        }
+    },
+    {
+        "path": "/api/41/predictorGroups?paging=false",
+        "featureName": "User job actions",
+        "static": false,
+        "count": 1,
+        "nonDeterministic": false,
+        "method": "GET",
+        "requestBody": "",
+        "requestHeaders": {
+            "host": "debug.dhis2.org",
+            "connection": "keep-alive",
+            "accept": "application/json",
+            "origin": "http://localhost:3000",
+            "sec-fetch-site": "cross-site",
+            "sec-fetch-mode": "cors"
+        },
+        "statusCode": 200,
+        "responseBody": "{\"predictorGroups\":[]}",
+        "responseSize": 22,
         "responseHeaders": {
             "server": "nginx/1.23.0",
             "content-type": "application/json;charset=UTF-8",

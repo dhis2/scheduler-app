@@ -2,16 +2,16 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { ReactFinalForm } from '@dhis2/ui'
 import history from '../../services/history'
-import { useSubmitJob } from '../../hooks/jobs'
-import JobAddForm from './JobAddForm'
+import { useSubmitJobQueue } from '../../hooks/job-queues'
+import SequenceAddForm from './SequenceAddForm'
 
 const { Form } = ReactFinalForm
 
-const JobAddFormContainer = ({ setIsPristine }) => {
+const SequenceAddFormContainer = ({ setIsPristine }) => {
     const redirect = () => {
         history.push('/')
     }
-    const [submitJob] = useSubmitJob({ onSuccess: redirect })
+    const [submitJobQueue] = useSubmitJobQueue({ onSuccess: redirect })
 
     /**
      * destroyOnUnregister is enabled so that dynamic fields will be unregistered
@@ -19,8 +19,8 @@ const JobAddFormContainer = ({ setIsPristine }) => {
      */
     return (
         <Form
-            onSubmit={submitJob}
-            component={JobAddForm}
+            onSubmit={submitJobQueue}
+            component={SequenceAddForm}
             setIsPristine={setIsPristine}
             destroyOnUnregister
         />
@@ -29,8 +29,8 @@ const JobAddFormContainer = ({ setIsPristine }) => {
 
 const { func } = PropTypes
 
-JobAddFormContainer.propTypes = {
+SequenceAddFormContainer.propTypes = {
     setIsPristine: func.isRequired,
 }
 
-export default JobAddFormContainer
+export default SequenceAddFormContainer

@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2023-05-03T11:14:51.605Z\n"
-"PO-Revision-Date: 2023-05-03T11:14:51.605Z\n"
+"POT-Creation-Date: 2023-06-28T07:36:04.708Z\n"
+"PO-Revision-Date: 2023-06-28T07:36:04.708Z\n"
 
 msgid "Something went wrong"
 msgstr "Something went wrong"
@@ -78,9 +78,6 @@ msgstr "Delay"
 msgid "Delay in seconds ({{ lowerbound }} - {{ upperbound }})"
 msgstr "Delay in seconds ({{ lowerbound }} - {{ upperbound }})"
 
-msgid "Name"
-msgstr "Name"
-
 msgid "Job type"
 msgstr "Job type"
 
@@ -99,6 +96,9 @@ msgstr "Something went wrong whilst loading options"
 msgid "No options available"
 msgstr "No options available"
 
+msgid "Name"
+msgstr "Name"
+
 msgid "There was a problem fetching parameters"
 msgstr "There was a problem fetching parameters"
 
@@ -107,6 +107,24 @@ msgstr "Parameters"
 
 msgid "There was a problem fetching the required job type"
 msgstr "There was a problem fetching the required job type"
+
+msgid "Please select at least two jobs"
+msgstr "Please select at least two jobs"
+
+msgid "Something went wrong whilst fetching the queueable jobs"
+msgstr "Something went wrong whilst fetching the queueable jobs"
+
+msgid "Job sequence"
+msgstr "Job sequence"
+
+msgid "Filter jobs"
+msgstr "Filter jobs"
+
+msgid "Available jobs"
+msgstr "Available jobs"
+
+msgid "Jobs in this sequence"
+msgstr "Jobs in this sequence"
 
 msgid "Save"
 msgstr "Save"
@@ -244,9 +262,6 @@ msgstr "Something went wrong whilst loading the jobs. Try refreshing the page."
 msgid "Scheduled jobs"
 msgstr "Scheduled jobs"
 
-msgid "Filter jobs"
-msgstr "Filter jobs"
-
 msgid "Include system jobs in list"
 msgstr "Include system jobs in list"
 
@@ -256,8 +271,15 @@ msgstr "New job"
 msgid "System job: {{ name }}"
 msgstr "System job: {{ name }}"
 
-msgid "Data value"
-msgstr "Data value"
+msgid "New Sequence"
+msgstr "New Sequence"
+
+msgid ""
+"A sequence is a collection of jobs that are executed in order, one after "
+"another as they finish."
+msgstr ""
+"A sequence is a collection of jobs that are executed in order, one after "
+"another as they finish."
 
 msgid "Completeness"
 msgstr "Completeness"
@@ -265,14 +287,20 @@ msgstr "Completeness"
 msgid "Completeness target"
 msgstr "Completeness target"
 
-msgid "Org unit target"
-msgstr "Org unit target"
+msgid "Data value"
+msgstr "Data value"
+
+msgid "Enrollment"
+msgstr "Enrollment"
 
 msgid "Event"
 msgstr "Event"
 
-msgid "Enrollment"
-msgstr "Enrollment"
+msgid "Org unit target"
+msgstr "Org unit target"
+
+msgid "Ownership"
+msgstr "Ownership"
 
 msgid "Validation result"
 msgstr "Validation result"

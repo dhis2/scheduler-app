@@ -1,18 +1,18 @@
 import React from 'react'
 import { mount } from 'enzyme'
 import { ReactFinalForm } from '@dhis2/ui'
-import JobNameField from './JobNameField'
+import NameField from './NameField'
 
 const { Form } = ReactFinalForm
 
-describe('<JobNameField>', () => {
+describe('<NameField>', () => {
     it('shows an error that the field is required on empty values', () => {
         const expected = 'Please provide a value'
         const wrapper = mount(
             <Form onSubmit={() => {}}>
                 {({ handleSubmit }) => (
                     <form onSubmit={handleSubmit}>
-                        <JobNameField />
+                        <NameField />
                     </form>
                 )}
             </Form>

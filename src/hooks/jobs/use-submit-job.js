@@ -1,5 +1,4 @@
 import { useDataEngine } from '@dhis2/app-runtime'
-import history from '../../services/history'
 import formatError from '../../services/format-error'
 
 const mutation = {
@@ -8,25 +7,17 @@ const mutation = {
     data: /* istanbul ignore next */ ({ job }) => job,
 }
 
-const useSubmitJob = () => {
+const useSubmitJob = ({ onSuccess } = {}) => {
     const engine = useDataEngine()
     const submitJob = (job) =>
         engine
             .mutate(mutation, { variables: { job } })
             .then(() => {
-                history.push('/')
-            })
-            .catch((error) => {
-                const isValidationError = error.type === 'access'
-
-                // Potential validation error, return it in a format final-form can handle
-                if (isValidationError) {
-                    return formatError(error)
+                if (onSuccess) {
+                    onSuccess()
                 }
-
-                // Throw any unexpected errors
-                throw error
             })
+            .catch((error) => formatError(error))
 
     return [submitJob]
 }

@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { ReactFinalForm } from '@dhis2/ui'
 import { useParams } from 'react-router-dom'
+import history from '../../services/history'
 import { useUpdateJob } from '../../hooks/jobs'
 import JobEditForm from './JobEditForm'
 
@@ -23,7 +24,10 @@ const initialFields = [
 
 const JobEditFormContainer = ({ job, setIsPristine }) => {
     const { id } = useParams()
-    const [updateJob] = useUpdateJob({ id })
+    const redirect = () => {
+        history.push('/')
+    }
+    const [updateJob] = useUpdateJob({ id, onSuccess: redirect })
 
     // Creating an object with just the values we want to use as initial values
     const initialValues = initialFields.reduce((filtered, key) => {

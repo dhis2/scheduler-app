@@ -14,7 +14,7 @@ const { Field } = ReactFinalForm
 const FIELD_NAME = 'name'
 const VALIDATOR = composeValidators(string, hasValue)
 
-const JobNameField = () => (
+const NameField = () => (
     <Field
         name={FIELD_NAME}
         component={InputFieldFF}
@@ -25,4 +25,4 @@ const JobNameField = () => (
     />
 )
 
-export default JobNameField
+export default NameField

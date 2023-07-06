@@ -2,28 +2,19 @@ import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 import { Button, CircularLoader, Box, ReactFinalForm } from '@dhis2/ui'
-import history from '../../services/history'
-import { DiscardFormButton, DeleteJobButton } from '../Buttons'
+import { DiscardFormButton } from '../Buttons'
 import { FormErrorBox } from '../FormErrorBox'
-import {
-    ScheduleField,
-    NameField,
-    JobTypeField,
-    ParameterFields,
-    fieldNames,
-} from '../FormFields'
-import styles from './JobEditForm.module.css'
+import { NameField, CronField, SequenceOrderField } from '../FormFields'
+import styles from './SequenceAddForm.module.css'
 
 const { useForm } = ReactFinalForm
 
-const JobEditForm = ({
-    id,
+const SequenceAddForm = ({
     handleSubmit,
     pristine,
     submitting,
     submitError,
     hasSubmitErrors,
-    values,
     setIsPristine,
 }) => {
     const { subscribe } = useForm()
@@ -41,9 +32,6 @@ const JobEditForm = ({
         subscribe(({ pristine }) => setIsPristine(pristine), { pristine: true })
     )
 
-    // Check if there's currently a selected job type
-    const jobType = values[fieldNames.JOB_TYPE]
-
     // Show a spinner only when submitting
     const Spinner = submitting ? <CircularLoader small /> : null
 
@@ -53,18 +41,11 @@ const JobEditForm = ({
                 <NameField />
             </Box>
             <Box marginTop="16px" maxWidth="400px">
-                <JobTypeField />
+                <CronField />
             </Box>
-            {jobType && (
-                <Box marginTop="16px" maxWidth="400px">
-                    <ScheduleField jobType={jobType} />
-                </Box>
-            )}
-            {jobType && (
-                <Box marginTop="32px" maxWidth="400px">
-                    <ParameterFields jobType={jobType} />
-                </Box>
-            )}
+            <Box marginTop="16px">
+                <SequenceOrderField />
+            </Box>
             {hasSubmitErrors && (
                 <Box marginTop="32px" maxWidth="600px">
                     <FormErrorBox submitError={submitError} />
@@ -83,34 +64,24 @@ const JobEditForm = ({
                 <DiscardFormButton shouldConfirm={!pristine}>
                     {i18n.t('Cancel')}
                 </DiscardFormButton>
-                <span className={styles.deleteButton}>
-                    <DeleteJobButton
-                        id={id}
-                        onSuccess={() => {
-                            history.push('/')
-                        }}
-                    />
-                </span>
             </div>
         </form>
     )
 }
 
-const { func, bool, object, array, string } = PropTypes
+const { func, bool, array } = PropTypes
 
-JobEditForm.defaultProps = {
+SequenceAddForm.defaultProps = {
     submitError: [],
 }
 
-JobEditForm.propTypes = {
+SequenceAddForm.propTypes = {
     handleSubmit: func.isRequired,
     hasSubmitErrors: bool.isRequired,
-    id: string.isRequired,
     pristine: bool.isRequired,
     setIsPristine: func.isRequired,
     submitting: bool.isRequired,
-    values: object.isRequired,
     submitError: array,
 }
 
-export default JobEditForm
+export default SequenceAddForm

@@ -4,9 +4,11 @@ const fieldNames = {
     JOB_TYPE,
 }
 
-export { default as JobNameField } from './JobNameField'
+export { default as CronField } from './CronField'
 export { default as JobTypeField } from './JobTypeField'
+export { default as NameField } from './NameField'
 export { default as ParameterFields } from './ParameterFields'
 export { default as ScheduleField } from './ScheduleField'
+export { default as SequenceOrderField } from './SequenceOrderField'
 
 export { fieldNames }
