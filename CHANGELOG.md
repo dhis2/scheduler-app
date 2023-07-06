@@ -1,3 +1,10 @@
+# [101.1.0](https://github.com/dhis2/scheduler-app/compare/v101.0.16...v101.1.0) (2023-07-06)
+
+
+### Features
+
+* add add-sequence route ([#526](https://github.com/dhis2/scheduler-app/issues/526)) ([bf1380a](https://github.com/dhis2/scheduler-app/commit/bf1380a83e4381be1738b0ead465ff50b606eed7))
+
 ## [101.0.16](https://github.com/dhis2/scheduler-app/compare/v101.0.15...v101.0.16) (2023-06-30)
 
 
