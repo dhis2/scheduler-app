@@ -146,7 +146,7 @@ msgid "Cancel"
 msgstr "Cancelar"
 
 msgid "Job details"
-msgstr ""
+msgstr "Detalles del trabajo"
 
 msgid "Created {{ createdFromNow }}."
 msgstr ""
@@ -429,7 +429,7 @@ msgid "Materialized sql view update"
 msgstr ""
 
 msgid "Metadata import"
-msgstr ""
+msgstr "Importar metadatos"
 
 msgid "Metadata synchronization"
 msgstr ""
@@ -471,7 +471,7 @@ msgid "System version update check"
 msgstr ""
 
 msgid "TEI import"
-msgstr ""
+msgstr "Importación TEI"
 
 msgid "Test"
 msgstr ""
