@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Card, IconInfo16 , NoticeBox } from '@dhis2/ui'
+import { Card, IconInfo16, NoticeBox } from '@dhis2/ui'
 import { useParams } from 'react-router-dom'
 import i18n from '@dhis2/d2-i18n'
 import { Spinner } from '../../components/Spinner'
@@ -19,7 +19,10 @@ const SequenceEdit = () => {
 
     if (error) {
         return (
-            <NoticeBox error title={i18n.t('Could not load requested schedule')}>
+            <NoticeBox
+                error
+                title={i18n.t('Could not load requested schedule')}
+            >
                 {i18n.t(
                     'Something went wrong whilst loading the requested schedule. Make sure it has not been deleted and try refreshing the page.'
                 )}
@@ -55,7 +58,10 @@ const SequenceEdit = () => {
                         )}
                     </span>
                 </header>
-                <SequenceEditFormContainer sequence={data} setIsPristine={setIsPristine} />
+                <SequenceEditFormContainer
+                    sequence={data}
+                    setIsPristine={setIsPristine}
+                />
             </Card>
         </React.Fragment>
     )

@@ -16,7 +16,7 @@ const SequenceEditForm = ({
     submitError,
     hasSubmitErrors,
     setIsPristine,
-    selectedValues
+    selectedValues,
 }) => {
     const { subscribe } = useForm()
 

@@ -49,7 +49,7 @@ const SequenceOrderField = ({ selectedValues }) => {
 }
 
 SequenceOrderField.defaultProps = {
-    selectedValues: []
+    selectedValues: [],
 }
 
 const { array } = PropTypes

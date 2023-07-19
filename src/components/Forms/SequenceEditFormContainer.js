@@ -13,11 +13,7 @@ const { Form } = ReactFinalForm
  * them we'd end up submitting way more data than we intend to.
  */
 
-const initialFields = [
-    'cronExpression',
-    'sequence',
-    'name',
-]
+const initialFields = ['cronExpression', 'sequence', 'name']
 
 const SequenceEditFormContainer = ({ sequence, setIsPristine }) => {
     const redirect = () => {
