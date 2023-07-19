@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { ReactFinalForm } from '@dhis2/ui'
-import { useParams } from 'react-router-dom'
 import history from '../../services/history'
 import { useSubmitJobQueue } from '../../hooks/job-queues'
 import SequenceEditForm from './SequenceEditForm'
@@ -21,7 +20,6 @@ const initialFields = [
 ]
 
 const SequenceEditFormContainer = ({ sequence, setIsPristine }) => {
-    const { id } = useParams()
     const redirect = () => {
         history.push('/')
     }
@@ -33,6 +31,8 @@ const SequenceEditFormContainer = ({ sequence, setIsPristine }) => {
         return filtered
     }, {})
 
+    initialValues.sequence = initialValues.sequence.map(({ id }) => id)
+
     /**
      * destroyOnUnregister is enabled so that dynamic fields will be unregistered
      * when they're removed from the form, for instance when the jobType changes.
@@ -41,10 +41,10 @@ const SequenceEditFormContainer = ({ sequence, setIsPristine }) => {
         <Form
             component={SequenceEditForm}
             destroyOnUnregister
-            id={id}
             initialValues={initialValues}
             onSubmit={submitJobQueue}
             setIsPristine={setIsPristine}
+            selectedValues={sequence.sequence}
         />
     )
 }

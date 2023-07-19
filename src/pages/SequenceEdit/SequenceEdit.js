@@ -1,12 +1,31 @@
 import React, { useState } from 'react'
-import { Card, IconInfo16 } from '@dhis2/ui'
+import { Card, IconInfo16 , NoticeBox } from '@dhis2/ui'
+import { useParams } from 'react-router-dom'
 import i18n from '@dhis2/d2-i18n'
+import { Spinner } from '../../components/Spinner'
 import { DiscardFormButton } from '../../components/Buttons'
 import { SequenceEditFormContainer } from '../../components/Forms'
+import { useJobScheduleById } from '../../hooks/job-schedules'
 import styles from './SequenceEdit.module.css'
 
 const SequenceEdit = () => {
     const [isPristine, setIsPristine] = useState(true)
+    const { id } = useParams()
+    const { data, fetching, error } = useJobScheduleById(id)
+
+    if (fetching) {
+        return <Spinner />
+    }
+
+    if (error) {
+        return (
+            <NoticeBox error title={i18n.t('Could not load requested schedule')}>
+                {i18n.t(
+                    'Something went wrong whilst loading the requested schedule. Make sure it has not been deleted and try refreshing the page.'
+                )}
+            </NoticeBox>
+        )
+    }
 
     return (
         <React.Fragment>
@@ -36,7 +55,7 @@ const SequenceEdit = () => {
                         )}
                     </span>
                 </header>
-                <SequenceEditFormContainer setIsPristine={setIsPristine} />
+                <SequenceEditFormContainer sequence={data} setIsPristine={setIsPristine} />
             </Card>
         </React.Fragment>
     )

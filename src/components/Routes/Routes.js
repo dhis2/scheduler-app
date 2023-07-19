@@ -16,7 +16,7 @@ const Routes = () => (
         <Route path="/view/:id" component={JobView} />
         <Route path="/add" component={JobAdd} />
         <Route path="/add-sequence" component={SequenceAdd} />
-        <Route path="/edit-sequence" component={SequenceEdit} />
+        <Route path="/edit-sequence/:id" component={SequenceEdit} />
     </Router>
 )
 
