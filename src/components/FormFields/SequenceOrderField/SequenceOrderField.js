@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { ReactFinalForm, CircularLoader, NoticeBox } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
 import { jobTypesMap } from '../../../services/server-translations'
@@ -12,7 +13,7 @@ const FIELD_NAME = 'sequence'
 const hasEnoughJobs = (value) =>
     value?.length > 1 ? undefined : i18n.t('Please select at least two jobs')
 
-const SequenceOrderField = () => {
+const SequenceOrderField = ({ selectedValues }) => {
     const { loading, error, data } = useQueueables()
 
     if (loading) {
@@ -30,7 +31,8 @@ const SequenceOrderField = () => {
         )
     }
 
-    const options = data.map(({ name, id, type }) => ({
+    // The selected values aren't part of the queueables, so we need to add them
+    const options = data.concat(selectedValues).map(({ name, id, type }) => ({
         label: name,
         value: id,
         type: jobTypesMap[type],
@@ -44,6 +46,16 @@ const SequenceOrderField = () => {
             validate={hasEnoughJobs}
         />
     )
+}
+
+SequenceOrderField.defaultProps = {
+    selectedValues: []
+}
+
+const { array } = PropTypes
+
+SequenceOrderField.propTypes = {
+    selectedValues: array,
 }
 
 export default SequenceOrderField
