@@ -4,7 +4,7 @@ import i18n from '@dhis2/d2-i18n'
 import { Button, CircularLoader, Box, ReactFinalForm } from '@dhis2/ui'
 import { DiscardFormButton } from '../Buttons'
 import { FormErrorBox } from '../FormErrorBox'
-import { NameField, CronField, SequenceOrderEditField } from '../FormFields'
+import { NameField, CronField, SequenceOrderField } from '../FormFields'
 import styles from './SequenceEditForm.module.css'
 
 const { useForm } = ReactFinalForm
@@ -45,7 +45,7 @@ const SequenceEditForm = ({
                 <CronField />
             </Box>
             <Box marginTop="16px">
-                <SequenceOrderEditField selectedValues={selectedValues} />
+                <SequenceOrderField selectedValues={selectedValues} />
             </Box>
             {hasSubmitErrors && (
                 <Box marginTop="32px" maxWidth="600px">
@@ -82,6 +82,7 @@ SequenceEditForm.propTypes = {
     pristine: bool.isRequired,
     setIsPristine: func.isRequired,
     submitting: bool.isRequired,
+    selectedValues: array,
     submitError: array,
 }
 

@@ -45,9 +45,14 @@ const SequenceEditFormContainer = ({ sequence, setIsPristine }) => {
     )
 }
 
-const { func } = PropTypes
+const { func, shape, string, array } = PropTypes
 
 SequenceEditFormContainer.propTypes = {
+    sequence: shape({
+        cronExpression: string.isRequired,
+        sequence: array.isRequired,
+        name: string.isRequired,
+    }).isRequired,
     setIsPristine: func.isRequired,
 }
 

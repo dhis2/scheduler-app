@@ -9,9 +9,6 @@ export { default as JobTypeField } from './JobTypeField'
 export { default as NameField } from './NameField'
 export { default as ParameterFields } from './ParameterFields'
 export { default as ScheduleField } from './ScheduleField'
-export {
-    SequenceOrderField,
-    SequenceOrderEditField,
-} from './SequenceOrderField'
+export { SequenceOrderField } from './SequenceOrderField'
 
 export { fieldNames }
