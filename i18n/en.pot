@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2023-06-28T07:36:04.708Z\n"
-"PO-Revision-Date: 2023-06-28T07:36:04.708Z\n"
+"POT-Creation-Date: 2023-07-19T12:52:52.060Z\n"
+"PO-Revision-Date: 2023-07-19T12:52:52.060Z\n"
 
 msgid "Something went wrong"
 msgstr "Something went wrong"
@@ -280,6 +280,22 @@ msgid ""
 msgstr ""
 "A sequence is a collection of jobs that are executed in order, one after "
 "another as they finish."
+
+msgid "Could not load requested schedule"
+msgstr "Could not load requested schedule"
+
+msgid ""
+"Something went wrong whilst loading the requested schedule. Make sure it "
+"has not been deleted and try refreshing the page."
+msgstr ""
+"Something went wrong whilst loading the requested schedule. Make sure it "
+"has not been deleted and try refreshing the page."
+
+msgid "Edit Sequence"
+msgstr "Edit Sequence"
+
+msgid "Something went wrong but no error message was provided"
+msgstr "Something went wrong but no error message was provided"
 
 msgid "Completeness"
 msgstr "Completeness"
