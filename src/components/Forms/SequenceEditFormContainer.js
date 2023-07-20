@@ -40,7 +40,7 @@ const SequenceEditFormContainer = ({ sequence, setIsPristine }) => {
             initialValues={initialValues}
             onSubmit={submitJobQueue}
             setIsPristine={setIsPristine}
-            selectedValues={sequence.sequence}
+            initialSelectedValues={sequence?.sequence}
         />
     )
 }

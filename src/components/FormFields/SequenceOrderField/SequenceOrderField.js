@@ -13,7 +13,7 @@ const FIELD_NAME = 'sequence'
 const hasEnoughJobs = (value) =>
     value?.length > 1 ? undefined : i18n.t('Please select at least two jobs')
 
-const SequenceOrderField = ({ selectedValues }) => {
+const SequenceOrderField = ({ initialSelectedValues }) => {
     const { loading, error, data } = useQueueables()
 
     if (loading) {
@@ -31,8 +31,15 @@ const SequenceOrderField = ({ selectedValues }) => {
         )
     }
 
+    let options = [...data]
+
     // The selected values aren't part of the queueables, so we need to add them
-    const options = data.concat(selectedValues).map(({ name, id, type }) => ({
+    if (initialSelectedValues) {
+        options = options.concat(initialSelectedValues)
+    }
+
+    // Map to a format the transfer can render
+    options = options.map(({ name, id, type }) => ({
         label: name,
         value: id,
         type: jobTypesMap[type],
@@ -49,13 +56,13 @@ const SequenceOrderField = ({ selectedValues }) => {
 }
 
 SequenceOrderField.defaultProps = {
-    selectedValues: [],
+    initialSelectedValues: [],
 }
 
 const { array } = PropTypes
 
 SequenceOrderField.propTypes = {
-    selectedValues: array,
+    initialSelectedValues: array,
 }
 
 export default SequenceOrderField

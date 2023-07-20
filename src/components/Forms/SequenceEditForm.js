@@ -16,7 +16,7 @@ const SequenceEditForm = ({
     submitError,
     hasSubmitErrors,
     setIsPristine,
-    selectedValues,
+    initialSelectedValues,
 }) => {
     const { subscribe } = useForm()
 
@@ -45,7 +45,9 @@ const SequenceEditForm = ({
                 <CronField />
             </Box>
             <Box marginTop="16px">
-                <SequenceOrderField selectedValues={selectedValues} />
+                <SequenceOrderField
+                    initialSelectedValues={initialSelectedValues}
+                />
             </Box>
             {hasSubmitErrors && (
                 <Box marginTop="32px" maxWidth="600px">
@@ -82,7 +84,7 @@ SequenceEditForm.propTypes = {
     pristine: bool.isRequired,
     setIsPristine: func.isRequired,
     submitting: bool.isRequired,
-    selectedValues: array,
+    initialSelectedValues: array,
     submitError: array,
 }
 
