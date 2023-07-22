@@ -411,7 +411,7 @@ msgid "GEOJSON import"
 msgstr ""
 
 msgid "GML import"
-msgstr ""
+msgstr "Importación GML"
 
 msgid "Image processing"
 msgstr ""
