@@ -31,19 +31,14 @@ const SequenceOrderField = ({ initialSelectedValues }) => {
         )
     }
 
-    let options = [...data]
-
-    // The selected values aren't part of the queueables, so we need to add them
-    if (initialSelectedValues) {
-        options = options.concat(initialSelectedValues)
-    }
-
     // Map to a format the transfer can render
-    options = options.map(({ name, id, type }) => ({
-        label: name,
-        value: id,
-        type: jobTypesMap[type],
-    }))
+    const options = [...data, ...initialSelectedValues].map(
+        ({ name, id, type }) => ({
+            label: name,
+            value: id,
+            type: jobTypesMap[type],
+        })
+    )
 
     return (
         <Field
