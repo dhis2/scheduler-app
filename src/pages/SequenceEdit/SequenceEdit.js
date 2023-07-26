@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Card, IconInfo16, NoticeBox } from '@dhis2/ui'
 import { useParams } from 'react-router-dom'
 import i18n from '@dhis2/d2-i18n'
@@ -9,7 +9,6 @@ import { useJobScheduleById } from '../../hooks/job-schedules'
 import styles from './SequenceEdit.module.css'
 
 const SequenceEdit = () => {
-    const [isPristine, setIsPristine] = useState(true)
     const { id } = useParams()
     const { data, fetching, error } = useJobScheduleById(id)
 
@@ -34,7 +33,7 @@ const SequenceEdit = () => {
         <React.Fragment>
             <header className={styles.pageHeader}>
                 <DiscardFormButton
-                    shouldConfirm={!isPristine}
+                    shouldConfirm={true}
                     className={styles.pageHeaderButton}
                     small
                 >
@@ -58,10 +57,7 @@ const SequenceEdit = () => {
                         )}
                     </span>
                 </header>
-                <SequenceEditFormContainer
-                    sequence={data}
-                    setIsPristine={setIsPristine}
-                />
+                <SequenceEditFormContainer sequence={data} />
             </Card>
         </React.Fragment>
     )

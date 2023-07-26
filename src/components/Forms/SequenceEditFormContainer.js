@@ -15,7 +15,7 @@ const { Form } = ReactFinalForm
 
 const initialFields = ['cronExpression', 'sequence', 'name']
 
-const SequenceEditFormContainer = ({ sequence, setIsPristine }) => {
+const SequenceEditFormContainer = ({ sequence }) => {
     const redirect = () => {
         history.push('/')
     }
@@ -39,13 +39,12 @@ const SequenceEditFormContainer = ({ sequence, setIsPristine }) => {
             destroyOnUnregister
             initialValues={initialValues}
             onSubmit={submitJobQueue}
-            setIsPristine={setIsPristine}
             initialSelectedValues={sequence?.sequence}
         />
     )
 }
 
-const { func, shape, string, array } = PropTypes
+const { shape, string, array } = PropTypes
 
 SequenceEditFormContainer.propTypes = {
     sequence: shape({
@@ -53,7 +52,6 @@ SequenceEditFormContainer.propTypes = {
         sequence: array.isRequired,
         name: string.isRequired,
     }).isRequired,
-    setIsPristine: func.isRequired,
 }
 
 export default SequenceEditFormContainer
