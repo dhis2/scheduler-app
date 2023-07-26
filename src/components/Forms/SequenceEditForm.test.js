@@ -24,7 +24,6 @@ describe('<SequenceEditForm>', () => {
             submitError: [message],
             hasSubmitErrors: true,
             values: {},
-            setIsPristine: () => {},
         }
 
         const wrapper = mount(
@@ -40,23 +39,6 @@ describe('<SequenceEditForm>', () => {
         expect(actual.text()).toEqual(expect.stringContaining(message))
     })
 
-    it('calls setIsPristine on form changes', () => {
-        const spy = jest.fn()
-        const wrapper = mount(
-            <Form
-                onSubmit={() => {}}
-                setIsPristine={spy}
-                component={SequenceEditForm}
-            />
-        )
-
-        wrapper
-            .find({ id: 'name' })
-            .simulate('change', { target: { value: 'A change' } })
-
-        expect(spy).toHaveBeenCalledWith(false)
-    })
-
     it('shows a spinner when submitting', () => {
         const props = {
             handleSubmit: () => {},
@@ -65,7 +47,6 @@ describe('<SequenceEditForm>', () => {
             submitError: [],
             hasSubmitErrors: false,
             values: {},
-            setIsPristine: () => {},
         }
 
         const wrapper = mount(
@@ -96,7 +77,6 @@ describe('<SequenceEditForm>', () => {
             submitError: [],
             hasSubmitErrors: false,
             values: {},
-            setIsPristine: () => {},
         }
 
         const wrapper = mount(
@@ -122,7 +102,6 @@ describe('<SequenceEditForm>', () => {
             submitError: [],
             hasSubmitErrors: false,
             values: {},
-            setIsPristine: () => {},
         }
 
         const wrapper = mount(
