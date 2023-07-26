@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { ReactFinalForm } from '@dhis2/ui'
 import history from '../../services/history'
-import { useSubmitJobQueue } from '../../hooks/job-queues'
+import { useUpdateJobQueue } from '../../hooks/job-queues'
 import SequenceEditForm from './SequenceEditForm'
 
 const { Form } = ReactFinalForm
@@ -19,7 +19,7 @@ const SequenceEditFormContainer = ({ sequence }) => {
     const redirect = () => {
         history.push('/')
     }
-    const [submitJobQueue] = useSubmitJobQueue({ onSuccess: redirect })
+    const [submitJobQueue] = useUpdateJobQueue({ onSuccess: redirect })
 
     // Creating an object with just the values we want to use as initial values
     const initialValues = initialFields.reduce((filtered, key) => {
