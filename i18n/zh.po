@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-05-03T11:14:51.605Z\n"
+"POT-Creation-Date: 2023-06-28T07:36:04.708Z\n"
 "PO-Revision-Date: 2020-05-08 14:30+0000\n"
 "Last-Translator: easylin <lin_xd@126.com>, 2023\n"
 "Language-Team: Chinese (https://app.transifex.com/hisp-uio/teams/100509/zh/)\n"
@@ -86,9 +86,6 @@ msgstr "延迟"
 msgid "Delay in seconds ({{ lowerbound }} - {{ upperbound }})"
 msgstr "延迟秒数（{{lowerbound}}-{{upperbound}}）"
 
-msgid "Name"
-msgstr "名称"
-
 msgid "Job type"
 msgstr "作业类型"
 
@@ -107,6 +104,9 @@ msgstr "加载选项时出了点问题"
 msgid "No options available"
 msgstr "无可用选项"
 
+msgid "Name"
+msgstr "名称"
+
 msgid "There was a problem fetching parameters"
 msgstr "获取参数时出现问题"
 
@@ -115,6 +115,24 @@ msgstr "参数"
 
 msgid "There was a problem fetching the required job type"
 msgstr "获取所需的作业类型时出现问题"
+
+msgid "Please select at least two jobs"
+msgstr "请至少选择两个作业"
+
+msgid "Something went wrong whilst fetching the queueable jobs"
+msgstr "获取可排队作业时出现问题"
+
+msgid "Job sequence"
+msgstr "作业顺序"
+
+msgid "Filter jobs"
+msgstr "筛选工作"
+
+msgid "Available jobs"
+msgstr "可用的作业"
+
+msgid "Jobs in this sequence"
+msgstr "作业按此顺序排列"
 
 msgid "Save"
 msgstr "保存"
@@ -250,9 +268,6 @@ msgstr "加载作业时出了点问题。尝试刷新页面。"
 msgid "Scheduled jobs"
 msgstr "调度的作业"
 
-msgid "Filter jobs"
-msgstr "筛选工作"
-
 msgid "Include system jobs in list"
 msgstr "在列表中包括系统作业"
 
@@ -262,8 +277,13 @@ msgstr "新作业任务"
 msgid "System job: {{ name }}"
 msgstr "系统作业：{{name}}"
 
-msgid "Data value"
-msgstr "资料值"
+msgid "New Sequence"
+msgstr "新序列"
+
+msgid ""
+"A sequence is a collection of jobs that are executed in order, one after "
+"another as they finish."
+msgstr "序列是按顺序执行的作业的集合，完成后一个接一个地执行。"
 
 msgid "Completeness"
 msgstr "完整性"
@@ -271,14 +291,20 @@ msgstr "完整性"
 msgid "Completeness target"
 msgstr "完成目标"
 
-msgid "Org unit target"
-msgstr "组织机构目标"
+msgid "Data value"
+msgstr "资料值"
+
+msgid "Enrollment"
+msgstr "注册"
 
 msgid "Event"
 msgstr "事件"
 
-msgid "Enrollment"
-msgstr "注册"
+msgid "Org unit target"
+msgstr "组织机构目标"
+
+msgid "Ownership"
+msgstr "所有权"
 
 msgid "Validation result"
 msgstr "验证结果"
