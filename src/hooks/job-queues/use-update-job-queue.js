@@ -9,7 +9,7 @@ const createMutation = (name) => ({
 
 const useUpdateJobQueue = ({ onSuccess } = {}) => {
     const engine = useDataEngine()
-    const submitJobQueue = (queue) => {
+    const updateJobQueue = (queue) => {
         const mutation = createMutation(queue.name)
         return engine
             .mutate(mutation, { variables: { queue } })
@@ -21,7 +21,7 @@ const useUpdateJobQueue = ({ onSuccess } = {}) => {
             .catch((error) => formatError(error))
     }
 
-    return [submitJobQueue]
+    return [updateJobQueue]
 }
 
 export default useUpdateJobQueue
