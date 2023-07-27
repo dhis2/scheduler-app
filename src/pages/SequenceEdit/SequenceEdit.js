@@ -3,7 +3,6 @@ import { Card, IconInfo16, NoticeBox } from '@dhis2/ui'
 import { useParams } from 'react-router-dom'
 import i18n from '@dhis2/d2-i18n'
 import { Spinner } from '../../components/Spinner'
-import { DiscardFormButton } from '../../components/Buttons'
 import { SequenceEditFormContainer } from '../../components/Forms'
 import { useJobScheduleById } from '../../hooks/job-schedules'
 import styles from './SequenceEdit.module.css'
@@ -32,13 +31,6 @@ const SequenceEdit = () => {
     return (
         <React.Fragment>
             <header className={styles.pageHeader}>
-                <DiscardFormButton
-                    shouldConfirm={true}
-                    className={styles.pageHeaderButton}
-                    small
-                >
-                    {i18n.t('Back to all jobs')}
-                </DiscardFormButton>
                 <h2 className={styles.pageHeaderTitle}>
                     {i18n.t('Edit Sequence')}
                 </h2>

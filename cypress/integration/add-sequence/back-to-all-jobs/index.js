@@ -9,10 +9,6 @@ Given('the user has edited the form', () => {
     cy.findByLabelText('Name*').type('Name')
 })
 
-When('the user clicks the back to all jobs link', () => {
-    cy.findByRole('button', { name: 'Back to all jobs' }).click()
-})
-
 When('the user clicks the cancel button', () => {
     cy.findByRole('button', { name: 'Cancel' }).click()
 })

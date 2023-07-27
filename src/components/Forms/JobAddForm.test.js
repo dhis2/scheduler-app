@@ -31,7 +31,6 @@ describe('<JobAddForm>', () => {
             submitError: [message],
             hasSubmitErrors: true,
             values: {},
-            setIsPristine: () => {},
         }
 
         const wrapper = mount(
@@ -45,23 +44,6 @@ describe('<JobAddForm>', () => {
         expect(actual.text()).toEqual(expect.stringContaining(message))
     })
 
-    it('calls setIsPristine on form changes', () => {
-        const spy = jest.fn()
-        const wrapper = mount(
-            <Form
-                onSubmit={() => {}}
-                setIsPristine={spy}
-                component={JobAddForm}
-            />
-        )
-
-        wrapper
-            .find({ id: 'name' })
-            .simulate('change', { target: { value: 'A change' } })
-
-        expect(spy).toHaveBeenCalledWith(false)
-    })
-
     it('shows a spinner when submitting', () => {
         const props = {
             handleSubmit: () => {},
@@ -70,7 +52,6 @@ describe('<JobAddForm>', () => {
             submitError: [],
             hasSubmitErrors: false,
             values: {},
-            setIsPristine: () => {},
         }
 
         const wrapper = mount(
@@ -95,7 +76,6 @@ describe('<JobAddForm>', () => {
         const wrapper = mount(
             <Form
                 onSubmit={() => {}}
-                setIsPristine={() => {}}
                 component={JobAddForm}
                 initialValues={{
                     [fieldNames.JOB_TYPE]: 'jobType',
@@ -112,7 +92,6 @@ describe('<JobAddForm>', () => {
         const wrapper = mount(
             <Form
                 onSubmit={() => {}}
-                setIsPristine={() => {}}
                 component={JobAddForm}
                 initialValues={{
                     [fieldNames.JOB_TYPE]: 'jobType',
@@ -133,7 +112,6 @@ describe('<JobAddForm>', () => {
             submitError: [],
             hasSubmitErrors: false,
             values: {},
-            setIsPristine: () => {},
         }
 
         const wrapper = mount(
@@ -157,7 +135,6 @@ describe('<JobAddForm>', () => {
             submitError: [],
             hasSubmitErrors: false,
             values: {},
-            setIsPristine: () => {},
         }
 
         const wrapper = mount(

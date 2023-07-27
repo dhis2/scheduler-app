@@ -51,9 +51,6 @@ const JobView = () => {
     return (
         <React.Fragment>
             <header className={styles.pageHeader}>
-                <LinkButton className={styles.pageHeaderButton} to="/" small>
-                    {i18n.t('Back to all jobs')}
-                </LinkButton>
                 <h2 className={styles.pageHeaderTitle}>
                     {i18n.t('System job: {{ name }}', {
                         name,

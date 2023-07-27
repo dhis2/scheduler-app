@@ -1,9 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Card, IconInfo16, NoticeBox } from '@dhis2/ui'
 import { useParams } from 'react-router-dom'
 import i18n from '@dhis2/d2-i18n'
 import { useJobById } from '../../hooks/jobs'
-import { DiscardFormButton } from '../../components/Buttons'
 import { JobEditFormContainer } from '../../components/Forms'
 import { JobDetails } from '../../components/JobDetails'
 import { Spinner } from '../../components/Spinner'
@@ -13,7 +12,6 @@ const infoLink =
     'https://docs.dhis2.org/en/use/user-guides/dhis-core-version-236/maintaining-the-system/scheduling.html'
 
 const JobEdit = () => {
-    const [isPristine, setIsPristine] = useState(true)
     const { id } = useParams()
     const { data, fetching, error } = useJobById(id)
 
@@ -36,13 +34,6 @@ const JobEdit = () => {
     return (
         <React.Fragment>
             <header className={styles.pageHeader}>
-                <DiscardFormButton
-                    shouldConfirm={!isPristine}
-                    className={styles.pageHeaderButton}
-                    small
-                >
-                    {i18n.t('Back to all jobs')}
-                </DiscardFormButton>
                 <h2 className={styles.pageHeaderTitle}>
                     {i18n.t('Job: {{ name }}', {
                         name,
@@ -74,10 +65,7 @@ const JobEdit = () => {
                         lastExecuted={lastExecuted}
                     />
                 </div>
-                <JobEditFormContainer
-                    job={data}
-                    setIsPristine={setIsPristine}
-                />
+                <JobEditFormContainer job={data} />
             </Card>
         </React.Fragment>
     )

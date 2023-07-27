@@ -29,10 +29,6 @@ const SequenceEditFormContainer = ({ sequence }) => {
 
     initialValues.sequence = initialValues.sequence.map(({ id }) => id)
 
-    /**
-     * destroyOnUnregister is enabled so that dynamic fields will be unregistered
-     * when they're removed from the form, for instance when the jobType changes.
-     */
     return (
         <Form
             component={SequenceEditForm}

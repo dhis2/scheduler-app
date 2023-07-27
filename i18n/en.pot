@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2023-07-19T12:52:52.060Z\n"
-"PO-Revision-Date: 2023-07-19T12:52:52.060Z\n"
+"POT-Creation-Date: 2023-07-27T09:01:30.404Z\n"
+"PO-Revision-Date: 2023-07-27T09:01:30.404Z\n"
 
 msgid "Something went wrong"
 msgstr "Something went wrong"
@@ -228,9 +228,6 @@ msgstr "Run"
 msgid "Toggle job"
 msgstr "Toggle job"
 
-msgid "Back to all jobs"
-msgstr "Back to all jobs"
-
 msgid "New Job"
 msgstr "New Job"
 
@@ -270,6 +267,9 @@ msgstr "New job"
 
 msgid "System job: {{ name }}"
 msgstr "System job: {{ name }}"
+
+msgid "Back to all jobs"
+msgstr "Back to all jobs"
 
 msgid "New Sequence"
 msgstr "New Sequence"

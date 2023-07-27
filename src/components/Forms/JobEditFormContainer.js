@@ -22,7 +22,7 @@ const initialFields = [
     'name',
 ]
 
-const JobEditFormContainer = ({ job, setIsPristine }) => {
+const JobEditFormContainer = ({ job }) => {
     const { id } = useParams()
     const redirect = () => {
         history.push('/')
@@ -35,16 +35,10 @@ const JobEditFormContainer = ({ job, setIsPristine }) => {
         return filtered
     }, {})
 
-    /**
-     * destroyOnUnregister is enabled so that dynamic fields will be unregistered
-     * when they're removed from the form, for instance when the jobType changes.
-     */
-    /* istanbul ignore next: we're testing this section, but coverage reporting seems to disagree */
     return (
         <Form
             onSubmit={updateJob}
             component={JobEditForm}
-            setIsPristine={setIsPristine}
             initialValues={initialValues}
             id={id}
             destroyOnUnregister
@@ -52,11 +46,10 @@ const JobEditFormContainer = ({ job, setIsPristine }) => {
     )
 }
 
-const { func, object } = PropTypes
+const { object } = PropTypes
 
 JobEditFormContainer.propTypes = {
     job: object.isRequired,
-    setIsPristine: func.isRequired,
 }
 
 export default JobEditFormContainer
