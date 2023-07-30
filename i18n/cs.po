@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-05-03T11:14:51.605Z\n"
+"POT-Creation-Date: 2023-06-28T07:36:04.708Z\n"
 "PO-Revision-Date: 2020-05-08 14:30+0000\n"
 "Last-Translator: Jiří Podhorecký, 2023\n"
 "Language-Team: Czech (https://app.transifex.com/hisp-uio/teams/100509/cs/)\n"
@@ -83,9 +83,6 @@ msgstr "Zpoždění"
 msgid "Delay in seconds ({{ lowerbound }} - {{ upperbound }})"
 msgstr "Zpoždění v sekundách ({{ lowerbound }} - {{ upperbound }})"
 
-msgid "Name"
-msgstr "Název"
-
 msgid "Job type"
 msgstr "Typ úlohy"
 
@@ -104,6 +101,9 @@ msgstr "Při načítání možností se něco pokazilo"
 msgid "No options available"
 msgstr "K dispozici nejsou žádné možnosti"
 
+msgid "Name"
+msgstr "Název"
+
 msgid "There was a problem fetching parameters"
 msgstr "Při načítání parametrů došlo k problému"
 
@@ -112,6 +112,24 @@ msgstr "Parametry"
 
 msgid "There was a problem fetching the required job type"
 msgstr "Při načítání požadovaného typu úlohy došlo k problému"
+
+msgid "Please select at least two jobs"
+msgstr "Vyberte prosím alespoň dvě úlohy"
+
+msgid "Something went wrong whilst fetching the queueable jobs"
+msgstr "Při načítání úloh zařazených do fronty se něco pokazilo"
+
+msgid "Job sequence"
+msgstr " sekvence úloh"
+
+msgid "Filter jobs"
+msgstr "Filtrovat úlohy"
+
+msgid "Available jobs"
+msgstr "Dostupné úlohy"
+
+msgid "Jobs in this sequence"
+msgstr "Úlohy v této sekvenci"
 
 msgid "Save"
 msgstr "Uložit"
@@ -249,9 +267,6 @@ msgstr "Při načítání úloh se něco pokazilo. Zkuste stránku obnovit."
 msgid "Scheduled jobs"
 msgstr "Plánované úlohy"
 
-msgid "Filter jobs"
-msgstr "Filtrovat úlohy"
-
 msgid "Include system jobs in list"
 msgstr "Zahrnout systémové úlohy do seznamu"
 
@@ -261,8 +276,15 @@ msgstr "Nová úloha"
 msgid "System job: {{ name }}"
 msgstr "Úloha systému: {{ name }}"
 
-msgid "Data value"
-msgstr "Hodnota dat"
+msgid "New Sequence"
+msgstr "Nová sekvence"
+
+msgid ""
+"A sequence is a collection of jobs that are executed in order, one after "
+"another as they finish."
+msgstr ""
+"Sekvence je kolekce úloh, které jsou prováděny v pořadí, jedna po druhé, jak"
+" jsou dokončeny."
 
 msgid "Completeness"
 msgstr "Úplnost"
@@ -270,14 +292,20 @@ msgstr "Úplnost"
 msgid "Completeness target"
 msgstr "Cíl úplnosti"
 
-msgid "Org unit target"
-msgstr "Cíl organizační jednotky"
+msgid "Data value"
+msgstr "Hodnota dat"
+
+msgid "Enrollment"
+msgstr "Zápis"
 
 msgid "Event"
 msgstr "Událost"
 
-msgid "Enrollment"
-msgstr "Zápis"
+msgid "Org unit target"
+msgstr "Cíl organizační jednotky"
+
+msgid "Ownership"
+msgstr "Vlastnictví"
 
 msgid "Validation result"
 msgstr "Výsledek ověření"
