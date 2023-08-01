@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-05-03T11:14:51.605Z\n"
+"POT-Creation-Date: 2023-06-28T07:36:04.708Z\n"
 "PO-Revision-Date: 2020-05-08 14:30+0000\n"
 "Last-Translator: Ibatov <ibatovk@who.int>, 2023\n"
 "Language-Team: Uzbek (Cyrillic) (https://app.transifex.com/hisp-uio/teams/100509/uz@Cyrl/)\n"
@@ -22,7 +22,7 @@ msgid "Something went wrong whilst retrieving user permissions."
 msgstr ""
 
 msgid "Not authorized"
-msgstr ""
+msgstr "Авторизациядан ўтилмаган"
 
 msgid ""
 "You don't have access to the Job Scheduler. Contact a system administrator "
@@ -83,9 +83,6 @@ msgstr ""
 msgid "Delay in seconds ({{ lowerbound }} - {{ upperbound }})"
 msgstr ""
 
-msgid "Name"
-msgstr "Исми"
-
 msgid "Job type"
 msgstr "Вазифа тури"
 
@@ -104,6 +101,9 @@ msgstr ""
 msgid "No options available"
 msgstr "Вариантлар мавжуд эмас"
 
+msgid "Name"
+msgstr "Исми"
+
 msgid "There was a problem fetching parameters"
 msgstr ""
 
@@ -111,6 +111,24 @@ msgid "Parameters"
 msgstr "Параметрлар"
 
 msgid "There was a problem fetching the required job type"
+msgstr ""
+
+msgid "Please select at least two jobs"
+msgstr ""
+
+msgid "Something went wrong whilst fetching the queueable jobs"
+msgstr ""
+
+msgid "Job sequence"
+msgstr ""
+
+msgid "Filter jobs"
+msgstr ""
+
+msgid "Available jobs"
+msgstr ""
+
+msgid "Jobs in this sequence"
 msgstr ""
 
 msgid "Save"
@@ -247,9 +265,6 @@ msgstr ""
 msgid "Scheduled jobs"
 msgstr "Вазифалар режалаштирилган"
 
-msgid "Filter jobs"
-msgstr ""
-
 msgid "Include system jobs in list"
 msgstr ""
 
@@ -259,7 +274,12 @@ msgstr ""
 msgid "System job: {{ name }}"
 msgstr ""
 
-msgid "Data value"
+msgid "New Sequence"
+msgstr ""
+
+msgid ""
+"A sequence is a collection of jobs that are executed in order, one after "
+"another as they finish."
 msgstr ""
 
 msgid "Completeness"
@@ -268,14 +288,20 @@ msgstr "Тўлиқлик"
 msgid "Completeness target"
 msgstr ""
 
-msgid "Org unit target"
+msgid "Data value"
 msgstr ""
+
+msgid "Enrollment"
+msgstr "Рўйхатга олиш"
 
 msgid "Event"
 msgstr "Ҳодиса/Тадбир"
 
-msgid "Enrollment"
-msgstr "Рўйхатга олиш"
+msgid "Org unit target"
+msgstr ""
+
+msgid "Ownership"
+msgstr ""
 
 msgid "Validation result"
 msgstr "Тасдиқлаш натижаси"
