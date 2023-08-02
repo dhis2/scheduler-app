@@ -31,6 +31,7 @@ const SequenceEditFormContainer = ({ sequence }) => {
 
     return (
         <Form
+            name={sequence.name}
             component={SequenceEditForm}
             destroyOnUnregister
             initialValues={initialValues}

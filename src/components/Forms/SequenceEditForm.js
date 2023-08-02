@@ -2,12 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 import { Button, CircularLoader, Box } from '@dhis2/ui'
-import { DiscardFormButton } from '../Buttons'
+import { DiscardFormButton, DeleteSequenceButton } from '../Buttons'
 import { FormErrorBox } from '../FormErrorBox'
 import { NameField, CronField, SequenceOrderField } from '../FormFields'
 import styles from './SequenceEditForm.module.css'
 
 const SequenceEditForm = ({
+    name,
     handleSubmit,
     pristine,
     submitting,
@@ -49,12 +50,20 @@ const SequenceEditForm = ({
                 <DiscardFormButton shouldConfirm={!pristine}>
                     {i18n.t('Cancel')}
                 </DiscardFormButton>
+                <span className={styles.deleteButton}>
+                    <DeleteSequenceButton
+                        name={name}
+                        onSuccess={() => {
+                            history.push('/')
+                        }}
+                    />
+                </span>
             </div>
         </form>
     )
 }
 
-const { func, bool, array } = PropTypes
+const { func, bool, array, string } = PropTypes
 
 SequenceEditForm.defaultProps = {
     submitError: [],
@@ -63,6 +72,7 @@ SequenceEditForm.defaultProps = {
 SequenceEditForm.propTypes = {
     handleSubmit: func.isRequired,
     hasSubmitErrors: bool.isRequired,
+    name: string.isRequired,
     pristine: bool.isRequired,
     submitting: bool.isRequired,
     initialSelectedValues: array,
