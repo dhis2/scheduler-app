@@ -28,11 +28,16 @@ const SequenceEdit = () => {
         )
     }
 
+    const { name } = data
+
     return (
         <React.Fragment>
             <header className={styles.pageHeader}>
                 <h2 className={styles.pageHeaderTitle}>
-                    {i18n.t('Edit Sequence')}
+                    {i18n.t('Sequence: {{ name }}', {
+                        name,
+                        nsSeparator: '>',
+                    })}
                 </h2>
             </header>
             <Card className={styles.card}>

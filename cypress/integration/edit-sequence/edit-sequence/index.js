@@ -36,7 +36,7 @@ Given('two unqueued jobs exist', () => {
 
 Given('the user navigates to the edit sequence page', () => {
     cy.visit('/#/edit-sequence/RWcaltWoKuN')
-    cy.findByRole('heading', { name: 'Edit Sequence' }).should('exist')
+    cy.findByRole('heading', { name: 'Sequence: one' }).should('exist')
 })
 
 Given('the user changes the sequence name', () => {

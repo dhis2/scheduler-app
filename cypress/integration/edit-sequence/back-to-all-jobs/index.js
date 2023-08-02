@@ -9,7 +9,7 @@ Given('a sequence exists', () => {
 
 Given('the user navigates to the edit sequence page', () => {
     cy.visit('/#/edit-sequence/RWcaltWoKuN')
-    cy.findByRole('heading', { name: 'Edit Sequence' }).should('exist')
+    cy.findByRole('heading', { name: 'Sequence: one' }).should('exist')
 })
 
 Given('the user has edited the form', () => {
