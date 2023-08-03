@@ -12,7 +12,7 @@ import { useDataMutation } from '@dhis2/app-runtime'
 
 const DeleteSequenceModal = ({ name, hideModal, onSuccess }) => {
     const [deleteSequence] = useDataMutation({
-        resource: `scheduler/queue/${name}`,
+        resource: `scheduler/queues/${name}`,
         type: 'delete',
     })
 
