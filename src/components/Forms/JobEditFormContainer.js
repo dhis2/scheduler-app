@@ -8,20 +8,6 @@ import JobEditForm from './JobEditForm'
 
 const { Form } = ReactFinalForm
 
-/**
- * The fields we need for the initialValues for our form fields. Since we use
- * these values to set the initial values in final-form, if we wouldn't filter
- * them we'd end up submitting way more data than we intend to.
- */
-
-const initialFields = [
-    'cronExpression',
-    'delay',
-    'jobParameters',
-    'jobType',
-    'name',
-]
-
 const JobEditFormContainer = ({ job }) => {
     const { id } = useParams()
     const redirect = () => {
@@ -30,10 +16,14 @@ const JobEditFormContainer = ({ job }) => {
     const [updateJob] = useUpdateJob({ id, onSuccess: redirect })
 
     // Creating an object with just the values we want to use as initial values
-    const initialValues = initialFields.reduce((filtered, key) => {
-        filtered[key] = job[key]
-        return filtered
-    }, {})
+    const { cronExpression, delay, jobParameters, jobType, name } = job
+    const initialValues = {
+        cronExpression,
+        delay,
+        jobParameters,
+        jobType,
+        name,
+    }
 
     return (
         <Form

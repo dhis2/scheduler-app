@@ -7,27 +7,19 @@ import SequenceEditForm from './SequenceEditForm'
 
 const { Form } = ReactFinalForm
 
-/**
- * The fields we need for the initialValues for our form fields. Since we use
- * these values to set the initial values in final-form, if we wouldn't filter
- * them we'd end up submitting way more data than we intend to.
- */
-
-const initialFields = ['cronExpression', 'sequence', 'name']
-
 const SequenceEditFormContainer = ({ sequence }) => {
     const redirect = () => {
         history.push('/')
     }
     const [submitJobQueue] = useUpdateJobQueue({ onSuccess: redirect })
 
-    // Creating an object with just the values we want to use as initial values
-    const initialValues = initialFields.reduce((filtered, key) => {
-        filtered[key] = sequence[key]
-        return filtered
-    }, {})
-
-    initialValues.sequence = initialValues.sequence.map(({ id }) => id)
+    // Create an object with only the values we want to use as initial values
+    const { cronExpression, name } = sequence
+    const initialValues = {
+        cronExpression,
+        sequence: sequence.sequence.map(({ id }) => id),
+        name,
+    }
 
     return (
         <Form
