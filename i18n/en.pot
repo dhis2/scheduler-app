@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2023-08-02T09:00:45.867Z\n"
-"PO-Revision-Date: 2023-08-02T09:00:45.867Z\n"
+"POT-Creation-Date: 2023-08-03T07:44:07.705Z\n"
+"PO-Revision-Date: 2023-08-03T07:44:07.705Z\n"
 
 msgid "Something went wrong"
 msgstr "Something went wrong"
@@ -29,6 +29,9 @@ msgstr "Choose from preset times"
 
 msgid "Delete job"
 msgstr "Delete job"
+
+msgid "Delete sequence"
+msgstr "Delete sequence"
 
 msgid "Something went wrong whilst creating your job"
 msgstr "Something went wrong whilst creating your job"
@@ -209,6 +212,9 @@ msgstr "Insert preset"
 
 msgid "Are you sure you want to delete this job?"
 msgstr "Are you sure you want to delete this job?"
+
+msgid "Are you sure you want to delete this sequence?"
+msgstr "Are you sure you want to delete this sequence?"
 
 msgid "Are you sure you want to discard this form?"
 msgstr "Are you sure you want to discard this form?"
