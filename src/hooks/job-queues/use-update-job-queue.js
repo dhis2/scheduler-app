@@ -7,10 +7,10 @@ const createMutation = (name) => ({
     data: ({ queue }) => queue,
 })
 
-const useUpdateJobQueue = ({ onSuccess } = {}) => {
+const useUpdateJobQueue = ({ onSuccess, initialName } = {}) => {
     const engine = useDataEngine()
     const updateJobQueue = (queue) => {
-        const mutation = createMutation(queue.name)
+        const mutation = createMutation(initialName)
         return engine
             .mutate(mutation, { variables: { queue } })
             .then(() => {

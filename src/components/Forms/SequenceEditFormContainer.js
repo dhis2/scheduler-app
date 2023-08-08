@@ -11,7 +11,6 @@ const SequenceEditFormContainer = ({ sequence }) => {
     const redirect = () => {
         history.push('/')
     }
-    const [submitJobQueue] = useUpdateJobQueue({ onSuccess: redirect })
 
     // Create an object with only the values we want to use as initial values
     const { cronExpression, name } = sequence
@@ -20,6 +19,11 @@ const SequenceEditFormContainer = ({ sequence }) => {
         sequence: sequence.sequence.map(({ id }) => id),
         name,
     }
+
+    const [submitJobQueue] = useUpdateJobQueue({
+        onSuccess: redirect,
+        initialName: initialValues.name,
+    })
 
     return (
         <Form

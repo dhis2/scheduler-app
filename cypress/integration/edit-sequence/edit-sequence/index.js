@@ -4,9 +4,9 @@ import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
  * Local helpers
  */
 
-const saveAndExpect = (expected) => {
+const saveAndExpect = (name, expected) => {
     cy.intercept(
-        { url: `**/scheduler/queues/${expected.name}`, method: 'PUT' },
+        { url: `**/scheduler/queues/${name}`, method: 'PUT' },
         (req) => {
             expect(req.body).to.deep.equal(expected)
             req.reply({ statusCode: 201 })
@@ -61,7 +61,7 @@ Given('the user adds jobs to the queue', () => {
 })
 
 Then('the sequence is updated when the user saves the sequence', () =>
-    saveAndExpect({
+    saveAndExpect('one', {
         cronExpression: '0 0 * ? * *',
         name: 'Name',
         sequence: ['RWcaltWoKuN', 'p2HCjnAmSNE', 'xkxSSOLKc7X', 'RRKO5XbxBz4'],
