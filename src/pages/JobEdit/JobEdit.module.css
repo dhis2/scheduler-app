@@ -2,10 +2,6 @@
     margin-bottom: var(--spacers-dp32);
 }
 
-.pageHeaderButton {
-    margin-bottom: var(--spacers-dp16);
-}
-
 .pageHeaderTitle {
     font-size: 18px;
     font-weight: 400;

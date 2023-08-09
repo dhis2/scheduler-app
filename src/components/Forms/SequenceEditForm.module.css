@@ -1,0 +1,18 @@
+.formButtonContainer {
+    display: flex;
+    margin-top: var(--spacers-dp24);
+}
+
+.saveButton {
+    margin-right: var(--spacers-dp8);
+}
+
+.deleteButton {
+    margin-left: auto;
+}
+
+.title {
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0 var(--spacers-dp8) 0 0;
+}

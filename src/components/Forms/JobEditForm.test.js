@@ -32,7 +32,6 @@ describe('<JobEditForm>', () => {
             submitError: [message],
             hasSubmitErrors: true,
             values: {},
-            setIsPristine: () => {},
             refetchJobs: () => {},
         }
 
@@ -47,25 +46,6 @@ describe('<JobEditForm>', () => {
         expect(actual.text()).toEqual(expect.stringContaining(message))
     })
 
-    it('calls setIsPristine on form changes', () => {
-        const spy = jest.fn()
-        const wrapper = mount(
-            <Form
-                onSubmit={() => {}}
-                id="id"
-                refetchJobs={() => {}}
-                setIsPristine={spy}
-                component={JobEditForm}
-            />
-        )
-
-        wrapper
-            .find({ id: 'name' })
-            .simulate('change', { target: { value: 'A change' } })
-
-        expect(spy).toHaveBeenCalledWith(false)
-    })
-
     it('shows a spinner when submitting', () => {
         const props = {
             id: 'id',
@@ -75,7 +55,6 @@ describe('<JobEditForm>', () => {
             submitError: [],
             hasSubmitErrors: false,
             values: {},
-            setIsPristine: () => {},
             refetchJobs: () => {},
         }
 
@@ -103,7 +82,6 @@ describe('<JobEditForm>', () => {
                 id="id"
                 refetchJobs={() => {}}
                 onSubmit={() => {}}
-                setIsPristine={() => {}}
                 component={JobEditForm}
                 initialValues={{
                     [fieldNames.JOB_TYPE]: 'jobType',
@@ -122,7 +100,6 @@ describe('<JobEditForm>', () => {
                 id="id"
                 refetchJobs={() => {}}
                 onSubmit={() => {}}
-                setIsPristine={() => {}}
                 component={JobEditForm}
                 initialValues={{
                     [fieldNames.JOB_TYPE]: 'jobType',
@@ -144,7 +121,6 @@ describe('<JobEditForm>', () => {
             submitError: [],
             hasSubmitErrors: false,
             values: {},
-            setIsPristine: () => {},
             refetchJobs: () => {},
         }
 
@@ -170,7 +146,6 @@ describe('<JobEditForm>', () => {
             submitError: [],
             hasSubmitErrors: false,
             values: {},
-            setIsPristine: () => {},
             refetchJobs: () => {},
         }
 

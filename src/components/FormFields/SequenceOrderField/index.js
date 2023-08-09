@@ -1,1 +1,1 @@
-export { default } from './SequenceOrderField'
+export { default as SequenceOrderField } from './SequenceOrderField'

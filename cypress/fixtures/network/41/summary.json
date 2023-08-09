@@ -1,7 +1,7 @@
 {
-    "count": 994,
-    "totalResponseSize": 1015719,
-    "duplicates": 884,
+    "count": 951,
+    "totalResponseSize": 1022634,
+    "duplicates": 840,
     "nonDeterministicResponses": 91,
     "apiVersion": "41",
     "fixtureFiles": [
@@ -16,6 +16,7 @@
         "users_should_be_able_to_view_jobs.json",
         "users_should_be_able_to_edit_jobs_that_take_parameters.json",
         "users_should_be_able_to_edit_jobs_without_parameters.json",
+        "users_should_be_able_to_edit_a_sequence.json",
         "jobs_can_be_filtered.json",
         "system_job_visibility_can_be_toggled.json",
         "user_jobs_can_be_enabled_and_disabled.json",
