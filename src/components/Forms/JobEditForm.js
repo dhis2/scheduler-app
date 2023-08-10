@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 import { Button, CircularLoader, Box } from '@dhis2/ui'
 import history from '../../services/history'
-import { DiscardFormButton, ToggleChildrenButton } from '../Buttons'
+import { DiscardFormButton } from '../Buttons'
 import { DeleteJobModal } from '../Modal'
 import { FormErrorBox } from '../FormErrorBox'
 import {
@@ -24,6 +24,8 @@ const JobEditForm = ({
     hasSubmitErrors,
     values,
 }) => {
+    const [showDeleteJobModal, setShowDeleteJobModal] = useState(false)
+
     // Check if there's currently a selected job type
     const jobType = values[fieldNames.JOB_TYPE]
 
@@ -67,20 +69,22 @@ const JobEditForm = ({
                     {i18n.t('Cancel')}
                 </DiscardFormButton>
                 <span className={styles.deleteButton}>
-                    <ToggleChildrenButton
-                        title={i18n.t('Delete job')}
+                    <Button
                         destructive
+                        onClick={() => setShowDeleteJobModal(true)}
                     >
-                        {({ hideChildren }) => (
-                            <DeleteJobModal
-                                id={id}
-                                hideModal={hideChildren}
-                                onSuccess={() => {
-                                    history.push('/')
-                                }}
-                            />
-                        )}
-                    </ToggleChildrenButton>
+                        {i18n.t('Delete job')}
+                    </Button>
+
+                    {showDeleteJobModal && (
+                        <DeleteJobModal
+                            id={id}
+                            hideModal={() => setShowDeleteJobModal(false)}
+                            onSuccess={() => {
+                                history.push('/')
+                            }}
+                        />
+                    )}
                 </span>
             </div>
         </form>

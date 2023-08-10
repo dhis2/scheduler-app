@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 import { Button, CircularLoader, Box } from '@dhis2/ui'
-import { DiscardFormButton, ToggleChildrenButton } from '../Buttons'
+import { DiscardFormButton } from '../Buttons'
 import { DeleteSequenceModal } from '../Modal'
 import history from '../../services/history'
 import { FormErrorBox } from '../FormErrorBox'
@@ -18,6 +18,8 @@ const SequenceEditForm = ({
     hasSubmitErrors,
     initialSelectedValues,
 }) => {
+    const [showDeleteSequenceModal, setShowDeleteSequenceModal] = useState(false)
+
     // Show a spinner only when submitting
     const Spinner = submitting ? <CircularLoader small /> : null
 
@@ -53,20 +55,22 @@ const SequenceEditForm = ({
                     {i18n.t('Cancel')}
                 </DiscardFormButton>
                 <span className={styles.deleteButton}>
-                    <ToggleChildrenButton
-                        title={i18n.t('Delete sequence')}
+                    <Button
                         destructive
+                        onClick={() => setShowDeleteSequenceModal(true)}
                     >
-                        {({ hideChildren }) => (
-                            <DeleteSequenceModal
-                                name={name}
-                                hideModal={hideChildren}
-                                onSuccess={() => {
-                                    history.push('/')
-                                }}
-                            />
-                        )}
-                    </ToggleChildrenButton>
+                        {i18n.t('Delete sequence')}
+                    </Button>
+
+                    {showDeleteSequenceModal && (
+                        <DeleteSequenceModal
+                            name={name}
+                            hideModal={() => setShowDeleteSequenceModal(false)}
+                            onSuccess={() => {
+                                history.push('/')
+                            }}
+                        />
+                    )}
                 </span>
             </div>
         </form>
