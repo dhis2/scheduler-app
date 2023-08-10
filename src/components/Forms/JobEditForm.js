@@ -3,7 +3,8 @@ import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 import { Button, CircularLoader, Box } from '@dhis2/ui'
 import history from '../../services/history'
-import { DiscardFormButton, DeleteJobButton } from '../Buttons'
+import { DiscardFormButton, ToggleChildrenButton } from '../Buttons'
+import { DeleteJobModal } from '../Modal'
 import { FormErrorBox } from '../FormErrorBox'
 import {
     ScheduleField,
@@ -66,12 +67,20 @@ const JobEditForm = ({
                     {i18n.t('Cancel')}
                 </DiscardFormButton>
                 <span className={styles.deleteButton}>
-                    <DeleteJobButton
-                        id={id}
-                        onSuccess={() => {
-                            history.push('/')
-                        }}
-                    />
+                    <ToggleChildrenButton
+                        title={i18n.t('Delete job')}
+                        destructive
+                    >
+                        {({ hideChildren }) => (
+                            <DeleteJobModal
+                                id={id}
+                                hideModal={hideChildren}
+                                onSuccess={() => {
+                                    history.push('/')
+                                }}
+                            />
+                        )}
+                    </ToggleChildrenButton>
                 </span>
             </div>
         </form>

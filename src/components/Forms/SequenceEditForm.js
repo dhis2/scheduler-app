@@ -2,7 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 import { Button, CircularLoader, Box } from '@dhis2/ui'
-import { DiscardFormButton, DeleteSequenceButton } from '../Buttons'
+import { DiscardFormButton, ToggleChildrenButton } from '../Buttons'
+import { DeleteSequenceModal } from '../Modal'
 import history from '../../services/history'
 import { FormErrorBox } from '../FormErrorBox'
 import { NameField, CronField, SequenceOrderField } from '../FormFields'
@@ -52,12 +53,20 @@ const SequenceEditForm = ({
                     {i18n.t('Cancel')}
                 </DiscardFormButton>
                 <span className={styles.deleteButton}>
-                    <DeleteSequenceButton
-                        name={name}
-                        onSuccess={() => {
-                            history.push('/')
-                        }}
-                    />
+                    <ToggleChildrenButton
+                        title={i18n.t('Delete sequence')}
+                        destructive
+                    >
+                        {({ hideChildren }) => (
+                            <DeleteSequenceModal
+                                name={name}
+                                hideModal={hideChildren}
+                                onSuccess={() => {
+                                    history.push('/')
+                                }}
+                            />
+                        )}
+                    </ToggleChildrenButton>
                 </span>
             </div>
         </form>
