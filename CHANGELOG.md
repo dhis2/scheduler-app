@@ -1,3 +1,10 @@
+## [101.2.1](https://github.com/dhis2/scheduler-app/compare/v101.2.0...v101.2.1) (2023-08-10)
+
+
+### Bug Fixes
+
+* **system-jobs:** always allow running jobs manually ([#419](https://github.com/dhis2/scheduler-app/issues/419)) ([71f8a0f](https://github.com/dhis2/scheduler-app/commit/71f8a0f78b475ff6cae63209f1551e3e982eab99))
+
 # [101.2.0](https://github.com/dhis2/scheduler-app/compare/v101.1.6...v101.2.0) (2023-08-09)
 
 
