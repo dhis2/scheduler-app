@@ -1,35 +1,16 @@
 import React from 'react'
-import { Card, IconInfo16, NoticeBox } from '@dhis2/ui'
-import { useParams } from 'react-router-dom'
+import { Card, IconInfo16 } from '@dhis2/ui'
+import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
-import { useJobById } from '../../hooks/jobs'
 import { JobEditFormContainer } from '../../components/Forms'
 import { JobDetails } from '../../components/JobDetails'
-import { Spinner } from '../../components/Spinner'
 import styles from './JobEdit.module.css'
 
 const infoLink =
     'https://docs.dhis2.org/en/use/user-guides/dhis-core-version-236/maintaining-the-system/scheduling.html'
 
-const JobEdit = () => {
-    const { id } = useParams()
-    const { data, fetching, error } = useJobById(id)
-
-    if (fetching) {
-        return <Spinner />
-    }
-
-    if (error) {
-        return (
-            <NoticeBox error title={i18n.t('Could not load requested job')}>
-                {i18n.t(
-                    'Something went wrong whilst loading the requested job. Make sure it has not been deleted and try refreshing the page.'
-                )}
-            </NoticeBox>
-        )
-    }
-
-    const { name, created, lastExecutedStatus, lastExecuted } = data
+const JobEdit = ({ job }) => {
+    const { name, created, lastExecutedStatus, lastExecuted } = job
 
     return (
         <React.Fragment>
@@ -65,10 +46,21 @@ const JobEdit = () => {
                         lastExecuted={lastExecuted}
                     />
                 </div>
-                <JobEditFormContainer job={data} />
+                <JobEditFormContainer job={job} />
             </Card>
         </React.Fragment>
     )
+}
+
+const { shape, string } = PropTypes
+
+JobEdit.propTypes = {
+    job: shape({
+        name: string.isRequired,
+        created: string.isRequired,
+        lastExecutedStatus: string.isRequired,
+        lastExecuted: string.isRequired,
+    }).isRequired,
 }
 
 export default JobEdit
