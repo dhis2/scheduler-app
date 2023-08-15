@@ -18,6 +18,7 @@ describe('<SequenceEditForm>', () => {
     it('shows submit errors if there are any', () => {
         const message = 'Generic submit error'
         const props = {
+            name: 'name',
             handleSubmit: () => {},
             pristine: false,
             submitting: false,
@@ -41,6 +42,7 @@ describe('<SequenceEditForm>', () => {
 
     it('shows a spinner when submitting', () => {
         const props = {
+            name: 'name',
             handleSubmit: () => {},
             pristine: false,
             submitting: true,
@@ -71,6 +73,7 @@ describe('<SequenceEditForm>', () => {
 
     it('disables the submit button when pristine', () => {
         const props = {
+            name: 'name',
             handleSubmit: () => {},
             pristine: true,
             submitting: false,
@@ -96,6 +99,7 @@ describe('<SequenceEditForm>', () => {
 
     it('disables the submit button when submitting', () => {
         const props = {
+            name: 'name',
             handleSubmit: () => {},
             pristine: false,
             submitting: true,
