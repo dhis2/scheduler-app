@@ -23,7 +23,7 @@ const saveAndExpect = (expected) => {
  */
 
 Given('the user navigated to the add job page', () => {
-    cy.visit('/#/add')
+    cy.visit('/#/job/add')
     cy.findByRole('heading', { name: 'New Job' }).should('exist')
 })
 

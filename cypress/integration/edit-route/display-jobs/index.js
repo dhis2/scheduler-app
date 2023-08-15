@@ -12,7 +12,7 @@ Given('the user navigated to the edit job page', () => {
     const now = new Date(2021, 3, 10).getTime()
     cy.clock(now)
 
-    cy.visit('/#/edit/lnWRZN67iDU')
+    cy.visit('/#/job/lnWRZN67iDU')
     cy.findByRole('heading', { name: 'Job: Job 1' }).should('exist')
 })
 

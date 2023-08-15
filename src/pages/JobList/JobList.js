@@ -74,7 +74,9 @@ const JobList = () => {
                                 setShowSystemJobs(checked)
                             }}
                         />
-                        <LinkButton to="/job/add">{i18n.t('New job')}</LinkButton>
+                        <LinkButton to="/job/add">
+                            {i18n.t('New job')}
+                        </LinkButton>
                     </div>
                 </div>
                 <JobTable jobs={jobs} refetch={refetch} />
