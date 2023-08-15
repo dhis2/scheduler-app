@@ -7,7 +7,7 @@ import history from '../../services/history'
 const ViewJobAction = ({ id }) => (
     <MenuItem
         dense
-        onClick={() => history.push(`/view/${id}`)}
+        onClick={() => history.push(`/job/${id}`)}
         label={i18n.t('View')}
     />
 )
