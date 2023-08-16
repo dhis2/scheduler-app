@@ -1,3 +1,10 @@
+## [101.2.2](https://github.com/dhis2/scheduler-app/compare/v101.2.1...v101.2.2) (2023-08-16)
+
+
+### Bug Fixes
+
+* add new route structure ([#559](https://github.com/dhis2/scheduler-app/issues/559)) ([75481c9](https://github.com/dhis2/scheduler-app/commit/75481c95bf25a55d9943253dbb0627d90be0bdb4))
+
 ## [101.2.1](https://github.com/dhis2/scheduler-app/compare/v101.2.0...v101.2.1) (2023-08-10)
 
 
