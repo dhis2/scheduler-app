@@ -3,14 +3,14 @@ import formatError from '../../services/format-error'
 
 const createMutation = (name) => ({
     resource: `scheduler/queues/${name}`,
-    type: 'create',
+    type: 'update',
     data: ({ queue }) => queue,
 })
 
-const useSubmitJobQueue = ({ onSuccess } = {}) => {
+const useUpdateQueue = ({ onSuccess, initialName } = {}) => {
     const engine = useDataEngine()
-    const submitJobQueue = (queue) => {
-        const mutation = createMutation(queue.name)
+    const updateQueue = (queue) => {
+        const mutation = createMutation(initialName)
         return engine
             .mutate(mutation, { variables: { queue } })
             .then(() => {
@@ -21,7 +21,7 @@ const useSubmitJobQueue = ({ onSuccess } = {}) => {
             .catch((error) => formatError(error))
     }
 
-    return [submitJobQueue]
+    return [updateQueue]
 }
 
-export default useSubmitJobQueue
+export default useUpdateQueue

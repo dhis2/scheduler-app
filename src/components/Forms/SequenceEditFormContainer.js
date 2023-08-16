@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { ReactFinalForm } from '@dhis2/ui'
 import history from '../../services/history'
-import { useUpdateJobQueue } from '../../hooks/job-queues'
+import { useUpdateQueue } from '../../hooks/queues'
 import SequenceEditForm from './SequenceEditForm'
 
 const { Form } = ReactFinalForm
@@ -20,7 +20,7 @@ const SequenceEditFormContainer = ({ sequence }) => {
         name,
     }
 
-    const [submitJobQueue] = useUpdateJobQueue({
+    const [submitQueue] = useUpdateQueue({
         onSuccess: redirect,
         initialName: initialValues.name,
     })
@@ -31,7 +31,7 @@ const SequenceEditFormContainer = ({ sequence }) => {
             component={SequenceEditForm}
             destroyOnUnregister
             initialValues={initialValues}
-            onSubmit={submitJobQueue}
+            onSubmit={submitQueue}
             initialSelectedValues={sequence?.sequence}
         />
     )

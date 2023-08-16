@@ -1,6 +1,6 @@
 import { useDataEngine } from '@dhis2/app-runtime'
 import formatError from '../../services/format-error'
-import useSubmitJobQueue from './use-submit-job-queue'
+import useUpdateQueue from './use-update-queue'
 
 jest.mock('@dhis2/app-runtime', () => ({
     useDataEngine: jest.fn(),
@@ -8,18 +8,18 @@ jest.mock('@dhis2/app-runtime', () => ({
 
 jest.mock('../../services/format-error', () => jest.fn())
 
-describe('useSubmitJobQueue', () => {
+describe('useUpdateQueue', () => {
     it('should call onSuccess on success', () => {
         const spy = jest.fn()
         const engine = {
             mutate: () => Promise.resolve(),
         }
         useDataEngine.mockImplementation(() => engine)
-        const [submitJobQueue] = useSubmitJobQueue({ onSuccess: spy })
+        const [submitQueue] = useUpdateQueue({ onSuccess: spy })
 
         expect.assertions(1)
 
-        submitJobQueue({ name: 'name' }).then(() => {
+        submitQueue({ name: 'name' }).then(() => {
             expect(spy).toHaveBeenCalled()
         })
     })
@@ -33,10 +33,10 @@ describe('useSubmitJobQueue', () => {
         useDataEngine.mockImplementation(() => engine)
         formatError.mockImplementation((error) => error)
 
-        const [submitJobQueue] = useSubmitJobQueue()
+        const [submitQueue] = useUpdateQueue()
 
         expect.assertions(1)
 
-        return expect(submitJobQueue({ name: 'name' })).resolves.toBe(error)
+        return expect(submitQueue({ name: 'name' })).resolves.toBe(error)
     })
 })
