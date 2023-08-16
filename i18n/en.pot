@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2023-08-03T07:44:07.705Z\n"
-"PO-Revision-Date: 2023-08-03T07:44:07.705Z\n"
+"POT-Creation-Date: 2023-08-15T13:43:45.474Z\n"
+"PO-Revision-Date: 2023-08-15T13:43:45.474Z\n"
 
 msgid "Something went wrong"
 msgstr "Something went wrong"
@@ -231,6 +231,16 @@ msgstr "Are you sure you want to run this job?"
 msgid "Run"
 msgstr "Run"
 
+msgid "Could not load requested job"
+msgstr "Could not load requested job"
+
+msgid ""
+"Something went wrong whilst loading the requested job. Make sure it has not "
+"been deleted and try refreshing the page."
+msgstr ""
+"Something went wrong whilst loading the requested job. Make sure it has not "
+"been deleted and try refreshing the page."
+
 msgid "Toggle job"
 msgstr "Toggle job"
 
@@ -242,16 +252,6 @@ msgstr "Configuration"
 
 msgid "About job configuration"
 msgstr "About job configuration"
-
-msgid "Could not load requested job"
-msgstr "Could not load requested job"
-
-msgid ""
-"Something went wrong whilst loading the requested job. Make sure it has not "
-"been deleted and try refreshing the page."
-msgstr ""
-"Something went wrong whilst loading the requested job. Make sure it has not "
-"been deleted and try refreshing the page."
 
 msgid "Job: {{ name }}"
 msgstr "Job: {{ name }}"

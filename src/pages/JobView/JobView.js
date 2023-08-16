@@ -1,5 +1,5 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import PropTypes from 'prop-types'
 import {
     Card,
     IconInfo16,
@@ -7,38 +7,18 @@ import {
     SingleSelectField,
     SingleSelectOption,
     InputField,
-    NoticeBox,
 } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
 import { LinkButton } from '../../components/LinkButton'
 import { JobDetails } from '../../components/JobDetails'
-import { useJobById } from '../../hooks/jobs'
 import translateCron from '../../services/translate-cron'
 import { jobTypesMap } from '../../services/server-translations'
-import { Spinner } from '../../components/Spinner'
 import styles from './JobView.module.css'
 
 const infoLink =
     'https://docs.dhis2.org/en/use/user-guides/dhis-core-version-236/maintaining-the-system/scheduling.html'
 
-const JobView = () => {
-    const { id } = useParams()
-    const { data, fetching, error } = useJobById(id)
-
-    if (fetching) {
-        return <Spinner />
-    }
-
-    if (error) {
-        return (
-            <NoticeBox error title={i18n.t('Could not load requested job')}>
-                {i18n.t(
-                    'Something went wrong whilst loading the requested job. Make sure it has not been deleted and try refreshing the page.'
-                )}
-            </NoticeBox>
-        )
-    }
-
+const JobView = ({ job }) => {
     const {
         name,
         created,
@@ -46,7 +26,7 @@ const JobView = () => {
         lastExecuted,
         jobType,
         cronExpression,
-    } = data
+    } = job
 
     return (
         <React.Fragment>
@@ -120,6 +100,19 @@ const JobView = () => {
             </Card>
         </React.Fragment>
     )
+}
+
+const { shape, string } = PropTypes
+
+JobView.propTypes = {
+    job: shape({
+        name: string.isRequired,
+        created: string.isRequired,
+        lastExecutedStatus: string.isRequired,
+        lastExecuted: string.isRequired,
+        jobType: string.isRequired,
+        cronExpression: string.isRequired,
+    }).isRequired,
 }
 
 export default JobView

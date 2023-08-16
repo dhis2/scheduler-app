@@ -23,7 +23,7 @@ const SequenceEditForm = ({
     return (
         <form onSubmit={handleSubmit}>
             <Box maxWidth="600px">
-                <NameField />
+                <NameField isQueue />
             </Box>
             <Box marginTop="16px" maxWidth="400px">
                 <CronField />

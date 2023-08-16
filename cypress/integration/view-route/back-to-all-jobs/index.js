@@ -8,7 +8,7 @@ Given('a single system job exists', () => {
 })
 
 Given('the user navigated to the view job page', () => {
-    cy.visit('/#/view/sHMedQF7VYa')
+    cy.visit('/#/job/sHMedQF7VYa')
     cy.findByRole('heading', { name: 'System job: System Job 1' }).should(
         'exist'
     )

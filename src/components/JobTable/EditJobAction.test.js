@@ -17,6 +17,6 @@ describe('<EditJobAction>', () => {
 
         wrapper.find('a').simulate('click')
 
-        expect(history.push).toHaveBeenCalledWith('/edit/id')
+        expect(history.push).toHaveBeenCalledWith('/job/id')
     })
 })

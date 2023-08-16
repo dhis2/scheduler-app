@@ -7,6 +7,7 @@ const query = {
         params: {
             fields: [
                 'created',
+                'configurable',
                 'cronExpression',
                 'delay',
                 'id',

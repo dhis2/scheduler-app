@@ -8,5 +8,5 @@ Given('the user navigated to the job list page', () => {
 Then('there is a link to the new job page', () => {
     cy.findByRole('link', { name: 'New job' })
         .should('exist')
-        .should('have.attr', 'href', '#/add')
+        .should('have.attr', 'href', '#/job/add')
 })

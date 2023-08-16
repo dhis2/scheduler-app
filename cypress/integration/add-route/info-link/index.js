@@ -4,7 +4,7 @@ const infoHref =
     'https://docs.dhis2.org/en/use/user-guides/dhis-core-version-236/maintaining-the-system/scheduling.html'
 
 Given('the user navigated to the add job page', () => {
-    cy.visit('/#/add')
+    cy.visit('/#/job/add')
     cy.findByRole('heading', { name: 'New Job' }).should('exist')
 })
 

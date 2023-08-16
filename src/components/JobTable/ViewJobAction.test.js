@@ -17,6 +17,6 @@ describe('<ViewJobAction>', () => {
 
         wrapper.find('a').simulate('click')
 
-        expect(history.push).toHaveBeenCalledWith('/view/id')
+        expect(history.push).toHaveBeenCalledWith('/job/id')
     })
 })
