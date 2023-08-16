@@ -1,15 +1,15 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import { useParams } from 'react-router-dom'
-import { useJobScheduleById } from '../../hooks/job-schedules'
+import { useScheduleById } from '../../hooks/schedules'
 import SequenceEdit from './SequenceEdit'
 
 jest.mock('react-router-dom', () => ({
     useParams: jest.fn(),
 }))
 
-jest.mock('../../hooks/job-schedules', () => ({
-    useJobScheduleById: jest.fn(),
+jest.mock('../../hooks/schedules', () => ({
+    useScheduleById: jest.fn(),
 }))
 
 describe('<SequenceEdit>', () => {
@@ -17,7 +17,7 @@ describe('<SequenceEdit>', () => {
         const id = 'id'
 
         useParams.mockImplementation(() => id)
-        useJobScheduleById.mockImplementation(() => ({ fetching: true }))
+        useScheduleById.mockImplementation(() => ({ fetching: true }))
 
         const wrapper = shallow(<SequenceEdit />)
         const spinner = wrapper.find('Spinner')
@@ -29,7 +29,7 @@ describe('<SequenceEdit>', () => {
         const id = 'id'
 
         useParams.mockImplementation(() => id)
-        useJobScheduleById.mockImplementation(() => ({
+        useScheduleById.mockImplementation(() => ({
             fetching: false,
             error: new Error('Something went wrong'),
         }))
@@ -44,7 +44,7 @@ describe('<SequenceEdit>', () => {
         const id = 'id'
 
         useParams.mockImplementation(() => id)
-        useJobScheduleById.mockImplementation(() => ({
+        useScheduleById.mockImplementation(() => ({
             fetching: false,
             error: undefined,
             data: {

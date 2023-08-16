@@ -4,12 +4,12 @@ import { useParams } from 'react-router-dom'
 import i18n from '@dhis2/d2-i18n'
 import { Spinner } from '../../components/Spinner'
 import { SequenceEditFormContainer } from '../../components/Forms'
-import { useJobScheduleById } from '../../hooks/job-schedules'
+import { useScheduleById } from '../../hooks/schedules'
 import styles from './SequenceEdit.module.css'
 
 const SequenceEdit = () => {
     const { id } = useParams()
-    const { data, fetching, error } = useJobScheduleById(id)
+    const { data, fetching, error } = useScheduleById(id)
 
     if (fetching) {
         return <Spinner />

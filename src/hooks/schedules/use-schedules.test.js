@@ -1,9 +1,9 @@
 import React from 'react'
 import { renderHook } from '@testing-library/react-hooks'
 import { CustomDataProvider } from '@dhis2/app-runtime'
-import useJobSchedules from './use-job-schedules'
+import useSchedules from './use-schedules'
 
-describe('useJobSchedules', () => {
+describe('useSchedules', () => {
     it('should return the expected data', async () => {
         const job = { sequence: [{ id: 'id' }] }
         const data = { scheduler: [job] }
@@ -11,7 +11,7 @@ describe('useJobSchedules', () => {
             <CustomDataProvider data={data}>{children}</CustomDataProvider>
         )
 
-        const { result, waitFor } = renderHook(() => useJobSchedules(), {
+        const { result, waitFor } = renderHook(() => useSchedules(), {
             wrapper,
         })
 
@@ -40,7 +40,7 @@ describe('useJobSchedules', () => {
             <CustomDataProvider data={data}>{children}</CustomDataProvider>
         )
 
-        const { result, waitFor } = renderHook(() => useJobSchedules(), {
+        const { result, waitFor } = renderHook(() => useSchedules(), {
             wrapper,
         })
 
@@ -60,7 +60,7 @@ describe('useJobSchedules', () => {
             <CustomDataProvider data={data}>{children}</CustomDataProvider>
         )
 
-        const { result, waitFor } = renderHook(() => useJobSchedules(), {
+        const { result, waitFor } = renderHook(() => useSchedules(), {
             wrapper,
         })
 
@@ -80,7 +80,7 @@ describe('useJobSchedules', () => {
             <CustomDataProvider data={data}>{children}</CustomDataProvider>
         )
 
-        const { result, waitFor } = renderHook(() => useJobSchedules(), {
+        const { result, waitFor } = renderHook(() => useSchedules(), {
             wrapper,
         })
 
@@ -99,7 +99,7 @@ describe('useJobSchedules', () => {
             <CustomDataProvider data={data}>{children}</CustomDataProvider>
         )
 
-        const { result, waitFor } = renderHook(() => useJobSchedules(), {
+        const { result, waitFor } = renderHook(() => useSchedules(), {
             wrapper,
         })
 

@@ -1,7 +1,7 @@
-import useJobSchedules from './use-job-schedules'
+import useSchedules from './use-schedules'
 
-const useJobScheduleById = (id) => {
-    const fetch = useJobSchedules()
+const useScheduleById = (id) => {
+    const fetch = useSchedules()
 
     // Find schedule by id
     if (fetch.data) {
@@ -25,4 +25,4 @@ const useJobScheduleById = (id) => {
     return fetch
 }
 
-export default useJobScheduleById
+export default useScheduleById

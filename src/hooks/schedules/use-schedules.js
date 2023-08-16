@@ -7,7 +7,7 @@ const query = {
     },
 }
 
-const useJobSchedules = () => {
+const useSchedules = () => {
     const fetch = useDataQuery(query)
 
     // Remove nesting from data and move the id up
@@ -30,4 +30,4 @@ const useJobSchedules = () => {
     return fetch
 }
 
-export default useJobSchedules
+export default useSchedules
