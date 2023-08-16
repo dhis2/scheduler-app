@@ -7,7 +7,7 @@ import { Spinner } from '../Spinner'
 import JobEdit from '../../pages/JobEdit'
 import JobView from '../../pages/JobView'
 
-const CheckJobType = () => {
+const JobViewOrEdit = () => {
     const { id } = useParams()
     const { data, fetching, error } = useJobById(id)
 
@@ -34,4 +34,4 @@ const CheckJobType = () => {
     }
 }
 
-export default CheckJobType
+export default JobViewOrEdit

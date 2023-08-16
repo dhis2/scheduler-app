@@ -2,7 +2,7 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import { useParams } from 'react-router-dom'
 import { useJobById } from '../../hooks/jobs'
-import CheckJobType from './CheckJobType'
+import JobViewOrEdit from './JobViewOrEdit'
 
 jest.mock('react-router-dom', () => ({
     useParams: jest.fn(),
@@ -12,14 +12,14 @@ jest.mock('../../hooks/jobs', () => ({
     useJobById: jest.fn(),
 }))
 
-describe('<CheckJobType>', () => {
+describe('<JobViewOrEdit>', () => {
     it('renders a spinner when loading the requested job', () => {
         const id = 'id'
 
         useParams.mockImplementation(() => id)
         useJobById.mockImplementation(() => ({ fetching: true }))
 
-        const wrapper = shallow(<CheckJobType />)
+        const wrapper = shallow(<JobViewOrEdit />)
         const spinner = wrapper.find('Spinner')
 
         expect(spinner).toHaveLength(1)
@@ -34,7 +34,7 @@ describe('<CheckJobType>', () => {
             error: new Error('Something went wrong'),
         }))
 
-        const wrapper = shallow(<CheckJobType />)
+        const wrapper = shallow(<JobViewOrEdit />)
         const noticebox = wrapper.find('NoticeBox')
 
         expect(noticebox).toHaveLength(1)
@@ -56,7 +56,7 @@ describe('<CheckJobType>', () => {
             },
         }))
 
-        const wrapper = shallow(<CheckJobType />)
+        const wrapper = shallow(<JobViewOrEdit />)
         const component = wrapper.find('JobEdit')
 
         expect(component).toHaveLength(1)
@@ -80,7 +80,7 @@ describe('<CheckJobType>', () => {
             },
         }))
 
-        const wrapper = shallow(<CheckJobType />)
+        const wrapper = shallow(<JobViewOrEdit />)
         const component = wrapper.find('JobView')
 
         expect(component).toHaveLength(1)

@@ -6,7 +6,7 @@ import JobAdd from '../../pages/JobAdd'
 import SequenceAdd from '../../pages/SequenceAdd'
 import SequenceEdit from '../../pages/SequenceEdit'
 import history from '../../services/history'
-import CheckJobType from './CheckJobType'
+import JobViewOrEdit from './JobViewOrEdit'
 
 const Routes = () => (
     <Router history={history}>
@@ -16,7 +16,7 @@ const Routes = () => (
             <Redirect from="/add" to="/job/add" />
             <Route exact path="/" component={JobList} />
             <Route path="/job/add" component={JobAdd} />
-            <Route path="/job/:id" component={CheckJobType} />
+            <Route path="/job/:id" component={JobViewOrEdit} />
             <Route path="/queue/add" component={SequenceAdd} />
             <Route path="/queue/:id" component={SequenceEdit} />
         </Switch>
