@@ -7,7 +7,7 @@ Given('a single system job exists', () => {
     )
 
     cy.intercept(
-        { pathname: /jobConfigurations$/ },
+        { pathname: /jobConfigurations\/sHMedQF7VYa$/ },
         { fixture: 'list-route/single-system-job-job-configurations' }
     )
 })

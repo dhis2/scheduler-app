@@ -2,7 +2,7 @@ import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given('a single cron scheduled user job exists', () => {
     cy.intercept(
-        { pathname: /jobConfigurations$/ },
+        { pathname: /jobConfigurations\/lnWRZN67iDU$/ },
         { fixture: 'edit-route/single-cron-user-job' }
     )
 })

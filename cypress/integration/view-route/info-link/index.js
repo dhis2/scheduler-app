@@ -5,7 +5,7 @@ const infoHref =
 
 Given('a single system job exists', () => {
     cy.intercept(
-        { pathname: /jobConfigurations$/ },
+        { pathname: /jobConfigurations\/sHMedQF7VYa$/ },
         { fixture: 'view-route/single-system-job' }
     )
 })
