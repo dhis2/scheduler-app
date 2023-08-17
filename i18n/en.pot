@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2023-08-15T13:43:45.474Z\n"
-"PO-Revision-Date: 2023-08-15T13:43:45.474Z\n"
+"POT-Creation-Date: 2023-08-17T09:48:45.068Z\n"
+"PO-Revision-Date: 2023-08-17T09:48:45.068Z\n"
 
 msgid "Something went wrong"
 msgstr "Something went wrong"
@@ -98,6 +98,9 @@ msgstr "Something went wrong whilst loading options"
 
 msgid "No options available"
 msgstr "No options available"
+
+msgid "Queues can't be named \"Add\" or \"add\""
+msgstr "Queues can't be named \"Add\" or \"add\""
 
 msgid "Name"
 msgstr "Name"
