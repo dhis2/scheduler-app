@@ -1,0 +1,34 @@
+{
+    "jobConfigurations": [
+        {
+            "id": "RWcaltWoKuN",
+            "name": "1",
+            "jobType": "DATA_INTEGRITY",
+            "cronExpression": "0 0 3 ? * MON",
+            "nextExecutionTime": "2023-08-07T03:00:00.000",
+            "jobStatus": "SCHEDULED"
+        },
+        {
+            "id": "p2HCjnAmSNE",
+            "name": "2",
+            "jobType": "MONITORING",
+            "jobStatus": "SCHEDULED"
+        },
+        {
+            "id": "xkxSSOLKc7X",
+            "name": "3",
+            "jobType": "DISABLE_INACTIVE_USERS",
+            "cronExpression": "0 0 3 ? * MON",
+            "nextExecutionTime": "2023-08-07T03:00:00.000",
+            "jobStatus": "SCHEDULED"
+        },
+        {
+            "id": "RRKO5XbxBz4",
+            "name": "4",
+            "jobType": "MATERIALIZED_SQL_VIEW_UPDATE",
+            "cronExpression": "0 0 3 ? * MON",
+            "nextExecutionTime": "2023-08-07T03:00:00.000",
+            "jobStatus": "SCHEDULED"
+        }
+    ]
+}
