@@ -18,7 +18,7 @@ const Routes = () => (
             <Route path="/job/add" component={JobAdd} />
             <Route path="/job/:id" component={JobViewOrEdit} />
             <Route path="/queue/add" component={SequenceAdd} />
-            <Route path="/queue/:id" component={SequenceEdit} />
+            <Route path="/queue/:name" component={SequenceEdit} />
         </Switch>
     </Router>
 )

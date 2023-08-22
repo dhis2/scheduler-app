@@ -4,37 +4,34 @@ import { useParams } from 'react-router-dom'
 import i18n from '@dhis2/d2-i18n'
 import { Spinner } from '../../components/Spinner'
 import { SequenceEditFormContainer } from '../../components/Forms'
-import { useScheduleById } from '../../hooks/schedules'
+import { useQueueByName } from '../../hooks/queues'
+import { useJobs } from '../../hooks/jobs'
 import styles from './SequenceEdit.module.css'
 
 const SequenceEdit = () => {
-    const { id } = useParams()
-    const { data, fetching, error } = useScheduleById(id)
+    const { name } = useParams()
+    const queueFetch = useQueueByName(name)
+    const jobsFetch = useJobs()
 
-    if (fetching) {
+    if (queueFetch.fetching || jobsFetch.fetching) {
         return <Spinner />
     }
 
-    if (error) {
+    if (queueFetch.error || jobsFetch.error) {
         return (
-            <NoticeBox
-                error
-                title={i18n.t('Could not load requested schedule')}
-            >
+            <NoticeBox error title={i18n.t('Could not load requested queue')}>
                 {i18n.t(
-                    'Something went wrong whilst loading the requested schedule. Make sure it has not been deleted and try refreshing the page.'
+                    'Something went wrong whilst loading the requested queue. Make sure it has not been deleted and try refreshing the page.'
                 )}
             </NoticeBox>
         )
     }
 
-    const { name } = data
-
     return (
         <React.Fragment>
             <header className={styles.pageHeader}>
                 <h2 className={styles.pageHeaderTitle}>
-                    {i18n.t('Sequence: {{ name }}', {
+                    {i18n.t('Queue: {{ name }}', {
                         name,
                         nsSeparator: '>',
                     })}
@@ -50,11 +47,14 @@ const SequenceEdit = () => {
                             <IconInfo16 />
                         </span>
                         {i18n.t(
-                            'A sequence is a collection of jobs that are executed in order, one after another as they finish.'
+                            'A queue is a collection of jobs that are executed in order, one after another as they finish.'
                         )}
                     </span>
                 </header>
-                <SequenceEditFormContainer sequence={data} />
+                <SequenceEditFormContainer
+                    queue={queueFetch.data}
+                    jobs={jobsFetch.data}
+                />
             </Card>
         </React.Fragment>
     )

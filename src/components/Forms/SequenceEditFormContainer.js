@@ -7,40 +7,49 @@ import SequenceEditForm from './SequenceEditForm'
 
 const { Form } = ReactFinalForm
 
-const SequenceEditFormContainer = ({ sequence }) => {
+const SequenceEditFormContainer = ({ queue, jobs }) => {
     const redirect = () => {
         history.push('/')
     }
 
-    // Create an object with only the values we want to use as initial values
-    const { cronExpression, name } = sequence
-    const initialValues = {
-        cronExpression,
-        sequence: sequence.sequence.map(({ id }) => id),
-        name,
-    }
-
     const [submitQueue] = useUpdateQueue({
         onSuccess: redirect,
-        initialName: initialValues.name,
+        initialName: queue.name,
+    })
+
+    /**
+     * The transfer needs the selected options to be supplied as well, but the backend
+     * omits selected options from the queueables fetch. So we recreate them here.
+     */
+    const findJob = (targetId) => jobs.find(({ id }) => id === targetId)
+    const initialSelectedValues = queue.sequence.map((currentId) => {
+        const { name, id, jobType: type } = findJob(currentId)
+        return { name, id, type }
     })
 
     return (
         <Form
-            name={sequence.name}
+            name={queue.name}
             component={SequenceEditForm}
             destroyOnUnregister
-            initialValues={initialValues}
+            initialValues={queue}
             onSubmit={submitQueue}
-            initialSelectedValues={sequence?.sequence}
+            initialSelectedValues={initialSelectedValues}
         />
     )
 }
 
-const { shape, string, array } = PropTypes
+const { arrayOf, shape, string, array } = PropTypes
 
 SequenceEditFormContainer.propTypes = {
-    sequence: shape({
+    jobs: arrayOf(
+        shape({
+            id: string.isRequired,
+            jobType: string.isRequired,
+            name: string.isRequired,
+        })
+    ).isRequired,
+    queue: shape({
         cronExpression: string.isRequired,
         sequence: array.isRequired,
         name: string.isRequired,
