@@ -2,7 +2,7 @@ import React from 'react'
 import { mount } from 'enzyme'
 import { ReactFinalForm, CircularLoader } from '@dhis2/ui'
 import { useQueueables } from '../../../hooks/queueables'
-import SequenceOrderField from './SequenceOrderField'
+import QueueOrderField from './QueueOrderField'
 
 const { Form } = ReactFinalForm
 
@@ -14,7 +14,7 @@ afterEach(() => {
     jest.resetAllMocks()
 })
 
-describe('<SequenceOrderField>', () => {
+describe('<QueueOrderField>', () => {
     it('should show a loading spinner when loading', () => {
         useQueueables.mockImplementation(() => ({
             loading: true,
@@ -26,7 +26,7 @@ describe('<SequenceOrderField>', () => {
             <Form onSubmit={() => {}}>
                 {({ handleSubmit }) => (
                     <form onSubmit={handleSubmit}>
-                        <SequenceOrderField />
+                        <QueueOrderField />
                     </form>
                 )}
             </Form>
@@ -46,7 +46,7 @@ describe('<SequenceOrderField>', () => {
             <Form onSubmit={() => {}}>
                 {({ handleSubmit }) => (
                     <form onSubmit={handleSubmit}>
-                        <SequenceOrderField />
+                        <QueueOrderField />
                     </form>
                 )}
             </Form>

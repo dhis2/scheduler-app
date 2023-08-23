@@ -10,8 +10,8 @@ import {
 import i18n from '@dhis2/d2-i18n'
 import { useDataMutation } from '@dhis2/app-runtime'
 
-const DeleteSequenceModal = ({ name, hideModal, onSuccess }) => {
-    const [deleteSequence] = useDataMutation({
+const DeleteQueueModal = ({ name, hideModal, onSuccess }) => {
+    const [deleteQueue] = useDataMutation({
         resource: `scheduler/queues/${name}`,
         type: 'delete',
     })
@@ -19,7 +19,7 @@ const DeleteSequenceModal = ({ name, hideModal, onSuccess }) => {
     return (
         <Modal open small onClose={hideModal}>
             <ModalContent>
-                {i18n.t('Are you sure you want to delete this sequence?')}
+                {i18n.t('Are you sure you want to delete this queue?')}
             </ModalContent>
             <ModalActions>
                 <ButtonStrip end>
@@ -27,10 +27,10 @@ const DeleteSequenceModal = ({ name, hideModal, onSuccess }) => {
                         {i18n.t('Cancel')}
                     </Button>
                     <Button
-                        name={`delete-sequence-${name}`}
+                        name={`delete-queue-${name}`}
                         destructive
                         onClick={() => {
-                            deleteSequence().then(() => {
+                            deleteQueue().then(() => {
                                 hideModal()
                                 onSuccess()
                             })
@@ -46,10 +46,10 @@ const DeleteSequenceModal = ({ name, hideModal, onSuccess }) => {
 
 const { func, string } = PropTypes
 
-DeleteSequenceModal.propTypes = {
+DeleteQueueModal.propTypes = {
     hideModal: func.isRequired,
     name: string.isRequired,
     onSuccess: func.isRequired,
 }
 
-export default DeleteSequenceModal
+export default DeleteQueueModal

@@ -1,13 +1,13 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import SequenceAddFormContainer from './SequenceAddFormContainer'
+import QueueAddFormContainer from './QueueAddFormContainer'
 
-describe('<SequenceAddFormContainer>', () => {
+describe('<QueueAddFormContainer>', () => {
     it('renders without errors', () => {
         const props = {
             setIsPristine: () => {},
         }
 
-        shallow(<SequenceAddFormContainer {...props} />)
+        shallow(<QueueAddFormContainer {...props} />)
     })
 })

@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
 import { useDataMutation } from '@dhis2/app-runtime'
-import DeleteSequenceModal from './DeleteSequenceModal'
+import DeleteQueueModal from './DeleteQueueModal'
 
 jest.mock('@dhis2/app-runtime', () => ({
     useDataMutation: jest.fn(),
@@ -11,7 +11,7 @@ afterEach(() => {
     jest.resetAllMocks()
 })
 
-describe('<DeleteSequenceModal>', () => {
+describe('<DeleteQueueModal>', () => {
     it('renders without errors', () => {
         useDataMutation.mockImplementation(() => [() => {}])
 
@@ -21,7 +21,7 @@ describe('<DeleteSequenceModal>', () => {
             onSuccess: () => {},
         }
 
-        shallow(<DeleteSequenceModal {...props} />)
+        shallow(<DeleteQueueModal {...props} />)
     })
 
     it('calls hideModal when cancel button is clicked', () => {
@@ -32,16 +32,16 @@ describe('<DeleteSequenceModal>', () => {
             hideModal: jest.fn(),
             onSuccess: () => {},
         }
-        const wrapper = mount(<DeleteSequenceModal {...props} />)
+        const wrapper = mount(<DeleteQueueModal {...props} />)
 
         wrapper.find('button').find({ name: 'hide-modal' }).simulate('click')
 
         expect(props.hideModal).toHaveBeenCalled()
     })
 
-    it('calls deleteSequence, onSuccess and hideModal when delete button is clicked', async () => {
+    it('calls deleteQueue, onSuccess and hideModal when delete button is clicked', async () => {
         const deletion = Promise.resolve()
-        const deleteSequenceSpy = jest.fn(() => deletion)
+        const deleteQueueSpy = jest.fn(() => deletion)
         const onSuccessSpy = jest.fn(() => {})
         const hideModalSpy = jest.fn(() => {})
         const props = {
@@ -50,18 +50,18 @@ describe('<DeleteSequenceModal>', () => {
             onSuccess: onSuccessSpy,
         }
 
-        useDataMutation.mockImplementation(() => [deleteSequenceSpy])
+        useDataMutation.mockImplementation(() => [deleteQueueSpy])
 
-        const wrapper = mount(<DeleteSequenceModal {...props} />)
+        const wrapper = mount(<DeleteQueueModal {...props} />)
 
         wrapper
             .find('button')
-            .find({ name: 'delete-sequence-name' })
+            .find({ name: 'delete-queue-name' })
             .simulate('click')
 
         await deletion
 
-        expect(deleteSequenceSpy).toHaveBeenCalled()
+        expect(deleteQueueSpy).toHaveBeenCalled()
         expect(hideModalSpy).toHaveBeenCalled()
         expect(onSuccessSpy).toHaveBeenCalled()
     })
@@ -74,7 +74,7 @@ describe('<DeleteSequenceModal>', () => {
             hideModal: jest.fn(),
             onSuccess: () => {},
         }
-        const wrapper = mount(<DeleteSequenceModal {...props} />)
+        const wrapper = mount(<DeleteQueueModal {...props} />)
 
         // Not a stable selector, but the backdrop does not have a data-test attribute
         wrapper.find('.backdrop').simulate('click')

@@ -2,19 +2,19 @@ import React from 'react'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 import { Field, Transfer } from '@dhis2/ui'
-import SequenceTransferTitle from './SequenceTransferTitle'
+import QueueTransferTitle from './QueueTransferTitle'
 import CustomOption from './CustomOption'
 
 const { bool, arrayOf, shape, func, array, string } = PropTypes
 
-const SequenceTransfer = ({ options, input, meta }) => {
+const QueueTransfer = ({ options, input, meta }) => {
     const { onChange, value } = input
     const hasError = meta.touched && !!meta.error
     const errorMessage = hasError ? meta.error : ''
 
     return (
         <Field
-            label={i18n.t('Job sequence')}
+            label={i18n.t('Job queue')}
             validationText={errorMessage}
             error={hasError}
             required
@@ -28,19 +28,17 @@ const SequenceTransfer = ({ options, input, meta }) => {
                 enableOrderChange
                 onChange={({ selected }) => onChange(selected)}
                 leftHeader={
-                    <SequenceTransferTitle title={i18n.t('Available jobs')} />
+                    <QueueTransferTitle title={i18n.t('Available jobs')} />
                 }
                 rightHeader={
-                    <SequenceTransferTitle
-                        title={i18n.t('Jobs in this sequence')}
-                    />
+                    <QueueTransferTitle title={i18n.t('Jobs in this queue')} />
                 }
             />
         </Field>
     )
 }
 
-SequenceTransfer.propTypes = {
+QueueTransfer.propTypes = {
     input: shape({
         onChange: func.isRequired,
         value: array.isRequired,
@@ -58,4 +56,4 @@ SequenceTransfer.propTypes = {
     ).isRequired,
 }
 
-export default SequenceTransfer
+export default QueueTransfer

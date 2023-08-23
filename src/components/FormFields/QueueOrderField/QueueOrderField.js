@@ -4,7 +4,7 @@ import { ReactFinalForm, CircularLoader, NoticeBox } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
 import { jobTypesMap } from '../../../services/server-translations'
 import { useQueueables } from '../../../hooks/queueables'
-import SequenceTransfer from './SequenceTransfer'
+import QueueTransfer from './QueueTransfer'
 
 const { Field } = ReactFinalForm
 
@@ -13,7 +13,7 @@ const FIELD_NAME = 'sequence'
 const hasEnoughJobs = (value) =>
     value?.length > 1 ? undefined : i18n.t('Please select at least two jobs')
 
-const SequenceOrderField = ({ initialSelectedValues }) => {
+const QueueOrderField = ({ initialSelectedValues }) => {
     const { loading, error, data } = useQueueables()
 
     if (loading) {
@@ -43,21 +43,21 @@ const SequenceOrderField = ({ initialSelectedValues }) => {
     return (
         <Field
             name={FIELD_NAME}
-            component={SequenceTransfer}
+            component={QueueTransfer}
             options={options}
             validate={hasEnoughJobs}
         />
     )
 }
 
-SequenceOrderField.defaultProps = {
+QueueOrderField.defaultProps = {
     initialSelectedValues: [],
 }
 
 const { array } = PropTypes
 
-SequenceOrderField.propTypes = {
+QueueOrderField.propTypes = {
     initialSelectedValues: array,
 }
 
-export default SequenceOrderField
+export default QueueOrderField

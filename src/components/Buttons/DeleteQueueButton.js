@@ -2,18 +2,18 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { Button } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
-import { DeleteSequenceModal } from '../Modal'
+import { DeleteQueueModal } from '../Modal'
 
-const DeleteSequenceButton = ({ name, onSuccess }) => {
+const DeleteQueueButton = ({ name, onSuccess }) => {
     const [showModal, setShowModal] = useState(false)
 
     return (
         <React.Fragment>
             <Button destructive onClick={() => setShowModal(true)}>
-                {i18n.t('Delete sequence')}
+                {i18n.t('Delete queue')}
             </Button>
             {showModal && (
-                <DeleteSequenceModal
+                <DeleteQueueModal
                     name={name}
                     hideModal={() => setShowModal(false)}
                     onSuccess={onSuccess}
@@ -25,9 +25,9 @@ const DeleteSequenceButton = ({ name, onSuccess }) => {
 
 const { string, func } = PropTypes
 
-DeleteSequenceButton.propTypes = {
+DeleteQueueButton.propTypes = {
     name: string.isRequired,
     onSuccess: func.isRequired,
 }
 
-export default DeleteSequenceButton
+export default DeleteQueueButton

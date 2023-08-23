@@ -3,7 +3,7 @@ import { shallow } from 'enzyme'
 import { useParams } from 'react-router-dom'
 import { useQueueByName } from '../../hooks/queues'
 import { useJobs } from '../../hooks/jobs'
-import SequenceEdit from './SequenceEdit'
+import QueueEdit from './QueueEdit'
 
 jest.mock('react-router-dom', () => ({
     useParams: jest.fn(),
@@ -17,7 +17,7 @@ jest.mock('../../hooks/jobs/', () => ({
     useJobs: jest.fn(),
 }))
 
-describe('<SequenceEdit>', () => {
+describe('<QueueEdit>', () => {
     it('renders a spinner when loading the requested queue', () => {
         const name = 'name'
 
@@ -25,7 +25,7 @@ describe('<SequenceEdit>', () => {
         useQueueByName.mockImplementation(() => ({ fetching: true }))
         useJobs.mockImplementation(() => ({ fetching: true }))
 
-        const wrapper = shallow(<SequenceEdit />)
+        const wrapper = shallow(<QueueEdit />)
         const spinner = wrapper.find('Spinner')
 
         expect(spinner).toHaveLength(1)
@@ -41,7 +41,7 @@ describe('<SequenceEdit>', () => {
         }))
         useJobs.mockImplementation(() => ({ fetching: false }))
 
-        const wrapper = shallow(<SequenceEdit />)
+        const wrapper = shallow(<QueueEdit />)
         const noticebox = wrapper.find('NoticeBox')
 
         expect(noticebox).toHaveLength(1)
@@ -57,7 +57,7 @@ describe('<SequenceEdit>', () => {
             error: new Error('Something went wrong'),
         }))
 
-        const wrapper = shallow(<SequenceEdit />)
+        const wrapper = shallow(<QueueEdit />)
         const noticebox = wrapper.find('NoticeBox')
 
         expect(noticebox).toHaveLength(1)
@@ -82,8 +82,8 @@ describe('<SequenceEdit>', () => {
             data: [],
         }))
 
-        const wrapper = shallow(<SequenceEdit />)
-        const jobform = wrapper.find('SequenceEditFormContainer')
+        const wrapper = shallow(<QueueEdit />)
+        const jobform = wrapper.find('QueueEditFormContainer')
 
         expect(jobform).toHaveLength(1)
     })

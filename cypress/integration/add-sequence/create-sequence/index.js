@@ -29,7 +29,7 @@ Given('two unqueued jobs exist', () => {
 
 Given('the user navigated to the add sequence page', () => {
     cy.visit('/#/queue/add')
-    cy.findByRole('heading', { name: 'New Sequence' }).should('exist')
+    cy.findByRole('heading', { name: 'New queue' }).should('exist')
 })
 
 Given('the user enters a sequence name', () => {

@@ -3,11 +3,11 @@ import PropTypes from 'prop-types'
 import { ReactFinalForm } from '@dhis2/ui'
 import history from '../../services/history'
 import { useUpdateQueue } from '../../hooks/queues'
-import SequenceEditForm from './SequenceEditForm'
+import QueueEditForm from './QueueEditForm'
 
 const { Form } = ReactFinalForm
 
-const SequenceEditFormContainer = ({ queue, jobs }) => {
+const QueueEditFormContainer = ({ queue, jobs }) => {
     const redirect = () => {
         history.push('/')
     }
@@ -30,7 +30,7 @@ const SequenceEditFormContainer = ({ queue, jobs }) => {
     return (
         <Form
             name={queue.name}
-            component={SequenceEditForm}
+            component={QueueEditForm}
             destroyOnUnregister
             initialValues={queue}
             onSubmit={submitQueue}
@@ -41,7 +41,7 @@ const SequenceEditFormContainer = ({ queue, jobs }) => {
 
 const { arrayOf, shape, string, array } = PropTypes
 
-SequenceEditFormContainer.propTypes = {
+QueueEditFormContainer.propTypes = {
     jobs: arrayOf(
         shape({
             id: string.isRequired,
@@ -56,4 +56,4 @@ SequenceEditFormContainer.propTypes = {
     }).isRequired,
 }
 
-export default SequenceEditFormContainer
+export default QueueEditFormContainer

@@ -2,13 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import i18n from '@dhis2/d2-i18n'
 import { Button, CircularLoader, Box } from '@dhis2/ui'
-import { DiscardFormButton, DeleteSequenceButton } from '../Buttons'
+import { DiscardFormButton, DeleteQueueButton } from '../Buttons'
 import history from '../../services/history'
 import { FormErrorBox } from '../FormErrorBox'
-import { NameField, CronField, SequenceOrderField } from '../FormFields'
-import styles from './SequenceEditForm.module.css'
+import { NameField, CronField, QueueOrderField } from '../FormFields'
+import styles from './QueueEditForm.module.css'
 
-const SequenceEditForm = ({
+const QueueEditForm = ({
     name,
     handleSubmit,
     pristine,
@@ -29,7 +29,7 @@ const SequenceEditForm = ({
                 <CronField />
             </Box>
             <Box marginTop="16px">
-                <SequenceOrderField
+                <QueueOrderField
                     initialSelectedValues={initialSelectedValues}
                 />
             </Box>
@@ -52,7 +52,7 @@ const SequenceEditForm = ({
                     {i18n.t('Cancel')}
                 </DiscardFormButton>
                 <span className={styles.deleteButton}>
-                    <DeleteSequenceButton
+                    <DeleteQueueButton
                         name={name}
                         onSuccess={() => {
                             history.push('/')
@@ -66,11 +66,11 @@ const SequenceEditForm = ({
 
 const { func, bool, array, string } = PropTypes
 
-SequenceEditForm.defaultProps = {
+QueueEditForm.defaultProps = {
     submitError: [],
 }
 
-SequenceEditForm.propTypes = {
+QueueEditForm.propTypes = {
     handleSubmit: func.isRequired,
     hasSubmitErrors: bool.isRequired,
     name: string.isRequired,
@@ -80,4 +80,4 @@ SequenceEditForm.propTypes = {
     submitError: array,
 }
 
-export default SequenceEditForm
+export default QueueEditForm

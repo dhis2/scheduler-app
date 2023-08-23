@@ -73,7 +73,7 @@ describe('useSchedules', () => {
         })
     })
 
-    it('should not fail if the first sequence has no id', async () => {
+    it('should not fail if the first sequence item has no id', async () => {
         const job = { sequence: [{}] }
         const data = { scheduler: [job] }
         const wrapper = ({ children }) => (

@@ -1,15 +1,15 @@
 import React from 'react'
 import { Card, IconInfo16 } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
-import { SequenceAddFormContainer } from '../../components/Forms'
-import styles from './SequenceAdd.module.css'
+import { QueueAddFormContainer } from '../../components/Forms'
+import styles from './QueueAdd.module.css'
 
-const SequenceAdd = () => {
+const QueueAdd = () => {
     return (
         <React.Fragment>
             <header className={styles.pageHeader}>
                 <h2 className={styles.pageHeaderTitle}>
-                    {i18n.t('New Sequence')}
+                    {i18n.t('New queue')}
                 </h2>
             </header>
             <Card className={styles.card}>
@@ -22,14 +22,14 @@ const SequenceAdd = () => {
                             <IconInfo16 />
                         </span>
                         {i18n.t(
-                            'A sequence is a collection of jobs that are executed in order, one after another as they finish.'
+                            'A queue is a collection of jobs that are executed in order, one after another as they finish.'
                         )}
                     </span>
                 </header>
-                <SequenceAddFormContainer />
+                <QueueAddFormContainer />
             </Card>
         </React.Fragment>
     )
 }
 
-export default SequenceAdd
+export default QueueAdd

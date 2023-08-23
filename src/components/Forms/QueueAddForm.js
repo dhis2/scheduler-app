@@ -4,10 +4,10 @@ import i18n from '@dhis2/d2-i18n'
 import { Button, CircularLoader, Box } from '@dhis2/ui'
 import { DiscardFormButton } from '../Buttons'
 import { FormErrorBox } from '../FormErrorBox'
-import { NameField, CronField, SequenceOrderField } from '../FormFields'
-import styles from './SequenceAddForm.module.css'
+import { NameField, CronField, QueueOrderField } from '../FormFields'
+import styles from './QueueAddForm.module.css'
 
-const SequenceAddForm = ({
+const QueueAddForm = ({
     handleSubmit,
     pristine,
     submitting,
@@ -26,7 +26,7 @@ const SequenceAddForm = ({
                 <CronField />
             </Box>
             <Box marginTop="16px">
-                <SequenceOrderField />
+                <QueueOrderField />
             </Box>
             {hasSubmitErrors && (
                 <Box marginTop="32px" maxWidth="600px">
@@ -53,11 +53,11 @@ const SequenceAddForm = ({
 
 const { func, bool, array } = PropTypes
 
-SequenceAddForm.defaultProps = {
+QueueAddForm.defaultProps = {
     submitError: [],
 }
 
-SequenceAddForm.propTypes = {
+QueueAddForm.propTypes = {
     handleSubmit: func.isRequired,
     hasSubmitErrors: bool.isRequired,
     pristine: bool.isRequired,
@@ -65,4 +65,4 @@ SequenceAddForm.propTypes = {
     submitError: array,
 }
 
-export default SequenceAddForm
+export default QueueAddForm

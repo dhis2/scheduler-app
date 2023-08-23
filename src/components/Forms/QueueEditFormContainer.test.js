@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import SequenceEditFormContainer from './SequenceEditFormContainer'
+import QueueEditFormContainer from './QueueEditFormContainer'
 
 jest.mock('react-router-dom', () => ({
     useParams: () => ({ name: 'name' }),
@@ -10,7 +10,7 @@ afterEach(() => {
     jest.resetAllMocks()
 })
 
-describe('<SequenceEditFormContainer>', () => {
+describe('<QueueEditFormContainer>', () => {
     it('renders without errors', () => {
         const queue = {
             cronExpression: '',
@@ -20,7 +20,7 @@ describe('<SequenceEditFormContainer>', () => {
         const jobs = []
 
         shallow(
-            <SequenceEditFormContainer
+            <QueueEditFormContainer
                 queue={queue}
                 jobs={jobs}
                 setIsPristine={() => {}}

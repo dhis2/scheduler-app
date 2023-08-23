@@ -1,9 +1,9 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import SequenceAdd from './SequenceAdd'
+import QueueAdd from './QueueAdd'
 
-describe('<SequenceAdd>', () => {
+describe('<QueueAdd>', () => {
     it('renders without errors', () => {
-        shallow(<SequenceAdd />)
+        shallow(<QueueAdd />)
     })
 })

@@ -2,11 +2,11 @@ import React from 'react'
 import { ReactFinalForm } from '@dhis2/ui'
 import history from '../../services/history'
 import { useSubmitQueue } from '../../hooks/queues'
-import SequenceAddForm from './SequenceAddForm'
+import QueueAddForm from './QueueAddForm'
 
 const { Form } = ReactFinalForm
 
-const SequenceAddFormContainer = () => {
+const QueueAddFormContainer = () => {
     const redirect = () => {
         history.push('/')
     }
@@ -15,10 +15,10 @@ const SequenceAddFormContainer = () => {
     return (
         <Form
             onSubmit={submitQueue}
-            component={SequenceAddForm}
+            component={QueueAddForm}
             destroyOnUnregister
         />
     )
 }
 
-export default SequenceAddFormContainer
+export default QueueAddFormContainer

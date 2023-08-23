@@ -1,23 +1,24 @@
 import React from 'react'
 import { mount } from 'enzyme'
 import { ReactFinalForm } from '@dhis2/ui'
-import SequenceAddForm from './SequenceAddForm'
+import QueueEditForm from './QueueEditForm'
 
 const { Form } = ReactFinalForm
 
 // Mock components that make network requests
-jest.mock('../FormFields/SequenceOrderField/SequenceOrderField', () => () => (
-    <div data-test="sequence-order-field">SequenceOrderField</div>
+jest.mock('../FormFields/QueueOrderField/QueueOrderField', () => () => (
+    <div data-test="sequence-order-field">QueueOrderField</div>
 ))
 
 afterEach(() => {
     jest.resetAllMocks()
 })
 
-describe('<SequenceAddForm>', () => {
+describe('<QueueEditForm>', () => {
     it('shows submit errors if there are any', () => {
         const message = 'Generic submit error'
         const props = {
+            name: 'name',
             handleSubmit: () => {},
             pristine: false,
             submitting: false,
@@ -28,7 +29,7 @@ describe('<SequenceAddForm>', () => {
 
         const wrapper = mount(
             <Form onSubmit={() => {}}>
-                {() => <SequenceAddForm {...props} />}
+                {() => <QueueEditForm {...props} />}
             </Form>
         )
         const actual = wrapper.find({
@@ -41,6 +42,7 @@ describe('<SequenceAddForm>', () => {
 
     it('shows a spinner when submitting', () => {
         const props = {
+            name: 'name',
             handleSubmit: () => {},
             pristine: false,
             submitting: true,
@@ -51,7 +53,7 @@ describe('<SequenceAddForm>', () => {
 
         const wrapper = mount(
             <Form onSubmit={() => {}}>
-                {() => <SequenceAddForm {...props} />}
+                {() => <QueueEditForm {...props} />}
             </Form>
         )
 
@@ -71,6 +73,7 @@ describe('<SequenceAddForm>', () => {
 
     it('disables the submit button when pristine', () => {
         const props = {
+            name: 'name',
             handleSubmit: () => {},
             pristine: true,
             submitting: false,
@@ -81,7 +84,7 @@ describe('<SequenceAddForm>', () => {
 
         const wrapper = mount(
             <Form onSubmit={() => {}}>
-                {() => <SequenceAddForm {...props} />}
+                {() => <QueueEditForm {...props} />}
             </Form>
         )
 
@@ -96,6 +99,7 @@ describe('<SequenceAddForm>', () => {
 
     it('disables the submit button when submitting', () => {
         const props = {
+            name: 'name',
             handleSubmit: () => {},
             pristine: false,
             submitting: true,
@@ -106,7 +110,7 @@ describe('<SequenceAddForm>', () => {
 
         const wrapper = mount(
             <Form onSubmit={() => {}}>
-                {() => <SequenceAddForm {...props} />}
+                {() => <QueueEditForm {...props} />}
             </Form>
         )
 
