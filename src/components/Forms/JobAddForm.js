@@ -47,7 +47,12 @@ const JobAddForm = ({
             )}
             {hasSubmitErrors && (
                 <Box marginTop="32px" maxWidth="600px">
-                    <FormErrorBox submitError={submitError} />
+                    <FormErrorBox
+                        title={i18n.t(
+                            'Something went wrong whilst creating your job'
+                        )}
+                        submitError={submitError}
+                    />
                 </Box>
             )}
             <div className={styles.formButtonContainer}>

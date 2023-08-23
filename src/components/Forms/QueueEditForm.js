@@ -35,7 +35,12 @@ const QueueEditForm = ({
             </Box>
             {hasSubmitErrors && (
                 <Box marginTop="32px" maxWidth="600px">
-                    <FormErrorBox submitError={submitError} />
+                    <FormErrorBox
+                        title={i18n.t(
+                            'Something went wrong whilst updating your queue'
+                        )}
+                        submitError={submitError}
+                    />
                 </Box>
             )}
             <div className={styles.formButtonContainer}>
