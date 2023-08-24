@@ -1,17 +1,17 @@
 import React from 'react'
 import { renderHook } from '@testing-library/react-hooks'
 import { CustomDataProvider } from '@dhis2/app-runtime'
-import useSchedules from './use-schedules'
+import useJobsAndQueues from './use-jobs-and-queues'
 
-describe('useSchedules', () => {
+describe('useJobsAndQueues', () => {
     it('should return the expected data', async () => {
-        const job = { sequence: [{ id: 'id' }] }
-        const data = { scheduler: [job] }
+        const item = { sequence: [{ id: 'id' }] }
+        const data = { scheduler: [item] }
         const wrapper = ({ children }) => (
             <CustomDataProvider data={data}>{children}</CustomDataProvider>
         )
 
-        const { result, waitFor } = renderHook(() => useSchedules(), {
+        const { result, waitFor } = renderHook(() => useJobsAndQueues(), {
             wrapper,
         })
 
@@ -34,13 +34,13 @@ describe('useSchedules', () => {
     })
 
     it('should not fail if sequence is missing', async () => {
-        const job = {}
-        const data = { scheduler: [job] }
+        const item = {}
+        const data = { scheduler: [item] }
         const wrapper = ({ children }) => (
             <CustomDataProvider data={data}>{children}</CustomDataProvider>
         )
 
-        const { result, waitFor } = renderHook(() => useSchedules(), {
+        const { result, waitFor } = renderHook(() => useJobsAndQueues(), {
             wrapper,
         })
 
@@ -48,19 +48,19 @@ describe('useSchedules', () => {
             expect(result.current).toMatchObject({
                 loading: false,
                 error: undefined,
-                data: [job],
+                data: [item],
             })
         })
     })
 
     it('should not fail if sequence is empty', async () => {
-        const job = { sequence: [] }
-        const data = { scheduler: [job] }
+        const item = { sequence: [] }
+        const data = { scheduler: [item] }
         const wrapper = ({ children }) => (
             <CustomDataProvider data={data}>{children}</CustomDataProvider>
         )
 
-        const { result, waitFor } = renderHook(() => useSchedules(), {
+        const { result, waitFor } = renderHook(() => useJobsAndQueues(), {
             wrapper,
         })
 
@@ -68,19 +68,19 @@ describe('useSchedules', () => {
             expect(result.current).toMatchObject({
                 loading: false,
                 error: undefined,
-                data: [job],
+                data: [item],
             })
         })
     })
 
     it('should not fail if the first sequence item has no id', async () => {
-        const job = { sequence: [{}] }
-        const data = { scheduler: [job] }
+        const item = { sequence: [{}] }
+        const data = { scheduler: [item] }
         const wrapper = ({ children }) => (
             <CustomDataProvider data={data}>{children}</CustomDataProvider>
         )
 
-        const { result, waitFor } = renderHook(() => useSchedules(), {
+        const { result, waitFor } = renderHook(() => useJobsAndQueues(), {
             wrapper,
         })
 
@@ -88,18 +88,18 @@ describe('useSchedules', () => {
             expect(result.current).toMatchObject({
                 loading: false,
                 error: undefined,
-                data: [job],
+                data: [item],
             })
         })
     })
 
-    it('should return an error if schedules are in an unexpected format', async () => {
+    it('should return an error if data is in an unexpected format', async () => {
         const data = { scheduler: '' }
         const wrapper = ({ children }) => (
             <CustomDataProvider data={data}>{children}</CustomDataProvider>
         )
 
-        const { result, waitFor } = renderHook(() => useSchedules(), {
+        const { result, waitFor } = renderHook(() => useJobsAndQueues(), {
             wrapper,
         })
 
@@ -109,7 +109,7 @@ describe('useSchedules', () => {
                 data: undefined,
             })
             expect(result.current.error.message).toBe(
-                'Did not receive the expected schedules'
+                'Did not receive the expected jobs and queues'
             )
         })
     })

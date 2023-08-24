@@ -1,25 +1,27 @@
 import { useDataQuery } from '@dhis2/app-runtime'
 
-const key = 'schedules'
+const key = 'jobsAndQueues'
 const query = {
     [key]: {
         resource: 'scheduler',
     },
 }
 
-const useSchedules = () => {
+const useJobsAndQueues = () => {
     const fetch = useDataQuery(query)
 
     // Remove nesting from data and move the id up
     if (fetch.data) {
-        const schedules = fetch.data?.[key]
+        const jobsAndQueues = fetch.data?.[key]
 
-        if (!schedules?.map) {
-            const error = new Error('Did not receive the expected schedules')
+        if (!jobsAndQueues?.map) {
+            const error = new Error(
+                'Did not receive the expected jobs and queues'
+            )
             return { ...fetch, error, data: undefined }
         }
 
-        const data = schedules.map((schedule) => {
+        const data = jobsAndQueues.map((schedule) => {
             const id = schedule.sequence?.[0]?.id
             return { ...schedule, id }
         })
@@ -30,4 +32,4 @@ const useSchedules = () => {
     return fetch
 }
 
-export default useSchedules
+export default useJobsAndQueues
