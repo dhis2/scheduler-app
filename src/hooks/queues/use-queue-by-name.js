@@ -1,9 +1,9 @@
 import { useDataQuery } from '@dhis2/app-runtime'
 
 const key = 'queue'
-const createQuery = (name) => ({
+const createQuery = (encodedName) => ({
     [key]: {
-        resource: `scheduler/queues/${name}`,
+        resource: `scheduler/queues/${encodedName}`,
         params: {
             fields: ['cronExpression', 'sequence', 'name'],
         },
@@ -11,7 +11,8 @@ const createQuery = (name) => ({
 })
 
 const useQueueByName = (name) => {
-    const fetch = useDataQuery(createQuery(name))
+    const encodedName = encodeURIComponent(name)
+    const fetch = useDataQuery(createQuery(encodedName))
 
     // Remove nesting from data
     if (fetch.data) {

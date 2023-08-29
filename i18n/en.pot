@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2023-08-23T09:22:37.116Z\n"
-"PO-Revision-Date: 2023-08-23T09:22:37.116Z\n"
+"POT-Creation-Date: 2023-08-29T11:34:50.926Z\n"
+"PO-Revision-Date: 2023-08-29T11:34:50.926Z\n"
 
 msgid "Something went wrong"
 msgstr "Something went wrong"
@@ -32,9 +32,6 @@ msgstr "Delete job"
 
 msgid "Delete queue"
 msgstr "Delete queue"
-
-msgid "Something went wrong whilst creating your job"
-msgstr "Something went wrong whilst creating your job"
 
 msgid "Please select data exchange ids."
 msgstr "Please select data exchange ids."
@@ -132,11 +129,23 @@ msgstr "Jobs in this queue"
 msgid "There was a problem fetching the required job type"
 msgstr "There was a problem fetching the required job type"
 
+msgid "Something went wrong whilst creating your job"
+msgstr "Something went wrong whilst creating your job"
+
 msgid "Save"
 msgstr "Save"
 
 msgid "Cancel"
 msgstr "Cancel"
+
+msgid "Something went wrong whilst updating your job"
+msgstr "Something went wrong whilst updating your job"
+
+msgid "Something went wrong whilst creating your queue"
+msgstr "Something went wrong whilst creating your queue"
+
+msgid "Something went wrong whilst updating your queue"
+msgstr "Something went wrong whilst updating your queue"
 
 msgid "Job details"
 msgstr "Job details"
@@ -280,8 +289,8 @@ msgstr "System job: {{ name }}"
 msgid "Back to all jobs"
 msgstr "Back to all jobs"
 
-msgid "New Queue"
-msgstr "New Queue"
+msgid "New queue"
+msgstr "New queue"
 
 msgid ""
 "A queue is a collection of jobs that are executed in order, one after "

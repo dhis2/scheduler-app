@@ -1,8 +1,8 @@
 import { useDataEngine } from '@dhis2/app-runtime'
 import formatError from '../../services/format-error'
 
-const createMutation = (name) => ({
-    resource: `scheduler/queues/${name}`,
+const createMutation = (encodedName) => ({
+    resource: `scheduler/queues/${encodedName}`,
     type: 'create',
     data: ({ queue }) => queue,
 })
@@ -10,7 +10,8 @@ const createMutation = (name) => ({
 const useSubmitQueue = ({ onSuccess } = {}) => {
     const engine = useDataEngine()
     const submitQueue = (queue) => {
-        const mutation = createMutation(queue.name)
+        const encodedName = encodeURIComponent(queue.name)
+        const mutation = createMutation(encodedName)
         return engine
             .mutate(mutation, { variables: { queue } })
             .then(() => {
