@@ -7,13 +7,13 @@ import QueueEditForm from './QueueEditForm'
 
 const { Form } = ReactFinalForm
 
-const QueueEditFormContainer = ({ queue, jobs }) => {
-    const redirect = () => {
-        history.push('/')
-    }
+const navigateHome = () => {
+    history.push('/')
+}
 
+const QueueEditFormContainer = ({ queue, jobs }) => {
     const [submitQueue] = useUpdateQueue({
-        onSuccess: redirect,
+        onSuccess: navigateHome,
         initialName: queue.name,
     })
 

@@ -6,11 +6,12 @@ import QueueAddForm from './QueueAddForm'
 
 const { Form } = ReactFinalForm
 
+const navigateHome = () => {
+    history.push('/')
+}
+
 const QueueAddFormContainer = () => {
-    const redirect = () => {
-        history.push('/')
-    }
-    const [submitQueue] = useSubmitQueue({ onSuccess: redirect })
+    const [submitQueue] = useSubmitQueue({ onSuccess: navigateHome })
 
     return (
         <Form
