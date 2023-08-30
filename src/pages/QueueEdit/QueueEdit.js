@@ -10,14 +10,14 @@ import styles from './QueueEdit.module.css'
 
 const QueueEdit = () => {
     const { name } = useParams()
-    const queueFetch = useQueueByName(name)
-    const jobsFetch = useJobs()
+    const queueResult = useQueueByName(name)
+    const jobsResult = useJobs()
 
-    if (queueFetch.fetching || jobsFetch.fetching) {
+    if (queueResult.fetching || jobsResult.fetching) {
         return <Spinner />
     }
 
-    if (queueFetch.error || jobsFetch.error) {
+    if (queueResult.error || jobsResult.error) {
         return (
             <NoticeBox error title={i18n.t('Could not load requested queue')}>
                 {i18n.t(
@@ -52,8 +52,8 @@ const QueueEdit = () => {
                     </span>
                 </header>
                 <QueueEditFormContainer
-                    queue={queueFetch.data}
-                    jobs={jobsFetch.data}
+                    queue={queueResult.data}
+                    jobs={jobsResult.data}
                 />
             </Card>
         </React.Fragment>
