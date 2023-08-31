@@ -1,10 +1,10 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { useJobSchedules } from '../../hooks/job-schedules'
+import { useJobsAndQueues } from '../../hooks/jobs-and-queues'
 import JobList from './JobList'
 
-jest.mock('../../hooks/job-schedules', () => ({
-    useJobSchedules: jest.fn(),
+jest.mock('../../hooks/jobs-and-queues', () => ({
+    useJobsAndQueues: jest.fn(),
 }))
 
 jest.mock('../../components/Store', () => ({
@@ -13,8 +13,8 @@ jest.mock('../../components/Store', () => ({
 }))
 
 describe('<JobList>', () => {
-    it('renders a spinner when loading the schedules', () => {
-        useJobSchedules.mockImplementation(() => ({ loading: true }))
+    it('renders a spinner when loading the jobs and queues', () => {
+        useJobsAndQueues.mockImplementation(() => ({ loading: true }))
 
         const wrapper = shallow(<JobList />)
         const spinner = wrapper.find('Spinner')
@@ -23,7 +23,7 @@ describe('<JobList>', () => {
     })
 
     it('renders errors encountered during fetching', () => {
-        useJobSchedules.mockImplementation(() => ({
+        useJobsAndQueues.mockImplementation(() => ({
             loading: false,
             error: new Error('Something went wrong'),
         }))
@@ -35,7 +35,7 @@ describe('<JobList>', () => {
     })
 
     it('renders without errors when loading has completed', () => {
-        useJobSchedules.mockImplementation(() => ({
+        useJobsAndQueues.mockImplementation(() => ({
             loading: false,
             error: undefined,
             data: [

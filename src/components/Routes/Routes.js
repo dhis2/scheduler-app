@@ -3,8 +3,8 @@ import { Route, Switch, Redirect } from 'react-router-dom'
 import { Router } from 'react-router'
 import JobList from '../../pages/JobList'
 import JobAdd from '../../pages/JobAdd'
-import SequenceAdd from '../../pages/SequenceAdd'
-import SequenceEdit from '../../pages/SequenceEdit'
+import QueueAdd from '../../pages/QueueAdd'
+import QueueEdit from '../../pages/QueueEdit'
 import history from '../../services/history'
 import JobViewOrEdit from './JobViewOrEdit'
 
@@ -17,8 +17,8 @@ const Routes = () => (
             <Route exact path="/" component={JobList} />
             <Route path="/job/add" component={JobAdd} />
             <Route path="/job/:id" component={JobViewOrEdit} />
-            <Route path="/queue/add" component={SequenceAdd} />
-            <Route path="/queue/:id" component={SequenceEdit} />
+            <Route path="/queue/add" component={QueueAdd} />
+            <Route path="/queue/:name" component={QueueEdit} />
         </Switch>
     </Router>
 )

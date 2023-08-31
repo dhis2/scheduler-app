@@ -1,24 +1,32 @@
-import useJobs from './use-jobs'
+import { useDataQuery } from '@dhis2/app-runtime'
+
+const key = 'job'
+const createQuery = (id) => ({
+    [key]: {
+        resource: `jobConfigurations/${id}`,
+        params: {
+            fields: [
+                'created',
+                'configurable',
+                'cronExpression',
+                'delay',
+                'id',
+                'jobParameters',
+                'jobType',
+                'lastExecuted',
+                'lastExecutedStatus',
+                'name',
+            ],
+        },
+    },
+})
 
 const useJobById = (id) => {
-    const fetch = useJobs()
+    const fetch = useDataQuery(createQuery(id))
 
-    // Find job by id
+    // Remove nesting from data
     if (fetch.data) {
-        if (!fetch.data?.find) {
-            const error = new Error('Did not receive the expected jobs')
-            return { ...fetch, error, data: undefined }
-        }
-
-        const data = fetch.data.find((job) => {
-            return job.id === id
-        })
-
-        if (!data) {
-            const error = new Error(`Could not find job with id ${id}`)
-            return { ...fetch, data: undefined, error }
-        }
-
+        const data = fetch.data[key]
         return { ...fetch, data }
     }
 

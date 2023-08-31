@@ -1,7 +1,7 @@
 import React from 'react'
 import { NoticeBox, Card, Checkbox, InputField, IconInfo16 } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
-import { useJobSchedules } from '../../hooks/job-schedules'
+import { useJobsAndQueues } from '../../hooks/jobs-and-queues'
 import { useJobFilter, useShowSystemJobs } from '../../components/Store'
 import { JobTable } from '../../components/JobTable'
 import { LinkButton } from '../../components/LinkButton'
@@ -15,7 +15,7 @@ const infoLink =
 const JobList = () => {
     const [jobFilter, setJobFilter] = useJobFilter()
     const [showSystemJobs, setShowSystemJobs] = useShowSystemJobs()
-    const { data, loading, error, refetch } = useJobSchedules()
+    const { data, loading, error, refetch } = useJobsAndQueues()
 
     if (loading) {
         return <Spinner />

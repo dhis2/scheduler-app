@@ -2,7 +2,6 @@ Feature: Users should be able to edit a sequence
 
     Scenario: User edits a sequence
         Given a sequence with two unqueued jobs exists
-        And two unqueued jobs exist
         And the user navigates to the edit sequence page
         And the user changes the sequence name
         And the user changes the cron schedule

@@ -2,7 +2,7 @@ import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given('a single system job exists', () => {
     cy.intercept(
-        { pathname: /jobConfigurations$/ },
+        { pathname: /jobConfigurations\/sHMedQF7VYa$/ },
         { fixture: 'view-route/single-system-job' }
     )
 })

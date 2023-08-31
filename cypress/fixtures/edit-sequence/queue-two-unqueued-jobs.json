@@ -1,0 +1,5 @@
+{
+    "name": "one",
+    "cronExpression": "0 0 3 ? * MON",
+    "sequence": ["RWcaltWoKuN", "p2HCjnAmSNE"]
+}

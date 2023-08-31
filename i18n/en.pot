@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2023-08-15T13:43:45.474Z\n"
-"PO-Revision-Date: 2023-08-15T13:43:45.474Z\n"
+"POT-Creation-Date: 2023-08-29T11:34:50.926Z\n"
+"PO-Revision-Date: 2023-08-29T11:34:50.926Z\n"
 
 msgid "Something went wrong"
 msgstr "Something went wrong"
@@ -30,11 +30,8 @@ msgstr "Choose from preset times"
 msgid "Delete job"
 msgstr "Delete job"
 
-msgid "Delete sequence"
-msgstr "Delete sequence"
-
-msgid "Something went wrong whilst creating your job"
-msgstr "Something went wrong whilst creating your job"
+msgid "Delete queue"
+msgstr "Delete queue"
 
 msgid "Please select data exchange ids."
 msgstr "Please select data exchange ids."
@@ -99,6 +96,9 @@ msgstr "Something went wrong whilst loading options"
 msgid "No options available"
 msgstr "No options available"
 
+msgid "Queues can't be named \"Add\" or \"add\""
+msgstr "Queues can't be named \"Add\" or \"add\""
+
 msgid "Name"
 msgstr "Name"
 
@@ -108,17 +108,14 @@ msgstr "There was a problem fetching parameters"
 msgid "Parameters"
 msgstr "Parameters"
 
-msgid "There was a problem fetching the required job type"
-msgstr "There was a problem fetching the required job type"
-
 msgid "Please select at least two jobs"
 msgstr "Please select at least two jobs"
 
 msgid "Something went wrong whilst fetching the queueable jobs"
 msgstr "Something went wrong whilst fetching the queueable jobs"
 
-msgid "Job sequence"
-msgstr "Job sequence"
+msgid "Job queue"
+msgstr "Job queue"
 
 msgid "Filter jobs"
 msgstr "Filter jobs"
@@ -126,14 +123,29 @@ msgstr "Filter jobs"
 msgid "Available jobs"
 msgstr "Available jobs"
 
-msgid "Jobs in this sequence"
-msgstr "Jobs in this sequence"
+msgid "Jobs in this queue"
+msgstr "Jobs in this queue"
+
+msgid "There was a problem fetching the required job type"
+msgstr "There was a problem fetching the required job type"
+
+msgid "Something went wrong whilst creating your job"
+msgstr "Something went wrong whilst creating your job"
 
 msgid "Save"
 msgstr "Save"
 
 msgid "Cancel"
 msgstr "Cancel"
+
+msgid "Something went wrong whilst updating your job"
+msgstr "Something went wrong whilst updating your job"
+
+msgid "Something went wrong whilst creating your queue"
+msgstr "Something went wrong whilst creating your queue"
+
+msgid "Something went wrong whilst updating your queue"
+msgstr "Something went wrong whilst updating your queue"
 
 msgid "Job details"
 msgstr "Job details"
@@ -213,8 +225,8 @@ msgstr "Insert preset"
 msgid "Are you sure you want to delete this job?"
 msgstr "Are you sure you want to delete this job?"
 
-msgid "Are you sure you want to delete this sequence?"
-msgstr "Are you sure you want to delete this sequence?"
+msgid "Are you sure you want to delete this queue?"
+msgstr "Are you sure you want to delete this queue?"
 
 msgid "Are you sure you want to discard this form?"
 msgstr "Are you sure you want to discard this form?"
@@ -277,28 +289,28 @@ msgstr "System job: {{ name }}"
 msgid "Back to all jobs"
 msgstr "Back to all jobs"
 
-msgid "New Sequence"
-msgstr "New Sequence"
+msgid "New queue"
+msgstr "New queue"
 
 msgid ""
-"A sequence is a collection of jobs that are executed in order, one after "
+"A queue is a collection of jobs that are executed in order, one after "
 "another as they finish."
 msgstr ""
-"A sequence is a collection of jobs that are executed in order, one after "
+"A queue is a collection of jobs that are executed in order, one after "
 "another as they finish."
 
-msgid "Could not load requested schedule"
-msgstr "Could not load requested schedule"
+msgid "Could not load requested queue"
+msgstr "Could not load requested queue"
 
 msgid ""
-"Something went wrong whilst loading the requested schedule. Make sure it "
-"has not been deleted and try refreshing the page."
+"Something went wrong whilst loading the requested queue. Make sure it has "
+"not been deleted and try refreshing the page."
 msgstr ""
-"Something went wrong whilst loading the requested schedule. Make sure it "
-"has not been deleted and try refreshing the page."
+"Something went wrong whilst loading the requested queue. Make sure it has "
+"not been deleted and try refreshing the page."
 
-msgid "Sequence: {{ name }}"
-msgstr "Sequence: {{ name }}"
+msgid "Queue: {{ name }}"
+msgstr "Queue: {{ name }}"
 
 msgid "Something went wrong but no error message was provided"
 msgstr "Something went wrong but no error message was provided"

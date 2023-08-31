@@ -1,10 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { NoticeBox } from '@dhis2/ui'
-import i18n from '@dhis2/d2-i18n'
 import styles from './FormErrorBox.module.css'
 
-const FormErrorBox = ({ submitError }) => {
+const FormErrorBox = ({ submitError, title }) => {
     const hasGenericSubmitErrors = submitError.length > 0
 
     if (!hasGenericSubmitErrors) {
@@ -12,10 +11,7 @@ const FormErrorBox = ({ submitError }) => {
     }
 
     return (
-        <NoticeBox
-            error
-            title={i18n.t('Something went wrong whilst creating your job')}
-        >
+        <NoticeBox error title={title}>
             <ul className={styles.list}>
                 {submitError.map((error) => (
                     <li key={error}>{error}</li>
@@ -25,10 +21,11 @@ const FormErrorBox = ({ submitError }) => {
     )
 }
 
-const { array } = PropTypes
+const { array, string } = PropTypes
 
 FormErrorBox.propTypes = {
     submitError: array.isRequired,
+    title: string.isRequired,
 }
 
 export default FormErrorBox

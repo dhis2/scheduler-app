@@ -23,20 +23,28 @@ const saveAndExpect = (name, expected) => {
 Given('a sequence with two unqueued jobs exists', () => {
     cy.intercept(
         { pathname: /scheduler$/ },
-        { fixture: 'edit-sequence/a-sequence-with-two-unqueued-jobs' }
+        { fixture: 'edit-sequence/schedule-two-unqueued-jobs' }
     )
-})
 
-Given('two unqueued jobs exist', () => {
     cy.intercept(
         { pathname: /scheduler\/queueable$/ },
-        { fixture: 'edit-sequence/two-unqueued-jobs' }
+        { fixture: 'edit-sequence/queueable-two-unqueued-jobs' }
+    )
+
+    cy.intercept(
+        { pathname: /scheduler\/queues\/one$/ },
+        { fixture: 'edit-sequence/queue-two-unqueued-jobs' }
+    )
+
+    cy.intercept(
+        { pathname: /jobConfigurations$/ },
+        { fixture: 'edit-sequence/jobs-two-unqueued-jobs' }
     )
 })
 
 Given('the user navigates to the edit sequence page', () => {
-    cy.visit('/#/queue/RWcaltWoKuN')
-    cy.findByRole('heading', { name: 'Sequence: one' }).should('exist')
+    cy.visit('/#/queue/one')
+    cy.findByRole('heading', { name: 'Queue: one' }).should('exist')
 })
 
 Given('the user changes the sequence name', () => {
