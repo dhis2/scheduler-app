@@ -1,150 +1,147 @@
 # 
 # Translators:
-# Viktor Varland <viktor@dhis2.org>, 2022
-# Philip Larsen Donnelly, 2022
-# 晓东 林 <13981924470@126.com>, 2023
-# easylin <lin_xd@126.com>, 2023
+# Yury Rogachev <yury@dhis2.org>, 2023
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2023-08-29T11:34:50.926Z\n"
 "PO-Revision-Date: 2020-05-08 14:30+0000\n"
-"Last-Translator: easylin <lin_xd@126.com>, 2023\n"
-"Language-Team: Chinese (https://app.transifex.com/hisp-uio/teams/100509/zh/)\n"
+"Last-Translator: Yury Rogachev <yury@dhis2.org>, 2023\n"
+"Language-Team: Uzbek (Latin) (https://app.transifex.com/hisp-uio/teams/100509/uz@Latn/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh\n"
+"Language: uz@Latn\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Something went wrong"
-msgstr "出问题了"
+msgstr "Nimadir notoʼgʼri bajarildi"
 
 msgid "Something went wrong whilst retrieving user permissions."
-msgstr "检索用户权限时出错。"
+msgstr ""
 
 msgid "Not authorized"
-msgstr "未经授权"
+msgstr ""
 
 msgid ""
 "You don't have access to the Job Scheduler. Contact a system administrator "
 "to request access."
-msgstr "您无权访问Job Scheduler。请与系统管理员联系以请求访问权限。"
+msgstr ""
 
 msgid "Choose from preset times"
-msgstr "从预设时间中选择"
+msgstr ""
 
 msgid "Delete job"
-msgstr "删除作业"
+msgstr "Vazifani bekor qilish"
 
 msgid "Delete queue"
 msgstr ""
 
 msgid "Please select data exchange ids."
-msgstr "请选择数据交换 ID。"
+msgstr ""
 
 msgid "Select data exchange ids"
-msgstr "选择数据交换 ID"
+msgstr ""
 
 msgid "There was a problem fetching data exchange ids"
-msgstr "获取数据交换 ID 时出现问题"
+msgstr ""
 
 msgid "error type"
-msgstr "错误类型"
+msgstr ""
 
 msgid "CRON Expression"
-msgstr "CRON表达式"
+msgstr ""
 
 msgid "Please select checks to run."
-msgstr "请选择要运行的检查。"
+msgstr ""
 
 msgid "Something went wrong whilst fetching options"
-msgstr "获取选项时出错"
+msgstr ""
 
 msgid "Checks to run"
-msgstr "检查运行"
+msgstr ""
 
 msgid "Run all available checks"
-msgstr "运行所有可用的检查"
+msgstr ""
 
 msgid "Only run selected checks"
-msgstr "仅运行选定的检查"
+msgstr ""
 
 msgid "Severity"
-msgstr "严重性"
+msgstr ""
 
 msgid "Select checks to run."
-msgstr "选择要运行的检查。"
+msgstr ""
 
 msgid "Report type"
-msgstr "报告类型"
+msgstr ""
 
 msgid "Delay"
-msgstr "延迟"
+msgstr ""
 
 msgid "Delay in seconds ({{ lowerbound }} - {{ upperbound }})"
-msgstr "延迟秒数（{{lowerbound}}-{{upperbound}}）"
+msgstr ""
 
 msgid "Job type"
-msgstr "作业类型"
+msgstr "Vazifa turi"
 
 msgid "Loading job types"
-msgstr "加载作业类型"
+msgstr ""
 
 msgid "Something went wrong whilst loading job types"
-msgstr "加载作业类型时出了点问题"
+msgstr ""
 
 msgid "Loading options"
-msgstr "加载选项"
+msgstr ""
 
 msgid "Something went wrong whilst loading options"
-msgstr "加载选项时出了点问题"
+msgstr ""
 
 msgid "No options available"
-msgstr "无可用选项"
+msgstr "Variantlar mavjud emas"
 
 msgid "Queues can't be named \"Add\" or \"add\""
 msgstr ""
 
 msgid "Name"
-msgstr "名称"
+msgstr "Исми"
 
 msgid "There was a problem fetching parameters"
-msgstr "获取参数时出现问题"
+msgstr ""
 
 msgid "Parameters"
-msgstr "参数"
+msgstr "Parametrlar"
 
 msgid "Please select at least two jobs"
-msgstr "请至少选择两个作业"
+msgstr ""
 
 msgid "Something went wrong whilst fetching the queueable jobs"
-msgstr "获取可排队作业时出现问题"
+msgstr ""
 
 msgid "Job queue"
 msgstr ""
 
 msgid "Filter jobs"
-msgstr "筛选工作"
+msgstr ""
 
 msgid "Available jobs"
-msgstr "可用的作业"
+msgstr ""
 
 msgid "Jobs in this queue"
 msgstr ""
 
 msgid "There was a problem fetching the required job type"
-msgstr "获取所需的作业类型时出现问题"
+msgstr ""
 
 msgid "Something went wrong whilst creating your job"
-msgstr "在创建工作时出了点问题"
+msgstr ""
 
 msgid "Save"
-msgstr "保存"
+msgstr "Saqlash"
 
 msgid "Cancel"
-msgstr "取消"
+msgstr "Бекор қилиш"
 
 msgid "Something went wrong whilst updating your job"
 msgstr ""
@@ -156,144 +153,144 @@ msgid "Something went wrong whilst updating your queue"
 msgstr ""
 
 msgid "Job details"
-msgstr "作业详情"
+msgstr "Faoliyat tafsilotlari"
 
 msgid "Created {{ createdFromNow }}."
-msgstr "已创建{{createdFromNow}}。"
+msgstr ""
 
 msgid "Last run {{ lastRunFromNow }}."
-msgstr "上次运行{{lastRunFromNow}}。"
+msgstr ""
 
 msgid "Last run status: {{ translatedStatus }}."
-msgstr "上次运行状态：{{translationStatus}}。"
+msgstr ""
 
 msgid "Actions"
-msgstr "行动"
+msgstr "Аmallar"
 
 msgid "Delete"
-msgstr "删除"
+msgstr "Oʼchirib tashlash"
 
 msgid "Edit"
-msgstr "编辑"
+msgstr "Tahrirlash"
 
 msgid "Job name"
-msgstr "作业名称"
+msgstr ""
 
 msgid "Type"
-msgstr "类型"
+msgstr "Turi"
 
 msgid "Schedule"
-msgstr "调度"
+msgstr "Reja"
 
 msgid "Next run"
-msgstr "下一轮"
+msgstr ""
 
 msgid "Status"
-msgstr "状态"
+msgstr "Status"
 
 msgid "On/off"
-msgstr "开关"
+msgstr ""
 
 msgid "No jobs to display"
-msgstr "没有要显示的工作"
+msgstr ""
 
 msgid "Not scheduled"
-msgstr "未安排"
+msgstr ""
 
 msgid "Run manually"
-msgstr "手动运行"
+msgstr ""
 
 msgid "{{ delay }} seconds after last run"
-msgstr "上次运行后{{delay}}秒"
+msgstr ""
 
 msgid "View"
-msgstr "查看"
+msgstr "Koʼrik"
 
 msgid "Every hour"
-msgstr "每隔一小时"
+msgstr "Har soatda"
 
 msgid "Every day at midnight"
-msgstr "每天午夜"
+msgstr ""
 
 msgid "Every day at 3 am"
-msgstr "每天凌晨3点"
+msgstr ""
 
 msgid "Every day at noon"
-msgstr "每天中午"
+msgstr ""
 
 msgid "Every week"
-msgstr "每周"
+msgstr ""
 
 msgid "Choose a preset time/interval"
-msgstr "选择预设时间/间隔"
+msgstr ""
 
 msgid "Insert preset"
-msgstr "插入预设"
+msgstr ""
 
 msgid "Are you sure you want to delete this job?"
-msgstr "你确信要删除该作业"
+msgstr "Haqiqatdan ham ushbu vazifani oʼchirib tashlamoqchimisiz?"
 
 msgid "Are you sure you want to delete this queue?"
 msgstr ""
 
 msgid "Are you sure you want to discard this form?"
-msgstr "您确定要舍弃此表格吗？"
+msgstr ""
 
 msgid "Discard"
-msgstr "放弃"
+msgstr "Bekor qilish"
 
 msgid "Error running job"
-msgstr "运行作业时出错"
+msgstr ""
 
 msgid "Are you sure you want to run this job?"
-msgstr "您确定要执行这项工作吗？"
+msgstr ""
 
 msgid "Run"
-msgstr "运行"
+msgstr ""
 
 msgid "Could not load requested job"
-msgstr "无法加载请求的作业"
+msgstr ""
 
 msgid ""
 "Something went wrong whilst loading the requested job. Make sure it has not "
 "been deleted and try refreshing the page."
-msgstr "加载请求的作业时出了点问题。确保它没有被删除并尝试刷新页面。"
+msgstr ""
 
 msgid "Toggle job"
-msgstr "切换作业"
+msgstr ""
 
 msgid "New Job"
-msgstr "新作业任务"
+msgstr ""
 
 msgid "Configuration"
-msgstr "配置"
+msgstr "Konfiguratsiya"
 
 msgid "About job configuration"
-msgstr "关于作业配置"
+msgstr ""
 
 msgid "Job: {{ name }}"
-msgstr "职位：{{name}}"
+msgstr ""
 
 msgid "Could not load jobs"
-msgstr "无法加载作业"
+msgstr ""
 
 msgid "Something went wrong whilst loading the jobs. Try refreshing the page."
-msgstr "加载作业时出了点问题。尝试刷新页面。"
+msgstr ""
 
 msgid "Scheduled jobs"
-msgstr "调度的作业"
+msgstr "Vazifalar rejalashtirilgan"
 
 msgid "Include system jobs in list"
-msgstr "在列表中包括系统作业"
+msgstr ""
 
 msgid "New job"
-msgstr "新作业任务"
+msgstr ""
 
 msgid "System job: {{ name }}"
-msgstr "系统作业：{{name}}"
+msgstr ""
 
 msgid "Back to all jobs"
-msgstr "返回所有作业"
+msgstr ""
 
 msgid "New queue"
 msgstr ""
@@ -318,211 +315,211 @@ msgid "Something went wrong but no error message was provided"
 msgstr ""
 
 msgid "Completeness"
-msgstr "完整性"
+msgstr "Toʼliqlik"
 
 msgid "Completeness target"
-msgstr "完成目标"
+msgstr ""
 
 msgid "Data value"
-msgstr "资料值"
+msgstr ""
 
 msgid "Enrollment"
-msgstr "注册"
+msgstr "Roʼyxatga olish"
 
 msgid "Event"
-msgstr "事件"
+msgstr "Hodisa/Tadbir"
 
 msgid "Org unit target"
-msgstr "组织机构目标"
+msgstr ""
 
 msgid "Ownership"
-msgstr "所有权"
+msgstr ""
 
 msgid "Validation result"
-msgstr "验证结果"
+msgstr "Tasdiqlash natijasi"
 
 msgid "Warning"
-msgstr "警告"
+msgstr "Ogohlantirish"
 
 msgid "Severe"
-msgstr "严重的"
+msgstr ""
 
 msgid "Report"
-msgstr "报表"
+msgstr "Hisobot"
 
 msgid "Summary"
-msgstr "摘要"
+msgstr "Xulosa"
 
 msgid "Details"
-msgstr "详情"
+msgstr "Тафсилотлари"
 
 msgid "Completed"
-msgstr "完成"
+msgstr "bajarildi"
 
 msgid "Disabled"
-msgstr "关闭"
+msgstr "Oʼchirib qoʼyilgan"
 
 msgid "Done"
-msgstr "完成"
+msgstr ""
 
 msgid "Failed"
-msgstr "失败"
+msgstr "Аmalga oshmadi"
 
 msgid "Not started"
-msgstr "没有开始"
+msgstr ""
 
 msgid "Running"
-msgstr "在运行"
+msgstr ""
 
 msgid "Scheduled"
-msgstr "已经调度"
+msgstr "Reja boʼyicha"
 
 msgid "Stopped"
-msgstr "已停止"
+msgstr ""
 
 msgid "Account expiry alert"
-msgstr "账户到期提醒"
+msgstr ""
 
 msgid "Exchange aggregate data"
-msgstr "交换统计汇总数据"
+msgstr ""
 
 msgid "Analytics table"
-msgstr "分析表"
+msgstr ""
 
 msgid "Analytics table update"
-msgstr "分析表更新"
+msgstr ""
 
 msgid "Complete data set registration import"
-msgstr "完成数据集注册导入"
+msgstr ""
 
 msgid "Continuous analytics table"
-msgstr "连续分析表"
+msgstr ""
 
 msgid "Credentials expiry alert"
-msgstr "凭证到期警报"
+msgstr ""
 
 msgid "Data integrity"
-msgstr "数据的完整性"
+msgstr ""
 
 msgid "Dataset notification"
-msgstr "数据集通知"
+msgstr ""
 
 msgid "Data statistics"
-msgstr "数据统计"
+msgstr ""
 
 msgid "Data synchronization"
-msgstr "数据同步"
+msgstr ""
 
 msgid "Data value import"
-msgstr "数据值导入"
+msgstr ""
 
 msgid "Data value import internal"
-msgstr "数据值导入内部"
+msgstr ""
 
 msgid "Disable inactive users"
-msgstr "禁用不活动的用户"
+msgstr ""
 
 msgid "Enrollment import"
-msgstr "招生导入"
+msgstr ""
 
 msgid "Event import"
-msgstr "事件导入"
+msgstr "Tadbir importi"
 
 msgid "Event programs data sync"
-msgstr "活动节目数据同步"
+msgstr ""
 
 msgid "File resource clean up"
-msgstr "文件资源清理"
+msgstr ""
 
 msgid "GEOJSON import"
-msgstr "GEOJSON 导入"
+msgstr ""
 
 msgid "GML import"
-msgstr "GML导入"
+msgstr "GML importi"
 
 msgid "Image processing"
-msgstr "图像处理"
+msgstr ""
 
 msgid "Leader election"
-msgstr "领导人选举"
+msgstr ""
 
 msgid "Leader renewal"
-msgstr "领导更新"
+msgstr ""
 
 msgid "Lock exception cleanup"
-msgstr "锁异常清理"
+msgstr ""
 
 msgid "Materialized sql view update"
-msgstr "物化sql视图更新"
+msgstr ""
 
 msgid "Metadata import"
-msgstr "元数据导入"
+msgstr "MetaMaʼlumot importi"
 
 msgid "Metadata synchronization"
-msgstr "元数据同步"
+msgstr ""
 
 msgid "Mock"
-msgstr "嘲笑"
+msgstr ""
 
 msgid "Monitoring"
-msgstr "监控"
+msgstr ""
 
 msgid "Predictor"
-msgstr "预报"
+msgstr "Bashoratchi"
 
 msgid "Program data sync"
-msgstr "程序数据同步"
+msgstr ""
 
 msgid "Program notifications"
-msgstr "项目通知"
+msgstr ""
 
 msgid "Push analysis"
-msgstr "推送分析"
+msgstr "Push-tahlil"
 
 msgid "Remove expired reserved values"
-msgstr "删除过期的保留值"
+msgstr ""
 
 msgid "Remove used or expired reserved values"
-msgstr "删除已用或过期的保留值"
+msgstr ""
 
 msgid "Resource table"
-msgstr "资源表"
+msgstr ""
 
 msgid "Send scheduled message"
-msgstr "发送预定的消息"
+msgstr ""
 
 msgid "SMS send"
-msgstr "短信发送"
+msgstr ""
 
 msgid "System version update check"
-msgstr "系统版本更新检查"
+msgstr ""
 
 msgid "TEI import"
-msgstr "实体导入"
+msgstr "YeUSh importi"
 
 msgid "Test"
-msgstr "测试"
+msgstr ""
 
 msgid "Tracker import job"
-msgstr "跟踪器导入作业"
+msgstr ""
 
 msgid "Tracker import notification job"
-msgstr "跟踪器导入通知作业"
+msgstr ""
 
 msgid "Tracker import rule engine job"
-msgstr "Tracker导入规则引擎作业"
+msgstr ""
 
 msgid "Tracker programs data sync"
-msgstr "跟踪器程序数据同步"
+msgstr ""
 
 msgid "Tracker search optimization"
-msgstr "跟踪器搜索优化"
+msgstr ""
 
 msgid "Validation results notification"
-msgstr "验证结果通知"
+msgstr ""
 
 msgid "A CRON expression is required"
-msgstr "需要CRON表达式"
+msgstr ""
 
 msgid "Please enter a valid CRON expression"
-msgstr "请输入有效的CRON表达式"
+msgstr ""
