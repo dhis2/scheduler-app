@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-06-28T07:36:04.708Z\n"
+"POT-Creation-Date: 2023-08-29T11:34:50.926Z\n"
 "PO-Revision-Date: 2020-05-08 14:30+0000\n"
 "Last-Translator: Jiří Podhorecký, 2023\n"
 "Language-Team: Czech (https://app.transifex.com/hisp-uio/teams/100509/cs/)\n"
@@ -35,8 +35,8 @@ msgstr "Vyberte si z přednastavených časů"
 msgid "Delete job"
 msgstr "Smazat úlohu"
 
-msgid "Something went wrong whilst creating your job"
-msgstr "Při vytváření vašeho jobu se něco pokazilo"
+msgid "Delete queue"
+msgstr ""
 
 msgid "Please select data exchange ids."
 msgstr "Vyberte id pro výměnu dat."
@@ -101,6 +101,9 @@ msgstr "Při načítání možností se něco pokazilo"
 msgid "No options available"
 msgstr "K dispozici nejsou žádné možnosti"
 
+msgid "Queues can't be named \"Add\" or \"add\""
+msgstr ""
+
 msgid "Name"
 msgstr "Název"
 
@@ -110,17 +113,14 @@ msgstr "Při načítání parametrů došlo k problému"
 msgid "Parameters"
 msgstr "Parametry"
 
-msgid "There was a problem fetching the required job type"
-msgstr "Při načítání požadovaného typu úlohy došlo k problému"
-
 msgid "Please select at least two jobs"
 msgstr "Vyberte prosím alespoň dvě úlohy"
 
 msgid "Something went wrong whilst fetching the queueable jobs"
 msgstr "Při načítání úloh zařazených do fronty se něco pokazilo"
 
-msgid "Job sequence"
-msgstr " sekvence úloh"
+msgid "Job queue"
+msgstr ""
 
 msgid "Filter jobs"
 msgstr "Filtrovat úlohy"
@@ -128,14 +128,29 @@ msgstr "Filtrovat úlohy"
 msgid "Available jobs"
 msgstr "Dostupné úlohy"
 
-msgid "Jobs in this sequence"
-msgstr "Úlohy v této sekvenci"
+msgid "Jobs in this queue"
+msgstr ""
+
+msgid "There was a problem fetching the required job type"
+msgstr "Při načítání požadovaného typu úlohy došlo k problému"
+
+msgid "Something went wrong whilst creating your job"
+msgstr "Při vytváření vašeho jobu se něco pokazilo"
 
 msgid "Save"
 msgstr "Uložit"
 
 msgid "Cancel"
 msgstr "Zrušit"
+
+msgid "Something went wrong whilst updating your job"
+msgstr ""
+
+msgid "Something went wrong whilst creating your queue"
+msgstr ""
+
+msgid "Something went wrong whilst updating your queue"
+msgstr ""
 
 msgid "Job details"
 msgstr "Podrobnosti o práci"
@@ -215,6 +230,9 @@ msgstr "Vložit předvolbu"
 msgid "Are you sure you want to delete this job?"
 msgstr "Opravdu chcete tuto úlohu smazat?"
 
+msgid "Are you sure you want to delete this queue?"
+msgstr ""
+
 msgid "Are you sure you want to discard this form?"
 msgstr "Opravdu chcete tento formulář zahodit?"
 
@@ -230,21 +248,6 @@ msgstr "Opravdu chcete tento job spustit?"
 msgid "Run"
 msgstr "Běh"
 
-msgid "Toggle job"
-msgstr "Přepnout úlohu"
-
-msgid "Back to all jobs"
-msgstr "Zpět ke všem jobům"
-
-msgid "New Job"
-msgstr "Nový job"
-
-msgid "Configuration"
-msgstr "Konfigurace"
-
-msgid "About job configuration"
-msgstr "O konfiguraci úlohy"
-
 msgid "Could not load requested job"
 msgstr "Požadovanou úlohu nelze načíst"
 
@@ -254,6 +257,18 @@ msgid ""
 msgstr ""
 "Při načítání požadované úlohy se něco pokazilo. Ujistěte se, že nebyla "
 "smazána, a zkuste stránku obnovit."
+
+msgid "Toggle job"
+msgstr "Přepnout úlohu"
+
+msgid "New Job"
+msgstr "Nový job"
+
+msgid "Configuration"
+msgstr "Konfigurace"
+
+msgid "About job configuration"
+msgstr "O konfiguraci úlohy"
 
 msgid "Job: {{ name }}"
 msgstr "Úloha: {{ name }}"
@@ -276,15 +291,30 @@ msgstr "Nová úloha"
 msgid "System job: {{ name }}"
 msgstr "Úloha systému: {{ name }}"
 
-msgid "New Sequence"
-msgstr "Nová sekvence"
+msgid "Back to all jobs"
+msgstr "Zpět ke všem jobům"
+
+msgid "New queue"
+msgstr ""
 
 msgid ""
-"A sequence is a collection of jobs that are executed in order, one after "
+"A queue is a collection of jobs that are executed in order, one after "
 "another as they finish."
 msgstr ""
-"Sekvence je kolekce úloh, které jsou prováděny v pořadí, jedna po druhé, jak"
-" jsou dokončeny."
+
+msgid "Could not load requested queue"
+msgstr ""
+
+msgid ""
+"Something went wrong whilst loading the requested queue. Make sure it has "
+"not been deleted and try refreshing the page."
+msgstr ""
+
+msgid "Queue: {{ name }}"
+msgstr ""
+
+msgid "Something went wrong but no error message was provided"
+msgstr ""
 
 msgid "Completeness"
 msgstr "Úplnost"
