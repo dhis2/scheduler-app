@@ -1,0 +1,166 @@
+# 
+# Translators:
+# Yury Rogachev <yury@dhis2.org>, 2021
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2020-04-28T12:20:25.090Z\n"
+"PO-Revision-Date: 2020-12-22 22:18+0000\n"
+"Last-Translator: Yury Rogachev <yury@dhis2.org>, 2021\n"
+"Language-Team: Uzbek (Latin) (https://app.transifex.com/hisp-uio/teams/100509/uz@Latn/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: uz@Latn\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Scheduler"
+msgstr "Rejalashtiruvchi"
+
+msgid "Cancel"
+msgstr "Бекор қилиш"
+
+msgid "Confirm"
+msgstr "Tasdiqlang"
+
+msgid "Open user guide"
+msgstr "Foydalanuvchi qoʼllanmasini ochish"
+
+msgid "Delete"
+msgstr "Oʼchirib tashlash"
+
+msgid "Are you sure you want to delete this job?"
+msgstr "Haqiqatdan ham ushbu vazifani oʼchirib tashlamoqchimisiz?"
+
+msgid "Add new job"
+msgstr "Yangi vazifa qoʼshish"
+
+msgid "Add job"
+msgstr "Vazifa qoʼshish"
+
+msgid "Required"
+msgstr "Majburiy"
+
+msgid "Must be of two or more characters"
+msgstr "2 yoki undan ortiq belgidan iborat boʼlishi lozim"
+
+msgid "Invalid cron expression"
+msgstr "Kron ifodasi yaroqsiz"
+
+msgid "Delay needs to be an integer"
+msgstr "Kechikrilgan kunlar butun sonda belgilanadi"
+
+msgid "Delay must be greater than 0"
+msgstr "Kechikrilgan kunlar 0 dan katta belgilanishi lozim"
+
+msgid "Delay can't exceed 86400 seconds"
+msgstr "Kechiktirilgan kunlan 86400 soniyadan oshmasligi kerak"
+
+msgid "Are you sure you want to discard your changes?"
+msgstr "Oʼzgartirishni bekor qilmoqchimisiz?"
+
+msgid "Attributes"
+msgstr "Аttributlar"
+
+msgid "Name"
+msgstr "Исми"
+
+msgid "Could not find job"
+msgstr "Vazifa topilmadi"
+
+msgid "Details"
+msgstr "Тафсилотлари"
+
+msgid "Created"
+msgstr "Yaratilgan"
+
+msgid "Last executed"
+msgstr "Oxirgi bajarilgan"
+
+msgid "Last execution status"
+msgstr "Oxirgi bajarish statusi"
+
+msgid "Save changes"
+msgstr "Oʼzgartirishni saqlash"
+
+msgid "Delete job"
+msgstr "Vazifani bekor qilish"
+
+msgid "Job type"
+msgstr "Vazifa turi"
+
+msgid "Select frequency"
+msgstr "Davriylikni tanlash"
+
+msgid "Cron expression"
+msgstr "Kron ifodasi"
+
+msgid "Delay in seconds"
+msgstr "Soniyalarga kechikish"
+
+msgid "Are you sure you want to execute this job?"
+msgstr "Haqiqatdan ham ushbu vazifani bajarishni xoxlaysizmi?"
+
+msgid "Execute"
+msgstr "Ijro etish"
+
+msgid "Run now"
+msgstr "Hoziroq boshlash"
+
+msgid "Runs {{seconds}} second(s) after previous run"
+msgstr "Oldingi harakat boshlangach {{ soniya }} ichida boshlanadi"
+
+msgid "Scheduled jobs"
+msgstr "Vazifalar rejalashtirilgan"
+
+msgid "Show system jobs"
+msgstr "Tizim vazifalarini koʼrsatish"
+
+msgid "Type"
+msgstr "Turi"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Next execution"
+msgstr "Keyingi ijro"
+
+msgid "Enabled"
+msgstr "Yoqilgan"
+
+msgid "No jobs to show"
+msgstr "Koʼrsatish uchun vazifalar yoʼq"
+
+msgid "Click to select"
+msgstr "Tanlash uchun bosing"
+
+msgid "Start time"
+msgstr "Boshlanish vaqti"
+
+msgid "End time"
+msgstr "Tugash vaqti"
+
+msgid "Parameters"
+msgstr "Parametrlar"
+
+msgid "Successfully deleted job"
+msgstr "Vazifa muvaffaqiyatli oʼchirildi"
+
+msgid "Successfully created job"
+msgstr "Vazifa muvaffaqiyatli yaratildi"
+
+msgid "Successfully updated job"
+msgstr "Vazifa muvaffaqiyatli yangilandi"
+
+msgid "Could not create job"
+msgstr "Vazifa yaratib boʼlmadi"
+
+msgid "Could not update job"
+msgstr "Vazifani yangilab boʼlmadi"
+
+msgid "Could not run job"
+msgstr "Vazifa boshlanmadi"
+
+msgid "You are not authorized to use this app"
+msgstr "Ushbu ilovadan foydalanish xuquqiga ega emassiz"
