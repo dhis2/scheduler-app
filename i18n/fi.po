@@ -1,0 +1,525 @@
+# 
+# Translators:
+# Oi Suomi On! <oisuomion@protonmail.com>, 2023
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2023-08-29T11:34:50.926Z\n"
+"PO-Revision-Date: 2020-05-08 14:30+0000\n"
+"Last-Translator: Oi Suomi On! <oisuomion@protonmail.com>, 2023\n"
+"Language-Team: Finnish (https://app.transifex.com/hisp-uio/teams/100509/fi/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fi\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Something went wrong"
+msgstr "Jokin meni pieleen"
+
+msgid "Something went wrong whilst retrieving user permissions."
+msgstr "Jokin meni pieleen noutaessa käyttäjälupia."
+
+msgid "Not authorized"
+msgstr ""
+
+msgid ""
+"You don't have access to the Job Scheduler. Contact a system administrator "
+"to request access."
+msgstr ""
+
+msgid "Choose from preset times"
+msgstr ""
+
+msgid "Delete job"
+msgstr ""
+
+msgid "Delete queue"
+msgstr ""
+
+msgid "Please select data exchange ids."
+msgstr ""
+
+msgid "Select data exchange ids"
+msgstr ""
+
+msgid "There was a problem fetching data exchange ids"
+msgstr ""
+
+msgid "error type"
+msgstr ""
+
+msgid "CRON Expression"
+msgstr ""
+
+msgid "Please select checks to run."
+msgstr ""
+
+msgid "Something went wrong whilst fetching options"
+msgstr ""
+
+msgid "Checks to run"
+msgstr ""
+
+msgid "Run all available checks"
+msgstr ""
+
+msgid "Only run selected checks"
+msgstr ""
+
+msgid "Severity"
+msgstr ""
+
+msgid "Select checks to run."
+msgstr ""
+
+msgid "Report type"
+msgstr ""
+
+msgid "Delay"
+msgstr ""
+
+msgid "Delay in seconds ({{ lowerbound }} - {{ upperbound }})"
+msgstr ""
+
+msgid "Job type"
+msgstr ""
+
+msgid "Loading job types"
+msgstr ""
+
+msgid "Something went wrong whilst loading job types"
+msgstr ""
+
+msgid "Loading options"
+msgstr ""
+
+msgid "Something went wrong whilst loading options"
+msgstr ""
+
+msgid "No options available"
+msgstr ""
+
+msgid "Queues can't be named \"Add\" or \"add\""
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "There was a problem fetching parameters"
+msgstr ""
+
+msgid "Parameters"
+msgstr ""
+
+msgid "Please select at least two jobs"
+msgstr ""
+
+msgid "Something went wrong whilst fetching the queueable jobs"
+msgstr ""
+
+msgid "Job queue"
+msgstr ""
+
+msgid "Filter jobs"
+msgstr ""
+
+msgid "Available jobs"
+msgstr ""
+
+msgid "Jobs in this queue"
+msgstr ""
+
+msgid "There was a problem fetching the required job type"
+msgstr ""
+
+msgid "Something went wrong whilst creating your job"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
+msgid "Something went wrong whilst updating your job"
+msgstr ""
+
+msgid "Something went wrong whilst creating your queue"
+msgstr ""
+
+msgid "Something went wrong whilst updating your queue"
+msgstr ""
+
+msgid "Job details"
+msgstr ""
+
+msgid "Created {{ createdFromNow }}."
+msgstr ""
+
+msgid "Last run {{ lastRunFromNow }}."
+msgstr ""
+
+msgid "Last run status: {{ translatedStatus }}."
+msgstr ""
+
+msgid "Actions"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "Edit"
+msgstr ""
+
+msgid "Job name"
+msgstr ""
+
+msgid "Type"
+msgstr ""
+
+msgid "Schedule"
+msgstr ""
+
+msgid "Next run"
+msgstr ""
+
+msgid "Status"
+msgstr ""
+
+msgid "On/off"
+msgstr ""
+
+msgid "No jobs to display"
+msgstr ""
+
+msgid "Not scheduled"
+msgstr ""
+
+msgid "Run manually"
+msgstr ""
+
+msgid "{{ delay }} seconds after last run"
+msgstr ""
+
+msgid "View"
+msgstr ""
+
+msgid "Every hour"
+msgstr ""
+
+msgid "Every day at midnight"
+msgstr ""
+
+msgid "Every day at 3 am"
+msgstr ""
+
+msgid "Every day at noon"
+msgstr ""
+
+msgid "Every week"
+msgstr ""
+
+msgid "Choose a preset time/interval"
+msgstr ""
+
+msgid "Insert preset"
+msgstr ""
+
+msgid "Are you sure you want to delete this job?"
+msgstr ""
+
+msgid "Are you sure you want to delete this queue?"
+msgstr ""
+
+msgid "Are you sure you want to discard this form?"
+msgstr ""
+
+msgid "Discard"
+msgstr ""
+
+msgid "Error running job"
+msgstr ""
+
+msgid "Are you sure you want to run this job?"
+msgstr ""
+
+msgid "Run"
+msgstr ""
+
+msgid "Could not load requested job"
+msgstr ""
+
+msgid ""
+"Something went wrong whilst loading the requested job. Make sure it has not "
+"been deleted and try refreshing the page."
+msgstr ""
+
+msgid "Toggle job"
+msgstr ""
+
+msgid "New Job"
+msgstr ""
+
+msgid "Configuration"
+msgstr ""
+
+msgid "About job configuration"
+msgstr ""
+
+msgid "Job: {{ name }}"
+msgstr ""
+
+msgid "Could not load jobs"
+msgstr ""
+
+msgid "Something went wrong whilst loading the jobs. Try refreshing the page."
+msgstr ""
+
+msgid "Scheduled jobs"
+msgstr ""
+
+msgid "Include system jobs in list"
+msgstr ""
+
+msgid "New job"
+msgstr ""
+
+msgid "System job: {{ name }}"
+msgstr ""
+
+msgid "Back to all jobs"
+msgstr ""
+
+msgid "New queue"
+msgstr ""
+
+msgid ""
+"A queue is a collection of jobs that are executed in order, one after "
+"another as they finish."
+msgstr ""
+
+msgid "Could not load requested queue"
+msgstr ""
+
+msgid ""
+"Something went wrong whilst loading the requested queue. Make sure it has "
+"not been deleted and try refreshing the page."
+msgstr ""
+
+msgid "Queue: {{ name }}"
+msgstr ""
+
+msgid "Something went wrong but no error message was provided"
+msgstr ""
+
+msgid "Completeness"
+msgstr ""
+
+msgid "Completeness target"
+msgstr ""
+
+msgid "Data value"
+msgstr ""
+
+msgid "Enrollment"
+msgstr ""
+
+msgid "Event"
+msgstr ""
+
+msgid "Org unit target"
+msgstr ""
+
+msgid "Ownership"
+msgstr ""
+
+msgid "Validation result"
+msgstr ""
+
+msgid "Warning"
+msgstr ""
+
+msgid "Severe"
+msgstr ""
+
+msgid "Report"
+msgstr ""
+
+msgid "Summary"
+msgstr ""
+
+msgid "Details"
+msgstr ""
+
+msgid "Completed"
+msgstr ""
+
+msgid "Disabled"
+msgstr ""
+
+msgid "Done"
+msgstr ""
+
+msgid "Failed"
+msgstr ""
+
+msgid "Not started"
+msgstr ""
+
+msgid "Running"
+msgstr ""
+
+msgid "Scheduled"
+msgstr ""
+
+msgid "Stopped"
+msgstr ""
+
+msgid "Account expiry alert"
+msgstr ""
+
+msgid "Exchange aggregate data"
+msgstr ""
+
+msgid "Analytics table"
+msgstr ""
+
+msgid "Analytics table update"
+msgstr ""
+
+msgid "Complete data set registration import"
+msgstr ""
+
+msgid "Continuous analytics table"
+msgstr ""
+
+msgid "Credentials expiry alert"
+msgstr ""
+
+msgid "Data integrity"
+msgstr ""
+
+msgid "Dataset notification"
+msgstr ""
+
+msgid "Data statistics"
+msgstr ""
+
+msgid "Data synchronization"
+msgstr ""
+
+msgid "Data value import"
+msgstr ""
+
+msgid "Data value import internal"
+msgstr ""
+
+msgid "Disable inactive users"
+msgstr ""
+
+msgid "Enrollment import"
+msgstr ""
+
+msgid "Event import"
+msgstr ""
+
+msgid "Event programs data sync"
+msgstr ""
+
+msgid "File resource clean up"
+msgstr ""
+
+msgid "GEOJSON import"
+msgstr ""
+
+msgid "GML import"
+msgstr ""
+
+msgid "Image processing"
+msgstr ""
+
+msgid "Leader election"
+msgstr ""
+
+msgid "Leader renewal"
+msgstr ""
+
+msgid "Lock exception cleanup"
+msgstr ""
+
+msgid "Materialized sql view update"
+msgstr ""
+
+msgid "Metadata import"
+msgstr ""
+
+msgid "Metadata synchronization"
+msgstr ""
+
+msgid "Mock"
+msgstr ""
+
+msgid "Monitoring"
+msgstr ""
+
+msgid "Predictor"
+msgstr ""
+
+msgid "Program data sync"
+msgstr ""
+
+msgid "Program notifications"
+msgstr ""
+
+msgid "Push analysis"
+msgstr ""
+
+msgid "Remove expired reserved values"
+msgstr ""
+
+msgid "Remove used or expired reserved values"
+msgstr ""
+
+msgid "Resource table"
+msgstr ""
+
+msgid "Send scheduled message"
+msgstr ""
+
+msgid "SMS send"
+msgstr ""
+
+msgid "System version update check"
+msgstr ""
+
+msgid "TEI import"
+msgstr ""
+
+msgid "Test"
+msgstr ""
+
+msgid "Tracker import job"
+msgstr ""
+
+msgid "Tracker import notification job"
+msgstr ""
+
+msgid "Tracker import rule engine job"
+msgstr ""
+
+msgid "Tracker programs data sync"
+msgstr ""
+
+msgid "Tracker search optimization"
+msgstr ""
+
+msgid "Validation results notification"
+msgstr ""
+
+msgid "A CRON expression is required"
+msgstr ""
+
+msgid "Please enter a valid CRON expression"
+msgstr ""
