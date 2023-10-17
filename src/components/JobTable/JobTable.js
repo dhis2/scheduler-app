@@ -31,9 +31,22 @@ const JobTable = ({ jobs, refetch }) => (
                     <TableCell>{i18n.t('No jobs to display')}</TableCell>
                 </TableRow>
             ) : (
-                jobs.map((job) => (
-                    <JobTableRow key={job.id} job={job} refetch={refetch} />
-                ))
+                jobs.map((job) => {
+                    /**
+                     * This will fail if job.sequence.length does not exist. That should not happen,
+                     * so failing with an error when it does is appropriate.
+                     */
+                    const isJob = job.sequence.length === 1
+
+                    return (
+                        <JobTableRow
+                            key={job.id}
+                            job={job}
+                            refetch={refetch}
+                            isJob={isJob}
+                        />
+                    )
+                })
             )}
         </TableBody>
     </Table>

@@ -3,7 +3,8 @@ import PropTypes from 'prop-types'
 import { TableRow, TableCell } from '@dhis2/ui'
 import { jobTypesMap } from '../../services/server-translations'
 import { ToggleJobSwitch } from '../Switches'
-import Actions from './Actions'
+import JobActions from './JobActions'
+import QueueActions from './QueueActions'
 import Status from './Status'
 import NextRun from './NextRun'
 import Schedule from './Schedule'
@@ -21,6 +22,7 @@ const JobTableRow = ({
         configurable,
     },
     refetch,
+    isJob,
 }) => (
     <TableRow>
         <TableCell role="rowheader">{name}</TableCell>
@@ -43,12 +45,16 @@ const JobTableRow = ({
             />
         </TableCell>
         <TableCell>
-            <Actions
-                id={id}
-                enabled={enabled}
-                configurable={configurable}
-                refetch={refetch}
-            />
+            {isJob ? (
+                <JobActions
+                    id={id}
+                    enabled={enabled}
+                    configurable={configurable}
+                    refetch={refetch}
+                />
+            ) : (
+                <QueueActions name={name} refetch={refetch} />
+            )}
         </TableCell>
     </TableRow>
 )
@@ -56,6 +62,7 @@ const JobTableRow = ({
 const { shape, string, bool, number, func } = PropTypes
 
 JobTableRow.propTypes = {
+    isJob: bool.isRequired,
     job: shape({
         name: string.isRequired,
         enabled: bool.isRequired,

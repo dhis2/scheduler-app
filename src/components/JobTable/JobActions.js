@@ -7,7 +7,7 @@ import ViewJobAction from './ViewJobAction'
 import RunJobAction from './RunJobAction'
 import DeleteJobAction from './DeleteJobAction'
 
-const Actions = ({ id, configurable, enabled, refetch }) => (
+const JobActions = ({ id, configurable, enabled, refetch }) => (
     <DropdownButton
         small
         component={
@@ -28,17 +28,17 @@ const Actions = ({ id, configurable, enabled, refetch }) => (
     </DropdownButton>
 )
 
-Actions.defaultProps = {
+JobActions.defaultProps = {
     configurable: false,
 }
 
 const { string, bool, func } = PropTypes
 
-Actions.propTypes = {
+JobActions.propTypes = {
     id: string.isRequired,
     refetch: func.isRequired,
     configurable: bool,
     enabled: bool,
 }
 
-export default Actions
+export default JobActions
