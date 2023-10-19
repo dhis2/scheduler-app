@@ -32,10 +32,13 @@ const JobTable = ({ jobs, refetch }) => (
                 </TableRow>
             ) : (
                 jobs.map((job) => {
-                    /**
-                     * This will fail if job.sequence.length does not exist. That should not happen,
-                     * so failing with an error when it does is appropriate.
-                     */
+                    const isValid = !!job?.sequence?.length
+
+                    if (!isValid) {
+                        return null
+                    }
+
+                    // A queue will have more than one item in .sequence
                     const isJob = job.sequence.length === 1
 
                     return (
