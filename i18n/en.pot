@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2023-08-29T11:34:50.926Z\n"
-"PO-Revision-Date: 2023-08-29T11:34:50.926Z\n"
+"POT-Creation-Date: 2023-10-19T13:34:50.859Z\n"
+"PO-Revision-Date: 2023-10-19T13:34:50.860Z\n"
 
 msgid "Something went wrong"
 msgstr "Something went wrong"
@@ -159,14 +159,14 @@ msgstr "Last run {{ lastRunFromNow }}."
 msgid "Last run status: {{ translatedStatus }}."
 msgstr "Last run status: {{ translatedStatus }}."
 
-msgid "Actions"
-msgstr "Actions"
-
 msgid "Delete"
 msgstr "Delete"
 
 msgid "Edit"
 msgstr "Edit"
+
+msgid "Actions"
+msgstr "Actions"
 
 msgid "Job name"
 msgstr "Job name"
@@ -283,14 +283,14 @@ msgstr "Include system jobs in list"
 msgid "New job"
 msgstr "New job"
 
+msgid "New queue"
+msgstr "New queue"
+
 msgid "System job: {{ name }}"
 msgstr "System job: {{ name }}"
 
 msgid "Back to all jobs"
 msgstr "Back to all jobs"
-
-msgid "New queue"
-msgstr "New queue"
 
 msgid ""
 "A queue is a collection of jobs that are executed in order, one after "
