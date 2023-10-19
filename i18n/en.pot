@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2023-10-19T13:34:50.859Z\n"
-"PO-Revision-Date: 2023-10-19T13:34:50.860Z\n"
+"POT-Creation-Date: 2023-10-19T13:43:33.118Z\n"
+"PO-Revision-Date: 2023-10-19T13:43:33.119Z\n"
 
 msgid "Something went wrong"
 msgstr "Something went wrong"
@@ -167,9 +167,6 @@ msgstr "Edit"
 
 msgid "Actions"
 msgstr "Actions"
-
-msgid "Job name"
-msgstr "Job name"
 
 msgid "Type"
 msgstr "Type"
