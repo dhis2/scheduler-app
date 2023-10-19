@@ -77,6 +77,9 @@ const JobList = () => {
                         <LinkButton to="/job/add">
                             {i18n.t('New job')}
                         </LinkButton>
+                        <LinkButton to="/queue/add">
+                            {i18n.t('New queue')}
+                        </LinkButton>
                     </div>
                 </div>
                 <JobTable jobs={jobs} refetch={refetch} />
