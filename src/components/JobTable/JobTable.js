@@ -11,8 +11,9 @@ import {
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 import JobTableRow from './JobTableRow'
+import QueueTableRow from './QueueTableRow'
 
-const JobTable = ({ jobs, refetch }) => (
+const JobTable = ({ jobsAndQueues, refetch }) => (
     <Table>
         <TableHead>
             <TableRowHead>
@@ -26,27 +27,36 @@ const JobTable = ({ jobs, refetch }) => (
             </TableRowHead>
         </TableHead>
         <TableBody>
-            {jobs.length === 0 ? (
+            {jobsAndQueues.length === 0 ? (
                 <TableRow>
                     <TableCell>{i18n.t('No jobs to display')}</TableCell>
                 </TableRow>
             ) : (
-                jobs.map((job) => {
-                    const isValid = !!job?.sequence?.length
+                jobsAndQueues.map((jobOrQueue) => {
+                    const isValid = !!jobOrQueue?.sequence?.length
 
                     if (!isValid) {
                         return null
                     }
 
                     // A queue will have more than one item in .sequence
-                    const isJob = job.sequence.length === 1
+                    const isJob = jobOrQueue.sequence.length === 1
+
+                    if (isJob) {
+                        return (
+                            <JobTableRow
+                                key={jobOrQueue.id}
+                                job={jobOrQueue}
+                                refetch={refetch}
+                            />
+                        )
+                    }
 
                     return (
-                        <JobTableRow
-                            key={job.id}
-                            job={job}
+                        <QueueTableRow
+                            key={jobOrQueue.id}
+                            queue={jobOrQueue}
                             refetch={refetch}
-                            isJob={isJob}
                         />
                     )
                 })
@@ -58,7 +68,7 @@ const JobTable = ({ jobs, refetch }) => (
 const { arrayOf, object, func } = PropTypes
 
 JobTable.propTypes = {
-    jobs: arrayOf(object).isRequired,
+    jobsAndQueues: arrayOf(object).isRequired,
     refetch: func.isRequired,
 }
 

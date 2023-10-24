@@ -3,8 +3,8 @@ import { shallow } from 'enzyme'
 import JobTable from './JobTable'
 
 describe('<JobTable>', () => {
-    it('renders without errors when there are jobs', () => {
-        const jobs = [
+    it('renders without errors when there are jobs or queues', () => {
+        const jobsAndQueues = [
             {
                 id: 'lnWRZN67iDU',
                 name: 'Job 1',
@@ -27,12 +27,12 @@ describe('<JobTable>', () => {
             },
         ]
 
-        shallow(<JobTable jobs={jobs} refetch={() => {}} />)
+        shallow(<JobTable jobsAndQueues={jobsAndQueues} refetch={() => {}} />)
     })
 
-    it('renders without errors when there are no jobs', () => {
-        const jobs = []
+    it('renders without errors when there are no jobs or queues', () => {
+        const jobsAndQueues = []
 
-        shallow(<JobTable jobs={jobs} refetch={() => {}} />)
+        shallow(<JobTable jobsAndQueues={jobsAndQueues} refetch={() => {}} />)
     })
 })

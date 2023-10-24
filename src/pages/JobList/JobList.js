@@ -32,7 +32,7 @@ const JobList = () => {
     }
 
     // Apply the current filter settings
-    const jobs = filterJobs({ jobFilter, showSystemJobs, jobs: data })
+    const jobsAndQueues = filterJobs({ jobFilter, showSystemJobs, jobs: data })
 
     return (
         <React.Fragment>
@@ -82,7 +82,7 @@ const JobList = () => {
                         </LinkButton>
                     </div>
                 </div>
-                <JobTable jobs={jobs} refetch={refetch} />
+                <JobTable jobsAndQueues={jobsAndQueues} refetch={refetch} />
             </Card>
         </React.Fragment>
     )
