@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { TableRow, TableCell } from '@dhis2/ui'
-import { jobTypesMap } from '../../services/server-translations'
+import i18n from '@dhis2/d2-i18n'
 import { ToggleJobSwitch } from '../Switches'
 import QueueActions from './QueueActions'
 import Status from './Status'
@@ -12,7 +12,6 @@ const QueueTableRow = ({
     queue: {
         id,
         name,
-        type,
         cronExpression,
         delay,
         status,
@@ -24,7 +23,7 @@ const QueueTableRow = ({
 }) => (
     <TableRow>
         <TableCell role="rowheader">{name}</TableCell>
-        <TableCell>{jobTypesMap[type]}</TableCell>
+        <TableCell>{i18n.t('Queue')}</TableCell>
         <TableCell>
             <Schedule cronExpression={cronExpression} delay={delay} />
         </TableCell>
