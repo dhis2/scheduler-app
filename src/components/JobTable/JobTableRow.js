@@ -23,6 +23,7 @@ const JobTableRow = ({
     refetch,
 }) => (
     <TableRow>
+        <TableCell />
         <TableCell role="rowheader">{name}</TableCell>
         <TableCell>{jobTypesMap[type]}</TableCell>
         <TableCell>

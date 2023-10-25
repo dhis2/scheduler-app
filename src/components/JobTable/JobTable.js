@@ -17,6 +17,7 @@ const JobTable = ({ jobsAndQueues, refetch }) => (
     <Table>
         <TableHead>
             <TableRowHead>
+                <TableCellHead />
                 <TableCellHead>{i18n.t('Name')}</TableCellHead>
                 <TableCellHead>{i18n.t('Type')}</TableCellHead>
                 <TableCellHead>{i18n.t('Schedule')}</TableCellHead>

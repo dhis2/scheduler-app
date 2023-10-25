@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2023-10-19T13:43:33.118Z\n"
-"PO-Revision-Date: 2023-10-19T13:43:33.119Z\n"
+"POT-Creation-Date: 2023-10-24T13:23:55.108Z\n"
+"PO-Revision-Date: 2023-10-24T13:23:55.109Z\n"
 
 msgid "Something went wrong"
 msgstr "Something went wrong"
@@ -188,6 +188,9 @@ msgstr "No jobs to display"
 
 msgid "Not scheduled"
 msgstr "Not scheduled"
+
+msgid "Queue"
+msgstr "Queue"
 
 msgid "Run manually"
 msgstr "Run manually"
