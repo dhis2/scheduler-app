@@ -4,13 +4,17 @@ import { useDataMutation } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import { Switch } from '@dhis2/ui'
 
-/* istanbul ignore next */
 const mutation = {
     resource: 'jobConfigurations',
     id: ({ id }) => id,
-    type: 'update',
-    partial: true,
-    data: ({ enabled }) => ({ enabled }),
+    type: 'json-patch',
+    data: ({ enabled }) => [
+        {
+            op: 'replace',
+            path: '/enabled',
+            value: enabled,
+        },
+    ],
 }
 
 const ToggleJobSwitch = ({ id, checked, disabled, refetch }) => {
