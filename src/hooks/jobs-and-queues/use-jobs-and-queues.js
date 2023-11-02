@@ -21,9 +21,9 @@ const useJobsAndQueues = () => {
             return { ...fetch, error, data: undefined }
         }
 
-        const data = jobsAndQueues.map((schedule) => {
-            const id = schedule.sequence?.[0]?.id
-            return { ...schedule, id }
+        const data = jobsAndQueues.map((jobOrQueue) => {
+            const id = jobOrQueue.sequence?.[0]?.id
+            return { ...jobOrQueue, id }
         })
 
         return { ...fetch, data }

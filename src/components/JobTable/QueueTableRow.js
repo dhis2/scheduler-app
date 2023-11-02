@@ -19,7 +19,6 @@ const QueueTableRow = ({
         id,
         name,
         cronExpression,
-        delay,
         status,
         nextExecutionTime,
         enabled,
@@ -47,7 +46,7 @@ const QueueTableRow = ({
                 <TableCell role="rowheader">{name}</TableCell>
                 <TableCell>{i18n.t('Queue')}</TableCell>
                 <TableCell>
-                    <Schedule cronExpression={cronExpression} delay={delay} />
+                    <Schedule cronExpression={cronExpression} />
                 </TableCell>
                 <TableCell>
                     <NextRun
@@ -79,7 +78,7 @@ const QueueTableRow = ({
     )
 }
 
-const { shape, string, bool, number, func, arrayOf, object } = PropTypes
+const { shape, string, bool, func, arrayOf, object } = PropTypes
 
 QueueTableRow.propTypes = {
     queue: shape({
@@ -87,9 +86,7 @@ QueueTableRow.propTypes = {
         enabled: bool.isRequired,
         id: string.isRequired,
         status: string.isRequired,
-        type: string.isRequired,
         cronExpression: string,
-        delay: number,
         nextExecutionTime: string,
         sequence: arrayOf(object).isRequired,
     }).isRequired,
