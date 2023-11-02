@@ -7,7 +7,7 @@ import { JobDetails } from '../../components/JobDetails'
 import styles from './JobEdit.module.css'
 
 const infoLink =
-    'https://docs.dhis2.org/en/use/user-guides/dhis-core-version-236/maintaining-the-system/scheduling.html'
+    'https://docs.dhis2.org/en/use/user-guides/dhis-core-version-master/maintaining-the-system/scheduling.html'
 
 const JobEdit = ({ job }) => {
     const { name, created, lastExecutedStatus, lastExecuted } = job
@@ -36,7 +36,7 @@ const JobEdit = ({ job }) => {
                         <span className={styles.cardHeaderInfo}>
                             <IconInfo16 />
                         </span>
-                        {i18n.t('About job configuration')}
+                        {i18n.t('About the scheduler')}
                     </a>
                 </header>
                 <div className={styles.jobDetails}>

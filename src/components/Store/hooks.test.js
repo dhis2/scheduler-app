@@ -1,22 +1,22 @@
 import React from 'react'
 import { renderHook } from '@testing-library/react-hooks'
-import { useJobFilter, useShowSystemJobs } from './hooks'
+import { useJobAndQueueFilter, useShowSystemJobs } from './hooks'
 import StoreContext from './StoreContext'
 
-describe('useJobFilter', () => {
-    it('should return the jobFilter part of the store', () => {
-        const jobFilter = 'jobFilter'
+describe('useJobAndQueueFilter', () => {
+    it('should return the jobAndQueueFilter part of the store', () => {
+        const jobAndQueueFilter = 'jobAndQueueFilter'
         const store = {
-            jobFilter,
+            jobAndQueueFilter,
         }
         const wrapper = ({ children }) => (
             <StoreContext.Provider value={store}>
                 {children}
             </StoreContext.Provider>
         )
-        const { result } = renderHook(() => useJobFilter(), { wrapper })
+        const { result } = renderHook(() => useJobAndQueueFilter(), { wrapper })
 
-        expect(result.current).toBe(jobFilter)
+        expect(result.current).toBe(jobAndQueueFilter)
     })
 })
 

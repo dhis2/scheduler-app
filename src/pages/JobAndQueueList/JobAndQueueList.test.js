@@ -1,22 +1,22 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import { useJobsAndQueues } from '../../hooks/jobs-and-queues'
-import JobList from './JobList'
+import JobAndQueueList from './JobAndQueueList'
 
 jest.mock('../../hooks/jobs-and-queues', () => ({
     useJobsAndQueues: jest.fn(),
 }))
 
 jest.mock('../../components/Store', () => ({
-    useJobFilter: jest.fn(() => ['', () => {}]),
+    useJobAndQueueFilter: jest.fn(() => ['', () => {}]),
     useShowSystemJobs: jest.fn(() => [false, () => {}]),
 }))
 
-describe('<JobList>', () => {
+describe('<JobAndQueueList>', () => {
     it('renders a spinner when loading the jobs and queues', () => {
         useJobsAndQueues.mockImplementation(() => ({ loading: true }))
 
-        const wrapper = shallow(<JobList />)
+        const wrapper = shallow(<JobAndQueueList />)
         const spinner = wrapper.find('Spinner')
 
         expect(spinner).toHaveLength(1)
@@ -28,7 +28,7 @@ describe('<JobList>', () => {
             error: new Error('Something went wrong'),
         }))
 
-        const wrapper = shallow(<JobList />)
+        const wrapper = shallow(<JobAndQueueList />)
         const noticebox = wrapper.find('NoticeBox')
 
         expect(noticebox).toHaveLength(1)
@@ -47,7 +47,7 @@ describe('<JobList>', () => {
             refetch: () => {},
         }))
 
-        const wrapper = shallow(<JobList />)
+        const wrapper = shallow(<JobAndQueueList />)
         const jobtable = wrapper.find('JobTable')
 
         expect(jobtable).toHaveLength(1)

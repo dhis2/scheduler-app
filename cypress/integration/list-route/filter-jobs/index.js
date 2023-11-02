@@ -36,7 +36,7 @@ Given('the user enables the include-system-jobs-in-list toggle', () => {
 })
 
 When('the user enters a filter string', () => {
-    cy.findByRole('searchbox', { name: 'Filter jobs' }).type('1')
+    cy.findByRole('searchbox', { name: 'Filter by name' }).type('1')
 })
 
 Then('only user jobs that match the filter will be shown', () => {

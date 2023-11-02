@@ -2,14 +2,13 @@ import { useContext } from 'react'
 import StoreContext from './StoreContext'
 
 /**
- * The state for the job filter and showing system
- * jobs is used in the job list, but kept in the
- * store since it has to persist after a refetch.
+ * These hooks are used in the job and queue list, but are connected
+ * to the store since they have to persist after a refetch.
  */
 
-export const useJobFilter = () => {
+export const useJobAndQueueFilter = () => {
     const store = useContext(StoreContext)
-    return store.jobFilter
+    return store.jobAndQueueFilter
 }
 
 export const useShowSystemJobs = () => {

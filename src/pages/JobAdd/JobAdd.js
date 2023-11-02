@@ -5,7 +5,7 @@ import { JobAddFormContainer } from '../../components/Forms'
 import styles from './JobAdd.module.css'
 
 const infoLink =
-    'https://docs.dhis2.org/en/use/user-guides/dhis-core-version-236/maintaining-the-system/scheduling.html'
+    'https://docs.dhis2.org/en/use/user-guides/dhis-core-version-master/maintaining-the-system/scheduling.html'
 
 const JobAdd = () => {
     return (
@@ -27,7 +27,7 @@ const JobAdd = () => {
                         <span className={styles.cardHeaderInfo}>
                             <IconInfo16 />
                         </span>
-                        {i18n.t('About job configuration')}
+                        {i18n.t('About the scheduler')}
                     </a>
                 </header>
                 <JobAddFormContainer />

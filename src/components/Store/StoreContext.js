@@ -1,7 +1,7 @@
 import { createContext } from 'react'
 
 const StoreContext = createContext({
-    jobFilter: '',
+    jobAndQueueFilter: '',
     showSystemJobs: false,
 })
 

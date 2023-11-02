@@ -16,7 +16,7 @@ import { jobTypesMap } from '../../services/server-translations'
 import styles from './JobView.module.css'
 
 const infoLink =
-    'https://docs.dhis2.org/en/use/user-guides/dhis-core-version-236/maintaining-the-system/scheduling.html'
+    'https://docs.dhis2.org/en/use/user-guides/dhis-core-version-master/maintaining-the-system/scheduling.html'
 
 const JobView = ({ job }) => {
     const {
@@ -52,7 +52,7 @@ const JobView = ({ job }) => {
                         <span className={styles.cardHeaderInfo}>
                             <IconInfo16 />
                         </span>
-                        {i18n.t('About job configuration')}
+                        {i18n.t('About the scheduler')}
                     </a>
                 </header>
                 <div className={styles.jobDetails}>
