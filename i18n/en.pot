@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2023-10-24T13:23:55.108Z\n"
-"PO-Revision-Date: 2023-10-24T13:23:55.109Z\n"
+"POT-Creation-Date: 2023-11-08T08:39:40.580Z\n"
+"PO-Revision-Date: 2023-11-08T08:39:40.580Z\n"
 
 msgid "Something went wrong"
 msgstr "Something went wrong"
@@ -262,20 +262,24 @@ msgstr "New Job"
 msgid "Configuration"
 msgstr "Configuration"
 
-msgid "About job configuration"
-msgstr "About job configuration"
+msgid "About the scheduler"
+msgstr "About the scheduler"
 
-msgid "Job: {{ name }}"
-msgstr "Job: {{ name }}"
+msgid "Could not load jobs and queues"
+msgstr "Could not load jobs and queues"
 
-msgid "Could not load jobs"
-msgstr "Could not load jobs"
-
-msgid "Something went wrong whilst loading the jobs. Try refreshing the page."
-msgstr "Something went wrong whilst loading the jobs. Try refreshing the page."
+msgid ""
+"Something went wrong whilst loading the jobs and queues. Try refreshing the "
+"page."
+msgstr ""
+"Something went wrong whilst loading the jobs and queues. Try refreshing the "
+"page."
 
 msgid "Scheduled jobs"
 msgstr "Scheduled jobs"
+
+msgid "Filter by name"
+msgstr "Filter by name"
 
 msgid "Include system jobs in list"
 msgstr "Include system jobs in list"
@@ -285,6 +289,9 @@ msgstr "New job"
 
 msgid "New queue"
 msgstr "New queue"
+
+msgid "Job: {{ name }}"
+msgstr "Job: {{ name }}"
 
 msgid "System job: {{ name }}"
 msgstr "System job: {{ name }}"

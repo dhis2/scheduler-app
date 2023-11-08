@@ -12,7 +12,7 @@ import QueueActions from './QueueActions'
 import Status from './Status'
 import NextRun from './NextRun'
 import Schedule from './Schedule'
-import QueuedJobTableRow from './QueuedJobTableRow'
+import ExpandableRow from './ExpandableRow'
 
 const QueueTableRow = ({
     queue: {
@@ -70,8 +70,13 @@ const QueueTableRow = ({
                 </TableCell>
             </TableRow>
             {showJobs
-                ? sequence.map((job) => (
-                      <QueuedJobTableRow key={job.id} job={job} />
+                ? sequence.map((job, index) => (
+                      <ExpandableRow
+                          key={job.id}
+                          job={job}
+                          isFirst={index === 0}
+                          isLast={index === sequence.length - 1}
+                      />
                   ))
                 : null}
         </>

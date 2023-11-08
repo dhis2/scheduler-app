@@ -1,0 +1,11 @@
+.row {
+    background: var(--colors-grey300);
+}
+
+.first {
+    box-shadow: inset 0 5px 4px -4px var(--colors-grey600);
+}
+
+.last {
+    box-shadow: inset 0 -5px 4px -4px var(--colors-grey600);
+}
