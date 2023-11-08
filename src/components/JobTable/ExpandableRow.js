@@ -14,9 +14,11 @@ const ExpandableRow = ({ job, isFirst, isLast }) => {
             })}
             suppressZebraStriping
         >
-            <TableCell />
-            <TableCell>{job.name}</TableCell>
-            <TableCell colSpan="6">{jobTypesMap[job.type]}</TableCell>
+            <TableCell className={styles.cell} />
+            <TableCell className={styles.cell}>{job.name}</TableCell>
+            <TableCell className={styles.cell} colSpan="6">
+                {jobTypesMap[job.type]}
+            </TableCell>
         </TableRow>
     )
 }
