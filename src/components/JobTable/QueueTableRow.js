@@ -13,6 +13,7 @@ import Status from './Status'
 import NextRun from './NextRun'
 import Schedule from './Schedule'
 import ExpandableRow from './ExpandableRow'
+import styles from './QueueTableRow.module.css'
 
 const QueueTableRow = ({
     queue: {
@@ -29,17 +30,12 @@ const QueueTableRow = ({
 }) => {
     const [showJobs, setShowJobs] = useState(false)
     const handleClick = () => setShowJobs((prev) => !prev)
-    const buttonStyle = {
-        background: 'none',
-        border: 'none',
-        cursor: 'pointer',
-    }
 
     return (
         <>
             <TableRow>
                 <TableCell>
-                    <button style={buttonStyle} onClick={handleClick}>
+                    <button className={styles.button} onClick={handleClick}>
                         {showJobs ? <IconChevronUp24 /> : <IconChevronDown24 />}
                     </button>
                 </TableCell>
