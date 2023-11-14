@@ -70,13 +70,8 @@ const QueueTableRow = ({
                 </TableCell>
             </TableRow>
             {showJobs
-                ? sequence.map((job, index) => (
-                      <ExpandableRow
-                          key={job.id}
-                          job={job}
-                          isFirst={index === 0}
-                          isLast={index === sequence.length - 1}
-                      />
+                ? sequence.map((job) => (
+                      <ExpandableRow key={job.id} job={job} />
                   ))
                 : null}
         </>
