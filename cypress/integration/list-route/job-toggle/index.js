@@ -24,7 +24,10 @@ Given('the job toggle switch is off', () => {
 })
 
 When('the user clicks the enabled job toggle switch', () => {
-    cy.intercept({ pathname: /lnWRZN67iDU$/ }, { statusCode: 204 })
+    cy.intercept(
+        { pathname: /jobConfigurations\/lnWRZN67iDU\/disable$/ },
+        { statusCode: 204 }
+    )
     cy.intercept(
         { pathname: /scheduler$/ },
         { fixture: 'list-route/disabled-user-job' }
@@ -34,7 +37,10 @@ When('the user clicks the enabled job toggle switch', () => {
 })
 
 When('the user clicks the disabled job toggle switch', () => {
-    cy.intercept({ pathname: /lnWRZN67iDU$/ }, { statusCode: 204 })
+    cy.intercept(
+        { pathname: /jobConfigurations\/lnWRZN67iDU\/enable$/ },
+        { statusCode: 204 }
+    )
     cy.intercept(
         { pathname: /scheduler$/ },
         { fixture: 'list-route/enabled-user-job' }

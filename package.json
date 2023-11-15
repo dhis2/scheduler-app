@@ -52,7 +52,8 @@
         "stylelint": "^13.13.1",
         "stylelint-config-prettier": "^8.0.2",
         "stylelint-config-standard": "^22.0.0",
-        "stylelint-no-unsupported-browser-features": "^5.0.1"
+        "stylelint-no-unsupported-browser-features": "^5.0.1",
+        "wait-for-expect": "^3.0.2"
     },
     "jest": {
         "setupFilesAfterEnv": [

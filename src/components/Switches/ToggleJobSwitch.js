@@ -1,25 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { useDataMutation } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import { Switch } from '@dhis2/ui'
 
-const mutation = {
-    resource: 'jobConfigurations',
-    id: ({ id }) => id,
-    type: 'json-patch',
-    data: ({ enabled }) => [
-        {
-            op: 'replace',
-            path: '/enabled',
-            value: enabled,
-        },
-    ],
-}
-
 const ToggleJobSwitch = ({ id, checked, disabled, refetch }) => {
-    const [toggleJob, { loading }] = useDataMutation(mutation)
-    const enabled = !checked
+    const [disableQuery] = useState({
+        resource: `jobConfigurations/${id}/disable`,
+        type: 'create',
+    })
+    const [enableQuery] = useState({
+        resource: `jobConfigurations/${id}/enable`,
+        type: 'create',
+    })
+    const [disableJob, disableMutation] = useDataMutation(disableQuery)
+    const [enableJob, enableMutation] = useDataMutation(enableQuery)
+
+    const toggleJob = checked ? disableJob : enableJob
+    const loading = disableMutation.loading || enableMutation.loading
 
     return (
         <Switch
@@ -27,7 +25,7 @@ const ToggleJobSwitch = ({ id, checked, disabled, refetch }) => {
             disabled={disabled || loading}
             checked={checked}
             onChange={() => {
-                toggleJob({ id, enabled }).then(refetch)
+                toggleJob().then(refetch)
             }}
             ariaLabel={i18n.t('Toggle job')}
         />
