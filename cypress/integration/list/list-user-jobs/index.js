@@ -5,10 +5,7 @@ Given('there are no user jobs', () => {
 })
 
 Given('some user jobs exist', () => {
-    cy.intercept(
-        { pathname: /scheduler$/ },
-        { fixture: 'list/some-user-jobs' }
-    )
+    cy.intercept({ pathname: /scheduler$/ }, { fixture: 'list/some-user-jobs' })
 })
 
 Given('the user navigated to the job list page', () => {
