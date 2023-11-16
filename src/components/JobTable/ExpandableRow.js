@@ -8,7 +8,9 @@ const ExpandableRow = ({ job }) => {
     return (
         <TableRow className={styles.row} suppressZebraStriping>
             <TableCell />
-            <TableCell className={styles.indent}>{job.name}</TableCell>
+            <TableCell role="rowheader" className={styles.indent}>
+                {job.name}
+            </TableCell>
             <TableCell className={styles.indent} colSpan="6">
                 {jobTypesMap[job.type]}
             </TableCell>

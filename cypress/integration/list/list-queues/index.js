@@ -12,3 +12,12 @@ Given('the user navigated to the list page', () => {
 Then('the queue is rendered as tabular data', () => {
     cy.findByRole('rowheader', { name: 'Queue' }).should('exist')
 })
+
+Given('the user clicks the expand button', () => {
+    cy.findByRole('button', { name: 'Show jobs' }).click()
+})
+
+Then('the queued jobs are shown', () => {
+    cy.findByRole('rowheader', { name: 'Job 1' }).should('exist')
+    cy.findByRole('rowheader', { name: 'Job 2' }).should('exist')
+})

@@ -35,7 +35,13 @@ const QueueTableRow = ({
         <>
             <TableRow>
                 <TableCell>
-                    <button className={styles.button} onClick={handleClick}>
+                    <button
+                        className={styles.button}
+                        onClick={handleClick}
+                        title={
+                            showJobs ? i18n.t('Hide jobs') : i18n.t('Show jobs')
+                        }
+                    >
                         {showJobs ? <IconChevronUp24 /> : <IconChevronDown24 />}
                     </button>
                 </TableCell>
