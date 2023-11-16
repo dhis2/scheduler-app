@@ -2,12 +2,12 @@ import React from 'react'
 import waitForExpect from 'wait-for-expect'
 import { shallow, mount } from 'enzyme'
 import { CustomDataProvider } from '@dhis2/app-runtime'
-import ToggleJobSwitch from './ToggleJobSwitch'
+import JobSwitch from './JobSwitch'
 
-describe('<ToggleJobSwitch>', () => {
+describe('<JobSwitch>', () => {
     it('renders without errors', () => {
         shallow(
-            <ToggleJobSwitch
+            <JobSwitch
                 id="1"
                 checked={true}
                 disabled={false}
@@ -27,7 +27,7 @@ describe('<ToggleJobSwitch>', () => {
             refetch: refetchSpy,
         }
         const data = { 'jobConfigurations/id/enable': answerSpy }
-        const wrapper = mount(<ToggleJobSwitch {...props} />, {
+        const wrapper = mount(<JobSwitch {...props} />, {
             wrappingComponent: CustomDataProvider,
             wrappingComponentProps: { data },
         })
@@ -58,7 +58,7 @@ describe('<ToggleJobSwitch>', () => {
             refetch: refetchSpy,
         }
         const data = { 'jobConfigurations/id/disable': answerSpy }
-        const wrapper = mount(<ToggleJobSwitch {...props} />, {
+        const wrapper = mount(<JobSwitch {...props} />, {
             wrappingComponent: CustomDataProvider,
             wrappingComponentProps: { data },
         })

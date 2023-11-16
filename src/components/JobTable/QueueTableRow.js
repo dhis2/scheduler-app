@@ -7,7 +7,7 @@ import {
     IconChevronUp24,
 } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
-import { ToggleJobSwitch } from '../Switches'
+import { JobSwitch } from '../Switches'
 import QueueActions from './QueueActions'
 import Status from './Status'
 import NextRun from './NextRun'
@@ -60,7 +60,8 @@ const QueueTableRow = ({
                     <Status status={status} />
                 </TableCell>
                 <TableCell>
-                    <ToggleJobSwitch
+                    {/* A queue can be toggled by toggling the first job in the queue */}
+                    <JobSwitch
                         id={id}
                         checked={enabled}
                         disabled={!configurable}

@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { TableRow, TableCell } from '@dhis2/ui'
 import { jobTypesMap } from '../../services/server-translations'
-import { ToggleJobSwitch } from '../Switches'
+import { JobSwitch } from '../Switches'
 import JobActions from './JobActions'
 import Status from './Status'
 import NextRun from './NextRun'
@@ -36,7 +36,7 @@ const JobTableRow = ({
             <Status status={status} />
         </TableCell>
         <TableCell>
-            <ToggleJobSwitch
+            <JobSwitch
                 id={id}
                 checked={enabled}
                 disabled={!configurable}

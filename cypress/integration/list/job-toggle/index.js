@@ -20,7 +20,7 @@ Given('the user navigated to the job list page', () => {
 })
 
 Given('the job toggle switch is off', () => {
-    cy.findByRole('switch', { name: 'Toggle job' }).should('not.be.checked')
+    cy.findByRole('switch', { name: 'Enable' }).should('not.be.checked')
 })
 
 When('the user clicks the enabled job toggle switch', () => {
@@ -33,7 +33,7 @@ When('the user clicks the enabled job toggle switch', () => {
         { fixture: 'list/disabled-user-job' }
     )
 
-    cy.findByRole('switch', { name: 'Toggle job' }).click()
+    cy.findByRole('switch', { name: 'Disable' }).click()
 })
 
 When('the user clicks the disabled job toggle switch', () => {
@@ -46,9 +46,9 @@ When('the user clicks the disabled job toggle switch', () => {
         { fixture: 'list/enabled-user-job' }
     )
 
-    cy.findByRole('switch', { name: 'Toggle job' }).click()
+    cy.findByRole('switch', { name: 'Enable' }).click()
 })
 
 Then('the job toggle switch is on', () => {
-    cy.findByRole('switch', { name: 'Toggle job' }).should('be.checked')
+    cy.findByRole('switch', { name: 'Disable' }).should('be.checked')
 })

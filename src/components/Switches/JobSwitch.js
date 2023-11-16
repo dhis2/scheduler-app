@@ -4,7 +4,7 @@ import { useDataMutation } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import { Switch } from '@dhis2/ui'
 
-const ToggleJobSwitch = ({ id, checked, disabled, refetch }) => {
+const JobSwitch = ({ id, checked, disabled, refetch }) => {
     const [disableQuery] = useState({
         resource: `jobConfigurations/${id}/disable`,
         type: 'create',
@@ -27,18 +27,18 @@ const ToggleJobSwitch = ({ id, checked, disabled, refetch }) => {
             onChange={() => {
                 toggleJob().then(refetch)
             }}
-            ariaLabel={i18n.t('Toggle job')}
+            ariaLabel={checked ? i18n.t('Disable') : i18n.t('Enable')}
         />
     )
 }
 
 const { bool, string, func } = PropTypes
 
-ToggleJobSwitch.propTypes = {
+JobSwitch.propTypes = {
     checked: bool.isRequired,
     disabled: bool.isRequired,
     id: string.isRequired,
     refetch: func.isRequired,
 }
 
-export default ToggleJobSwitch
+export default JobSwitch
