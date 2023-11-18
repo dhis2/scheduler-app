@@ -36,7 +36,7 @@ msgid "Delete job"
 msgstr "Smazat úlohu"
 
 msgid "Delete queue"
-msgstr ""
+msgstr "Smazat frontu"
 
 msgid "Please select data exchange ids."
 msgstr "Vyberte id pro výměnu dat."
@@ -102,7 +102,7 @@ msgid "No options available"
 msgstr "K dispozici nejsou žádné možnosti"
 
 msgid "Queues can't be named \"Add\" or \"add\""
-msgstr ""
+msgstr "Fronty nelze pojmenovat \"Add\" nebo  \"add\""
 
 msgid "Name"
 msgstr "Název"
@@ -120,7 +120,7 @@ msgid "Something went wrong whilst fetching the queueable jobs"
 msgstr "Při načítání úloh zařazených do fronty se něco pokazilo"
 
 msgid "Job queue"
-msgstr ""
+msgstr "Fronta úloh"
 
 msgid "Filter jobs"
 msgstr "Filtrovat úlohy"
@@ -129,7 +129,7 @@ msgid "Available jobs"
 msgstr "Dostupné úlohy"
 
 msgid "Jobs in this queue"
-msgstr ""
+msgstr "Úlohy v této frontě"
 
 msgid "There was a problem fetching the required job type"
 msgstr "Při načítání požadovaného typu úlohy došlo k problému"
@@ -144,13 +144,13 @@ msgid "Cancel"
 msgstr "Zrušit"
 
 msgid "Something went wrong whilst updating your job"
-msgstr ""
+msgstr "Při aktualizaci vaší úlohy se něco pokazilo"
 
 msgid "Something went wrong whilst creating your queue"
-msgstr ""
+msgstr "Při vytváření fronty se něco pokazilo"
 
 msgid "Something went wrong whilst updating your queue"
-msgstr ""
+msgstr "Při aktualizaci vaší fronty se něco pokazilo"
 
 msgid "Job details"
 msgstr "Podrobnosti o práci"
@@ -231,7 +231,7 @@ msgid "Are you sure you want to delete this job?"
 msgstr "Opravdu chcete tuto úlohu smazat?"
 
 msgid "Are you sure you want to delete this queue?"
-msgstr ""
+msgstr "Opravdu chcete smazat tuto frontu?"
 
 msgid "Are you sure you want to discard this form?"
 msgstr "Opravdu chcete tento formulář zahodit?"
@@ -295,26 +295,30 @@ msgid "Back to all jobs"
 msgstr "Zpět ke všem jobům"
 
 msgid "New queue"
-msgstr ""
+msgstr "Nová fronta"
 
 msgid ""
 "A queue is a collection of jobs that are executed in order, one after "
 "another as they finish."
 msgstr ""
+"Fronta je kolekce úloh, které jsou prováděny v pořadí, jedna po druhé, jak "
+"jsou dokončeny."
 
 msgid "Could not load requested queue"
-msgstr ""
+msgstr "Nelze načíst požadovanou frontu"
 
 msgid ""
 "Something went wrong whilst loading the requested queue. Make sure it has "
 "not been deleted and try refreshing the page."
 msgstr ""
+"Při načítání požadované fronty se něco pokazilo. Ujistěte se, že nebyla "
+"smazána, a zkuste stránku obnovit."
 
 msgid "Queue: {{ name }}"
-msgstr ""
+msgstr "Fronta: {{ name }}"
 
 msgid "Something went wrong but no error message was provided"
-msgstr ""
+msgstr "Něco se pokazilo, ale nezobrazila se žádná chybová zpráva"
 
 msgid "Completeness"
 msgstr "Úplnost"
