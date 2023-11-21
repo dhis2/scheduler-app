@@ -1,7 +1,10 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
-Given('some user jobs exist', () => {
-    cy.intercept({ pathname: /scheduler$/ }, { fixture: 'list/some-user-jobs' })
+Given('some user jobs and queues exist', () => {
+    cy.intercept(
+        { pathname: /scheduler$/ },
+        { fixture: 'list/some-user-jobs-and-queues' }
+    )
 })
 
 Given('some user and system jobs exist', () => {
@@ -36,8 +39,12 @@ When('the user enters a filter string', () => {
     cy.findByRole('searchbox', { name: 'Filter by name' }).type('1')
 })
 
-Then('only user jobs that match the filter will be shown', () => {
-    cy.findByRole('rowheader', { name: 'Job 1' }).should('exist')
+Then('only user jobs and queues that match the filter will be shown', () => {
+    const expected = ['Job 1', 'Queue 1']
+
+    expected.forEach((name) => {
+        cy.findByRole('rowheader', { name }).should('exist')
+    })
 })
 
 Then('only jobs that match the filter will be shown', () => {
