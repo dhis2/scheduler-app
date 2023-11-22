@@ -1,0 +1,27 @@
+[
+    {
+        "name": "Queue 1",
+        "type": "Sequence",
+        "cronExpression": "0 0 3 ? * MON",
+        "nextExecutionTime": "2023-11-20T03:00:00.000",
+        "status": "SCHEDULED",
+        "enabled": true,
+        "configurable": true,
+        "sequence": [
+            {
+                "id": "uvUPBToQHD9",
+                "name": "Job 1",
+                "type": "DATA_INTEGRITY",
+                "cronExpression": "0 0 3 ? * MON",
+                "nextExecutionTime": "2023-11-20T03:00:00.000",
+                "status": "SCHEDULED"
+            },
+            {
+                "id": "PPgVeqiSXpz",
+                "name": "Job 2",
+                "type": "DISABLE_INACTIVE_USERS",
+                "status": "SCHEDULED"
+            }
+        ]
+    }
+]
