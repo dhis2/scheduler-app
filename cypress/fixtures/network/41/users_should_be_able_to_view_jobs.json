@@ -97,7 +97,7 @@
         }
     },
     {
-        "path": "/api/41/validationRuleGroups?paging=false",
+        "path": "/api/41/predictors?paging=false",
         "featureName": "Users should be able to view jobs",
         "static": false,
         "count": 1,
@@ -113,8 +113,8 @@
             "sec-fetch-mode": "cors"
         },
         "statusCode": 200,
-        "responseBody": "{\"validationRuleGroups\":[{\"displayName\":\"ANC\",\"id\":\"UP1lctvalPn\"},{\"displayName\":\"Commodities\",\"id\":\"xcpl667ccfF\"},{\"displayName\":\"Critical event\",\"id\":\"xWtt9c443Lt\"},{\"displayName\":\"District stock\",\"id\":\"mEtdbIDDhix\"},{\"displayName\":\"Epidemic disease outbreak\",\"id\":\"y2yQIm79VTW\"},{\"displayName\":\"Facility Stock\",\"id\":\"SqyI8HKqI4g\"},{\"displayName\":\"Immunisation\",\"id\":\"UiOSY1iIdub\"},{\"displayName\":\"Infectious disease outbreak\",\"id\":\"WUZXEFdn1PX\"},{\"displayName\":\"Malaria\",\"id\":\"zlaSof6qLqF\"},{\"displayName\":\"Population\",\"id\":\"D3bItmtBpsW\"},{\"displayName\":\"TB\",\"id\":\"IMF6p1MqoHl\"},{\"displayName\":\"Testing\",\"id\":\"nMDkAJXsmlR\"}]}",
-        "responseSize": 628,
+        "responseBody": "{\"predictors\":[{\"displayName\":\"Malaria Outbreak Threshold\",\"id\":\"tEK1OEqS4O1\"}]}",
+        "responseSize": 80,
         "responseHeaders": {
             "server": "nginx/1.23.0",
             "content-type": "application/json;charset=UTF-8",
@@ -196,7 +196,7 @@
         }
     },
     {
-        "path": "/api/41/predictors?paging=false",
+        "path": "/api/41/validationRuleGroups?paging=false",
         "featureName": "Users should be able to view jobs",
         "static": false,
         "count": 1,
@@ -212,8 +212,8 @@
             "sec-fetch-mode": "cors"
         },
         "statusCode": 200,
-        "responseBody": "{\"predictors\":[{\"displayName\":\"Malaria Outbreak Threshold\",\"id\":\"tEK1OEqS4O1\"}]}",
-        "responseSize": 80,
+        "responseBody": "{\"validationRuleGroups\":[{\"displayName\":\"ANC\",\"id\":\"UP1lctvalPn\"},{\"displayName\":\"Commodities\",\"id\":\"xcpl667ccfF\"},{\"displayName\":\"Critical event\",\"id\":\"xWtt9c443Lt\"},{\"displayName\":\"District stock\",\"id\":\"mEtdbIDDhix\"},{\"displayName\":\"Epidemic disease outbreak\",\"id\":\"y2yQIm79VTW\"},{\"displayName\":\"Facility Stock\",\"id\":\"SqyI8HKqI4g\"},{\"displayName\":\"Immunisation\",\"id\":\"UiOSY1iIdub\"},{\"displayName\":\"Infectious disease outbreak\",\"id\":\"WUZXEFdn1PX\"},{\"displayName\":\"Malaria\",\"id\":\"zlaSof6qLqF\"},{\"displayName\":\"Population\",\"id\":\"D3bItmtBpsW\"},{\"displayName\":\"TB\",\"id\":\"IMF6p1MqoHl\"},{\"displayName\":\"Testing\",\"id\":\"nMDkAJXsmlR\"}]}",
+        "responseSize": 628,
         "responseHeaders": {
             "server": "nginx/1.23.0",
             "content-type": "application/json;charset=UTF-8",

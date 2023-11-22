@@ -1,8 +1,8 @@
 {
-    "count": 969,
-    "totalResponseSize": 1032886,
-    "duplicates": 856,
-    "nonDeterministicResponses": 98,
+    "count": 1022,
+    "totalResponseSize": 1033087,
+    "duplicates": 904,
+    "nonDeterministicResponses": 104,
     "apiVersion": "41",
     "fixtureFiles": [
         "static_resources.json",
@@ -24,6 +24,8 @@
         "all_user_defined_jobs_should_be_listed.json",
         "users_should_be_able_to_navigate_to_the_new_job_route.json",
         "users_should_be_able_to_navigate_to_the_new_queue_route.json",
+        "queue_actions.json",
+        "queues_can_be_enabled_and_disabled.json",
         "system_job_actions.json",
         "user_job_actions.json",
         "users_that_are_not_authorized_should_be_denied_access.json",
