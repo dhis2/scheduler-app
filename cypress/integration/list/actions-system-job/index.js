@@ -3,7 +3,7 @@ import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 Given('a single system job exists', () => {
     cy.intercept(
         { pathname: /scheduler$/ },
-        { fixture: 'list/single-system-job' }
+        { fixture: 'list/single-system-job-scheduler' }
     )
 
     cy.intercept(

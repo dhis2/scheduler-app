@@ -1,11 +1,17 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given('a disabled queue exists', () => {
-    cy.intercept({ pathname: /scheduler$/ }, { fixture: 'list/disabled-queue' })
+    cy.intercept(
+        { pathname: /scheduler$/ },
+        { fixture: 'list/disabled-queue-scheduler' }
+    )
 })
 
 Given('an enabled queue exists', () => {
-    cy.intercept({ pathname: /scheduler$/ }, { fixture: 'list/enabled-queue' })
+    cy.intercept(
+        { pathname: /scheduler$/ },
+        { fixture: 'list/enabled-queue-scheduler' }
+    )
 })
 
 Given('the user navigated to the list page', () => {
@@ -22,7 +28,10 @@ When('the user clicks the enabled queue toggle switch', () => {
         { pathname: /jobConfigurations\/lnWRZN67iDU\/disable$/ },
         { statusCode: 204 }
     )
-    cy.intercept({ pathname: /scheduler$/ }, { fixture: 'list/disabled-queue' })
+    cy.intercept(
+        { pathname: /scheduler$/ },
+        { fixture: 'list/disabled-queue-scheduler' }
+    )
 
     cy.findByRole('switch', { name: 'Disable' }).click()
 })
@@ -32,7 +41,10 @@ When('the user clicks the disabled queue toggle switch', () => {
         { pathname: /jobConfigurations\/lnWRZN67iDU\/enable$/ },
         { statusCode: 204 }
     )
-    cy.intercept({ pathname: /scheduler$/ }, { fixture: 'list/enabled-queue' })
+    cy.intercept(
+        { pathname: /scheduler$/ },
+        { fixture: 'list/enabled-queue-scheduler' }
+    )
 
     cy.findByRole('switch', { name: 'Enable' }).click()
 })

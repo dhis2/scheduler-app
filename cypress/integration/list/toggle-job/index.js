@@ -3,14 +3,14 @@ import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 Given('a disabled user job exists', () => {
     cy.intercept(
         { pathname: /scheduler$/ },
-        { fixture: 'list/disabled-user-job' }
+        { fixture: 'list/disabled-user-job-scheduler' }
     )
 })
 
 Given('an enabled user job exists', () => {
     cy.intercept(
         { pathname: /scheduler$/ },
-        { fixture: 'list/enabled-user-job' }
+        { fixture: 'list/enabled-user-job-scheduler' }
     )
 })
 
@@ -30,7 +30,7 @@ When('the user clicks the enabled job toggle switch', () => {
     )
     cy.intercept(
         { pathname: /scheduler$/ },
-        { fixture: 'list/disabled-user-job' }
+        { fixture: 'list/disabled-user-job-scheduler' }
     )
 
     cy.findByRole('switch', { name: 'Disable' }).click()
@@ -43,7 +43,7 @@ When('the user clicks the disabled job toggle switch', () => {
     )
     cy.intercept(
         { pathname: /scheduler$/ },
-        { fixture: 'list/enabled-user-job' }
+        { fixture: 'list/enabled-user-job-scheduler' }
     )
 
     cy.findByRole('switch', { name: 'Enable' }).click()

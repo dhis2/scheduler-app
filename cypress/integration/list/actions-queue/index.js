@@ -1,11 +1,14 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given('a single queue exists', () => {
-    cy.intercept({ pathname: /scheduler$/ }, { fixture: 'list/single-queue' })
+    cy.intercept(
+        { pathname: /scheduler$/ },
+        { fixture: 'list/single-queue-scheduler' }
+    )
 
     cy.intercept(
         { pathname: /scheduler\/queues\/Queue$/ },
-        { fixture: 'list/single-queue-configuration' }
+        { fixture: 'list/single-queue-queues' }
     )
     cy.intercept(
         { pathname: /jobConfigurations$/ },

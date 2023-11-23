@@ -1,7 +1,10 @@
 import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
 
 Given('a queue exists', () => {
-    cy.intercept({ pathname: /scheduler$/ }, { fixture: 'list/a-queue' })
+    cy.intercept(
+        { pathname: /scheduler$/ },
+        { fixture: 'list/list-queues-scheduler' }
+    )
 })
 
 Given('the user navigated to the list page', () => {

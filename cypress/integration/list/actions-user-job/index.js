@@ -3,7 +3,7 @@ import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 Given('a single user job exists', () => {
     cy.intercept(
         { pathname: /scheduler$/ },
-        { fixture: 'list/single-user-job' }
+        { fixture: 'list/single-user-job-scheduler' }
     )
 
     cy.intercept(
