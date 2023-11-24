@@ -10,7 +10,7 @@ import styles from './JobList.module.css'
 import filterJobs from './filter-jobs'
 
 const infoLink =
-    'https://docs.dhis2.org/en/use/user-guides/dhis-core-version-236/maintaining-the-system/scheduling.html'
+    'https://docs.dhis2.org/en/use/user-guides/dhis-core-version-master/maintaining-the-system/scheduling.html'
 
 const JobList = () => {
     const [jobFilter, setJobFilter] = useJobFilter()
