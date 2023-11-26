@@ -19,7 +19,7 @@ msgid "Something went wrong"
 msgstr "Нимадир нотўғри бажарилди"
 
 msgid "Something went wrong whilst retrieving user permissions."
-msgstr ""
+msgstr "Фойдаланувчи рухсатномаларини олишда хатолик юз берди."
 
 msgid "Not authorized"
 msgstr "Авторизациядан ўтилмаган"
@@ -28,114 +28,116 @@ msgid ""
 "You don't have access to the Job Scheduler. Contact a system administrator "
 "to request access."
 msgstr ""
+"Сизда Хизмат календаридан фойдаланиш имкони йўқ. Кириш рухсутини олиш учун "
+"тизим администраторига мурожаат қилинг."
 
 msgid "Choose from preset times"
-msgstr ""
+msgstr "Булгиланган вақт доирасини танланг"
 
 msgid "Delete job"
 msgstr "Вазифани бекор қилиш"
 
 msgid "Delete queue"
-msgstr ""
+msgstr "Навбатни ўчириш"
 
 msgid "Please select data exchange ids."
-msgstr ""
+msgstr "Илтимос, сана алмашиш идетификаторини танланг"
 
 msgid "Select data exchange ids"
-msgstr ""
+msgstr "Сана алмашиш идетификаторини танланг"
 
 msgid "There was a problem fetching data exchange ids"
-msgstr ""
+msgstr "Сана алмаштириш идентификаторини олишда хатолик юз берди"
 
 msgid "error type"
-msgstr ""
+msgstr "Хатолик тури"
 
 msgid "CRON Expression"
-msgstr ""
+msgstr "CRON ифодаси"
 
 msgid "Please select checks to run."
-msgstr ""
+msgstr "Илтимос, бажариладиган текширувларни танланг"
 
 msgid "Something went wrong whilst fetching options"
-msgstr ""
+msgstr "Вариантларни олишда хатолик юз берди"
 
 msgid "Checks to run"
-msgstr ""
+msgstr "Бажарилишини текшириш"
 
 msgid "Run all available checks"
-msgstr ""
+msgstr "Барча мавжуд текширувларни бажариш"
 
 msgid "Only run selected checks"
-msgstr ""
+msgstr "Фақат танланган текширувларни бажариш"
 
 msgid "Severity"
-msgstr ""
+msgstr "Жиддийлик"
 
 msgid "Select checks to run."
-msgstr ""
+msgstr "Бажариладиган текширувларни танланг"
 
 msgid "Report type"
-msgstr ""
+msgstr "Ҳисобот тури"
 
 msgid "Delay"
-msgstr ""
+msgstr "Кечиктириш"
 
 msgid "Delay in seconds ({{ lowerbound }} - {{ upperbound }})"
-msgstr ""
+msgstr "Сонияларда кечиктириш ({{ lowerbound }} - {{ upperbound }})"
 
 msgid "Job type"
 msgstr "Вазифа тури"
 
 msgid "Loading job types"
-msgstr ""
+msgstr "Хизмат турлари юкланмоқда"
 
 msgid "Something went wrong whilst loading job types"
-msgstr ""
+msgstr "Хизмат турларини юклашда хатолик юз берди"
 
 msgid "Loading options"
-msgstr ""
+msgstr "Вариантлар юкланмоқда"
 
 msgid "Something went wrong whilst loading options"
-msgstr ""
+msgstr "Вариантлар юкланишида хатолик юз берди"
 
 msgid "No options available"
 msgstr "Вариантлар мавжуд эмас"
 
 msgid "Queues can't be named \"Add\" or \"add\""
-msgstr ""
+msgstr "Навбатни \"Қўшиш\" ёки \"қўшиш\" деб номлаш мумкин эмас"
 
 msgid "Name"
 msgstr "Исми"
 
 msgid "There was a problem fetching parameters"
-msgstr ""
+msgstr "Параметрларни юклашда хатолик юз берди"
 
 msgid "Parameters"
 msgstr "Параметрлар"
 
 msgid "Please select at least two jobs"
-msgstr ""
+msgstr "Илтимос, камида 2 та хизматни танланг"
 
 msgid "Something went wrong whilst fetching the queueable jobs"
-msgstr ""
+msgstr "Навбатдаги хизматларни олишда хатолик юз берди"
 
 msgid "Job queue"
-msgstr ""
+msgstr "Хизмат навбати"
 
 msgid "Filter jobs"
-msgstr ""
+msgstr "Хизматларни фильтлаш"
 
 msgid "Available jobs"
-msgstr ""
+msgstr "Мавжуд хизматлар"
 
 msgid "Jobs in this queue"
-msgstr ""
+msgstr "Бу навбатдаги хизматлар"
 
 msgid "There was a problem fetching the required job type"
-msgstr ""
+msgstr "Керакли хизмат турини олишда хатолик юз берди"
 
 msgid "Something went wrong whilst creating your job"
-msgstr ""
+msgstr "Хизматни яратишда хатолик юз берди"
 
 msgid "Save"
 msgstr "Сақлаш"
@@ -144,25 +146,25 @@ msgid "Cancel"
 msgstr "Бекор қилиш"
 
 msgid "Something went wrong whilst updating your job"
-msgstr ""
+msgstr "Хизматни янгилашда хатолик юз берди"
 
 msgid "Something went wrong whilst creating your queue"
-msgstr ""
+msgstr "Навбатни яратишда хатолик юз берди"
 
 msgid "Something went wrong whilst updating your queue"
-msgstr ""
+msgstr "Навбатни янгилашда хатолик юз берди"
 
 msgid "Job details"
 msgstr "Фаолият тафсилотлари"
 
 msgid "Created {{ createdFromNow }}."
-msgstr ""
+msgstr "Яратилган {{ createdFromNow }}."
 
 msgid "Last run {{ lastRunFromNow }}."
-msgstr ""
+msgstr "Охирги марта бажарилган {{ lastRunFromNow }}."
 
 msgid "Last run status: {{ translatedStatus }}."
-msgstr ""
+msgstr "Охирги марта бажарилган ҳолати: {{ translatedStatus }}."
 
 msgid "Actions"
 msgstr "Амаллар"
@@ -174,7 +176,7 @@ msgid "Edit"
 msgstr "Таҳрирлаш"
 
 msgid "Job name"
-msgstr ""
+msgstr "Хизмат номи"
 
 msgid "Type"
 msgstr "Тури"
@@ -183,25 +185,25 @@ msgid "Schedule"
 msgstr "Режа"
 
 msgid "Next run"
-msgstr ""
+msgstr "Кейинги бажарилиши"
 
 msgid "Status"
 msgstr "Статус"
 
 msgid "On/off"
-msgstr ""
+msgstr "Ёкиш/Ўчириш"
 
 msgid "No jobs to display"
-msgstr ""
+msgstr "Кўрсатиладиган хизмат топилмади"
 
 msgid "Not scheduled"
-msgstr ""
+msgstr "Режалаштирилмаган"
 
 msgid "Run manually"
-msgstr ""
+msgstr "Қўлда бажариш"
 
 msgid "{{ delay }} seconds after last run"
-msgstr ""
+msgstr "{{ delay }} охирги бажарилгандан сониялар ўтиб"
 
 msgid "View"
 msgstr "Кўрик"
@@ -210,118 +212,124 @@ msgid "Every hour"
 msgstr "Ҳар соатда"
 
 msgid "Every day at midnight"
-msgstr ""
+msgstr "Ҳар куни ярим тунда"
 
 msgid "Every day at 3 am"
-msgstr ""
+msgstr "Ҳар куни соат 3 да"
 
 msgid "Every day at noon"
-msgstr ""
+msgstr "Ҳар куни тушда"
 
 msgid "Every week"
-msgstr ""
+msgstr "Ҳар ҳафта"
 
 msgid "Choose a preset time/interval"
-msgstr ""
+msgstr "Олдиндан белгиланган вақт/интервални танланг"
 
 msgid "Insert preset"
-msgstr ""
+msgstr "Белгиланган созламани киритинг"
 
 msgid "Are you sure you want to delete this job?"
 msgstr "Ҳақиқатдан ҳам ушбу вазифани ўчириб ташламоқчимисиз?"
 
 msgid "Are you sure you want to delete this queue?"
-msgstr ""
+msgstr "Ҳақиқатдан ҳам, ушбу навбатни ўчирмоқчимисиз?"
 
 msgid "Are you sure you want to discard this form?"
-msgstr ""
+msgstr "Ҳақиқатдан ҳам, ушбу шаклни ўчирмоқчимисиз?"
 
 msgid "Discard"
 msgstr "Бекор қилиш"
 
 msgid "Error running job"
-msgstr ""
+msgstr "Бажарилаётган хизматда хатолик"
 
 msgid "Are you sure you want to run this job?"
-msgstr ""
+msgstr "Ҳақиқатдан ҳам, ушбу хизматни бажармоқчимисиз?"
 
 msgid "Run"
-msgstr ""
+msgstr "Бажариш"
 
 msgid "Could not load requested job"
-msgstr ""
+msgstr "Сўралган хизматни юклаб бўлмади"
 
 msgid ""
 "Something went wrong whilst loading the requested job. Make sure it has not "
 "been deleted and try refreshing the page."
 msgstr ""
+"Сўралган хизматни юклашда хатолик юз берди. Унинг ўчирилмаганлигига ишонч "
+"ҳосил қилинг ва саҳифани янгилаб кўринг."
 
 msgid "Toggle job"
-msgstr ""
+msgstr "Хизматни алмаштириш"
 
 msgid "New Job"
-msgstr ""
+msgstr "Янги хизмат"
 
 msgid "Configuration"
 msgstr "Конфигурация"
 
 msgid "About job configuration"
-msgstr ""
+msgstr "Хизмат конфигурациялари ҳақида"
 
 msgid "Job: {{ name }}"
-msgstr ""
+msgstr "Хизмат: {{ name }}"
 
 msgid "Could not load jobs"
-msgstr ""
+msgstr "Хизматлар юкланмади"
 
 msgid "Something went wrong whilst loading the jobs. Try refreshing the page."
-msgstr ""
+msgstr "Хизматларни юклашда хатолик юз берди. Саҳифани янгилаб кўринг."
 
 msgid "Scheduled jobs"
 msgstr "Вазифалар режалаштирилган"
 
 msgid "Include system jobs in list"
-msgstr ""
+msgstr "тизим хизматларини рўйхатга қўшинг"
 
 msgid "New job"
-msgstr ""
+msgstr "Янги хизмат"
 
 msgid "System job: {{ name }}"
-msgstr ""
+msgstr "Тизим хизмати: {{ name }}"
 
 msgid "Back to all jobs"
-msgstr ""
+msgstr "Барча хизматларга қайтиш"
 
 msgid "New queue"
-msgstr ""
+msgstr "Янги навбат"
 
 msgid ""
 "A queue is a collection of jobs that are executed in order, one after "
 "another as they finish."
 msgstr ""
+"Навбат - кетма-кет бажариладиган, бирин кетин бажариладиган хизматлар "
+"тўплами."
 
 msgid "Could not load requested queue"
-msgstr ""
+msgstr "Сўралган навбатни юклашда хатолик юз берди"
 
 msgid ""
 "Something went wrong whilst loading the requested queue. Make sure it has "
 "not been deleted and try refreshing the page."
 msgstr ""
+"Сўралган навбатни юклашда хатолик юз берди. Унинг ўчирилмаганлигига ишонч "
+"ҳосил қилинг ва саҳифани янгилаб кўринг."
 
 msgid "Queue: {{ name }}"
-msgstr ""
+msgstr "Навбат: {{ name }}"
 
 msgid "Something went wrong but no error message was provided"
-msgstr ""
+msgstr "Хатолик юз берди, лекин хатолик ахбороти берилмади"
 
 msgid "Completeness"
 msgstr "Тўлиқлик"
 
 msgid "Completeness target"
-msgstr ""
+msgstr "Тўлақонлилик мақсади"
 
 msgid "Data value"
-msgstr ""
+msgstr "Маълумот қиймати"
 
 msgid "Enrollment"
 msgstr "Рўйхатга олиш"
@@ -330,10 +338,10 @@ msgid "Event"
 msgstr "Ҳодиса/Тадбир"
 
 msgid "Org unit target"
-msgstr ""
+msgstr "Ташкилий бирлик мақсади"
 
 msgid "Ownership"
-msgstr ""
+msgstr "Эгалик"
 
 msgid "Validation result"
 msgstr "Тасдиқлаш натижаси"
@@ -342,7 +350,7 @@ msgid "Warning"
 msgstr "Огоҳлантириш"
 
 msgid "Severe"
-msgstr ""
+msgstr "Жиддий"
 
 msgid "Report"
 msgstr "Ҳисобот"
@@ -366,109 +374,109 @@ msgid "Failed"
 msgstr "Амалга ошмади"
 
 msgid "Not started"
-msgstr ""
+msgstr "Бошланмаган"
 
 msgid "Running"
-msgstr ""
+msgstr "Бажарилмоқда"
 
 msgid "Scheduled"
 msgstr "Режа бўйича"
 
 msgid "Stopped"
-msgstr ""
+msgstr "Тўхтаган"
 
 msgid "Account expiry alert"
-msgstr ""
+msgstr "Аккаунт амал қилиш муддати тугаши ҳақидаги огоҳлантириш"
 
 msgid "Exchange aggregate data"
-msgstr ""
+msgstr "Йиғма маълумотларни алмаштириш"
 
 msgid "Analytics table"
-msgstr ""
+msgstr "Аналитик жадвал"
 
 msgid "Analytics table update"
-msgstr ""
+msgstr "Аналитик жадвални янгилаш"
 
 msgid "Complete data set registration import"
-msgstr ""
+msgstr "Маълумотлар тўплами қайд рўйхатини тўлик импорт қилиш"
 
 msgid "Continuous analytics table"
-msgstr ""
+msgstr "Жадвал аналитикасини давом этиш"
 
 msgid "Credentials expiry alert"
-msgstr ""
+msgstr "Аккаунтлар амал қилиш муддати тугаши ҳақидаги огоҳлантириш"
 
 msgid "Data integrity"
-msgstr ""
+msgstr "Маълумотлар яхлитлиги"
 
 msgid "Dataset notification"
-msgstr ""
+msgstr "Маълумотлар тўплами билдиришномалари"
 
 msgid "Data statistics"
-msgstr ""
+msgstr "Маълумотлар статистикаси"
 
 msgid "Data synchronization"
 msgstr "Маълумотлар синхронизацияси"
 
 msgid "Data value import"
-msgstr ""
+msgstr "Маълумотлар қиймати импорти"
 
 msgid "Data value import internal"
-msgstr ""
+msgstr "Маълумотлар қиймати ички импорти"
 
 msgid "Disable inactive users"
-msgstr ""
+msgstr "Нофаол фойдаланувчини ўчириш"
 
 msgid "Enrollment import"
-msgstr ""
+msgstr "Рўйхатхона импорти"
 
 msgid "Event import"
 msgstr "Тадбир импорти"
 
 msgid "Event programs data sync"
-msgstr ""
+msgstr "Ҳодиса/Ҳолатлар дастури маълумотларини синхронлаш"
 
 msgid "File resource clean up"
-msgstr ""
+msgstr "Файл ресурсларини тозалаш"
 
 msgid "GEOJSON import"
-msgstr ""
+msgstr "GEOJSON Импорти"
 
 msgid "GML import"
 msgstr "GML импорти"
 
 msgid "Image processing"
-msgstr ""
+msgstr "Тасвирларга ишлов бериш"
 
 msgid "Leader election"
-msgstr ""
+msgstr "Раҳбар тайинлаш"
 
 msgid "Leader renewal"
-msgstr ""
+msgstr "Раҳбарни янгилаш"
 
 msgid "Lock exception cleanup"
-msgstr ""
+msgstr "Истисно блокировкаларини тозалаш"
 
 msgid "Materialized sql view update"
-msgstr ""
+msgstr "Материаллаштирилган SQL кўринишини янгилаш"
 
 msgid "Metadata import"
 msgstr "МетаМаълумот импорти"
 
 msgid "Metadata synchronization"
-msgstr ""
+msgstr "Метамаълумотни синхронлаш"
 
 msgid "Mock"
-msgstr ""
+msgstr "Сохта"
 
 msgid "Monitoring"
-msgstr ""
+msgstr "Мониторинг"
 
 msgid "Predictor"
 msgstr "Башоратчи"
 
 msgid "Program data sync"
-msgstr ""
+msgstr "Дастур маълумотларини синхронлаш"
 
 msgid "Program notifications"
 msgstr "Дастур билдиришномалари"
@@ -477,49 +485,49 @@ msgid "Push analysis"
 msgstr "Push-таҳлил"
 
 msgid "Remove expired reserved values"
-msgstr ""
+msgstr "Муддати ўтган захираланган қийматларни олиб ташлаш"
 
 msgid "Remove used or expired reserved values"
-msgstr ""
+msgstr "Ишлатилган ёки муддати ўтган захираланган қийматларни олиб ташлаш"
 
 msgid "Resource table"
-msgstr ""
+msgstr "Ресурслар жадвали"
 
 msgid "Send scheduled message"
-msgstr ""
+msgstr "Режалаштирилган хабарни юбориш"
 
 msgid "SMS send"
-msgstr ""
+msgstr "СМС юбориш"
 
 msgid "System version update check"
-msgstr ""
+msgstr "Тизим версияларида янгиланиш борлигини текшириш"
 
 msgid "TEI import"
 msgstr "ЕУШ импорти"
 
 msgid "Test"
-msgstr ""
+msgstr "Тест"
 
 msgid "Tracker import job"
-msgstr ""
+msgstr "Кузатув назорат хизмати импорти"
 
 msgid "Tracker import notification job"
-msgstr ""
+msgstr "Кузатув назорат билдиришномалари импорти"
 
 msgid "Tracker import rule engine job"
-msgstr ""
+msgstr "Кузатув назорат механизм қоидалари импорти топшириқлари"
 
 msgid "Tracker programs data sync"
-msgstr ""
+msgstr "Кузатув назорат дастурлари маълумотларини синхронлаш"
 
 msgid "Tracker search optimization"
-msgstr ""
+msgstr "Кузатув назорат қидирувини оптималлаштириш"
 
 msgid "Validation results notification"
-msgstr ""
+msgstr "Натижаларни тасдиқлаш хабарномалари"
 
 msgid "A CRON expression is required"
-msgstr ""
+msgstr "CRON ифодаси талаб қилинади"
 
 msgid "Please enter a valid CRON expression"
-msgstr ""
+msgstr "Илтимос, яроқли CRON ифодасини киритинг"
