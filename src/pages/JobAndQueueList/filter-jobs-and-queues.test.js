@@ -1,15 +1,15 @@
 import filterJobsAndQueues from './filter-jobs-and-queues'
 
 describe('filterJobsAndQueues', () => {
-    it('should filter jobs and queues by the current jobAndQueueFilter', () => {
-        const jobAndQueueFilter = 'One'
+    it('should filter jobs and queues by the current nameFilter', () => {
+        const nameFilter = 'One'
         const showSystemJobs = true
         const expected = { name: 'One', configurable: true }
         const jobsAndQueues = [expected, { name: 'Two', configurable: true }]
 
         expect(
             filterJobsAndQueues({
-                jobAndQueueFilter,
+                nameFilter,
                 showSystemJobs,
                 jobsAndQueues,
             })
@@ -17,29 +17,29 @@ describe('filterJobsAndQueues', () => {
     })
 
     it('should ignore job or queue name capitalization', () => {
-        const jobAndQueueFilter = 'one'
+        const nameFilter = 'one'
         const showSystemJobs = true
         const expected = { name: 'One', configurable: true }
         const jobsAndQueues = [expected, { name: 'Two', configurable: true }]
 
         expect(
             filterJobsAndQueues({
-                jobAndQueueFilter,
+                nameFilter,
                 showSystemJobs,
                 jobsAndQueues,
             })
         ).toEqual([expected])
     })
 
-    it('should ignore jobAndQueueFilter capitalization', () => {
-        const jobAndQueueFilter = 'One'
+    it('should ignore nameFilter capitalization', () => {
+        const nameFilter = 'One'
         const showSystemJobs = true
         const expected = { name: 'one', configurable: true }
         const jobsAndQueues = [expected, { name: 'Two', configurable: true }]
 
         expect(
             filterJobsAndQueues({
-                jobAndQueueFilter,
+                nameFilter,
                 showSystemJobs,
                 jobsAndQueues,
             })
@@ -47,7 +47,7 @@ describe('filterJobsAndQueues', () => {
     })
 
     it('should show system jobs and user jobs if showSystemJobs is true', () => {
-        const jobAndQueueFilter = ''
+        const nameFilter = ''
         const showSystemJobs = true
         const jobsAndQueues = [
             { name: 'One', configurable: false },
@@ -56,7 +56,7 @@ describe('filterJobsAndQueues', () => {
 
         expect(
             filterJobsAndQueues({
-                jobAndQueueFilter,
+                nameFilter,
                 showSystemJobs,
                 jobsAndQueues,
             })
@@ -64,14 +64,14 @@ describe('filterJobsAndQueues', () => {
     })
 
     it('should hide system jobs and show user jobs if showSystemJobs is false', () => {
-        const jobAndQueueFilter = ''
+        const nameFilter = ''
         const showSystemJobs = false
         const expected = { name: 'Two', configurable: true }
         const jobsAndQueues = [{ name: 'One', configurable: false }, expected]
 
         expect(
             filterJobsAndQueues({
-                jobAndQueueFilter,
+                nameFilter,
                 showSystemJobs,
                 jobsAndQueues,
             })

@@ -6,9 +6,9 @@ import StoreContext from './StoreContext'
  * to the store since they have to persist after a refetch.
  */
 
-export const useJobAndQueueFilter = () => {
+export const useNameFilter = () => {
     const store = useContext(StoreContext)
-    return store.jobAndQueueFilter
+    return store.nameFilter
 }
 
 export const useShowSystemJobs = () => {

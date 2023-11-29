@@ -4,13 +4,13 @@ import StoreContext from './StoreContext'
 
 const Store = ({ children }) => {
     // State that should persist
-    const jobAndQueueFilterState = useState('')
+    const nameFilterState = useState('')
     const showSystemJobsState = useState(false)
 
     return (
         <StoreContext.Provider
             value={{
-                jobAndQueueFilter: jobAndQueueFilterState,
+                nameFilter: nameFilterState,
                 showSystemJobs: showSystemJobsState,
             }}
         >

@@ -1,4 +1,4 @@
-import { useJobAndQueueFilter, useShowSystemJobs } from './hooks'
+import { useNameFilter, useShowSystemJobs } from './hooks'
 
 export { default as Store } from './Store'
-export { useJobAndQueueFilter, useShowSystemJobs }
+export { useNameFilter, useShowSystemJobs }

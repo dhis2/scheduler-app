@@ -2,7 +2,7 @@ import React from 'react'
 import { NoticeBox, Card, Checkbox, InputField } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
 import { useJobsAndQueues } from '../../hooks/jobs-and-queues'
-import { useJobAndQueueFilter, useShowSystemJobs } from '../../components/Store'
+import { useNameFilter, useShowSystemJobs } from '../../components/Store'
 import { JobTable } from '../../components/JobTable'
 import { LinkButton } from '../../components/LinkButton'
 import { InfoLink } from '../../components/InfoLink'
@@ -11,7 +11,7 @@ import styles from './JobAndQueueList.module.css'
 import filterJobsAndQueues from './filter-jobs-and-queues'
 
 const JobAndQueueList = () => {
-    const [jobAndQueueFilter, setJobAndQueueFilter] = useJobAndQueueFilter()
+    const [nameFilter, setNameFilter] = useNameFilter()
     const [showSystemJobs, setShowSystemJobs] = useShowSystemJobs()
     const { data, loading, error, refetch } = useJobsAndQueues()
 
@@ -31,7 +31,7 @@ const JobAndQueueList = () => {
 
     // Apply the current filter settings
     const jobsAndQueues = filterJobsAndQueues({
-        jobAndQueueFilter,
+        nameFilter,
         showSystemJobs,
         jobsAndQueues: data,
     })
@@ -50,9 +50,9 @@ const JobAndQueueList = () => {
                         dataTest="name-filter-input"
                         label={i18n.t('Filter by name')}
                         onChange={({ value }) => {
-                            setJobAndQueueFilter(value)
+                            setNameFilter(value)
                         }}
-                        value={jobAndQueueFilter}
+                        value={nameFilter}
                         type="search"
                         role="searchbox"
                         name="name-filter"
