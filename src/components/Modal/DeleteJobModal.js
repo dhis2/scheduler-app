@@ -12,7 +12,7 @@ import { useDataMutation } from '@dhis2/app-runtime'
 
 const mutation = {
     resource: 'jobConfigurations',
-    id: /* istanbul ignore next */ ({ id }) => id,
+    id: ({ id }) => id,
     type: 'delete',
 }
 
