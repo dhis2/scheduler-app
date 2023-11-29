@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2023-11-16T14:05:43.332Z\n"
-"PO-Revision-Date: 2023-11-16T14:05:43.332Z\n"
+"POT-Creation-Date: 2023-11-29T10:47:23.653Z\n"
+"PO-Revision-Date: 2023-11-29T10:47:23.656Z\n"
 
 msgid "Something went wrong"
 msgstr "Something went wrong"
@@ -147,6 +147,9 @@ msgstr "Something went wrong whilst creating your queue"
 msgid "Something went wrong whilst updating your queue"
 msgstr "Something went wrong whilst updating your queue"
 
+msgid "About the scheduler"
+msgstr "About the scheduler"
+
 msgid "Job details"
 msgstr "Job details"
 
@@ -271,9 +274,6 @@ msgstr "New Job"
 msgid "Configuration"
 msgstr "Configuration"
 
-msgid "About the scheduler"
-msgstr "About the scheduler"
-
 msgid "Could not load jobs and queues"
 msgstr "Could not load jobs and queues"
 
@@ -307,13 +307,6 @@ msgstr "System job: {{ name }}"
 
 msgid "Back to all jobs"
 msgstr "Back to all jobs"
-
-msgid ""
-"A queue is a collection of jobs that are executed in order, one after "
-"another as they finish."
-msgstr ""
-"A queue is a collection of jobs that are executed in order, one after "
-"another as they finish."
 
 msgid "Could not load requested queue"
 msgstr "Could not load requested queue"
