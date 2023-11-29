@@ -1,6 +1,7 @@
 import React from 'react'
-import { Card, IconInfo16 } from '@dhis2/ui'
+import { Card } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
+import { InfoLink } from '../../components/InfoLink'
 import { QueueAddFormContainer } from '../../components/Forms'
 import styles from './QueueAdd.module.css'
 
@@ -17,14 +18,7 @@ const QueueAdd = () => {
                     <h3 className={styles.cardHeaderTitle}>
                         {i18n.t('Configuration')}
                     </h3>
-                    <span className={styles.cardHeaderInfo}>
-                        <span className={styles.cardHeaderIcon}>
-                            <IconInfo16 />
-                        </span>
-                        {i18n.t(
-                            'A queue is a collection of jobs that are executed in order, one after another as they finish.'
-                        )}
-                    </span>
+                    <InfoLink />
                 </header>
                 <QueueAddFormContainer />
             </Card>

@@ -2,21 +2,18 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {
     Card,
-    IconInfo16,
     Box,
     SingleSelectField,
     SingleSelectOption,
     InputField,
 } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
+import { InfoLink } from '../../components/InfoLink'
 import { LinkButton } from '../../components/LinkButton'
 import { JobDetails } from '../../components/JobDetails'
 import translateCron from '../../services/translate-cron'
 import { jobTypesMap } from '../../services/server-translations'
 import styles from './JobView.module.css'
-
-const infoLink =
-    'https://docs.dhis2.org/en/use/user-guides/dhis-core-version-master/maintaining-the-system/scheduling.html'
 
 const JobView = ({ job }) => {
     const {
@@ -43,17 +40,7 @@ const JobView = ({ job }) => {
                     <h3 className={styles.cardHeaderTitle}>
                         {i18n.t('Configuration')}
                     </h3>
-                    <a
-                        href={infoLink}
-                        className={styles.cardHeaderLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <span className={styles.cardHeaderInfo}>
-                            <IconInfo16 />
-                        </span>
-                        {i18n.t('About the scheduler')}
-                    </a>
+                    <InfoLink />
                 </header>
                 <div className={styles.jobDetails}>
                     <JobDetails

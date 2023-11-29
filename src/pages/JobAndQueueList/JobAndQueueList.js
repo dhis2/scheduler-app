@@ -1,16 +1,14 @@
 import React from 'react'
-import { NoticeBox, Card, Checkbox, InputField, IconInfo16 } from '@dhis2/ui'
+import { NoticeBox, Card, Checkbox, InputField } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
 import { useJobsAndQueues } from '../../hooks/jobs-and-queues'
 import { useJobAndQueueFilter, useShowSystemJobs } from '../../components/Store'
 import { JobTable } from '../../components/JobTable'
 import { LinkButton } from '../../components/LinkButton'
+import { InfoLink } from '../../components/InfoLink'
 import { Spinner } from '../../components/Spinner'
 import styles from './JobAndQueueList.module.css'
 import filterJobsAndQueues from './filter-jobs-and-queues'
-
-const infoLink =
-    'https://docs.dhis2.org/en/use/user-guides/dhis-core-version-master/maintaining-the-system/scheduling.html'
 
 const JobAndQueueList = () => {
     const [jobAndQueueFilter, setJobAndQueueFilter] = useJobAndQueueFilter()
@@ -44,17 +42,7 @@ const JobAndQueueList = () => {
                 <h1 className={styles.headerTitle}>
                     {i18n.t('Scheduled jobs')}
                 </h1>
-                <a
-                    href={infoLink}
-                    className={styles.headerLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    <span className={styles.headerLinkIcon}>
-                        <IconInfo16 />
-                    </span>
-                    {i18n.t('About the scheduler')}
-                </a>
+                <InfoLink />
             </header>
             <Card>
                 <div className={styles.controlContainer}>

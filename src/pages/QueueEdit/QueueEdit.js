@@ -1,7 +1,8 @@
 import React from 'react'
-import { Card, IconInfo16, NoticeBox } from '@dhis2/ui'
+import { Card, NoticeBox } from '@dhis2/ui'
 import { useParams } from 'react-router-dom'
 import i18n from '@dhis2/d2-i18n'
+import { InfoLink } from '../../components/InfoLink'
 import { Spinner } from '../../components/Spinner'
 import { QueueEditFormContainer } from '../../components/Forms'
 import { useQueueByName } from '../../hooks/queues'
@@ -42,14 +43,7 @@ const QueueEdit = () => {
                     <h3 className={styles.cardHeaderTitle}>
                         {i18n.t('Configuration')}
                     </h3>
-                    <span className={styles.cardHeaderInfo}>
-                        <span className={styles.cardHeaderIcon}>
-                            <IconInfo16 />
-                        </span>
-                        {i18n.t(
-                            'A queue is a collection of jobs that are executed in order, one after another as they finish.'
-                        )}
-                    </span>
+                    <InfoLink />
                 </header>
                 <QueueEditFormContainer
                     queue={queueResult.data}
