@@ -7,7 +7,7 @@ Feature: Users should be able to edit jobs without parameters
         And the user selects the <job-type> job type
         And the user enters a cron schedule
         Then the job is updated when the user saves the <job-type> job
-        And the job list is loaded
+        And the list route is loaded
 
     Scenarios:
         |               job-type |

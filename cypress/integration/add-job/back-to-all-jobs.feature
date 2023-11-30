@@ -1,11 +1,11 @@
-Feature: Users should be able to navigate back to the job list
+Feature: Users should be able to navigate back to the list route
 
     Background:
         Given the user navigated to the add job page
 
     Scenario: User clicks the cancel button
         When the user clicks the cancel button
-        Then the job list route will be loaded
+        Then the list route will be loaded
 
     Scenario: User clicks the cancel button after editing the form
         Given the user has edited the form

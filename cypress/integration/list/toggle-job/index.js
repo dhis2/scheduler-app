@@ -14,7 +14,7 @@ Given('an enabled user job exists', () => {
     )
 })
 
-Given('the user navigated to the job list page', () => {
+Given('the user navigated to the list route', () => {
     cy.visit('/')
     cy.findByRole('heading', { name: 'Scheduled jobs' }).should('exist')
 })

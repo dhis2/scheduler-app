@@ -2,7 +2,7 @@ Feature: User job actions
 
     Background:
         Given a single user job exists
-        And the user navigated to the job list page
+        And the user navigated to the list route
         And the user clicks the actions button
 
     Scenario: User clicks the edit job button on a user job

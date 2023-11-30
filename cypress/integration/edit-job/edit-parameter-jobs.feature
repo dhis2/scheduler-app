@@ -8,7 +8,7 @@ Feature: Users should be able to edit jobs that take parameters
         And the user enters a <schedule-type> schedule
         And the user enters the parameters for <job-type>
         Then the job is updated when the user saves the <job-type> job
-        And the job list is loaded
+        And the list route is loaded
 
     Scenarios:
         |                   job-type | schedule-type |

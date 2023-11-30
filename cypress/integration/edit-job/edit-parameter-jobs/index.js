@@ -312,6 +312,6 @@ Then('the job is updated when the user saves the predictor job', () =>
     })
 )
 
-Then('the job list is loaded', () => {
+Then('the list route is loaded', () => {
     cy.findByRole('heading', { name: 'Scheduled jobs' }).should('exist')
 })

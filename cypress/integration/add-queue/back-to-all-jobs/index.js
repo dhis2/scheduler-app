@@ -13,7 +13,7 @@ When('the user clicks the cancel button', () => {
     cy.findByRole('button', { name: 'Cancel' }).click()
 })
 
-Then('the job list route will be loaded', () => {
+Then('the list route will be loaded', () => {
     cy.findByRole('heading', { name: 'Scheduled jobs' }).should('exist')
 })
 

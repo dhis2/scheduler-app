@@ -76,6 +76,6 @@ Then('the sequence is updated when the user saves the sequence', () =>
     })
 )
 
-Then('the job list is loaded', () => {
+Then('the list route is loaded', () => {
     cy.findByRole('heading', { name: 'Scheduled jobs' }).should('exist')
 })

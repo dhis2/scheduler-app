@@ -1,7 +1,7 @@
 [
     {
         "path": "/api/41/systemSettings/helpPageLink",
-        "featureName": "Users should be able to navigate back to the job list",
+        "featureName": "Users should be able to navigate back to the list route",
         "static": false,
         "count": 9,
         "nonDeterministic": false,
@@ -34,7 +34,7 @@
     },
     {
         "path": "/api/41/jobConfigurations/jobTypes?fields=*&paging=false",
-        "featureName": "Users should be able to navigate back to the job list",
+        "featureName": "Users should be able to navigate back to the list route",
         "static": false,
         "count": 4,
         "nonDeterministic": false,
@@ -66,7 +66,7 @@
     },
     {
         "path": "/api/41/scheduler",
-        "featureName": "Users should be able to navigate back to the job list",
+        "featureName": "Users should be able to navigate back to the list route",
         "static": false,
         "count": 3,
         "nonDeterministic": true,
@@ -102,7 +102,7 @@
     },
     {
         "path": "/api/41/scheduler/queueable",
-        "featureName": "Users should be able to navigate back to the job list",
+        "featureName": "Users should be able to navigate back to the list route",
         "static": false,
         "count": 2,
         "nonDeterministic": false,
@@ -133,7 +133,7 @@
     },
     {
         "path": "/api/41/analytics/tableTypes",
-        "featureName": "Users should be able to navigate back to the job list",
+        "featureName": "Users should be able to navigate back to the list route",
         "static": false,
         "count": 1,
         "nonDeterministic": false,
@@ -165,7 +165,7 @@
     },
     {
         "path": "/api/41/pushAnalysis?paging=false",
-        "featureName": "Users should be able to navigate back to the job list",
+        "featureName": "Users should be able to navigate back to the list route",
         "static": false,
         "count": 1,
         "nonDeterministic": false,
@@ -198,7 +198,7 @@
     },
     {
         "path": "/api/41/validationRuleGroups?paging=false",
-        "featureName": "Users should be able to navigate back to the job list",
+        "featureName": "Users should be able to navigate back to the list route",
         "static": false,
         "count": 1,
         "nonDeterministic": false,
@@ -231,7 +231,7 @@
     },
     {
         "path": "/api/41/predictors?paging=false",
-        "featureName": "Users should be able to navigate back to the job list",
+        "featureName": "Users should be able to navigate back to the list route",
         "static": false,
         "count": 1,
         "nonDeterministic": false,
@@ -264,7 +264,7 @@
     },
     {
         "path": "/api/41/predictorGroups?paging=false",
-        "featureName": "Users should be able to navigate back to the job list",
+        "featureName": "Users should be able to navigate back to the list route",
         "static": false,
         "count": 1,
         "nonDeterministic": false,
@@ -297,7 +297,7 @@
     },
     {
         "path": "/api/41/dataIntegrity",
-        "featureName": "Users should be able to navigate back to the job list",
+        "featureName": "Users should be able to navigate back to the list route",
         "static": false,
         "count": 1,
         "nonDeterministic": false,

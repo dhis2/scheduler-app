@@ -14,7 +14,7 @@ Given('the user navigated to the view job page', () => {
     )
 })
 
-Then('there is a link to the job list page', () => {
+Then('there is a link to the list route', () => {
     cy.findByRole('link', { name: 'Back to all jobs' }).should(
         'have.attr',
         'href',

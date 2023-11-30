@@ -7,4 +7,4 @@ Feature: Users should be able to edit a sequence
         And the user changes the cron schedule
         And the user adds jobs to the queue
         Then the sequence is updated when the user saves the sequence
-        And the job list is loaded
+        And the list route is loaded
