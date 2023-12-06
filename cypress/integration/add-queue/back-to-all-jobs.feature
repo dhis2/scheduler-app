@@ -1,7 +1,7 @@
 Feature: Users should be able to navigate back to the list route
 
     Background:
-        Given the user navigated to the add sequence route
+        Given the user navigated to the add queue route
 
     Scenario: User clicks the cancel button
         When the user clicks the cancel button

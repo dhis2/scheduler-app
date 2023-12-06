@@ -1,7 +1,7 @@
 [
     {
         "path": "/api/41/systemSettings/helpPageLink",
-        "featureName": "Users should be able to edit a sequence",
+        "featureName": "Users should be able to edit a queue",
         "static": false,
         "count": 1,
         "nonDeterministic": false,

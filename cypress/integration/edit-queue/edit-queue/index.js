@@ -20,7 +20,7 @@ const saveAndExpect = (name, expected) => {
  * Tests
  */
 
-Given('a sequence with two unqueued jobs exists', () => {
+Given('a queue with two unqueued jobs exists', () => {
     cy.intercept(
         { pathname: /scheduler$/ },
         { fixture: 'edit-queue/schedule-two-unqueued-jobs' }
@@ -42,12 +42,12 @@ Given('a sequence with two unqueued jobs exists', () => {
     )
 })
 
-Given('the user navigates to the edit sequence route', () => {
+Given('the user navigates to the edit queue route', () => {
     cy.visit('/#/queue/one')
     cy.findByRole('heading', { name: 'Queue: one' }).should('exist')
 })
 
-Given('the user changes the sequence name', () => {
+Given('the user changes the queue name', () => {
     cy.findByLabelText('Name*').clear()
     cy.findByLabelText('Name*').type('Name')
 })
@@ -68,7 +68,7 @@ Given('the user adds jobs to the queue', () => {
     cy.get('[data-test="dhis2-uicore-transfer-actions-addindividual"]').click()
 })
 
-Then('the sequence is updated when the user saves the sequence', () =>
+Then('the queue is updated when the user saves the queue', () =>
     saveAndExpect('one', {
         cronExpression: '0 0 * ? * *',
         name: 'Name',

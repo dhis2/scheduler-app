@@ -97,39 +97,6 @@
         }
     },
     {
-        "path": "/api/41/validationRuleGroups?paging=false",
-        "featureName": "User job actions",
-        "static": false,
-        "count": 1,
-        "nonDeterministic": false,
-        "method": "GET",
-        "requestBody": "",
-        "requestHeaders": {
-            "host": "debug.dhis2.org",
-            "connection": "keep-alive",
-            "accept": "application/json",
-            "origin": "http://localhost:3000",
-            "sec-fetch-site": "cross-site",
-            "sec-fetch-mode": "cors"
-        },
-        "statusCode": 200,
-        "responseBody": "{\"validationRuleGroups\":[{\"displayName\":\"ANC\",\"id\":\"UP1lctvalPn\"},{\"displayName\":\"Commodities\",\"id\":\"xcpl667ccfF\"},{\"displayName\":\"Critical event\",\"id\":\"xWtt9c443Lt\"},{\"displayName\":\"District stock\",\"id\":\"mEtdbIDDhix\"},{\"displayName\":\"Epidemic disease outbreak\",\"id\":\"y2yQIm79VTW\"},{\"displayName\":\"Facility Stock\",\"id\":\"SqyI8HKqI4g\"},{\"displayName\":\"Immunisation\",\"id\":\"UiOSY1iIdub\"},{\"displayName\":\"Infectious disease outbreak\",\"id\":\"WUZXEFdn1PX\"},{\"displayName\":\"Malaria\",\"id\":\"zlaSof6qLqF\"},{\"displayName\":\"Population\",\"id\":\"D3bItmtBpsW\"},{\"displayName\":\"TB\",\"id\":\"IMF6p1MqoHl\"},{\"displayName\":\"Testing\",\"id\":\"nMDkAJXsmlR\"}]}",
-        "responseSize": 628,
-        "responseHeaders": {
-            "server": "nginx/1.23.0",
-            "content-type": "application/json;charset=UTF-8",
-            "transfer-encoding": "chunked",
-            "connection": "keep-alive",
-            "access-control-allow-credentials": "true",
-            "access-control-allow-origin": "http://localhost:3000",
-            "vary": "Origin",
-            "access-control-expose-headers": "ETag, Location",
-            "cache-control": "no-cache, private",
-            "x-content-type-options": "nosniff",
-            "x-xss-protection": "1; mode=block"
-        }
-    },
-    {
         "path": "/api/41/predictorGroups?paging=false",
         "featureName": "User job actions",
         "static": false,
@@ -214,6 +181,39 @@
         "statusCode": 200,
         "responseBody": "{\"predictors\":[{\"displayName\":\"Malaria Outbreak Threshold\",\"id\":\"tEK1OEqS4O1\"}]}",
         "responseSize": 80,
+        "responseHeaders": {
+            "server": "nginx/1.23.0",
+            "content-type": "application/json;charset=UTF-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "access-control-allow-credentials": "true",
+            "access-control-allow-origin": "http://localhost:3000",
+            "vary": "Origin",
+            "access-control-expose-headers": "ETag, Location",
+            "cache-control": "no-cache, private",
+            "x-content-type-options": "nosniff",
+            "x-xss-protection": "1; mode=block"
+        }
+    },
+    {
+        "path": "/api/41/validationRuleGroups?paging=false",
+        "featureName": "User job actions",
+        "static": false,
+        "count": 1,
+        "nonDeterministic": false,
+        "method": "GET",
+        "requestBody": "",
+        "requestHeaders": {
+            "host": "debug.dhis2.org",
+            "connection": "keep-alive",
+            "accept": "application/json",
+            "origin": "http://localhost:3000",
+            "sec-fetch-site": "cross-site",
+            "sec-fetch-mode": "cors"
+        },
+        "statusCode": 200,
+        "responseBody": "{\"validationRuleGroups\":[{\"displayName\":\"ANC\",\"id\":\"UP1lctvalPn\"},{\"displayName\":\"Commodities\",\"id\":\"xcpl667ccfF\"},{\"displayName\":\"Critical event\",\"id\":\"xWtt9c443Lt\"},{\"displayName\":\"District stock\",\"id\":\"mEtdbIDDhix\"},{\"displayName\":\"Epidemic disease outbreak\",\"id\":\"y2yQIm79VTW\"},{\"displayName\":\"Facility Stock\",\"id\":\"SqyI8HKqI4g\"},{\"displayName\":\"Immunisation\",\"id\":\"UiOSY1iIdub\"},{\"displayName\":\"Infectious disease outbreak\",\"id\":\"WUZXEFdn1PX\"},{\"displayName\":\"Malaria\",\"id\":\"zlaSof6qLqF\"},{\"displayName\":\"Population\",\"id\":\"D3bItmtBpsW\"},{\"displayName\":\"TB\",\"id\":\"IMF6p1MqoHl\"},{\"displayName\":\"Testing\",\"id\":\"nMDkAJXsmlR\"}]}",
+        "responseSize": 628,
         "responseHeaders": {
             "server": "nginx/1.23.0",
             "content-type": "application/json;charset=UTF-8",

@@ -27,12 +27,12 @@ Given('two unqueued jobs exist', () => {
     )
 })
 
-Given('the user navigated to the add sequence route', () => {
+Given('the user navigated to the add queue route', () => {
     cy.visit('/#/queue/add')
     cy.findByRole('heading', { name: 'New queue' }).should('exist')
 })
 
-Given('the user enters a sequence name', () => {
+Given('the user enters a queue name', () => {
     cy.findByLabelText('Name*').type('Name')
 })
 
@@ -51,7 +51,7 @@ Given('the user adds jobs to the queue', () => {
     cy.get('[data-test="dhis2-uicore-transfer-actions-addindividual"]').click()
 })
 
-Then('the expected sequence is created when the user saves the sequence', () =>
+Then('the expected queue is created when the user saves the queue', () =>
     saveAndExpect({
         cronExpression: '0 0 * ? * *',
         name: 'Name',

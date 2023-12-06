@@ -1,6 +1,6 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
-Given('a sequence exists', () => {
+Given('a queue exists', () => {
     cy.intercept(
         { pathname: /scheduler$/ },
         { fixture: 'edit-queue/schedule-two-unqueued-jobs' }
@@ -22,7 +22,7 @@ Given('a sequence exists', () => {
     )
 })
 
-Given('the user navigates to the edit sequence route', () => {
+Given('the user navigates to the edit queue route', () => {
     cy.visit('/#/queue/one')
     cy.findByRole('heading', { name: 'Queue: one' }).should('exist')
 })

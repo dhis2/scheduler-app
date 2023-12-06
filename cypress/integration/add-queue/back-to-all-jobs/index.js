@@ -1,6 +1,6 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 
-Given('the user navigated to the add sequence route', () => {
+Given('the user navigated to the add queue route', () => {
     cy.visit('/#/queue/add')
     cy.findByRole('heading', { name: 'New queue' }).should('exist')
 })
