@@ -2,7 +2,7 @@ Feature: Users should be able to navigate back to the list route
 
     Background:
         Given a sequence exists
-        And the user navigates to the edit sequence page
+        And the user navigates to the edit sequence route
 
     Scenario: User clicks the cancel button
         When the user clicks the cancel button

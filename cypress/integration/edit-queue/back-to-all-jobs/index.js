@@ -22,7 +22,7 @@ Given('a sequence exists', () => {
     )
 })
 
-Given('the user navigates to the edit sequence page', () => {
+Given('the user navigates to the edit sequence route', () => {
     cy.visit('/#/queue/one')
     cy.findByRole('heading', { name: 'Queue: one' }).should('exist')
 })

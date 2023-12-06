@@ -1,7 +1,7 @@
 Feature: Users should be able to insert cron presets
 
     Scenario: User inserts a cron preset
-        Given the user navigated to the add job page
+        Given the user navigated to the add job route
         And the job types have loaded
         And the user selects a cron scheduled job type
         When the user clicks the choose from preset times button
@@ -10,7 +10,7 @@ Feature: Users should be able to insert cron presets
         Then the selected cron schedule will be inserted in the form
 
     Scenario: User cancels inserting a cron preset
-        Given the user navigated to the add job page
+        Given the user navigated to the add job route
         And the job types have loaded
         And the user selects a cron scheduled job type
         When the user clicks the choose from preset times button

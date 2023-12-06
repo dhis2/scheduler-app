@@ -2,7 +2,7 @@ Feature: Users should be able to navigate back to the list route
 
     Background:
         Given a single user job exists
-        And the user navigated to the edit job page
+        And the user navigated to the edit job route
 
     Scenario: User clicks the cancel button
         When the user clicks the cancel button

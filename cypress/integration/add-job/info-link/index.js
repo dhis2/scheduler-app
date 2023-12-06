@@ -3,7 +3,7 @@ import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
 const infoHref =
     'https://docs.dhis2.org/en/use/user-guides/dhis-core-version-master/maintaining-the-system/scheduling.html'
 
-Given('the user navigated to the add job page', () => {
+Given('the user navigated to the add job route', () => {
     cy.visit('/#/job/add')
     cy.findByRole('heading', { name: 'New Job' }).should('exist')
 })

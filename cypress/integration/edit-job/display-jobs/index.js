@@ -7,7 +7,7 @@ Given('a single user job exists', () => {
     )
 })
 
-Given('the user navigated to the edit job page', () => {
+Given('the user navigated to the edit job route', () => {
     // Set fixed date so that time based job details tests don't change
     const now = new Date(2021, 3, 10).getTime()
     cy.clock(now)

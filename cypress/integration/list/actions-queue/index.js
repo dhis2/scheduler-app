@@ -16,7 +16,7 @@ Given('a single queue exists', () => {
     )
 })
 
-Given('the user navigated to the list page', () => {
+Given('the user navigated to the list route', () => {
     cy.visit('/')
     cy.findByRole('heading', { name: 'Scheduled jobs' }).should('exist')
 })

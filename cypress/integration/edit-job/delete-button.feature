@@ -2,7 +2,7 @@ Feature: Users should be able to delete a job
 
     Background:
         Given a single user job exists
-        And the user navigated to the edit job page
+        And the user navigated to the edit job route
         And the user clicks the delete job button
 
     Scenario: User deletes a job

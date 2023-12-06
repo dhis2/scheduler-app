@@ -10,7 +10,7 @@ Given('a single user job exists', () => {
     )
 })
 
-Given('the user navigated to the edit job page', () => {
+Given('the user navigated to the edit job route', () => {
     cy.visit('/#/job/lnWRZN67iDU')
     cy.findByRole('heading', { name: 'Job: Job 1' }).should('exist')
 })

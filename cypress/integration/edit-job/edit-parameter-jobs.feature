@@ -2,7 +2,7 @@ Feature: Users should be able to edit jobs that take parameters
 
     Scenario Outline: User edits a <job-type> job
         Given a single user job exists
-        And the user navigated to the edit job page
+        And the user navigated to the edit job route
         And the user enters a job name
         And the user selects the <job-type> job type
         And the user enters a <schedule-type> schedule
