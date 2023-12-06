@@ -49,11 +49,12 @@
             "sec-fetch-mode": "cors"
         },
         "statusCode": 200,
-        "responseBody": "[]",
-        "responseSize": 2,
+        "responseBody": "[{\"name\":\"1\",\"type\":\"DATA_INTEGRITY\",\"status\":\"DISABLED\",\"enabled\":false,\"configurable\":true,\"sequence\":[{\"id\":\"sHmTcgoa5vB\",\"name\":\"1\",\"type\":\"DATA_INTEGRITY\",\"status\":\"DISABLED\"}]}]",
+        "responseSize": 183,
         "responseHeaders": {
             "server": "nginx/1.23.0",
             "content-type": "application/json;charset=UTF-8",
+            "transfer-encoding": "chunked",
             "connection": "keep-alive",
             "access-control-allow-credentials": "true",
             "access-control-allow-origin": "http://localhost:3000",

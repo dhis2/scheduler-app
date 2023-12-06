@@ -25,7 +25,7 @@ Given('the queue toggle switch is off', () => {
 
 When('the user clicks the enabled queue toggle switch', () => {
     cy.intercept(
-        { pathname: /jobConfigurations\/lnWRZN67iDU\/disable$/ },
+        { pathname: /jobConfigurations\/uvUPBToQHD9\/disable$/ },
         { statusCode: 204 }
     )
     cy.intercept(
@@ -38,7 +38,7 @@ When('the user clicks the enabled queue toggle switch', () => {
 
 When('the user clicks the disabled queue toggle switch', () => {
     cy.intercept(
-        { pathname: /jobConfigurations\/lnWRZN67iDU\/enable$/ },
+        { pathname: /jobConfigurations\/uvUPBToQHD9\/enable$/ },
         { statusCode: 204 }
     )
     cy.intercept(
