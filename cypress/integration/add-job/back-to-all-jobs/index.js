@@ -17,6 +17,8 @@ Then('the list route will be loaded', () => {
     cy.findByRole('heading', { name: 'Scheduled jobs' }).should('exist')
 })
 
-Then('the user will be asked if they want to discard the form', () => {
-    cy.findByText('Are you sure you want to discard this form?').should('exist')
+Then('the user will be asked if they want to discard their changes', () => {
+    cy.findByText('Are you sure you want to discard your changes?').should(
+        'exist'
+    )
 })

@@ -10,4 +10,4 @@ Feature: Users should be able to navigate back to the list route
     Scenario: User clicks the cancel button after editing the form
         Given the user has edited the form
         When the user clicks the cancel button
-        Then the user will be asked if they want to discard the form
+        Then the user will be asked if they want to discard their changes
