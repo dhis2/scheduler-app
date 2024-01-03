@@ -1,3 +1,10 @@
+# [101.3.0](https://github.com/dhis2/scheduler-app/compare/v101.2.8...v101.3.0) (2024-01-03)
+
+
+### Features
+
+* incorporate job queue in job list ([#571](https://github.com/dhis2/scheduler-app/issues/571)) ([204173e](https://github.com/dhis2/scheduler-app/commit/204173eb83e4d3f949c24e2670c8745ec4edb9b4))
+
 ## [101.2.8](https://github.com/dhis2/scheduler-app/compare/v101.2.7...v101.2.8) (2023-11-26)
 
 
