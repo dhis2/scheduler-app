@@ -1,0 +1,84 @@
+[
+    {
+        "name": "Job 1",
+        "type": "DATA_INTEGRITY",
+        "cronExpression": "0 0 3 ? * MON",
+        "nextExecutionTime": "2021-03-01T03:00:00.000",
+        "status": "SCHEDULED",
+        "enabled": true,
+        "configurable": true,
+        "sequence": [
+            {
+                "id": "lnWRZN67iDU",
+                "name": "Job 1",
+                "type": "DATA_INTEGRITY",
+                "cronExpression": "0 0 3 ? * MON",
+                "nextExecutionTime": "2021-03-01T03:00:00.000",
+                "status": "SCHEDULED"
+            }
+        ]
+    },
+    {
+        "name": "Job 2",
+        "type": "MONITORING",
+        "cronExpression": "0 0 3 ? * MON",
+        "nextExecutionTime": "2021-03-01T03:00:00.000",
+        "status": "SCHEDULED",
+        "enabled": true,
+        "configurable": true,
+        "sequence": [
+            {
+                "id": "HEUQRVwkSaB",
+                "name": "Job 2",
+                "type": "MONITORING",
+                "cronExpression": "0 0 3 ? * MON",
+                "nextExecutionTime": "2021-03-01T03:00:00.000",
+                "status": "SCHEDULED"
+            }
+        ]
+    },
+    {
+        "name": "Job 3",
+        "type": "DISABLE_INACTIVE_USERS",
+        "cronExpression": "0 0 3 ? * MON",
+        "nextExecutionTime": "2021-03-01T03:00:00.000",
+        "status": "SCHEDULED",
+        "enabled": true,
+        "configurable": true,
+        "sequence": [
+            {
+                "id": "thARpL8RTbe",
+                "name": "Job 3",
+                "type": "DISABLE_INACTIVE_USERS",
+                "cronExpression": "0 0 3 ? * MON",
+                "nextExecutionTime": "2021-03-01T03:00:00.000",
+                "status": "SCHEDULED"
+            }
+        ]
+    },
+    {
+        "name": "Queue 1",
+        "type": "Sequence",
+        "cronExpression": "0 0 3 ? * MON",
+        "nextExecutionTime": "2023-11-20T03:00:00.000",
+        "status": "SCHEDULED",
+        "enabled": true,
+        "configurable": true,
+        "sequence": [
+            {
+                "id": "uvUPBToQHD9",
+                "name": "Job 1",
+                "type": "DATA_INTEGRITY",
+                "cronExpression": "0 0 3 ? * MON",
+                "nextExecutionTime": "2023-11-20T03:00:00.000",
+                "status": "SCHEDULED"
+            },
+            {
+                "id": "PPgVeqiSXpz",
+                "name": "Job 2",
+                "type": "DISABLE_INACTIVE_USERS",
+                "status": "SCHEDULED"
+            }
+        ]
+    }
+]

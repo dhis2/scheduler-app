@@ -10,11 +10,14 @@ import {
 import i18n from '@dhis2/d2-i18n'
 import { useDataMutation } from '@dhis2/app-runtime'
 
+const mutation = {
+    resource: 'scheduler/queues',
+    id: ({ name }) => name,
+    type: 'delete',
+}
+
 const DeleteQueueModal = ({ name, hideModal, onSuccess }) => {
-    const [deleteQueue] = useDataMutation({
-        resource: `scheduler/queues/${name}`,
-        type: 'delete',
-    })
+    const [deleteQueue] = useDataMutation(mutation)
 
     return (
         <Modal open small onClose={hideModal}>
@@ -30,7 +33,7 @@ const DeleteQueueModal = ({ name, hideModal, onSuccess }) => {
                         name={`delete-queue-${name}`}
                         destructive
                         onClick={() => {
-                            deleteQueue().then(() => {
+                            deleteQueue({ name }).then(() => {
                                 hideModal()
                                 onSuccess()
                             })

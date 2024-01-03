@@ -13,7 +13,7 @@ import history from '../../services/history'
 const DiscardFormModal = ({ hideModal }) => (
     <Modal open small onClose={hideModal}>
         <ModalContent>
-            {i18n.t('Are you sure you want to discard this form?')}
+            {i18n.t('Are you sure you want to discard your changes?')}
         </ModalContent>
         <ModalActions>
             <ButtonStrip end>

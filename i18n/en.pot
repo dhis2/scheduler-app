@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2023-08-29T11:34:50.926Z\n"
-"PO-Revision-Date: 2023-08-29T11:34:50.926Z\n"
+"POT-Creation-Date: 2024-01-02T14:28:02.554Z\n"
+"PO-Revision-Date: 2024-01-02T14:28:02.554Z\n"
 
 msgid "Something went wrong"
 msgstr "Something went wrong"
@@ -147,6 +147,9 @@ msgstr "Something went wrong whilst creating your queue"
 msgid "Something went wrong whilst updating your queue"
 msgstr "Something went wrong whilst updating your queue"
 
+msgid "About the scheduler"
+msgstr "About the scheduler"
+
 msgid "Job details"
 msgstr "Job details"
 
@@ -159,17 +162,14 @@ msgstr "Last run {{ lastRunFromNow }}."
 msgid "Last run status: {{ translatedStatus }}."
 msgstr "Last run status: {{ translatedStatus }}."
 
-msgid "Actions"
-msgstr "Actions"
-
 msgid "Delete"
 msgstr "Delete"
 
 msgid "Edit"
 msgstr "Edit"
 
-msgid "Job name"
-msgstr "Job name"
+msgid "Actions"
+msgstr "Actions"
 
 msgid "Type"
 msgstr "Type"
@@ -191,6 +191,15 @@ msgstr "No jobs to display"
 
 msgid "Not scheduled"
 msgstr "Not scheduled"
+
+msgid "Hide jobs"
+msgstr "Hide jobs"
+
+msgid "Show jobs"
+msgstr "Show jobs"
+
+msgid "Queue"
+msgstr "Queue"
 
 msgid "Run manually"
 msgstr "Run manually"
@@ -228,8 +237,8 @@ msgstr "Are you sure you want to delete this job?"
 msgid "Are you sure you want to delete this queue?"
 msgstr "Are you sure you want to delete this queue?"
 
-msgid "Are you sure you want to discard this form?"
-msgstr "Are you sure you want to discard this form?"
+msgid "Are you sure you want to discard your changes?"
+msgstr "Are you sure you want to discard your changes?"
 
 msgid "Discard"
 msgstr "Discard"
@@ -253,8 +262,11 @@ msgstr ""
 "Something went wrong whilst loading the requested job. Make sure it has not "
 "been deleted and try refreshing the page."
 
-msgid "Toggle job"
-msgstr "Toggle job"
+msgid "Disable"
+msgstr "Disable"
+
+msgid "Enable"
+msgstr "Enable"
 
 msgid "New Job"
 msgstr "New Job"
@@ -262,20 +274,21 @@ msgstr "New Job"
 msgid "Configuration"
 msgstr "Configuration"
 
-msgid "About job configuration"
-msgstr "About job configuration"
+msgid "Could not load jobs and queues"
+msgstr "Could not load jobs and queues"
 
-msgid "Job: {{ name }}"
-msgstr "Job: {{ name }}"
-
-msgid "Could not load jobs"
-msgstr "Could not load jobs"
-
-msgid "Something went wrong whilst loading the jobs. Try refreshing the page."
-msgstr "Something went wrong whilst loading the jobs. Try refreshing the page."
+msgid ""
+"Something went wrong whilst loading the jobs and queues. Try refreshing the "
+"page."
+msgstr ""
+"Something went wrong whilst loading the jobs and queues. Try refreshing the "
+"page."
 
 msgid "Scheduled jobs"
 msgstr "Scheduled jobs"
+
+msgid "Filter by name"
+msgstr "Filter by name"
 
 msgid "Include system jobs in list"
 msgstr "Include system jobs in list"
@@ -283,21 +296,17 @@ msgstr "Include system jobs in list"
 msgid "New job"
 msgstr "New job"
 
+msgid "New queue"
+msgstr "New queue"
+
+msgid "Job: {{ name }}"
+msgstr "Job: {{ name }}"
+
 msgid "System job: {{ name }}"
 msgstr "System job: {{ name }}"
 
 msgid "Back to all jobs"
 msgstr "Back to all jobs"
-
-msgid "New queue"
-msgstr "New queue"
-
-msgid ""
-"A queue is a collection of jobs that are executed in order, one after "
-"another as they finish."
-msgstr ""
-"A queue is a collection of jobs that are executed in order, one after "
-"another as they finish."
 
 msgid "Could not load requested queue"
 msgstr "Could not load requested queue"

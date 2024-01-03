@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, Switch, Redirect } from 'react-router-dom'
 import { Router } from 'react-router'
-import JobList from '../../pages/JobList'
+import JobAndQueueList from '../../pages/JobAndQueueList'
 import JobAdd from '../../pages/JobAdd'
 import QueueAdd from '../../pages/QueueAdd'
 import QueueEdit from '../../pages/QueueEdit'
@@ -14,7 +14,7 @@ const Routes = () => (
             <Redirect from="/edit/:id" to="/job/:id" />
             <Redirect from="/view/:id" to="/job/:id" />
             <Redirect from="/add" to="/job/add" />
-            <Route exact path="/" component={JobList} />
+            <Route exact path="/" component={JobAndQueueList} />
             <Route path="/job/add" component={JobAdd} />
             <Route path="/job/:id" component={JobViewOrEdit} />
             <Route path="/queue/add" component={QueueAdd} />

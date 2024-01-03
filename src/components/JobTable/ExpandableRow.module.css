@@ -1,0 +1,8 @@
+.row {
+    box-shadow: inset 8px 0 0 0 var(--colors-grey500);
+}
+
+.indent {
+    /* stylelint-disable-next-line declaration-no-important */
+    padding-left: 32px !important;
+}

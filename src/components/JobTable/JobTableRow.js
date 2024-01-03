@@ -2,8 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { TableRow, TableCell } from '@dhis2/ui'
 import { jobTypesMap } from '../../services/server-translations'
-import { ToggleJobSwitch } from '../Switches'
-import Actions from './Actions'
+import { JobSwitch } from '../Switches'
+import JobActions from './JobActions'
 import Status from './Status'
 import NextRun from './NextRun'
 import Schedule from './Schedule'
@@ -23,6 +23,7 @@ const JobTableRow = ({
     refetch,
 }) => (
     <TableRow>
+        <TableCell />
         <TableCell role="rowheader">{name}</TableCell>
         <TableCell>{jobTypesMap[type]}</TableCell>
         <TableCell>
@@ -35,7 +36,7 @@ const JobTableRow = ({
             <Status status={status} />
         </TableCell>
         <TableCell>
-            <ToggleJobSwitch
+            <JobSwitch
                 id={id}
                 checked={enabled}
                 disabled={!configurable}
@@ -43,7 +44,7 @@ const JobTableRow = ({
             />
         </TableCell>
         <TableCell>
-            <Actions
+            <JobActions
                 id={id}
                 enabled={enabled}
                 configurable={configurable}

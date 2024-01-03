@@ -1,18 +1,19 @@
+import { useState } from 'react'
 import { useDataQuery } from '@dhis2/app-runtime'
 
 const key = 'queue'
-const createQuery = (encodedName) => ({
-    [key]: {
-        resource: `scheduler/queues/${encodedName}`,
-        params: {
-            fields: ['cronExpression', 'sequence', 'name'],
-        },
-    },
-})
 
 const useQueueByName = (name) => {
     const encodedName = encodeURIComponent(name)
-    const fetch = useDataQuery(createQuery(encodedName))
+    const [query] = useState({
+        [key]: {
+            resource: `scheduler/queues/${encodedName}`,
+            params: {
+                fields: ['cronExpression', 'sequence', 'name'],
+            },
+        },
+    })
+    const fetch = useDataQuery(query)
 
     // Remove nesting from data
     if (fetch.data) {

@@ -1,1 +1,1 @@
-export { default as ToggleJobSwitch } from './ToggleJobSwitch'
+export { default as JobSwitch } from './JobSwitch'
