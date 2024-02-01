@@ -47,8 +47,8 @@ describe('<NextRun>', () => {
         expect(wrapper.find(Tooltip).prop('content')).toEqual(expected)
     })
 
-    it('returns fallback message for an enabled job and a past execution time', () => {
-        const expected = 'Not scheduled'
+    it('returns message for an enabled job and a past execution time', () => {
+        const expected = 'Now'
         jest.spyOn(global.Date, 'now').mockImplementation(() => now)
 
         const wrapper = shallow(
