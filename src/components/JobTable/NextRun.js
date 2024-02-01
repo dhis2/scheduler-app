@@ -28,12 +28,17 @@ const NextRun = ({ nextExecutionTime, enabled }) => {
     const nextRunIsInPast = nextRun.getTime() <= now
 
     /**
-     * If the time is in the past, that could mean that the task is running,
-     * and the nextExecutionTime hasn't been updated yet.
+     * If the nextExecutionTime is in the past that means that
+     * the scheduled execution time has passed, but the allowed
+     * startup delay hasn't expired yet. Effectively this means
+     * that the backend will start the job as soon as possible.
+     *
+     * If the window expires before the job can execute the
+     * nextExecutionTime will be updated to a time in the future.
      */
 
     if (nextRunIsInPast) {
-        return i18n.t('Not scheduled')
+        return i18n.t('Now')
     }
 
     return (
