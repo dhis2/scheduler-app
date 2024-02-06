@@ -1,3 +1,10 @@
+## [101.3.3](https://github.com/dhis2/scheduler-app/compare/v101.3.2...v101.3.3) (2024-02-06)
+
+
+### Bug Fixes
+
+* update label to indicate job is attempting to run now ([eab8605](https://github.com/dhis2/scheduler-app/commit/eab8605507d4997f248951b4ac17f0f765a3b94a))
+
 ## [101.3.2](https://github.com/dhis2/scheduler-app/compare/v101.3.1...v101.3.2) (2024-01-14)
 
 
