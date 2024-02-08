@@ -18,7 +18,7 @@ const cronPresets = [
     },
     {
         label: i18n.t('Every day at midnight'),
-        value: '0 0 1 ? * *',
+        value: '0 0 0 ? * *',
     },
     {
         label: i18n.t('Every day at 3 am'),
@@ -26,7 +26,7 @@ const cronPresets = [
     },
     {
         label: i18n.t('Every day at noon'),
-        value: '0 0 12 ? * MON-FRI',
+        value: '0 0 12 ? * *',
     },
     {
         label: i18n.t('Every week'),
