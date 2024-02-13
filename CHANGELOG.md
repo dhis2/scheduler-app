@@ -1,3 +1,10 @@
+## [101.3.4](https://github.com/dhis2/scheduler-app/compare/v101.3.3...v101.3.4) (2024-02-13)
+
+
+### Bug Fixes
+
+* align cron expressions with labels ([a5f6396](https://github.com/dhis2/scheduler-app/commit/a5f6396f8d3c0f45f8e168b5310436e4d578dc99))
+
 ## [101.3.3](https://github.com/dhis2/scheduler-app/compare/v101.3.2...v101.3.3) (2024-02-06)
 
 
