@@ -1,3 +1,10 @@
+## [101.3.5](https://github.com/dhis2/scheduler-app/compare/v101.3.4...v101.3.5) (2024-02-14)
+
+
+### Bug Fixes
+
+* add cursor pointer to custom transfer options ([e5c7299](https://github.com/dhis2/scheduler-app/commit/e5c7299a9132049527d93253e2271c53cf18bf2a))
+
 ## [101.3.4](https://github.com/dhis2/scheduler-app/compare/v101.3.3...v101.3.4) (2024-02-13)
 
 
