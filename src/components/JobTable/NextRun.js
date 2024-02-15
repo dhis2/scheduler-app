@@ -5,12 +5,16 @@ import i18n from '@dhis2/d2-i18n'
 import { Tooltip } from '@dhis2/ui'
 import React from 'react'
 
-const formatDate = (dhis2Date) =>
-    `${dhis2Date
+const dateToServerTimeString = (dhis2Date) => {
+    const serverTime = dhis2Date
         .getServerZonedISOString()
         .substring(0, 19)
         .split('T')
-        .join(' ')} (${dhis2Date.serverTimezone})`
+        .join(' ')
+    const serverTZ = dhis2Date.serverTimezone
+
+    return `${serverTime} (${serverTZ})`
+}
 
 const NextRun = ({ nextExecutionTime, enabled }) => {
     const { fromServerDate } = useTimeZoneConversion()
@@ -22,10 +26,12 @@ const NextRun = ({ nextExecutionTime, enabled }) => {
     const now = Date.now()
 
     /**
-     * Adjust for client/sever time zone difference.
+     * nextExecutionTime does not have timezone information. With
+     * fromServerDate we return an extended Date object that
+     * assumes the timestamp refers to server time and parses the
+     * nextExecutionTime to the user's local timezone.
      */
-    const nextRun = fromServerDate(nextExecutionTime)
-    const nextRunIsInPast = nextRun.getTime() <= now
+    const nextExecutionDate = fromServerDate(nextExecutionTime)
 
     /**
      * If the nextExecutionTime is in the past that means that
@@ -37,13 +43,15 @@ const NextRun = ({ nextExecutionTime, enabled }) => {
      * nextExecutionTime will be updated to a time in the future.
      */
 
+    const nextRunIsInPast = nextExecutionDate.getTime() <= now
+
     if (nextRunIsInPast) {
         return i18n.t('Now')
     }
 
     return (
-        <Tooltip content={moment(nextRun).fromNow()}>
-            {formatDate(nextRun)}
+        <Tooltip content={dateToServerTimeString(nextExecutionDate)}>
+            {moment(nextExecutionDate).fromNow()}
         </Tooltip>
     )
 }
