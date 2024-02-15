@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2024-01-02T14:28:02.554Z\n"
-"PO-Revision-Date: 2024-01-02T14:28:02.554Z\n"
+"POT-Creation-Date: 2024-02-15T11:19:20.108Z\n"
+"PO-Revision-Date: 2024-02-15T11:19:20.108Z\n"
 
 msgid "Something went wrong"
 msgstr "Something went wrong"
@@ -189,8 +189,8 @@ msgstr "On/off"
 msgid "No jobs to display"
 msgstr "No jobs to display"
 
-msgid "Not scheduled"
-msgstr "Not scheduled"
+msgid "Now"
+msgstr "Now"
 
 msgid "Hide jobs"
 msgstr "Hide jobs"
@@ -237,11 +237,17 @@ msgstr "Are you sure you want to delete this job?"
 msgid "Are you sure you want to delete this queue?"
 msgstr "Are you sure you want to delete this queue?"
 
-msgid "Are you sure you want to discard your changes?"
-msgstr "Are you sure you want to discard your changes?"
+msgid "Discard unsaved changes?"
+msgstr "Discard unsaved changes?"
 
-msgid "Discard"
-msgstr "Discard"
+msgid "This form has unsaved changes. Are you sure that you want to discard them?"
+msgstr "This form has unsaved changes. Are you sure that you want to discard them?"
+
+msgid "No, keep changes"
+msgstr "No, keep changes"
+
+msgid "Yes, discard changes"
+msgstr "Yes, discard changes"
 
 msgid "Error running job"
 msgstr "Error running job"
