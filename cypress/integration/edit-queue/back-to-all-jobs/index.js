@@ -40,7 +40,5 @@ Then('the list route will be loaded', () => {
 })
 
 Then('the user will be asked if they want to discard their changes', () => {
-    cy.findByText('Are you sure you want to discard your changes?').should(
-        'exist'
-    )
+    cy.findByText('Discard unsaved changes?').should('exist')
 })

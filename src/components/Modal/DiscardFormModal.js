@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import {
     Button,
     Modal,
+    ModalTitle,
     ModalContent,
     ModalActions,
     ButtonStrip,
@@ -12,8 +13,11 @@ import history from '../../services/history'
 
 const DiscardFormModal = ({ hideModal }) => (
     <Modal open small onClose={hideModal}>
+        <ModalTitle>{i18n.t('Discard unsaved changes?')}</ModalTitle>
         <ModalContent>
-            {i18n.t('Are you sure you want to discard your changes?')}
+            {i18n.t(
+                'This form has unsaved changes. Are you sure that you want to discard them?'
+            )}
         </ModalContent>
         <ModalActions>
             <ButtonStrip end>
@@ -22,7 +26,7 @@ const DiscardFormModal = ({ hideModal }) => (
                     secondary
                     onClick={hideModal}
                 >
-                    {i18n.t('Cancel')}
+                    {i18n.t('No, keep changes')}
                 </Button>
                 <Button
                     name="discard-form"
@@ -32,7 +36,7 @@ const DiscardFormModal = ({ hideModal }) => (
                         history.push('/')
                     }}
                 >
-                    {i18n.t('Discard')}
+                    {i18n.t('Yes, discard changes')}
                 </Button>
             </ButtonStrip>
         </ModalActions>
