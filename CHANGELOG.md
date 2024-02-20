@@ -1,3 +1,10 @@
+## [101.3.6](https://github.com/dhis2/scheduler-app/compare/v101.3.5...v101.3.6) (2024-02-20)
+
+
+### Bug Fixes
+
+* improve text for discard form modal ([914ccb6](https://github.com/dhis2/scheduler-app/commit/914ccb6cc325c7f4ba1bfc7d9e4b9a4d510c639f))
+
 ## [101.3.5](https://github.com/dhis2/scheduler-app/compare/v101.3.4...v101.3.5) (2024-02-14)
 
 
