@@ -33,6 +33,31 @@ Then('the edit queue route will be loaded', () => {
     cy.findByRole('heading', { name: 'Queue: Queue' }).should('exist')
 })
 
+When('the user clicks the run manually button', () => {
+    cy.findByText('Run manually').click()
+})
+
+Then('the queue will be executed upon confirmation', () => {
+    cy.intercept({ pathname: /execute$/, method: 'GET' }, (req) => {
+        expect(req.url.endsWith('jobConfigurations/uvUPBToQHD9/execute')).to.be
+            .true
+        req.reply({ statusCode: 200 })
+    })
+
+    cy.findByText('Are you sure you want to run this queue?').should('exist')
+    cy.findByRole('button', { name: 'Run' }).click()
+})
+
+Then('the queue will not be executed upon cancelling', () => {
+    cy.intercept({ pathname: /execute$/, method: 'GET' }, () => {
+        // Will fail the test if the interceptor intercepts a request
+        expect(true).to.be.false
+    })
+
+    cy.findByText('Are you sure you want to run this queue?').should('exist')
+    cy.findByRole('button', { name: 'Cancel' }).click()
+})
+
 When('the user clicks the delete button', () => {
     cy.findByText('Delete').click()
 })
