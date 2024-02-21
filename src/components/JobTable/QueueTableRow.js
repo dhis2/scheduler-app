@@ -69,7 +69,12 @@ const QueueTableRow = ({
                     />
                 </TableCell>
                 <TableCell>
-                    <QueueActions name={name} refetch={refetch} />
+                    <QueueActions
+                        name={name}
+                        refetch={refetch}
+                        id={id}
+                        enabled={enabled}
+                    />
                 </TableCell>
             </TableRow>
             {showJobs
