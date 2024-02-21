@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2024-02-15T11:19:20.108Z\n"
-"PO-Revision-Date: 2024-02-15T11:19:20.108Z\n"
+"POT-Creation-Date: 2024-02-21T09:54:31.937Z\n"
+"PO-Revision-Date: 2024-02-21T09:54:31.937Z\n"
 
 msgid "Something went wrong"
 msgstr "Something went wrong"
@@ -252,8 +252,14 @@ msgstr "Yes, discard changes"
 msgid "Error running job"
 msgstr "Error running job"
 
+msgid "Error running queue"
+msgstr "Error running queue"
+
 msgid "Are you sure you want to run this job?"
 msgstr "Are you sure you want to run this job?"
+
+msgid "Are you sure you want to run this queue?"
+msgstr "Are you sure you want to run this queue?"
 
 msgid "Run"
 msgstr "Run"

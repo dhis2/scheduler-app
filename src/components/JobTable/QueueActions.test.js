@@ -4,6 +4,6 @@ import QueueActions from './QueueActions'
 
 describe('<QueueActions>', () => {
     it('renders without errors', () => {
-        shallow(<QueueActions name="1" refetch={() => {}} />)
+        shallow(<QueueActions name="1" refetch={() => {}} id="1" enabled />)
     })
 })
