@@ -9,6 +9,14 @@ Feature: Queue actions
         When the user clicks the edit button
         Then the edit queue route will be loaded
 
+    Scenario: User manually runs a queue
+        When the user clicks the run manually button
+        Then the queue will be executed upon confirmation
+
+    Scenario: User cancels a manual queue run modal
+        When the user clicks the run manually button
+        Then the queue will not be executed upon cancelling
+
     Scenario: User deletes a queue
         When the user clicks the delete button
         Then the queue will be deleted upon confirmation
