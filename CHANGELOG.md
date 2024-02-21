@@ -1,3 +1,10 @@
+# [101.4.0](https://github.com/dhis2/scheduler-app/compare/v101.3.6...v101.4.0) (2024-02-21)
+
+
+### Features
+
+* add run queue menu item ([4e06e28](https://github.com/dhis2/scheduler-app/commit/4e06e281365b5c9836f3ea0d618180ab73b20fe4))
+
 ## [101.3.6](https://github.com/dhis2/scheduler-app/compare/v101.3.5...v101.3.6) (2024-02-20)
 
 
