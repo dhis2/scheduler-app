@@ -22,25 +22,34 @@ const { Field } = ReactFinalForm
 // The key under which the parameters will be sent to the backend
 const FIELD_NAME = 'jobParameters'
 
-const JOB_TYPES = {
-    DATA_INTEGRITY: 'DATA_INTEGRITY',
-    AGGREGATE_DATA_EXCHANGE: 'AGGREGATE_DATA_EXCHANGE',
-}
-
 const getCustomComponent = (jobType, parameterName) => {
-    if (jobType === JOB_TYPES.DATA_INTEGRITY && parameterName === 'checks') {
-        return DataIntegrityChecksField
-    } else if (
-        jobType === JOB_TYPES.DATA_INTEGRITY &&
-        parameterName === 'type'
-    ) {
-        return DataIntegrityReportTypeField
-    } else if (jobType === JOB_TYPES.AGGREGATE_DATA_EXCHANGE) {
-        return AggregatedDataExchangeField
-    } else if (parameterName === 'skipTableTypes') {
-        return SkipTableTypesField
+    switch (jobType) {
+        case 'DATA_INTEGRITY':
+            if (parameterName === 'checks') {
+                return DataIntegrityChecksField
+            } else if (parameterName === 'type') {
+                return DataIntegrityReportTypeField
+            }
+
+            return null
+        case 'AGGREGATE_DATA_EXCHANGE':
+            if (parameterName === 'dataExchangeIds') {
+                return AggregatedDataExchangeField
+            }
+
+            return null
+        case 'ANALYTICS_TABLE':
+        case 'CONTINUOUS_ANALYTICS_TABLE':
+            if (parameterName === 'skipTableTypes') {
+                return SkipTableTypesField
+            }
+
+            return null
+        case 'HTML_PUSH_ANALYTICS':
+            return null
+        default:
+            return null
     }
-    return null
 }
 
 // Renders all parameters for a given jobtype
@@ -77,10 +86,9 @@ const ParameterFields = ({ jobType }) => {
                 klass,
                 ...rest,
             }
-            let parameterComponent = null
 
+            // Fields that can't be handled by the generic fields
             const CustomParameterComponent = getCustomComponent(jobType, name)
-
             if (CustomParameterComponent) {
                 return (
                     <Box marginTop="16px" key={name}>
@@ -94,6 +102,7 @@ const ParameterFields = ({ jobType }) => {
             }
 
             // Generic field rendering
+            let parameterComponent = null
             switch (klass) {
                 case 'java.lang.String':
                     parameterComponent = (

@@ -21,7 +21,7 @@ const jobTypesMap = {
     EVENT_IMPORT: i18n.t('Event import'),
     EVENT_PROGRAMS_DATA_SYNC: i18n.t('Event programs data sync'),
     FILE_RESOURCE_CLEANUP: i18n.t('File resource clean up'),
-    HTML_PUSH_ANALYTICS: i18n.t('Html push analytics'),
+    HTML_PUSH_ANALYTICS: i18n.t('HTML push analytics'),
     GEOJSON_IMPORT: i18n.t('GEOJSON import'),
     GML_IMPORT: i18n.t('GML import'),
     IMAGE_PROCESSING: i18n.t('Image processing'),
