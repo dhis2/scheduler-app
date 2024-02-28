@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-01-02T14:28:02.554Z\n"
+"POT-Creation-Date: 2024-02-21T09:54:31.937Z\n"
 "PO-Revision-Date: 2020-05-08 14:30+0000\n"
 "Last-Translator: Jiří Podhorecký, 2024\n"
 "Language-Team: Czech (https://app.transifex.com/hisp-uio/teams/100509/cs/)\n"
@@ -194,8 +194,8 @@ msgstr "Zapnuto / vypnuto"
 msgid "No jobs to display"
 msgstr "Žádné úlohy k zobrazení"
 
-msgid "Not scheduled"
-msgstr "Není naplánováno"
+msgid "Now"
+msgstr ""
 
 msgid "Hide jobs"
 msgstr ""
@@ -242,17 +242,30 @@ msgstr "Opravdu chcete tuto úlohu smazat?"
 msgid "Are you sure you want to delete this queue?"
 msgstr "Opravdu chcete smazat tuto frontu?"
 
-msgid "Are you sure you want to discard your changes?"
+msgid "Discard unsaved changes?"
 msgstr ""
 
-msgid "Discard"
-msgstr "Vyřadit"
+msgid ""
+"This form has unsaved changes. Are you sure that you want to discard them?"
+msgstr ""
+
+msgid "No, keep changes"
+msgstr ""
+
+msgid "Yes, discard changes"
+msgstr "Ano, zahodit změny"
 
 msgid "Error running job"
 msgstr "Chyba při spuštění úlohy"
 
+msgid "Error running queue"
+msgstr ""
+
 msgid "Are you sure you want to run this job?"
 msgstr "Opravdu chcete tento job spustit?"
+
+msgid "Are you sure you want to run this queue?"
+msgstr ""
 
 msgid "Run"
 msgstr "Běh"
@@ -268,7 +281,7 @@ msgstr ""
 "smazána, a zkuste stránku obnovit."
 
 msgid "Disable"
-msgstr ""
+msgstr "Zakázat"
 
 msgid "Enable"
 msgstr "Povolit"

@@ -1,16 +1,16 @@
 # 
 # Translators:
-# easylin <lin_xd@126.com>, 2023
-# Philip Larsen Donnelly, 2024
-# 晓东 林 <13981924470@126.com>, 2024
 # Viktor Varland <viktor@dhis2.org>, 2024
+# Philip Larsen Donnelly, 2024
+# easylin <lin_xd@126.com>, 2024
+# 晓东 林 <13981924470@126.com>, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-01-02T14:28:02.554Z\n"
+"POT-Creation-Date: 2024-02-21T09:54:31.937Z\n"
 "PO-Revision-Date: 2020-05-08 14:30+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2024\n"
+"Last-Translator: 晓东 林 <13981924470@126.com>, 2024\n"
 "Language-Team: Chinese (https://app.transifex.com/hisp-uio/teams/100509/zh/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -84,7 +84,7 @@ msgid "Delay"
 msgstr "延迟"
 
 msgid "Delay in seconds ({{ lowerbound }} - {{ upperbound }})"
-msgstr "延迟秒数（{{lowerbound}}-{{upperbound}}）"
+msgstr "延迟秒数（{{ lowerbound }}-{{ upperbound }}）"
 
 msgid "Job type"
 msgstr "作业类型"
@@ -156,19 +156,19 @@ msgid "Something went wrong whilst updating your queue"
 msgstr "更新队列时出现问题"
 
 msgid "About the scheduler"
-msgstr ""
+msgstr "关于调度程序"
 
 msgid "Job details"
 msgstr "作业详情"
 
 msgid "Created {{ createdFromNow }}."
-msgstr "已创建{{createdFromNow}}。"
+msgstr "已创建{{ createdFromNow }}。"
 
 msgid "Last run {{ lastRunFromNow }}."
-msgstr "上次运行{{lastRunFromNow}}。"
+msgstr "上次运行{{ lastRunFromNow }}。"
 
 msgid "Last run status: {{ translatedStatus }}."
-msgstr "上次运行状态：{{translationStatus}}。"
+msgstr "上次运行状态：{{ translatedStatus }}。"
 
 msgid "Delete"
 msgstr "删除"
@@ -197,23 +197,23 @@ msgstr "开关"
 msgid "No jobs to display"
 msgstr "没有要显示的工作"
 
-msgid "Not scheduled"
-msgstr "未安排"
+msgid "Now"
+msgstr ""
 
 msgid "Hide jobs"
-msgstr ""
+msgstr "隐藏职位"
 
 msgid "Show jobs"
-msgstr ""
+msgstr "显示职位"
 
 msgid "Queue"
-msgstr ""
+msgstr "队列"
 
 msgid "Run manually"
 msgstr "手动运行"
 
 msgid "{{ delay }} seconds after last run"
-msgstr "上次运行后{{delay}}秒"
+msgstr "上次运行后{{ delay }}秒"
 
 msgid "View"
 msgstr "查看"
@@ -245,17 +245,30 @@ msgstr "你确信要删除该作业"
 msgid "Are you sure you want to delete this queue?"
 msgstr "您确定要删除此队列吗？"
 
-msgid "Are you sure you want to discard your changes?"
-msgstr "你确信要忽略改变？"
+msgid "Discard unsaved changes?"
+msgstr "放弃没有保存的修改?"
 
-msgid "Discard"
-msgstr "放弃"
+msgid ""
+"This form has unsaved changes. Are you sure that you want to discard them?"
+msgstr ""
+
+msgid "No, keep changes"
+msgstr ""
+
+msgid "Yes, discard changes"
+msgstr "是的，放弃更改"
 
 msgid "Error running job"
 msgstr "运行作业时出错"
 
+msgid "Error running queue"
+msgstr ""
+
 msgid "Are you sure you want to run this job?"
 msgstr "您确定要执行这项工作吗？"
+
+msgid "Are you sure you want to run this queue?"
+msgstr ""
 
 msgid "Run"
 msgstr "运行"
@@ -281,12 +294,12 @@ msgid "Configuration"
 msgstr "配置"
 
 msgid "Could not load jobs and queues"
-msgstr ""
+msgstr "无法加载作业和队列"
 
 msgid ""
 "Something went wrong whilst loading the jobs and queues. Try refreshing the "
 "page."
-msgstr ""
+msgstr "加载作业和队列时出现问题。尝试刷新页面。"
 
 msgid "Scheduled jobs"
 msgstr "调度的作业"
@@ -304,10 +317,10 @@ msgid "New queue"
 msgstr "新队列"
 
 msgid "Job: {{ name }}"
-msgstr "职位：{{name}}"
+msgstr "职位：{{ name }}"
 
 msgid "System job: {{ name }}"
-msgstr "系统作业：{{name}}"
+msgstr "系统作业：{{ name }}"
 
 msgid "Back to all jobs"
 msgstr "返回所有作业"
