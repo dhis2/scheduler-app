@@ -31,6 +31,12 @@ const query = {
     dataIntegrityChecks: {
         resource: 'dataIntegrity',
     },
+    dashboard: {
+        resource: 'dashboards',
+    },
+    receivers: {
+        resource: 'userGroups',
+    },
 }
 
 const useParameterOptions = () => {
@@ -45,6 +51,8 @@ const useParameterOptions = () => {
         const predictors = fetch.data?.predictors?.predictors
         const predictorGroups = fetch.data?.predictorGroups?.predictorGroups
         const dataIntegrityChecks = fetch.data?.dataIntegrityChecks
+        const dashboard = fetch.data?.dashboard?.dashboards
+        const receivers = fetch.data?.receivers?.userGroups
 
         if (
             !skipTableTypes ||
@@ -52,7 +60,9 @@ const useParameterOptions = () => {
             !pushAnalysis ||
             !predictors ||
             !predictorGroups ||
-            !dataIntegrityChecks
+            !dataIntegrityChecks ||
+            !dashboard ||
+            !receivers
         ) {
             const error = new Error(
                 'Did not receive the expected parameter options'
@@ -67,6 +77,8 @@ const useParameterOptions = () => {
             predictors,
             predictorGroups,
             dataIntegrityChecks,
+            dashboard,
+            receivers,
         }
 
         return { ...fetch, data }

@@ -46,6 +46,14 @@ const getCustomComponent = (jobType, parameterName) => {
 
             return null
         case 'HTML_PUSH_ANALYTICS':
+            if (parameterName === 'dashboard') {
+                return LabeledOptionsField
+            } else if (parameterName === 'receivers') {
+                return LabeledOptionsField
+            } else if (parameterName === 'mode') {
+                return null
+            }
+
             return null
         default:
             return null
@@ -137,6 +145,7 @@ const ParameterFields = ({ jobType }) => {
                         <LabeledOptionsField
                             {...defaultProps}
                             parameterName={name}
+                            multiple
                         />
                     )
                     break
