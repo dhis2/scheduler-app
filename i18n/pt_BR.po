@@ -2,13 +2,14 @@
 # Translators:
 # Philip Larsen Donnelly, 2024
 # Viktor Varland <viktor@dhis2.org>, 2024
+# Thiago Rocha, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-01-02T14:28:02.554Z\n"
+"POT-Creation-Date: 2024-02-21T09:54:31.937Z\n"
 "PO-Revision-Date: 2020-05-08 14:30+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2024\n"
+"Last-Translator: Thiago Rocha, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/hisp-uio/teams/100509/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -175,7 +176,7 @@ msgid "Edit"
 msgstr "Editar"
 
 msgid "Actions"
-msgstr ""
+msgstr "Acções"
 
 msgid "Type"
 msgstr "Tipo"
@@ -195,7 +196,7 @@ msgstr ""
 msgid "No jobs to display"
 msgstr ""
 
-msgid "Not scheduled"
+msgid "Now"
 msgstr ""
 
 msgid "Hide jobs"
@@ -243,16 +244,29 @@ msgstr ""
 msgid "Are you sure you want to delete this queue?"
 msgstr ""
 
-msgid "Are you sure you want to discard your changes?"
+msgid "Discard unsaved changes?"
 msgstr ""
 
-msgid "Discard"
+msgid ""
+"This form has unsaved changes. Are you sure that you want to discard them?"
+msgstr ""
+
+msgid "No, keep changes"
+msgstr ""
+
+msgid "Yes, discard changes"
 msgstr ""
 
 msgid "Error running job"
 msgstr ""
 
+msgid "Error running queue"
+msgstr ""
+
 msgid "Are you sure you want to run this job?"
+msgstr ""
+
+msgid "Are you sure you want to run this queue?"
 msgstr ""
 
 msgid "Run"
@@ -334,10 +348,10 @@ msgid "Data value"
 msgstr ""
 
 msgid "Enrollment"
-msgstr ""
+msgstr "Inscrição"
 
 msgid "Event"
-msgstr ""
+msgstr "Evento"
 
 msgid "Org unit target"
 msgstr ""
@@ -346,7 +360,7 @@ msgid "Ownership"
 msgstr ""
 
 msgid "Validation result"
-msgstr ""
+msgstr "Resultado da validação"
 
 msgid "Warning"
 msgstr "Advertência"
@@ -364,10 +378,10 @@ msgid "Details"
 msgstr "Detalhes"
 
 msgid "Completed"
-msgstr ""
+msgstr "Concluído"
 
 msgid "Disabled"
-msgstr ""
+msgstr "Desabilitar"
 
 msgid "Done"
 msgstr "Concluído"
@@ -382,7 +396,7 @@ msgid "Running"
 msgstr ""
 
 msgid "Scheduled"
-msgstr ""
+msgstr "Agendado"
 
 msgid "Stopped"
 msgstr ""
@@ -475,7 +489,7 @@ msgid "Monitoring"
 msgstr ""
 
 msgid "Predictor"
-msgstr ""
+msgstr "Preditor"
 
 msgid "Program data sync"
 msgstr ""
