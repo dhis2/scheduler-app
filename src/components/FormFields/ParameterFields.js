@@ -9,19 +9,21 @@ import {
     SwitchFieldFF,
 } from '@dhis2/ui'
 import { useJobTypeParameters } from '../../hooks/job-types'
-import { formatToString } from './formatters'
-import SkipTableTypesField from './SkipTableTypesField'
-import LabeledOptionsField from './LabeledOptionsField'
-import DataIntegrityChecksField from './DataIntegrityChecksField'
-import DataIntegrityReportTypeField from './DataIntegrityReportTypeField'
+import SkipTableTypesField from './Custom/SkipTableTypesField'
+import DataIntegrityChecksField from './Custom/DataIntegrityChecksField'
+import DataIntegrityReportTypeField from './Custom/DataIntegrityReportTypeField'
+import AggregatedDataExchangeField from './Custom/AggregatedDataExchangeField'
+import PushAnalyticsModeField from './Custom/PushAnalyticsModeField'
 import styles from './ParameterFields.module.css'
-import AggregatedDataExchangeField from './AggregatedDataExchangeField'
+import LabeledOptionsField from './LabeledOptionsField'
+import { formatToString } from './formatters'
 
 const { Field } = ReactFinalForm
 
 // The key under which the parameters will be sent to the backend
 const FIELD_NAME = 'jobParameters'
 
+// Overrides for fields where the generic types aren't appropriate
 const getCustomComponent = (jobType, parameterName) => {
     switch (jobType) {
         case 'DATA_INTEGRITY':
@@ -51,7 +53,7 @@ const getCustomComponent = (jobType, parameterName) => {
             } else if (parameterName === 'receivers') {
                 return LabeledOptionsField
             } else if (parameterName === 'mode') {
-                return null
+                return PushAnalyticsModeField
             }
 
             return null
@@ -84,6 +86,7 @@ const ParameterFields = ({ jobType }) => {
     // Map all parameters to the appropriate field types
     const parameterComponents = data.map(
         ({ fieldName, name, klass, ...rest }) => {
+            let parameterComponent = null
             const defaultProps = {
                 label: fieldName,
                 name: `${FIELD_NAME}.${name}`,
@@ -95,8 +98,8 @@ const ParameterFields = ({ jobType }) => {
                 ...rest,
             }
 
-            // Fields that can't be handled by the generic fields
             const CustomParameterComponent = getCustomComponent(jobType, name)
+
             if (CustomParameterComponent) {
                 return (
                     <Box marginTop="16px" key={name}>
@@ -110,7 +113,6 @@ const ParameterFields = ({ jobType }) => {
             }
 
             // Generic field rendering
-            let parameterComponent = null
             switch (klass) {
                 case 'java.lang.String':
                     parameterComponent = (

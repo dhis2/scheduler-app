@@ -3,7 +3,7 @@ import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 import { Field, Transfer } from '@dhis2/ui'
 import QueueTransferTitle from './QueueTransferTitle'
-import CustomOption from './CustomOption'
+import QueueOption from './QueueOption'
 
 const { bool, arrayOf, shape, func, array, string } = PropTypes
 
@@ -22,7 +22,7 @@ const QueueTransfer = ({ options, input, meta }) => {
             <Transfer
                 options={options}
                 selected={value}
-                renderOption={CustomOption}
+                renderOption={QueueOption}
                 filterable
                 filterPlaceholder={i18n.t('Filter jobs')}
                 enableOrderChange

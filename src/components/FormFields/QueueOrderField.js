@@ -2,8 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { ReactFinalForm, CircularLoader, NoticeBox } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
-import { jobTypesMap } from '../../../services/server-translations'
-import { useQueueables } from '../../../hooks/queueables'
+import { jobTypesMap } from '../../services/server-translations'
+import { useQueueables } from '../../hooks/queueables'
 import QueueTransfer from './QueueTransfer'
 
 const { Field } = ReactFinalForm

@@ -13,8 +13,8 @@ import {
     Help,
 } from '@dhis2/ui'
 import cx from 'classnames'
-import { useParameterOption } from '../../hooks/parameter-options'
-import { severityMap } from '../../services/server-translations/dataIntegrityChecks'
+import { useParameterOption } from '../../../hooks/parameter-options'
+import { severityMap } from '../../../services/server-translations/dataIntegrityChecks'
 import styles from './DataIntegrityChecksField.module.css'
 
 const { Field, useField } = ReactFinalForm

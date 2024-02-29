@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2024-02-28T13:31:16.191Z\n"
-"PO-Revision-Date: 2024-02-28T13:31:16.191Z\n"
+"POT-Creation-Date: 2024-02-29T16:49:15.985Z\n"
+"PO-Revision-Date: 2024-02-29T16:49:15.985Z\n"
 
 msgid "Something went wrong"
 msgstr "Something went wrong"
@@ -33,6 +33,9 @@ msgstr "Delete job"
 msgid "Delete queue"
 msgstr "Delete queue"
 
+msgid "CRON Expression"
+msgstr "CRON Expression"
+
 msgid "Please select data exchange ids."
 msgstr "Please select data exchange ids."
 
@@ -44,9 +47,6 @@ msgstr "There was a problem fetching data exchange ids"
 
 msgid "error type"
 msgstr "error type"
-
-msgid "CRON Expression"
-msgstr "CRON Expression"
 
 msgid "Please select checks to run."
 msgstr "Please select checks to run."
@@ -72,6 +72,15 @@ msgstr "Select checks to run."
 msgid "Report type"
 msgstr "Report type"
 
+msgid "Loading options"
+msgstr "Loading options"
+
+msgid "Something went wrong whilst loading options"
+msgstr "Something went wrong whilst loading options"
+
+msgid "No options available"
+msgstr "No options available"
+
 msgid "Delay"
 msgstr "Delay"
 
@@ -86,15 +95,6 @@ msgstr "Loading job types"
 
 msgid "Something went wrong whilst loading job types"
 msgstr "Something went wrong whilst loading job types"
-
-msgid "Loading options"
-msgstr "Loading options"
-
-msgid "Something went wrong whilst loading options"
-msgstr "Something went wrong whilst loading options"
-
-msgid "No options available"
-msgstr "No options available"
 
 msgid "Queues can't be named \"Add\" or \"add\""
 msgstr "Queues can't be named \"Add\" or \"add\""
@@ -542,6 +542,12 @@ msgstr "Tracker search optimization"
 
 msgid "Validation results notification"
 msgstr "Validation results notification"
+
+msgid "Executor"
+msgstr "Executor"
+
+msgid "Receiver"
+msgstr "Receiver"
 
 msgid "A CRON expression is required"
 msgstr "A CRON expression is required"
