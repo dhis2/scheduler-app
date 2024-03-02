@@ -1,6 +1,6 @@
 # 
 # Translators:
-# phil_dhis2, 2021
+# Philip Larsen Donnelly, 2021
 # Viktor Varland <viktor@dhis2.org>, 2021
 # KRG HIS <antonia.bezenchek@informa.pro>, 2021
 # Asos <aso.rezaiy@gmail.com>, 2023
@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-05-03T11:14:51.605Z\n"
+"POT-Creation-Date: 2024-02-21T09:54:31.937Z\n"
 "PO-Revision-Date: 2020-05-08 14:30+0000\n"
 "Last-Translator: Asos <aso.rezaiy@gmail.com>, 2023\n"
 "Language-Team: Central Kurdish (https://app.transifex.com/hisp-uio/teams/100509/ckb/)\n"
@@ -38,7 +38,7 @@ msgstr ""
 msgid "Delete job"
 msgstr ""
 
-msgid "Something went wrong whilst creating your job"
+msgid "Delete queue"
 msgstr ""
 
 msgid "Please select data exchange ids."
@@ -86,9 +86,6 @@ msgstr ""
 msgid "Delay in seconds ({{ lowerbound }} - {{ upperbound }})"
 msgstr ""
 
-msgid "Name"
-msgstr ""
-
 msgid "Job type"
 msgstr ""
 
@@ -107,13 +104,40 @@ msgstr ""
 msgid "No options available"
 msgstr ""
 
+msgid "Queues can't be named \"Add\" or \"add\""
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
 msgid "There was a problem fetching parameters"
 msgstr ""
 
 msgid "Parameters"
 msgstr ""
 
+msgid "Please select at least two jobs"
+msgstr ""
+
+msgid "Something went wrong whilst fetching the queueable jobs"
+msgstr ""
+
+msgid "Job queue"
+msgstr ""
+
+msgid "Filter jobs"
+msgstr ""
+
+msgid "Available jobs"
+msgstr ""
+
+msgid "Jobs in this queue"
+msgstr ""
+
 msgid "There was a problem fetching the required job type"
+msgstr ""
+
+msgid "Something went wrong whilst creating your job"
 msgstr ""
 
 msgid "Save"
@@ -121,6 +145,18 @@ msgstr "تۆمارکردن"
 
 msgid "Cancel"
 msgstr "لابردن"
+
+msgid "Something went wrong whilst updating your job"
+msgstr ""
+
+msgid "Something went wrong whilst creating your queue"
+msgstr ""
+
+msgid "Something went wrong whilst updating your queue"
+msgstr ""
+
+msgid "About the scheduler"
+msgstr ""
 
 msgid "Job details"
 msgstr ""
@@ -134,16 +170,13 @@ msgstr ""
 msgid "Last run status: {{ translatedStatus }}."
 msgstr ""
 
-msgid "Actions"
-msgstr ""
-
 msgid "Delete"
 msgstr "سڕینەوە"
 
 msgid "Edit"
 msgstr "دةستكاري"
 
-msgid "Job name"
+msgid "Actions"
 msgstr ""
 
 msgid "Type"
@@ -164,7 +197,16 @@ msgstr ""
 msgid "No jobs to display"
 msgstr ""
 
-msgid "Not scheduled"
+msgid "Now"
+msgstr ""
+
+msgid "Hide jobs"
+msgstr ""
+
+msgid "Show jobs"
+msgstr ""
+
+msgid "Queue"
 msgstr ""
 
 msgid "Run manually"
@@ -200,34 +242,35 @@ msgstr ""
 msgid "Are you sure you want to delete this job?"
 msgstr ""
 
-msgid "Are you sure you want to discard this form?"
+msgid "Are you sure you want to delete this queue?"
 msgstr ""
 
-msgid "Discard"
-msgstr "فري دان"
+msgid "Discard unsaved changes?"
+msgstr ""
+
+msgid ""
+"This form has unsaved changes. Are you sure that you want to discard them?"
+msgstr ""
+
+msgid "No, keep changes"
+msgstr ""
+
+msgid "Yes, discard changes"
+msgstr ""
 
 msgid "Error running job"
+msgstr ""
+
+msgid "Error running queue"
 msgstr ""
 
 msgid "Are you sure you want to run this job?"
 msgstr ""
 
+msgid "Are you sure you want to run this queue?"
+msgstr ""
+
 msgid "Run"
-msgstr ""
-
-msgid "Toggle job"
-msgstr ""
-
-msgid "Back to all jobs"
-msgstr ""
-
-msgid "New Job"
-msgstr ""
-
-msgid "Configuration"
-msgstr "ريكخستن"
-
-msgid "About job configuration"
 msgstr ""
 
 msgid "Could not load requested job"
@@ -238,19 +281,30 @@ msgid ""
 "been deleted and try refreshing the page."
 msgstr ""
 
-msgid "Job: {{ name }}"
+msgid "Disable"
 msgstr ""
 
-msgid "Could not load jobs"
+msgid "Enable"
 msgstr ""
 
-msgid "Something went wrong whilst loading the jobs. Try refreshing the page."
+msgid "New Job"
+msgstr ""
+
+msgid "Configuration"
+msgstr "ريكخستن"
+
+msgid "Could not load jobs and queues"
+msgstr ""
+
+msgid ""
+"Something went wrong whilst loading the jobs and queues. Try refreshing the "
+"page."
 msgstr ""
 
 msgid "Scheduled jobs"
 msgstr ""
 
-msgid "Filter jobs"
+msgid "Filter by name"
 msgstr ""
 
 msgid "Include system jobs in list"
@@ -259,10 +313,30 @@ msgstr ""
 msgid "New job"
 msgstr ""
 
+msgid "New queue"
+msgstr ""
+
+msgid "Job: {{ name }}"
+msgstr ""
+
 msgid "System job: {{ name }}"
 msgstr ""
 
-msgid "Data value"
+msgid "Back to all jobs"
+msgstr ""
+
+msgid "Could not load requested queue"
+msgstr ""
+
+msgid ""
+"Something went wrong whilst loading the requested queue. Make sure it has "
+"not been deleted and try refreshing the page."
+msgstr ""
+
+msgid "Queue: {{ name }}"
+msgstr ""
+
+msgid "Something went wrong but no error message was provided"
 msgstr ""
 
 msgid "Completeness"
@@ -271,14 +345,20 @@ msgstr ""
 msgid "Completeness target"
 msgstr ""
 
-msgid "Org unit target"
-msgstr ""
-
-msgid "Event"
+msgid "Data value"
 msgstr ""
 
 msgid "Enrollment"
 msgstr "تۆمارکردن"
+
+msgid "Event"
+msgstr ""
+
+msgid "Org unit target"
+msgstr ""
+
+msgid "Ownership"
+msgstr ""
 
 msgid "Validation result"
 msgstr ""
