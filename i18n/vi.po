@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-01-02T14:28:02.554Z\n"
+"POT-Creation-Date: 2024-02-21T09:54:31.937Z\n"
 "PO-Revision-Date: 2020-05-08 14:30+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2024\n"
 "Language-Team: Vietnamese (https://app.transifex.com/hisp-uio/teams/100509/vi/)\n"
@@ -196,7 +196,7 @@ msgstr ""
 msgid "No jobs to display"
 msgstr ""
 
-msgid "Not scheduled"
+msgid "Now"
 msgstr ""
 
 msgid "Hide jobs"
@@ -244,16 +244,29 @@ msgstr ""
 msgid "Are you sure you want to delete this queue?"
 msgstr ""
 
-msgid "Are you sure you want to discard your changes?"
+msgid "Discard unsaved changes?"
+msgstr "Hủy bỏ các thay đổi?"
+
+msgid ""
+"This form has unsaved changes. Are you sure that you want to discard them?"
 msgstr ""
 
-msgid "Discard"
-msgstr "Bỏ"
+msgid "No, keep changes"
+msgstr ""
+
+msgid "Yes, discard changes"
+msgstr ""
 
 msgid "Error running job"
 msgstr ""
 
+msgid "Error running queue"
+msgstr ""
+
 msgid "Are you sure you want to run this job?"
+msgstr ""
+
+msgid "Are you sure you want to run this queue?"
 msgstr ""
 
 msgid "Run"
