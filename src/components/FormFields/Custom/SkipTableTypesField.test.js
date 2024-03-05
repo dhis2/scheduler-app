@@ -6,7 +6,7 @@ import SkipTableTypesField from './SkipTableTypesField'
 
 const { Form } = ReactFinalForm
 
-jest.mock('../../hooks/parameter-options', () => ({
+jest.mock('../../../hooks/parameter-options', () => ({
     useParameterOption: jest.fn(),
 }))
 

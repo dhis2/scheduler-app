@@ -6,7 +6,7 @@ import QueueOrderField from './QueueOrderField'
 
 const { Form } = ReactFinalForm
 
-jest.mock('../../../hooks/queueables', () => ({
+jest.mock('../../hooks/queueables', () => ({
     useQueueables: jest.fn(),
 }))
 

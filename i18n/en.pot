@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2024-02-29T16:49:15.985Z\n"
-"PO-Revision-Date: 2024-02-29T16:49:15.985Z\n"
+"POT-Creation-Date: 2024-03-05T14:54:55.437Z\n"
+"PO-Revision-Date: 2024-03-05T14:54:55.437Z\n"
 
 msgid "Something went wrong"
 msgstr "Something went wrong"
@@ -72,14 +72,14 @@ msgstr "Select checks to run."
 msgid "Report type"
 msgstr "Report type"
 
+msgid "No options available"
+msgstr "No options available"
+
 msgid "Loading options"
 msgstr "Loading options"
 
 msgid "Something went wrong whilst loading options"
 msgstr "Something went wrong whilst loading options"
-
-msgid "No options available"
-msgstr "No options available"
 
 msgid "Delay"
 msgstr "Delay"

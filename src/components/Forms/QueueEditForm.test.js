@@ -6,7 +6,7 @@ import QueueEditForm from './QueueEditForm'
 const { Form } = ReactFinalForm
 
 // Mock components that make network requests
-jest.mock('../FormFields/QueueOrderField/QueueOrderField', () => () => (
+jest.mock('../FormFields/QueueOrderField', () => () => (
     <div data-test="sequence-order-field">QueueOrderField</div>
 ))
 

@@ -38,7 +38,7 @@ describe('<LabeledOptionsField>', () => {
 
         const actual = wrapper
             .find({
-                'data-test': 'dhis2-uiwidgets-multiselectfield-help',
+                'data-test': 'dhis2-uiwidgets-singleselectfield-help',
             })
             .text()
 
