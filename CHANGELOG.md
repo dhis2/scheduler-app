@@ -1,3 +1,10 @@
+# [101.5.0](https://github.com/dhis2/scheduler-app/compare/v101.4.2...v101.5.0) (2024-03-06)
+
+
+### Features
+
+* add html push analytics ([#598](https://github.com/dhis2/scheduler-app/issues/598)) ([f875dd1](https://github.com/dhis2/scheduler-app/commit/f875dd1d0821ae2559a6ce23b0a79240a3cc9029))
+
 ## [101.4.2](https://github.com/dhis2/scheduler-app/compare/v101.4.1...v101.4.2) (2024-03-03)
 
 
