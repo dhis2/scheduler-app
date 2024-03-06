@@ -9,38 +9,57 @@ import {
     SwitchFieldFF,
 } from '@dhis2/ui'
 import { useJobTypeParameters } from '../../hooks/job-types'
-import { formatToString } from './formatters'
-import SkipTableTypesField from './SkipTableTypesField'
-import LabeledOptionsField from './LabeledOptionsField'
-import DataIntegrityChecksField from './DataIntegrityChecksField'
-import DataIntegrityReportTypeField from './DataIntegrityReportTypeField'
+import SkipTableTypesField from './Custom/SkipTableTypesField'
+import DataIntegrityChecksField from './Custom/DataIntegrityChecksField'
+import DataIntegrityReportTypeField from './Custom/DataIntegrityReportTypeField'
+import AggregatedDataExchangeField from './Custom/AggregatedDataExchangeField'
+import PushAnalyticsModeField from './Custom/PushAnalyticsModeField'
 import styles from './ParameterFields.module.css'
-import AggregatedDataExchangeField from './AggregatedDataExchangeField'
+import LabeledOptionsField from './LabeledOptionsField'
+import { formatToString } from './formatters'
 
 const { Field } = ReactFinalForm
 
 // The key under which the parameters will be sent to the backend
 const FIELD_NAME = 'jobParameters'
 
-const JOB_TYPES = {
-    DATA_INTEGRITY: 'DATA_INTEGRITY',
-    AGGREGATE_DATA_EXCHANGE: 'AGGREGATE_DATA_EXCHANGE',
-}
-
+// Overrides for fields where the generic types aren't appropriate
 const getCustomComponent = (jobType, parameterName) => {
-    if (jobType === JOB_TYPES.DATA_INTEGRITY && parameterName === 'checks') {
-        return DataIntegrityChecksField
-    } else if (
-        jobType === JOB_TYPES.DATA_INTEGRITY &&
-        parameterName === 'type'
-    ) {
-        return DataIntegrityReportTypeField
-    } else if (jobType === JOB_TYPES.AGGREGATE_DATA_EXCHANGE) {
-        return AggregatedDataExchangeField
-    } else if (parameterName === 'skipTableTypes') {
-        return SkipTableTypesField
+    switch (jobType) {
+        case 'DATA_INTEGRITY':
+            if (parameterName === 'checks') {
+                return DataIntegrityChecksField
+            } else if (parameterName === 'type') {
+                return DataIntegrityReportTypeField
+            }
+
+            return null
+        case 'AGGREGATE_DATA_EXCHANGE':
+            if (parameterName === 'dataExchangeIds') {
+                return AggregatedDataExchangeField
+            }
+
+            return null
+        case 'ANALYTICS_TABLE':
+        case 'CONTINUOUS_ANALYTICS_TABLE':
+            if (parameterName === 'skipTableTypes') {
+                return SkipTableTypesField
+            }
+
+            return null
+        case 'HTML_PUSH_ANALYTICS':
+            if (parameterName === 'dashboard') {
+                return LabeledOptionsField
+            } else if (parameterName === 'receivers') {
+                return LabeledOptionsField
+            } else if (parameterName === 'mode') {
+                return PushAnalyticsModeField
+            }
+
+            return null
+        default:
+            return null
     }
-    return null
 }
 
 // Renders all parameters for a given jobtype
@@ -67,6 +86,7 @@ const ParameterFields = ({ jobType }) => {
     // Map all parameters to the appropriate field types
     const parameterComponents = data.map(
         ({ fieldName, name, klass, ...rest }) => {
+            let parameterComponent = null
             const defaultProps = {
                 label: fieldName,
                 name: `${FIELD_NAME}.${name}`,
@@ -77,7 +97,6 @@ const ParameterFields = ({ jobType }) => {
                 klass,
                 ...rest,
             }
-            let parameterComponent = null
 
             const CustomParameterComponent = getCustomComponent(jobType, name)
 
@@ -128,6 +147,7 @@ const ParameterFields = ({ jobType }) => {
                         <LabeledOptionsField
                             {...defaultProps}
                             parameterName={name}
+                            multiple
                         />
                     )
                     break

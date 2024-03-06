@@ -59,7 +59,7 @@ describe('<ParameterFields>', () => {
             ],
         }))
         const props = {
-            jobType: 'skipTableTypes',
+            jobType: 'ANALYTICS_TABLE',
         }
         const wrapper = mount(
             <Form onSubmit={() => {}}>

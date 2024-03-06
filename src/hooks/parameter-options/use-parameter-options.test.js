@@ -14,6 +14,8 @@ describe('useParameterOptions', () => {
             predictors: { predictors: 'predictors' },
             predictorGroups: { predictorGroups: 'predictorGroups' },
             dataIntegrity: 'dataIntegrityChecks',
+            dashboards: { dashboards: 'dashboard' },
+            userGroups: { userGroups: 'receivers' },
         }
         const wrapper = ({ children }) => (
             <CustomDataProvider data={data}>{children}</CustomDataProvider>
@@ -34,6 +36,8 @@ describe('useParameterOptions', () => {
                     predictors: 'predictors',
                     predictorGroups: 'predictorGroups',
                     dataIntegrityChecks: 'dataIntegrityChecks',
+                    dashboard: 'dashboard',
+                    receivers: 'receivers',
                 },
             })
         })
@@ -47,6 +51,8 @@ describe('useParameterOptions', () => {
             predictors: { predictors: 'predictors' },
             predictorGroups: { predictorGroups: 'predictorGroups' },
             dataIntegrity: 'dataIntegrityChecks',
+            dashboards: { dashboards: 'dashboard' },
+            userGroups: { userGroups: 'receivers' },
         }
         const wrapper = ({ children }) => (
             <CustomDataProvider data={data}>{children}</CustomDataProvider>

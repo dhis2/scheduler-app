@@ -1,11 +1,11 @@
 import React from 'react'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
-import styles from './CustomOption.module.css'
+import styles from './QueueOption.module.css'
 
 const { bool, func, string } = PropTypes
 
-const CustomOption = ({
+const QueueOption = ({
     label,
     value,
     type,
@@ -30,7 +30,7 @@ const CustomOption = ({
     )
 }
 
-CustomOption.propTypes = {
+QueueOption.propTypes = {
     highlighted: bool.isRequired,
     label: string.isRequired,
     type: string.isRequired,
@@ -39,4 +39,4 @@ CustomOption.propTypes = {
     onDoubleClick: func.isRequired,
 }
 
-export default CustomOption
+export default QueueOption

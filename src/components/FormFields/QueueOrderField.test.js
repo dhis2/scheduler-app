@@ -1,12 +1,12 @@
 import React from 'react'
 import { mount } from 'enzyme'
 import { ReactFinalForm, CircularLoader } from '@dhis2/ui'
-import { useQueueables } from '../../../hooks/queueables'
+import { useQueueables } from '../../hooks/queueables'
 import QueueOrderField from './QueueOrderField'
 
 const { Form } = ReactFinalForm
 
-jest.mock('../../../hooks/queueables', () => ({
+jest.mock('../../hooks/queueables', () => ({
     useQueueables: jest.fn(),
 }))
 

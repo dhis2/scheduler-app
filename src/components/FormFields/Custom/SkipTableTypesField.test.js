@@ -1,12 +1,12 @@
 import React from 'react'
 import { mount } from 'enzyme'
 import { ReactFinalForm } from '@dhis2/ui'
-import { useParameterOption } from '../../hooks/parameter-options'
+import { useParameterOption } from '../../../hooks/parameter-options'
 import SkipTableTypesField from './SkipTableTypesField'
 
 const { Form } = ReactFinalForm
 
-jest.mock('../../hooks/parameter-options', () => ({
+jest.mock('../../../hooks/parameter-options', () => ({
     useParameterOption: jest.fn(),
 }))
 
