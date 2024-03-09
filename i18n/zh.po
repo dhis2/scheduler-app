@@ -2,15 +2,15 @@
 # Translators:
 # Viktor Varland <viktor@dhis2.org>, 2024
 # Philip Larsen Donnelly, 2024
-# easylin <lin_xd@126.com>, 2024
 # 晓东 林 <13981924470@126.com>, 2024
+# easylin <lin_xd@126.com>, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-02-21T09:54:31.937Z\n"
+"POT-Creation-Date: 2024-03-05T14:54:55.437Z\n"
 "PO-Revision-Date: 2020-05-08 14:30+0000\n"
-"Last-Translator: 晓东 林 <13981924470@126.com>, 2024\n"
+"Last-Translator: easylin <lin_xd@126.com>, 2024\n"
 "Language-Team: Chinese (https://app.transifex.com/hisp-uio/teams/100509/zh/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -41,6 +41,9 @@ msgstr "删除作业"
 msgid "Delete queue"
 msgstr "删除队列"
 
+msgid "CRON Expression"
+msgstr "CRON表达式"
+
 msgid "Please select data exchange ids."
 msgstr "请选择数据交换 ID。"
 
@@ -52,9 +55,6 @@ msgstr "获取数据交换 ID 时出现问题"
 
 msgid "error type"
 msgstr "错误类型"
-
-msgid "CRON Expression"
-msgstr "CRON表达式"
 
 msgid "Please select checks to run."
 msgstr "请选择要运行的检查。"
@@ -80,6 +80,15 @@ msgstr "选择要运行的检查。"
 msgid "Report type"
 msgstr "报告类型"
 
+msgid "No options available"
+msgstr "无可用选项"
+
+msgid "Loading options"
+msgstr "加载选项"
+
+msgid "Something went wrong whilst loading options"
+msgstr "加载选项时出了点问题"
+
 msgid "Delay"
 msgstr "延迟"
 
@@ -94,15 +103,6 @@ msgstr "加载作业类型"
 
 msgid "Something went wrong whilst loading job types"
 msgstr "加载作业类型时出了点问题"
-
-msgid "Loading options"
-msgstr "加载选项"
-
-msgid "Something went wrong whilst loading options"
-msgstr "加载选项时出了点问题"
-
-msgid "No options available"
-msgstr "无可用选项"
 
 msgid "Queues can't be named \"Add\" or \"add\""
 msgstr "队列不能命名为“Add”或“add”"
@@ -198,7 +198,7 @@ msgid "No jobs to display"
 msgstr "没有要显示的工作"
 
 msgid "Now"
-msgstr ""
+msgstr "现在"
 
 msgid "Hide jobs"
 msgstr "隐藏职位"
@@ -250,10 +250,10 @@ msgstr "放弃没有保存的修改?"
 
 msgid ""
 "This form has unsaved changes. Are you sure that you want to discard them?"
-msgstr ""
+msgstr "此表单有未保存的更改。您确定要丢弃它们吗？"
 
 msgid "No, keep changes"
-msgstr ""
+msgstr "否，保留更改"
 
 msgid "Yes, discard changes"
 msgstr "是的，放弃更改"
@@ -262,13 +262,13 @@ msgid "Error running job"
 msgstr "运行作业时出错"
 
 msgid "Error running queue"
-msgstr ""
+msgstr "运行队列时出错"
 
 msgid "Are you sure you want to run this job?"
 msgstr "您确定要执行这项工作吗？"
 
 msgid "Are you sure you want to run this queue?"
-msgstr ""
+msgstr "您确定要运行此队列吗？"
 
 msgid "Run"
 msgstr "运行"
@@ -456,6 +456,9 @@ msgstr "活动节目数据同步"
 msgid "File resource clean up"
 msgstr "文件资源清理"
 
+msgid "HTML push analytics"
+msgstr ""
+
 msgid "GEOJSON import"
 msgstr "GEOJSON 导入"
 
@@ -542,6 +545,12 @@ msgstr "跟踪器搜索优化"
 
 msgid "Validation results notification"
 msgstr "验证结果通知"
+
+msgid "Executor"
+msgstr ""
+
+msgid "Receiver"
+msgstr ""
 
 msgid "A CRON expression is required"
 msgstr "需要CRON表达式"
