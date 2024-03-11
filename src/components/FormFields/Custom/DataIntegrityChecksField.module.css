@@ -1,21 +1,36 @@
 .transfer {
-    margin-top: 8px;
+    margin-block-start: var(--spacers-dp8);
 }
 
 .transferOption {
+    display: flex;
+    flex-direction: column;
     font-size: 14px;
     padding: 4px 0;
+    gap: 6px;
 }
 
 .optionName {
     font-weight: 500;
-    margin-bottom: 4px;
+}
+
+.optionSubtitle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 400;
+    font-size: 13px;
 }
 
 .optionSeverity {
-    font-weight: 400;
-    font-size: 13px;
     color: var(--colors-grey600);
+}
+
+.optionSlowIndicator {
+    background-color: var(--colors-yellow100);
+    color: var(--colors-grey800);
+    padding: 4px 6px;
+    border-radius: 2px;
 }
 
 .transferOption.highlighted .optionSeverity {

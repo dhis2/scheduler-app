@@ -108,7 +108,7 @@ const DataIntegrityChecksField = ({ label, name }) => {
     )
 }
 
-const LabelComponent = ({ label, severity, highlighted, disabled }) => (
+const LabelComponent = ({ label, severity, highlighted, disabled, isSlow }) => (
     <div
         className={cx(styles.transferOption, {
             [styles.highlighted]: highlighted,
@@ -116,11 +116,18 @@ const LabelComponent = ({ label, severity, highlighted, disabled }) => (
         })}
     >
         <div className={styles.optionName}>{label}</div>
-        <div
-            className={cx(styles.optionSeverity, {
-                [styles.highlighted]: highlighted,
-            })}
-        >{`${i18n.t('Severity')}: ${severity}`}</div>
+        <div className={styles.optionSubtitle}>
+            <span
+                className={cx(styles.optionSeverity, {
+                    [styles.highlighted]: highlighted,
+                })}
+            >{`${i18n.t('Severity')}: ${severity}`}</span>
+            {isSlow && (
+                <span className={styles.optionSlowIndicator}>
+                    {i18n.t('Resource intensive')}
+                </span>
+            )}
+        </div>
     </div>
 )
 
