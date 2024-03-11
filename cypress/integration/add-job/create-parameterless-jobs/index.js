@@ -57,7 +57,7 @@ Then(
         saveAndExpect({
             cronExpression: '0 0 * ? * *',
             jobParameters: {
-                type: 'REPORT',
+                type: 'SUMMARY',
             },
             jobType: 'DATA_INTEGRITY',
             name: 'Name',

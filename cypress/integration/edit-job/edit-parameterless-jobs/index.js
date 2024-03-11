@@ -73,7 +73,7 @@ Then('the job is updated when the user saves the data integrity job', () =>
     saveAndExpect({
         jobType: 'DATA_INTEGRITY',
         jobParameters: {
-            type: 'REPORT',
+            type: 'SUMMARY',
         },
         name: 'Name',
         cronExpression: '0 0 * ? * *',
