@@ -133,6 +133,7 @@ const ParameterFields = ({ jobType }) => {
                     )
                     break
                 case 'java.lang.Integer':
+                case 'java.lang.Long':
                     parameterComponent = (
                         <Field
                             {...defaultProps}
