@@ -37,6 +37,9 @@ const query = {
     receivers: {
         resource: 'userGroups',
     },
+    programs: {
+        resource: 'programs',
+    },
 }
 
 const useParameterOptions = () => {
@@ -53,6 +56,7 @@ const useParameterOptions = () => {
         const dataIntegrityChecks = fetch.data?.dataIntegrityChecks
         const dashboard = fetch.data?.dashboard?.dashboards
         const receivers = fetch.data?.receivers?.userGroups
+        const skipPrograms = fetch.data?.programs?.programs
 
         if (
             !skipTableTypes ||
@@ -62,7 +66,8 @@ const useParameterOptions = () => {
             !predictorGroups ||
             !dataIntegrityChecks ||
             !dashboard ||
-            !receivers
+            !receivers ||
+            !skipPrograms
         ) {
             const error = new Error(
                 'Did not receive the expected parameter options'
@@ -79,6 +84,7 @@ const useParameterOptions = () => {
             dataIntegrityChecks,
             dashboard,
             receivers,
+            skipPrograms,
         }
 
         return { ...fetch, data }

@@ -89,6 +89,17 @@ Given('the user enters the parameters for analytics table', () => {
     // Close the select by clicking layer
     cy.get('[data-test="dhis2-uicore-layer"]').click()
 
+    cy.findByText('Skip programs')
+        .parents('[data-test="dhis2-uiwidgets-multiselectfield"]')
+        .within(() => {
+            cy.get('[data-test="dhis2-uicore-multiselect"]').click()
+        })
+
+    cy.findByText('Antenatal care visit').click()
+
+    // Close the select by clicking layer
+    cy.get('[data-test="dhis2-uicore-layer"]').click()
+
     cy.findByLabelText('Skip resource tables').click()
 })
 
@@ -184,6 +195,7 @@ Then(
             jobParameters: {
                 lastYears: '1',
                 skipTableTypes: ['DATA_VALUE'],
+                skipPrograms: ['lxAQ7Zs9VYR'],
                 skipResourceTables: true,
             },
         })

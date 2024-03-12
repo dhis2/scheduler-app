@@ -2,7 +2,7 @@ import React from 'react'
 import { mount } from 'enzyme'
 import { ReactFinalForm } from '@dhis2/ui'
 import { useParameterOption } from '../../hooks/parameter-options'
-import LabeledOptionsField from './LabeledOptionsField'
+import ListFieldSingle from './ListFieldSingle'
 
 const { Form } = ReactFinalForm
 
@@ -14,7 +14,7 @@ afterEach(() => {
     jest.resetAllMocks()
 })
 
-describe('<LabeledOptionsField>', () => {
+describe('<ListFieldSingle>', () => {
     it('shows a message when there are no options', () => {
         useParameterOption.mockImplementation(() => ({
             loading: false,
@@ -30,7 +30,7 @@ describe('<LabeledOptionsField>', () => {
             <Form onSubmit={() => {}}>
                 {() => (
                     <form>
-                        <LabeledOptionsField {...props} />
+                        <ListFieldSingle {...props} />
                     </form>
                 )}
             </Form>
@@ -60,13 +60,13 @@ describe('<LabeledOptionsField>', () => {
             <Form onSubmit={() => {}}>
                 {() => (
                     <form>
-                        <LabeledOptionsField {...props} />
+                        <ListFieldSingle {...props} />
                     </form>
                 )}
             </Form>
         )
 
-        const actual = wrapper.find('LabeledOptionsField')
+        const actual = wrapper.find('ListFieldSingle')
 
         expect(actual).toHaveLength(1)
     })

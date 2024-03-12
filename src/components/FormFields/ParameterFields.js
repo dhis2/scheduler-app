@@ -15,7 +15,8 @@ import DataIntegrityReportTypeField from './Custom/DataIntegrityReportTypeField'
 import AggregatedDataExchangeField from './Custom/AggregatedDataExchangeField'
 import PushAnalyticsModeField from './Custom/PushAnalyticsModeField'
 import styles from './ParameterFields.module.css'
-import LabeledOptionsField from './LabeledOptionsField'
+import ListFieldSingle from './ListFieldSingle'
+import ListFieldMulti from './ListFieldMulti'
 import { formatToString } from './formatters'
 
 const { Field } = ReactFinalForm
@@ -41,6 +42,13 @@ const getCustomComponent = (jobType, parameterName) => {
 
             return null
         case 'ANALYTICS_TABLE':
+            if (parameterName === 'skipTableTypes') {
+                return SkipTableTypesField
+            } else if (parameterName === 'skipPrograms') {
+                return ListFieldMulti
+            }
+
+            return null
         case 'CONTINUOUS_ANALYTICS_TABLE':
             if (parameterName === 'skipTableTypes') {
                 return SkipTableTypesField
@@ -49,9 +57,9 @@ const getCustomComponent = (jobType, parameterName) => {
             return null
         case 'HTML_PUSH_ANALYTICS':
             if (parameterName === 'dashboard') {
-                return LabeledOptionsField
+                return ListFieldSingle
             } else if (parameterName === 'receivers') {
-                return LabeledOptionsField
+                return ListFieldSingle
             } else if (parameterName === 'mode') {
                 return PushAnalyticsModeField
             }
@@ -145,10 +153,9 @@ const ParameterFields = ({ jobType }) => {
                     break
                 case 'java.util.List':
                     parameterComponent = (
-                        <LabeledOptionsField
+                        <ListFieldMulti
                             {...defaultProps}
                             parameterName={name}
-                            multiple
                         />
                     )
                     break
