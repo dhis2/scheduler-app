@@ -191,7 +191,7 @@ describe('<ParameterFields>', () => {
             </Form>
         )
 
-        const component = wrapper.find('LabeledOptionsField')
+        const component = wrapper.find('ListFieldMulti')
 
         expect(component).toHaveLength(1)
     })

@@ -16,6 +16,7 @@ describe('useParameterOptions', () => {
             dataIntegrity: 'dataIntegrityChecks',
             dashboards: { dashboards: 'dashboard' },
             userGroups: { userGroups: 'receivers' },
+            programs: { programs: 'programs' },
         }
         const wrapper = ({ children }) => (
             <CustomDataProvider data={data}>{children}</CustomDataProvider>
@@ -38,6 +39,7 @@ describe('useParameterOptions', () => {
                     dataIntegrityChecks: 'dataIntegrityChecks',
                     dashboard: 'dashboard',
                     receivers: 'receivers',
+                    skipPrograms: 'programs',
                 },
             })
         })
@@ -53,6 +55,7 @@ describe('useParameterOptions', () => {
             dataIntegrity: 'dataIntegrityChecks',
             dashboards: { dashboards: 'dashboard' },
             userGroups: { userGroups: 'receivers' },
+            programs: { programs: 'programs' },
         }
         const wrapper = ({ children }) => (
             <CustomDataProvider data={data}>{children}</CustomDataProvider>

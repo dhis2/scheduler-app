@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {
-    MultiSelectFieldFF,
     SingleSelectFieldFF,
     ReactFinalForm,
     SingleSelectField,
@@ -11,8 +10,8 @@ import { useParameterOption } from '../../hooks/parameter-options'
 
 const { Field } = ReactFinalForm
 
-// A labeled options field has options that have both an id and a label.
-const LabeledOptionsField = ({ label, name, parameterName, multiple }) => {
+// This field has options that have both an id and a label.
+const ListFieldSingle = ({ label, name, parameterName }) => {
     const { loading, error, data } = useParameterOption(parameterName)
     const disabledProps = { disabled: true, label }
 
@@ -51,20 +50,19 @@ const LabeledOptionsField = ({ label, name, parameterName, multiple }) => {
     return (
         <Field
             name={name}
-            component={multiple ? MultiSelectFieldFF : SingleSelectFieldFF}
+            component={SingleSelectFieldFF}
             options={labeledOptions}
             label={label}
         />
     )
 }
 
-const { string, bool } = PropTypes
+const { string } = PropTypes
 
-LabeledOptionsField.propTypes = {
+ListFieldSingle.propTypes = {
     label: string.isRequired,
     name: string.isRequired,
     parameterName: string.isRequired,
-    multiple: bool,
 }
 
-export default LabeledOptionsField
+export default ListFieldSingle
