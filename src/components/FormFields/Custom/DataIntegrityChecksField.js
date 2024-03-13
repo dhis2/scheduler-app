@@ -12,7 +12,7 @@ import {
     ReactFinalForm,
     InputFieldFF,
     Help,
-    Chip,
+    Tag,
 } from '@dhis2/ui'
 import cx from 'classnames'
 import { useParameterOption } from '../../../hooks/parameter-options'
@@ -130,7 +130,7 @@ const LabelComponent = ({ label, severity, highlighted, disabled, isSlow }) => (
                         'Slow checks are resource intensive and should be run with caution'
                     )}
                 >
-                    <Chip dense>{i18n.t('Slow')}</Chip>
+                    <Tag>{i18n.t('Slow')}</Tag>
                 </Tooltip>
             )}
         </div>
