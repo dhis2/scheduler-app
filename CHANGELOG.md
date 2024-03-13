@@ -1,3 +1,11 @@
+## [101.5.2](https://github.com/dhis2/scheduler-app/compare/v101.5.1...v101.5.2) (2024-03-13)
+
+
+### Bug Fixes
+
+* **data-integrity:** add indicator for slow checks ([#604](https://github.com/dhis2/scheduler-app/issues/604)) ([a4b7802](https://github.com/dhis2/scheduler-app/commit/a4b7802ea5c117111577e39340964bd985e44ab1))
+* **data-integrity:** change default report type to summary ([#603](https://github.com/dhis2/scheduler-app/issues/603)) [defer release] ([1e27b04](https://github.com/dhis2/scheduler-app/commit/1e27b04a4d481a3bb8b39b374e95f4ac9f080654))
+
 ## [101.5.1](https://github.com/dhis2/scheduler-app/compare/v101.5.0...v101.5.1) (2024-03-10)
 
 
