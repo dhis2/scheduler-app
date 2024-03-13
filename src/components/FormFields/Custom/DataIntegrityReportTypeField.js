@@ -6,7 +6,7 @@ import { getReportTypeLabel } from '../../../services/server-translations/dataIn
 
 const { Field } = ReactFinalForm
 
-const DEFAULT_VALUE = 'REPORT'
+const DEFAULT_VALUE = 'SUMMARY'
 
 const DataIntegrityReportTypeField = ({ name, constants }) => {
     if (!constants) {
@@ -23,7 +23,7 @@ const DataIntegrityReportTypeField = ({ name, constants }) => {
         <Field
             name={name}
             component={SingleSelectFieldFF}
-            initialValue={DEFAULT_VALUE}
+            defaultValue={DEFAULT_VALUE}
             options={labeledOptions}
             label={i18n.t('Report type')}
         />
