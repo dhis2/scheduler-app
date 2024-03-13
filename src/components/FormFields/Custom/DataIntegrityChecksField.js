@@ -125,7 +125,11 @@ const LabelComponent = ({ label, severity, highlighted, disabled, isSlow }) => (
                 })}
             >{`${i18n.t('Severity')}: ${severity}`}</span>
             {isSlow && (
-                <Tooltip content={i18n.t('Slow checks are resource intensive and should be run with caution')}>
+                <Tooltip
+                    content={i18n.t(
+                        'Slow checks are resource intensive and should be run with caution'
+                    )}
+                >
                     <Chip dense>{i18n.t('Slow')}</Chip>
                 </Tooltip>
             )}
