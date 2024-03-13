@@ -8,9 +8,11 @@ import {
     Radio,
     Transfer,
     TransferOption,
+    Tooltip,
     ReactFinalForm,
     InputFieldFF,
     Help,
+    Chip,
 } from '@dhis2/ui'
 import cx from 'classnames'
 import { useParameterOption } from '../../../hooks/parameter-options'
@@ -123,9 +125,9 @@ const LabelComponent = ({ label, severity, highlighted, disabled, isSlow }) => (
                 })}
             >{`${i18n.t('Severity')}: ${severity}`}</span>
             {isSlow && (
-                <span className={styles.optionSlowIndicator}>
-                    {i18n.t('Resource intensive')}
-                </span>
+                <Tooltip content={i18n.t('Slow checks are resource intensive and should be run with caution')}>
+                    <Chip dense>{i18n.t('Slow')}</Chip>
+                </Tooltip>
             )}
         </div>
     </div>
