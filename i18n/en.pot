@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2024-03-13T13:19:06.504Z\n"
-"PO-Revision-Date: 2024-03-13T13:19:06.504Z\n"
+"POT-Creation-Date: 2024-03-18T11:31:16.927Z\n"
+"PO-Revision-Date: 2024-03-18T11:31:16.927Z\n"
 
 msgid "Something went wrong"
 msgstr "Something went wrong"
@@ -362,6 +362,15 @@ msgstr "Org unit target"
 
 msgid "Ownership"
 msgstr "Ownership"
+
+msgid "Tracked entity instance enrollments"
+msgstr "Tracked entity instance enrollments"
+
+msgid "Tracked entity instance events"
+msgstr "Tracked entity instance events"
+
+msgid "Tracked entity instance"
+msgstr "Tracked entity instance"
 
 msgid "Validation result"
 msgstr "Validation result"

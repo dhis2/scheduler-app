@@ -8,6 +8,11 @@ const analyticsTableTypes = {
     EVENT: i18n.t('Event'),
     ORG_UNIT_TARGET: i18n.t('Org unit target'),
     OWNERSHIP: i18n.t('Ownership'),
+    TRACKED_ENTITY_INSTANCE_ENROLLMENTS: i18n.t(
+        'Tracked entity instance enrollments'
+    ),
+    TRACKED_ENTITY_INSTANCE_EVENTS: i18n.t('Tracked entity instance events'),
+    TRACKED_ENTITY_INSTANCE: i18n.t('Tracked entity instance'),
     VALIDATION_RESULT: i18n.t('Validation result'),
 }
 
