@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2024-03-05T14:54:55.437Z\n"
-"PO-Revision-Date: 2024-03-05T14:54:55.437Z\n"
+"POT-Creation-Date: 2024-03-13T13:19:06.504Z\n"
+"PO-Revision-Date: 2024-03-13T13:19:06.504Z\n"
 
 msgid "Something went wrong"
 msgstr "Something went wrong"
@@ -57,14 +57,20 @@ msgstr "Something went wrong whilst fetching options"
 msgid "Checks to run"
 msgstr "Checks to run"
 
-msgid "Run all available checks"
-msgstr "Run all available checks"
+msgid "Run all standard checks"
+msgstr "Run all standard checks"
 
 msgid "Only run selected checks"
 msgstr "Only run selected checks"
 
 msgid "Severity"
 msgstr "Severity"
+
+msgid "Slow checks are resource intensive and should be run with caution"
+msgstr "Slow checks are resource intensive and should be run with caution"
+
+msgid "Slow"
+msgstr "Slow"
 
 msgid "Select checks to run."
 msgstr "Select checks to run."

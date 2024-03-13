@@ -8,9 +8,11 @@ import {
     Radio,
     Transfer,
     TransferOption,
+    Tooltip,
     ReactFinalForm,
     InputFieldFF,
     Help,
+    Tag,
 } from '@dhis2/ui'
 import cx from 'classnames'
 import { useParameterOption } from '../../../hooks/parameter-options'
@@ -83,7 +85,7 @@ const DataIntegrityChecksField = ({ label, name }) => {
             <Radio
                 name={'checksToRun'}
                 value={'false'}
-                label={i18n.t('Run all available checks')}
+                label={i18n.t('Run all standard checks')}
                 checked={!runSelected}
                 onChange={toggle}
             />
@@ -108,7 +110,7 @@ const DataIntegrityChecksField = ({ label, name }) => {
     )
 }
 
-const LabelComponent = ({ label, severity, highlighted, disabled }) => (
+const LabelComponent = ({ label, severity, highlighted, disabled, isSlow }) => (
     <div
         className={cx(styles.transferOption, {
             [styles.highlighted]: highlighted,
@@ -116,11 +118,22 @@ const LabelComponent = ({ label, severity, highlighted, disabled }) => (
         })}
     >
         <div className={styles.optionName}>{label}</div>
-        <div
-            className={cx(styles.optionSeverity, {
-                [styles.highlighted]: highlighted,
-            })}
-        >{`${i18n.t('Severity')}: ${severity}`}</div>
+        <div className={styles.optionSubtitle}>
+            <span
+                className={cx(styles.optionSeverity, {
+                    [styles.highlighted]: highlighted,
+                })}
+            >{`${i18n.t('Severity')}: ${severity}`}</span>
+            {isSlow && (
+                <Tooltip
+                    content={i18n.t(
+                        'Slow checks are resource intensive and should be run with caution'
+                    )}
+                >
+                    <Tag>{i18n.t('Slow')}</Tag>
+                </Tooltip>
+            )}
+        </div>
     </div>
 )
 
