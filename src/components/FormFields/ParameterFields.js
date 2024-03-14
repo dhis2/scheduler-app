@@ -14,6 +14,7 @@ import DataIntegrityChecksField from './Custom/DataIntegrityChecksField'
 import DataIntegrityReportTypeField from './Custom/DataIntegrityReportTypeField'
 import AggregatedDataExchangeField from './Custom/AggregatedDataExchangeField'
 import PushAnalyticsModeField from './Custom/PushAnalyticsModeField'
+import TestPolicyField from './Custom/TestPolicyField'
 import styles from './ParameterFields.module.css'
 import ListFieldSingle from './ListFieldSingle'
 import ListFieldMulti from './ListFieldMulti'
@@ -62,6 +63,12 @@ const getCustomComponent = (jobType, parameterName) => {
                 return ListFieldSingle
             } else if (parameterName === 'mode') {
                 return PushAnalyticsModeField
+            }
+
+            return null
+        case 'TEST':
+            if (parameterName === 'failWithPolicy') {
+                return TestPolicyField
             }
 
             return null
