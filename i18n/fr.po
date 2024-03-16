@@ -6,16 +6,16 @@
 # Sakibou ALASSANI <sakibou.alass@gmail.com>, 2023
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2023
 # Yayra Gomado <ygomado@hispwca.org>, 2023
-# Viktor Varland <viktor@dhis2.org>, 2024
 # Philip Larsen Donnelly, 2024
 # Yao Selom SAKA (HISP WCA) <ysaka@hispwca.org>, 2024
+# Viktor Varland <viktor@dhis2.org>, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-02-21T09:54:31.937Z\n"
+"POT-Creation-Date: 2024-03-13T13:19:06.504Z\n"
 "PO-Revision-Date: 2020-05-08 14:30+0000\n"
-"Last-Translator: Yao Selom SAKA (HISP WCA) <ysaka@hispwca.org>, 2024\n"
+"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2024\n"
 "Language-Team: French (https://app.transifex.com/hisp-uio/teams/100509/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -48,6 +48,9 @@ msgstr "Supprimer la tâche"
 msgid "Delete queue"
 msgstr ""
 
+msgid "CRON Expression"
+msgstr "Expression CRON"
+
 msgid "Please select data exchange ids."
 msgstr "Veuillez sélectionner les identifiants d'échange de données."
 
@@ -62,9 +65,6 @@ msgstr ""
 msgid "error type"
 msgstr "type d'erreur"
 
-msgid "CRON Expression"
-msgstr "Expression CRON"
-
 msgid "Please select checks to run."
 msgstr "Veuillez sélectionner les contrôles à exécuter."
 
@@ -74,8 +74,8 @@ msgstr ""
 msgid "Checks to run"
 msgstr "Contrôles à exécuter"
 
-msgid "Run all available checks"
-msgstr "Exécuter tous les contrôles disponibles"
+msgid "Run all standard checks"
+msgstr ""
 
 msgid "Only run selected checks"
 msgstr "Exécuter uniquement les contrôles sélectionnés"
@@ -83,11 +83,26 @@ msgstr "Exécuter uniquement les contrôles sélectionnés"
 msgid "Severity"
 msgstr "Gravité"
 
+msgid "Slow checks are resource intensive and should be run with caution"
+msgstr ""
+
+msgid "Slow"
+msgstr ""
+
 msgid "Select checks to run."
 msgstr "Sélectionner les contrôles à exécuter."
 
 msgid "Report type"
 msgstr "Type de rapport"
+
+msgid "No options available"
+msgstr "Aucune option disponible"
+
+msgid "Loading options"
+msgstr ""
+
+msgid "Something went wrong whilst loading options"
+msgstr ""
 
 msgid "Delay"
 msgstr "Retard"
@@ -103,15 +118,6 @@ msgstr ""
 
 msgid "Something went wrong whilst loading job types"
 msgstr ""
-
-msgid "Loading options"
-msgstr ""
-
-msgid "Something went wrong whilst loading options"
-msgstr ""
-
-msgid "No options available"
-msgstr "Aucune option disponible"
 
 msgid "Queues can't be named \"Add\" or \"add\""
 msgstr ""
@@ -255,7 +261,7 @@ msgid "Are you sure you want to delete this queue?"
 msgstr ""
 
 msgid "Discard unsaved changes?"
-msgstr ""
+msgstr "Abandonner les modifications non enregistrées?"
 
 msgid ""
 "This form has unsaved changes. Are you sure that you want to discard them?"
@@ -465,6 +471,9 @@ msgstr "Synchronisation des données des programmes d'événements"
 msgid "File resource clean up"
 msgstr "Nettoyage des ressources de fichiers"
 
+msgid "HTML push analytics"
+msgstr ""
+
 msgid "GEOJSON import"
 msgstr ""
 
@@ -551,6 +560,12 @@ msgstr ""
 
 msgid "Validation results notification"
 msgstr "Notification des résultats de la validation"
+
+msgid "Executor"
+msgstr ""
+
+msgid "Receiver"
+msgstr ""
 
 msgid "A CRON expression is required"
 msgstr "Une expression CRON est requise"
