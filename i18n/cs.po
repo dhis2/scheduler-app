@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-02-21T09:54:31.937Z\n"
+"POT-Creation-Date: 2024-03-13T13:19:06.504Z\n"
 "PO-Revision-Date: 2020-05-08 14:30+0000\n"
 "Last-Translator: Jiří Podhorecký, 2024\n"
 "Language-Team: Czech (https://app.transifex.com/hisp-uio/teams/100509/cs/)\n"
@@ -38,6 +38,9 @@ msgstr "Smazat úlohu"
 msgid "Delete queue"
 msgstr "Smazat frontu"
 
+msgid "CRON Expression"
+msgstr "CRON výraz"
+
 msgid "Please select data exchange ids."
 msgstr "Vyberte id pro výměnu dat."
 
@@ -50,9 +53,6 @@ msgstr "Došlo k problému s načítáním id pro výměnu dat"
 msgid "error type"
 msgstr "typ chyby"
 
-msgid "CRON Expression"
-msgstr "CRON výraz"
-
 msgid "Please select checks to run."
 msgstr "Vyberte prosím kontroly, které chcete spustit."
 
@@ -62,8 +62,8 @@ msgstr "Při načítání možností se něco pokazilo"
 msgid "Checks to run"
 msgstr "Kontroly ke spuštění"
 
-msgid "Run all available checks"
-msgstr "Spustit všechny dostupné kontroly"
+msgid "Run all standard checks"
+msgstr ""
 
 msgid "Only run selected checks"
 msgstr "Spouštět pouze vybrané kontroly"
@@ -71,11 +71,26 @@ msgstr "Spouštět pouze vybrané kontroly"
 msgid "Severity"
 msgstr "Vážnost"
 
+msgid "Slow checks are resource intensive and should be run with caution"
+msgstr ""
+
+msgid "Slow"
+msgstr ""
+
 msgid "Select checks to run."
 msgstr "Vyberte kontroly, které chcete spustit."
 
 msgid "Report type"
 msgstr "Typ zprávy"
+
+msgid "No options available"
+msgstr "K dispozici nejsou žádné možnosti"
+
+msgid "Loading options"
+msgstr "Možnosti načítání"
+
+msgid "Something went wrong whilst loading options"
+msgstr "Při načítání možností se něco pokazilo"
 
 msgid "Delay"
 msgstr "Zpoždění"
@@ -91,15 +106,6 @@ msgstr "Načítání typů úloh"
 
 msgid "Something went wrong whilst loading job types"
 msgstr "Při načítání typů úloh se něco pokazilo"
-
-msgid "Loading options"
-msgstr "Možnosti načítání"
-
-msgid "Something went wrong whilst loading options"
-msgstr "Při načítání možností se něco pokazilo"
-
-msgid "No options available"
-msgstr "K dispozici nejsou žádné možnosti"
 
 msgid "Queues can't be named \"Add\" or \"add\""
 msgstr "Fronty nelze pojmenovat \"Add\" nebo  \"add\""
@@ -243,7 +249,7 @@ msgid "Are you sure you want to delete this queue?"
 msgstr "Opravdu chcete smazat tuto frontu?"
 
 msgid "Discard unsaved changes?"
-msgstr ""
+msgstr "Zahodit neuložené změny?"
 
 msgid ""
 "This form has unsaved changes. Are you sure that you want to discard them?"
@@ -457,6 +463,9 @@ msgstr "Synchronizace dat programů událostí"
 msgid "File resource clean up"
 msgstr "Vyčištění souboru"
 
+msgid "HTML push analytics"
+msgstr ""
+
 msgid "GEOJSON import"
 msgstr "Import GEOJSON"
 
@@ -543,6 +552,12 @@ msgstr "Optimalizace vyhledávání pomocí trackeru"
 
 msgid "Validation results notification"
 msgstr "Oznámení o výsledku ověření"
+
+msgid "Executor"
+msgstr ""
+
+msgid "Receiver"
+msgstr ""
 
 msgid "A CRON expression is required"
 msgstr "Je vyžadován výraz CRON"
