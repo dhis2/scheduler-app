@@ -1,9 +1,9 @@
 [
     {
-        "path": "/api/41/systemSettings/helpPageLink",
-        "featureName": "Queues can be enabled and disabled",
+        "path": "/api/42/systemSettings/helpPageLink",
+        "featureName": "Users that are not authorized should be denied access",
         "static": false,
-        "count": 2,
+        "count": 1,
         "nonDeterministic": false,
         "method": "GET",
         "requestBody": "",

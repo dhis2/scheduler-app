@@ -1,0 +1,67 @@
+[
+    {
+        "path": "/api/42/systemSettings/helpPageLink",
+        "featureName": "Users should be able to create a queue",
+        "static": false,
+        "count": 1,
+        "nonDeterministic": false,
+        "method": "GET",
+        "requestBody": "",
+        "requestHeaders": {
+            "host": "debug.dhis2.org",
+            "connection": "keep-alive",
+            "accept": "application/json",
+            "origin": "http://localhost:3000",
+            "sec-fetch-site": "cross-site",
+            "sec-fetch-mode": "cors"
+        },
+        "statusCode": 200,
+        "responseBody": "{\"helpPageLink\":\"https://dhis2.github.io/dhis2-docs/master/en/user/html/dhis2_user_manual_en.html\"}",
+        "responseSize": 99,
+        "responseHeaders": {
+            "server": "nginx/1.23.0",
+            "content-type": "application/json;charset=UTF-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "access-control-allow-credentials": "true",
+            "access-control-allow-origin": "http://localhost:3000",
+            "vary": "Origin",
+            "access-control-expose-headers": "ETag, Location",
+            "cache-control": "no-cache, private",
+            "x-content-type-options": "nosniff",
+            "x-xss-protection": "1; mode=block"
+        }
+    },
+    {
+        "path": "/api/42/scheduler",
+        "featureName": "Users should be able to create a queue",
+        "static": false,
+        "count": 1,
+        "nonDeterministic": false,
+        "method": "GET",
+        "requestBody": "",
+        "requestHeaders": {
+            "host": "debug.dhis2.org",
+            "connection": "keep-alive",
+            "accept": "application/json",
+            "origin": "http://localhost:3000",
+            "sec-fetch-site": "cross-site",
+            "sec-fetch-mode": "cors"
+        },
+        "statusCode": 200,
+        "responseBody": "[{\"name\":\"Housekeeping\",\"type\":\"HOUSEKEEPING\",\"delay\":20,\"nextExecutionTime\":\"2024-03-13T12:29:00.000\",\"secondsToNextExecutionTime\":6,\"status\":\"SCHEDULED\",\"enabled\":true,\"configurable\":false,\"sequence\":[{\"id\":\"DHIS2rocks1\",\"name\":\"Housekeeping\",\"type\":\"HOUSEKEEPING\",\"delay\":20,\"nextExecutionTime\":\"2024-03-13T12:29:00.000\",\"status\":\"SCHEDULED\"}]},{\"name\":\"Dataset notification\",\"type\":\"DATA_SET_NOTIFICATION\",\"cronExpression\":\"0 0 2 * * ?\",\"nextExecutionTime\":\"2024-03-14T02:00:00.000\",\"maxDelayedExecutionTime\":\"2024-03-14T06:00:00.000\",\"secondsToNextExecutionTime\":48666,\"secondsToMaxDelayedExecutionTime\":63066,\"status\":\"SCHEDULED\",\"enabled\":true,\"configurable\":false,\"sequence\":[{\"id\":\"YvAwAmrqAtN\",\"name\":\"Dataset notification\",\"type\":\"DATA_SET_NOTIFICATION\",\"cronExpression\":\"0 0 2 * * ?\",\"nextExecutionTime\":\"2024-03-14T02:00:00.000\",\"status\":\"SCHEDULED\"}]},{\"name\":\"Remove expired or used reserved values\",\"type\":\"REMOVE_USED_OR_EXPIRED_RESERVED_VALUES\",\"cronExpression\":\"0 0 2 ? * *\",\"nextExecutionTime\":\"2024-03-14T02:00:00.000\",\"maxDelayedExecutionTime\":\"2024-03-14T06:00:00.000\",\"secondsToNextExecutionTime\":48666,\"secondsToMaxDelayedExecutionTime\":63066,\"status\":\"SCHEDULED\",\"enabled\":true,\"configurable\":false,\"sequence\":[{\"id\":\"uwWCT2BMmlq\",\"name\":\"Remove expired or used reserved values\",\"type\":\"REMOVE_USED_OR_EXPIRED_RESERVED_VALUES\",\"cronExpression\":\"0 0 2 ? * *\",\"nextExecutionTime\":\"2024-03-14T02:00:00.000\",\"status\":\"SCHEDULED\"}]},{\"name\":\"User account expiry alert\",\"type\":\"ACCOUNT_EXPIRY_ALERT\",\"cronExpression\":\"0 0 2 ? * *\",\"nextExecutionTime\":\"2024-03-14T02:00:00.000\",\"maxDelayedExecutionTime\":\"2024-03-14T06:00:00.000\",\"secondsToNextExecutionTime\":48666,\"secondsToMaxDelayedExecutionTime\":63066,\"status\":\"SCHEDULED\",\"enabled\":true,\"configurable\":false,\"sequence\":[{\"id\":\"fUWM1At1TUx\",\"name\":\"User account expiry alert\",\"type\":\"ACCOUNT_EXPIRY_ALERT\",\"cronExpression\":\"0 0 2 ? * *\",\"nextExecutionTime\":\"2024-03-14T02:00:00.000\",\"status\":\"SCHEDULED\"}]},{\"name\":\"File resource clean up\",\"type\":\"FILE_RESOURCE_CLEANUP\",\"cronExpression\":\"0 0 2 * * ?\",\"nextExecutionTime\":\"2024-03-14T02:00:00.000\",\"maxDelayedExecutionTime\":\"2024-03-14T06:00:00.000\",\"secondsToNextExecutionTime\":48666,\"secondsToMaxDelayedExecutionTime\":63066,\"status\":\"SCHEDULED\",\"enabled\":true,\"configurable\":false,\"sequence\":[{\"id\":\"pd6O228pqr0\",\"name\":\"File resource clean up\",\"type\":\"FILE_RESOURCE_CLEANUP\",\"cronExpression\":\"0 0 2 * * ?\",\"nextExecutionTime\":\"2024-03-14T02:00:00.000\",\"status\":\"SCHEDULED\"}]},{\"name\":\"Data statistics\",\"type\":\"DATA_STATISTICS\",\"cronExpression\":\"0 0 2 * * ?\",\"nextExecutionTime\":\"2024-03-14T02:00:00.000\",\"maxDelayedExecutionTime\":\"2024-03-14T06:00:00.000\",\"secondsToNextExecutionTime\":48666,\"secondsToMaxDelayedExecutionTime\":63066,\"status\":\"SCHEDULED\",\"enabled\":true,\"configurable\":false,\"sequence\":[{\"id\":\"BFa3jDsbtdO\",\"name\":\"Data statistics\",\"type\":\"DATA_STATISTICS\",\"cronExpression\":\"0 0 2 * * ?\",\"nextExecutionTime\":\"2024-03-14T02:00:00.000\",\"status\":\"SCHEDULED\"}]},{\"name\":\"Credentials expiry alert\",\"type\":\"CREDENTIALS_EXPIRY_ALERT\",\"cronExpression\":\"0 0 2 * * ?\",\"nextExecutionTime\":\"2024-03-14T02:00:00.000\",\"maxDelayedExecutionTime\":\"2024-03-14T06:00:00.000\",\"secondsToNextExecutionTime\":48666,\"secondsToMaxDelayedExecutionTime\":63066,\"status\":\"SCHEDULED\",\"enabled\":true,\"configurable\":false,\"sequence\":[{\"id\":\"sHMedQF7VYa\",\"name\":\"Credentials expiry alert\",\"type\":\"CREDENTIALS_EXPIRY_ALERT\",\"cronExpression\":\"0 0 2 * * ?\",\"nextExecutionTime\":\"2024-03-14T02:00:00.000\",\"status\":\"SCHEDULED\"}]},{\"name\":\"System version update check notification\",\"type\":\"SYSTEM_VERSION_UPDATE_CHECK\",\"cronExpression\":\"44 8 3 ? * *\",\"nextExecutionTime\":\"2024-03-14T03:08:44.000\",\"maxDelayedExecutionTime\":\"2024-03-14T07:08:44.000\",\"secondsToNextExecutionTime\":52790,\"secondsToMaxDelayedExecutionTime\":67190,\"status\":\"SCHEDULED\",\"enabled\":true,\"configurable\":false,\"sequence\":[{\"id\":\"vt21671bgno\",\"name\":\"System version update check notification\",\"type\":\"SYSTEM_VERSION_UPDATE_CHECK\",\"cronExpression\":\"44 8 3 ? * *\",\"nextExecutionTime\":\"2024-03-14T03:08:44.000\",\"status\":\"SCHEDULED\"}]},{\"name\":\"Validation result notification\",\"type\":\"VALIDATION_RESULTS_NOTIFICATION\",\"cronExpression\":\"0 0 7 * * ?\",\"nextExecutionTime\":\"2024-03-14T07:00:00.000\",\"maxDelayedExecutionTime\":\"2024-03-14T11:00:00.000\",\"secondsToNextExecutionTime\":66666,\"secondsToMaxDelayedExecutionTime\":81066,\"status\":\"SCHEDULED\",\"enabled\":true,\"configurable\":false,\"sequence\":[{\"id\":\"Js3vHn2AVuG\",\"name\":\"Validation result notification\",\"type\":\"VALIDATION_RESULTS_NOTIFICATION\",\"cronExpression\":\"0 0 7 * * ?\",\"nextExecutionTime\":\"2024-03-14T07:00:00.000\",\"status\":\"SCHEDULED\"}]},{\"name\":\"test did\",\"type\":\"DATA_INTEGRITY\",\"cronExpression\":\"0 0 3 ? * SUN\",\"nextExecutionTime\":\"2024-03-17T03:00:00.000\",\"maxDelayedExecutionTime\":\"2024-03-17T07:00:00.000\",\"secondsToNextExecutionTime\":311466,\"secondsToMaxDelayedExecutionTime\":325866,\"status\":\"SCHEDULED\",\"enabled\":true,\"configurable\":true,\"sequence\":[{\"id\":\"QB4c22BHsyZ\",\"name\":\"test did\",\"type\":\"DATA_INTEGRITY\",\"cronExpression\":\"0 0 3 ? * SUN\",\"nextExecutionTime\":\"2024-03-17T03:00:00.000\",\"status\":\"SCHEDULED\"}]},{\"name\":\"some jhob\",\"type\":\"HTML_PUSH_ANALYTICS\",\"cronExpression\":\"0 0 3 ? * MON\",\"nextExecutionTime\":\"2024-03-18T03:00:00.000\",\"maxDelayedExecutionTime\":\"2024-03-18T07:00:00.000\",\"secondsToNextExecutionTime\":397866,\"secondsToMaxDelayedExecutionTime\":412266,\"status\":\"SCHEDULED\",\"enabled\":true,\"configurable\":true,\"sequence\":[{\"id\":\"S0oOVa3ccRK\",\"name\":\"some jhob\",\"type\":\"HTML_PUSH_ANALYTICS\",\"cronExpression\":\"0 0 3 ? * MON\",\"nextExecutionTime\":\"2024-03-18T03:00:00.000\",\"status\":\"SCHEDULED\"}]},{\"name\":\"1\",\"type\":\"DATA_INTEGRITY\",\"cronExpression\":\"0 0 3 ? * MON\",\"nextExecutionTime\":\"2024-03-18T03:00:00.000\",\"maxDelayedExecutionTime\":\"2024-03-18T07:00:00.000\",\"secondsToNextExecutionTime\":397866,\"secondsToMaxDelayedExecutionTime\":412266,\"status\":\"SCHEDULED\",\"enabled\":true,\"configurable\":true,\"sequence\":[{\"id\":\"YJV1gC4Qb84\",\"name\":\"1\",\"type\":\"DATA_INTEGRITY\",\"cronExpression\":\"0 0 3 ? * MON\",\"nextExecutionTime\":\"2024-03-18T03:00:00.000\",\"status\":\"SCHEDULED\"}]},{\"name\":\"a\",\"type\":\"ANALYTICS_TABLE\",\"cronExpression\":\"0 0 3 ? * MON\",\"nextExecutionTime\":\"2024-03-18T03:00:00.000\",\"maxDelayedExecutionTime\":\"2024-03-18T07:00:00.000\",\"secondsToNextExecutionTime\":397866,\"secondsToMaxDelayedExecutionTime\":412266,\"status\":\"SCHEDULED\",\"enabled\":true,\"configurable\":true,\"sequence\":[{\"id\":\"WK61wQA1VqI\",\"name\":\"a\",\"type\":\"ANALYTICS_TABLE\",\"cronExpression\":\"0 0 3 ? * MON\",\"nextExecutionTime\":\"2024-03-18T03:00:00.000\",\"status\":\"SCHEDULED\"}]},{\"name\":\"Data integrity: Summary ALL\",\"type\":\"DATA_INTEGRITY\",\"cronExpression\":\"0 0 4 ? * MON\",\"nextExecutionTime\":\"2024-03-18T04:00:00.000\",\"maxDelayedExecutionTime\":\"2024-03-18T08:00:00.000\",\"secondsToNextExecutionTime\":401466,\"secondsToMaxDelayedExecutionTime\":415866,\"status\":\"SCHEDULED\",\"enabled\":true,\"configurable\":true,\"sequence\":[{\"id\":\"XoorlXryXxv\",\"name\":\"Data integrity: Summary ALL\",\"type\":\"DATA_INTEGRITY\",\"cronExpression\":\"0 0 4 ? * MON\",\"nextExecutionTime\":\"2024-03-18T04:00:00.000\",\"status\":\"SCHEDULED\"}]},{\"name\":\"Data integrity: Details ALL\",\"type\":\"DATA_INTEGRITY\",\"cronExpression\":\"0 0 1 ? * TUE\",\"nextExecutionTime\":\"2024-03-19T01:00:00.000\",\"maxDelayedExecutionTime\":\"2024-03-19T05:00:00.000\",\"secondsToNextExecutionTime\":477066,\"secondsToMaxDelayedExecutionTime\":491466,\"status\":\"SCHEDULED\",\"enabled\":true,\"configurable\":true,\"sequence\":[{\"id\":\"edM0ikUDBUh\",\"name\":\"Data integrity: Details ALL\",\"type\":\"DATA_INTEGRITY\",\"cronExpression\":\"0 0 1 ? * TUE\",\"nextExecutionTime\":\"2024-03-19T01:00:00.000\",\"status\":\"SCHEDULED\"}]},{\"name\":\"Data integrity: Category sumamry\",\"type\":\"DATA_INTEGRITY\",\"cronExpression\":\"0 0 6 ? * TUE\",\"nextExecutionTime\":\"2024-03-19T06:00:00.000\",\"maxDelayedExecutionTime\":\"2024-03-19T10:00:00.000\",\"secondsToNextExecutionTime\":495066,\"secondsToMaxDelayedExecutionTime\":509466,\"status\":\"SCHEDULED\",\"enabled\":true,\"configurable\":true,\"sequence\":[{\"id\":\"qtvnsjzT6L4\",\"name\":\"Data integrity: Category sumamry\",\"type\":\"DATA_INTEGRITY\",\"cronExpression\":\"0 0 6 ? * TUE\",\"nextExecutionTime\":\"2024-03-19T06:00:00.000\",\"status\":\"SCHEDULED\"}]}]",
+        "responseSize": 8165,
+        "responseHeaders": {
+            "server": "nginx/1.23.0",
+            "content-type": "application/json;charset=UTF-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "access-control-allow-credentials": "true",
+            "access-control-allow-origin": "http://localhost:3000",
+            "vary": "Origin",
+            "access-control-expose-headers": "ETag, Location",
+            "x-content-type-options": "nosniff",
+            "x-xss-protection": "1; mode=block"
+        }
+    }
+]

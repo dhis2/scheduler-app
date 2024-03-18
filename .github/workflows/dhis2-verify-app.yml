@@ -99,7 +99,7 @@ jobs:
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                   CYPRESS_dhis2BaseUrl: https://debug.dhis2.org/dev
-                  CYPRESS_dhis2ApiVersion: 41
+                  CYPRESS_dhis2ApiVersion: 42
                   CYPRESS_networkMode: stub
 
     release:

@@ -1,9 +1,9 @@
 [
     {
-        "path": "/api/41/systemSettings/helpPageLink",
-        "featureName": "System job actions",
+        "path": "/api/42/systemSettings/helpPageLink",
+        "featureName": "All user defined jobs should be listed",
         "static": false,
-        "count": 1,
+        "count": 2,
         "nonDeterministic": false,
         "method": "GET",
         "requestBody": "",

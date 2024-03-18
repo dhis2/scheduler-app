@@ -1,7 +1,7 @@
 [
     {
-        "path": "/api/41/systemSettings/helpPageLink",
-        "featureName": "Queues should be listed",
+        "path": "/api/42/systemSettings/helpPageLink",
+        "featureName": "System job actions",
         "static": false,
         "count": 1,
         "nonDeterministic": false,
