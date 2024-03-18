@@ -1,9 +1,9 @@
 [
     {
-        "path": "/api/41/systemSettings/helpPageLink",
-        "featureName": "Users should be able to edit a queue",
+        "path": "/api/42/systemSettings/helpPageLink",
+        "featureName": "Jobs can be filtered",
         "static": false,
-        "count": 1,
+        "count": 2,
         "nonDeterministic": false,
         "method": "GET",
         "requestBody": "",

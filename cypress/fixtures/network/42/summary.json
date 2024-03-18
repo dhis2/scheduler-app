@@ -1,9 +1,9 @@
 {
-    "count": 1107,
-    "totalResponseSize": 1063069,
-    "duplicates": 974,
-    "nonDeterministicResponses": 131,
-    "apiVersion": "41",
+    "count": 1143,
+    "totalResponseSize": 1198794,
+    "duplicates": 999,
+    "nonDeterministicResponses": 129,
+    "apiVersion": "42",
     "fixtureFiles": [
         "static_resources.json",
         "users_should_be_able_to_navigate_back_to_the_list_route.json",

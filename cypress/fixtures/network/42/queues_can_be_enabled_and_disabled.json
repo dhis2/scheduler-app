@@ -1,7 +1,7 @@
 [
     {
-        "path": "/api/41/systemSettings/helpPageLink",
-        "featureName": "System job visibility can be toggled",
+        "path": "/api/42/systemSettings/helpPageLink",
+        "featureName": "Queues can be enabled and disabled",
         "static": false,
         "count": 2,
         "nonDeterministic": false,

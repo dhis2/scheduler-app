@@ -1,7 +1,7 @@
 [
     {
-        "path": "/api/41/systemSettings/helpPageLink",
-        "featureName": "Jobs can be filtered",
+        "path": "/api/42/systemSettings/helpPageLink",
+        "featureName": "User jobs can be enabled and disabled",
         "static": false,
         "count": 2,
         "nonDeterministic": false,

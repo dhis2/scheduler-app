@@ -1,9 +1,9 @@
 [
     {
-        "path": "/api/41/systemSettings/helpPageLink",
-        "featureName": "User jobs can be enabled and disabled",
+        "path": "/api/42/systemSettings/helpPageLink",
+        "featureName": "Users should be able to view system jobs",
         "static": false,
-        "count": 2,
+        "count": 1,
         "nonDeterministic": false,
         "method": "GET",
         "requestBody": "",
