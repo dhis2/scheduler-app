@@ -1,3 +1,16 @@
+# [101.6.0](https://github.com/dhis2/scheduler-app/compare/v101.5.3...v101.6.0) (2024-03-18)
+
+
+### Bug Fixes
+
+* add long field type ([a05bfa6](https://github.com/dhis2/scheduler-app/commit/a05bfa676440a9abdd61082a699ad8522a7d2c0e))
+* add skipprograms field ([b8fb409](https://github.com/dhis2/scheduler-app/commit/b8fb409fa6f212ac6e0fa5aa97c3ebc119c1e46a))
+
+
+### Features
+
+* add test policy field ([461f824](https://github.com/dhis2/scheduler-app/commit/461f8246153d560a178e0ca424884920e53e097f))
+
 ## [101.5.3](https://github.com/dhis2/scheduler-app/compare/v101.5.2...v101.5.3) (2024-03-17)
 
 
