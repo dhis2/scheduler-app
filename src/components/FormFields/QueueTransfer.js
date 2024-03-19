@@ -5,7 +5,7 @@ import { Field, Transfer } from '@dhis2/ui'
 import QueueTransferTitle from './QueueTransferTitle'
 import QueueOption from './QueueOption'
 
-const { bool, arrayOf, shape, func, array, string } = PropTypes
+const { bool, arrayOf, shape, func, array, string, oneOfType } = PropTypes
 
 const QueueTransfer = ({ options, input, meta }) => {
     const { onChange, value } = input
@@ -21,7 +21,7 @@ const QueueTransfer = ({ options, input, meta }) => {
         >
             <Transfer
                 options={options}
-                selected={value}
+                selected={[...value]}
                 renderOption={QueueOption}
                 filterable
                 filterPlaceholder={i18n.t('Filter jobs')}
@@ -41,7 +41,7 @@ const QueueTransfer = ({ options, input, meta }) => {
 QueueTransfer.propTypes = {
     input: shape({
         onChange: func.isRequired,
-        value: array.isRequired,
+        value: oneOfType([string, array]).isRequired,
     }).isRequired,
     meta: shape({
         error: string,
