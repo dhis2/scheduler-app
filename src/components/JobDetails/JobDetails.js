@@ -9,7 +9,9 @@ const JobDetails = ({ created, lastExecutedStatus, lastExecuted }) => {
     // Using Date.now allows for easier mocking
     const now = Date.now()
     const createdFromNow = moment(created).from(now)
-    const translatedStatus = jobStatusMap[lastExecutedStatus]
+    const translatedStatus = lastExecutedStatus
+        ? jobStatusMap[lastExecutedStatus]
+        : ''
     const lastRunFromNow = lastExecuted ? moment(lastExecuted).from(now) : ''
 
     return (
@@ -45,8 +47,8 @@ const { string } = PropTypes
 
 JobDetails.propTypes = {
     created: string.isRequired,
-    lastExecutedStatus: string.isRequired,
     lastExecuted: string,
+    lastExecutedStatus: string,
 }
 
 export default JobDetails
