@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2024-03-18T11:31:16.927Z\n"
-"PO-Revision-Date: 2024-03-18T11:31:16.927Z\n"
+"POT-Creation-Date: 2024-03-19T15:29:37.698Z\n"
+"PO-Revision-Date: 2024-03-19T15:29:37.698Z\n"
 
 msgid "Something went wrong"
 msgstr "Something went wrong"
@@ -563,6 +563,21 @@ msgstr "Executor"
 
 msgid "Receiver"
 msgstr "Receiver"
+
+msgid "Parent"
+msgstr "Parent"
+
+msgid "Fail"
+msgstr "Fail"
+
+msgid "Skip stage"
+msgstr "Skip stage"
+
+msgid "Skip item"
+msgstr "Skip item"
+
+msgid "Skip item outlier"
+msgstr "Skip item outlier"
 
 msgid "A CRON expression is required"
 msgstr "A CRON expression is required"

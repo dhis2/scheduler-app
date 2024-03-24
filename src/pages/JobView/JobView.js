@@ -95,10 +95,10 @@ JobView.propTypes = {
     job: shape({
         name: string.isRequired,
         created: string.isRequired,
-        lastExecutedStatus: string.isRequired,
-        lastExecuted: string.isRequired,
         jobType: string.isRequired,
         cronExpression: string.isRequired,
+        lastExecuted: string,
+        lastExecutedStatus: string,
     }).isRequired,
 }
 

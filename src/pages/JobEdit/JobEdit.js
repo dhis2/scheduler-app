@@ -46,8 +46,8 @@ JobEdit.propTypes = {
     job: shape({
         name: string.isRequired,
         created: string.isRequired,
-        lastExecutedStatus: string.isRequired,
-        lastExecuted: string.isRequired,
+        lastExecuted: string,
+        lastExecutedStatus: string,
     }).isRequired,
 }
 
