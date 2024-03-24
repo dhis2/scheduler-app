@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-03-05T14:54:55.437Z\n"
+"POT-Creation-Date: 2024-03-13T13:19:06.504Z\n"
 "PO-Revision-Date: 2020-05-08 14:30+0000\n"
 "Last-Translator: easylin <lin_xd@126.com>, 2024\n"
 "Language-Team: Chinese (https://app.transifex.com/hisp-uio/teams/100509/zh/)\n"
@@ -65,14 +65,20 @@ msgstr "获取选项时出错"
 msgid "Checks to run"
 msgstr "检查运行"
 
-msgid "Run all available checks"
-msgstr "运行所有可用的检查"
+msgid "Run all standard checks"
+msgstr "运行所有标准检查"
 
 msgid "Only run selected checks"
 msgstr "仅运行选定的检查"
 
 msgid "Severity"
 msgstr "严重性"
+
+msgid "Slow checks are resource intensive and should be run with caution"
+msgstr "缓慢的检查会占用大量资源，应谨慎运行"
+
+msgid "Slow"
+msgstr "慢的"
 
 msgid "Select checks to run."
 msgstr "选择要运行的检查。"
@@ -457,7 +463,7 @@ msgid "File resource clean up"
 msgstr "文件资源清理"
 
 msgid "HTML push analytics"
-msgstr ""
+msgstr "HTML 推送分析"
 
 msgid "GEOJSON import"
 msgstr "GEOJSON 导入"
@@ -547,10 +553,10 @@ msgid "Validation results notification"
 msgstr "验证结果通知"
 
 msgid "Executor"
-msgstr ""
+msgstr "执行者"
 
 msgid "Receiver"
-msgstr ""
+msgstr "接收者"
 
 msgid "A CRON expression is required"
 msgstr "需要CRON表达式"

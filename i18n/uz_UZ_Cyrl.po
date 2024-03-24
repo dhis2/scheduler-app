@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-02-21T09:54:31.937Z\n"
+"POT-Creation-Date: 2024-03-13T13:19:06.504Z\n"
 "PO-Revision-Date: 2020-05-08 14:30+0000\n"
 "Last-Translator: Ibatov <ibatovk@who.int>, 2024\n"
 "Language-Team: Uzbek (Cyrillic) (https://app.transifex.com/hisp-uio/teams/100509/uz@Cyrl/)\n"
@@ -40,6 +40,9 @@ msgstr "Вазифани бекор қилиш"
 msgid "Delete queue"
 msgstr "Навбатни ўчириш"
 
+msgid "CRON Expression"
+msgstr "CRON ифодаси"
+
 msgid "Please select data exchange ids."
 msgstr "Илтимос, сана алмашиш идетификаторини танланг"
 
@@ -52,9 +55,6 @@ msgstr "Сана алмаштириш идентификаторини олиш�
 msgid "error type"
 msgstr "Хатолик тури"
 
-msgid "CRON Expression"
-msgstr "CRON ифодаси"
-
 msgid "Please select checks to run."
 msgstr "Илтимос, бажариладиган текширувларни танланг"
 
@@ -64,8 +64,8 @@ msgstr "Вариантларни олишда хатолик юз берди"
 msgid "Checks to run"
 msgstr "Бажарилишини текшириш"
 
-msgid "Run all available checks"
-msgstr "Барча мавжуд текширувларни бажариш"
+msgid "Run all standard checks"
+msgstr ""
 
 msgid "Only run selected checks"
 msgstr "Фақат танланган текширувларни бажариш"
@@ -73,11 +73,26 @@ msgstr "Фақат танланган текширувларни бажариш"
 msgid "Severity"
 msgstr "Жиддийлик"
 
+msgid "Slow checks are resource intensive and should be run with caution"
+msgstr ""
+
+msgid "Slow"
+msgstr ""
+
 msgid "Select checks to run."
 msgstr "Бажариладиган текширувларни танланг"
 
 msgid "Report type"
 msgstr "Ҳисобот тури"
+
+msgid "No options available"
+msgstr "Вариантлар мавжуд эмас"
+
+msgid "Loading options"
+msgstr "Вариантлар юкланмоқда"
+
+msgid "Something went wrong whilst loading options"
+msgstr "Вариантлар юкланишида хатолик юз берди"
 
 msgid "Delay"
 msgstr "Кечиктириш"
@@ -93,15 +108,6 @@ msgstr "Хизмат турлари юкланмоқда"
 
 msgid "Something went wrong whilst loading job types"
 msgstr "Хизмат турларини юклашда хатолик юз берди"
-
-msgid "Loading options"
-msgstr "Вариантлар юкланмоқда"
-
-msgid "Something went wrong whilst loading options"
-msgstr "Вариантлар юкланишида хатолик юз берди"
-
-msgid "No options available"
-msgstr "Вариантлар мавжуд эмас"
 
 msgid "Queues can't be named \"Add\" or \"add\""
 msgstr "Навбатни \"Қўшиш\" ёки \"қўшиш\" деб номлаш мумкин эмас"
@@ -459,6 +465,9 @@ msgstr "Ҳодиса/Ҳолатлар дастури маълумотларин�
 msgid "File resource clean up"
 msgstr "Файл ресурсларини тозалаш"
 
+msgid "HTML push analytics"
+msgstr ""
+
 msgid "GEOJSON import"
 msgstr "GEOJSON Импорти"
 
@@ -545,6 +554,12 @@ msgstr "Кузатув назорат қидирувини оптималлаш�
 
 msgid "Validation results notification"
 msgstr "Натижаларни тасдиқлаш хабарномалари"
+
+msgid "Executor"
+msgstr ""
+
+msgid "Receiver"
+msgstr ""
 
 msgid "A CRON expression is required"
 msgstr "CRON ифодаси талаб қилинади"
