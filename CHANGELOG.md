@@ -1,3 +1,11 @@
+## [101.6.2](https://github.com/dhis2/scheduler-app/compare/v101.6.1...v101.6.2) (2024-04-02)
+
+
+### Bug Fixes
+
+* apply recommended final form fix for array field ([13d0160](https://github.com/dhis2/scheduler-app/commit/13d0160bff364bc4a76cb7371d93bfa7b5df7283))
+* fix lastexecuted proptype error ([ac10e1f](https://github.com/dhis2/scheduler-app/commit/ac10e1fea3fc5879df27b88eb60956d2c2c80a38))
+
 ## [101.6.1](https://github.com/dhis2/scheduler-app/compare/v101.6.0...v101.6.1) (2024-03-24)
 
 
