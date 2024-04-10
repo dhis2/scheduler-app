@@ -40,8 +40,6 @@ async function setupNodeEvents(on, config) {
 }
 
 module.exports = defineConfig({
-    projectId: 'sc56ms',
-    video: false,
     e2e: {
         setupNodeEvents,
         baseUrl: 'http://localhost:3000',
