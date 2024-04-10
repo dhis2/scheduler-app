@@ -20,7 +20,7 @@ Then('the user job data should be displayed in the form', () => {
     cy.findByLabelText('Name*').should('exist').and('have.value', 'Job 1')
 
     cy.findByText('Job type').should('exist')
-    cy.findByText('Data integrity').should('exist')
+    cy.findByText('Disable inactive users').should('exist')
 
     cy.findByLabelText('CRON Expression*')
         .should('exist')
