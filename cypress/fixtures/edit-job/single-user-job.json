@@ -9,7 +9,7 @@
     "enabled": true,
     "leaderOnlyJob": false,
     "externalAccess": false,
-    "jobType": "DATA_INTEGRITY",
+    "jobType": "DISABLE_INACTIVE_USERS",
     "nextExecutionTime": "2021-03-01T03:00:00.000",
     "sharing": {
         "external": false,
