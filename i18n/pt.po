@@ -3,15 +3,15 @@
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021
 # David Júnior <davidjr.mondlane@gmail.com>, 2022
 # Sheila André <sandre@saudigitus.org>, 2023
-# Ge Joao <gsimango@saudigitus.org>, 2023
 # Philip Larsen Donnelly, 2024
 # Fernando Jorge Bade, 2024
+# Ge Joao <gsimango@saudigitus.org>, 2024
 # Viktor Varland <viktor@dhis2.org>, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-02-21T09:54:31.937Z\n"
+"POT-Creation-Date: 2024-03-19T15:29:37.698Z\n"
 "PO-Revision-Date: 2020-05-08 14:30+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2024\n"
 "Language-Team: Portuguese (https://app.transifex.com/hisp-uio/teams/100509/pt/)\n"
@@ -44,6 +44,9 @@ msgstr "Suprimir trabalho"
 msgid "Delete queue"
 msgstr ""
 
+msgid "CRON Expression"
+msgstr ""
+
 msgid "Please select data exchange ids."
 msgstr ""
 
@@ -56,9 +59,6 @@ msgstr ""
 msgid "error type"
 msgstr ""
 
-msgid "CRON Expression"
-msgstr ""
-
 msgid "Please select checks to run."
 msgstr ""
 
@@ -68,7 +68,7 @@ msgstr ""
 msgid "Checks to run"
 msgstr ""
 
-msgid "Run all available checks"
+msgid "Run all standard checks"
 msgstr ""
 
 msgid "Only run selected checks"
@@ -77,10 +77,25 @@ msgstr ""
 msgid "Severity"
 msgstr ""
 
+msgid "Slow checks are resource intensive and should be run with caution"
+msgstr ""
+
+msgid "Slow"
+msgstr ""
+
 msgid "Select checks to run."
 msgstr ""
 
 msgid "Report type"
+msgstr ""
+
+msgid "No options available"
+msgstr "Nenhuma opção disponível"
+
+msgid "Loading options"
+msgstr ""
+
+msgid "Something went wrong whilst loading options"
 msgstr ""
 
 msgid "Delay"
@@ -97,15 +112,6 @@ msgstr ""
 
 msgid "Something went wrong whilst loading job types"
 msgstr ""
-
-msgid "Loading options"
-msgstr ""
-
-msgid "Something went wrong whilst loading options"
-msgstr ""
-
-msgid "No options available"
-msgstr "Nenhuma opção disponível"
 
 msgid "Queues can't be named \"Add\" or \"add\""
 msgstr ""
@@ -363,6 +369,15 @@ msgstr ""
 msgid "Ownership"
 msgstr ""
 
+msgid "Tracked entity instance enrollments"
+msgstr ""
+
+msgid "Tracked entity instance events"
+msgstr ""
+
+msgid "Tracked entity instance"
+msgstr "Instância da entidade rastreada"
+
 msgid "Validation result"
 msgstr "Resultado da validação"
 
@@ -459,6 +474,9 @@ msgstr ""
 msgid "File resource clean up"
 msgstr ""
 
+msgid "HTML push analytics"
+msgstr ""
+
 msgid "GEOJSON import"
 msgstr ""
 
@@ -544,6 +562,27 @@ msgid "Tracker search optimization"
 msgstr ""
 
 msgid "Validation results notification"
+msgstr ""
+
+msgid "Executor"
+msgstr ""
+
+msgid "Receiver"
+msgstr ""
+
+msgid "Parent"
+msgstr "Parentes"
+
+msgid "Fail"
+msgstr ""
+
+msgid "Skip stage"
+msgstr ""
+
+msgid "Skip item"
+msgstr ""
+
+msgid "Skip item outlier"
 msgstr ""
 
 msgid "A CRON expression is required"

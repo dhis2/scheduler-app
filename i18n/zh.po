@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-03-13T13:19:06.504Z\n"
+"POT-Creation-Date: 2024-03-19T15:29:37.698Z\n"
 "PO-Revision-Date: 2020-05-08 14:30+0000\n"
 "Last-Translator: easylin <lin_xd@126.com>, 2024\n"
 "Language-Team: Chinese (https://app.transifex.com/hisp-uio/teams/100509/zh/)\n"
@@ -366,6 +366,15 @@ msgstr "组织机构目标"
 msgid "Ownership"
 msgstr "所有权"
 
+msgid "Tracked entity instance enrollments"
+msgstr "跟踪实体实例注册"
+
+msgid "Tracked entity instance events"
+msgstr "跟踪实体实例事件"
+
+msgid "Tracked entity instance"
+msgstr "跟踪的实体实例"
+
 msgid "Validation result"
 msgstr "验证结果"
 
@@ -557,6 +566,21 @@ msgstr "执行者"
 
 msgid "Receiver"
 msgstr "接收者"
+
+msgid "Parent"
+msgstr "上级"
+
+msgid "Fail"
+msgstr "失败"
+
+msgid "Skip stage"
+msgstr "跳过阶段"
+
+msgid "Skip item"
+msgstr "跳过条目"
+
+msgid "Skip item outlier"
+msgstr "跳过离群条目"
 
 msgid "A CRON expression is required"
 msgstr "需要CRON表达式"

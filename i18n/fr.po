@@ -6,14 +6,14 @@
 # Sakibou ALASSANI <sakibou.alass@gmail.com>, 2023
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2023
 # Yayra Gomado <ygomado@hispwca.org>, 2023
-# Philip Larsen Donnelly, 2024
 # Yao Selom SAKA (HISP WCA) <ysaka@hispwca.org>, 2024
+# Philip Larsen Donnelly, 2024
 # Viktor Varland <viktor@dhis2.org>, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-03-13T13:19:06.504Z\n"
+"POT-Creation-Date: 2024-03-19T15:29:37.698Z\n"
 "PO-Revision-Date: 2020-05-08 14:30+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2024\n"
 "Language-Team: French (https://app.transifex.com/hisp-uio/teams/100509/fr/)\n"
@@ -375,6 +375,15 @@ msgstr "Unité d'organisation cible"
 msgid "Ownership"
 msgstr ""
 
+msgid "Tracked entity instance enrollments"
+msgstr ""
+
+msgid "Tracked entity instance events"
+msgstr ""
+
+msgid "Tracked entity instance"
+msgstr "Instance d'entité suivie"
+
 msgid "Validation result"
 msgstr "Resultat de validation"
 
@@ -565,6 +574,21 @@ msgid "Executor"
 msgstr ""
 
 msgid "Receiver"
+msgstr ""
+
+msgid "Parent"
+msgstr "Parent"
+
+msgid "Fail"
+msgstr ""
+
+msgid "Skip stage"
+msgstr ""
+
+msgid "Skip item"
+msgstr ""
+
+msgid "Skip item outlier"
 msgstr ""
 
 msgid "A CRON expression is required"
