@@ -263,7 +263,7 @@ msgid "No, keep changes"
 msgstr ""
 
 msgid "Yes, discard changes"
-msgstr ""
+msgstr "ຕົກລົງ, ຍົກເລີກການປ່ຽນແປງ"
 
 msgid "Error running job"
 msgstr ""
