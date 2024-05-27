@@ -20,7 +20,6 @@
         "cronstrue": "^1.114.0",
         "history": "^4.9.0",
         "moment": "^2.29.1",
-        "postcss": "^8.4.38",
         "prop-types": "^15.8.1",
         "react": "^16.13.1",
         "react-dom": "^16.13.1",
