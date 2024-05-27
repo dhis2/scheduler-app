@@ -1,7 +1,7 @@
 .header {
     display: flex;
     align-items: center;
-    margin-bottom: var(--spacers-dp12);
+    margin-block-end: var(--spacers-dp12);
 }
 
 .headerTitle {
@@ -19,13 +19,13 @@
 
 .controlRight {
     display: flex;
-    margin-left: auto;
+    margin-inline-start: auto;
 }
 
 .controlRight > * {
-    margin-right: var(--spacers-dp24);
+    margin-inline-end: var(--spacers-dp24);
 }
 
 .controlRight > *:last-child {
-    margin-right: 0;
+    margin-inline-end: 0;
 }

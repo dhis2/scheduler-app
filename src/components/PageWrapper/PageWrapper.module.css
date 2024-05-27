@@ -1,6 +1,6 @@
 .wrapper {
     margin: 0 auto;
     padding: var(--spacers-dp32);
-    max-width: 1200px;
-    min-width: 780px;
+    max-inline-size: 1200px;
+    min-inline-size: 780px;
 }

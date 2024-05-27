@@ -1,4 +1,4 @@
 .noticeBoxWrapper {
-    max-width: 800px;
+    max-inline-size: 800px;
     margin: 0 auto;
 }

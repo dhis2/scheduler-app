@@ -8,7 +8,7 @@
     text-decoration: none;
     transition: all 0.15s cubic-bezier(0.4, 0, 0.6, 1);
     color: var(--colors-grey900);
-    height: 36px;
+    block-size: 36px;
     padding: 0 var(--spacers-dp12);
     font-size: 14px;
     line-height: 16px;
@@ -24,7 +24,7 @@
 }
 
 .small {
-    height: 28px;
+    block-size: 28px;
     padding: 0 var(--spacers-dp8);
     font-size: 14px;
     line-height: var(--spacers-dp16);
