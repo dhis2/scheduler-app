@@ -1,3 +1,10 @@
+## [101.6.8](https://github.com/dhis2/scheduler-app/compare/v101.6.7...v101.6.8) (2024-05-28)
+
+
+### Bug Fixes
+
+* update cli-style to run stylelint before prettier ([45fcddb](https://github.com/dhis2/scheduler-app/commit/45fcddb9fd502a0652bbd4eedf21e482d59f0ba9))
+
 ## [101.6.7](https://github.com/dhis2/scheduler-app/compare/v101.6.6...v101.6.7) (2024-05-26)
 
 
