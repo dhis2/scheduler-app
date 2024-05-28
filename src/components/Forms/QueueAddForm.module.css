@@ -1,10 +1,10 @@
 .formButtonContainer {
     display: flex;
-    margin-top: var(--spacers-dp24);
+    margin-block-start: var(--spacers-dp24);
 }
 
 .saveButton {
-    margin-right: var(--spacers-dp8);
+    margin-inline-end: var(--spacers-dp8);
 }
 
 .title {

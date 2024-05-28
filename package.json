@@ -7,10 +7,8 @@
         "start:nobrowser": "BROWSER=none d2-app-scripts start",
         "test": "d2-app-scripts test --coverage",
         "test:watch": "d2-app-scripts test --watch",
-        "lint": "d2-style check && yarn lint:css",
-        "lint:css": "stylelint './src/**/*.css' && prettier './src/**/*.css' --check",
-        "format": "d2-style apply && yarn format:css",
-        "format:css": "prettier './src/**/*.css' --write",
+        "lint": "d2-style check",
+        "format": "d2-style apply",
         "cypress": "start-server-and-test 'yarn start:nobrowser' 3000 'yarn exec cypress open'"
     },
     "dependencies": {
@@ -33,7 +31,7 @@
         "@badeball/cypress-cucumber-preprocessor": "^20.0.3",
         "@cypress/webpack-preprocessor": "^6.0.1",
         "@dhis2/cli-app-scripts": "^10.3.9",
-        "@dhis2/cli-style": "^10.4.1",
+        "@dhis2/cli-style": "^10.7.2",
         "@testing-library/cypress": "^10.0.1",
         "@testing-library/react-hooks": "^8.0.1",
         "cypress": "^13.7.2",
@@ -44,11 +42,7 @@
         "eslint-plugin-import": "^2.23.4",
         "eslint-plugin-jsx-a11y": "^6.4.1",
         "identity-obj-proxy": "^3.0.0",
-        "start-server-and-test": "^2.0.3",
-        "stylelint": "^13.13.1",
-        "stylelint-config-prettier": "^8.0.2",
-        "stylelint-config-standard": "^22.0.0",
-        "stylelint-no-unsupported-browser-features": "^5.0.1"
+        "start-server-and-test": "^2.0.3"
     },
     "jest": {
         "setupFilesAfterEnv": [

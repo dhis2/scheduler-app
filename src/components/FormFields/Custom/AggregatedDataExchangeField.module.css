@@ -1,6 +1,6 @@
 .field {
-    margin-top: 8px;
-    width: 688px;
+    margin-block-start: 8px;
+    inline-size: 688px;
 }
 
 .selectedEmptyComponent {

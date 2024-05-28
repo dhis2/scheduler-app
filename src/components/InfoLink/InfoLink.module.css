@@ -7,5 +7,5 @@
 }
 
 .icon {
-    margin-right: var(--spacers-dp4);
+    margin-inline-end: var(--spacers-dp4);
 }

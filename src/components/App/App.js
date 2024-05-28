@@ -6,9 +6,8 @@ import { Store } from '../Store'
 import { PageWrapper } from '../PageWrapper'
 import './App.css'
 
-// eslint-disable-next-line import/no-unassigned-import
+/* eslint-disable-next-line import/no-unassigned-import -- Necessary for translations to work */
 import '../../locales'
-// The above is necessary for translations to work
 
 const App = () => (
     <React.Fragment>

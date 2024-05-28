@@ -1,9 +1,9 @@
 .pageHeader {
-    margin-bottom: var(--spacers-dp32);
+    margin-block-end: var(--spacers-dp32);
 }
 
 .pageHeaderButton {
-    margin-bottom: var(--spacers-dp16);
+    margin-block-end: var(--spacers-dp16);
 }
 
 .pageHeaderTitle {
@@ -20,7 +20,7 @@
 .cardHeader {
     align-items: center;
     display: inline-flex;
-    margin-bottom: var(--spacers-dp16);
+    margin-block-end: var(--spacers-dp16);
 }
 
 .cardHeaderTitle {
@@ -30,5 +30,5 @@
 }
 
 .jobDetails {
-    float: right;
+    float: inline-end;
 }
