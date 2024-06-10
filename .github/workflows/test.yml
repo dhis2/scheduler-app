@@ -1,0 +1,15 @@
+on:
+    workflow_call:
+
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: 20
+                  cache: 'yarn'
+            - run: yarn install --frozen-lockfile
+            - run: yarn d2-app-scripts i18n generate
+            - run: yarn d2-app-scripts test
