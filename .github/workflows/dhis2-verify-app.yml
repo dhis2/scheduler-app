@@ -1,19 +1,10 @@
 name: 'dhis2: verify (app)'
 
-# Requirements:
-#
-# - Org secrets:
-#       DHIS2_BOT_GITHUB_TOKEN
-#       DHIS2_BOT_APPHUB_TOKEN
-# - Enable the 'jobs.e2e' section if applicable
-# - Customize the properties if needed:
-#       'jobs.release.steps.*.cwd'
-#       'jobs.release.steps.*.build-dir'
-
 on: push
 
 concurrency:
     group: ${{ github.workflow}}-${{ github.ref }}
+    cancel-in-progress: true
 
 env:
     GIT_AUTHOR_NAME: '@dhis2-bot'
@@ -23,49 +14,11 @@ env:
     D2_VERBOSE: true
 
 jobs:
-    build:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v2
-            - uses: actions/setup-node@v3
-              with:
-                  node-version: 20
-                  cache: 'yarn'
-
-            - run: yarn install --frozen-lockfile
-
-            - name: Build
-              run: yarn d2-app-scripts build
-
-            - uses: actions/upload-artifact@v2
-              with:
-                  name: app-build
-                  path: |
-                      **/build
-                      !**/node_modules
-                  retention-days: 1
-
     lint:
         uses: ./.github/workflows/lint.yml
 
     test:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v2
-            - uses: actions/setup-node@v3
-              with:
-                  node-version: 20
-                  cache: 'yarn'
-
-            - run: yarn install --frozen-lockfile
-
-            # Can be removed if translations aren't required for tests,
-            # or if not using the App Platform
-            - name: Generate translations
-              run: yarn d2-app-scripts i18n generate
-
-            - name: Test
-              run: yarn d2-app-scripts test
+        uses: ./.github/workflows/test.yml
 
     e2e:
         runs-on: ubuntu-latest
