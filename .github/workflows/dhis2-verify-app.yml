@@ -24,24 +24,7 @@ jobs:
         uses: ./.github/workflows/test.yml
 
     e2e:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v2
-            - uses: actions/setup-node@v3
-              with:
-                  node-version: 20
-            - name: End-to-End tests
-              uses: cypress-io/github-action@v5
-              with:
-                  start: npx --yes @dhis2/cli-cluster up 2.41 --channel dev --db-version 2.41 --seed, yarn start:nobrowser
-                  wait-on: 'http://localhost:8080/dhis-web-commons/security/login.action, http://localhost:3000'
-                  wait-on-timeout: 600
-              env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                  CYPRESS_LOGIN_NAME: ${{ secrets.CYPRESS_LOGIN_NAME }}
-                  CYPRESS_LOGIN_PASSWORD: ${{ secrets.CYPRESS_LOGIN_PASSWORD }}
-                  CYPRESS_LOGIN_SERVER: http://localhost:8080
-            - run: npx --yes @dhis2/cli-cluster down 2.41
+        uses: ./.github/workflows/e2e.yml
 
     release:
         runs-on: ubuntu-latest
