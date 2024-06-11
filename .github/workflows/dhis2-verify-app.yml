@@ -5,58 +5,18 @@ concurrency:
     # Cancel previous runs if not on a release branch
     cancel-in-progress: ${{ !contains(github.ref, fromJSON('["master", "main"]')) }}
 
-env:
-    GIT_AUTHOR_NAME: '@dhis2-bot'
-    GIT_AUTHOR_EMAIL: 'apps@dhis2.org'
-    GIT_COMMITTER_NAME: '@dhis2-bot'
-    GIT_COMMITTER_EMAIL: 'apps@dhis2.org'
-    D2_VERBOSE: true
-
 jobs:
     build:
         uses: ./.github/workflows/build.yml
-
     lint:
         uses: ./.github/workflows/lint.yml
-
     test:
         uses: ./.github/workflows/test.yml
-
     e2e:
         uses: ./.github/workflows/e2e.yml
         secrets: inherit
-
     release:
-        runs-on: ubuntu-latest
         needs: [build, lint, test, e2e]
+        uses: ./.github/workflows/release.yml
         if: "!github.event.push.repository.fork && github.actor != 'dependabot[bot]'"
-        steps:
-            - uses: actions/checkout@v2
-              with:
-                  token: ${{ secrets.DHIS2_BOT_GITHUB_TOKEN }}
-
-            - uses: actions/setup-node@v3
-              with:
-                  node-version: 20
-                  cache: 'yarn'
-
-            - uses: actions/download-artifact@v2
-              with:
-                  name: app-build
-
-            # ensure that d2-app-scripts is available
-            - run: yarn install --frozen-lockfile
-
-            - uses: dhis2/action-semantic-release@master
-              with:
-                  publish-apphub: true
-                  publish-github: true
-                  github-token: ${{ secrets.DHIS2_BOT_GITHUB_TOKEN }}
-                  apphub-token: ${{ secrets.DHIS2_BOT_APPHUB_TOKEN }}
-
-            - uses: dhis2/deploy-build@master
-              with:
-                  # uncomment following line for monorepo apps:
-                  #cwd: ./packages/app
-                  build-dir: build/app
-                  github-token: ${{ secrets.DHIS2_BOT_GITHUB_TOKEN }}
+        secrets: inherit
