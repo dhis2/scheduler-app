@@ -1,0 +1,14 @@
+name: deploy-pr
+
+on:
+    pull_request:
+
+concurrency:
+    group: ${{ github.workflow}}-${{ github.ref }}
+    cancel-in-progress: true
+
+jobs:
+    deploy:
+        uses: ./.github/workflows/deploy-pr-reusable.yml
+        if: "!github.event.push.repository.fork && github.actor != 'dependabot[bot]'"
+        secrets: inherit
