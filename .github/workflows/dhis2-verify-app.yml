@@ -1,10 +1,9 @@
-name: 'dhis2: verify (app)'
-
 on: push
 
 concurrency:
     group: ${{ github.workflow}}-${{ github.ref }}
-    cancel-in-progress: true
+    # Cancel previous runs if not on a release branch
+    cancel-in-progress: ${{ !contains(github.ref, fromJSON('["master", "main"]')) }}
 
 env:
     GIT_AUTHOR_NAME: '@dhis2-bot'
