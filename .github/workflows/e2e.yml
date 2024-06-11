@@ -15,7 +15,7 @@ jobs:
               with:
                   node-version: 20
                   cache: 'yarn'
-            - uses: cypress-io/github-action@v5
+            - uses: cypress-io/github-action@v6
               with:
                   start: npx --yes @dhis2/cli-cluster up 2.41 --channel dev --db-version 2.41 --seed, yarn start:nobrowser
                   wait-on: 'http://localhost:8080/dhis-web-commons/security/login.action, http://localhost:3000'
