@@ -10,5 +10,5 @@ concurrency:
 jobs:
     deploy:
         uses: ./.github/workflows/deploy-pr-reusable.yml
-        if: "!github.event.push.repository.fork && github.actor != 'dependabot[bot]'"
+        if: "!github.event.pull_request.repository.fork"
         secrets: inherit
