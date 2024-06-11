@@ -25,6 +25,7 @@ jobs:
 
     e2e:
         uses: ./.github/workflows/e2e.yml
+        secrets: inherit
 
     release:
         runs-on: ubuntu-latest
