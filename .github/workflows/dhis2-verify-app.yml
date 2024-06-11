@@ -16,5 +16,6 @@ jobs:
     release:
         needs: [lint, test, e2e]
         uses: ./.github/workflows/release.yml
+        # Skip forks and dependabot PRs
         if: "!github.event.push.repository.fork && github.actor != 'dependabot[bot]'"
         secrets: inherit
