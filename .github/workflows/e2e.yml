@@ -1,10 +1,10 @@
 on:
     workflow_call:
         secrets:
-          CYPRESS_LOGIN_NAME:
-            required: true
-          CYPRESS_LOGIN_PASSWORD:
-            required: true
+            CYPRESS_LOGIN_NAME:
+                required: true
+            CYPRESS_LOGIN_PASSWORD:
+                required: true
 
 jobs:
     e2e:
