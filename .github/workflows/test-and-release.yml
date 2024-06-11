@@ -14,10 +14,12 @@ jobs:
         uses: ./.github/workflows/test.yml
     e2e:
         uses: ./.github/workflows/e2e.yml
+        # Skips forks and dependabot PRs
+        if: "!github.event.push.repository.fork"
         secrets: inherit
     release:
         needs: [lint, test, e2e]
         uses: ./.github/workflows/release.yml
-        # Skip forks and dependabot PRs
-        if: "!github.event.push.repository.fork && github.actor != 'dependabot[bot]'"
+        # Skips forks and dependabot PRs
+        if: "!github.event.push.repository.fork"
         secrets: inherit
