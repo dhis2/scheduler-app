@@ -8,6 +8,8 @@ concurrency:
     cancel-in-progress: ${{ !contains(github.ref, fromJSON('["master", "main"]')) }}
 
 jobs:
+    lint-commits:
+        uses: ./.github/workflows/lint-commits.yml
     lint:
         uses: ./.github/workflows/lint.yml
     test:
