@@ -89,7 +89,7 @@ msgid "No options available"
 msgstr "Нет доступных вариантов"
 
 msgid "Loading options"
-msgstr ""
+msgstr "Параметры загрузки"
 
 msgid "Something went wrong whilst loading options"
 msgstr ""
