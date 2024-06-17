@@ -9,6 +9,6 @@ concurrency:
 
 jobs:
     deploy:
-        uses: ./.github/workflows/deploy-pr-reusable.yml
+        uses: dhis2/workflows-test/.github/workflows/deploy-pr.yml@main
         if: '!github.event.pull_request.repository.fork'
         secrets: inherit

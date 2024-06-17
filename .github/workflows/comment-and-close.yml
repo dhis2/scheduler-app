@@ -4,5 +4,5 @@ on:
 
 jobs:
     comment-and-close:
-        uses: ./.github/workflows/comment-and-close-reusable.yml
+        uses: dhis2/workflows-test/.github/workflows/comment-and-close.yml@main
         if: !contains(github.event.issues.sender.login , fromJson('["dhis2-bot", "kodiakhq", "dependabot"]'))

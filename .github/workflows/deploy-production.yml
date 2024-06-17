@@ -11,5 +11,5 @@ concurrency:
 
 jobs:
     deploy:
-        uses: ./.github/workflows/deploy-production-reusable.yml
+        uses: dhis2/workflows-test/.github/workflows/deploy-production.yml@main
         secrets: inherit
