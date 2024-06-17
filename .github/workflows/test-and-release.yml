@@ -9,19 +9,19 @@ concurrency:
 
 jobs:
     lint-commits:
-        uses: ./.github/workflows/lint-commits.yml
+        uses: dhis2/workflows-test/.github/workflows/lint-commits.yml@main
     lint:
-        uses: ./.github/workflows/lint.yml
+        uses: dhis2/workflows-test/.github/workflows/lint.yml@main
     test:
-        uses: ./.github/workflows/test.yml
+        uses: dhis2/workflows-test/.github/workflows/test.yml@main
     e2e:
-        uses: ./.github/workflows/e2e.yml
+        uses: dhis2/workflows-test/.github/workflows/e2e.yml@main
         # Skips forks and dependabot PRs
         if: '!github.event.push.repository.fork'
         secrets: inherit
     release:
         needs: [lint, test, e2e]
-        uses: ./.github/workflows/release.yml
+        uses: dhis2/workflows-test/.github/workflows/release.yml@main
         # Skips forks and dependabot PRs
         if: '!github.event.push.repository.fork'
         secrets: inherit

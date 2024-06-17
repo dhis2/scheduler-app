@@ -10,4 +10,4 @@ concurrency:
 
 jobs:
     lint-pr-title:
-        uses: ./.github/workflows/lint-pr-title-reusable.yml
+        uses: dhis2/workflows-test/.github/workflows/lint-pr-title.yml@main
