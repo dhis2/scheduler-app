@@ -5,4 +5,4 @@ on:
 jobs:
     comment-and-close:
         uses: ./.github/workflows/comment-and-close-reusable.yml
-        if: !contains(github.event.issues.sender.login, fromJson('["dhis2-bot", "kodiakhq", "dependabot"]'))
+        if: !contains(github.event.issues.sender.login , fromJson('["dhis2-bot", "kodiakhq", "dependabot"]'))
