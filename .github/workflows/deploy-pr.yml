@@ -10,5 +10,5 @@ concurrency:
 jobs:
     deploy:
         uses: dhis2/workflows-test/.github/workflows/deploy-pr.yml@main
-        if: '!github.event.pull_request.repository.fork'
+        if: '!github.event.pull_request.head.repo.fork'
         secrets: inherit
