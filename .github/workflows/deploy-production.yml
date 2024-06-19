@@ -13,3 +13,5 @@ jobs:
     deploy:
         uses: dhis2/workflows-test/.github/workflows/deploy-production.yml@main
         secrets: inherit
+        with:
+            branch: master
