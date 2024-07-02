@@ -1,3 +1,5 @@
+name: comment-and-close
+
 on:
     issues:
         types: [opened]
