@@ -7,4 +7,6 @@ on:
 jobs:
     comment-and-close:
         uses: dhis2/workflows-platform/.github/workflows/comment-and-close.yml@v1
-        if: '!contains(github.event.issues.sender.login , fromJson(''["dhis2-bot", "kodiakhq", "dependabot"]''))'
+        if: '!contains(github.event.issue.sender.login , fromJson(''["dhis2-bot", "kodiakhq", "dependabot"]''))'
+        with:
+            issue_number: ${{ github.event.issue.number }}
