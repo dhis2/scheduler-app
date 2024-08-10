@@ -1,13 +1,13 @@
 # 
 # Translators:
-# Ibatov <ibatovk@who.int>, 2024
+# Khurshid Ibatov <Khurshid.Ibatov@tibbiysugurta.uz>, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2024-03-19T15:29:37.698Z\n"
 "PO-Revision-Date: 2020-05-08 14:30+0000\n"
-"Last-Translator: Ibatov <ibatovk@who.int>, 2024\n"
+"Last-Translator: Khurshid Ibatov <Khurshid.Ibatov@tibbiysugurta.uz>, 2024\n"
 "Language-Team: Uzbek (Cyrillic) (https://app.transifex.com/hisp-uio/teams/100509/uz@Cyrl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -65,7 +65,7 @@ msgid "Checks to run"
 msgstr "Бажарилишини текшириш"
 
 msgid "Run all standard checks"
-msgstr ""
+msgstr "Барча стандарт текширувларни бажариш"
 
 msgid "Only run selected checks"
 msgstr "Фақат танланган текширувларни бажариш"
@@ -161,7 +161,7 @@ msgid "Something went wrong whilst updating your queue"
 msgstr "Навбатни янгилашда хатолик юз берди"
 
 msgid "About the scheduler"
-msgstr ""
+msgstr "Тақвим ҳақида"
 
 msgid "Job details"
 msgstr "Фаолият тафсилотлари"
@@ -203,13 +203,13 @@ msgid "No jobs to display"
 msgstr "Кўрсатиладиган хизмат топилмади"
 
 msgid "Now"
-msgstr ""
+msgstr "Ҳозир"
 
 msgid "Hide jobs"
-msgstr ""
+msgstr "Хизматни ёпиш"
 
 msgid "Show jobs"
-msgstr ""
+msgstr "Хизматни очиш"
 
 msgid "Queue"
 msgstr ""
@@ -574,7 +574,7 @@ msgid "Parent"
 msgstr "Аждод"
 
 msgid "Fail"
-msgstr ""
+msgstr "Хато"
 
 msgid "Skip stage"
 msgstr ""
