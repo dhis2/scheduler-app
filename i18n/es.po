@@ -10,13 +10,14 @@
 # Alison Andrade <aandrade@ippfwhr.org>, 2024
 # Janeth Cruz, 2024
 # Viktor Varland <viktor@dhis2.org>, 2024
+# Enzo Nicolas Rossi <enzo@dhis2.org>, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2024-03-19T15:29:37.698Z\n"
 "PO-Revision-Date: 2020-05-08 14:30+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2024\n"
+"Last-Translator: Enzo Nicolas Rossi <enzo@dhis2.org>, 2024\n"
 "Language-Team: Spanish (https://app.transifex.com/hisp-uio/teams/100509/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,7 +29,7 @@ msgid "Something went wrong"
 msgstr "Algo ha ido mal"
 
 msgid "Something went wrong whilst retrieving user permissions."
-msgstr ""
+msgstr "Algo ha ido mal al recuperar los permisos de usuario."
 
 msgid "Not authorized"
 msgstr "No autorizado"
@@ -37,60 +38,66 @@ msgid ""
 "You don't have access to the Job Scheduler. Contact a system administrator "
 "to request access."
 msgstr ""
+"No tiene acceso al Programador de tareas. Póngase en contacto con un "
+"administrador del sistema para solicitar acceso."
 
 msgid "Choose from preset times"
-msgstr ""
+msgstr "Elija entre los tiempos preestablecidos"
 
 msgid "Delete job"
 msgstr "Eliminar trabajo"
 
 msgid "Delete queue"
-msgstr ""
+msgstr "Borrar cola"
 
 msgid "CRON Expression"
-msgstr ""
+msgstr "Expresión CRON"
 
 msgid "Please select data exchange ids."
-msgstr ""
+msgstr "Seleccione los identificadores de intercambio de datos."
 
 msgid "Select data exchange ids"
-msgstr ""
+msgstr "Seleccionar identificadores de intercambio de datos"
 
 msgid "There was a problem fetching data exchange ids"
 msgstr ""
+"Se ha producido un problema al recuperar los identificadores de intercambio "
+"de datos."
 
 msgid "error type"
-msgstr ""
+msgstr "tipo de error"
 
 msgid "Please select checks to run."
-msgstr ""
+msgstr "Seleccione las comprobaciones que desea realizar."
 
 msgid "Something went wrong whilst fetching options"
-msgstr ""
+msgstr "Algo ha ido mal al buscar opciones"
 
 msgid "Checks to run"
-msgstr ""
+msgstr "Comprobaciones a realizar"
 
 msgid "Run all standard checks"
-msgstr ""
+msgstr "Realice todas las comprobaciones estándar"
 
 msgid "Only run selected checks"
-msgstr ""
+msgstr "Ejecutar sólo los controles seleccionados"
 
 msgid "Severity"
-msgstr ""
+msgstr "Gravedad"
 
 msgid "Slow checks are resource intensive and should be run with caution"
 msgstr ""
+"Las comprobaciones lentas consumen muchos recursos y deben ejecutarse con "
+"precaución"
 
 msgid "Slow"
-msgstr ""
+msgstr "Lento"
 
 msgid "Select checks to run."
-msgstr ""
+msgstr "Seleccione las comprobaciones a realizar."
 
 msgid "Report type"
-msgstr ""
+msgstr "Tipo de informe"
 
 msgid "No options available"
 msgstr "No hay opciones disponibles"
@@ -99,58 +106,58 @@ msgid "Loading options"
 msgstr "Cargando las opciones"
 
 msgid "Something went wrong whilst loading options"
-msgstr ""
+msgstr "Algo ha ido mal al cargar las opciones"
 
 msgid "Delay"
-msgstr ""
+msgstr "Retraso"
 
 msgid "Delay in seconds ({{ lowerbound }} - {{ upperbound }})"
-msgstr ""
+msgstr "Retraso en segundos ({{ lowerbound }} - {{ upperbound }})"
 
 msgid "Job type"
 msgstr "Tipo de trabajo"
 
 msgid "Loading job types"
-msgstr ""
+msgstr "Carga de tipos de trabajo"
 
 msgid "Something went wrong whilst loading job types"
-msgstr ""
+msgstr "Algo ha ido mal al cargar los tipos de trabajo"
 
 msgid "Queues can't be named \"Add\" or \"add\""
-msgstr ""
+msgstr "Las colas no pueden llamarse \"Añadir\" o \"add\"."
 
 msgid "Name"
 msgstr "Nombre"
 
 msgid "There was a problem fetching parameters"
-msgstr ""
+msgstr "Hubo un problema al obtener los parámetros"
 
 msgid "Parameters"
 msgstr "Parámetros"
 
 msgid "Please select at least two jobs"
-msgstr ""
+msgstr "Seleccione al menos dos empleos"
 
 msgid "Something went wrong whilst fetching the queueable jobs"
-msgstr ""
+msgstr "Algo ha ido mal al obtener los trabajos en cola"
 
 msgid "Job queue"
-msgstr ""
+msgstr "Cola de trabajo"
 
 msgid "Filter jobs"
-msgstr ""
+msgstr "Filtrar empleos"
 
 msgid "Available jobs"
-msgstr ""
+msgstr "Puestos disponibles"
 
 msgid "Jobs in this queue"
-msgstr ""
+msgstr "Trabajos en esta cola"
 
 msgid "There was a problem fetching the required job type"
-msgstr ""
+msgstr "Hubo un problema al buscar el tipo de trabajo requerido"
 
 msgid "Something went wrong whilst creating your job"
-msgstr ""
+msgstr "Algo ha ido mal al crear tu trabajo"
 
 msgid "Save"
 msgstr "Guardar"
@@ -159,16 +166,16 @@ msgid "Cancel"
 msgstr "Cancelar"
 
 msgid "Something went wrong whilst updating your job"
-msgstr ""
+msgstr "Algo ha ido mal mientras actualizaba su trabajo"
 
 msgid "Something went wrong whilst creating your queue"
-msgstr ""
+msgstr "Algo ha ido mal al crear la cola"
 
 msgid "Something went wrong whilst updating your queue"
-msgstr ""
+msgstr "Algo ha ido mal al actualizar su cola"
 
 msgid "About the scheduler"
-msgstr ""
+msgstr "Acerca del programador"
 
 msgid "Job details"
 msgstr "Detalles del trabajo"
@@ -180,7 +187,7 @@ msgid "Last run {{ lastRunFromNow }}."
 msgstr "Última ejecución {{ lastRunFromNow }}."
 
 msgid "Last run status: {{ translatedStatus }}."
-msgstr ""
+msgstr "Estado de la última ejecución: {{ translatedStatus }}."
 
 msgid "Delete"
 msgstr "Eliminar"
@@ -198,34 +205,34 @@ msgid "Schedule"
 msgstr "Programado"
 
 msgid "Next run"
-msgstr ""
+msgstr "Próxima carrera"
 
 msgid "Status"
 msgstr "Estado"
 
 msgid "On/off"
-msgstr ""
+msgstr "Encendido/apagado"
 
 msgid "No jobs to display"
-msgstr ""
+msgstr "No hay trabajos para mostrar"
 
 msgid "Now"
-msgstr ""
+msgstr "Ahora"
 
 msgid "Hide jobs"
-msgstr ""
+msgstr "Ocultar empleos"
 
 msgid "Show jobs"
-msgstr ""
+msgstr "Mostrar empleos"
 
 msgid "Queue"
-msgstr ""
+msgstr "Cola"
 
 msgid "Run manually"
 msgstr "Ejecutar manualmente"
 
 msgid "{{ delay }} seconds after last run"
-msgstr ""
+msgstr "{{ delay }} segundos después de la última ejecución"
 
 msgid "View"
 msgstr "Ver"
@@ -240,22 +247,22 @@ msgid "Every day at 3 am"
 msgstr "Todos los días a las 3 am"
 
 msgid "Every day at noon"
-msgstr ""
+msgstr "Todos los días a mediodía"
 
 msgid "Every week"
-msgstr ""
+msgstr "Cada semana"
 
 msgid "Choose a preset time/interval"
-msgstr ""
+msgstr "Elija un tiempo/intervalo preestablecido"
 
 msgid "Insert preset"
-msgstr ""
+msgstr "Insertar preselección"
 
 msgid "Are you sure you want to delete this job?"
 msgstr "¿Estás seguro de que quieres eliminar este trabajo?"
 
 msgid "Are you sure you want to delete this queue?"
-msgstr ""
+msgstr "¿Estás seguro de que quieres eliminar esta cola?"
 
 msgid "Discard unsaved changes?"
 msgstr "¿Descartar los cambios no guardados ?"
@@ -263,35 +270,39 @@ msgstr "¿Descartar los cambios no guardados ?"
 msgid ""
 "This form has unsaved changes. Are you sure that you want to discard them?"
 msgstr ""
+"Este formulario tiene cambios sin guardar. ¿Está seguro de que desea "
+"descartarlos?"
 
 msgid "No, keep changes"
-msgstr ""
+msgstr "No, mantenga los cambios"
 
 msgid "Yes, discard changes"
 msgstr "Sí, descartar cambios"
 
 msgid "Error running job"
-msgstr ""
+msgstr "Error al ejecutar el trabajo"
 
 msgid "Error running queue"
-msgstr ""
+msgstr "Error al ejecutar la cola"
 
 msgid "Are you sure you want to run this job?"
-msgstr ""
+msgstr "¿Estás seguro de que quieres ejecutar este trabajo?"
 
 msgid "Are you sure you want to run this queue?"
-msgstr ""
+msgstr "¿Estás seguro de que quieres ejecutar esta cola?"
 
 msgid "Run"
 msgstr "Ejecutar"
 
 msgid "Could not load requested job"
-msgstr ""
+msgstr "No se ha podido cargar la tarea solicitada"
 
 msgid ""
 "Something went wrong whilst loading the requested job. Make sure it has not "
 "been deleted and try refreshing the page."
 msgstr ""
+"Algo ha ido mal al cargar la tarea solicitada. Asegúrate de que no se ha "
+"eliminado e intenta actualizar la página."
 
 msgid "Disable"
 msgstr "Deshabilitar"
@@ -300,18 +311,20 @@ msgid "Enable"
 msgstr "Habilitar"
 
 msgid "New Job"
-msgstr ""
+msgstr "Nuevo empleo"
 
 msgid "Configuration"
 msgstr "Configuración"
 
 msgid "Could not load jobs and queues"
-msgstr ""
+msgstr "No se han podido cargar los trabajos y las colas"
 
 msgid ""
 "Something went wrong whilst loading the jobs and queues. Try refreshing the "
 "page."
 msgstr ""
+"Algo ha ido mal al cargar los trabajos y las colas. Intenta actualizar la "
+"página."
 
 msgid "Scheduled jobs"
 msgstr "Trabajos programados"
@@ -320,42 +333,44 @@ msgid "Filter by name"
 msgstr "Filtrar por nombre"
 
 msgid "Include system jobs in list"
-msgstr ""
+msgstr "Incluir trabajos del sistema en la lista"
 
 msgid "New job"
-msgstr ""
+msgstr "Nuevo trabajo"
 
 msgid "New queue"
-msgstr ""
+msgstr "Nueva cola"
 
 msgid "Job: {{ name }}"
-msgstr ""
+msgstr "Trabajo: {{ name }}"
 
 msgid "System job: {{ name }}"
-msgstr ""
+msgstr "Trabajo de sistema: {{ name }}"
 
 msgid "Back to all jobs"
-msgstr ""
+msgstr "Volver a todas las ofertas"
 
 msgid "Could not load requested queue"
-msgstr ""
+msgstr "No se ha podido cargar la cola solicitada"
 
 msgid ""
 "Something went wrong whilst loading the requested queue. Make sure it has "
 "not been deleted and try refreshing the page."
 msgstr ""
+"Algo ha ido mal al cargar la cola solicitada. Asegúrate de que no se ha "
+"eliminado e intenta actualizar la página."
 
 msgid "Queue: {{ name }}"
-msgstr ""
+msgstr "Cola: {{ name }}"
 
 msgid "Something went wrong but no error message was provided"
-msgstr ""
+msgstr "Algo salió mal pero no se proporcionó ningún mensaje de error"
 
 msgid "Completeness"
 msgstr "Completitud"
 
 msgid "Completeness target"
-msgstr ""
+msgstr "Objetivo de integridad"
 
 msgid "Data value"
 msgstr "Valor de datos"
@@ -367,16 +382,16 @@ msgid "Event"
 msgstr "Evento"
 
 msgid "Org unit target"
-msgstr ""
+msgstr "Objetivo de la unidad orgánica"
 
 msgid "Ownership"
-msgstr ""
+msgstr "Propiedad"
 
 msgid "Tracked entity instance enrollments"
-msgstr ""
+msgstr "Seguimiento de las inscripciones a instancias de entidades"
 
 msgid "Tracked entity instance events"
-msgstr ""
+msgstr "Seguimiento de eventos de instancia de entidad"
 
 msgid "Tracked entity instance"
 msgstr "Instancia de la entidad de seguimiento"
@@ -388,7 +403,7 @@ msgid "Warning"
 msgstr "Advertencia"
 
 msgid "Severe"
-msgstr ""
+msgstr "Grave"
 
 msgid "Report"
 msgstr "Informe"
@@ -415,91 +430,91 @@ msgid "Not started"
 msgstr "No iniciado"
 
 msgid "Running"
-msgstr ""
+msgstr "Ejecutar"
 
 msgid "Scheduled"
 msgstr "Planificado"
 
 msgid "Stopped"
-msgstr ""
+msgstr "Detenido"
 
 msgid "Account expiry alert"
-msgstr ""
+msgstr "Alerta de caducidad de la cuenta"
 
 msgid "Exchange aggregate data"
-msgstr ""
+msgstr "Intercambiar datos agregados"
 
 msgid "Analytics table"
 msgstr "Tablas analíticas"
 
 msgid "Analytics table update"
-msgstr ""
+msgstr "Actualización de la tabla de análisis"
 
 msgid "Complete data set registration import"
-msgstr ""
+msgstr "Importación del registro completo de conjuntos de datos"
 
 msgid "Continuous analytics table"
-msgstr ""
+msgstr "Cuadro de análisis continuo"
 
 msgid "Credentials expiry alert"
-msgstr ""
+msgstr "Alerta de caducidad de credenciales"
 
 msgid "Data integrity"
-msgstr ""
+msgstr "Integridad de los datos"
 
 msgid "Dataset notification"
-msgstr ""
+msgstr "Notificación del conjunto de datos"
 
 msgid "Data statistics"
-msgstr ""
+msgstr "Estadísticas"
 
 msgid "Data synchronization"
 msgstr "Sincronización de datos"
 
 msgid "Data value import"
-msgstr ""
+msgstr "Importación de valores de datos"
 
 msgid "Data value import internal"
-msgstr ""
+msgstr "Importación interna de valores de datos"
 
 msgid "Disable inactive users"
-msgstr ""
+msgstr "Desactivar usuarios inactivos"
 
 msgid "Enrollment import"
-msgstr ""
+msgstr "Importación de matrículas"
 
 msgid "Event import"
 msgstr "Importación de eventos"
 
 msgid "Event programs data sync"
-msgstr ""
+msgstr "Sincronización de datos de programas de eventos"
 
 msgid "File resource clean up"
-msgstr ""
+msgstr "Limpieza de recursos de archivos"
 
 msgid "HTML push analytics"
-msgstr ""
+msgstr "Análisis push HTML"
 
 msgid "GEOJSON import"
-msgstr ""
+msgstr "Importación de GEOJSON"
 
 msgid "GML import"
 msgstr "Importación GML"
 
 msgid "Image processing"
-msgstr ""
+msgstr "Tratamiento de imágenes"
 
 msgid "Leader election"
-msgstr ""
+msgstr "Elección del líder"
 
 msgid "Leader renewal"
-msgstr ""
+msgstr "Renovación de líderes"
 
 msgid "Lock exception cleanup"
-msgstr ""
+msgstr "Limpieza de excepciones de bloqueo"
 
 msgid "Materialized sql view update"
-msgstr ""
+msgstr "Actualización de vista sql materializada"
 
 msgid "Metadata import"
 msgstr "Importar metadatos"
@@ -508,16 +523,16 @@ msgid "Metadata synchronization"
 msgstr "Sincronización de metadatos"
 
 msgid "Mock"
-msgstr ""
+msgstr "Simulacro"
 
 msgid "Monitoring"
-msgstr ""
+msgstr "Supervisión"
 
 msgid "Predictor"
 msgstr "Predictor"
 
 msgid "Program data sync"
-msgstr ""
+msgstr "Sincronización de datos del programa"
 
 msgid "Program notifications"
 msgstr "Notificaciones del programa"
@@ -526,13 +541,13 @@ msgid "Push analysis"
 msgstr "Push analysis"
 
 msgid "Remove expired reserved values"
-msgstr ""
+msgstr "Eliminar valores reservados caducados"
 
 msgid "Remove used or expired reserved values"
-msgstr ""
+msgstr "Eliminar valores reservados utilizados o caducados"
 
 msgid "Resource table"
-msgstr ""
+msgstr "Tabla de recursos"
 
 msgid "Send scheduled message"
 msgstr "Enviar mensaje programado"
@@ -541,55 +556,55 @@ msgid "SMS send"
 msgstr "Enviar SMS"
 
 msgid "System version update check"
-msgstr ""
+msgstr "Comprobación de la actualización de la versión del sistema"
 
 msgid "TEI import"
 msgstr "Importación TEI"
 
 msgid "Test"
-msgstr ""
+msgstr "Prueba"
 
 msgid "Tracker import job"
-msgstr ""
+msgstr "Trabajo de importación de rastreadores"
 
 msgid "Tracker import notification job"
-msgstr ""
+msgstr "Trabajo de notificación de importación de rastreadores"
 
 msgid "Tracker import rule engine job"
-msgstr ""
+msgstr "Trabajo del motor de reglas de importación de Tracker"
 
 msgid "Tracker programs data sync"
-msgstr ""
+msgstr "Sincronización de datos de programas de seguimiento"
 
 msgid "Tracker search optimization"
-msgstr ""
+msgstr "Optimización de la búsqueda de rastreadores"
 
 msgid "Validation results notification"
-msgstr ""
+msgstr "Notificación de los resultados de la validación"
 
 msgid "Executor"
-msgstr ""
+msgstr "Ejecutor"
 
 msgid "Receiver"
-msgstr ""
+msgstr "Receptor"
 
 msgid "Parent"
 msgstr "Padre"
 
 msgid "Fail"
-msgstr ""
+msgstr "Falla"
 
 msgid "Skip stage"
-msgstr ""
+msgstr "Saltar etapa"
 
 msgid "Skip item"
-msgstr ""
+msgstr "Saltar artículo"
 
 msgid "Skip item outlier"
-msgstr ""
+msgstr "Saltar elemento atípico"
 
 msgid "A CRON expression is required"
-msgstr ""
+msgstr "Se requiere una expresión CRON"
 
 msgid "Please enter a valid CRON expression"
-msgstr ""
+msgstr "Introduzca una expresión CRON válida"
