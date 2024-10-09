@@ -1,3 +1,11 @@
+## [101.6.12](https://github.com/dhis2/scheduler-app/compare/v101.6.11...v101.6.12) (2024-10-09)
+
+
+### Bug Fixes
+
+* fix comment and close expression ([95607ec](https://github.com/dhis2/scheduler-app/commit/95607ecbbdab91ce6447e1710d36565bab0e0d84))
+* fix main branch ref in concurrency expression ([1ccf6da](https://github.com/dhis2/scheduler-app/commit/1ccf6da3fab74f9915613d0269a5ac5e108e819c))
+
 ## [101.6.11](https://github.com/dhis2/scheduler-app/compare/v101.6.10...v101.6.11) (2024-08-25)
 
 
