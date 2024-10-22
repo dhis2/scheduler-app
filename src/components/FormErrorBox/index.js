@@ -1,1 +1,1 @@
-export { default as FormErrorBox } from './FormErrorBox'
+export { default as FormErrorBox } from './FormErrorBox.jsx'

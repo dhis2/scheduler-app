@@ -1,1 +1,1 @@
-export { default as JobSwitch } from './JobSwitch'
+export { default as JobSwitch } from './JobSwitch.jsx'

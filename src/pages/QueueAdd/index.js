@@ -1,3 +1,3 @@
-import QueueAdd from './QueueAdd'
+import QueueAdd from './QueueAdd.jsx'
 
 export default QueueAdd
