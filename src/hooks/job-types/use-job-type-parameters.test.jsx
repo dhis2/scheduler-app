@@ -1,5 +1,5 @@
 import React from 'react'
-import { renderHook } from '@testing-library/react'
+import { renderHook, waitFor } from '@testing-library/react'
 import { CustomDataProvider } from '@dhis2/app-runtime'
 import useJobTypeParameters from './use-job-type-parameters'
 
@@ -16,12 +16,9 @@ describe('useJobTypeParameters', () => {
             <CustomDataProvider data={data}>{children}</CustomDataProvider>
         )
 
-        const { result, waitFor } = renderHook(
-            () => useJobTypeParameters(jobType),
-            {
-                wrapper,
-            }
-        )
+        const { result } = renderHook(() => useJobTypeParameters(jobType), {
+            wrapper,
+        })
 
         await waitFor(() => {
             expect(result.current).toMatchObject({
@@ -43,12 +40,9 @@ describe('useJobTypeParameters', () => {
             <CustomDataProvider data={data}>{children}</CustomDataProvider>
         )
 
-        const { result, waitFor } = renderHook(
-            () => useJobTypeParameters(jobType),
-            {
-                wrapper,
-            }
-        )
+        const { result } = renderHook(() => useJobTypeParameters(jobType), {
+            wrapper,
+        })
 
         await waitFor(() => {
             expect(result.current).toMatchObject({

@@ -1,5 +1,5 @@
 import React from 'react'
-import { renderHook } from '@testing-library/react'
+import { renderHook, waitFor } from '@testing-library/react'
 import { CustomDataProvider } from '@dhis2/app-runtime'
 import useQueueByName from './use-queue-by-name'
 
@@ -11,7 +11,7 @@ describe('useQueueByName', () => {
             <CustomDataProvider data={data}>{children}</CustomDataProvider>
         )
 
-        const { result, waitFor } = renderHook(() => useQueueByName('name'), {
+        const { result } = renderHook(() => useQueueByName('name'), {
             wrapper,
         })
 
