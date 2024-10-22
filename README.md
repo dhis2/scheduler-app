@@ -1,3 +1,5 @@
+![React 18](https://img.shields.io/badge/react-18-blue)
+
 # Scheduler
 
 ## Cypress env settings
