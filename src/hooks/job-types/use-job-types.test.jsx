@@ -1,5 +1,5 @@
 import React from 'react'
-import { renderHook } from '@testing-library/react-hooks'
+import { renderHook } from '@testing-library/react'
 import { CustomDataProvider } from '@dhis2/app-runtime'
 import useJobTypes from './use-job-types'
 
