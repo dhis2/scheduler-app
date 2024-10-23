@@ -1,3 +1,3 @@
-import JobAdd from './JobAdd'
+import JobAdd from './JobAdd.jsx'
 
 export default JobAdd
