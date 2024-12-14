@@ -568,7 +568,7 @@ msgid "Receiver"
 msgstr ""
 
 msgid "Parent"
-msgstr ""
+msgstr "Đơn vị cha"
 
 msgid "Fail"
 msgstr ""
