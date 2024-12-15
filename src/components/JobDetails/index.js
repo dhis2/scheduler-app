@@ -1,1 +1,1 @@
-export { default as JobDetails } from './JobDetails'
+export { default as JobDetails } from './JobDetails.jsx'
