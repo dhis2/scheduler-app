@@ -25,7 +25,7 @@ msgid "Something went wrong whilst retrieving user permissions."
 msgstr ""
 
 msgid "Not authorized"
-msgstr ""
+msgstr "Không được phép"
 
 msgid ""
 "You don't have access to the Job Scheduler. Contact a system administrator "
