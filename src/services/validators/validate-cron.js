@@ -28,7 +28,7 @@ const isValidNumberRange = (range, x, y) => {
     return (
         isValidNumber(boundaries[0], x, y) &&
         isValidNumber(boundaries[1], x, y) &&
-        boundaries[0] <= boundaries[1]
+        Number(boundaries[0]) <= Number(boundaries[1])
     )
 }
 
