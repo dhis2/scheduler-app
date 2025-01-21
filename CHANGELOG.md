@@ -1,3 +1,11 @@
+## [101.6.16](https://github.com/dhis2/scheduler-app/compare/v101.6.15...v101.6.16) (2025-01-21)
+
+
+### Bug Fixes
+
+* cron parsing number range [DHIS2-18859] ([a87fa32](https://github.com/dhis2/scheduler-app/commit/a87fa320761b624290de8d1658f7d726bcd1f0a6))
+* cron parsing number range [DHIS2-18859] ([0593b44](https://github.com/dhis2/scheduler-app/commit/0593b4472ebdf0b13f28c827dcab0720eebaa8cb))
+
 ## [101.6.15](https://github.com/dhis2/scheduler-app/compare/v101.6.14...v101.6.15) (2024-12-22)
 
 
