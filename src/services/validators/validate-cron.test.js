@@ -40,6 +40,18 @@ describe('validateCron', () => {
         expect(validateCron('0 0 4-23 * * *')).toBe(true)
     })
 
+    it('should reject number ranges that are missing a number at beginning', () => {
+        expect(validateCron('0 0 -23 * * *')).toBe(false)
+    })
+
+    it('should reject number ranges that are missing a number at beginning (with spaces)', () => {
+        expect(validateCron('0 0          -23 * * *')).toBe(false)
+    })
+
+    it('should reject number ranges that are missing a number at end', () => {
+        expect(validateCron('0 0 4- * * *')).toBe(false)
+    })
+
     it('should allow ranges in fraction numerators', () => {
         expect(validateCron('0 0 10-22/2 ? * *')).toBe(true)
     })
