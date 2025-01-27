@@ -21,7 +21,7 @@ const isUndefined = (field) => field === '?'
 
 const isValidNumberRange = (range, x, y) => {
     const boundaries = range.split('-')
-    if (!boundaries || boundaries.length !== 2) {
+    if (!boundaries || boundaries.length !== 2 || boundaries[0].trim() === '') {
         return false
     }
 
