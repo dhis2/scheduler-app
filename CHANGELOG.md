@@ -1,3 +1,11 @@
+## [101.6.17](https://github.com/dhis2/scheduler-app/compare/v101.6.16...v101.6.17) (2025-01-27)
+
+
+### Bug Fixes
+
+* check if start of range is valid ([e543261](https://github.com/dhis2/scheduler-app/commit/e543261c27617e5a35835339704a09f4b8ab1311))
+* check if start of range is valid [DHIS2-18859] ([9c8fbc5](https://github.com/dhis2/scheduler-app/commit/9c8fbc59bc969a9750fafcb2b17ce9d62e4bb216))
+
 ## [101.6.16](https://github.com/dhis2/scheduler-app/compare/v101.6.15...v101.6.16) (2025-01-21)
 
 
