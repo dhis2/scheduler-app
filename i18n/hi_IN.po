@@ -1,36 +1,28 @@
 # 
 # Translators:
-# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021
-# David Júnior <davidjr.mondlane@gmail.com>, 2022
-# Sheila André <sandre@saudigitus.org>, 2023
-# Philip Larsen Donnelly, 2024
-# Fernando Jorge Bade, 2024
-# Ge Joao <gsimango@saudigitus.org>, 2024
-# Viktor Varland <viktor@dhis2.org>, 2024
-# Helton Dias, 2024
-# Edson Nhancale, 2025
+# Siddharth Agarwal, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2024-03-19T15:29:37.698Z\n"
 "PO-Revision-Date: 2020-05-08 14:30+0000\n"
-"Last-Translator: Edson Nhancale, 2025\n"
-"Language-Team: Portuguese (https://app.transifex.com/hisp-uio/teams/100509/pt/)\n"
+"Last-Translator: Siddharth Agarwal, 2025\n"
+"Language-Team: Hindi (India) (https://app.transifex.com/hisp-uio/teams/100509/hi_IN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt\n"
-"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+"Language: hi_IN\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Something went wrong"
-msgstr "Ocorreu algo de errado"
+msgstr "कुछ गलत हुआ"
 
 msgid "Something went wrong whilst retrieving user permissions."
 msgstr ""
 
 msgid "Not authorized"
-msgstr "Não autorizado"
+msgstr ""
 
 msgid ""
 "You don't have access to the Job Scheduler. Contact a system administrator "
@@ -41,7 +33,7 @@ msgid "Choose from preset times"
 msgstr ""
 
 msgid "Delete job"
-msgstr "Suprimir trabalho"
+msgstr ""
 
 msgid "Delete queue"
 msgstr ""
@@ -77,7 +69,7 @@ msgid "Only run selected checks"
 msgstr ""
 
 msgid "Severity"
-msgstr "Gravidade"
+msgstr ""
 
 msgid "Slow checks are resource intensive and should be run with caution"
 msgstr ""
@@ -92,10 +84,10 @@ msgid "Report type"
 msgstr ""
 
 msgid "No options available"
-msgstr "Nenhuma opção disponível"
+msgstr ""
 
 msgid "Loading options"
-msgstr "Carregando opções"
+msgstr ""
 
 msgid "Something went wrong whilst loading options"
 msgstr ""
@@ -107,7 +99,7 @@ msgid "Delay in seconds ({{ lowerbound }} - {{ upperbound }})"
 msgstr ""
 
 msgid "Job type"
-msgstr "Tipo de trabalho"
+msgstr ""
 
 msgid "Loading job types"
 msgstr ""
@@ -119,13 +111,13 @@ msgid "Queues can't be named \"Add\" or \"add\""
 msgstr ""
 
 msgid "Name"
-msgstr "Nome"
+msgstr "नाम"
 
 msgid "There was a problem fetching parameters"
 msgstr ""
 
 msgid "Parameters"
-msgstr "Parâmetros"
+msgstr ""
 
 msgid "Please select at least two jobs"
 msgstr ""
@@ -152,10 +144,10 @@ msgid "Something went wrong whilst creating your job"
 msgstr ""
 
 msgid "Save"
-msgstr "Salvar"
+msgstr "सहेजें"
 
 msgid "Cancel"
-msgstr "Cancelar"
+msgstr "रद्द करें"
 
 msgid "Something went wrong whilst updating your job"
 msgstr ""
@@ -170,7 +162,7 @@ msgid "About the scheduler"
 msgstr ""
 
 msgid "Job details"
-msgstr "Detalhes do trabalho"
+msgstr ""
 
 msgid "Created {{ createdFromNow }}."
 msgstr ""
@@ -182,25 +174,25 @@ msgid "Last run status: {{ translatedStatus }}."
 msgstr ""
 
 msgid "Delete"
-msgstr "Suprimir"
+msgstr "हटाएं"
 
 msgid "Edit"
-msgstr "Editar"
+msgstr "संपादन करें"
 
 msgid "Actions"
-msgstr "Acções"
+msgstr ""
 
 msgid "Type"
-msgstr "Tipo"
+msgstr ""
 
 msgid "Schedule"
-msgstr "Programar"
+msgstr ""
 
 msgid "Next run"
 msgstr ""
 
 msgid "Status"
-msgstr "Status"
+msgstr ""
 
 msgid "On/off"
 msgstr ""
@@ -209,7 +201,7 @@ msgid "No jobs to display"
 msgstr ""
 
 msgid "Now"
-msgstr "Agora"
+msgstr ""
 
 msgid "Hide jobs"
 msgstr ""
@@ -227,10 +219,10 @@ msgid "{{ delay }} seconds after last run"
 msgstr ""
 
 msgid "View"
-msgstr "Vizualizar"
+msgstr ""
 
 msgid "Every hour"
-msgstr "Toda hora"
+msgstr ""
 
 msgid "Every day at midnight"
 msgstr ""
@@ -251,13 +243,13 @@ msgid "Insert preset"
 msgstr ""
 
 msgid "Are you sure you want to delete this job?"
-msgstr "Tem certeza de que deseja suprimir este trabalho?"
+msgstr ""
 
 msgid "Are you sure you want to delete this queue?"
 msgstr ""
 
 msgid "Discard unsaved changes?"
-msgstr "Eliminar as alterações não gravadas"
+msgstr ""
 
 msgid ""
 "This form has unsaved changes. Are you sure that you want to discard them?"
@@ -267,7 +259,7 @@ msgid "No, keep changes"
 msgstr ""
 
 msgid "Yes, discard changes"
-msgstr "Sim, descartar alterações"
+msgstr ""
 
 msgid "Error running job"
 msgstr ""
@@ -282,7 +274,7 @@ msgid "Are you sure you want to run this queue?"
 msgstr ""
 
 msgid "Run"
-msgstr "Run"
+msgstr ""
 
 msgid "Could not load requested job"
 msgstr ""
@@ -293,16 +285,16 @@ msgid ""
 msgstr ""
 
 msgid "Disable"
-msgstr "Desactivar"
+msgstr ""
 
 msgid "Enable"
-msgstr "Habilitar"
+msgstr ""
 
 msgid "New Job"
 msgstr ""
 
 msgid "Configuration"
-msgstr "Configuração"
+msgstr ""
 
 msgid "Could not load jobs and queues"
 msgstr ""
@@ -313,10 +305,10 @@ msgid ""
 msgstr ""
 
 msgid "Scheduled jobs"
-msgstr "Trabalhos agendados"
+msgstr ""
 
 msgid "Filter by name"
-msgstr "Filtrar por nome"
+msgstr ""
 
 msgid "Include system jobs in list"
 msgstr ""
@@ -351,7 +343,7 @@ msgid "Something went wrong but no error message was provided"
 msgstr ""
 
 msgid "Completeness"
-msgstr "Completude"
+msgstr ""
 
 msgid "Completeness target"
 msgstr ""
@@ -360,10 +352,10 @@ msgid "Data value"
 msgstr ""
 
 msgid "Enrollment"
-msgstr "Inscrição"
+msgstr ""
 
 msgid "Event"
-msgstr "Evento"
+msgstr ""
 
 msgid "Org unit target"
 msgstr ""
@@ -378,37 +370,37 @@ msgid "Tracked entity instance events"
 msgstr ""
 
 msgid "Tracked entity instance"
-msgstr "Instância da entidade rastreada"
+msgstr ""
 
 msgid "Validation result"
-msgstr "Resultado da validação"
+msgstr ""
 
 msgid "Warning"
-msgstr "Aviso"
+msgstr ""
 
 msgid "Severe"
-msgstr "Grave"
+msgstr ""
 
 msgid "Report"
-msgstr "Relatório"
+msgstr ""
 
 msgid "Summary"
-msgstr "Resumo"
+msgstr ""
 
 msgid "Details"
-msgstr "Detalhes"
+msgstr ""
 
 msgid "Completed"
-msgstr "Completo"
+msgstr ""
 
 msgid "Disabled"
-msgstr "Desabilitar"
+msgstr ""
 
 msgid "Done"
-msgstr "done"
+msgstr "पूरा हुआ"
 
 msgid "Failed"
-msgstr "Falhou"
+msgstr ""
 
 msgid "Not started"
 msgstr ""
@@ -417,7 +409,7 @@ msgid "Running"
 msgstr ""
 
 msgid "Scheduled"
-msgstr "Agendado"
+msgstr ""
 
 msgid "Stopped"
 msgstr ""
@@ -453,7 +445,7 @@ msgid "Data statistics"
 msgstr ""
 
 msgid "Data synchronization"
-msgstr "Sincronização de dados"
+msgstr ""
 
 msgid "Data value import"
 msgstr ""
@@ -468,7 +460,7 @@ msgid "Enrollment import"
 msgstr ""
 
 msgid "Event import"
-msgstr "Importação de eventos "
+msgstr ""
 
 msgid "Event programs data sync"
 msgstr ""
@@ -483,7 +475,7 @@ msgid "GEOJSON import"
 msgstr ""
 
 msgid "GML import"
-msgstr "Importação de GML"
+msgstr ""
 
 msgid "Image processing"
 msgstr ""
@@ -501,7 +493,7 @@ msgid "Materialized sql view update"
 msgstr ""
 
 msgid "Metadata import"
-msgstr "Importação de metadados "
+msgstr ""
 
 msgid "Metadata synchronization"
 msgstr ""
@@ -513,16 +505,16 @@ msgid "Monitoring"
 msgstr ""
 
 msgid "Predictor"
-msgstr "Preditor"
+msgstr ""
 
 msgid "Program data sync"
 msgstr ""
 
 msgid "Program notifications"
-msgstr "Notificação do programa "
+msgstr ""
 
 msgid "Push analysis"
-msgstr "Análise push"
+msgstr ""
 
 msgid "Remove expired reserved values"
 msgstr ""
@@ -543,7 +535,7 @@ msgid "System version update check"
 msgstr ""
 
 msgid "TEI import"
-msgstr "Importação de TEI "
+msgstr ""
 
 msgid "Test"
 msgstr ""
@@ -573,7 +565,7 @@ msgid "Receiver"
 msgstr ""
 
 msgid "Parent"
-msgstr "Parentes"
+msgstr ""
 
 msgid "Fail"
 msgstr ""
