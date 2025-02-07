@@ -1,5 +1,5 @@
 import React from 'react'
-import { renderHook } from '@testing-library/react-hooks'
+import { renderHook } from '@testing-library/react'
 import { useNameFilter, useShowSystemJobs } from './hooks'
 import StoreContext from './StoreContext'
 
