@@ -1,5 +1,5 @@
 import React from 'react'
-import { renderHook } from '@testing-library/react-hooks'
+import { renderHook, waitFor } from '@testing-library/react'
 import { CustomDataProvider } from '@dhis2/app-runtime'
 import useJobTypes from './use-job-types'
 
@@ -11,7 +11,7 @@ describe('useJobTypes', () => {
             <CustomDataProvider data={data}>{children}</CustomDataProvider>
         )
 
-        const { result, waitFor } = renderHook(() => useJobTypes(), {
+        const { result } = renderHook(() => useJobTypes(), {
             wrapper,
         })
 
@@ -34,7 +34,7 @@ describe('useJobTypes', () => {
             <CustomDataProvider data={data}>{children}</CustomDataProvider>
         )
 
-        const { result, waitFor } = renderHook(() => useJobTypes(), {
+        const { result } = renderHook(() => useJobTypes(), {
             wrapper,
         })
 

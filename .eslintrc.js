@@ -44,7 +44,12 @@ module.exports = {
     },
     overrides: [
         {
-            files: ['*.test.js', '**/__tests__/*.js'],
+            files: [
+                '*.test.js',
+                '**/__tests__/*.js',
+                '*.test.jsx',
+                '**/__tests__/*.jsx',
+            ],
             rules: {
                 'i18next/no-literal-string': 'off',
                 'react/prop-types': 'off',
@@ -62,7 +67,7 @@ module.exports = {
             },
         },
         {
-            files: ['cypress/**/*.js'],
+            files: ['cypress/**/*.js', 'cypress/**/*.jsx'],
             rules: {
                 'import/no-unassigned-import': 'off',
                 'import/no-unused-modules': 'off',
