@@ -12,10 +12,10 @@
         "cypress": "start-server-and-test 'yarn start:nobrowser' 3000 'yarn exec cypress open'"
     },
     "dependencies": {
-        "@dhis2/app-runtime": "^3.8.0",
+        "@dhis2/app-runtime": "^3.13.1",
         "@dhis2/d2-i18n": "^1.1.0",
         "@dhis2/prop-types": "2.0.3",
-        "@dhis2/ui": "^8.13.14",
+        "@dhis2/ui": "^10.1.11",
         "classnames": "^2.3.1",
         "cronstrue": "^1.114.0",
         "history": "^4.9.0",
@@ -30,8 +30,8 @@
     "devDependencies": {
         "@badeball/cypress-cucumber-preprocessor": "^20.0.3",
         "@cypress/webpack-preprocessor": "^6.0.1",
-        "@dhis2/cli-app-scripts": "^10.3.9",
-        "@dhis2/cli-style": "^10.7.3",
+        "@dhis2/cli-app-scripts": "^12.3.0",
+        "@dhis2/cli-style": "^10.7.6",
         "@testing-library/cypress": "^10.0.1",
         "@testing-library/react-hooks": "^8.0.1",
         "cypress": "^13.7.2",
