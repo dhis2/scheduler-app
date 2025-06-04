@@ -24,7 +24,7 @@ const JobTableRow = ({
 }) => (
     <TableRow>
         <TableCell />
-        <TableCell role="rowheader">{name}</TableCell>
+        <TableCell>{name}</TableCell>
         <TableCell>{jobTypesMap[type]}</TableCell>
         <TableCell>
             <Schedule cronExpression={cronExpression} delay={delay} />

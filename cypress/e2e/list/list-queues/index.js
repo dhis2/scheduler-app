@@ -13,7 +13,7 @@ Given('the user navigated to the list route', () => {
 })
 
 Then('the queue is rendered as tabular data', () => {
-    cy.findByRole('rowheader', { name: 'Queue' }).should('exist')
+    cy.findByText('Queue').should('exist')
 })
 
 Given('the user clicks the expand button', () => {
@@ -21,6 +21,6 @@ Given('the user clicks the expand button', () => {
 })
 
 Then('the queued jobs are shown', () => {
-    cy.findByRole('rowheader', { name: 'Job 1' }).should('exist')
-    cy.findByRole('rowheader', { name: 'Job 2' }).should('exist')
+    cy.findByText('Job 1').should('exist')
+    cy.findByText('Job 2').should('exist')
 })

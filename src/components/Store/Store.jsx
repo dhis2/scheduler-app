@@ -1,21 +1,24 @@
-import React, { useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import PropTypes from 'prop-types'
 import StoreContext from './StoreContext'
 
 const Store = ({ children }) => {
     // State that should persist
-    const nameFilterState = useState('')
-    const showSystemJobsState = useState(false)
+    const [nameFilter, setNameFilter] = useState('')
+    const [showSystemJobs, setShowSystemJobs] = useState(false)
+
+    const value = useMemo(
+        () => ({
+            nameFilter,
+            setNameFilter,
+            showSystemJobs,
+            setShowSystemJobs,
+        }),
+        [nameFilter, setNameFilter, showSystemJobs, setShowSystemJobs]
+    )
 
     return (
-        <StoreContext.Provider
-            value={{
-                nameFilter: nameFilterState,
-                showSystemJobs: showSystemJobsState,
-            }}
-        >
-            {children}
-        </StoreContext.Provider>
+        <StoreContext.Provider value={value}>{children}</StoreContext.Provider>
     )
 }
 

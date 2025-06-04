@@ -22,7 +22,7 @@ Given('the user checks the include-system-jobs-in-list checkbox', () => {
         .click()
         .should('be.checked')
 
-    cy.findByRole('rowheader', { name: 'System Job 1' }).should('be.visible')
+    cy.findByText('System Job 1').should('be.visible')
 })
 
 Given('the user clicks the actions button', () => {
