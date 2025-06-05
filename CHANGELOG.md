@@ -1,3 +1,10 @@
+## [101.6.20](https://github.com/dhis2/scheduler-app/compare/v101.6.19...v101.6.20) (2025-06-05)
+
+
+### Bug Fixes
+
+* **app-platform:** upgrade platform tools to use vite and react 18 ([#638](https://github.com/dhis2/scheduler-app/issues/638)) ([9eddaec](https://github.com/dhis2/scheduler-app/commit/9eddaec9dd01ba9cfd13aec280b917cf182ab535))
+
 ## [101.6.19](https://github.com/dhis2/scheduler-app/compare/v101.6.18...v101.6.19) (2025-03-30)
 
 
