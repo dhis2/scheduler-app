@@ -2,7 +2,7 @@ import React from 'react'
 import { NoticeBox, Card, Checkbox, InputField } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
 import { useJobsAndQueues } from '../../hooks/jobs-and-queues'
-import { useNameFilter, useShowSystemJobs } from '../../components/Store'
+import { useStore } from '../../components/Store'
 import { JobTable } from '../../components/JobTable'
 import { LinkButton } from '../../components/LinkButton'
 import { InfoLink } from '../../components/InfoLink'
@@ -11,8 +11,8 @@ import styles from './JobAndQueueList.module.css'
 import filterJobsAndQueues from './filter-jobs-and-queues'
 
 const JobAndQueueList = () => {
-    const [nameFilter, setNameFilter] = useNameFilter()
-    const [showSystemJobs, setShowSystemJobs] = useShowSystemJobs()
+    const { nameFilter, setNameFilter, showSystemJobs, setShowSystemJobs } =
+        useStore()
     const { data, loading, error, refetch } = useJobsAndQueues()
 
     if (loading) {
@@ -54,7 +54,6 @@ const JobAndQueueList = () => {
                         }}
                         value={nameFilter}
                         type="search"
-                        role="searchbox"
                         name="name-filter"
                     />
                     <div className={styles.controlRight}>

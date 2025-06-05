@@ -26,55 +26,29 @@ const { Field } = ReactFinalForm
 const FIELD_NAME = 'jobParameters'
 
 // Overrides for fields where the generic types aren't appropriate
-const getCustomComponent = (jobType, parameterName) => {
-    switch (jobType) {
-        case 'DATA_INTEGRITY':
-            if (parameterName === 'checks') {
-                return DataIntegrityChecksField
-            } else if (parameterName === 'type') {
-                return DataIntegrityReportTypeField
-            }
-
-            return null
-        case 'AGGREGATE_DATA_EXCHANGE':
-            if (parameterName === 'dataExchangeIds') {
-                return AggregatedDataExchangeField
-            }
-
-            return null
-        case 'ANALYTICS_TABLE':
-            if (parameterName === 'skipTableTypes') {
-                return SkipTableTypesField
-            } else if (parameterName === 'skipPrograms') {
-                return ListFieldMulti
-            }
-
-            return null
-        case 'CONTINUOUS_ANALYTICS_TABLE':
-            if (parameterName === 'skipTableTypes') {
-                return SkipTableTypesField
-            }
-
-            return null
-        case 'HTML_PUSH_ANALYTICS':
-            if (parameterName === 'dashboard') {
-                return ListFieldSingle
-            } else if (parameterName === 'receivers') {
-                return ListFieldSingle
-            } else if (parameterName === 'mode') {
-                return PushAnalyticsModeField
-            }
-
-            return null
-        case 'TEST':
-            if (parameterName === 'failWithPolicy') {
-                return TestPolicyField
-            }
-
-            return null
-        default:
-            return null
-    }
+const customComponentLookup = {
+    DATA_INTEGRITY: {
+        checks: DataIntegrityChecksField,
+        type: DataIntegrityReportTypeField,
+    },
+    AGGREGATE_DATA_EXCHANGE: {
+        dataExchangeIds: AggregatedDataExchangeField,
+    },
+    ANALYTICS_TABLE: {
+        skipTableTypes: SkipTableTypesField,
+        skipPrograms: ListFieldMulti,
+    },
+    CONTINUOUS_ANALYTICS_TABLE: {
+        skipTableTypes: SkipTableTypesField,
+    },
+    HTML_PUSH_ANALYTICS: {
+        dashboard: ListFieldSingle,
+        receivers: ListFieldSingle,
+        mode: PushAnalyticsModeField,
+    },
+    TEST: {
+        failWithPolicy: TestPolicyField,
+    },
 }
 
 // Renders all parameters for a given jobtype
@@ -113,7 +87,8 @@ const ParameterFields = ({ jobType }) => {
                 ...rest,
             }
 
-            const CustomParameterComponent = getCustomComponent(jobType, name)
+            const CustomParameterComponent =
+                customComponentLookup?.[jobType]?.[name]
 
             if (CustomParameterComponent) {
                 return (

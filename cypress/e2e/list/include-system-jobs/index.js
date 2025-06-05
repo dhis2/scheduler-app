@@ -35,7 +35,7 @@ Then('system jobs are not shown', () => {
     const systemJobs = ['System Job 1', 'System Job 2', 'System Job 3']
 
     systemJobs.forEach((name) => {
-        cy.findByRole('rowheader', { name }).should('not.exist')
+        cy.findAllByText(name).should('not.exist')
     })
 })
 
@@ -43,7 +43,7 @@ Then('system jobs are shown', () => {
     const systemJobs = ['System Job 1', 'System Job 2', 'System Job 3']
 
     systemJobs.forEach((name) => {
-        cy.findByRole('rowheader', { name }).should('be.visible')
+        cy.findByText(name).should('be.visible')
     })
 })
 
@@ -51,6 +51,6 @@ Then('user jobs are shown', () => {
     const userJobs = ['Job 1', 'Job 2', 'Job 3']
 
     userJobs.forEach((name) => {
-        cy.findByRole('rowheader', { name }).should('be.visible')
+        cy.findByText(name).should('be.visible')
     })
 })

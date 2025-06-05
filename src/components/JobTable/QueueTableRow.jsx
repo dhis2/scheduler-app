@@ -45,7 +45,7 @@ const QueueTableRow = ({
                         {showJobs ? <IconChevronUp24 /> : <IconChevronDown24 />}
                     </button>
                 </TableCell>
-                <TableCell role="rowheader">{name}</TableCell>
+                <TableCell>{name}</TableCell>
                 <TableCell>{i18n.t('Queue')}</TableCell>
                 <TableCell>
                     <Schedule cronExpression={cronExpression} />

@@ -8,8 +8,12 @@ jest.mock('../../hooks/jobs-and-queues', () => ({
 }))
 
 jest.mock('../../components/Store', () => ({
-    useNameFilter: jest.fn(() => ['', () => {}]),
-    useShowSystemJobs: jest.fn(() => [false, () => {}]),
+    useStore: jest.fn(() => ({
+        nameFilter: '',
+        setNameFilter: () => {},
+        showSystemJobs: false,
+        setShowSystemJobs: () => {},
+    })),
 }))
 
 describe('<JobAndQueueList>', () => {

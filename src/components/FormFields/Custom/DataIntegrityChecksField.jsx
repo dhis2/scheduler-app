@@ -24,7 +24,7 @@ const { Field, useField } = ReactFinalForm
 const VALIDATOR = (value) => {
     // should not validate when null or undefined
     // means "Run all" is selected
-    if (!value == null) {
+    if (!value) {
         return undefined
     }
 
