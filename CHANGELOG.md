@@ -1,3 +1,10 @@
+## [101.6.21](https://github.com/dhis2/scheduler-app/compare/v101.6.20...v101.6.21) (2025-08-20)
+
+
+### Bug Fixes
+
+* add new jobType name [DHIS2-12051] ([#649](https://github.com/dhis2/scheduler-app/issues/649)) ([ad90df5](https://github.com/dhis2/scheduler-app/commit/ad90df56671b60e432f292450f3383beeff8b054))
+
 ## [101.6.20](https://github.com/dhis2/scheduler-app/compare/v101.6.19...v101.6.20) (2025-06-05)
 
 
