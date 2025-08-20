@@ -52,6 +52,9 @@ const jobTypesMap = {
     TRACKER_IMPORT_RULE_ENGINE_JOB: i18n.t('Tracker import rule engine job'),
     TRACKER_PROGRAMS_DATA_SYNC: i18n.t('Tracker programs data sync'),
     TRACKER_SEARCH_OPTIMIZATION: i18n.t('Tracker search optimization'),
+    TRACKER_TRIGRAM_INDEX_MAINTENANCE: i18n.t(
+        'Tracker trigram index maintenance'
+    ),
     VALIDATION_RESULTS_NOTIFICATION: i18n.t('Validation results notification'),
 }
 
