@@ -1,15 +1,16 @@
 # 
 # Translators:
 # Viktor Varland <viktor@dhis2.org>, 2021
-# phil_dhis2, 2022
+# Philip Larsen Donnelly, 2022
 # channara rin, 2023
+# Em Le <em.hispvietnam@gmail.com>, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-05-03T11:14:51.605Z\n"
+"POT-Creation-Date: 2025-08-19T12:44:12.555Z\n"
 "PO-Revision-Date: 2020-05-08 14:30+0000\n"
-"Last-Translator: channara rin, 2023\n"
+"Last-Translator: Em Le <em.hispvietnam@gmail.com>, 2025\n"
 "Language-Team: Khmer (https://app.transifex.com/hisp-uio/teams/100509/km/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Something went wrong"
-msgstr ""
+msgstr "មានអ្វីមួយខុសប្រក្រតី"
 
 msgid "Something went wrong whilst retrieving user permissions."
 msgstr ""
@@ -37,7 +38,10 @@ msgstr ""
 msgid "Delete job"
 msgstr ""
 
-msgid "Something went wrong whilst creating your job"
+msgid "Delete queue"
+msgstr ""
+
+msgid "CRON Expression"
 msgstr ""
 
 msgid "Please select data exchange ids."
@@ -52,9 +56,6 @@ msgstr ""
 msgid "error type"
 msgstr ""
 
-msgid "CRON Expression"
-msgstr ""
-
 msgid "Please select checks to run."
 msgstr ""
 
@@ -64,7 +65,7 @@ msgstr ""
 msgid "Checks to run"
 msgstr ""
 
-msgid "Run all available checks"
+msgid "Run all standard checks"
 msgstr ""
 
 msgid "Only run selected checks"
@@ -73,10 +74,25 @@ msgstr ""
 msgid "Severity"
 msgstr ""
 
+msgid "Slow checks are resource intensive and should be run with caution"
+msgstr ""
+
+msgid "Slow"
+msgstr ""
+
 msgid "Select checks to run."
 msgstr ""
 
 msgid "Report type"
+msgstr ""
+
+msgid "No options available"
+msgstr ""
+
+msgid "Loading options"
+msgstr "កំពុងទាញយកមុខងារ"
+
+msgid "Something went wrong whilst loading options"
 msgstr ""
 
 msgid "Delay"
@@ -84,9 +100,6 @@ msgstr ""
 
 msgid "Delay in seconds ({{ lowerbound }} - {{ upperbound }})"
 msgstr ""
-
-msgid "Name"
-msgstr "ឈ្មោះ"
 
 msgid "Job type"
 msgstr ""
@@ -97,22 +110,40 @@ msgstr ""
 msgid "Something went wrong whilst loading job types"
 msgstr ""
 
-msgid "Loading options"
-msgstr "កំពុងទាញយកមុខងារ"
-
-msgid "Something went wrong whilst loading options"
+msgid "Queues can't be named \"Add\" or \"add\""
 msgstr ""
 
-msgid "No options available"
-msgstr ""
+msgid "Name"
+msgstr "ឈ្មោះ"
 
 msgid "There was a problem fetching parameters"
 msgstr ""
 
 msgid "Parameters"
+msgstr "ប៉ារ៉ាម៉ែត្រ"
+
+msgid "Please select at least two jobs"
+msgstr ""
+
+msgid "Something went wrong whilst fetching the queueable jobs"
+msgstr ""
+
+msgid "Job queue"
+msgstr ""
+
+msgid "Filter jobs"
+msgstr ""
+
+msgid "Available jobs"
+msgstr ""
+
+msgid "Jobs in this queue"
 msgstr ""
 
 msgid "There was a problem fetching the required job type"
+msgstr ""
+
+msgid "Something went wrong whilst creating your job"
 msgstr ""
 
 msgid "Save"
@@ -120,6 +151,18 @@ msgstr "រក្សាទុក​"
 
 msgid "Cancel"
 msgstr "បោះបង់"
+
+msgid "Something went wrong whilst updating your job"
+msgstr ""
+
+msgid "Something went wrong whilst creating your queue"
+msgstr ""
+
+msgid "Something went wrong whilst updating your queue"
+msgstr ""
+
+msgid "About the scheduler"
+msgstr ""
 
 msgid "Job details"
 msgstr ""
@@ -133,16 +176,13 @@ msgstr ""
 msgid "Last run status: {{ translatedStatus }}."
 msgstr ""
 
-msgid "Actions"
-msgstr ""
-
 msgid "Delete"
 msgstr "​លុប​"
 
 msgid "Edit"
 msgstr "កែសម្រួល​"
 
-msgid "Job name"
+msgid "Actions"
 msgstr ""
 
 msgid "Type"
@@ -163,7 +203,16 @@ msgstr ""
 msgid "No jobs to display"
 msgstr ""
 
-msgid "Not scheduled"
+msgid "Now"
+msgstr ""
+
+msgid "Hide jobs"
+msgstr ""
+
+msgid "Show jobs"
+msgstr ""
+
+msgid "Queue"
 msgstr ""
 
 msgid "Run manually"
@@ -199,34 +248,35 @@ msgstr ""
 msgid "Are you sure you want to delete this job?"
 msgstr ""
 
-msgid "Are you sure you want to discard this form?"
+msgid "Are you sure you want to delete this queue?"
 msgstr ""
 
-msgid "Discard"
+msgid "Discard unsaved changes?"
+msgstr "តើអ្នកចង់បោះបង់ការកែប្រែនេះឬ?"
+
+msgid ""
+"This form has unsaved changes. Are you sure that you want to discard them?"
 msgstr ""
+
+msgid "No, keep changes"
+msgstr ""
+
+msgid "Yes, discard changes"
+msgstr "បាទ/ចាស, បោះបង់ការផ្លាស់ប្តូរ"
 
 msgid "Error running job"
+msgstr ""
+
+msgid "Error running queue"
 msgstr ""
 
 msgid "Are you sure you want to run this job?"
 msgstr ""
 
+msgid "Are you sure you want to run this queue?"
+msgstr ""
+
 msgid "Run"
-msgstr ""
-
-msgid "Toggle job"
-msgstr ""
-
-msgid "Back to all jobs"
-msgstr ""
-
-msgid "New Job"
-msgstr ""
-
-msgid "Configuration"
-msgstr "កា​រកំណត់​រចនាសម្ព័ន្ធ"
-
-msgid "About job configuration"
 msgstr ""
 
 msgid "Could not load requested job"
@@ -237,19 +287,30 @@ msgid ""
 "been deleted and try refreshing the page."
 msgstr ""
 
-msgid "Job: {{ name }}"
+msgid "Disable"
 msgstr ""
 
-msgid "Could not load jobs"
+msgid "Enable"
 msgstr ""
 
-msgid "Something went wrong whilst loading the jobs. Try refreshing the page."
+msgid "New Job"
+msgstr ""
+
+msgid "Configuration"
+msgstr "កា​រកំណត់​រចនាសម្ព័ន្ធ"
+
+msgid "Could not load jobs and queues"
+msgstr ""
+
+msgid ""
+"Something went wrong whilst loading the jobs and queues. Try refreshing the "
+"page."
 msgstr ""
 
 msgid "Scheduled jobs"
 msgstr ""
 
-msgid "Filter jobs"
+msgid "Filter by name"
 msgstr ""
 
 msgid "Include system jobs in list"
@@ -258,10 +319,30 @@ msgstr ""
 msgid "New job"
 msgstr ""
 
+msgid "New queue"
+msgstr ""
+
+msgid "Job: {{ name }}"
+msgstr ""
+
 msgid "System job: {{ name }}"
 msgstr ""
 
-msgid "Data value"
+msgid "Back to all jobs"
+msgstr ""
+
+msgid "Could not load requested queue"
+msgstr ""
+
+msgid ""
+"Something went wrong whilst loading the requested queue. Make sure it has "
+"not been deleted and try refreshing the page."
+msgstr ""
+
+msgid "Queue: {{ name }}"
+msgstr ""
+
+msgid "Something went wrong but no error message was provided"
 msgstr ""
 
 msgid "Completeness"
@@ -270,13 +351,28 @@ msgstr ""
 msgid "Completeness target"
 msgstr ""
 
-msgid "Org unit target"
+msgid "Data value"
+msgstr ""
+
+msgid "Enrollment"
 msgstr ""
 
 msgid "Event"
 msgstr ""
 
-msgid "Enrollment"
+msgid "Org unit target"
+msgstr ""
+
+msgid "Ownership"
+msgstr ""
+
+msgid "Tracked entity instance enrollments"
+msgstr ""
+
+msgid "Tracked entity instance events"
+msgstr ""
+
+msgid "Tracked entity instance"
 msgstr ""
 
 msgid "Validation result"
@@ -375,6 +471,9 @@ msgstr ""
 msgid "File resource clean up"
 msgstr ""
 
+msgid "HTML push analytics"
+msgstr ""
+
 msgid "GEOJSON import"
 msgstr ""
 
@@ -459,7 +558,31 @@ msgstr ""
 msgid "Tracker search optimization"
 msgstr ""
 
+msgid "Tracker trigram index maintenance"
+msgstr ""
+
 msgid "Validation results notification"
+msgstr ""
+
+msgid "Executor"
+msgstr ""
+
+msgid "Receiver"
+msgstr ""
+
+msgid "Parent"
+msgstr ""
+
+msgid "Fail"
+msgstr ""
+
+msgid "Skip stage"
+msgstr ""
+
+msgid "Skip item"
+msgstr ""
+
+msgid "Skip item outlier"
 msgstr ""
 
 msgid "A CRON expression is required"
