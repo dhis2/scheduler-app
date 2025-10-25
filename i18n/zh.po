@@ -3,14 +3,14 @@
 # Viktor Varland <viktor@dhis2.org>, 2024
 # Philip Larsen Donnelly, 2024
 # 晓东 林 <13981924470@126.com>, 2024
-# easylin <lin_xd@126.com>, 2024
+# easylin <lin_xd@126.com>, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-03-19T15:29:37.698Z\n"
+"POT-Creation-Date: 2025-08-19T12:44:12.555Z\n"
 "PO-Revision-Date: 2020-05-08 14:30+0000\n"
-"Last-Translator: easylin <lin_xd@126.com>, 2024\n"
+"Last-Translator: easylin <lin_xd@126.com>, 2025\n"
 "Language-Team: Chinese (https://app.transifex.com/hisp-uio/teams/100509/zh/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -557,6 +557,9 @@ msgstr "跟踪器程序数据同步"
 
 msgid "Tracker search optimization"
 msgstr "跟踪器搜索优化"
+
+msgid "Tracker trigram index maintenance"
+msgstr "追踪器三元组索引维护"
 
 msgid "Validation results notification"
 msgstr "验证结果通知"
