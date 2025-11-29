@@ -1,13 +1,14 @@
 # 
 # Translators:
 # Siddharth Agarwal, 2025
+# Rohit Wadhwani, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-03-19T15:29:37.698Z\n"
+"POT-Creation-Date: 2025-08-19T12:44:12.555Z\n"
 "PO-Revision-Date: 2020-05-08 14:30+0000\n"
-"Last-Translator: Siddharth Agarwal, 2025\n"
+"Last-Translator: Rohit Wadhwani, 2025\n"
 "Language-Team: Hindi (India) (https://app.transifex.com/hisp-uio/teams/100509/hi_IN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,7 +23,7 @@ msgid "Something went wrong whilst retrieving user permissions."
 msgstr ""
 
 msgid "Not authorized"
-msgstr ""
+msgstr "अनुमति नहीं है"
 
 msgid ""
 "You don't have access to the Job Scheduler. Contact a system administrator "
@@ -553,6 +554,9 @@ msgid "Tracker programs data sync"
 msgstr ""
 
 msgid "Tracker search optimization"
+msgstr ""
+
+msgid "Tracker trigram index maintenance"
 msgstr ""
 
 msgid "Validation results notification"

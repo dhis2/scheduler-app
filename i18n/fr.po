@@ -2,21 +2,22 @@
 # Translators:
 # Bram Piot <bram.piot@gmail.com>, 2021
 # Djibril Dione <dione.djibril@gmail.com>, 2021
+# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021
 # Edem Kossi <ekossi@hispwca.org>, 2021
 # Sakibou ALASSANI <sakibou.alass@gmail.com>, 2023
-# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2023
 # Yayra Gomado <ygomado@hispwca.org>, 2023
 # Yao Selom SAKA (HISP WCA) <ysaka@hispwca.org>, 2024
 # Philip Larsen Donnelly, 2024
 # Viktor Varland <viktor@dhis2.org>, 2024
 # Elise Desailly, 2024
+# Esther Tokouli, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-03-19T15:29:37.698Z\n"
+"POT-Creation-Date: 2025-08-19T12:44:12.555Z\n"
 "PO-Revision-Date: 2020-05-08 14:30+0000\n"
-"Last-Translator: Elise Desailly, 2024\n"
+"Last-Translator: Esther Tokouli, 2025\n"
 "Language-Team: French (https://app.transifex.com/hisp-uio/teams/100509/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,7 +26,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 msgid "Something went wrong"
-msgstr "Quelque chose a mal tourné"
+msgstr "Un problème est survenu"
 
 msgid "Something went wrong whilst retrieving user permissions."
 msgstr ""
@@ -33,7 +34,7 @@ msgstr ""
 "utilisateurs."
 
 msgid "Not authorized"
-msgstr "Pas autorisé"
+msgstr "Non autorisé"
 
 msgid ""
 "You don't have access to the Job Scheduler. Contact a system administrator "
@@ -72,7 +73,7 @@ msgid "Please select checks to run."
 msgstr "Veuillez sélectionner les contrôles à exécuter."
 
 msgid "Something went wrong whilst fetching options"
-msgstr ""
+msgstr "Un problème est survenu lors de la récupération des options."
 
 msgid "Checks to run"
 msgstr "Contrôles à exécuter"
@@ -88,9 +89,11 @@ msgstr "Gravité"
 
 msgid "Slow checks are resource intensive and should be run with caution"
 msgstr ""
+"Les vérifications lentes nécessitent beaucoup de ressources et doivent être "
+"effectuées avec prudence."
 
 msgid "Slow"
-msgstr ""
+msgstr "Lent"
 
 msgid "Select checks to run."
 msgstr "Sélectionner les contrôles à exécuter."
@@ -120,7 +123,7 @@ msgid "Loading job types"
 msgstr "Chargement des types de tâches"
 
 msgid "Something went wrong whilst loading job types"
-msgstr ""
+msgstr "Un problème est survenu lors du chargement des types de tâches "
 
 msgid "Queues can't be named \"Add\" or \"add\""
 msgstr "Les files d'attentes ne peuvent être nommées \"Ajouter\" ou \"ajouter\""
@@ -129,7 +132,7 @@ msgid "Name"
 msgstr "Nom"
 
 msgid "There was a problem fetching parameters"
-msgstr ""
+msgstr "Un problème est survenu lors de la récupération des paramètres"
 
 msgid "Parameters"
 msgstr "Paramètres"
@@ -139,6 +142,8 @@ msgstr "Veuillez sélectionner au moins deux tâches"
 
 msgid "Something went wrong whilst fetching the queueable jobs"
 msgstr ""
+"Un problème est survenu lors de la récupération des tâches pouvant être "
+"mises en file d'attente."
 
 msgid "Job queue"
 msgstr "File d'attente des tâches"
@@ -150,10 +155,11 @@ msgid "Available jobs"
 msgstr "Tâches disponibles"
 
 msgid "Jobs in this queue"
-msgstr ""
+msgstr "Tâches dans cette file d'attente"
 
 msgid "There was a problem fetching the required job type"
 msgstr ""
+"Un problème est survenu lors de la récupération du type de tâche requis."
 
 msgid "Something went wrong whilst creating your job"
 msgstr "Une erreur s'est produite lors de la création de votre tâche"
@@ -165,19 +171,20 @@ msgid "Cancel"
 msgstr "Annuler"
 
 msgid "Something went wrong whilst updating your job"
-msgstr ""
+msgstr "Une erreur s'est produite lors de la mise à jour de votre tâche"
 
 msgid "Something went wrong whilst creating your queue"
-msgstr ""
+msgstr "Une erreur s'est produite lors de la création de votre file d'attente"
 
 msgid "Something went wrong whilst updating your queue"
 msgstr ""
+"Une erreur s'est produite lors de la mise à jour de votre file d'attente"
 
 msgid "About the scheduler"
 msgstr "À propos du planificateur"
 
 msgid "Job details"
-msgstr "Détails du poste"
+msgstr "Détails de la tâche"
 
 msgid "Created {{ createdFromNow }}."
 msgstr "Créé {{ createdFromNow }}."
@@ -186,7 +193,7 @@ msgid "Last run {{ lastRunFromNow }}."
 msgstr "Dernière exécution {{ lastRunFromNow }}."
 
 msgid "Last run status: {{ translatedStatus }}."
-msgstr "Statu de la dernière exécution : {{ translatedStatus }}."
+msgstr "Statut de la dernière exécution : {{ translatedStatus }}."
 
 msgid "Delete"
 msgstr "Supprimer"
@@ -201,7 +208,7 @@ msgid "Type"
 msgstr "Type"
 
 msgid "Schedule"
-msgstr "Planning"
+msgstr "Planifier"
 
 msgid "Next run"
 msgstr "Prochaine exécution"
@@ -210,7 +217,7 @@ msgid "Status"
 msgstr "Statut"
 
 msgid "On/off"
-msgstr "Allumé/éteint"
+msgstr "Activer/désactiver"
 
 msgid "No jobs to display"
 msgstr "Aucune tâche à afficher"
@@ -234,7 +241,7 @@ msgid "{{ delay }} seconds after last run"
 msgstr "{{ delay }} secondes après la dernière exécution"
 
 msgid "View"
-msgstr "Voir"
+msgstr "Visualiser"
 
 msgid "Every hour"
 msgstr "Toutes les heures"
@@ -282,7 +289,7 @@ msgid "Error running job"
 msgstr "Erreur d'exécution de la tâche"
 
 msgid "Error running queue"
-msgstr ""
+msgstr "Erreur d'exécution de la file d'attente"
 
 msgid "Are you sure you want to run this job?"
 msgstr "Êtes-vous sûr de vouloir exécuter cette tâche ?"
@@ -294,12 +301,14 @@ msgid "Run"
 msgstr "Exécuter"
 
 msgid "Could not load requested job"
-msgstr ""
+msgstr "Impossible de charger la tâche demandée"
 
 msgid ""
 "Something went wrong whilst loading the requested job. Make sure it has not "
 "been deleted and try refreshing the page."
 msgstr ""
+"Une erreur est survenue lors du chargement de la tâche requise. Veuillez "
+"vous assurer qu'elle n'a pas été supprimée et essayez de rafraîchir la page."
 
 msgid "Disable"
 msgstr "Désactiver"
@@ -314,12 +323,14 @@ msgid "Configuration"
 msgstr "Configuration"
 
 msgid "Could not load jobs and queues"
-msgstr ""
+msgstr "Impossible de charger les tâches et les files d'attente"
 
 msgid ""
 "Something went wrong whilst loading the jobs and queues. Try refreshing the "
 "page."
 msgstr ""
+"Une erreur est survenue lors du chargement des tâches et des files "
+"d'attente. Essayez de rafraîchir la page."
 
 msgid "Scheduled jobs"
 msgstr "Tâches planifiées"
@@ -328,7 +339,7 @@ msgid "Filter by name"
 msgstr "Filtrer par nom"
 
 msgid "Include system jobs in list"
-msgstr "Inclure les tâches système dans la liste"
+msgstr "Inclure les tâches du système dans la liste"
 
 msgid "New job"
 msgstr "Nouvelle tâche"
@@ -340,13 +351,13 @@ msgid "Job: {{ name }}"
 msgstr "Tâche: {{ name }}"
 
 msgid "System job: {{ name }}"
-msgstr "Tâche système : {{ name }}"
+msgstr "Tâche du système : {{ name }}"
 
 msgid "Back to all jobs"
 msgstr "Retour à toutes les tâches"
 
 msgid "Could not load requested queue"
-msgstr ""
+msgstr "Impossible de charger la file d'attente demandée"
 
 msgid ""
 "Something went wrong whilst loading the requested queue. Make sure it has "
@@ -363,16 +374,16 @@ msgid "Something went wrong but no error message was provided"
 msgstr "Une erreur s'est produite mais aucun message d'erreur n'a été fourni."
 
 msgid "Completeness"
-msgstr "Etat terminé"
+msgstr "Complétude"
 
 msgid "Completeness target"
-msgstr "Etat terminé de la cible"
+msgstr "Cible de complétude"
 
 msgid "Data value"
 msgstr "Valeur des données"
 
 msgid "Enrollment"
-msgstr "Enrôlement"
+msgstr "Inscription"
 
 msgid "Event"
 msgstr "Evènement"
@@ -381,13 +392,13 @@ msgid "Org unit target"
 msgstr "Unité d'organisation cible"
 
 msgid "Ownership"
-msgstr ""
+msgstr "Propriété"
 
 msgid "Tracked entity instance enrollments"
 msgstr "Inscriptions des instances d'entités suivies"
 
 msgid "Tracked entity instance events"
-msgstr ""
+msgstr "Événements d'instance d'entité suivis"
 
 msgid "Tracked entity instance"
 msgstr "Instance d'entité suivie"
@@ -396,7 +407,7 @@ msgid "Validation result"
 msgstr "Resultat de validation"
 
 msgid "Warning"
-msgstr "Attention"
+msgstr "Avertissement"
 
 msgid "Severe"
 msgstr "Grave"
@@ -426,7 +437,7 @@ msgid "Not started"
 msgstr "Pas commencé"
 
 msgid "Running"
-msgstr "En cours"
+msgstr "En cours d'exécution"
 
 msgid "Scheduled"
 msgstr "Programmé"
@@ -441,13 +452,13 @@ msgid "Exchange aggregate data"
 msgstr "Échange de données agrégées"
 
 msgid "Analytics table"
-msgstr "Tables d'analytique"
+msgstr "Tableau d'analyses"
 
 msgid "Analytics table update"
 msgstr "Mise à jour des tables d'analytique"
 
 msgid "Complete data set registration import"
-msgstr ""
+msgstr "Terminer l'importation de l'enregistrement de l'ensemble de données"
 
 msgid "Continuous analytics table"
 msgstr "Table d'analytique continue"
@@ -459,7 +470,7 @@ msgid "Data integrity"
 msgstr "Intégrité des données"
 
 msgid "Dataset notification"
-msgstr "Notification d'ensemble de données"
+msgstr "Notification de l'ensemble de données"
 
 msgid "Data statistics"
 msgstr "Statistiques de données"
@@ -468,19 +479,19 @@ msgid "Data synchronization"
 msgstr "Synchronisation de données"
 
 msgid "Data value import"
-msgstr ""
+msgstr "Importation des valeurs de données"
 
 msgid "Data value import internal"
-msgstr ""
+msgstr "Importation interne des valeurs de données"
 
 msgid "Disable inactive users"
 msgstr "Désactiver les utilisateurs inactifs"
 
 msgid "Enrollment import"
-msgstr ""
+msgstr "Importer les inscriptions"
 
 msgid "Event import"
-msgstr "Importation d'événements"
+msgstr "Importer les événements"
 
 msgid "Event programs data sync"
 msgstr "Synchronisation des données des programmes d'événements"
@@ -489,25 +500,25 @@ msgid "File resource clean up"
 msgstr "Nettoyage des ressources de fichiers"
 
 msgid "HTML push analytics"
-msgstr ""
+msgstr "Analyses push HTML "
 
 msgid "GEOJSON import"
-msgstr ""
+msgstr "Importation au format GEOJSON"
 
 msgid "GML import"
 msgstr "Importation au format GML"
 
 msgid "Image processing"
-msgstr ""
+msgstr "Traitement des images"
 
 msgid "Leader election"
-msgstr ""
+msgstr "Élection du leader"
 
 msgid "Leader renewal"
-msgstr ""
+msgstr "Renouvellement du leader"
 
 msgid "Lock exception cleanup"
-msgstr ""
+msgstr "Nettoyage des exceptions de verrouillage"
 
 msgid "Materialized sql view update"
 msgstr "Mise à jour de la vue SQL matérialisée"
@@ -519,7 +530,7 @@ msgid "Metadata synchronization"
 msgstr "Synchronisation des métadonnées"
 
 msgid "Mock"
-msgstr ""
+msgstr "Simulation"
 
 msgid "Monitoring"
 msgstr "Surveillance"
@@ -540,7 +551,7 @@ msgid "Remove expired reserved values"
 msgstr "Supprimer les valeurs réservées expirées"
 
 msgid "Remove used or expired reserved values"
-msgstr ""
+msgstr "Supprimer les valeurs réservées utilisées ou expirées"
 
 msgid "Resource table"
 msgstr "Table des ressources"
@@ -552,37 +563,40 @@ msgid "SMS send"
 msgstr "SMS envoyé"
 
 msgid "System version update check"
-msgstr ""
+msgstr "Vérification de la mise à jour de la version du système"
 
 msgid "TEI import"
-msgstr "Importation TEI"
+msgstr "Importation de TEI"
 
 msgid "Test"
-msgstr ""
+msgstr "Test"
 
 msgid "Tracker import job"
-msgstr ""
+msgstr "Tâche d'importation du tracker"
 
 msgid "Tracker import notification job"
-msgstr ""
+msgstr "Notification des tâches d'importation du tracker"
 
 msgid "Tracker import rule engine job"
-msgstr ""
+msgstr "Tâche du moteur de règles d'importation du tracker"
 
 msgid "Tracker programs data sync"
 msgstr "Synchronisation des données des programmes de suivi"
 
 msgid "Tracker search optimization"
-msgstr ""
+msgstr "Optimisation de la recherche sur le tracker"
+
+msgid "Tracker trigram index maintenance"
+msgstr "Maintenance de l'index des trigrammes du tracker"
 
 msgid "Validation results notification"
 msgstr "Notification des résultats de la validation"
 
 msgid "Executor"
-msgstr ""
+msgstr "Exécuteur"
 
 msgid "Receiver"
-msgstr ""
+msgstr "Récepteur"
 
 msgid "Parent"
 msgstr "Parent"
@@ -591,13 +605,13 @@ msgid "Fail"
 msgstr "Échec"
 
 msgid "Skip stage"
-msgstr "Passer l'étape"
+msgstr "Ignorer l'étape"
 
 msgid "Skip item"
-msgstr "Passer l'élément"
+msgstr "Ignorer l'élément"
 
 msgid "Skip item outlier"
-msgstr ""
+msgstr "Ignorer l'élément atypique"
 
 msgid "A CRON expression is required"
 msgstr "Une expression CRON est requise"
