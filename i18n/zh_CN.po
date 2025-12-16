@@ -1,14 +1,14 @@
 # 
 # Translators:
 # 晓东 林 <13981924470@126.com>, 2024
-# easylin <lin_xd@126.com>, 2024
+# easylin <lin_xd@126.com>, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2024-03-19T15:29:37.698Z\n"
 "PO-Revision-Date: 2020-05-08 14:30+0000\n"
-"Last-Translator: easylin <lin_xd@126.com>, 2024\n"
+"Last-Translator: easylin <lin_xd@126.com>, 2025\n"
 "Language-Team: Chinese (China) (https://app.transifex.com/hisp-uio/teams/100509/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -260,7 +260,7 @@ msgid "No, keep changes"
 msgstr ""
 
 msgid "Yes, discard changes"
-msgstr ""
+msgstr "是的，放弃更改"
 
 msgid "Error running job"
 msgstr ""
@@ -306,7 +306,7 @@ msgid ""
 msgstr ""
 
 msgid "Scheduled jobs"
-msgstr ""
+msgstr "调度的作业"
 
 msgid "Filter by name"
 msgstr "按名称过滤"
@@ -347,7 +347,7 @@ msgid "Completeness"
 msgstr ""
 
 msgid "Completeness target"
-msgstr ""
+msgstr "完成目标"
 
 msgid "Data value"
 msgstr ""
