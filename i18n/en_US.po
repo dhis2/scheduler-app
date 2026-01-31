@@ -1,16 +1,16 @@
 # 
 # Translators:
-# Rohit Wadhwani, 2025
+# Rohit Wadhwani, 2026
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2025-08-19T12:44:12.555Z\n"
 "PO-Revision-Date: 2020-05-08 14:30+0000\n"
-"Last-Translator: Rohit Wadhwani, 2025\n"
+"Last-Translator: Rohit Wadhwani, 2026\n"
 "Language-Team: English (United States) (https://app.transifex.com/hisp-uio/teams/100509/en_US/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: en_US\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -84,7 +84,7 @@ msgid "Report type"
 msgstr ""
 
 msgid "No options available"
-msgstr ""
+msgstr "No options available"
 
 msgid "Loading options"
 msgstr ""
@@ -397,7 +397,7 @@ msgid "Disabled"
 msgstr ""
 
 msgid "Done"
-msgstr ""
+msgstr "Done"
 
 msgid "Failed"
 msgstr ""
