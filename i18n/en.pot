@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2025-08-19T12:44:12.555Z\n"
-"PO-Revision-Date: 2025-08-19T12:44:12.556Z\n"
+"POT-Creation-Date: 2026-03-13T03:48:09.854Z\n"
+"PO-Revision-Date: 2026-03-13T03:48:09.854Z\n"
 
 msgid "Something went wrong"
 msgstr "Something went wrong"
@@ -528,6 +528,9 @@ msgstr "Resource table"
 msgid "Send scheduled message"
 msgstr "Send scheduled message"
 
+msgid "Single events data synchronization"
+msgstr "Single events data synchronization"
+
 msgid "SMS send"
 msgstr "SMS send"
 
@@ -539,6 +542,9 @@ msgstr "TEI import"
 
 msgid "Test"
 msgstr "Test"
+
+msgid "Tracked entities data synchronization"
+msgstr "Tracked entities data synchronization"
 
 msgid "Tracker import job"
 msgstr "Tracker import job"
