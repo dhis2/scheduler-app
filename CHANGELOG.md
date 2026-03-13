@@ -1,3 +1,10 @@
+## [101.6.26](https://github.com/dhis2/scheduler-app/compare/v101.6.25...v101.6.26) (2026-03-13)
+
+
+### Bug Fixes
+
+* add new tracker synchronization jobs in jobTypes [DHIS2-20492] [DHIS2-20493] ([f4f3d1a](https://github.com/dhis2/scheduler-app/commit/f4f3d1a8e40a434342a8ca5c583a7d75db5883a7))
+
 ## [101.6.25](https://github.com/dhis2/scheduler-app/compare/v101.6.24...v101.6.25) (2026-03-01)
 
 
