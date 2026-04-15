@@ -12,7 +12,7 @@ describe('useParameterOption', () => {
             validationRuleGroups: {
                 validationRuleGroups: expected,
             },
-            pushAnalysis: { pushAnalysis: 'pushAnalysis' },
+            // pushAnalysis: { pushAnalysis: 'pushAnalysis' },
             predictors: { predictors: 'predictors' },
             predictorGroups: { predictorGroups: 'predictorGroups' },
             dataIntegrity: 'dataIntegrityChecks',

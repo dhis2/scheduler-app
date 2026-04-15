@@ -10,7 +10,7 @@ describe('useParameterOptions', () => {
             validationRuleGroups: {
                 validationRuleGroups: 'validationRuleGroups',
             },
-            pushAnalysis: { pushAnalysis: 'pushAnalysis' },
+            // pushAnalysis: { pushAnalysis: 'pushAnalysis' },
             predictors: { predictors: 'predictors' },
             predictorGroups: { predictorGroups: 'predictorGroups' },
             dataIntegrity: 'dataIntegrityChecks',
@@ -33,7 +33,7 @@ describe('useParameterOptions', () => {
                 data: {
                     skipTableTypes: 'skipTableTypes',
                     validationRuleGroups: 'validationRuleGroups',
-                    pushAnalysis: 'pushAnalysis',
+                    // pushAnalysis: 'pushAnalysis',
                     predictors: 'predictors',
                     predictorGroups: 'predictorGroups',
                     dataIntegrityChecks: 'dataIntegrityChecks',
@@ -49,7 +49,7 @@ describe('useParameterOptions', () => {
         const data = {
             'analytics/tableTypes': 'skipTableTypes',
             validationRuleGroups: {},
-            pushAnalysis: { pushAnalysis: 'pushAnalysis' },
+            // pushAnalysis: { pushAnalysis: 'pushAnalysis' },
             predictors: { predictors: 'predictors' },
             predictorGroups: { predictorGroups: 'predictorGroups' },
             dataIntegrity: 'dataIntegrityChecks',

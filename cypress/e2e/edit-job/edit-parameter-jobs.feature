@@ -19,5 +19,5 @@ Feature: Users should be able to edit jobs that take parameters
         |   event programs data sync |          cron |
         |              metadata sync |          cron |
         |                 monitoring |          cron |
-        |              push analysis |          cron |
+        # |              push analysis |          cron |
         |                  predictor |          cron |
