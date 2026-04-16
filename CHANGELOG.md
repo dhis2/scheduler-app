@@ -1,3 +1,10 @@
+## [101.6.27](https://github.com/dhis2/scheduler-app/compare/v101.6.26...v101.6.27) (2026-04-16)
+
+
+### Bug Fixes
+
+* disable pushAnalysis in v43 ([#655](https://github.com/dhis2/scheduler-app/issues/655)) ([6b8696f](https://github.com/dhis2/scheduler-app/commit/6b8696f84b50b8463dc6f4523dc03141d64c412a))
+
 ## [101.6.26](https://github.com/dhis2/scheduler-app/compare/v101.6.25...v101.6.26) (2026-03-13)
 
 
