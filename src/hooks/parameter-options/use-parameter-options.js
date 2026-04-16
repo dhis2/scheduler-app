@@ -1,4 +1,5 @@
 import { useDataQuery } from '@dhis2/app-runtime'
+import { useFeatureToggle } from '../featureToggle'
 
 const query = {
     skipTableTypes: {
@@ -6,12 +7,6 @@ const query = {
     },
     validationRuleGroups: {
         resource: 'validationRuleGroups',
-        params: {
-            paging: false,
-        },
-    },
-    pushAnalysis: {
-        resource: 'pushAnalysis',
         params: {
             paging: false,
         },
@@ -42,8 +37,19 @@ const query = {
     },
 }
 
+const queryWithPushAnalysis = {
+    ...query,
+    pushAnalysis: {
+        resource: 'pushAnalysis',
+        params: {
+            paging: false,
+        },
+    },
+}
+
 const useParameterOptions = () => {
-    const fetch = useDataQuery(query)
+    const { showPushAnalysis } = useFeatureToggle()
+    const fetch = useDataQuery(showPushAnalysis ? queryWithPushAnalysis : query)
 
     // Remove nesting from data
     if (fetch.data) {
@@ -61,13 +67,13 @@ const useParameterOptions = () => {
         if (
             !skipTableTypes ||
             !validationRuleGroups ||
-            !pushAnalysis ||
             !predictors ||
             !predictorGroups ||
             !dataIntegrityChecks ||
             !dashboard ||
             !receivers ||
-            !skipPrograms
+            !skipPrograms ||
+            (showPushAnalysis ? !pushAnalysis : false)
         ) {
             const error = new Error(
                 'Did not receive the expected parameter options'
@@ -78,13 +84,16 @@ const useParameterOptions = () => {
         const data = {
             skipTableTypes,
             validationRuleGroups,
-            pushAnalysis,
             predictors,
             predictorGroups,
             dataIntegrityChecks,
             dashboard,
             receivers,
             skipPrograms,
+        }
+
+        if (showPushAnalysis) {
+            data.pushAnalysis = pushAnalysis
         }
 
         return { ...fetch, data }
