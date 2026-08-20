@@ -97,9 +97,11 @@ const AggregatedDataExchangeField = ({ label, name }) => {
     )
 }
 
+const { string } = PropTypes
+
 AggregatedDataExchangeField.propTypes = {
-    label: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
+    label: string.isRequired,
+    name: string.isRequired,
 }
 
 export default AggregatedDataExchangeField

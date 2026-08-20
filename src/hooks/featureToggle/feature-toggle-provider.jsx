@@ -17,8 +17,10 @@ const FeatureToggleProvider = ({ children }) => {
     )
 }
 
+const { node } = PropTypes
+
 FeatureToggleProvider.propTypes = {
-    children: PropTypes.node.isRequired,
+    children: node.isRequired,
 }
 
 export { FeatureToggleProvider }

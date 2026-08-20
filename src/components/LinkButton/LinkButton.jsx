@@ -17,9 +17,11 @@ const LinkButton = ({ className, small, ...rest }) => {
     )
 }
 
+const { string, bool } = PropTypes
+
 LinkButton.propTypes = {
-    className: PropTypes.string,
-    small: PropTypes.bool,
+    className: string,
+    small: bool,
 }
 
 export default LinkButton
