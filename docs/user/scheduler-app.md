@@ -17,7 +17,7 @@ The Scheduler comes bundled with DHIS2. You open it from the App Menu.
 
 The start page of the Scheduler app shows an overview of existing jobs and
 queues. By default, the app hides pre-defined system jobs. To view them, click
-_Include system jobs in list_ in the top right corner.
+**Include system jobs in list** in the top right corner.
 
 When you create or modify a job or queue, DHIS2 schedules it according to the
 selected schedule. To run a job or queue on demand, go to the overview, click
@@ -31,15 +31,15 @@ manually**. This action is only available for enabled jobs and queues.
 
 1.  Enter a **Name** for the new job.
 
-1.  Select the **Job type** you want to schedule using the menu.
+1.  Choose the **Job type** you want to schedule using the menu.
 
-1.  Select a schedule for the job. Each job type has its own scheduling type,
+1.  Choose a schedule for the job. Each job type has its own scheduling type,
     either **Cron** scheduling or **Delay** scheduling.
 
     1.  For **Cron** scheduled job types, you can set a schedule using the
         [Spring
         scheduling](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/scheduling/support/CronExpression.html)
-        syntax. You can also select a predefined **Cron expression** by clicking
+        syntax. You can also choose a predefined **Cron expression** by clicking
         **Choose from preset times**. This schedule only starts a new job run if
         the previous job run has finished. This prevents the system from
         starting too many jobs.
@@ -91,11 +91,11 @@ This section describes the job types.
 ### Disable inactive users { #scheduling_disable_inactive_users }
 
 DHIS2 can automatically disable users that have not been active (not logged in)
-for a specified number of months. Select the number of inactive months as the job
+for a specified number of months. Choose the number of inactive months as the job
 parameter. The job disables all users that have not logged in for that number of
 months or longer. Disabled users cannot log in to the system.
 
-Use the _Reminder days before_ parameter to send a reminder email to those users
+Use the **Reminder days before** parameter to send a reminder email to those users
 the specified number of days before their account is due to expire. If users do
 not log in, DHIS2 sends further reminder emails, each at half the previous
 number of days. For example, if the number of days is set to 7, the first email
@@ -146,10 +146,10 @@ table job type.
 
 The continuous analytics table job is based on two phases:
 
--   _Latest update:_ Update of the latest data. The latest data is the data that
+-   **Latest update:** Update of the latest data. The latest data is the data that
     has been added, updated, or removed since the last time the latest data or
     the full data was updated. This process happens frequently.
--   _Full update:_ Update of all data across all years. This process happens
+-   **Full update:** Update of all data across all years. This process happens
     once per day.
 
 The continuous analytics table job frequently updates the latest data. The
@@ -230,8 +230,8 @@ Be aware of these aspects of the data synchronization feature:
 -   The local DHIS2 instance stores the password of the user account on the
     remote instance, encrypted, in the local database. DHIS2 uses the remote
     account for authentication when transferring data. For security, make sure
-    you set the _encryption.password_ configuration parameter in
-    _hibernate.properties_ to a strong password.
+    you set the `encryption.password` configuration parameter in
+    `hibernate.properties` to a strong password.
 
 -   DHIS2 strongly recommends that you deploy the remote server on SSL/HTTPS.
     The username and password are sent in clear text using basic authentication,
@@ -279,7 +279,7 @@ Be aware of these aspects of the data synchronization feature:
     database on the central instance. It is also the case when you prefer not to
     synchronize old data so that the initial synchronization takes less time.
 
-    Use the _syncSkipSyncForDataChangedBefore_ SettingKey to skip the
+    Use the `syncSkipSyncForDataChangedBefore` SettingKey to skip the
     synchronization of all the data (data values, Event and Tracker program
     data, complete data set registrations) that was _last changed before the
     specified date_. The synchronization job always uses the `SettingKey`.
@@ -324,8 +324,8 @@ Be aware of these aspects of the metadata synchronization feature:
 -   The local DHIS2 instance stores the password of the user account of the
     remote instance in its database. DHIS2 uses the remote user account for
     authentication when transferring or downloading data. For security, make
-    sure you set the _encryption.password_ configuration parameter in
-    _hibernate.properties_ to a strong password.
+    sure you set the `encryption.password` configuration parameter in
+    `hibernate.properties` to a strong password.
 
 -   DHIS2 strongly recommends that you deploy the remote server on SSL/HTTPS.
     The username and password are sent in clear text using basic authentication,
@@ -353,7 +353,7 @@ Be aware of these aspects of the metadata synchronization feature:
 -   The system attempts a synchronization at the scheduled time. If the local or
     remote server does not have a working Internet connection at that time, the
     synchronization is aborted and attempted again according to the retry count
-    in the _dhis.conf_ file.
+    in the `dhis.conf` file.
 
 -   You can see the time of the last run of the job in the job details in the
     Scheduler app.
@@ -441,7 +441,7 @@ Examples:
         with start-to-end dates 6 to 12. On all other days of the week
         predictions are made for one week.
 
-You can select which predictors and predictor groups run during the job:
+You can choose which predictors and predictor groups run during the job:
 
 -   **Predictors** runs individual predictors. They run in the order added.
 
@@ -465,7 +465,7 @@ The following parameters are available:
 -   **Report type** the level of specificity of the result. The available options are:
     -   **Summary** - a summary of the number of issues is available.
     -   **Details** - a list of issues pointing to individual data integrity violations is available for each integrity check.
--   **Checks to run** sets the data integrity checks to run. If you select _Only run selected checks_, DHIS2 shows a list of checks, and you can select the checks to run. If you select _Run all standard checks_, DHIS2 runs all _standard_ checks. This does not run checks that are marked as _slow_. You must select these checks manually using _Only run selected checks_.
+-   **Checks to run** sets the data integrity checks to run. If you choose **Only run selected checks**, DHIS2 shows a list of checks, and you can choose the checks to run. If you choose **Run all standard checks**, DHIS2 runs all _standard_ checks. This does not run checks that are marked as _slow_. You must choose these checks manually using **Only run selected checks**.
 
 See [Data Administration](data-administration.html#data_admin_data_integrity) for more information about the available data integrity checks.
 
@@ -478,12 +478,12 @@ See [Data Administration](data-administration.html#data_admin_data_integrity) fo
 
 1.  Enter a **Name** for the new queue.
 
-1.  Select a cron schedule for the queue. You can schedule queues using the
+1.  Choose a cron schedule for the queue. You can schedule queues using the
     [Spring scheduling](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/scheduling/support/CronExpression.html)
-    syntax, like jobs. You can also select a predefined **Cron expression**
+    syntax, like jobs. You can also choose a predefined **Cron expression**
     by clicking **Choose from preset times**.
 
-1.  Select the jobs that should be part of the queue. Add the available jobs to
+1.  Choose the jobs that should be part of the queue. Add the available jobs to
     the queue with the arrow buttons. The queue runs the jobs in the order
     specified here. If a job in the queue fails or is canceled, the
     remaining jobs in the queue are skipped.
