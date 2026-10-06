@@ -21,12 +21,12 @@ _Include system jobs in list_ in the top right corner.
 
 When you create or modify a job or queue, DHIS2 schedules it according to the
 selected schedule. To run a job or queue on demand, go to the overview, click
-the "Actions" button of the job or queue you want to run, and click "Run
-manually". This action is only available for enabled jobs and queues.
+the **Actions** button of the job or queue you want to run, and click **Run
+manually**. This action is only available for enabled jobs and queues.
 
 ## Creating a job { #scheduling_create_job }
 
-1.  Open the **Scheduler** app and click the "New job" button in the top right
+1.  Open the **Scheduler** app and click the **New job** button in the top right
     corner.
 
 1.  Enter a **Name** for the new job.
@@ -40,7 +40,7 @@ manually". This action is only available for enabled jobs and queues.
         [Spring
         scheduling](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/scheduling/support/CronExpression.html)
         syntax. You can also select a predefined **Cron expression** by clicking
-        "Choose from preset times". This schedule only starts a new job run if
+        **Choose from preset times**. This schedule only starts a new job run if
         the previous job run has finished. This prevents the system from
         starting too many jobs.
 
@@ -68,14 +68,14 @@ and cannot be disabled.
 
 To edit other details of a user job:
 
-1.  Click the "Actions" button of the job you want to edit and click "Edit" (you
+1.  Click the **Actions** button of the job you want to edit and click **Edit** (you
     can edit only user jobs).
 
 1.  When you finish editing, click the **Save** button to save the changes.
 
 ## Deleting a job { #dataAdmin_scheduler_delete }
 
-1.  Click the "Actions" button of the job you want to delete and click "Delete"
+1.  Click the **Actions** button of the job you want to delete and click **Delete**
     (you can delete only user jobs).
 
 1.  Confirm by clicking **Delete** again in the pop-up window.
@@ -221,8 +221,8 @@ These are the steps to enable data synchronization:
     password field is empty after the refresh because this value is encrypted,
     so you can consider it saved.
 
--   In the Scheduler app, create a new job with the "Single events data
-    synchronization" job type, the "Tracked entities data synchronization" job
+-   In the Scheduler app, create a new job with the **Single events data
+    synchronization** job type, the **Tracked entities data synchronization** job
     type, or both. Make sure the job is enabled when you finish.
 
 Be aware of these aspects of the data synchronization feature:
@@ -269,7 +269,7 @@ Be aware of these aspects of the data synchronization feature:
 
 -   DHIS2 does not synchronize the attributes of TrackedEntityInstances
     (TrackedEntityAttribute) and the data elements of ProgramStages
-    (ProgramStageDataElement) that have the option "Skip synchronization" turned
+    (ProgramStageDataElement) that have the option **Skip synchronization** turned
     on. With this feature, you can choose not to synchronize data that is
     sensitive or not relevant, and keep it only locally.
 
@@ -286,8 +286,8 @@ Be aware of these aspects of the data synchronization feature:
     Therefore, if you need to synchronize the old data, you should change the
     `SettingKey`.
 
--   Both the "Single events data synchronization" and "Tracked entities data
-    synchronization" jobs support paging to avoid timeouts and to deal with an
+-   Both the **Single events data synchronization** and **Tracked entities data
+    synchronization** jobs support paging to avoid timeouts and to deal with an
     unstable network. The default page size for both jobs is 60.
 
     If the default value does not fit your purpose, you can set your own
@@ -296,11 +296,11 @@ Be aware of these aspects of the data synchronization feature:
 
 #### Version 2.41 and earlier
 
-These jobs were called **"Event Programs Data Sync"** and **"Tracker Programs Data Sync"**. Default page size was 60 for the event job, but only 20 for the tracker job, and the allowed range was narrower for the tracker job (5–100, versus 5–200 for the event job). In 2.42.0 to 2.42.4.1, the Scheduler app cannot create either of these jobs or their replacements. From 2.42.5, the jobs are available as **Single events data synchronization** and **Tracked entities data synchronization**.
+These jobs were called **Event Programs Data Sync** and **Tracker Programs Data Sync**. Default page size was 60 for the event job, but only 20 for the tracker job, and the allowed range was narrower for the tracker job (5–100, versus 5–200 for the event job). In 2.42.0 to 2.42.4.1, the Scheduler app cannot create either of these jobs or their replacements. From 2.42.5, the jobs are available as **Single events data synchronization** and **Tracked entities data synchronization**.
 
-In 2.41 and earlier, the following guidance applied to the "Skip synchronization" option above. It does not apply to 2.42 and later, where the authority no longer exists.
+In 2.41 and earlier, the following guidance applied to the **Skip synchronization** option above. It does not apply to 2.42 and later, where the authority no longer exists.
 
-> The authority `Ignore validation of required fields in Tracker and Event Capture` (`F_IGNORE_TRACKER_REQUIRED_VALUE_VALIDATION`) should be used when there is a requirement that some mandatory attribute / data element has at the same time a "Skip synchronization" property turned on. Such a setting will lead to validation failure on the central server as the given attribute / data element will not be present in the payload.
+> The authority `Ignore validation of required fields in Tracker and Event Capture` (`F_IGNORE_TRACKER_REQUIRED_VALUE_VALIDATION`) should be used when there is a requirement that some mandatory attribute / data element has at the same time a **Skip synchronization** property turned on. Such a setting will lead to validation failure on the central server as the given attribute / data element will not be present in the payload.
 >
 > The validation will not fail for the user with this authority. The authority should be assigned to the user, on the central server, that will be used for synchronization job.
 
@@ -317,7 +317,7 @@ These are the steps to enable metadata synchronization:
 -   Go to Settings \> Synchronization, enter the remote server URL, username,
     and password, and click Save.
 
--   In the Scheduler app, create a new job with the "Metadata synchronization" job type.
+-   In the Scheduler app, create a new job with the **Metadata synchronization** job type.
 
 Be aware of these aspects of the metadata synchronization feature:
 
@@ -473,7 +473,7 @@ See [Data Administration](data-administration.html#data_admin_data_integrity) fo
 
 ### Creating a queue { #scheduling_create_queue }
 
-1.  Open the **Scheduler** app and click the "New queue" button in the top right
+1.  Open the **Scheduler** app and click the **New queue** button in the top right
     corner.
 
 1.  Enter a **Name** for the new queue.
@@ -481,7 +481,7 @@ See [Data Administration](data-administration.html#data_admin_data_integrity) fo
 1.  Select a cron schedule for the queue. You can schedule queues using the
     [Spring scheduling](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/scheduling/support/CronExpression.html)
     syntax, like jobs. You can also select a predefined **Cron expression**
-    by clicking "Choose from preset times".
+    by clicking **Choose from preset times**.
 
 1.  Select the jobs that should be part of the queue. Add the available jobs to
     the queue with the arrow buttons. The queue runs the jobs in the order
@@ -504,7 +504,7 @@ column on the landing page of the Scheduler app.
 
 To edit other details of a queue:
 
-1.  Click the "Actions" button of the queue you want to edit and click "Edit".
+1.  Click the **Actions** button of the queue you want to edit and click **Edit**.
 
 1.  When you finish editing, click the **Save** button to save the changes.
 
@@ -513,8 +513,8 @@ To edit other details of a queue:
 
 ### Deleting a queue { #scheduling_delete_queue }
 
-1.  Click the "Actions" button of the queue you want to delete and click
-    "Delete".
+1.  Click the **Actions** button of the queue you want to delete and click
+    **Delete**.
 
 1.  Confirm by clicking **Delete** again in the pop-up window.
 
