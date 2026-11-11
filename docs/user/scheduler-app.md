@@ -198,7 +198,7 @@ Running `ANALYZE` updates PostgreSQL column statistics. This lets the query
 planner decide accurately when to use the trigram index for optimal query
 performance.
 
-#### Version 2.42 and earlier
+#### v42 and earlier
 
 <a id="scheduling_tracker_search_optimization"></a>This job was called **Tracker search optimization**, and worked differently: instead of automatic inclusion by flag, you chose which attributes to index directly.
 
@@ -294,11 +294,11 @@ Be aware of these aspects of the data synchronization feature:
     page size with the parameter in the sync job in the Scheduler app. The
     allowed page size ranges from a minimum of 5 to a maximum of 200.
 
-#### Version 2.41 and earlier
+#### v41 and earlier
 
 These jobs were called **Event Programs Data Sync** and **Tracker Programs Data Sync**. Default page size was 60 for the event job, but only 20 for the tracker job, and the allowed range was narrower for the tracker job (5–100, versus 5–200 for the event job). In 2.42.0 to 2.42.4.1, the Scheduler app cannot create either of these jobs or their replacements. From 2.42.5, the jobs are available as **Single events data synchronization** and **Tracked entities data synchronization**.
 
-In 2.41 and earlier, the following guidance applied to the **Skip synchronization** option above. It does not apply to 2.42 and later, where the authority no longer exists.
+In v41 and earlier, the authority `Ignore validation of required fields in Tracker and Event Capture` (`F_IGNORE_TRACKER_REQUIRED_VALUE_VALIDATION`) applied to the **Skip synchronization** option above. In v42 and later this authority no longer exists, so the guidance below does not apply.
 
 > The authority `Ignore validation of required fields in Tracker and Event Capture` (`F_IGNORE_TRACKER_REQUIRED_VALUE_VALIDATION`) should be used when there is a requirement that some mandatory attribute / data element has at the same time a **Skip synchronization** property turned on. Such a setting will lead to validation failure on the central server as the given attribute / data element will not be present in the payload.
 >
