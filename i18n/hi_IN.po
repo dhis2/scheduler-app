@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Siddharth Agarwal, 2025
 # Rohit Wadhwani, 2026
@@ -6,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-08-19T12:44:12.555Z\n"
+"POT-Creation-Date: 2026-03-13T03:48:09.854Z\n"
 "PO-Revision-Date: 2020-05-08 14:30+0000\n"
 "Last-Translator: Rohit Wadhwani, 2026\n"
 "Language-Team: Hindi (India) (https://app.transifex.com/hisp-uio/teams/100509/hi_IN/)\n"
@@ -85,7 +84,7 @@ msgid "Report type"
 msgstr ""
 
 msgid "No options available"
-msgstr ""
+msgstr "कोई विकल्प उपलब्ध नहीं है"
 
 msgid "Loading options"
 msgstr ""
@@ -529,6 +528,9 @@ msgstr ""
 msgid "Send scheduled message"
 msgstr ""
 
+msgid "Single events data synchronization"
+msgstr ""
+
 msgid "SMS send"
 msgstr ""
 
@@ -539,6 +541,9 @@ msgid "TEI import"
 msgstr ""
 
 msgid "Test"
+msgstr ""
+
+msgid "Tracked entities data synchronization"
 msgstr ""
 
 msgid "Tracker import job"
