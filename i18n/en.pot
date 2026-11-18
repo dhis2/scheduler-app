@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2026-03-13T03:48:09.854Z\n"
-"PO-Revision-Date: 2026-03-13T03:48:09.854Z\n"
+"POT-Creation-Date: 2026-10-06T09:47:12.740Z\n"
+"PO-Revision-Date: 2026-10-06T09:47:12.741Z\n"
 
 msgid "Something went wrong"
 msgstr "Something went wrong"
@@ -438,6 +438,9 @@ msgstr "Credentials expiry alert"
 msgid "Data integrity"
 msgstr "Data integrity"
 
+msgid "Data integrity details"
+msgstr "Data integrity details"
+
 msgid "Dataset notification"
 msgstr "Dataset notification"
 
@@ -446,6 +449,9 @@ msgstr "Data statistics"
 
 msgid "Data synchronization"
 msgstr "Data synchronization"
+
+msgid "Data value trim"
+msgstr "Data value trim"
 
 msgid "Data value import"
 msgstr "Data value import"
@@ -476,6 +482,9 @@ msgstr "GEOJSON import"
 
 msgid "GML import"
 msgstr "GML import"
+
+msgid "Housekeeping"
+msgstr "Housekeeping"
 
 msgid "Image processing"
 msgstr "Image processing"
@@ -530,6 +539,9 @@ msgstr "Send scheduled message"
 
 msgid "Single events data synchronization"
 msgstr "Single events data synchronization"
+
+msgid "SMS inbound processing"
+msgstr "SMS inbound processing"
 
 msgid "SMS send"
 msgstr "SMS send"
